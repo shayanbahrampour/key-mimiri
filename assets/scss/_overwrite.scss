@@ -42,6 +42,13 @@ table {
   }
 }
 
+.transparent {
+  .v-btn--active:hover::before,
+  .v-btn--active::before {
+    opacity: 0;
+  }
+}
+
 .v-input {
   input {
     height: 100%;
@@ -54,5 +61,82 @@ table {
 
   &.auth-input input {
     @include placeholder-color(#bbd0ef);
+  }
+}
+
+.ltr {
+  direction: ltr;
+}
+
+.rtl {
+  direction: rtl;
+}
+
+.position-absolute {
+  position: absolute !important;
+}
+
+.position-relative {
+  position: relative !important;
+}
+
+.position-fixed {
+  position: fixed !important;
+}
+
+.position-sticky {
+  position: sticky !important;
+}
+
+.w-full {
+  width: 100% !important;
+}
+
+.w-50 {
+  width: 50% !important;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.h-screen {
+  height: 100vh;
+}
+
+.w-screen {
+  width: 100vw;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.top-0 {
+  top: 0;
+}
+
+.bottom-0 {
+  bottom: 0;
+}
+
+.start-0 {
+  right: 0;
+}
+
+.end-0 {
+  left: 0;
+}
+
+.shadow-none {
+  box-shadow: none !important;
+}
+
+.text-justify-center {
+  text-align: justify;
+  text-align-last: center;
+
+  input {
+    text-align: center;
   }
 }

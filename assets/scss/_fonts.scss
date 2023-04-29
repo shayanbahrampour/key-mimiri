@@ -8,8 +8,7 @@ $path: '~assets/fonts';
     font-family: $fontName-app;
     src: url('#{$path}/#{$fontName-path}.eot');
     src: url('#{$path}/#{$fontName-path}.eot?#iefix') format('embedded-opentype'),
-      url('#{$path}/#{$fontName-path}.woff') format('woff'),
-      url('#{$path}/#{$fontName-path}.ttf') format('truetype');
+      url('#{$path}/#{$fontName-path}.woff') format('woff'), url('#{$path}/#{$fontName-path}.ttf') format('truetype');
   }
 }
 

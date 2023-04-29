@@ -1,24 +1,24 @@
 <template>
-  <v-app-bar :height="150" color="transparent" hide-on-scroll elevate-on-scroll app flat tile>
+  <v-app-bar :height="150" app color="transparent" elevate-on-scroll flat hide-on-scroll tile>
     <v-container fluid>
       <div class="d-flex align-center h-full">
-        <v-img src="/images/logo.png" alt="" height="74" max-width="250" contain />
+        <v-img alt="" contain height="74" max-width="250" src="/images/logo.png" />
 
         <v-spacer />
 
         <v-btn
           v-for="(item, index) in items"
           :key="index"
-          tile
-          color="white"
-          exact
-          depressed
           :to="item.path ? item.path : undefined"
+          color="transparent"
+          depressed
+          exact
+          tile
         >
           <span class="text-capitalize">{{ $t(item.value) }}</span>
         </v-btn>
 
-        <v-btn v-if="$i18n.locale === 'en'" :to="switchLocalePath('fa')" class="mx-1" color="primary" icon> Fa </v-btn>
+        <v-btn v-if="$i18n.locale === 'en'" :to="switchLocalePath('fa')" class="mx-1" color="primary" icon> Fa</v-btn>
         <v-btn v-else :to="switchLocalePath('en')" class="mx-1" color="primary" icon>En</v-btn>
       </div>
     </v-container>

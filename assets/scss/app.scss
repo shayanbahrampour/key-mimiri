@@ -1,82 +1,42 @@
+@import 'media-queries';
 @import 'mixins';
 @import 'fonts';
 @import 'z-index';
 @import 'font-size';
 @import 'overwrite';
 
-.ltr {
-  direction: ltr;
+.anjoman {
+  font-family: 'anjoman', 'proxima', 'bel', sans-serif;
 }
 
-.rtl {
-  direction: rtl;
+.bel {
+  font-family: 'bel', 'proxima', sans-serif;
 }
 
-.position-absolute {
-  position: absolute !important;
+.proxima {
+  font-family: 'proxima', 'bel', sans-serif;
 }
 
-.position-relative {
-  position: relative !important;
+.v-application--is-rtl {
+  .global-radius {
+    @include border-radius(110px 0 0 110px);
+  }
+
+  @include min-md {
+    .extra-space {
+      padding-right: 80px;
+    }
+  }
 }
 
-.position-fixed {
-  position: fixed !important;
-}
+.v-application--is-ltr {
+  .global-radius {
+    @include border-radius(0 110px 110px 0);
+  }
 
-.position-sticky {
-  position: sticky !important;
-}
-
-.w-full {
-  width: 100% !important;
-}
-
-.w-50 {
-  width: 50% !important;
-}
-
-.h-full {
-  height: 100%;
-}
-
-.h-screen {
-  height: 100vh;
-}
-
-.w-screen {
-  width: 100vw;
-}
-
-.pointer {
-  cursor: pointer;
-}
-
-.top-0 {
-  top: 0;
-}
-
-.bottom-0 {
-  bottom: 0;
-}
-
-.start-0 {
-  right: 0;
-}
-
-.end-0 {
-  left: 0;
-}
-
-.shadow-none {
-  box-shadow: none !important;
-}
-
-.text-justify-center {
-  text-align: justify;
-  text-align-last: center;
-
-  input {
-    text-align: center;
+  @include min-md {
+    .extra-space {
+      padding-left: 80px;
+    }
   }
 }
