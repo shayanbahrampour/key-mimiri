@@ -17,6 +17,6 @@ $ yarn start
 $ yarn generate
 ```
 
-## Project Info
+## Project Docs
 
 - [i18n Documentation](https://kazupon.github.io/vue-i18n/)

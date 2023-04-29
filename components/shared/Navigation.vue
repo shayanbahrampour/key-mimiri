@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar :height="150" app color="transparent" elevate-on-scroll flat hide-on-scroll tile>
+  <v-app-bar :height="150" app color="white" elevate-on-scroll flat hide-on-scroll tile>
     <v-container fluid>
       <div class="d-flex align-center h-full">
         <v-img alt="" contain height="74" max-width="250" src="/images/logo.png" />

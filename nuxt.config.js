@@ -6,7 +6,7 @@ const projectName = 'مان';
 const bgColor = '#97245B';
 
 export default {
-  ssr: false,
+  ssr: true,
   target: 'static',
   server: {
     port: process.env.PORT,
