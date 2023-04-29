@@ -7,7 +7,7 @@ const bgColor = '#97245B';
 
 export default {
   ssr: true,
-  target: 'static',
+  target: 'server',
   server: {
     port: process.env.PORT,
     host: process.env.HOST
