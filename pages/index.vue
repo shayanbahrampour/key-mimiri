@@ -1,15 +1,9 @@
 <template>
-  <v-container fluid>INDEX</v-container>
+  <div>INDEX</div>
 </template>
 
 <script>
-export default {
-  head() {
-    return {
-      title: this.$t('page.index')
-    };
-  }
-};
+export default {};
 </script>
 
 <style lang="scss" scoped></style>

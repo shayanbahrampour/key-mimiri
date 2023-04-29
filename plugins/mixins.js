@@ -1,7 +1,13 @@
 import Vue from 'vue';
+import locals from '~/lang';
 
 Vue.mixin({
   methods: {
+    changeDirection() {
+      const currentLang = this.$i18n.locale;
+      const direction = locals.find((item) => item.code === currentLang);
+      if (direction) this.$vuetify.rtl = direction.dir === 'rtl';
+    },
     errorHandler(error) {
       if (!error.response) return console.log(error);
       if (error.response.status === 500) {

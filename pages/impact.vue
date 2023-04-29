@@ -5,7 +5,7 @@
         <v-img contain src="/images/impact_story/cover.png" />
 
         <v-sheet class="pa-8 extra-space white--text" color="hoki">
-          <h2 class="f-22 mb-2">Woman empowerment future enrichment:</h2>
+          <h2 class="f-22 mb-2">Woman empowerment future enrichment</h2>
           <p class="f-18 font-weight-light">
             Iron deficiency, leading to Anemia, has negative health effects on all individuals, especially women, and
             causes enormous social and financial burden on the societies. -Economic burden of Anemia has reverse
@@ -43,7 +43,7 @@
 export default {
   head() {
     return {
-      title: this.$t('page.index')
+      title: this.$t('pageTitles.index')
     };
   }
 };

@@ -1,1 +1,5 @@
-export default {};
+export default {
+  pageTitles: {
+    index: 'صفحه نخست'
+  }
+};

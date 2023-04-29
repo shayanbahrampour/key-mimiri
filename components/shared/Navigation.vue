@@ -11,11 +11,13 @@
           :key="index"
           :to="item.path ? item.path : undefined"
           color="transparent"
+          class="bg-transparent"
+          active-class="primary--text"
           depressed
           exact
           tile
         >
-          <span class="text-capitalize">{{ $t(item.value) }}</span>
+          <span class="text-capitalize f-14">{{ $t(item.value) }}</span>
         </v-btn>
 
         <v-btn v-if="$i18n.locale === 'en'" :to="switchLocalePath('fa')" class="mx-1" color="primary" icon> Fa</v-btn>

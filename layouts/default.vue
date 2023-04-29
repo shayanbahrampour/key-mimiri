@@ -14,7 +14,13 @@
 import Navigation from '~/components/shared/Navigation.vue';
 
 export default {
-  components: { Navigation }
+  components: { Navigation },
+  watch: {
+    '$i18n.locale': {
+      immediate: true,
+      handler: 'changeDirection'
+    }
+  }
 };
 </script>
 
