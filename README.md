@@ -19,4 +19,4 @@ $ yarn generate
 
 ## Project Info
 
-- [API Document](#)
+- [i18n Documentation](https://kazupon.github.io/vue-i18n/)
