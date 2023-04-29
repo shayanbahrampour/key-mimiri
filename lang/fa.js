@@ -1,5 +1,5 @@
 export default {
   pageTitles: {
-    index: 'صفحه نخست'
+    impact_stories: ''
   }
 };

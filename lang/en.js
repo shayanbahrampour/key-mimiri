@@ -6,7 +6,7 @@ export default {
     people_careers: 'People & Careers',
     press_center: 'Press Center'
   },
-  page: {
-    index: 'Index'
+  pageTitles: {
+    impact_stories: 'Impact Stories'
   }
 };
