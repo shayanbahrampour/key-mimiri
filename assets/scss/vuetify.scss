@@ -1,5 +1,3 @@
-@import 'variables';
-
 $font-size-root: 14px;
 $label-font-size: 13px;
 $input-font-size: 13px;
@@ -7,9 +5,9 @@ $input-font-size: 13px;
 $btn-letter-spacing: 0;
 $tabs-item-letter-spacing: 0;
 
-$font-family: $font-name, sans-serif;
-$body-font-family: $font-name, sans-serif;
-$heading-font-family: $font-name, sans-serif;
+$font-family: 'proxima', 'anjoman', 'bel', sans-serif;
+$body-font-family: 'proxima', 'anjoman', 'bel', sans-serif;
+$heading-font-family: 'proxima', 'anjoman', 'bel', sans-serif;
 
 $timeline-dot-small-size: 19px;
 $timeline-inner-dot-small-size: 11px;

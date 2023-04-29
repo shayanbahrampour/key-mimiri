@@ -1,3 +1,4 @@
+import locales from './lang';
 import fa from './lang/fa';
 import en from './lang/en';
 
@@ -77,10 +78,7 @@ export default {
   modules: ['@nuxtjs/axios', '@nuxtjs/i18n', ['@nuxtjs/robots', { UserAgent: '*', Disallow: '/' }]],
 
   i18n: {
-    locales: [
-      { code: 'fa', iso: 'fa-IR', dir: 'rtl', name: 'فارسی' },
-      { code: 'en', iso: 'en-US', dir: 'ltr', name: 'English' }
-    ],
+    locales,
     defaultDirection: 'ltr',
     defaultLocale: 'en',
     vueI18n: {

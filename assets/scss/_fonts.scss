@@ -1,4 +1,4 @@
-@import 'variables';
+$path: '~assets/fonts';
 
 @mixin font-face-creator($fontName-app, $path, $fontName-path, $weight) {
   @font-face {
@@ -8,12 +8,15 @@
     font-family: $fontName-app;
     src: url('#{$path}/#{$fontName-path}.eot');
     src: url('#{$path}/#{$fontName-path}.eot?#iefix') format('embedded-opentype'),
-      url('#{$path}/#{$fontName-path}.woff') format('woff'), url('#{$path}/#{$fontName-path}.woff2') format('woff2'),
+      url('#{$path}/#{$fontName-path}.woff') format('woff'),
       url('#{$path}/#{$fontName-path}.ttf') format('truetype');
   }
 }
 
-@include font-face-creator($font-name, '#{$path}/#{$font-name}', 'IRANSansWeb(FaNum)_Bold', bold);
-@include font-face-creator($font-name, '#{$path}/#{$font-name}', 'IRANSansWeb(FaNum)', normal);
-@include font-face-creator('roboto', '#{$path}/roboto', 'Roboto-Bold', bold);
-@include font-face-creator('roboto', '#{$path}/roboto', 'Roboto-Regular', normal);
+@include font-face-creator('anjoman', '#{$path}/anjoman', 'AnjomanVariableGX', normal);
+
+@include font-face-creator('bel', '#{$path}/bel', 'bel', normal);
+
+@include font-face-creator('proxima', '#{$path}/proxima', 'ProximaNova-Light', 300);
+@include font-face-creator('proxima', '#{$path}/proxima', 'ProximaNova-Semibold', 600);
+@include font-face-creator('proxima', '#{$path}/proxima', 'ProximaNova-Regular', normal);

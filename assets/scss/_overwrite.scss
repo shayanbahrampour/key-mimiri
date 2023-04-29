@@ -1,5 +1,3 @@
-@import 'variables';
-
 table {
   tr {
     td,
@@ -25,20 +23,9 @@ table {
   }
 }
 
-.tippy-popper {
-  font-family: $font-name !important;
-}
-
-.secondary--text.v-input input,
-.secondary--text.v-input textarea {
-  color: var(--v-secondary-base) !important;
-}
-
 .toasted {
-  line-height: 25px;
   text-align: center;
-  font-family: $font-name;
-  direction: rtl !important;
+  direction: inherit !important;
   max-width: 500px !important;
 }
 
@@ -52,34 +39,6 @@ table {
 
   &:before {
     display: none;
-  }
-}
-
-.v-skeleton-loader__list-item-three-line {
-  background-color: #eef3fb !important;
-}
-
-.theme--light.v-skeleton-loader {
-  .v-skeleton-loader__avatar,
-  .v-skeleton-loader__button,
-  .v-skeleton-loader__chip,
-  .v-skeleton-loader__divider,
-  .v-skeleton-loader__heading,
-  .v-skeleton-loader__image,
-  .v-skeleton-loader__text {
-    background-color: rgba(#7e92af, 0.3) !important;
-  }
-}
-
-.v-input.error--text {
-  .fa-square-check,
-  .fa-square-dashed {
-    font-weight: 900 !important;
-
-    &:before {
-      color: var(--v-error-base) !important;
-      content: '';
-    }
   }
 }
 
