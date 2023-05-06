@@ -10,12 +10,8 @@
       <v-divider class="mb-4 mt-10" />
 
       <div class="d-flex align-center justify-center">
-        <v-btn class="px-6" color="red" height="48" outlined to="/home">
-          <span class="mr-2">صفحه نخست</span>
-        </v-btn>
-        <v-btn class="px-6 mr-4" color="light" depressed height="48" @click="$router.go()">
-          <span class="mr-2">بارگذاری مجدد</span>
-        </v-btn>
+        <v-btn class="px-6 mx-2" color="red" height="48" outlined to="/">Back Home</v-btn>
+        <v-btn class="px-6 mx-2" outlined color="light" depressed height="48" @click="$router.go()">Reload</v-btn>
       </div>
     </v-col>
   </v-row>
@@ -42,17 +38,17 @@ export default {
     errorText() {
       switch (this.errorCode) {
         case 401:
-          return 'لطفا دوباره وارد سیستم شوید!';
+          return 'Please login again!';
         case 403:
-          return 'شما اجازه دسترسی به این صفحه را ندارید!';
+          return 'Forbidden!';
         case 404:
-          return 'صفحه مورد نظر یافت نشد!';
+          return 'Not Found';
         case 500:
-          return 'با عرض پوزش، سیستم موقتا از دسترس خارج است!';
+          return 'Internal Server Error';
         case 503:
-          return 'با عرض پوزش، سایت در حال به روزرسانی است!';
+          return 'Service Unavailable';
         default:
-          return this.error.message || 'متاسفانه خطایی رخ داده است!';
+          return this.error.message || 'Something is missing!';
       }
     }
   }
@@ -65,6 +61,6 @@ export default {
 }
 
 .error-text {
-  font-size: 22px;
+  font-size: 25px;
 }
 </style>

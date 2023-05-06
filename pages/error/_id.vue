@@ -11,12 +11,12 @@ export default {
   layout: 'empty',
   head() {
     return {
-      title: `خطای ${this.$route.params.id}`,
+      title: `Error ${this.$route.params.id}`,
       meta: [
         {
           hid: 'og:title',
           property: 'og:title',
-          content: `خطای ${this.$route.params.id}`
+          content: `Error ${this.$route.params.id}`
         }
       ]
     };

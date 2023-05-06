@@ -2,7 +2,7 @@ import locales from './lang';
 import fa from './lang/fa';
 import en from './lang/en';
 
-const projectName = 'مان';
+const projectName = 'Cobel';
 const bgColor = '#97245B';
 
 export default {
@@ -25,7 +25,6 @@ export default {
       { name: 'omsapplication-tap-highlight', content: 'no' },
       { property: 'HandheldFriendly', content: 'true' },
       { property: 'og:image', content: '/images/icons/apple-touch-icon.png' },
-      { property: 'og:locale', content: 'fa_IR' },
       { property: 'og:type', content: 'website' },
       { property: 'og:name', content: projectName },
       { property: 'og:site_name', content: projectName },
@@ -56,7 +55,7 @@ export default {
   loading: {
     rtl: true,
     height: '5px',
-    color: '#ff9100',
+    color: '#568ad7',
     duration: 10000
   },
   loadingIndicator: {

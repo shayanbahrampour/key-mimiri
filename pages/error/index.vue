@@ -1,6 +1,7 @@
 <template>
   <Errors :error="{ statusCode: 404 }" />
 </template>
+
 <script>
 import Errors from '@/components/shared/Errors';
 
@@ -17,12 +18,12 @@ export default {
   },
   head() {
     return {
-      title: 'صفحه مورد نظر موجود نیست!',
+      title: 'Not Found!',
       meta: [
         {
           hid: 'og:title',
           property: 'og:title',
-          content: 'صفحه مورد نظر موجود نیست!'
+          content: 'Not Found!'
         }
       ]
     };
