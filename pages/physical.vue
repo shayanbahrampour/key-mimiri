@@ -23,7 +23,7 @@
 export default {
   head() {
     return {
-      title: this.$t('pageTitles.psychological-health')
+      title: this.$t('pageTitles.physical')
     };
   }
 };
