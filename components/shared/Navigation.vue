@@ -36,7 +36,7 @@ export default {
         { value: 'menu.impact_stories', path: '/impact' },
         { value: 'menu.education', path: '/about' },
         { value: 'menu.people_careers', path: '/about' },
-        { value: 'menu.press_center', path: '/about' }
+        { value: 'menu.press_center', path: '/news' }
       ];
     }
   }
