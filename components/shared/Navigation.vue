@@ -1,9 +1,26 @@
 <template>
   <div>
-    <v-app-bar :height="height" app color="white" fixed flat shrink-on-scroll tile>
-      <div class="d-flex align-center h-full w-full">
+    <v-app-bar class="appbar" :height="height" app color="white" fixed flat shrink-on-scroll tile>
+      <v-sheet :max-width="globalMaxWidth" class="mx-auto d-flex align-center h-full w-full">
         <nuxt-link exact to="/">
-          <v-img alt="cobel" contain height="60" max-width="190" src="/images/logo.png" />
+          <v-img
+            v-if="isPWA"
+            alt="cobel"
+            class="logo transition-fast-out-slow-in"
+            contain
+            height="60"
+            max-width="85"
+            src="/images/logo-shape.png"
+          />
+          <v-img
+            v-else
+            alt="cobel"
+            class="logo transition-fast-out-slow-in"
+            contain
+            height="60"
+            max-width="190"
+            src="/images/logo.png"
+          />
         </nuxt-link>
 
         <v-spacer />
@@ -28,7 +45,7 @@
 
         <v-btn v-if="$i18n.locale === 'en'" :to="switchLocalePath('fa')" class="mx-1" color="primary" icon> Fa</v-btn>
         <v-btn v-else :to="switchLocalePath('en')" class="mx-1" color="primary" icon>En</v-btn>
-      </div>
+      </v-sheet>
     </v-app-bar>
 
     <v-navigation-drawer v-if="isPWA" v-model="flag.showDrawer" app fixed>
@@ -71,4 +88,12 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style lang="scss">
+.appbar {
+  .v-app-bar--is-scrolled {
+    .logo {
+      max-width: 50px !important;
+    }
+  }
+}
+</style>

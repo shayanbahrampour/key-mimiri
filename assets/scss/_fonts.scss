@@ -12,7 +12,7 @@ $path: '~assets/fonts';
   }
 }
 
-@include font-face-creator('anjoman', '#{$path}/anjoman', 'AnjomanVariableGX', normal);
+//@include font-face-creator('anjoman', '#{$path}/anjoman', 'AnjomanVariableGX', normal);
 
 @include font-face-creator('bel', '#{$path}/bel', 'bel', normal);
 

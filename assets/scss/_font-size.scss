@@ -1,6 +1,7 @@
 @for $i from 8 through 50 {
   .f-#{$i} {
     font-size: #{$i}px !important;
+    line-height: #{$i * 1.25 / 16}rem;
   }
 }
 
