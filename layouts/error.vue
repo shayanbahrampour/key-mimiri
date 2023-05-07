@@ -1,6 +1,7 @@
 <template>
   <Errors :error="error" />
 </template>
+
 <script>
 import Errors from '~/components/shared/Errors';
 
@@ -17,12 +18,12 @@ export default {
   },
   head() {
     return {
-      title: 'متاسفانه خطایی رخ داده است!',
+      title: '404 Not Found!',
       meta: [
         {
           hid: 'og:title',
           property: 'og:title',
-          content: 'متاسفانه خطایی رخ داده است!'
+          content: '404 Not Found!'
         }
       ]
     };
