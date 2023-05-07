@@ -2,7 +2,7 @@
   <v-row align="center" no-gutters>
     <v-col cols="12" md="6">
       <v-sheet class="global-radius overflow-hidden" max-width="700">
-        <v-img contain src="/images/impact_story/cover.png" />
+        <v-img contain src="/images/impact/cover-detail.png" />
 
         <v-sheet class="pa-8 extra-space white--text" color="hoki">
           <h2 class="f-22 mb-2">Woman empowerment future enrichment</h2>

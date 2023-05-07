@@ -1,34 +1,62 @@
 <template>
-  <v-app-bar :height="150" app color="white" elevate-on-scroll flat hide-on-scroll tile>
-    <v-container fluid>
-      <div class="d-flex align-center h-full">
-        <v-img alt="" contain height="74" max-width="250" src="/images/logo.png" />
+  <div>
+    <v-app-bar :height="height" app color="white" fixed flat shrink-on-scroll tile>
+      <div class="d-flex align-center h-full w-full">
+        <nuxt-link exact to="/">
+          <v-img alt="cobel" contain height="60" max-width="190" src="/images/logo.png" />
+        </nuxt-link>
 
         <v-spacer />
 
-        <v-btn
-          v-for="(item, index) in items"
-          :key="index"
-          :to="item.path ? item.path : undefined"
-          color="transparent"
-          class="bg-transparent"
-          active-class="primary--text"
-          depressed
-          exact
-          tile
-        >
-          <span class="text-capitalize f-14">{{ $t(item.value) }}</span>
-        </v-btn>
+        <template v-if="!isPWA">
+          <v-btn
+            v-for="(item, index) in items"
+            :key="index"
+            :to="item.path ? item.path : undefined"
+            color="transparent"
+            class="bg-transparent"
+            active-class="primary--text"
+            depressed
+            exact
+            tile
+          >
+            <span class="text-capitalize f-14">{{ $t(item.value) }}</span>
+          </v-btn>
+        </template>
+
+        <v-icon v-if="isPWA" @click="flag.showDrawer = !flag.showDrawer">mdi-menu</v-icon>
 
         <v-btn v-if="$i18n.locale === 'en'" :to="switchLocalePath('fa')" class="mx-1" color="primary" icon> Fa</v-btn>
         <v-btn v-else :to="switchLocalePath('en')" class="mx-1" color="primary" icon>En</v-btn>
       </div>
-    </v-container>
-  </v-app-bar>
+    </v-app-bar>
+
+    <v-navigation-drawer v-if="isPWA" v-model="flag.showDrawer" app fixed>
+      <v-list class="my-4" nav>
+        <template v-for="(item, index) in items">
+          <v-list-item :key="index" :to="item.path ? item.path : undefined" color="primary" exact link>
+            <v-list-item-content class="px-2">
+              <v-list-item-title class="overflow-visible">
+                <span class="text-capitalize">{{ $t(item.value) }}</span>
+              </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </template>
+      </v-list>
+    </v-navigation-drawer>
+  </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      flag: {
+        showDrawer: false
+      },
+      height: 120
+    };
+  },
   computed: {
     items() {
       return [

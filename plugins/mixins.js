@@ -2,6 +2,11 @@ import Vue from 'vue';
 import locals from '~/lang';
 
 Vue.mixin({
+  computed: {
+    isPWA() {
+      return this.$vuetify.breakpoint.smAndDown;
+    }
+  },
   methods: {
     changeDirection() {
       const currentLang = this.$i18n.locale;
