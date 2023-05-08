@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="d-flex mt-16 px-16">
+    <div class="d-flex py-14">
       <div class="d-flex">
         <v-img src="/images/news/face.png" width="240" height="200" />
       </div>
@@ -18,7 +18,7 @@
         </v-btn>
       </div>
     </div>
-    <v-divider class="mt-14 mx-16"></v-divider>
+    <v-divider />
   </div>
 </template>
 

@@ -1,26 +1,26 @@
 <template>
   <div>
-    <v-app-bar class="appbar" :height="height" app color="white" fixed flat shrink-on-scroll tile>
-      <v-sheet :max-width="globalMaxWidth" class="mx-auto d-flex align-center h-full w-full">
+    <v-app-bar class="appbar" :height="isPWA ? 90 : 120" app color="white" fixed flat tile shrink-on-scroll>
+      <v-sheet :max-width="globalMaxWidth" color="transparent" class="mx-auto d-flex align-center h-full w-full">
         <nuxt-link exact to="/">
           <v-img
             v-if="isPWA"
             alt="cobel"
-            class="logo transition-fast-out-slow-in"
+            class="logo transition-fast-in-fast-out"
             contain
             height="60"
             max-width="85"
             src="/images/logo-shape.png"
           />
-          <v-img
-            v-else
-            alt="cobel"
-            class="logo transition-fast-out-slow-in"
-            contain
-            height="60"
-            max-width="190"
-            src="/images/logo.png"
-          />
+
+          <div class="logo-container" v-else>
+            <div class="position-relative transition-linear-out-slow-in">
+              <v-img alt="cobel" contain height="60" max-width="190" src="/images/logo-text.svg" />
+            </div>
+            <div class="position-relative transition-linear-out-slow-in">
+              <v-img alt="cobel" contain height="60" max-width="190" src="/images/logo.png" />
+            </div>
+          </div>
         </nuxt-link>
 
         <v-spacer />
@@ -43,8 +43,8 @@
 
         <v-icon v-if="isPWA" @click="flag.showDrawer = !flag.showDrawer">mdi-menu</v-icon>
 
-        <v-btn v-if="$i18n.locale === 'en'" :to="switchLocalePath('fa')" class="mx-1" color="primary" icon> Fa</v-btn>
-        <v-btn v-else :to="switchLocalePath('en')" class="mx-1" color="primary" icon>En</v-btn>
+        <!--<v-btn v-if="$i18n.locale === 'en'" :to="switchLocalePath('fa')" class="mx-1" color="primary" icon> Fa</v-btn>-->
+        <!--<v-btn v-else :to="switchLocalePath('en')" class="mx-1" color="primary" icon>En</v-btn>-->
       </v-sheet>
     </v-app-bar>
 
@@ -70,8 +70,7 @@ export default {
     return {
       flag: {
         showDrawer: false
-      },
-      height: 120
+      }
     };
   },
   computed: {
@@ -90,9 +89,30 @@ export default {
 
 <style lang="scss">
 .appbar {
-  .v-app-bar--is-scrolled {
+  &.v-app-bar--is-scrolled {
+    box-shadow: 0 17px 13px -13px rgba(0, 0, 0, 0.2) !important;
+
     .logo {
       max-width: 50px !important;
+    }
+
+    .logo-container {
+      height: 90px;
+
+      > div {
+        bottom: -10px;
+        min-height: 90px;
+      }
+    }
+  }
+
+  .logo-container {
+    height: 120px;
+    overflow: hidden;
+
+    > div {
+      bottom: 90px;
+      min-height: 120px;
     }
   }
 }

@@ -20,8 +20,11 @@
         </v-btn>
       </v-sheet>
     </v-img>
-    <NewsCategory class="mx-14" />
-    <NewsCard v-for="i in 4" :key="i" class="mx-14" />
+
+    <v-sheet :max-width="globalMaxWidth" class="mx-auto px-4 my-16">
+      <NewsCategory />
+      <NewsCard v-for="i in 4" :key="i" />
+    </v-sheet>
   </div>
 </template>
 
@@ -31,7 +34,7 @@ import NewsCard from '~/components/news/NewsCard';
 export default {
   head() {
     return {
-      title: this.$t('pageTitles.news')
+      title: this.$t('pageTitles.press')
     };
   },
   components: { NewsCategory, NewsCard }
