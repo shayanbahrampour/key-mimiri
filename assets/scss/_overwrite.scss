@@ -120,14 +120,6 @@ table {
   bottom: 0;
 }
 
-.start-0 {
-  right: 0;
-}
-
-.end-0 {
-  left: 0;
-}
-
 .shadow-none {
   box-shadow: none !important;
 }
@@ -138,5 +130,23 @@ table {
 
   input {
     text-align: center;
+  }
+}
+
+.start-0 {
+  left: 0;
+}
+
+.end-0 {
+  right: 0;
+}
+
+.v-application--is-rtl{
+  .start-0 {
+    right: 0;
+  }
+
+  .end-0 {
+    left: 0;
   }
 }

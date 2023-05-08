@@ -19,7 +19,8 @@
     <div class="position-relative z-1">
       <div :style="`max-width: ${globalMaxWidth}px`" :class="['mx-auto', { 'pr-4': !isMobile }]">
         <v-sheet
-          :style="`max-width: ${globalMaxWidth * 0.9}px; ${!isMobile && `margin-top: -78px`}`"
+          :max-width="globalMaxWidth * 0.9"
+          :style="`${!isMobile && `margin-top: -78px`}`"
           :class="[
             `px-4 m${isRTL ? 'l' : 'r'}-auto carousel-sheet`,
             isMobile ? 'py-8' : `py-16 rounded-${isRTL ? 'l' : 'r'}-xl`

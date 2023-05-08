@@ -119,7 +119,6 @@ export default {
 
     .logo {
       max-width: 50px !important;
-      transition: all ease-in 0.2s !important;
     }
 
     .logo-container {
@@ -132,6 +131,10 @@ export default {
         transition: all ease-in 0.2s !important;
       }
     }
+  }
+
+  .logo {
+    transition: max-width ease-out 0.2s !important;
   }
 
   .logo-container {

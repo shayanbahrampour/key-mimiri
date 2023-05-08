@@ -67,7 +67,17 @@ export default {
       items: [
         { id: 1, title: 'Rise from the society return to the society', src: '/images/temp/ladan.png' },
         { id: 2, title: 'Rise from the society return to the society', src: '/images/temp/ladan.png' }
-      ]
+      ],
+      swiperOptions: {
+        spaceBetween: 16,
+        slidesPerView: 1.1,
+        grabCursor: true,
+        breakpoints: {
+          991: {
+            slidesPerView: 4.5
+          }
+        }
+      }
     };
   }
 };

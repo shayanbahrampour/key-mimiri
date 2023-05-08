@@ -4,18 +4,7 @@ import locals from '~/lang';
 Vue.mixin({
   data() {
     return {
-      globalMaxWidth: 1300,
-      swiperOptions: {
-        loop: false,
-        spaceBetween: 16,
-        slidesPerView: 1.1,
-        grabCursor: true,
-        breakpoints: {
-          991: {
-            slidesPerView: 2.5
-          }
-        }
-      }
+      globalMaxWidth: 1300
     };
   },
   computed: {
