@@ -1,6 +1,6 @@
 <template>
-  <div class="d-flex flex-column h-full pb-16">
-    <v-img class="d-flex align-end px-14" src="/images/news/slider.png" height="80vh">
+  <div class="d-flex flex-column pb-16">
+    <v-img class="d-flex align-end px-14" src="/images/news/slider.png" height="85vh">
       <v-sheet height="480" width="480" class="ml-16 rounded-t-xl py-6 px-12" style="background-color: #66869a">
         <h4 class="bel mt-16 f-40 text--darken-3 white--text font-weight-regular">
           You may also like listening more stories
