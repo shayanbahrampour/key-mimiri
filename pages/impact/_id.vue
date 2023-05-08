@@ -1,13 +1,13 @@
 <template>
   <div>
-    <v-row align="center" no-gutters>
+    <v-row align="center" no-gutters class="custom-shadow position-relative z-1">
       <v-col cols="12" md="6">
-        <v-sheet class="global-radius overflow-hidden" max-width="700">
+        <v-sheet :class="[`overflow-hidden ${!isPWA && `rounded-${isRTL ? 'l' : 'r'}-xl`}`]" max-width="700">
           <v-img contain src="/images/impact/cover-detail.png" />
 
-          <v-sheet class="pa-8 extra-space white--text" color="slategrey">
-            <h2 class="f-22 mb-2 grey--text text--darken-2">Woman empowerment future enrichment</h2>
-            <p class="f-18 font-weight-light">
+          <v-sheet v-if="!isPWA" class="pa-8 extra-space white--text" color="slategrey">
+            <h2 class="f-24 mb-4 white--text">Woman empowerment future enrichment</h2>
+            <p class="f-19 font-weight-light">
               Iron deficiency, leading to Anemia, has negative health effects on all individuals, especially women, and
               causes enormous social and financial burden on the societies. -Economic burden of Anemia has reverse
               association with sociodemographic factors, including nutrition, access to health solutions and education.
@@ -18,36 +18,60 @@
         </v-sheet>
       </v-col>
       <v-col cols="12" md="6">
-        <div class="pa-16">
-          <h1 class="bel f-80 grey--text text--darken-3 font-weight-regular">
-            Woman
-            <br />
-            empowerment
-            <br />
-            future
-            <br />
-            enrichment
+        <div :class="[isPWA ? 'pa-4 mt-6' : 'pa-16']">
+          <h1 :class="['bel grey--text text--darken-3 font-weight-regular', isPWA ? 'f-40' : 'f-80']">
+            Woman empowerment future enrichment
           </h1>
 
-          <v-divider class="mb-4" />
-          <p class="grey--text text--darken-2">
+          <div class="blue--text mb-8">Long-term value creation</div>
+
+          <v-divider v-if="!isPWA" class="mb-4" />
+
+          <p class="grey--text text--darken-2 mb-8">
             In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society
             and are committed to enhance their physical, psychological and social quality of life through high quality
             and innovative solutions.
           </p>
+
+          <div class="grey--text py-1">Read time: 13min</div>
+          <div class="grey--text py-1">Writed by: mehrab mohammadi</div>
+          <div class="grey--text py-1">Published 3 moth ago</div>
         </div>
       </v-col>
     </v-row>
-    <v-sheet :max-width="globalMaxWidth" class="mx-auto px-4 py-16 my-16">
-      <h2 class="bel f-50 grey--text text--darken-2 text-center font-weight-regular d-block">
+
+    <v-sheet
+      v-if="isPWA"
+      class="pa-8 mx-4 position-relative z-0 extra-space white--text rounded-b-xl"
+      color="slategrey"
+    >
+      <h2 class="f-24 mb-4 white--text">Woman empowerment future enrichment</h2>
+      <p class="f-19 font-weight-light">
+        Iron deficiency, leading to Anemia, has negative health effects on all individuals, especially women, and causes
+        enormous social and financial burden on the societies. -Economic burden of Anemia has reverse association with
+        sociodemographic factors, including nutrition, access to health solutions and education. Iran has a high
+        prevalence of Anemia. We responded to this challenge with a comprehensive package of health solutions, aiming
+        for all dimensions of health-related quality of life (HRQoL).
+      </p>
+    </v-sheet>
+
+    <v-sheet :max-width="globalMaxWidth" class="mx-auto px-4 pt-16 mt-sm-16">
+      <h2 :class="['bel grey--text text--darken-2 text-center font-weight-regular d-block', isPWA ? 'f-40' : 'f-50']">
         Sistan and Balouchestan, highest prevalence of Iron deficiency in Iran
       </h2>
+    </v-sheet>
 
-      <v-img class="mt-10" contain src="/images/video_content/physical.png" />
+    <v-img
+      :class="['mt-10 mx-auto', { 'px-4': !isPWA }]"
+      :max-width="globalMaxWidth"
+      contain
+      src="/images/video_content/physical.png"
+    />
 
-      <v-row class="my-16 pt-16">
+    <v-sheet :max-width="globalMaxWidth" class="mx-auto px-4 pb-16 mb-16">
+      <v-row class="my-sm-16 pt-16">
         <v-col lg="8">
-          <h3 class="f-45 font-weight-regular bel cyan--text mb-4">
+          <h3 class="f-45 font-weight-regular bel cyan--text mb-4 text-center text-sm-start">
             32 Million people in need of 2 Billion doses of iron supplement; less than 800 Million doses is consumed
           </h3>
           <p class="f-20 mb-6" style="line-height: 30px">
@@ -62,7 +86,7 @@
             could be highly affected by lack of awareness and access challenges to high quality Iron supplements.
           </p>
         </v-col>
-        <v-col lg="4" class="px-8">
+        <v-col lg="4" :class="{ 'px-8': !isPWA }">
           <v-img src="/images/temp/impact_detail.png" height="600" />
         </v-col>
         <v-col lg="12">
@@ -74,7 +98,7 @@
             Iranian society.
           </p>
 
-          <h4 class="f-45 font-weight-regular bel cyan--text my-8">
+          <h4 class="f-45 font-weight-regular bel cyan--text my-8 text-center text-sm-start">
             providing high‐quality supplements, not only for women, but also for men and children.
           </h4>
 
@@ -86,18 +110,20 @@
         </v-col>
       </v-row>
 
-      <h2 class="bel f-55 grey--text text--darken-2 font-weight-regular d-block">You may also like these</h2>
+      <template v-if="!isPWA">
+        <h2 class="bel f-55 grey--text text--darken-2 font-weight-regular d-block">You may also like these</h2>
 
-      <v-row class="my-8">
-        <v-col v-for="(item, index) in items" :key="index" lg="6" cols="12">
-          <ImpactCards :item="item" />
-        </v-col>
-      </v-row>
+        <v-row :class="[isPWA ? 'mt-8' : 'my-8']">
+          <v-col v-for="(item, index) in items" :key="index" lg="6" cols="12">
+            <ImpactCards :item="item" />
+          </v-col>
+        </v-row>
 
-      <div class="d-flex flex-column align-center justify-center mt-16 pt-16">
-        <h3 class="bel f-55 grey--text text--darken-2 font-weight-regular d-block">Tell Us Your Story</h3>
-        <v-btn large class="f-18 ma-2 px-14" exact rounded depressed color="primary"> Click Here </v-btn>
-      </div>
+        <div class="d-flex flex-column align-center justify-center mt-16 pt-16">
+          <h3 class="bel f-55 grey--text text--darken-2 font-weight-regular text-center d-block">Tell Us Your Story</h3>
+          <v-btn large class="f-18 mt-4 px-14" exact rounded depressed color="primary"> Click Here </v-btn>
+        </div>
+      </template>
     </v-sheet>
   </div>
 </template>
@@ -120,4 +146,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.custom-shadow {
+  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.3) !important;
+}
+</style>
