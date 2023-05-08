@@ -16,8 +16,10 @@ export default {
     themes: {
       light: {
         primary: '#97245B',
-        success: '#00A59B',
+        success: '#00a59b',
         orange: '#F3911F',
+        cyan: '#00a59b',
+        blue: '#0A91DF',
         slategrey: '#66869A'
       }
     }
