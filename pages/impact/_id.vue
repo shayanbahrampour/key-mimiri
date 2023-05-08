@@ -1,13 +1,13 @@
 <template>
   <div>
-    <v-row align="center" no-gutters class="custom-shadow position-relative z-1">
-      <v-col cols="12" md="6">
-        <v-sheet :class="[`overflow-hidden ${!isPWA && `rounded-${isRTL ? 'l' : 'r'}-xl`}`]" max-width="700">
-          <v-img contain src="/images/impact/cover-detail.png" />
+    <v-row no-gutters :class="['position-relative z-1', { 'custom-shadow': isMobile }]">
+      <v-col cols="12" md="5">
+        <v-sheet :class="[`overflow-hidden ${!isMobile && `rounded-${isRTL ? 'l' : 'r'}-xl`}`]" max-width="700">
+          <v-img src="/images/impact/cover-detail.png" max-height="calc(100vh - 150px)" />
 
-          <v-sheet v-if="!isPWA" class="pa-8 extra-space white--text" color="slategrey">
+          <v-sheet v-if="!isMobile" class="extra-space white--text pa-12" color="slategrey">
             <h2 class="f-24 mb-4 white--text">Woman empowerment future enrichment</h2>
-            <p class="f-19 font-weight-light">
+            <p class="f-19 font-weight-light ma-0">
               Iron deficiency, leading to Anemia, has negative health effects on all individuals, especially women, and
               causes enormous social and financial burden on the societies. -Economic burden of Anemia has reverse
               association with sociodemographic factors, including nutrition, access to health solutions and education.
@@ -17,31 +17,41 @@
           </v-sheet>
         </v-sheet>
       </v-col>
-      <v-col cols="12" md="6">
-        <div :class="[isPWA ? 'pa-4 mt-6' : 'pa-16']">
-          <h1 :class="['bel grey--text text--darken-3 font-weight-regular', isPWA ? 'f-40' : 'f-80']">
+      <v-col cols="12" md="6" offset-md="1">
+        <div :class="[isMobile ? 'pa-4 mt-6' : 'pa-16 mt-5']">
+          <h1 :class="['bel grey--text text--darken-3 font-weight-regular', isMobile ? 'f-40' : 'f-80 mb-8']">
             Woman empowerment future enrichment
           </h1>
 
           <div class="blue--text mb-8">Long-term value creation</div>
 
-          <v-divider v-if="!isPWA" class="mb-4" />
-
-          <p class="grey--text text--darken-2 mb-8">
+          <p v-if="isMobile" class="grey--text text--darken-2 mb-8">
             In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society
             and are committed to enhance their physical, psychological and social quality of life through high quality
             and innovative solutions.
           </p>
 
-          <div class="grey--text py-1">Read time: 13min</div>
-          <div class="grey--text py-1">Writed by: mehrab mohammadi</div>
-          <div class="grey--text py-1">Published 3 moth ago</div>
+          <div :class="['d-flex flex-md-row flex-column justify-md-space-between', { 'mt-16 pt-5 f-13': !isMobile }]">
+            <div class="grey--text py-1">Read time: 13min</div>
+            <div class="grey--text py-1">Writed by: mehrab mohammadi</div>
+            <div class="grey--text py-1">Published 3 moth ago</div>
+          </div>
+
+          <template v-if="!isMobile">
+            <v-divider class="my-6" />
+
+            <p class="grey--text text--darken-2 mb-8">
+              In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society
+              and are committed to enhance their physical, psychological and social quality of life through high quality
+              and innovative solutions.
+            </p>
+          </template>
         </div>
       </v-col>
     </v-row>
 
     <v-sheet
-      v-if="isPWA"
+      v-if="isMobile"
       class="pa-8 mx-4 position-relative z-0 extra-space white--text rounded-b-xl"
       color="slategrey"
     >
@@ -56,13 +66,15 @@
     </v-sheet>
 
     <v-sheet :max-width="globalMaxWidth" class="mx-auto px-4 pt-16 mt-sm-16">
-      <h2 :class="['bel grey--text text--darken-2 text-center font-weight-regular d-block', isPWA ? 'f-40' : 'f-50']">
+      <h2
+        :class="['bel grey--text text--darken-2 text-center font-weight-regular d-block', isMobile ? 'f-40' : 'f-50']"
+      >
         Sistan and Balouchestan, highest prevalence of Iron deficiency in Iran
       </h2>
     </v-sheet>
 
     <v-img
-      :class="['mt-10 mx-auto', { 'px-4': !isPWA }]"
+      :class="['mt-10 mx-auto', { 'px-4': !isMobile }]"
       :max-width="globalMaxWidth"
       contain
       src="/images/video_content/physical.png"
@@ -86,7 +98,7 @@
             could be highly affected by lack of awareness and access challenges to high quality Iron supplements.
           </p>
         </v-col>
-        <v-col lg="4" :class="{ 'px-8': !isPWA }">
+        <v-col lg="4" :class="{ 'px-8': !isMobile }">
           <v-img src="/images/temp/impact_detail.png" height="600" />
         </v-col>
         <v-col lg="12">
@@ -110,14 +122,23 @@
         </v-col>
       </v-row>
 
-      <template v-if="!isPWA">
+      <template v-if="!isMobile">
         <h2 class="bel f-55 grey--text text--darken-2 font-weight-regular d-block">You may also like these</h2>
 
-        <v-row :class="[isPWA ? 'mt-8' : 'my-8']">
-          <v-col v-for="(item, index) in items" :key="index" lg="6" cols="12">
-            <ImpactCards :item="item" />
-          </v-col>
-        </v-row>
+        <client-only>
+          <swiper
+            v-if="items.length !== 0"
+            id="impactSwiper"
+            key="impactSwiper"
+            :options="swiperOptions"
+            :class="['w-full', isMobile ? 'mt-8' : 'my-8']"
+            :dir="isRTL ? 'rtl' : 'ltr'"
+          >
+            <swiper-slide v-for="(item, index) in items" :key="index">
+              <ImpactCards :item="item" class="mt-2 mb-3" />
+            </swiper-slide>
+          </swiper>
+        </client-only>
 
         <div class="d-flex flex-column align-center justify-center mt-16 pt-16">
           <h3 class="bel f-55 grey--text text--darken-2 font-weight-regular text-center d-block">Tell Us Your Story</h3>
@@ -135,7 +156,10 @@ export default {
   components: { ImpactCards },
   data() {
     return {
-      items: [{ title: 'Rise from the society return to the society', src: '/images/temp/ladan.png' }]
+      items: [
+        { id: 1, title: 'Rise from the society return to the society', src: '/images/temp/ladan.png' },
+        { id: 2, title: 'Rise from the society return to the society', src: '/images/temp/ladan.png' }
+      ]
     };
   },
   head() {

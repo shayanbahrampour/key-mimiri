@@ -4,15 +4,35 @@ import locals from '~/lang';
 Vue.mixin({
   data() {
     return {
-      globalMaxWidth: 1300
+      globalMaxWidth: 1300,
+      swiperOptions: {
+        loop: false,
+        spaceBetween: 16,
+        slidesPerView: 1.1,
+        grabCursor: true,
+        breakpoints: {
+          991: {
+            slidesPerView: 2.5
+          }
+        }
+      }
     };
   },
   computed: {
     isRTL() {
       return this.$vuetify.rtl;
     },
-    isPWA() {
+    isMobile() {
+      if (this.$store.getters.getDevice) return this.$store.getters.getDevice.isMobile;
+
+      if (!process.browser) return false;
       return this.$vuetify.breakpoint.smAndDown;
+    },
+    isTablet() {
+      if (this.$store.getters.getDevice) return this.$store.getters.getDevice.isTablet;
+
+      if (!process.browser) return false;
+      return this.$vuetify.breakpoint.mdAndDown;
     }
   },
   methods: {

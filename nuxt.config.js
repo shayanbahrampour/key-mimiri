@@ -67,7 +67,14 @@ export default {
   css: ['@/assets/scss/app.scss', '@mdi/font/css/materialdesignicons.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['@/plugins/axios', '@/plugins/mixins', '@/plugins/filters', '@/plugins/dynamic-domain'],
+  plugins: [
+    '@/plugins/axios',
+    '@/plugins/mixins',
+    '@/plugins/filters',
+    '@/plugins/device',
+    '@/plugins/swiper.client',
+    '@/plugins/dynamic-domain'
+  ],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/vuetify'],

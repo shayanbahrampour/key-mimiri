@@ -1,10 +1,10 @@
 <template>
   <div>
-    <v-footer color="slategrey" :class="[isPWA ? 'pt-10' : 'py-16']">
+    <v-footer color="slategrey" :class="[isMobile ? 'pt-10' : 'py-16']">
       <v-sheet color="transparent" :max-width="globalMaxWidth" class="mx-auto px-4 w-full white--text">
         <div class="d-flex justify-center align-center flex-sm-row flex-column my-4">
           <v-img
-            v-if="isPWA"
+            v-if="isMobile"
             alt="cobel"
             contain
             height="60"
@@ -17,7 +17,7 @@
           <v-btn large class="f-18 ma-2 px-14" exact rounded depressed color="white"> ABOUT US </v-btn>
         </div>
 
-        <v-row v-if="!isPWA" class="mt-16">
+        <v-row v-if="!isMobile" class="mt-16">
           <v-col v-for="(item, index) in items" :key="index" lg="3" md="6" cols="12">
             <h4 class="mb-3 f-15">{{ item.title }}</h4>
 
@@ -43,12 +43,12 @@
       </v-sheet>
     </v-footer>
 
-    <v-sheet v-if="!isPWA" class="custom-gradient w-full" height="5" />
+    <v-sheet v-if="!isMobile" class="custom-gradient w-full" height="5" />
 
-    <v-sheet :color="isPWA ? 'slategrey' : 'rgba(76, 109, 128, 1)'" class="white--text text-center">
+    <v-sheet :color="isMobile ? 'slategrey' : 'rgba(76, 109, 128, 1)'" class="white--text text-center">
       <v-sheet color="transparent" :max-width="globalMaxWidth" class="mx-auto px-4 py-8 w-full white--text">
         <div class="d-flex justify-center">
-          <template v-if="!isPWA">
+          <template v-if="!isMobile">
             <v-img alt="cobel" contain height="65" max-width="200" src="/images/logo-text-white.svg" />
             <v-spacer />
           </template>
@@ -58,7 +58,7 @@
           </v-btn>
         </div>
 
-        <v-divider class="white my-3" v-if="isPWA" />
+        <v-divider class="white my-3" v-if="isMobile" />
 
         <div>© 2023 Cobel Group. All Rights Reserved.</div>
       </v-sheet>

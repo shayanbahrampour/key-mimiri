@@ -16,6 +16,9 @@
     "@nuxtjs/vuetify": "^1.12.3",
     "core-js": "^3.29.0",
     "nuxt": "^2.16.3",
+    "nuxt-swiper": "^1.1.0",
+    "swiper": "6.6.2",
+    "vue-awesome-swiper": "^4.1.1",
     "vuetify": "^2.6.15"
   },
   "devDependencies": {
