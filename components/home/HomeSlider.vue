@@ -1,11 +1,11 @@
 <template>
-  <v-sheet height="calc(100vh - 120px - 80px)" min-height="700" class="position-relative" color="transparent">
+  <v-sheet height="calc(100vh - 200px)" min-height="650" class="position-relative" color="transparent">
     <v-img
       src="/images/temp/home.png"
       position="center right"
-      :height="isMobile ? 400 : 700"
-      :width="isMobile ? 400 : 700"
-      :style="`${isMobile ? 'top:-250px' : `${isRTL ? 'left' : 'right'}:-500px;bottom:0;top:0;`};`"
+      :height="isMobile ? 400 : 650"
+      :width="isMobile ? 400 : 650"
+      :style="`${isMobile ? 'top:-250px' : `${isRTL ? 'left' : 'right'}:-450px;bottom:0;top:0;`};`"
       class="position-absolute end-0 my-auto z-0 rounded-circle"
     />
 
