@@ -21,8 +21,8 @@
       </v-sheet>
     </v-img>
 
-    <v-sheet :max-width="globalMaxWidth" class="mx-auto px-4 my-16">
-      <NewsCategory />
+    <v-sheet :max-width="globalMaxWidth" class="mx-auto px-10 my-16">
+      <NewsCategory class="mb-16" />
       <NewsCard v-for="i in 4" :key="i" />
     </v-sheet>
   </div>
