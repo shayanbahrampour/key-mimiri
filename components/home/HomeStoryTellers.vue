@@ -1,7 +1,11 @@
 <template>
   <div class="grey--text text--darken-2">
     <v-sheet :max-width="globalMaxWidth" class="px-4 mx-auto">
-      <h3 :class="['font-weight-regular bel grey--text text--darken-2', isMobile ? 'f-40' : 'f-50']">Storytellers</h3>
+      <h3
+        :class="['font-weight-regular bel grey--text text--darken-2', isMobile ? 'f-45 text-center d-block' : 'f-50']"
+      >
+        Storytellers
+      </h3>
     </v-sheet>
     <client-only>
       <swiper

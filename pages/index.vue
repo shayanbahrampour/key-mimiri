@@ -4,8 +4,8 @@
     <HomeServices class="mb-16" />
     <HomeVideo class="my-16" />
     <HomeImpact class="my-16" />
-    <HomeStoryTellers class="my-16" />
-    <HomeTellUsStory class="my-16 pb-16 pt-4" />
+    <HomeStoryTellers class="mt-16" />
+    <HomeTellUsStory class="mb-16 pb-16" />
   </div>
 </template>
 
