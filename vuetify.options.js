@@ -18,7 +18,7 @@ export default {
         primary: '#97245B',
         success: '#00A59B',
         orange: '#F3911F',
-        hoki: '#66869A'
+        slategrey: '#66869A'
       }
     }
   }

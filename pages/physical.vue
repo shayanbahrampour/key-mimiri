@@ -2,7 +2,7 @@
   <div class="d-flex flex-column align-center h-full text-center" style="background-color: #00a59b">
     <h1 class="bel mt-16 f-80 white--text text--darken-3 font-weight-regular">Physical Health</h1>
     <p class="bel mt-6 f-20 white--text text--darken-3">
-      Enjoyment of social interaction, sharing experiences, sense of belonging to a group, promoting participation  
+      Enjoyment of social interaction, sharing experiences, sense of belonging to a group, promoting participation
     </p>
     <v-img class="mt-16" contain src="/images/video_content/physical.png" />
     <div class="ma-16 h-full text-center">

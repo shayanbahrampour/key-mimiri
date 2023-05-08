@@ -2,6 +2,19 @@ import Vue from 'vue';
 import locals from '~/lang';
 
 Vue.mixin({
+  data() {
+    return {
+      globalMaxWidth: 1500
+    };
+  },
+  computed: {
+    isRTL() {
+      return this.$vuetify.rtl;
+    },
+    isPWA() {
+      return this.$vuetify.breakpoint.smAndDown;
+    }
+  },
   methods: {
     changeDirection() {
       const currentLang = this.$i18n.locale;

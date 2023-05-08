@@ -6,15 +6,18 @@
       <v-fade-transition hide-on-leave leave-absolute>
         <Nuxt />
       </v-fade-transition>
+
+      <Footer />
     </v-main>
   </v-app>
 </template>
 
 <script>
+import Footer from '~/components/shared/Footer.vue';
 import Navigation from '~/components/shared/Navigation.vue';
 
 export default {
-  components: { Navigation },
+  components: { Footer, Navigation },
   watch: {
     '$i18n.locale': {
       immediate: true,

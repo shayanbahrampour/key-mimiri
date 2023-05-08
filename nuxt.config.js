@@ -2,8 +2,7 @@ import locales from './lang';
 import fa from './lang/fa';
 import en from './lang/en';
 
-const projectName = 'مان';
-const bgColor = '#97245B';
+const projectName = 'Cobel';
 
 export default {
   ssr: true,
@@ -25,7 +24,6 @@ export default {
       { name: 'omsapplication-tap-highlight', content: 'no' },
       { property: 'HandheldFriendly', content: 'true' },
       { property: 'og:image', content: '/images/icons/apple-touch-icon.png' },
-      { property: 'og:locale', content: 'fa_IR' },
       { property: 'og:type', content: 'website' },
       { property: 'og:name', content: projectName },
       { property: 'og:site_name', content: projectName },
@@ -42,7 +40,7 @@ export default {
       { name: 'apple-mobile-web-app-title', content: projectName },
       { name: 'apple-mobile-web-app-status-bar-style', content: 'black' },
 
-      { name: 'msapplication-TileColor', content: bgColor },
+      { name: 'msapplication-TileColor', content: '#97245B' },
       { name: 'msapplication-TileImage', content: '/images/icons/mstile-150x150.png' }
     ],
     link: [
@@ -56,17 +54,17 @@ export default {
   loading: {
     rtl: true,
     height: '5px',
-    color: '#ff9100',
+    color: '#97245B',
     duration: 10000
   },
   loadingIndicator: {
-    color: '#568ad7',
+    color: '#97245B',
     name: 'cube-grid'
   },
   router: {
     middleware: 'scroll'
   },
-  css: ['@/assets/scss/app.scss', '@fortawesome/fontawesome-free/css/all.css'],
+  css: ['@/assets/scss/app.scss', '@mdi/font/css/materialdesignicons.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: ['@/plugins/axios', '@/plugins/mixins', '@/plugins/filters', '@/plugins/dynamic-domain'],
