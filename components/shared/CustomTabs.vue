@@ -1,5 +1,5 @@
 <template>
-  <v-tabs v-model="model" grow centered center-active class="w-full custom-tabs">
+  <v-tabs v-model="model" grow centered center-active show-arrows class="w-full custom-tabs">
     <v-tab
       v-for="(item, index) in items"
       :ripple="false"

@@ -4,7 +4,7 @@
       <v-sheet class="global-radius overflow-hidden" max-width="700">
         <v-img contain src="/images/impact/cover-detail.png" />
 
-        <v-sheet class="pa-8 extra-space white--text" color="hoki">
+        <v-sheet class="pa-8 extra-space white--text" color="slategrey">
           <h2 class="f-22 mb-2">Woman empowerment future enrichment</h2>
           <p class="f-18 font-weight-light">
             Iron deficiency, leading to Anemia, has negative health effects on all individuals, especially women, and

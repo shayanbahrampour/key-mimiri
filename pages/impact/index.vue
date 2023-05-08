@@ -3,6 +3,13 @@
     <CustomCarousel
       :items="[
         {
+          title: 'Woman empowerment future enrichment',
+          src: '/images/impact/cover.png',
+          description:
+            'Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women...'
+        },
+        {
+          title: 'Woman empowerment',
           src: '/images/impact/cover.png',
           description:
             'Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women...'
@@ -11,7 +18,9 @@
     />
 
     <v-sheet :max-width="globalMaxWidth" class="mx-auto px-4 my-16">
-      <h1 class="bel f-50 grey--text text--darken-2 font-weight-regular">Impact Story</h1>
+      <h1 :class="['bel f-50 grey--text text--darken-2 font-weight-regular', { 'text-center': isPWA }]">
+        Impact Story
+      </h1>
 
       <CustomTabs class="mt-4" :items="tabs" />
     </v-sheet>

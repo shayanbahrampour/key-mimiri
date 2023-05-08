@@ -1,6 +1,17 @@
 <template>
   <div>
-    <v-app-bar class="appbar" :height="isPWA ? 90 : 120" app color="white" fixed flat tile shrink-on-scroll>
+    <v-app-bar
+      class="appbar"
+      scroll-threshold="90"
+      :height="isPWA ? 90 : 120"
+      app
+      color="white"
+      fixed
+      prominent
+      flat
+      tile
+      shrink-on-scroll
+    >
       <v-sheet :max-width="globalMaxWidth" color="transparent" class="mx-auto d-flex align-center h-full w-full">
         <nuxt-link exact to="/">
           <v-img
@@ -14,10 +25,10 @@
           />
 
           <div class="logo-container" v-else>
-            <div class="position-relative transition-linear-out-slow-in">
+            <div class="position-relative transition-fast-in-fast-out">
               <v-img alt="cobel" contain height="60" max-width="190" src="/images/logo-text.svg" />
             </div>
-            <div class="position-relative transition-linear-out-slow-in">
+            <div class="position-relative transition-fast-in-fast-out">
               <v-img alt="cobel" contain height="60" max-width="190" src="/images/logo.png" />
             </div>
           </div>
@@ -76,10 +87,10 @@ export default {
   computed: {
     items() {
       return [
-        { value: 'menu.point_of_view', path: '/about' },
+        { value: 'menu.point_of_view', path: '#' },
         { value: 'menu.impact_stories', path: '/impact' },
-        { value: 'menu.education', path: '/about' },
-        { value: 'menu.people_careers', path: '/about' },
+        { value: 'menu.education', path: '#' },
+        { value: 'menu.people_careers', path: '#' },
         { value: 'menu.press_center', path: '/news' }
       ];
     }
@@ -100,7 +111,7 @@ export default {
       height: 90px;
 
       > div {
-        bottom: -10px;
+        bottom: -13px;
         min-height: 90px;
       }
     }
