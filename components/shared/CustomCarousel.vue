@@ -8,7 +8,7 @@
             class="position-absolute bottom-0 mb-16 pb-10 px-4"
             :style="`max-width: ${globalMaxWidth}px`"
           >
-            <v-icon v-for="(item, index) in items" color="white" size="28">
+            <v-icon v-for="(item, index) in items" :key="index" color="white" size="28">
               {{ index === model ? 'mdi-radiobox-marked' : 'mdi-radiobox-blank' }}
             </v-icon>
           </div>
