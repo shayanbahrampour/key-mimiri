@@ -1,74 +1,31 @@
 <template>
   <div class="mb-16">
-    <v-sheet height="calc(100vh - 120px - 80px)" min-height="700" class="position-relative" color="transparent">
-      <v-img
-        src="/images/temp/home.png"
-        position="center right"
-        :height="isMobile ? 400 : 700"
-        :width="isMobile ? 400 : 700"
-        :style="`${isMobile ? 'top:-250px' : `${isRTL ? 'left' : 'right'}:-500px;bottom:0;top:0;`};`"
-        class="position-absolute end-0 my-auto z-0 rounded-circle"
-      />
-
-      <v-sheet
-        color="transparent"
-        height="100%"
-        :max-width="globalMaxWidth"
-        class="position-relative px-8 z-1 mx-auto d-flex align-center"
-      >
-        <v-row>
-          <v-col lg="8" md="9" cols="12">
-            <h1 :class="['bel grey--text text--darken-2 font-weight-regular mb-8', isMobile ? 'f-50 pt-10' : 'f-70']">
-              Unleashing the next level health solutions
-            </h1>
-
-            <v-btn
-              :block="isMobile"
-              large
-              :class="['f-18 text-capitalize grey--text', { 'ml-n4': !isMobile }]"
-              exact
-              text
-              rounded
-              depressed
-            >
-              More About
-            </v-btn>
-            <v-btn
-              :block="isMobile"
-              large
-              :class="['f-18 px-14 text-capitalize', isMobile ? 'mt-3' : 'mx-4']"
-              exact
-              rounded
-              depressed
-              color="primary"
-            >
-              Cobel Group
-            </v-btn>
-          </v-col>
-        </v-row>
-      </v-sheet>
-
-      <v-btn
-        v-if="isMobile"
-        block
-        large
-        class="f-18 position-absolute bottom-0 text-capitalize grey--text text--darken-2"
-        exact
-        text
-        rounded
-        depressed
-      >
-        <div class="d-flex flex-column justify-center align-center">
-          <div>Swipe Down...</div>
-          <v-icon class="mt-2">mdi-chevron-double-down</v-icon>
-        </div>
-      </v-btn>
-    </v-sheet>
+    <HomeSlider />
+    <HomeVideo class="my-16" />
+    <HomeImpact class="my-16" />
+    <HomeStoryTellers class="my-16" />
+    <HomeTellUsStory class="my-16 pb-16 pt-4" />
   </div>
 </template>
 
 <script>
-export default {};
+import HomeVideo from '~/components/home/HomeVideo.vue';
+import HomeImpact from '~/components/home/HomeImpact.vue';
+import HomeSlider from '~/components/home/HomeSlider.vue';
+import HomeTellUsStory from '~/components/home/HomeTellUsStory.vue';
+import HomeStoryTellers from '~/components/home/HomeStoryTellers.vue';
+
+export default {
+  components: { HomeImpact, HomeStoryTellers, HomeTellUsStory, HomeVideo, HomeSlider },
+  data() {
+    return {
+      items: [
+        { id: 1, title: 'Rise from the society return to the society', src: '/images/temp/ladan.png' },
+        { id: 2, title: 'Rise from the society return to the society', src: '/images/temp/ladan.png' }
+      ]
+    };
+  }
+};
 </script>
 
 <style lang="scss" scoped></style>

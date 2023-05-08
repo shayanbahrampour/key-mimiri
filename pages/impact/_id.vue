@@ -80,7 +80,7 @@
       src="/images/video_content/physical.png"
     />
 
-    <v-sheet :max-width="globalMaxWidth" class="mx-auto px-4 pb-16 mb-16">
+    <v-sheet :max-width="globalMaxWidth" class="mx-auto px-4">
       <v-row class="my-sm-16 pt-16">
         <v-col lg="8">
           <h3 class="f-45 font-weight-regular bel cyan--text mb-4 text-center text-sm-start">
@@ -139,23 +139,31 @@
             </swiper-slide>
           </swiper>
         </client-only>
-
-        <div class="d-flex flex-column align-center justify-center mt-16 pt-16">
-          <h3 class="bel f-55 grey--text text--darken-2 font-weight-regular text-center d-block">Tell Us Your Story</h3>
-          <v-btn large class="f-18 mt-4 px-14" exact rounded depressed color="primary"> Click Here </v-btn>
-        </div>
       </template>
     </v-sheet>
+
+    <HomeTellUsStory class="my-16 pb-16 pt-4" />
   </div>
 </template>
 
 <script>
 import ImpactCards from '~/components/impact/ImpactCards.vue';
+import HomeTellUsStory from '~/components/home/HomeTellUsStory.vue';
 
 export default {
-  components: { ImpactCards },
+  components: { HomeTellUsStory, ImpactCards },
   data() {
     return {
+      swiperOptions: {
+        spaceBetween: 16,
+        slidesPerView: 1.1,
+        grabCursor: true,
+        breakpoints: {
+          991: {
+            slidesPerView: 4.5
+          }
+        }
+      },
       items: [
         { id: 1, title: 'Rise from the society return to the society', src: '/images/temp/ladan.png' },
         { id: 2, title: 'Rise from the society return to the society', src: '/images/temp/ladan.png' }
