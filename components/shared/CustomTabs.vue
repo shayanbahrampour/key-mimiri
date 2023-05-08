@@ -24,6 +24,11 @@ export default {
     return {
       model: 0
     };
+  },
+  watch: {
+    model() {
+      this.$emit('input', this.model);
+    }
   }
 };
 </script>

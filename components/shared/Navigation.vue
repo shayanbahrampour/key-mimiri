@@ -47,6 +47,7 @@
             depressed
             exact
             tile
+            :ripple="false"
           >
             <span class="text-capitalize f-14">{{ $t(item.value) }}</span>
           </v-btn>
