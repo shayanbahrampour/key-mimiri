@@ -1,5 +1,5 @@
 <template>
-  <div :class="['position-relative z-0', { 'mt-16': isMobile }]">
+  <div :class="['home-services position-relative z-0', { 'mt-16': isMobile }]">
     <svg v-if="!isMobile" class="position-absolute" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <clipPath id="home-services">
@@ -38,21 +38,37 @@
         </p>
       </div>
     </v-img>
-    <v-sheet :max-width="globalMaxWidth" class="px-4 mx-auto grey--text text--darken-2 d-flex flex-wrap justify-center">
-      <v-sheet color="#A01E64" class="rounded-circle flex-shrink-0" width="170" height="170" />
-      <v-sheet color="#F3911F" class="rounded-circle flex-shrink-0" width="170" height="170" />
-      <v-sheet color="#00A59B" class="rounded-circle flex-shrink-0" width="170" height="170" />
+
+    <v-sheet
+      :max-width="globalMaxWidth"
+      class="px-4 mx-auto grey--text text--darken-2 d-flex flex-wrap justify-center mt-n10"
+    >
+      <v-sheet color="#A01E64" class="rounded-circle balls type-1 flex-shrink-0" width="230" height="230" />
+      <v-sheet color="#F3911F" class="rounded-circle balls type-2 flex-shrink-0" width="230" height="230" />
+      <v-sheet color="#00A59B" class="rounded-circle balls type-3 flex-shrink-0" width="230" height="230" />
     </v-sheet>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      active: 0
+    };
+  }
+};
 </script>
 
 <style scoped lang="scss">
-.home-services-container {
-  clip-path: url(#home-services);
-  -webkit-clip-path: url(#home-services);
+.home-services {
+  .home-services-container {
+    clip-path: url(#home-services);
+    -webkit-clip-path: url(#home-services);
+  }
+
+  .balls {
+    border: 15px solid white !important;
+  }
 }
 </style>
