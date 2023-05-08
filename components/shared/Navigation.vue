@@ -91,7 +91,7 @@ export default {
         { value: 'menu.point_of_view', path: '#' },
         { value: 'menu.impact_stories', path: '/impact' },
         { value: 'menu.education', path: '#' },
-        { value: 'menu.people_careers', path: '#' },
+        { value: 'menu.people_careers', path: '/career' },
         { value: 'menu.press_center', path: '/news' }
       ];
     }
