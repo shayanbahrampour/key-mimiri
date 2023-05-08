@@ -1,9 +1,16 @@
 <template>
-  <v-card flat class="overflow-hidden custom-card" to="/impact/1" style="border-radius: 80px">
+  <v-card flat class="overflow-hidden custom-card" style="border-radius: 80px">
     <v-img :src="item.src" width="100%" height="250" />
-    <v-sheet color="slategrey" class="pa-8 bel f-35 white--text text-center">
+    <v-card
+      flat
+      tile
+      color="slategrey"
+      class="pa-8 bel f-35 white--text text-center pointer"
+      :to="`/impact/${item.id}`"
+      @click.prevent
+    >
       {{ item.title }}
-    </v-sheet>
+    </v-card>
   </v-card>
 </template>
 

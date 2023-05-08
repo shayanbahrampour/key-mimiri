@@ -1,8 +1,8 @@
 <template>
-  <div :style="{ height: isPWA ? '90px' : '120px' }">
+  <div :style="{ height: isMobile ? '90px' : '120px' }">
     <v-app-bar
       class="appbar"
-      :height="isPWA ? 90 : 120"
+      :height="isMobile ? 90 : 120"
       :scroll-threshold="120"
       color="white"
       flat
@@ -13,11 +13,11 @@
       <v-sheet
         :max-width="globalMaxWidth"
         color="transparent"
-        :class="['mx-auto d-flex align-center h-full w-full', { 'px-4': !isPWA }]"
+        :class="['mx-auto d-flex align-center h-full w-full', { 'px-4': !isMobile }]"
       >
         <nuxt-link exact to="/">
           <v-img
-            v-if="isPWA"
+            v-if="isMobile"
             alt="cobel"
             class="logo"
             contain
@@ -38,7 +38,7 @@
 
         <v-spacer />
 
-        <template v-if="!isPWA">
+        <template v-if="!isMobile">
           <v-btn
             v-for="(item, index) in items"
             :key="index"
@@ -55,14 +55,14 @@
           </v-btn>
         </template>
 
-        <v-icon v-if="isPWA" @click="flag.showDrawer = !flag.showDrawer">mdi-menu</v-icon>
+        <v-icon v-if="isMobile" @click="flag.showDrawer = !flag.showDrawer">mdi-menu</v-icon>
 
         <!--<v-btn v-if="$i18n.locale === 'en'" :to="switchLocalePath('fa')" class="mx-1" color="primary" icon> Fa</v-btn>-->
         <!--<v-btn v-else :to="switchLocalePath('en')" class="mx-1" color="primary" icon>En</v-btn>-->
       </v-sheet>
     </v-app-bar>
 
-    <v-navigation-drawer v-if="isPWA" v-model="flag.showDrawer" app fixed>
+    <v-navigation-drawer v-if="isMobile" v-model="flag.showDrawer" app fixed>
       <v-list class="my-4" nav>
         <template v-for="(item, index) in items">
           <v-list-item :key="index" :to="item.path ? item.path : undefined" color="primary" exact link>
@@ -105,6 +105,7 @@ export default {
 .appbar.v-app-bar {
   &.v-app-bar--is-scrolled {
     transition: all ease-in 0.2s !important;
+    box-shadow: 0 17px 13px -13px rgba(0, 0, 0, 0.2) !important;
   }
 
   &.v-app-bar--hide-shadow {

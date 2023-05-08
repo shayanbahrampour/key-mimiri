@@ -17,19 +17,34 @@
       ]"
     />
 
-    <v-sheet :max-width="globalMaxWidth" class="mx-auto px-4 my-16">
-      <h1 :class="['bel f-50 grey--text text--darken-2 font-weight-regular', { 'text-center': isPWA }]">
+    <v-sheet :max-width="globalMaxWidth" :class="['mx-auto px-4', isMobile ? 'mt-16' : 'my-16']">
+      <h1 :class="['bel f-50 grey--text text--darken-2 font-weight-regular', { 'text-center': isMobile }]">
         Impact Story
       </h1>
 
       <CustomTabs class="mt-4" :items="tabs" />
 
-      <v-row class="my-8">
+      <v-row v-if="!isMobile" v-else class="my-8">
         <v-col v-for="(item, index) in items" :key="index" lg="4">
           <ImpactCards :item="item" />
         </v-col>
       </v-row>
     </v-sheet>
+
+    <client-only v-if="isMobile">
+      <swiper
+        v-if="items.length !== 0"
+        id="impactSwiper"
+        key="impactSwiper"
+        :options="swiperOptions"
+        :class="['w-full px-4', isMobile ? 'mt-8 mb-16' : 'my-8']"
+        :dir="isRTL ? 'rtl' : 'ltr'"
+      >
+        <swiper-slide v-for="(item, index) in items" :key="index">
+          <ImpactCards :item="item" class="mt-2 mb-3" />
+        </swiper-slide>
+      </swiper>
+    </client-only>
   </div>
 </template>
 
@@ -49,7 +64,10 @@ export default {
         { title: 'Social responsibility', value: '' },
         { title: 'Localized know-how', value: '' }
       ],
-      items: [{ title: 'Rise from the society return to the society', src: '/images/temp/ladan.png' }]
+      items: [
+        { id: 1, title: 'Rise from the society return to the society', src: '/images/temp/ladan.png' },
+        { id: 2, title: 'Rise from the society return to the society', src: '/images/temp/ladan.png' }
+      ]
     };
   }
 };
