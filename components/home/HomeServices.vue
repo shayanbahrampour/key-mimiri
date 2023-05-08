@@ -38,10 +38,10 @@
         </p>
       </div>
     </v-img>
-    <v-sheet :max-width="globalMaxWidth" class="px-4 mx-auto grey--text text--darken-2 d-flex justify-center">
-      <v-sheet color="#A01E64" class="rounded-circle" width="170" height="170" />
-      <v-sheet color="#F3911F" class="rounded-circle" width="170" height="170" />
-      <v-sheet color="#00A59B" class="rounded-circle" width="170" height="170" />
+    <v-sheet :max-width="globalMaxWidth" class="px-4 mx-auto grey--text text--darken-2 d-flex flex-wrap justify-center">
+      <v-sheet color="#A01E64" class="rounded-circle flex-shrink-0" width="170" height="170" />
+      <v-sheet color="#F3911F" class="rounded-circle flex-shrink-0" width="170" height="170" />
+      <v-sheet color="#00A59B" class="rounded-circle flex-shrink-0" width="170" height="170" />
     </v-sheet>
   </div>
 </template>
