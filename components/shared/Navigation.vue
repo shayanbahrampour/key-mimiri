@@ -1,34 +1,36 @@
 <template>
-  <div>
+  <div :style="{ height: isPWA ? '90px' : '120px' }">
     <v-app-bar
       class="appbar"
-      scroll-threshold="90"
       :height="isPWA ? 90 : 120"
-      app
+      :scroll-threshold="120"
       color="white"
-      fixed
-      prominent
       flat
       tile
-      shrink-on-scroll
+      hide-on-scroll
+      fixed
     >
-      <v-sheet :max-width="globalMaxWidth" color="transparent" class="mx-auto d-flex align-center h-full w-full">
+      <v-sheet
+        :max-width="globalMaxWidth"
+        color="transparent"
+        :class="['mx-auto d-flex align-center h-full w-full', { 'px-4': !isPWA }]"
+      >
         <nuxt-link exact to="/">
           <v-img
             v-if="isPWA"
             alt="cobel"
-            class="logo transition-fast-in-fast-out"
+            class="logo"
             contain
             height="60"
             max-width="85"
             src="/images/logo-shape.png"
           />
 
-          <div class="logo-container" v-else>
-            <div class="position-relative transition-fast-in-fast-out">
+          <div class="logo-container overflow-hidden" v-else>
+            <div class="position-relative">
               <v-img alt="cobel" contain height="60" max-width="190" src="/images/logo-text.svg" />
             </div>
-            <div class="position-relative transition-fast-in-fast-out">
+            <div class="position-relative">
               <v-img alt="cobel" contain height="60" max-width="190" src="/images/logo.png" />
             </div>
           </div>
@@ -100,32 +102,52 @@ export default {
 </script>
 
 <style lang="scss">
-.appbar {
+.appbar.v-app-bar {
   &.v-app-bar--is-scrolled {
+    transition: all ease-in 0.2s !important;
+  }
+
+  &.v-app-bar--hide-shadow {
+    transform: none !important;
     box-shadow: 0 17px 13px -13px rgba(0, 0, 0, 0.2) !important;
+
+    &,
+    .v-toolbar__content {
+      height: 56px !important;
+    }
 
     .logo {
       max-width: 50px !important;
+      transition: all ease-in 0.2s !important;
     }
 
     .logo-container {
-      height: 90px;
+      height: 56px;
+      transition: all ease-in 0.2s !important;
 
       > div {
-        bottom: -13px;
+        bottom: 0;
         min-height: 90px;
+        transition: all ease-in 0.2s !important;
       }
     }
   }
 
   .logo-container {
     height: 120px;
-    overflow: hidden;
+    transition: all ease-out 0.2s !important;
 
     > div {
       bottom: 90px;
       min-height: 120px;
+      transition: all ease-out 0.2s !important;
     }
+  }
+
+  &,
+  &.v-toolbar,
+  .v-toolbar__content {
+    transition: all ease-out 0.2s !important;
   }
 }
 </style>

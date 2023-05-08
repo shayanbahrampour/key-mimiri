@@ -2,13 +2,13 @@
   <div class="position-relative">
     <v-carousel v-model="model" hide-delimiters show-arrows-on-hover class="position-relative z-0" height="auto">
       <v-carousel-item v-for="(item, index) in items" :key="index">
-        <v-img position="center center" class="position-relative z-0" :height="isPWA ? 250 : 600" :src="item.src">
+        <v-img position="center center" class="position-relative z-0" :height="isPWA ? 250 : 450" :src="item.src">
           <div
             v-if="items.length > 1"
-            class="position-absolute bottom-0 mb-16 pb-10 px-4"
+            :class="['position-absolute bottom-0 start-0 end-0 mx-auto px-4', isPWA ? 'mb-4' : 'mb-16 pb-10']"
             :style="`max-width: ${globalMaxWidth}px`"
           >
-            <v-icon v-for="(item, index) in items" :key="index" color="white" size="28">
+            <v-icon v-for="(item, index) in items" :key="index" color="white" size="25">
               {{ index === model ? 'mdi-radiobox-marked' : 'mdi-radiobox-blank' }}
             </v-icon>
           </div>
@@ -19,7 +19,7 @@
     <div class="position-relative z-1">
       <div :style="`max-width: ${globalMaxWidth}px`" :class="['mx-auto', { 'pr-4': !isPWA }]">
         <v-sheet
-          :style="`max-width: ${globalMaxWidth * 0.8}px; ${!isPWA && `margin-top: -78px`}`"
+          :style="`max-width: ${globalMaxWidth * 0.9}px; ${!isPWA && `margin-top: -78px`}`"
           :class="[
             `px-4 m${isRTL ? 'l' : 'r'}-auto carousel-sheet`,
             isPWA ? 'py-8' : `py-16 rounded-${isRTL ? 'l' : 'r'}-xl`
