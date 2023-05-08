@@ -2,7 +2,7 @@
   <div class="d-flex align-center">
     <h1 class="bel f-50 grey--text text--darken-2 font-weight-regular">More important</h1>
 
-    <v-divider vertical style="min-height: 50px" class="mx-8" color="#00a59b" />
+    <v-divider vertical style="min-height: 30px" class="mx-8" color="#00a59b" />
 
     <div class="flex-grow-1">
       <CustomTabs :items="tabs" />
