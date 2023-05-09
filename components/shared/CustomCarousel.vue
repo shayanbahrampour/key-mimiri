@@ -5,7 +5,7 @@
         <v-img position="center center" class="position-relative z-0" :height="isMobile ? 250 : 470" :src="item.src">
           <div
             v-if="items.length > 1"
-            :class="['position-absolute bottom-0 start-0 end-0 mx-auto px-4', isMobile ? 'mb-4' : 'mb-16 pb-10']"
+            :class="['position-absolute bottom-0 start-0 end-0 mx-auto px-8', isMobile ? 'mb-4' : 'mb-16 pb-10']"
             :style="`max-width: ${globalMaxWidth}px`"
           >
             <v-icon v-for="(item, index) in items" :key="index" color="white" size="25">
@@ -22,7 +22,7 @@
           :max-width="globalMaxWidth * 0.9"
           :style="`${!isMobile && `margin-top: -78px`}`"
           :class="[
-            `px-4 m${isRTL ? 'l' : 'r'}-auto carousel-sheet`,
+            `px-8 m${isRTL ? 'l' : 'r'}-auto carousel-sheet`,
             isMobile ? 'py-8' : `py-16 rounded-${isRTL ? 'l' : 'r'}-xl`
           ]"
           color="slategrey"

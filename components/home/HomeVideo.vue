@@ -21,7 +21,7 @@
       <v-sheet
         color="transparent"
         :max-width="globalMaxWidth"
-        class="px-4 position-relative z-1 mx-auto white--text w-full"
+        class="px-8 position-relative z-1 mx-auto white--text w-full"
       >
         <v-row align="center" dense>
           <v-col lg="5" md="4" cols="12">
@@ -48,7 +48,7 @@
       v-if="isMobile"
       color="transparent"
       :max-width="globalMaxWidth"
-      class="px-4 mx-auto f-23 my-4 grey--text text--darken-2 font-weight-light text-center"
+      class="px-8 mx-auto f-23 my-4 grey--text text--darken-2 font-weight-light text-center"
     >
       Enjoyment of social interaction, sharing experience sense of belonging to a group, promoting participation
     </v-sheet>

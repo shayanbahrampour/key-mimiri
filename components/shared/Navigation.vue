@@ -13,7 +13,7 @@
       <v-sheet
         :max-width="globalMaxWidth"
         color="transparent"
-        :class="['mx-auto d-flex align-center h-full w-full', { 'px-4': !isMobile }]"
+        :class="['mx-auto d-flex align-center h-full w-full', { 'px-8': !isMobile }]"
       >
         <nuxt-link exact to="/">
           <v-img

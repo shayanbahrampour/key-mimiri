@@ -65,7 +65,7 @@
       </p>
     </v-sheet>
 
-    <v-sheet :max-width="globalMaxWidth" class="mx-auto px-4 pt-16 mt-sm-16">
+    <v-sheet :max-width="globalMaxWidth" class="mx-auto px-8 pt-16 mt-sm-16">
       <h2
         :class="['bel grey--text text--darken-2 text-center font-weight-regular d-block', isMobile ? 'f-40' : 'f-50']"
       >
@@ -74,13 +74,13 @@
     </v-sheet>
 
     <v-img
-      :class="['mt-10 mx-auto', { 'px-4': !isMobile }]"
+      :class="['mt-10 mx-auto', { 'px-8': !isMobile }]"
       :max-width="globalMaxWidth"
       contain
       src="/images/video_content/physical.png"
     />
 
-    <v-sheet :max-width="globalMaxWidth" class="mx-auto px-4">
+    <v-sheet :max-width="globalMaxWidth" class="mx-auto px-8">
       <v-row class="my-sm-16 pt-16">
         <v-col lg="8">
           <h3 class="f-45 font-weight-regular bel cyan--text mb-4 text-center text-sm-start">
@@ -159,14 +159,20 @@ export default {
         slidesPerView: 1.1,
         grabCursor: true,
         breakpoints: {
-          991: {
+          1441: {
             slidesPerView: 4.5
+          },
+          991: {
+            slidesPerView: 3.5
           }
         }
       },
       items: [
         { id: 1, title: 'Rise from the society return to the society', src: '/images/temp/ladan.png' },
-        { id: 2, title: 'Rise from the society return to the society', src: '/images/temp/ladan.png' }
+        { id: 2, title: 'Rise from the society return to the society', src: '/images/temp/ladan.png' },
+        { id: 3, title: 'Rise from the society return to the society', src: '/images/temp/ladan.png' },
+        { id: 4, title: 'Rise from the society return to the society', src: '/images/temp/ladan.png' },
+        { id: 5, title: 'Rise from the society return to the society', src: '/images/temp/ladan.png' }
       ]
     };
   },
