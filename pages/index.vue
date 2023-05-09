@@ -18,15 +18,7 @@ import HomeStoryTellers from '~/components/home/HomeStoryTellers.vue';
 import HomeServices from '~/components/home/HomeServices.vue';
 
 export default {
-  components: { HomeServices, HomeImpact, HomeStoryTellers, HomeTellUsStory, HomeVideo, HomeSlider },
-  data() {
-    return {
-      items: [
-        { id: 1, title: 'Rise from the society return to the society', src: '/images/temp/ladan.png' },
-        { id: 2, title: 'Rise from the society return to the society', src: '/images/temp/ladan.png' }
-      ]
-    };
-  }
+  components: { HomeServices, HomeImpact, HomeStoryTellers, HomeTellUsStory, HomeVideo, HomeSlider }
 };
 </script>
 

@@ -76,7 +76,7 @@ export default {
         slidesPerView: 1.1,
         grabCursor: true,
         breakpoints: {
-          991: {
+          960: {
             slidesPerView: 4.5
           }
         }

@@ -21,3 +21,4 @@ $ yarn generate
 
 - [i18n Documentation](https://kazupon.github.io/vue-i18n/)
 - [Api Documentation](https://api-cobel.applife.ir/api/document#/)
+- [Animation View](https://drive.google.com/file/d/17lYxsdqWqROmd8QpX-R9RLArJSu8UAza/view)

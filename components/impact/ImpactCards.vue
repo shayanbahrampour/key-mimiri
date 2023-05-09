@@ -7,15 +7,19 @@
         tile
         color="slategrey"
         :class="[
-          'pa-8 white--text pointer',
+          'white--text pointer',
           isMobile ? 'text-center' : 'd-flex',
-          item.descriptions ? '' : 'text-center'
+          item.descriptions ? 'px-12 py-8' : 'text-center pa-8'
         ]"
         :to="`/impact/${item.id}`"
         @click.prevent
       >
         <div class="f-35 bel">{{ item.title }}</div>
-        <div v-if="!isMobile && item.descriptions" class="font-weight-light f-21">
+        <div
+          v-if="!isMobile && item.descriptions"
+          :class="`font-weight-light f-21 p${isRTL ? 'r' : 'l'}-5`"
+          style="min-height: 125px; flex-grow: 1"
+        >
           {{ item.descriptions }}
           <strong class="f-18 font-weight-bold mt-2 d-block">see more</strong>
         </div>

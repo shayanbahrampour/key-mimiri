@@ -1,49 +1,60 @@
 <template>
-  <div :class="['home-services position-relative z-0', { 'mt-16': isMobile }]">
-    <svg v-if="!isMobile" class="position-absolute" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <clipPath id="home-services">
-          <path
-            class="w-full"
-            d="M0 0.351562V719.464H554.268C580.744 719.464 604.908 703.643 618.24 678.458C645.822 626.339 697.118 591.34 755.88 591.34C814.607 591.34 865.912 626.366 893.521 678.458C906.853 703.643 931.017 719.464 957.492 719.464H1728V0.351562H0Z"
-          />
-        </clipPath>
-      </defs>
-    </svg>
+  <div
+    :class="['home-services position-relative z-0 mx-auto', { 'mt-16': isMobile }]"
+    :style="`max-width: ${globalMaxWidth}px`"
+  >
+    <v-fade-transition>
+      <v-sheet
+        v-if="activeItem"
+        :color="activeItem.color"
+        class="position-absolute z-1 top-0 end-0 start-0 mx-auto rounded-circle"
+        width="500"
+        height="500"
+        style="mix-blend-mode: color; margin-top: -100px; opacity: 0.69"
+      />
+    </v-fade-transition>
 
-    <v-img
-      src="/images/home/services/cover.jpg"
-      class="align-end home-services-container mx-auto"
-      :height="isMobile ? 400 : 720"
-      :width="isMobile ? '' : 1515"
-      gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,.83)"
-    >
-      <v-sheet color="#4d6e81" class="w-full h-full position-absolute top-0 start-0" style="mix-blend-mode: color" />
-      <div
-        :style="`max-width: ${globalMaxWidth}px`"
-        :class="['mx-auto white--text position-relative z-1 px-8', isMobile ? 'py-4' : 'py-16']"
-      >
-        <h3
-          :class="`bel font-weight-regular ${isMobile ? 'f-40 text-center' : 'f-80'}`"
-          :style="`${!isMobile && 'max-width: 80%'};`"
+    <v-carousel v-model="active" hide-delimiters show-arrows-on-hover class="position-relative z-0" height="auto">
+      <v-carousel-item v-for="(item, index) in shapes" :key="index">
+        <v-img
+          :src="item.src"
+          :class="['align-end home-services-container mx-auto', $vuetify.breakpoint.xl && 'rounded-xl']"
+          :height="isMobile ? 400 : 'calc(100vh - 300px)'"
+          max-height="700"
+          :width="isMobile ? '' : globalMaxWidth"
+          gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,.83)"
         >
-          Treatment and prevention paradigm shift
-        </h3>
-        <p
-          :class="`font-weight-light m${isRTL ? 'r' : 'l'}-auto ${isMobile ? 'text-center f-20' : 'f-22'}`"
-          :style="`line-height: 32px; ${!isMobile && 'max-width: 450px;'}`"
-        >
-          Be an enabler to enhance peoples physical, psychological and social quality of life (HRQoL) through high
-          quality and innovative solutions
-        </p>
-      </div>
-    </v-img>
+          <v-sheet
+            color="#4d6e81"
+            class="w-full h-full position-absolute top-0 start-0"
+            style="mix-blend-mode: color"
+          />
+          <div
+            :style="`max-width: ${globalMaxWidth}px`"
+            :class="['mx-auto white--text position-relative z-1 px-8', isMobile ? 'py-4' : 'py-16']"
+          >
+            <h3
+              :class="`bel font-weight-regular ${isMobile ? 'f-40 text-center' : 'f-80'}`"
+              :style="`${!isMobile && 'max-width: 80%'};`"
+            >
+              {{ item.bannerTitle }}
+            </h3>
+            <p
+              :class="`font-weight-light m${isRTL ? 'r' : 'l'}-auto ${isMobile ? 'text-center f-20' : 'f-22'}`"
+              :style="`line-height: 32px; ${!isMobile && 'max-width: 450px;'}`"
+            >
+              {{ item.bannerDescription }}
+            </p>
+          </div>
+        </v-img>
+      </v-carousel-item>
+    </v-carousel>
 
     <v-sheet
       color="transparent"
       :max-width="globalMaxWidth"
       :height="isMobile ? 400 : 500"
-      :class="['mx-auto position-relative z-0 d-flex justify-end', isMobile ? 'px-4 align-end' : 'px-8 align-center']"
+      :class="['mx-auto position-relative z-0 d-flex justify-end', isMobile ? 'px-4 align-end' : 'px-14 align-center']"
     >
       <div
         :class="[`position-relative z-1 ${!isMobile && `mb-16 p${isRTL ? 'r' : 'l'}-8`}`]"
@@ -72,7 +83,7 @@
           :height="active === index ? ballActiveSize : ballSize"
           :key="index"
           :color="item.color"
-          class="shapes"
+          class="shapes rounded-circle"
           :style="`right:${item.position[0]}px;bottom:${item.position[1]}px;`"
           @click="active = index"
         />
@@ -115,6 +126,10 @@ export default {
 
       const data = [
         {
+          bannerTitle: 'Treatment and prevention paradigm shift',
+          bannerDescription:
+            'Be an enabler to enhance peoples physical, psychological and social quality of life (HRQoL) through high quality and innovative solutions',
+          src: '/images/home/services/cover-1.jpg',
           position: coordinates.top,
           color: 'rgba(160, 30, 100, 1)',
           title: 'Social Health',
@@ -122,6 +137,10 @@ export default {
             'Enjoyment of social interaction, sharing experiences, sense of belonging to a group, promoting participation'
         },
         {
+          bannerTitle: 'Treatment and prevention paradigm',
+          bannerDescription:
+            'Be an enabler to enhance peoples physical, psychological and social quality of life (HRQoL) through high quality and innovative solutions',
+          src: '/images/home/services/cover-2.png',
           position: coordinates.side,
           color: 'rgba(243, 145, 31, 1)',
           title: 'Psychological Health',
@@ -129,6 +148,10 @@ export default {
             'Emotional and interpersonal functioning: Increased self efficiency, confidence, learning new skills, raised awareness'
         },
         {
+          bannerTitle: 'Treatment and prevention',
+          bannerDescription:
+            'Be an enabler to enhance peoples physical, psychological and social quality of life (HRQoL) through high quality and innovative solutions',
+          src: '/images/home/services/cover-3.png',
           position: coordinates.bottom,
           color: 'rgba(0, 165, 155, 1)',
           title: 'Physical Health',
@@ -169,11 +192,6 @@ export default {
 
 <style scoped lang="scss">
 .home-services {
-  .home-services-container {
-    clip-path: url(#home-services);
-    -webkit-clip-path: url(#home-services);
-  }
-
   .nuclear {
     width: 200px;
     height: 200px;
@@ -186,10 +204,7 @@ export default {
     margin: auto;
 
     .shapes {
-      width: 180px;
-      height: 180px;
       position: absolute;
-      border-radius: 50%;
       transition: all ease-out 0.6s;
     }
   }
