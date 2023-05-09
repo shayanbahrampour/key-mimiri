@@ -1,5 +1,10 @@
 <template>
-  <v-sheet class="position-relative mx-auto" color="transparent" height="calc(100vh - 120px - 30px)" min-height="650">
+  <v-sheet
+    :class="['position-relative mx-auto', { 'pb-16': isMobile }]"
+    color="transparent"
+    height="calc(100vh - 120px - 30px)"
+    min-height="650"
+  >
     <v-img
       :height="isMobile ? 400 : 650"
       :style="`${isMobile ? 'top:-250px' : `${isRTL ? 'left' : 'right'}:-450px;bottom:0;top:0;`};`"
@@ -50,7 +55,7 @@
     <v-btn
       v-if="isMobile"
       block
-      class="f-18 position-absolute bottom-0 text-capitalize grey--text text--darken-2"
+      class="f-18 position-absolute bottom-0 text-capitalize grey--text text--darken-2 mb-16"
       depressed
       exact
       large

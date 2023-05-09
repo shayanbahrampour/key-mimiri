@@ -8,9 +8,9 @@
         v-if="activeItem"
         :color="activeItem.color"
         class="position-absolute z-1 top-0 end-0 start-0 mx-auto rounded-circle"
-        height="500"
+        :height="isMobile ? 400 : 500"
         style="mix-blend-mode: color; margin-top: -100px; opacity: 0.69"
-        width="500"
+        :width="isMobile ? 400 : 500"
       />
     </v-fade-transition>
 
@@ -73,15 +73,19 @@
     >
       <div
         :class="[`position-relative z-1 ${!isMobile && `mb-16 p${isRTL ? 'r' : 'l'}-8`}`]"
-        :style="`${isMobile ? 'width: calc(100vw - 150px)' : 'max-width: 490px'}; ${
-          !isMobile && `border-${isRTL ? 'right' : 'left'}: 1px solid #aaa`
-        }`"
+        :style="`${
+          isMobile
+            ? $vuetify.breakpoint.smOnly
+              ? 'width: calc(100vw - 190px); margin-bottom: 25px'
+              : 'width: calc(100vw - 110px)'
+            : 'max-width: 490px'
+        }; ${!isMobile && `border-${isRTL ? 'right' : 'left'}: 1px solid #aaa`}`"
       >
         <v-scroll-y-transition>
           <h3
             v-if="activeItem"
             :class="['bel font-weight-regular', isMobile ? 'f-40' : 'f-50 mb-3']"
-            :style="`color:${activeItem.color};line-height: 50px; word-break: break-all`"
+            :style="`color:${activeItem.color};line-height: 50px;`"
           >
             {{ activeItem.title }}
           </h3>
@@ -91,13 +95,13 @@
         </v-scroll-y-transition>
       </div>
 
-      <div class="nuclear z-0">
+      <div class="nuclear z-0" :style="`width: ${isMobile ? '100%' : '200px'}; height: ${isMobile ? '100%' : '200px'}`">
         <v-sheet
           v-for="(item, index) in shapes"
           :key="index"
           :color="item.color"
           :height="active === index ? ballActiveSize : ballSize"
-          :style="`right:${item.position[0]}px;bottom:${item.position[1]}px;`"
+          :style="`right:${item.position[0]};bottom:${item.position[1]};`"
           :width="active === index ? ballActiveSize : ballSize"
           class="shapes rounded-circle"
           @click="active = index"
@@ -129,14 +133,14 @@ export default {
     shapes() {
       const coordinates = this.isMobile
         ? {
-            top: [190, -40],
-            side: [160, 200],
-            bottom: [-90, 150]
+            top: ['82%', '8%'],
+            side: ['40%', '70%'],
+            bottom: ['1%', '50%']
           }
         : {
-            top: [0, 250],
-            side: [400, 0],
-            bottom: [-10, -140]
+            top: [0, '250px'],
+            side: ['400px', 0],
+            bottom: ['-10px', '-140px']
           };
 
       const data = [
@@ -208,8 +212,6 @@ export default {
 <style lang="scss" scoped>
 .home-services {
   .nuclear {
-    width: 200px;
-    height: 200px;
     position: absolute;
     border-radius: 50%;
     left: 0;
