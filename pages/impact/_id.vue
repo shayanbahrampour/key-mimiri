@@ -162,7 +162,7 @@ export default {
           1441: {
             slidesPerView: 4.5
           },
-          991: {
+          960: {
             slidesPerView: 3.5
           }
         }

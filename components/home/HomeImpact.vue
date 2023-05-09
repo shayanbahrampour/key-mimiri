@@ -67,7 +67,7 @@ export default {
           title: 'Rise from the society return to the society',
           descriptions:
             'Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women...',
-          src: '/images/home/services/cover.jpg'
+          src: '/images/home/services/cover-1.jpg'
         }
       ],
       swiperOptions: {
@@ -75,7 +75,10 @@ export default {
         slidesPerView: 1.1,
         grabCursor: true,
         breakpoints: {
-          991: {
+          1920: {
+            slidesPerView: 2.5
+          },
+          960: {
             slidesPerView: 1.8
           }
         }
