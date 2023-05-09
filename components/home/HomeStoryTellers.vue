@@ -9,6 +9,8 @@
     </v-sheet>
     <client-only>
       <swiper
+        :class="['w-full mr-0 px-8', isMobile ? 'mt-8' : 'my-8']"
+        :dir="isRTL ? 'rtl' : 'ltr'"
         :options="{
           spaceBetween: 16,
           slidesPerView: 1.1,
@@ -25,16 +27,14 @@
             }
           }
         }"
-        :class="['w-full mr-0 px-8', isMobile ? 'mt-8' : 'my-8']"
-        :dir="isRTL ? 'rtl' : 'ltr'"
       >
         <div
           v-if="!isMobile"
           :style="`flex-shrink: 0; width: calc((100vw - ${globalMaxWidth}px) / 2) !important; margin: 0 !important`"
         />
         <swiper-slide v-for="(item, index) in items" :key="index">
-          <v-card flat class="overflow-hidden mt-2" style="border-radius: 80px">
-            <v-img :src="item.src" width="100%" height="380" />
+          <v-card class="overflow-hidden mt-2" flat style="border-radius: 80px">
+            <v-img :src="item.src" height="380" width="100%" />
           </v-card>
           <div class="text-center bel f-30 py-4">
             {{ item.title }}
@@ -62,4 +62,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style lang="scss" scoped></style>

@@ -1,17 +1,17 @@
 <template>
   <div>
-    <v-card flat class="overflow-hidden custom-card" style="border-radius: 80px">
-      <v-img :src="item.src" width="100%" height="250" />
+    <v-card class="overflow-hidden custom-card" flat style="border-radius: 80px">
+      <v-img :src="item.src" height="250" width="100%" />
       <v-card
-        flat
-        tile
-        color="slategrey"
         :class="[
           'white--text pointer',
           isMobile ? 'text-center' : 'd-flex',
           item.descriptions ? 'px-12 py-8' : 'text-center pa-8'
         ]"
         :to="`/impact/${item.id}`"
+        color="slategrey"
+        flat
+        tile
         @click.prevent
       >
         <div class="f-35 bel">{{ item.title }}</div>
@@ -44,7 +44,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .custom-card {
   .v-image {
     filter: grayscale(100%);

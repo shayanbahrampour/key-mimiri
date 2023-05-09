@@ -17,14 +17,14 @@
       ]"
     />
 
-    <v-sheet :max-width="globalMaxWidth" :class="['mx-auto px-8', isMobile ? 'mt-16' : 'my-16']">
+    <v-sheet :class="['mx-auto px-8', isMobile ? 'mt-16' : 'my-16']" :max-width="globalMaxWidth">
       <h1 :class="['bel f-50 grey--text text--darken-2 font-weight-regular', { 'text-center': isMobile }]">
         Impact Story
       </h1>
 
-      <CustomTabs class="mt-4" :items="tabs" />
+      <CustomTabs :items="tabs" class="mt-4" />
 
-      <v-row v-if="!isMobile" v-else class="my-8">
+      <v-row v-else v-if="!isMobile" class="my-8">
         <v-col v-for="(item, index) in items" :key="index" lg="4">
           <ImpactCards :item="item" />
         </v-col>
@@ -36,9 +36,9 @@
         v-if="items.length !== 0"
         id="impactSwiper"
         key="impactSwiper"
-        :options="swiperOptions"
         :class="['w-full px-8', isMobile ? 'mt-8 mb-16' : 'my-8']"
         :dir="isRTL ? 'rtl' : 'ltr'"
+        :options="swiperOptions"
       >
         <swiper-slide v-for="(item, index) in items" :key="index">
           <ImpactCards :item="item" class="mt-2 mb-3" />
