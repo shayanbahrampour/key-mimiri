@@ -25,7 +25,7 @@
       <CustomTabs :items="tabs" class="mt-4" />
 
       <v-row v-else v-if="!isMobile" class="my-8">
-        <v-col v-for="(item, index) in items" :key="index" lg="4">
+        <v-col v-for="(item, index) in items" :key="index" xl="4" md="6" cols="12">
           <ImpactCards :item="item" />
         </v-col>
       </v-row>
@@ -65,11 +65,10 @@ export default {
         { title: 'Localized know-how', value: '' }
       ],
       items: [
-        { id: 1, title: 'Rise from the society return to the society', src: '/images/temp/ladan.png' },
-        { id: 2, title: 'Rise from the society return to the society', src: '/images/temp/ladan.png' },
-        { id: 3, title: 'Rise from the society return to the society', src: '/images/temp/ladan.png' },
-        { id: 4, title: 'Rise from the society return to the society', src: '/images/temp/ladan.png' },
-        { id: 5, title: 'Rise from the society return to the society', src: '/images/temp/ladan.png' }
+        { id: 1, title: 'Rise from the society return to the society', src: '/images/temp/cover-1.jpg' },
+        { id: 2, title: 'Rise from the society return to the society', src: '/images/temp/cover-3.png' },
+        { id: 3, title: 'Rise from the society return to the society', src: '/images/temp/cover-2.png' },
+        { id: 4, title: 'Rise from the society return to the society', src: '/images/temp/cover-1.jpg' }
       ],
       swiperOptions: {
         spaceBetween: 16,

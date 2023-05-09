@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-row :class="['position-relative z-1', { 'custom-shadow': isMobile }]" no-gutters>
+    <v-row :class="['position-relative z-1', { 'custom-shadow pb-4': isMobile }]" no-gutters>
       <v-col cols="12" md="5">
         <v-sheet :class="[`overflow-hidden ${!isMobile && `rounded-${isRTL ? 'l' : 'r'}-xl`}`]" max-width="700">
           <v-img max-height="calc(100vh - 150px)" src="/images/impact/cover-detail.png" />
@@ -17,7 +17,7 @@
           </v-sheet>
         </v-sheet>
       </v-col>
-      <v-col cols="12" md="6" offset-md="1">
+      <v-col cols="12" lg="6" md="7" offset-lg="1">
         <div :class="[isMobile ? 'pa-4 mt-6' : 'pa-16 mt-5']">
           <h1 :class="['bel grey--text text--darken-3 font-weight-regular', isMobile ? 'f-40' : 'f-80 mb-8']">
             Woman empowerment future enrichment
@@ -159,7 +159,7 @@ export default {
         slidesPerView: 1.1,
         grabCursor: true,
         breakpoints: {
-          1441: {
+          1904: {
             slidesPerView: 4.5
           },
           960: {
@@ -168,11 +168,11 @@ export default {
         }
       },
       items: [
-        { id: 1, title: 'Rise from the society return to the society', src: '/images/temp/ladan.png' },
-        { id: 2, title: 'Rise from the society return to the society', src: '/images/temp/ladan.png' },
-        { id: 3, title: 'Rise from the society return to the society', src: '/images/temp/ladan.png' },
-        { id: 4, title: 'Rise from the society return to the society', src: '/images/temp/ladan.png' },
-        { id: 5, title: 'Rise from the society return to the society', src: '/images/temp/ladan.png' }
+        { id: 1, title: 'Rise from the society return to the society', src: '/images/temp/cover-1.jpg' },
+        { id: 2, title: 'Rise from the society return to the society', src: '/images/temp/cover-2.png' },
+        { id: 3, title: 'Rise from the society return to the society', src: '/images/temp/cover-3.png' },
+        { id: 4, title: 'Rise from the society return to the society', src: '/images/temp/cover-1.jpg' },
+        { id: 5, title: 'Rise from the society return to the society', src: '/images/temp/cover-2.png' }
       ]
     };
   },

@@ -1,5 +1,5 @@
 <template>
-  <v-sheet class="position-relative" color="transparent" height="calc(100vh - 120px - 30px)" min-height="650">
+  <v-sheet class="position-relative mx-auto" color="transparent" height="calc(100vh - 120px - 30px)" min-height="650">
     <v-img
       :height="isMobile ? 400 : 650"
       :style="`${isMobile ? 'top:-250px' : `${isRTL ? 'left' : 'right'}:-450px;bottom:0;top:0;`};`"
@@ -11,7 +11,7 @@
 
     <v-sheet
       :max-width="globalMaxWidth"
-      class="position-relative px-12 z-1 mx-auto d-flex align-center"
+      class="position-relative px-8 z-1 mx-auto d-flex align-center"
       color="transparent"
       height="100%"
     >

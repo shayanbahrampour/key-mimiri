@@ -23,6 +23,7 @@
           :width="isMobile ? '' : globalMaxWidth"
           gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,.83)"
           max-height="700"
+          min-height="550"
         >
           <v-sheet
             class="w-full h-full position-absolute top-0 start-0"
@@ -48,6 +49,20 @@
           </div>
         </v-img>
       </v-carousel-item>
+
+      <svg
+        v-if="!isMobile"
+        class="position-absolute end-0 start-0 mx-auto"
+        viewBox="0 0 403 127"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        style="width: 400px; bottom: -1px"
+      >
+        <path
+          d="M68.3299 74.2707C88.7907 38.1636 123.727 12.5401 164.313 3.87321L167.08 3.28241C186.492 -0.862906 206.543 -1.03394 226.023 2.77962L239.386 5.39564C272.351 11.8491 301.24 31.5086 319.34 59.8056L339.908 91.9612C353.672 113.48 377.455 126.5 403 126.5V126.5H0V126.5C25.7035 123.992 48.5772 109.129 61.3095 86.6597L68.3299 74.2707Z"
+          fill="white"
+        />
+      </svg>
     </v-carousel>
 
     <v-sheet
@@ -129,7 +144,7 @@ export default {
           bannerTitle: 'Treatment and prevention paradigm shift',
           bannerDescription:
             'Be an enabler to enhance peoples physical, psychological and social quality of life (HRQoL) through high quality and innovative solutions',
-          src: '/images/home/services/cover-1.jpg',
+          src: '/images/temp/cover-1.jpg',
           position: coordinates.top,
           color: 'rgba(160, 30, 100, 1)',
           title: 'Social Health',
@@ -140,7 +155,7 @@ export default {
           bannerTitle: 'Treatment and prevention paradigm',
           bannerDescription:
             'Be an enabler to enhance peoples physical, psychological and social quality of life (HRQoL) through high quality and innovative solutions',
-          src: '/images/home/services/cover-2.png',
+          src: '/images/temp/cover-2.png',
           position: coordinates.side,
           color: 'rgba(243, 145, 31, 1)',
           title: 'Psychological Health',
@@ -151,7 +166,7 @@ export default {
           bannerTitle: 'Treatment and prevention',
           bannerDescription:
             'Be an enabler to enhance peoples physical, psychological and social quality of life (HRQoL) through high quality and innovative solutions',
-          src: '/images/home/services/cover-3.png',
+          src: '/images/temp/cover-3.png',
           position: coordinates.bottom,
           color: 'rgba(0, 165, 155, 1)',
           title: 'Physical Health',
