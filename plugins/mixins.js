@@ -4,7 +4,7 @@ import locals from '~/lang';
 Vue.mixin({
   data() {
     return {
-      globalMaxWidth: 1300
+      globalMaxWidth: 1900
     };
   },
   computed: {

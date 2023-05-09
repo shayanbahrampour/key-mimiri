@@ -20,4 +20,4 @@ $ yarn generate
 ## Project Docs
 
 - [i18n Documentation](https://kazupon.github.io/vue-i18n/)
-- [Api Documentation](https://api-lyan.applife.ir/api/document)
+- [Api Documentation](https://api-cobel.applife.ir/api/document#/)

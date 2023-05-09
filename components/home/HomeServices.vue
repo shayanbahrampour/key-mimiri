@@ -21,7 +21,7 @@
       <v-sheet color="#4d6e81" class="w-full h-full position-absolute top-0 start-0" style="mix-blend-mode: color" />
       <div
         :style="`max-width: ${globalMaxWidth}px`"
-        :class="['mx-auto white--text position-relative z-1 px-4', isMobile ? 'py-4' : 'py-16']"
+        :class="['mx-auto white--text position-relative z-1 px-8', isMobile ? 'py-4' : 'py-16']"
       >
         <h3
           :class="`bel font-weight-regular ${isMobile ? 'f-40 text-center' : 'f-80'}`"
@@ -43,7 +43,7 @@
       color="transparent"
       :max-width="globalMaxWidth"
       :height="isMobile ? 400 : 500"
-      :class="['px-4 mx-auto position-relative z-0 d-flex justify-end', isMobile ? 'align-end' : 'align-center']"
+      :class="['mx-auto position-relative z-0 d-flex justify-end', isMobile ? 'px-4 align-end' : 'px-8 align-center']"
     >
       <div
         :class="[`position-relative z-1 ${!isMobile && `mb-16 p${isRTL ? 'r' : 'l'}-8`}`]"

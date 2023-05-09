@@ -15,14 +15,14 @@
         @click.prevent
       >
         <div class="f-35 bel">{{ item.title }}</div>
-        <div v-if="!isMobile" class="font-weight-light f-21">
+        <div v-if="!isMobile && item.descriptions" class="font-weight-light f-21">
           {{ item.descriptions }}
           <strong class="f-18 font-weight-bold mt-2 d-block">see more</strong>
         </div>
       </v-card>
     </v-card>
 
-    <div v-if="isMobile" class="font-weight-light f-21 text-center mt-4 grey--text text--darken-1">
+    <div v-if="isMobile && item.descriptions" class="font-weight-light f-21 text-center mt-4 grey--text text--darken-1">
       {{ item.descriptions }}
       <strong class="f-18 font-weight-bold mt-2 d-block">see more</strong>
     </div>

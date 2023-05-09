@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-sheet :max-width="globalMaxWidth" class="px-4 mx-auto grey--text text--darken-2">
+    <v-sheet :max-width="globalMaxWidth" class="px-8 mx-auto grey--text text--darken-2">
       <h3
         :class="['font-weight-regular bel grey--text text--darken-2', isMobile ? 'f-45 text-center d-block' : 'f-50']"
       >
@@ -16,12 +16,12 @@
         id="impactSwiper"
         key="impactSwiper"
         :options="swiperOptions"
-        :class="['w-full mr-0 px-4', isMobile ? 'mt-8' : 'my-8']"
+        :class="['w-full mr-0 px-8', isMobile ? 'mt-8' : 'my-8']"
         :dir="isRTL ? 'rtl' : 'ltr'"
       >
         <div
           v-if="!isMobile"
-          style="flex-shrink: 0; width: calc((100vw - 1300px) / 2) !important; margin: 0 !important"
+          :style="`flex-shrink: 0; width: calc((100vw - ${globalMaxWidth}px) / 2) !important; margin: 0 !important`"
         />
         <swiper-slide v-for="(item, index) in items" :key="index">
           <ImpactCards :item="item" class="mt-2 mb-3" />

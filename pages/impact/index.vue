@@ -17,7 +17,7 @@
       ]"
     />
 
-    <v-sheet :max-width="globalMaxWidth" :class="['mx-auto px-4', isMobile ? 'mt-16' : 'my-16']">
+    <v-sheet :max-width="globalMaxWidth" :class="['mx-auto px-8', isMobile ? 'mt-16' : 'my-16']">
       <h1 :class="['bel f-50 grey--text text--darken-2 font-weight-regular', { 'text-center': isMobile }]">
         Impact Story
       </h1>
@@ -37,7 +37,7 @@
         id="impactSwiper"
         key="impactSwiper"
         :options="swiperOptions"
-        :class="['w-full px-4', isMobile ? 'mt-8 mb-16' : 'my-8']"
+        :class="['w-full px-8', isMobile ? 'mt-8 mb-16' : 'my-8']"
         :dir="isRTL ? 'rtl' : 'ltr'"
       >
         <swiper-slide v-for="(item, index) in items" :key="index">
@@ -66,7 +66,10 @@ export default {
       ],
       items: [
         { id: 1, title: 'Rise from the society return to the society', src: '/images/temp/ladan.png' },
-        { id: 2, title: 'Rise from the society return to the society', src: '/images/temp/ladan.png' }
+        { id: 2, title: 'Rise from the society return to the society', src: '/images/temp/ladan.png' },
+        { id: 3, title: 'Rise from the society return to the society', src: '/images/temp/ladan.png' },
+        { id: 4, title: 'Rise from the society return to the society', src: '/images/temp/ladan.png' },
+        { id: 5, title: 'Rise from the society return to the society', src: '/images/temp/ladan.png' }
       ],
       swiperOptions: {
         spaceBetween: 16,
