@@ -42,18 +42,20 @@
     <v-sheet
       color="transparent"
       :max-width="globalMaxWidth"
-      height="500"
+      :height="isMobile ? 400 : 500"
       :class="['px-4 mx-auto position-relative z-0 d-flex justify-end', isMobile ? 'align-end' : 'align-center']"
     >
       <div
         :class="[`position-relative z-1 ${!isMobile && `mb-16 p${isRTL ? 'r' : 'l'}-8`}`]"
-        :style="`max-width: 450px; ${!isMobile && `border-${isRTL ? 'right' : 'left'}: 1px solid #ccc`}`"
+        :style="`${isMobile ? 'width: calc(100vw - 150px)' : 'max-width: 450px'}; ${
+          !isMobile && `border-${isRTL ? 'right' : 'left'}: 1px solid #ccc`
+        }`"
       >
         <v-scroll-y-transition>
           <h3
             v-if="activeItem"
-            :style="`color:${activeItem.color};line-height: 50px`"
-            class="font-weight-regular f-50 bel mb-3"
+            :style="`color:${activeItem.color};line-height: 50px; word-break: break-all`"
+            :class="['bel font-weight-regular', isMobile ? 'f-40' : 'f-50 mb-3']"
           >
             {{ activeItem.title }}
           </h3>
@@ -66,8 +68,8 @@
       <div class="nuclear z-0">
         <v-sheet
           v-for="(item, index) in shapes"
-          :width="active === index ? 200 : 160"
-          :height="active === index ? 200 : 160"
+          :width="active === index ? ballActiveSize : ballSize"
+          :height="active === index ? ballActiveSize : ballSize"
           :key="index"
           :color="item.color"
           class="shapes"
@@ -87,24 +89,29 @@ export default {
       activeItem: null
     };
   },
-  watch: {
-    active: {
-      immediate: true,
-      handler() {
-        this.activeItem = null;
-        setTimeout(() => {
-          this.activeItem = this.shapes[this.active];
-        }, 600);
-      }
-    }
-  },
   computed: {
+    ballSize() {
+      if (this.isMobile) return 80;
+
+      return 160;
+    },
+    ballActiveSize() {
+      if (this.isMobile) return 100;
+
+      return 200;
+    },
     shapes() {
-      const coordinates = {
-        top: [0, 250],
-        left: [400, 0],
-        bottom: [-10, -140]
-      };
+      const coordinates = this.isMobile
+        ? {
+            top: [190, -40],
+            side: [160, 200],
+            bottom: [-90, 150]
+          }
+        : {
+            top: [0, 250],
+            side: [400, 0],
+            bottom: [-10, -140]
+          };
 
       const data = [
         {
@@ -115,7 +122,7 @@ export default {
             'Enjoyment of social interaction, sharing experiences, sense of belonging to a group, promoting participation'
         },
         {
-          position: coordinates.left,
+          position: coordinates.side,
           color: 'rgba(243, 145, 31, 1)',
           title: 'Psychological Health',
           description:
@@ -132,18 +139,29 @@ export default {
       if (this.active === 1) {
         data[0].position = coordinates.bottom;
         data[1].position = coordinates.top;
-        data[2].position = coordinates.left;
+        data[2].position = coordinates.side;
         return data;
       }
 
       if (this.active === 2) {
-        data[0].position = coordinates.left;
+        data[0].position = coordinates.side;
         data[1].position = coordinates.bottom;
         data[2].position = coordinates.top;
         return data;
       }
 
       return data;
+    }
+  },
+  watch: {
+    active: {
+      immediate: true,
+      handler() {
+        this.activeItem = null;
+        setTimeout(() => {
+          this.activeItem = this.shapes[this.active];
+        }, 600);
+      }
     }
   }
 };
