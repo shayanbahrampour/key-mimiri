@@ -1,19 +1,19 @@
 <template>
   <div :style="{ height: isMobile ? '90px' : '120px' }">
     <v-app-bar
-      class="appbar"
       :height="isMobile ? 90 : 120"
       :scroll-threshold="120"
+      class="appbar"
       color="white"
-      flat
-      tile
-      hide-on-scroll
       fixed
+      flat
+      hide-on-scroll
+      tile
     >
       <v-sheet
+        :class="['mx-auto d-flex align-center h-full w-full', { 'px-8': !isMobile }]"
         :max-width="globalMaxWidth"
         color="transparent"
-        :class="['mx-auto d-flex align-center h-full w-full', { 'px-8': !isMobile }]"
       >
         <nuxt-link exact to="/">
           <v-img
@@ -26,7 +26,7 @@
             src="/images/logo-shape.png"
           />
 
-          <div class="logo-container overflow-hidden" v-else>
+          <div v-else class="logo-container overflow-hidden">
             <div class="position-relative">
               <v-img alt="cobel" contain height="60" max-width="190" src="/images/logo-text.svg" />
             </div>
@@ -42,14 +42,14 @@
           <v-btn
             v-for="(item, index) in items"
             :key="index"
+            :ripple="false"
             :to="item.path ? item.path : undefined"
-            color="transparent"
-            class="bg-transparent"
             active-class="primary--text"
+            class="bg-transparent"
+            color="transparent"
             depressed
             exact
             tile
-            :ripple="false"
           >
             <span class="text-capitalize f-14">{{ $t(item.value) }}</span>
           </v-btn>

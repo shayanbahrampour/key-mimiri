@@ -8,30 +8,30 @@
         v-if="activeItem"
         :color="activeItem.color"
         class="position-absolute z-1 top-0 end-0 start-0 mx-auto rounded-circle"
-        width="500"
         height="500"
         style="mix-blend-mode: color; margin-top: -100px; opacity: 0.69"
+        width="500"
       />
     </v-fade-transition>
 
-    <v-carousel v-model="active" hide-delimiters show-arrows-on-hover class="position-relative z-0" height="auto">
+    <v-carousel v-model="active" class="position-relative z-0" height="auto" hide-delimiters show-arrows-on-hover>
       <v-carousel-item v-for="(item, index) in shapes" :key="index">
         <v-img
-          :src="item.src"
           :class="['align-end home-services-container mx-auto', $vuetify.breakpoint.xl && 'rounded-xl']"
           :height="isMobile ? 400 : 'calc(100vh - 300px)'"
-          max-height="700"
+          :src="item.src"
           :width="isMobile ? '' : globalMaxWidth"
           gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,.83)"
+          max-height="700"
         >
           <v-sheet
-            color="#4d6e81"
             class="w-full h-full position-absolute top-0 start-0"
+            color="#4d6e81"
             style="mix-blend-mode: color"
           />
           <div
-            :style="`max-width: ${globalMaxWidth}px`"
             :class="['mx-auto white--text position-relative z-1 px-8', isMobile ? 'py-4' : 'py-16']"
+            :style="`max-width: ${globalMaxWidth}px`"
           >
             <h3
               :class="`bel font-weight-regular ${isMobile ? 'f-40 text-center' : 'f-80'}`"
@@ -51,10 +51,10 @@
     </v-carousel>
 
     <v-sheet
-      color="transparent"
-      :max-width="globalMaxWidth"
-      :height="isMobile ? 400 : 500"
       :class="['mx-auto position-relative z-0 d-flex justify-end', isMobile ? 'px-4 align-end' : 'px-14 align-center']"
+      :height="isMobile ? 400 : 500"
+      :max-width="globalMaxWidth"
+      color="transparent"
     >
       <div
         :class="[`position-relative z-1 ${!isMobile && `mb-16 p${isRTL ? 'r' : 'l'}-8`}`]"
@@ -65,8 +65,8 @@
         <v-scroll-y-transition>
           <h3
             v-if="activeItem"
-            :style="`color:${activeItem.color};line-height: 50px; word-break: break-all`"
             :class="['bel font-weight-regular', isMobile ? 'f-40' : 'f-50 mb-3']"
+            :style="`color:${activeItem.color};line-height: 50px; word-break: break-all`"
           >
             {{ activeItem.title }}
           </h3>
@@ -79,12 +79,12 @@
       <div class="nuclear z-0">
         <v-sheet
           v-for="(item, index) in shapes"
-          :width="active === index ? ballActiveSize : ballSize"
-          :height="active === index ? ballActiveSize : ballSize"
           :key="index"
           :color="item.color"
-          class="shapes rounded-circle"
+          :height="active === index ? ballActiveSize : ballSize"
           :style="`right:${item.position[0]}px;bottom:${item.position[1]}px;`"
+          :width="active === index ? ballActiveSize : ballSize"
+          class="shapes rounded-circle"
           @click="active = index"
         />
       </div>
@@ -190,7 +190,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .home-services {
   .nuclear {
     width: 200px;

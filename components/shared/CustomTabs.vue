@@ -1,9 +1,9 @@
 <template>
-  <v-tabs v-model="model" grow centered center-active show-arrows class="w-full custom-tabs">
+  <v-tabs v-model="model" center-active centered class="w-full custom-tabs" grow show-arrows>
     <v-tab
       v-for="(item, index) in items"
-      :ripple="false"
       :key="index"
+      :ripple="false"
       active-class="black--text"
       class="bel f-20 bg-transparent"
     >

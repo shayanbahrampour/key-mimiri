@@ -1,9 +1,9 @@
 <template>
   <div>
-    <v-row no-gutters :class="['position-relative z-1', { 'custom-shadow': isMobile }]">
+    <v-row :class="['position-relative z-1', { 'custom-shadow': isMobile }]" no-gutters>
       <v-col cols="12" md="5">
         <v-sheet :class="[`overflow-hidden ${!isMobile && `rounded-${isRTL ? 'l' : 'r'}-xl`}`]" max-width="700">
-          <v-img src="/images/impact/cover-detail.png" max-height="calc(100vh - 150px)" />
+          <v-img max-height="calc(100vh - 150px)" src="/images/impact/cover-detail.png" />
 
           <v-sheet v-if="!isMobile" class="extra-space white--text pa-12" color="slategrey">
             <h2 class="f-24 mb-4 white--text">Woman empowerment future enrichment</h2>
@@ -98,8 +98,8 @@
             could be highly affected by lack of awareness and access challenges to high quality Iron supplements.
           </p>
         </v-col>
-        <v-col lg="4" :class="{ 'px-8': !isMobile }">
-          <v-img src="/images/temp/impact_detail.png" height="600" />
+        <v-col :class="{ 'px-8': !isMobile }" lg="4">
+          <v-img height="600" src="/images/temp/impact_detail.png" />
         </v-col>
         <v-col lg="12">
           <p class="f-20 mb-6" style="line-height: 30px">
@@ -130,9 +130,9 @@
             v-if="items.length !== 0"
             id="impactSwiper"
             key="impactSwiper"
-            :options="swiperOptions"
             :class="['w-full', isMobile ? 'mt-8' : 'my-8']"
             :dir="isRTL ? 'rtl' : 'ltr'"
+            :options="swiperOptions"
           >
             <swiper-slide v-for="(item, index) in items" :key="index">
               <ImpactCards :item="item" class="mt-2 mb-3" />

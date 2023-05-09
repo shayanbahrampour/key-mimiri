@@ -7,7 +7,7 @@
         Impact Stories
       </h3>
 
-      <CustomTabs class="mt-4" :items="tabs" />
+      <CustomTabs :items="tabs" class="mt-4" />
     </v-sheet>
 
     <client-only>
@@ -15,9 +15,9 @@
         v-if="items.length !== 0"
         id="impactSwiper"
         key="impactSwiper"
-        :options="swiperOptions"
         :class="['w-full mr-0 px-8', isMobile ? 'mt-8' : 'my-8']"
         :dir="isRTL ? 'rtl' : 'ltr'"
+        :options="swiperOptions"
       >
         <div
           v-if="!isMobile"
@@ -88,4 +88,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style lang="scss" scoped></style>
