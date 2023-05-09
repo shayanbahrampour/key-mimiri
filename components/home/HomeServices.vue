@@ -47,7 +47,7 @@
     >
       <div
         :class="[`position-relative z-1 ${!isMobile && `mb-16 p${isRTL ? 'r' : 'l'}-8`}`]"
-        :style="`${isMobile ? 'width: calc(100vw - 150px)' : 'max-width: 450px'}; ${
+        :style="`${isMobile ? 'width: calc(100vw - 150px)' : 'max-width: 490px'}; ${
           !isMobile && `border-${isRTL ? 'right' : 'left'}: 1px solid #ccc`
         }`"
       >
