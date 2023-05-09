@@ -2,11 +2,12 @@
   <div>
     <v-img
       :class="[
-        'position-relative d-flex justify-center z-0 ',
-        isMobile ? 'text-center align-start py-8' : 'align-end py-16'
+        'position-relative d-flex justify-center z-0 mx-auto',
+        isMobile ? 'text-center align-start py-8' : 'align-end py-16 px-8',
+        $vuetify.breakpoint.xl && 'rounded-xl'
       ]"
       max-height="80vh"
-      max-width="100%"
+      :max-width="globalMaxWidth"
       src="/images/temp/home_video_cover.png"
     >
       <v-img
@@ -14,7 +15,7 @@
         :max-height="isMobile ? 80 : 130"
         :max-width="isMobile ? 80 : 130"
         :width="isMobile ? 80 : 130"
-        class="ma-auto position-absolute top-0 bottom-0 end-0 start-0 z-1"
+        :class="['ma-auto position-absolute top-0 bottom-0 end-0 start-0 z-1', { 'mb-8': isMobile }]"
         contain
         src="/images/home/home_video_button.svg"
       />

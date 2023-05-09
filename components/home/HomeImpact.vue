@@ -1,34 +1,31 @@
 <template>
   <div>
-    <v-sheet :max-width="globalMaxWidth" class="px-8 mx-auto grey--text text--darken-2">
-      <h3
-        :class="['font-weight-regular bel grey--text text--darken-2', isMobile ? 'f-45 text-center d-block' : 'f-50']"
-      >
-        Impact Stories
-      </h3>
+    <v-sheet :max-width="globalMaxWidth" class="mx-auto grey--text text--darken-2">
+      <div class="px-8">
+        <h3
+          :class="['font-weight-regular bel grey--text text--darken-2', isMobile ? 'f-45 text-center d-block' : 'f-50']"
+        >
+          Impact Stories
+        </h3>
 
-      <CustomTabs :items="tabs" class="mt-4" />
+        <CustomTabs :items="tabs" class="mt-4" />
+      </div>
+
+      <client-only>
+        <swiper
+          v-if="items.length !== 0"
+          id="impactSwiper"
+          key="impactSwiper"
+          :class="['w-full mr-0 px-8', isMobile ? 'mt-8' : 'my-8']"
+          :dir="isRTL ? 'rtl' : 'ltr'"
+          :options="swiperOptions"
+        >
+          <swiper-slide v-for="(item, index) in items" :key="index">
+            <ImpactCards :item="item" class="mt-2 mb-3" />
+          </swiper-slide>
+        </swiper>
+      </client-only>
     </v-sheet>
-
-    <client-only>
-      <swiper
-        v-if="items.length !== 0"
-        id="impactSwiper"
-        key="impactSwiper"
-        :class="['w-full mr-0 px-8', isMobile ? 'mt-8' : 'my-8']"
-        :dir="isRTL ? 'rtl' : 'ltr'"
-        :options="swiperOptions"
-      >
-        <div
-          v-if="!isMobile"
-          :style="`flex-shrink: 0; width: calc((100vw - ${globalMaxWidth}px) / 2) !important; margin: 0 !important`"
-        />
-        <swiper-slide v-for="(item, index) in items" :key="index">
-          <ImpactCards :item="item" class="mt-2 mb-3" />
-        </swiper-slide>
-        <swiper-slide v-if="!isMobile" />
-      </swiper>
-    </client-only>
   </div>
 </template>
 
@@ -50,10 +47,10 @@ export default {
       items: [
         {
           id: 1,
-          title: 'Woman empowerment future enrichment',
+          title: 'Woman empowerment future',
           descriptions:
             'Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women...',
-          src: '/images/temp/ladan.png'
+          src: '/images/temp/cover-1.jpg'
         },
         {
           id: 2,
@@ -67,7 +64,7 @@ export default {
           title: 'Rise from the society return to the society',
           descriptions:
             'Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women...',
-          src: '/images/home/services/cover-1.jpg'
+          src: '/images/temp/cover-1.jpg'
         }
       ],
       swiperOptions: {
@@ -75,7 +72,7 @@ export default {
         slidesPerView: 1.1,
         grabCursor: true,
         breakpoints: {
-          1920: {
+          1904: {
             slidesPerView: 2.5
           },
           960: {
