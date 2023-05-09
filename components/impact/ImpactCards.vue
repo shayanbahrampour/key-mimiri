@@ -13,7 +13,9 @@
         flat
         tile
       >
-        <div class="f-35 bel" :style="item.descriptions && `min-width: 320px`">{{ item.title }}</div>
+        <div class="f-35 bel" :style="`${item.descriptions && !isMobile && 'min-width: 320px'}; min-height: 160px`">
+          {{ item.title }}
+        </div>
         <div
           v-if="!isMobile && item.descriptions"
           :class="`font-weight-light f-21 p${isRTL ? 'r' : 'l'}-5`"
