@@ -14,9 +14,12 @@
     <v-radio-group v-model="radioGroup" class="mt-0 pt-0">
       <v-radio label="Let me know by email" color="#4C6D80"></v-radio>
     </v-radio-group>
-    <div class="d-flex">
+    <div :class="['d-flex', isMobile ? 'flex-column' : undefined]">
       <v-btn
-        class="rounded-xl white--text d-flex justify-center f-14 mr-4 font-weight-bold"
+        :class="[
+          'rounded-xl white--text d-flex justify-center',
+          isMobile ? 'f-20 font-weight-light' : 'mr-4 f-14 font-weight-bold'
+        ]"
         color="#4C6D80"
         elevation="0"
         height="40"
@@ -26,7 +29,10 @@
       </v-btn>
       <v-btn
         outlined
-        class="rounded-xl d-flex justify-center f-14 font-weight-bold"
+        :class="[
+          'rounded-xl d-flex justify-center ',
+          isMobile ? 'mt-4 f-20 font-weight-light' : 'f-14 font-weight-bold'
+        ]"
         color="#4C6D80"
         height="40"
         min-width="250"
