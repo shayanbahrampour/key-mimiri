@@ -7,6 +7,7 @@
         $vuetify.breakpoint.xl && 'rounded-xl'
       ]"
       max-height="80vh"
+      min-height="500"
       :max-width="globalMaxWidth"
       src="/images/temp/home_video_cover.png"
     >
@@ -15,7 +16,7 @@
         :max-height="isMobile ? 80 : 130"
         :max-width="isMobile ? 80 : 130"
         :width="isMobile ? 80 : 130"
-        :class="['ma-auto position-absolute top-0 bottom-0 end-0 start-0 z-1', { 'mb-8': isMobile }]"
+        class="ma-auto position-absolute top-0 bottom-0 end-0 start-0 z-1"
         contain
         src="/images/home/home_video_button.svg"
       />
@@ -26,7 +27,7 @@
       >
         <v-row align="center" dense>
           <v-col cols="12" lg="5" md="4">
-            <h3 :class="['font-weight-regular bel', isMobile ? 'f-40' : 'f-50']">Life at Cobel Group®</h3>
+            <h3 class="font-weight-regular bel f-50">Life at Cobel Group®</h3>
           </v-col>
 
           <template v-if="!isMobile">
