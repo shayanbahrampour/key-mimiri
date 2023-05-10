@@ -5,7 +5,7 @@
         <v-img :height="isMobile ? 250 : 470" :src="item.src" class="position-relative z-0" position="center center">
           <div
             v-if="items.length > 1"
-            :class="['position-absolute bottom-0 start-0 end-0 mx-auto px-8', isMobile ? 'mb-4' : 'mb-16 pb-10']"
+            :class="['position-absolute bottom-0 start-0 end-0 mx-auto', isMobile ? 'px-8 mb-4' : 'px-12 mb-16 pb-10']"
             :style="`max-width: ${globalMaxWidth}px`"
           >
             <v-icon v-for="(item, index) in items" :key="index" color="white" size="25">
@@ -17,11 +17,11 @@
     </v-carousel>
 
     <div class="position-relative z-1">
-      <div :class="['mx-auto', { 'pr-4': !isMobile }]" :style="`max-width: ${globalMaxWidth}px`">
+      <div :class="['mx-auto', !isMobile && `p${isRTL ? 'l' : 'r'}-4`]" :style="`max-width: ${globalMaxWidth}px`">
         <v-sheet
           :class="[
-            `px-8 m${isRTL ? 'l' : 'r'}-auto carousel-sheet`,
-            isMobile ? 'py-8' : `py-16 rounded-${isRTL ? 'l' : 'r'}-xl`
+            `m${isRTL ? 'l' : 'r'}-auto carousel-sheet`,
+            isMobile ? 'px-8 py-8' : `px-12 py-16 rounded-${isRTL ? 'l' : 'r'}-xl`
           ]"
           :max-width="globalMaxWidth * 0.9"
           :style="`${!isMobile && `margin-top: -78px`}`"
@@ -82,6 +82,13 @@ export default {
     height: 100%;
     width: 50vw;
     background-color: var(--v-slategrey-base);
+  }
+}
+
+.v-application--is-rtl {
+  .carousel-sheet:after {
+    right: 0;
+    left: auto !important;
   }
 }
 </style>

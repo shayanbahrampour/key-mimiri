@@ -3,8 +3,8 @@
     <v-sheet :max-width="globalMaxWidth" class="mx-auto">
       <h3
         :class="[
-          'px-8 font-weight-regular bel grey--text text--darken-2',
-          isMobile ? 'f-45 text-center d-block' : 'f-50'
+          'font-weight-regular bel grey--text text--darken-2',
+          isMobile ? 'px-8 f-45 text-center d-block' : 'px-12 f-50'
         ]"
       >
         Storytellers

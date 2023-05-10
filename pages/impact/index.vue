@@ -17,7 +17,7 @@
       ]"
     />
 
-    <v-sheet :class="['mx-auto px-8', isMobile ? 'mt-16' : 'my-16']" :max-width="globalMaxWidth">
+    <v-sheet :class="['mx-auto', isMobile ? 'px-8 mt-16' : 'px-12 my-16']" :max-width="globalMaxWidth">
       <h1 :class="['bel f-50 grey--text text--darken-2 font-weight-regular', { 'text-center': isMobile }]">
         Impact Story
       </h1>

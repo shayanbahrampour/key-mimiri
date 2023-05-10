@@ -65,7 +65,7 @@
       </p>
     </v-sheet>
 
-    <v-sheet :max-width="globalMaxWidth" class="mx-auto px-8 pt-16 mt-sm-16">
+    <v-sheet :max-width="globalMaxWidth" :class="['mx-auto pt-16 mt-sm-16', isMobile ? 'px-8' : 'px-12']">
       <h2
         :class="['bel grey--text text--darken-2 text-center font-weight-regular d-block', isMobile ? 'f-40' : 'f-50']"
       >
@@ -74,13 +74,13 @@
     </v-sheet>
 
     <v-img
-      :class="['mt-10 mx-auto', { 'px-8': !isMobile }]"
+      :class="['mt-10 mx-auto', { 'px-12': !isMobile }]"
       :max-width="globalMaxWidth"
       contain
       src="/images/video_content/physical.png"
     />
 
-    <v-sheet :max-width="globalMaxWidth" class="mx-auto px-8">
+    <v-sheet :max-width="globalMaxWidth" :class="['mx-auto', isMobile ? 'px-8' : 'px-12']">
       <v-row class="my-sm-16 pt-16">
         <v-col lg="8">
           <h3 class="f-45 font-weight-regular bel cyan--text mb-4 text-center text-sm-start">

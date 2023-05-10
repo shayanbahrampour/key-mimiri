@@ -3,7 +3,7 @@
     <v-img
       :class="[
         'position-relative d-flex justify-center z-0 mx-auto',
-        isMobile ? 'text-center align-start py-8' : 'align-end py-16 px-8',
+        isMobile ? 'text-center align-start py-8' : 'align-end py-16',
         $vuetify.breakpoint.xl && 'rounded-xl'
       ]"
       max-height="80vh"
@@ -21,7 +21,7 @@
       />
       <v-sheet
         :max-width="globalMaxWidth"
-        class="px-8 position-relative z-1 mx-auto white--text w-full"
+        :class="['position-relative z-1 mx-auto white--text w-full', isMobile ? 'px-8' : 'px-12']"
         color="transparent"
       >
         <v-row align="center" dense>
