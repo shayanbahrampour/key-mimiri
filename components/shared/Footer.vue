@@ -23,7 +23,7 @@
 
         <v-row v-if="!isMobile" class="mt-16">
           <v-col v-for="(item, index) in items" :key="index" cols="12" lg="3" md="6">
-            <h4 class="mb-3 f-15">{{ item.title }}</h4>
+            <h4 class="mb-3 f-15 text-uppercase">{{ item.title }}</h4>
 
             <div class="d-flex flex-column align-start">
               <v-btn
@@ -91,7 +91,7 @@ export default {
           ]
         },
         {
-          title: 'Life & careers',
+          title: 'Life & Careers',
           children: [
             { title: 'Life at Cobel Group', to: '#' },
             { title: 'Careers', to: '#' },
@@ -107,7 +107,7 @@ export default {
           ]
         },
         {
-          title: 'Talk to us',
+          title: 'Talk to Us',
           children: [
             { title: 'support@ercom.com', href: 'mailto:support@ercom.com' },
             { title: '+66 2399 1145', href: 'tel:+66 2399 1145' },

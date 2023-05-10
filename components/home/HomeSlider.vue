@@ -2,7 +2,7 @@
   <v-sheet
     :class="['position-relative mx-auto', { 'pb-16': isMobile }]"
     color="transparent"
-    height="calc(100vh - 120px - 30px)"
+    :height="isMobile ? 'calc(100vh - 90px)' : 'calc(100vh - 120px - 30px)'"
     min-height="650"
   >
     <v-img
