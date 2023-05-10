@@ -31,7 +31,7 @@
             style="mix-blend-mode: color"
           />
           <div
-            :class="['mx-auto white--text position-relative z-1 px-8', isMobile ? 'py-4' : 'py-16']"
+            :class="['mx-auto white--text position-relative z-1', isMobile ? 'py-4 px-8' : 'py-16 px-12']"
             :style="`max-width: ${globalMaxWidth}px`"
           >
             <h3
@@ -101,7 +101,7 @@
           :key="index"
           :color="item.color"
           :height="active === index ? ballActiveSize : ballSize"
-          :style="`right:${item.position[0]};bottom:${item.position[1]};`"
+          :style="`${isRTL ? 'left' : 'right'}:${item.position[0]};bottom:${item.position[1]};`"
           :width="active === index ? ballActiveSize : ballSize"
           class="shapes rounded-circle"
           @click="active = index"

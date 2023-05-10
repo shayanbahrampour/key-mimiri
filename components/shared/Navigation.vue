@@ -11,7 +11,7 @@
       tile
     >
       <v-sheet
-        :class="['mx-auto d-flex align-center h-full w-full', { 'px-8': !isMobile }]"
+        :class="['mx-auto d-flex align-center h-full w-full', { 'px-6': !isMobile }]"
         :max-width="globalMaxWidth"
         color="transparent"
       >
@@ -57,8 +57,8 @@
 
         <v-icon v-if="isMobile" @click="flag.showDrawer = !flag.showDrawer">mdi-menu</v-icon>
 
-        <!--<v-btn v-if="$i18n.locale === 'en'" :to="switchLocalePath('fa')" class="mx-1" color="primary" icon> Fa</v-btn>-->
-        <!--<v-btn v-else :to="switchLocalePath('en')" class="mx-1" color="primary" icon>En</v-btn>-->
+        <!--        <v-btn v-if="$i18n.locale === 'en'" :to="switchLocalePath('fa')" class="mx-1" color="primary" icon> Fa</v-btn>-->
+        <!--        <v-btn v-else :to="switchLocalePath('en')" class="mx-1" color="primary" icon>En</v-btn>-->
       </v-sheet>
     </v-app-bar>
 

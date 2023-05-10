@@ -1,7 +1,11 @@
 <template>
   <div>
     <v-footer :class="[isMobile ? 'pt-10' : 'py-16']" color="slategrey">
-      <v-sheet :max-width="globalMaxWidth" class="mx-auto px-8 w-full white--text" color="transparent">
+      <v-sheet
+        :max-width="globalMaxWidth"
+        :class="['mx-auto w-full white--text', isMobile ? 'px-4' : 'px-6']"
+        color="transparent"
+      >
         <div class="d-flex justify-center align-center flex-sm-row flex-column my-4">
           <v-img
             v-if="isMobile"
@@ -46,7 +50,11 @@
     <v-sheet v-if="!isMobile" class="custom-gradient w-full" height="5" />
 
     <v-sheet :color="isMobile ? 'slategrey' : 'rgba(76, 109, 128, 1)'" class="white--text text-center">
-      <v-sheet :max-width="globalMaxWidth" class="mx-auto px-8 py-8 w-full white--text" color="transparent">
+      <v-sheet
+        :max-width="globalMaxWidth"
+        :class="['mx-auto py-8 w-full white--text', isMobile ? 'px-4' : 'px-12']"
+        color="transparent"
+      >
         <div class="d-flex justify-center">
           <template v-if="!isMobile">
             <v-img alt="cobel" contain height="65" max-width="200" src="/images/logo-text-white.svg" />

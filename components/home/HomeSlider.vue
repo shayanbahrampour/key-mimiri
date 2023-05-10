@@ -9,14 +9,14 @@
       :height="isMobile ? 400 : 650"
       :style="`${isMobile ? 'top:-250px' : `${isRTL ? 'left' : 'right'}:-450px;bottom:0;top:0;`};`"
       :width="isMobile ? 400 : 650"
-      class="position-absolute end-0 my-auto z-0 rounded-circle"
-      position="center right"
+      class="position-absolute my-auto z-0 rounded-circle"
+      :position="isRTL ? 'center left' : 'center right'"
       src="/images/temp/home.png"
     />
 
     <v-sheet
       :max-width="globalMaxWidth"
-      class="position-relative px-8 z-1 mx-auto d-flex align-center"
+      :class="['position-relative z-1 mx-auto d-flex align-center', isMobile ? 'px-12' : 'px-8']"
       color="transparent"
       height="100%"
     >
