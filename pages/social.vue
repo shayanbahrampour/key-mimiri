@@ -6,30 +6,41 @@
     <p class="bel mt-6 f-20 white--text text--darken-3">
       Enjoyment of social interaction, sharing experiences, sense of belonging to a group, promoting participation
     </p>
-    <v-img class="mt-16" contain src="/images/video_content/social.png" />
-    <div :class="[isMobile ? 'text-start px-6' : 'text-center ma-16']">
-      <h4 class="bel mt-16 f-40 white--text text--darken-3 font-weight-regular">
-        32 Million people in need of 2 Billion doses of iron supplement; less than 800 Million doses is consumed
-      </h4>
-      <p class="bel mt-6 f-20 white--text text--darken-3">
-        WHO advises that all women in their reproductive ages, whether having Iron deficiency or not, are required to
-        consume 60 mg of iron supplements per week. This amount should be higher in pregnant women and any deficiencies
-        will not only affect themselves, but it also affects their fetus. In addition, Iranian men and menopaused women
-        have a 2 prevalence of Anemia and are also require to manage the disease accordingly (3).
-      </p>
-    </div>
-    <div v-if="isMobile" class="w-full d-flex flex-column align-center px-6 mb-16">
-      <h1 class="bel f-40 mt-16 white--text text--darken-3 font-weight-regularl">Tell us your exprience</h1>
-      <v-btn
-        class="rounded-xl d-flex justify-center white--text f-20 mt-4"
-        outlined
-        color="white"
-        height="50"
-        elevation="0"
-        min-width="100%"
+    <v-sheet v-if="!isMobile" class="custom-gradient w-full mt-16" height="10" />
+
+    <v-img :class="[!isMobile ? 'mt-0' : 'mt-16']" contain src="/images/video_content/social.png" />
+    <div :class="[isMobile ? 'text-start px-6 h-full psy-screen d-flex flex-column' : 'text-center ma-16 px-16']">
+      <div class="d-flex relative-container-social">
+        <p :class="['mt-6 f-20 white--text text--darken-3 font-weight-light', isMobile ? 'text-center' : undefined]">
+          Social health is an important aspect of overall health‐related quality of life, along with physical and
+          psychological wellness. Social health refers to the ability to maintain positive relationships and
+          interactions with others, including a sense of belonging within a community or group. Humans are social
+          creatures, and social well‐being is critical for happiness and fulfillment. Enjoyment of social interaction,
+          sharing experiences with others, and promoting participation in group activities can bring joy to one's life
+          and promote a sense of connectivity. Social health is evaluated in categories such as social support, social
+          capital, and social networks.
+        </p>
+        <div v-if="!isMobile" class="right-circle"></div>
+        <div v-else class="right-circle-mobile"></div>
+      </div>
+      <v-divider :class="[isMobile ? 'mt-6' : 'mt-16']" style="background-color: #f3911f"></v-divider>
+      <h4
+        :class="['bel my-8 f-40 text--darken-3 font-weight-regular', isMobile ? 'text-center' : undefined]"
+        style="color: #f3911f"
       >
-        Click here
-      </v-btn>
+        Corporate social responsibilities can promote social health by providing supportive work environments,
+        facilitating community service opportunities, and encouraging team‐building activities.
+      </h4>
+      <div v-if="!isMobile" class="left-circle"></div>
+      <div v-else class="left-circle-mobile"></div>
+      <v-divider :class="[isMobile ? 'mb-6' : 'mb-16']" style="background-color: #f3911f"></v-divider>
+      <p :class="['mt-6 f-20 white--text text--darken-3 font-weight-light', isMobile ? 'text-center mb-6' : undefined]">
+        When individuals are socially healthy, they are less lonely, less stressed, and committed to their communities,
+        which can have a positive impact on overall health and well‐being. Therefore, it is important to prioritize
+        social health and engage in activities that support positive social interaction in order to enhance health and
+        quality of life.
+      </p>
+      <v-spacer></v-spacer>
     </div>
   </div>
 </template>
@@ -44,4 +55,77 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+.custom-gradient {
+  background-image: -webkit-linear-gradient(
+    90deg,
+    rgba(243, 145, 31, 1) 8%,
+    rgba(160, 30, 100, 1) 51%,
+    rgba(0, 165, 155, 1) 100%
+  );
+  background-image: -moz-linear-gradient(
+    90deg,
+    rgba(243, 145, 31, 1) 8%,
+    rgba(160, 30, 100, 1) 51%,
+    rgba(0, 165, 155, 1) 100%
+  );
+  background-image: -o-linear-gradient(
+    90deg,
+    rgba(243, 145, 31, 1) 8%,
+    rgba(160, 30, 100, 1) 51%,
+    rgba(0, 165, 155, 1) 100%
+  );
+  background-image: linear-gradient(
+    90deg,
+    rgba(243, 145, 31, 1) 8%,
+    rgba(160, 30, 100, 1) 51%,
+    rgba(0, 165, 155, 1) 100%
+  );
+}
+.right-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #f3911f;
+  position: absolute;
+  right: -130px;
+  top: 50%;
+  transform: translate(50%, -50%);
+}
+
+.relative-container-social {
+  position: relative;
+}
+
+.left-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #00a59b;
+  position: absolute;
+  left: -100px;
+  top: 60%;
+  transform: translate(50%, -50%);
+}
+
+.right-circle-mobile {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #f3911f;
+  position: absolute;
+  right: -60px;
+  top: 150px;
+  transform: translate(50%, -50%);
+}
+.left-circle-mobile {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #00a59b;
+  position: absolute;
+  left: -140px;
+  top: 1650px;
+  transform: translate(50%, -50%);
+}
+</style>

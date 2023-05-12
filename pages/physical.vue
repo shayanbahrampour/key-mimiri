@@ -7,29 +7,37 @@
       Enjoyment of social interaction, sharing experiences, sense of belonging to a group, promoting participation
     </p>
     <v-img class="mt-16" contain src="/images/video_content/physical.png" />
-    <div :class="[isMobile ? 'text-start px-6' : 'text-center ma-16']">
-      <h4 class="bel mt-16 f-40 white--text text--darken-3 font-weight-regular">
-        32 Million people in need of 2 Billion doses of iron supplement; less than 800 Million doses is consumed
-      </h4>
-      <p class="bel mt-6 f-20 white--text text--darken-3">
-        WHO advises that all women in their reproductive ages, whether having Iron deficiency or not, are required to
-        consume 60 mg of iron supplements per week. This amount should be higher in pregnant women and any deficiencies
-        will not only affect themselves, but it also affects their fetus. In addition, Iranian men and menopaused women
-        have a 2 prevalence of Anemia and are also require to manage the disease accordingly (3).
-      </p>
-    </div>
-    <div v-if="isMobile" class="w-full d-flex flex-column align-center px-6 mb-16">
-      <h1 class="bel f-40 mt-16 white--text text--darken-3 font-weight-regularl">Tell us your exprience</h1>
-      <v-btn
-        class="rounded-xl d-flex justify-center white--text f-20 mt-4"
-        outlined
-        color="white"
-        height="50"
-        elevation="0"
-        min-width="100%"
+    <div :class="[isMobile ? 'text-start px-6 h-full psy-screen d-flex flex-column' : 'text-center ma-16 px-16']">
+      <div class="d-flex relative-container-phy">
+        <p :class="['mt-6 f-20 white--text text--darken-3 font-weight-light', isMobile ? 'text-center' : undefined]">
+          Physical health is one of the three main components of health‐related quality of life, alongside psychological
+          and social health. It is crucial to maintain good physical health to ensure one's overall well‐ being and
+          longevity. Maintaining a physical health, as a perceived improvement in balance, strength, flexibility,
+          endurance and functional activities, requires regular exercise, keeping a balanced diet, getting enough sleep,
+          and avoiding harmful habits such as smoking. Additionally, it is important to manage physical health issues
+          with proper healthcare solutions and high‐quality treatment strategies. With advancements in technology and
+          medicine, innovative healthcare solutions have been developed to help individuals manage their physical health
+          issues.
+        </p>
+        <div v-if="!isMobile" class="right-circle"></div>
+        <div v-else class="right-circle-mobile"></div>
+      </div>
+      <v-divider :class="[isMobile ? 'mt-6' : 'mt-16']" style="background-color: #a01e64"></v-divider>
+      <h4
+        :class="['bel my-8 f-40 text--darken-3 font-weight-regular', isMobile ? 'text-center' : undefined]"
+        style="color: #a01e64"
       >
-        Click here
-      </v-btn>
+        Ensuring good physical health not only improves one's life expectancy but also contributes to a better quality
+        of life, as it allows individuals to be physically active and self‐sufficient, promoting independence and
+        overall happiness.
+      </h4>
+      <div v-if="!isMobile" class="left-circle"></div>
+      <div v-else class="left-circle-mobile"></div>
+      <v-spacer></v-spacer>
+      <div v-if="isMobile" class="d-flex justify-space-between">
+        <div class="right-circle mb-16"></div>
+        <div class="left-circle-mobile mb-16"></div>
+      </div>
     </div>
   </div>
 </template>
@@ -44,4 +52,51 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+.right-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #a01e64;
+  position: absolute;
+  right: -130px;
+  top: 50%;
+  transform: translate(50%, -50%);
+}
+
+.relative-container-phy {
+  position: relative;
+}
+
+.left-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #f3911f;
+  position: absolute;
+  left: -100px;
+  top: 64%;
+  transform: translate(50%, -50%);
+}
+
+.right-circle-mobile {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #a01e64;
+  position: absolute;
+  right: -60px;
+  top: 150px;
+  transform: translate(50%, -50%);
+}
+.left-circle-mobile {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #f3911f;
+  position: absolute;
+  left: -140px;
+  top: 1400px;
+  transform: translate(50%, -50%);
+}
+</style>
