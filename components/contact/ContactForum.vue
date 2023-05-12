@@ -2,13 +2,49 @@
   <v-form v-model="valid" class="mt-4 mb-16">
     <v-row class="align-start justify-center">
       <v-col cols="12" md="6">
-        <v-text-field label="Management" filled rounded dense></v-text-field>
-        <v-text-field label="Topic" filled rounded dense></v-text-field>
-        <v-text-field label="Full Name" filled rounded dense></v-text-field>
-        <v-text-field label="Email Address" filled rounded dense></v-text-field>
+        <v-text-field
+          :class="['mb-4', isMobile ? 'contact-background' : undefined]"
+          label="Full Name"
+          filled
+          rounded
+          dense
+          hide-details
+        ></v-text-field>
+        <v-text-field
+          :class="['mb-4', isMobile ? 'contact-background' : undefined]"
+          label="Email Address"
+          filled
+          rounded
+          dense
+          hide-details
+        ></v-text-field>
+        <v-text-field
+          :class="['mb-4', isMobile ? 'contact-background' : undefined]"
+          label="Mobile"
+          filled
+          rounded
+          dense
+          hide-details
+        ></v-text-field>
+        <v-text-field
+          :class="['mb-4', isMobile ? 'contact-background' : undefined]"
+          label="Topic"
+          filled
+          rounded
+          dense
+          hide-details
+        ></v-text-field>
       </v-col>
       <v-col cols="12" md="6">
-        <v-textarea label="Descriptions" filled rounded dense height="280"></v-textarea>
+        <v-textarea
+          :class="['mb-4', isMobile ? 'contact-background' : undefined]"
+          label="Descriptions"
+          filled
+          rounded
+          dense
+          height="280"
+          hide-details
+        ></v-textarea>
       </v-col>
     </v-row>
     <v-radio-group v-model="radioGroup" class="mt-0 pt-0">
@@ -22,7 +58,7 @@
         ]"
         color="#4C6D80"
         elevation="0"
-        height="40"
+        height="36"
         min-width="250"
       >
         Send Form
@@ -34,7 +70,7 @@
           isMobile ? 'mt-4 f-20 font-weight-light' : 'f-14 font-weight-bold'
         ]"
         color="#4C6D80"
-        height="40"
+        height="36"
         min-width="250"
       >
         Clear
@@ -53,4 +89,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style>
+.contact-background {
+  background-color: #d9d9d9;
+}
+</style>

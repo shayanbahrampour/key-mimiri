@@ -5,6 +5,7 @@
       :key="index"
       :ripple="false"
       active-class="black--text"
+      style="text-transform: unset !important"
       class="bel f-20 bg-transparent text-capitalize"
     >
       {{ item.title }}
