@@ -1,9 +1,9 @@
 <template>
   <div class="d-flex flex-column" style="background-color: #66869a">
-    <div :class="['d-flex px-16 justify-space-between', isMobile ? 'mt-16' : 'my-16']">
+    <div :class="['d-flex', isMobile ? 'mt-16 px-4 justify-center' : 'my-16 px-16 justify-space-between']">
       <div class="d-flex">
         <div
-          :class="['d-flex flex-column justify-center ml-4', isMobile ? 'align-center' : 'align-start']"
+          :class="['d-flex flex-column justify-center', isMobile ? 'align-center' : 'align-start ml-4']"
           style="max-width: 70vw"
         >
           <p
@@ -15,6 +15,22 @@
             People and Careers
           </p>
           <p
+            v-if="isMobile"
+            class="font-weight-light mt-10 f-20 mb-0 text-center white--text"
+            style="max-width: 500px; line-height: 2"
+          >
+            In Cobel Group, acknowledge importance of woman empowerment and inspiration to all.
+          </p>
+          <v-btn
+            v-if="isMobile"
+            text
+            class="f-18 white--text ma-0 pa-0 font-weight-bold"
+            style="text-transform: unset !important"
+          >
+            <p>see more</p>
+          </v-btn>
+          <p
+            v-if="!isMobile"
             :class="[
               'white--text mb-0 text--darken-3 font-weight-light',
               isMobile ? 'mt-4 text-center  f-18' : 'f-20 mt-16'
@@ -47,10 +63,10 @@
             <v-img src="/images/icons/linkedin.png" max-width="20" height="20" />
           </v-btn>
           <v-btn class="mr-4" outlined color="white" height="50" min-width="50" style="border-radius: 30%">
-            <v-img src="/images/icons/linkedin.png" max-width="20" height="20" />
+            <v-img src="/images/icons/whatsapp.png" max-width="20" height="20" />
           </v-btn>
           <v-btn outlined color="white" height="50" min-width="50" style="border-radius: 30%">
-            <v-img src="/images/icons/linkedin.png" max-width="20" height="20" />
+            <v-img src="/images/icons/telegram.png" max-width="20" height="20" />
           </v-btn>
         </div>
       </div>

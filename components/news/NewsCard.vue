@@ -1,11 +1,17 @@
 <template>
   <div class="mb-10">
     <div v-if="isMobile" class="d-flex justify-center">
-      <h4 class="bel f-40 text--darken-3 font-weight-regular" style="color: #59595b">More important</h4>
+      <h4 class="bel f-40 text--darken-3 font-weight-regular" style="color: #59595b">{{ title }}</h4>
     </div>
 
     <div v-for="i in 4" :key="i" class="d-flex justify-center mb-8">
-      <div v-if="!isMobile" class="d-flex rounded-lg" style="border: 1px solid #59595b; overflow: hidden">
+      <v-card
+        v-if="!isMobile"
+        class="d-flex rounded-lg overflow-hidden"
+        style="border: 1px solid #59595b; overflow: hidden"
+        elevation="0"
+        to="/education/1234"
+      >
         <div class="d-flex">
           <v-img src="/images/news/face.png" width="240" height="100%" />
         </div>
@@ -24,8 +30,8 @@
             <p class="f-12 mb-0" style="color: #59595b">Published 3 month ago</p>
           </div>
         </div>
-      </div>
-      <div v-else class="d-flex mt-6">
+      </v-card>
+      <v-card v-else class="d-flex mt-6 overflow-hidden" elevation="0" to="/education/1234">
         <v-card
           :class="['d-flex flex-column rounded-lg align-start']"
           height="550"
@@ -48,13 +54,20 @@
             </div>
           </div>
         </v-card>
-      </div>
+      </v-card>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    title: {
+      type: String,
+      default: ''
+    }
+  }
+};
 </script>
 
 <style lang="scss"></style>

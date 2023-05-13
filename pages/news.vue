@@ -63,7 +63,7 @@
       <NewsCategory v-if="!isMobile" :tabs="tabs" title="More important" class="mb-16" />
       <NewsCard />
     </v-sheet>
-    <NewsCard v-else class="mt-16" />
+    <NewsCard title="More important" v-else class="mt-16" />
   </div>
 </template>
 
