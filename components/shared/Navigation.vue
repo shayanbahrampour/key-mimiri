@@ -92,7 +92,7 @@ export default {
       return [
         { value: 'menu.point_of_view', path: '#' },
         { value: 'menu.impact_stories', path: '/impact' },
-        { value: 'menu.education', path: '#' },
+        { value: 'menu.education', path: '/education' },
         { value: 'menu.people_careers', path: '/career' },
         { value: 'menu.press_center', path: '/news' }
       ];

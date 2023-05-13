@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex align-center">
-    <h1 class="bel f-50 grey--text text--darken-2 font-weight-regular">More important</h1>
+    <h1 class="bel f-50 grey--text text--darken-2 font-weight-regular">{{ title }}</h1>
 
     <v-divider vertical style="min-height: 25px" class="mx-8" color="#00a59b" />
 
@@ -15,16 +15,15 @@ import CustomTabs from '~/components/shared/CustomTabs.vue';
 
 export default {
   components: { CustomTabs },
-  data() {
-    return {
-      tabs: [
-        { title: 'All', value: '' },
-        { title: 'Best talent', value: '' },
-        { title: 'Long-term value creation', value: '' },
-        { title: 'Social responsibility', value: '' },
-        { title: 'Localized know-how', value: '' }
-      ]
-    };
+  props: {
+    tabs: {
+      type: Array,
+      default: () => []
+    },
+    title: {
+      type: String,
+      default: ''
+    }
   }
 };
 </script>
