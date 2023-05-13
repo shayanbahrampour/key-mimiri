@@ -60,10 +60,10 @@
     </div>
 
     <v-sheet v-if="!isMobile" :max-width="globalMaxWidth" class="mx-auto px-16 my-16">
-      <NewsCategory v-if="!isMobile" class="mb-16" />
+      <NewsCategory v-if="!isMobile" :tabs="tabs" title="More important" class="mb-16" />
       <NewsCard />
     </v-sheet>
-    <NewsCard v-else class="mt-16" />
+    <NewsCard title="More important" v-else class="mt-16" />
   </div>
 </template>
 
@@ -71,12 +71,23 @@
 import NewsCategory from '~/components/news/NewsCategory';
 import NewsCard from '~/components/news/NewsCard';
 export default {
+  components: { NewsCategory, NewsCard },
   head() {
     return {
       title: this.$t('pageTitles.press')
     };
   },
-  components: { NewsCategory, NewsCard }
+  data() {
+    return {
+      tabs: [
+        { title: 'All', value: '' },
+        { title: 'Best talent', value: '' },
+        { title: 'Long-term value creation', value: '' },
+        { title: 'Social responsibility', value: '' },
+        { title: 'Localized know-how', value: '' }
+      ]
+    };
+  }
 };
 </script>
 

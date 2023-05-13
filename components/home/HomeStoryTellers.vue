@@ -33,11 +33,11 @@
             }
           }"
         >
-          <swiper-slide v-for="(item, index) in items" :key="index">
+          <swiper-slide class="d-flex flex-column align-center" v-for="(item, index) in items" :key="index">
             <v-card class="overflow-hidden mt-2" flat style="border-radius: 80px">
-              <v-img :src="item.src" height="380" width="100%" />
+              <v-img :src="item.src" :height="small ? '300' : '380'" :width="small ? '250' : '100%'" />
             </v-card>
-            <div class="text-center bel f-30 py-4">
+            <div class="text-center bel f-20 py-4">
               {{ item.title }}
             </div>
           </swiper-slide>
@@ -49,6 +49,12 @@
 
 <script>
 export default {
+  props: {
+    small: {
+      type: Boolean,
+      default: false
+    }
+  },
   data() {
     return {
       items: [
