@@ -7,6 +7,7 @@ export default {
     press_center: 'Press Center'
   },
   pageTitles: {
+    index: 'Home Page',
     press: 'Press Center',
     impact_stories: 'Impact Stories'
   }

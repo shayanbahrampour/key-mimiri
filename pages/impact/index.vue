@@ -81,6 +81,11 @@ export default {
         }
       }
     };
+  },
+  head() {
+    return {
+      title: this.$t('pageTitles.impact_stories')
+    };
   }
 };
 </script>

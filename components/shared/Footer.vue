@@ -17,8 +17,12 @@
             src="/images/logo-text-white.svg"
           />
 
-          <v-btn class="f-18 ma-2 px-14" color="white" depressed exact large outlined rounded> CONTACT US</v-btn>
-          <v-btn class="f-18 ma-2 px-14" color="white" depressed exact large rounded> ABOUT US</v-btn>
+          <v-btn to="/contact" class="f-18 ma-2 px-14" color="white" depressed exact large outlined rounded>
+            CONTACT US
+          </v-btn>
+          <v-btn to="/storytellers" class="f-18 ma-2 px-14" color="white" depressed exact large rounded>
+            ABOUT US
+          </v-btn>
         </div>
 
         <v-row v-if="!isMobile" class="mt-16">

@@ -18,7 +18,12 @@ import HomeStoryTellers from '~/components/home/HomeStoryTellers.vue';
 import HomeServices from '~/components/home/HomeServices.vue';
 
 export default {
-  components: { HomeServices, HomeImpact, HomeStoryTellers, HomeTellUsStory, HomeVideo, HomeSlider }
+  components: { HomeServices, HomeImpact, HomeStoryTellers, HomeTellUsStory, HomeVideo, HomeSlider },
+  head() {
+    return {
+      title: this.$t('pageTitles.index')
+    };
+  }
 };
 </script>
 
