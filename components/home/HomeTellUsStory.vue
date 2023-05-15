@@ -1,5 +1,5 @@
 <template>
-  <v-sheet :max-width="globalMaxWidth" :class="['mx-auto grey--text text--darken-2', isMobile ? 'px-8' : 'px-12']">
+  <v-sheet :class="['mx-auto grey--text text--darken-2', isMobile ? 'px-8' : 'px-12']" :max-width="globalMaxWidth">
     <div class="d-flex flex-column align-center justify-center mt-16 pt-16">
       <h3 class="bel f-55 grey--text text--darken-2 font-weight-regular text-center d-block">Tell Us Your Story</h3>
       <v-btn class="f-18 mt-4 px-14" color="primary" depressed exact large rounded> Click Here</v-btn>

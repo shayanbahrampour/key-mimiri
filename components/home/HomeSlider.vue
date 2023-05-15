@@ -1,22 +1,22 @@
 <template>
   <v-sheet
     :class="['position-relative mx-auto', { 'pb-16': isMobile }]"
-    color="transparent"
     :height="isMobile ? 'calc(100vh - 90px)' : 'calc(100vh - 120px - 30px)'"
+    color="transparent"
     min-height="650"
   >
     <v-img
       :height="isMobile ? 400 : 650"
+      :position="isRTL ? 'center left' : 'center right'"
       :style="`${isMobile ? 'top:-250px' : `${isRTL ? 'left' : 'right'}:-450px;bottom:0;top:0;`};`"
       :width="isMobile ? 400 : 650"
       class="position-absolute my-auto z-0 rounded-circle"
-      :position="isRTL ? 'center left' : 'center right'"
       src="/images/temp/home.png"
     />
 
     <v-sheet
-      :max-width="globalMaxWidth"
       :class="['position-relative z-1 mx-auto d-flex align-center', isMobile ? 'px-12' : 'px-8']"
+      :max-width="globalMaxWidth"
       color="transparent"
       height="100%"
     >

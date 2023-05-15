@@ -8,12 +8,12 @@
       <v-card
         v-if="!isMobile"
         class="d-flex rounded-lg overflow-hidden"
-        style="border: 1px solid #59595b; overflow: hidden"
         elevation="0"
+        style="border: 1px solid #59595b; overflow: hidden"
         to="/education/1234"
       >
         <div class="d-flex">
-          <v-img src="/images/news/face.png" width="240" height="100%" />
+          <v-img height="100%" src="/images/news/face.png" width="240" />
         </div>
         <div class="d-flex flex-column py-3 ml-16 align-start">
           <h4 class="bel f-40 text--darken-3 font-weight-regular mb-auto" style="color: #59595b">
@@ -34,12 +34,12 @@
       <v-card v-else class="d-flex mt-6 overflow-hidden" elevation="0" to="/education/1234">
         <v-card
           :class="['d-flex flex-column rounded-lg align-start']"
-          height="550"
-          width="80vw"
           elevation="0"
+          height="550"
           style="border: 1px solid #66869a; overflow: hidden"
+          width="80vw"
         >
-          <v-img src="/images/news/face.png" max-height="250" />
+          <v-img max-height="250" src="/images/news/face.png" />
           <div class="d-flex flex-column py-6 mx-6" style="height: 100%">
             <h4 class="bel f-28 text--darken-3 font-weight-regular mb-auto mt-4" style="color: #59595b">
               Rise from the society return to the society

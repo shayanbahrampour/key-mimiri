@@ -33,9 +33,9 @@
             }
           }"
         >
-          <swiper-slide class="d-flex flex-column align-center" v-for="(item, index) in items" :key="index">
+          <swiper-slide v-for="(item, index) in items" :key="index" class="d-flex flex-column align-center">
             <v-card class="overflow-hidden mt-2" flat style="border-radius: 80px">
-              <v-img :src="item.src" :height="small ? '300' : '380'" :width="small ? '250' : '100%'" />
+              <v-img :height="small ? '300' : '380'" :src="item.src" :width="small ? '250' : '100%'" />
             </v-card>
             <div class="text-center bel f-20 py-4">
               {{ item.title }}

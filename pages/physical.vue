@@ -89,6 +89,7 @@ export default {
   top: 150px;
   transform: translate(50%, -50%);
 }
+
 .left-circle-mobile {
   width: 100px;
   height: 100px;

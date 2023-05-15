@@ -8,9 +8,9 @@
     >
       <div :class="['d-flex', isMobile ? 'flex-column align-center' : undefined]">
         <v-img
-          src="/images/face/masoume.png"
-          :max-width="isMobile ? '120' : '90'"
           :height="isMobile ? '120' : '90'"
+          :max-width="isMobile ? '120' : '90'"
+          src="/images/face/masoume.png"
           style="border-radius: 50%"
         />
         <div class="d-flex flex-column justify-center ml-4">
@@ -33,14 +33,14 @@
         </div>
       </div>
       <div :class="[isMobile ? 'mt-6' : undefined]">
-        <v-btn outlined color="white" height="50" min-width="50" style="border-radius: 30%">
-          <v-img src="/images/icons/linkedin.png" max-width="20" height="20" />
+        <v-btn color="white" height="50" min-width="50" outlined style="border-radius: 30%">
+          <v-img height="20" max-width="20" src="/images/icons/linkedin.png" />
         </v-btn>
-        <v-btn outlined class="ml-4" color="white" height="50" min-width="50" style="border-radius: 30%">
-          <v-img src="/images/icons/whatsapp.png" max-width="20" height="20" />
+        <v-btn class="ml-4" color="white" height="50" min-width="50" outlined style="border-radius: 30%">
+          <v-img height="20" max-width="20" src="/images/icons/whatsapp.png" />
         </v-btn>
-        <v-btn outlined class="ml-4" color="white" height="50" min-width="50" style="border-radius: 30%">
-          <v-img src="/images/icons/telegram.png" max-width="20" height="20" />
+        <v-btn class="ml-4" color="white" height="50" min-width="50" outlined style="border-radius: 30%">
+          <v-img height="20" max-width="20" src="/images/icons/telegram.png" />
         </v-btn>
       </div>
     </div>
@@ -71,9 +71,9 @@
       <div :class="['d-flex mt-16', isMobile ? 'flex-column align-center' : 'justify-space-between']">
         <div :class="['d-flex', isMobile ? 'flex-column align-center' : undefined]">
           <v-img
-            src="/images/face/bahador.png"
-            :max-width="isMobile ? '120' : '90'"
             :height="isMobile ? '120' : '90'"
+            :max-width="isMobile ? '120' : '90'"
+            src="/images/face/bahador.png"
             style="border-radius: 50%"
           />
           <div class="d-flex flex-column justify-center ml-4">
@@ -91,7 +91,7 @@
             <v-divider v-if="isMobile" class="my-4" style="background-color: #00a59b"></v-divider>
           </div>
         </div>
-        <v-divider vertical color="#00a59b"></v-divider>
+        <v-divider color="#00a59b" vertical></v-divider>
         <p v-if="!isMobile" class="bel f-20 mb-0 text--darken-3" style="max-width: 60%; color: #939393">
           In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society and
           are committed to enhance their physical, psychological and social quality of life through high quality and
@@ -106,9 +106,9 @@
       <div :class="['d-flex my-16', isMobile ? 'flex-column' : 'justify-space-between']">
         <div :class="['d-flex', isMobile ? 'flex-column align-center' : undefined]">
           <v-img
-            src="/images/face/mohammad.png"
-            :max-width="isMobile ? '120' : '90'"
             :height="isMobile ? '120' : '90'"
+            :max-width="isMobile ? '120' : '90'"
+            src="/images/face/mohammad.png"
             style="border-radius: 50%"
           />
           <div class="d-flex flex-column justify-center ml-4">
@@ -126,7 +126,7 @@
             <v-divider v-if="isMobile" class="my-4" style="background-color: #00a59b"></v-divider>
           </div>
         </div>
-        <v-divider vertical color="#00a59b"></v-divider>
+        <v-divider color="#00a59b" vertical></v-divider>
         <p v-if="!isMobile" class="bel f-20 mb-0 text--darken-3" style="max-width: 60%; color: #939393">
           In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society and
           are committed to enhance their physical, psychological and social quality of life through high quality and

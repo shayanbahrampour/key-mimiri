@@ -11,13 +11,13 @@
           <v-btn
             class="rounded-xl d-flex justify-center white--text f-14"
             color="#66869A"
-            height="30"
             elevation="0"
+            height="30"
             min-width="180"
           >
             Apply Now
           </v-btn>
-          <v-img class="mr-16" contain src="/images/logo.png" max-height="30" />
+          <v-img class="mr-16" contain max-height="30" src="/images/logo.png" />
         </div>
       </v-col>
       <v-col style="max-width: 100px">
@@ -33,13 +33,13 @@
           <v-btn
             class="rounded-xl d-flex justify-center white--text f-14"
             color="#66869A"
-            height="30"
             elevation="0"
+            height="30"
             min-width="180"
           >
             Apply Now
           </v-btn>
-          <v-img class="mr-16" contain src="/images/logo.png" max-height="30" />
+          <v-img class="mr-16" contain max-height="30" src="/images/logo.png" />
         </div>
       </v-col>
     </v-row>
@@ -57,17 +57,17 @@
           <v-btn
             class="rounded-xl d-flex justify-center white--text f-14"
             color="#66869A"
-            height="30"
             elevation="0"
+            height="30"
             min-width="180"
           >
             Apply Now
           </v-btn>
-          <v-img class="mr-16" contain src="/images/logo.png" max-height="30" />
+          <v-img class="mr-16" contain max-height="30" src="/images/logo.png" />
         </div>
       </v-col>
       <v-col style="max-width: 100px">
-        <v-divider vertical style="margin-top: -70px; height: 300px"></v-divider>
+        <v-divider style="margin-top: -70px; height: 300px" vertical></v-divider>
       </v-col>
       <v-col>
         <h4 class="bel f-30 text--darken-3 font-weight-regular" style="color: #66869a">Senior project manager</h4>
@@ -79,13 +79,13 @@
           <v-btn
             class="rounded-xl d-flex justify-center white--text f-14"
             color="#66869A"
-            height="30"
             elevation="0"
+            height="30"
             min-width="180"
           >
             Apply Now
           </v-btn>
-          <v-img class="mr-16" contain src="/images/logo.png" max-height="30" />
+          <v-img class="mr-16" contain max-height="30" src="/images/logo.png" />
         </div>
       </v-col>
     </v-row>
@@ -99,12 +99,12 @@
         supplements per week.
       </p>
       <div class="d-flex flex-column align-start mt-6">
-        <v-img src="/images/logo.png" max-height="60" width="120" />
+        <v-img max-height="60" src="/images/logo.png" width="120" />
         <v-btn
           class="rounded-xl d-flex justify-center white--text f-20 mt-6"
           color="#66869A"
-          height="50"
           elevation="0"
+          height="50"
           min-width="100%"
         >
           Apply Now

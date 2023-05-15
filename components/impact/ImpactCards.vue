@@ -13,7 +13,7 @@
         flat
         tile
       >
-        <div class="f-35 bel" :style="`${item.descriptions && !isMobile && 'min-width: 320px'}; min-height: 160px`">
+        <div :style="`${item.descriptions && !isMobile && 'min-width: 320px'}; min-height: 160px`" class="f-35 bel">
           {{ item.title }}
         </div>
         <div

@@ -46,7 +46,7 @@
 export default {
   head() {
     return {
-      title: this.$t('pageTitles.psychological-health')
+      title: this.$t('pageTitles.psychological')
     };
   }
 };
@@ -116,6 +116,7 @@ export default {
   top: 150px;
   transform: translate(50%, -50%);
 }
+
 .left-circle-mobile {
   width: 100px;
   height: 100px;

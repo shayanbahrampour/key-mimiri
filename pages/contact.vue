@@ -1,7 +1,7 @@
 <template>
   <div>
     <div style="background-color: #66869a">
-      <v-sheet color="transparent" :max-width="globalMaxWidth" :class="['mx-auto py-10', isMobile ? 'px-8' : 'px-9']">
+      <v-sheet :class="['mx-auto py-10', isMobile ? 'px-8' : 'px-9']" :max-width="globalMaxWidth" color="transparent">
         <div class="d-flex justify-space-between">
           <div class="d-flex">
             <div class="d-flex flex-column justify-center" style="max-width: 380px">
@@ -24,36 +24,36 @@
             </div>
           </div>
           <div>
-            <v-btn v-if="!isMobile" outlined color="white" height="50" min-width="50" style="border-radius: 30%">
-              <v-img src="/images/icons/linkedin.png" max-width="20" height="20" />
+            <v-btn v-if="!isMobile" color="white" height="50" min-width="50" outlined style="border-radius: 30%">
+              <v-img height="20" max-width="20" src="/images/icons/linkedin.png" />
             </v-btn>
           </div>
         </div>
         <div v-if="isMobile" class="mt-8 d-flex justify-center">
-          <v-btn outlined color="white" height="50" min-width="50" style="border-radius: 30%">
-            <v-img src="/images/icons/linkedin.png" max-width="20" height="20" />
+          <v-btn color="white" height="50" min-width="50" outlined style="border-radius: 30%">
+            <v-img height="20" max-width="20" src="/images/icons/linkedin.png" />
           </v-btn>
-          <v-btn outlined class="ml-4" color="white" height="50" min-width="50" style="border-radius: 30%">
-            <v-img src="/images/icons/whatsapp.png" max-width="20" height="20" />
+          <v-btn class="ml-4" color="white" height="50" min-width="50" outlined style="border-radius: 30%">
+            <v-img height="20" max-width="20" src="/images/icons/whatsapp.png" />
           </v-btn>
-          <v-btn outlined class="ml-4" color="white" height="50" min-width="50" style="border-radius: 30%">
-            <v-img src="/images/icons/telegram.png" max-width="20" height="20" />
+          <v-btn class="ml-4" color="white" height="50" min-width="50" outlined style="border-radius: 30%">
+            <v-img height="20" max-width="20" src="/images/icons/telegram.png" />
           </v-btn>
         </div>
       </v-sheet>
     </div>
 
     <iframe
-      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3238.6849581305514!2d51.412408744507445!3d35.73396579999998!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8e014b7ff9ee1b%3A0xe809a37053a07c44!2sCobel%20Darou%202!5e0!3m2!1sen!2sca!4v1684156822378!5m2!1sen!2sca"
       :height="isMobile ? 200 : 450"
-      class="w-full"
-      style="border: 0"
       allowfullscreen=""
+      class="w-full"
       loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"
+      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3238.6849581305514!2d51.412408744507445!3d35.73396579999998!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8e014b7ff9ee1b%3A0xe809a37053a07c44!2sCobel%20Darou%202!5e0!3m2!1sen!2sca!4v1684156822378!5m2!1sen!2sca"
+      style="border: 0"
     />
 
-    <v-sheet :max-width="globalMaxWidth" :class="['mx-auto', isMobile ? 'px-8' : 'px-9']">
+    <v-sheet :class="['mx-auto', isMobile ? 'px-8' : 'px-9']" :max-width="globalMaxWidth">
       <h4
         :class="['bel mt-16 f-40 text--darken-3 font-weight-regular', { 'text-center': isMobile }]"
         style="color: #59595b"
@@ -72,7 +72,7 @@ export default {
   components: { ContactForm },
   head() {
     return {
-      title: this.$t('pageTitles.storytellers')
+      title: this.$t('pageTitles.contact')
     };
   }
 };

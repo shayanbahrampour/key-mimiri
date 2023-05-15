@@ -2,7 +2,7 @@
   <div class="d-flex align-center">
     <h1 class="bel f-50 grey--text text--darken-2 font-weight-regular">{{ title }}</h1>
 
-    <v-divider vertical style="min-height: 25px" class="mx-8" color="#00a59b" />
+    <v-divider class="mx-8" color="#00a59b" style="min-height: 25px" vertical />
 
     <div class="flex-grow-1">
       <CustomTabs :items="tabs" />

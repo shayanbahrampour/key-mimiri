@@ -2,8 +2,8 @@
   <div>
     <v-footer :class="[isMobile ? 'pt-10' : 'py-16']" color="slategrey">
       <v-sheet
-        :max-width="globalMaxWidth"
         :class="['mx-auto w-full white--text', isMobile ? 'px-4' : 'px-6']"
+        :max-width="globalMaxWidth"
         color="transparent"
       >
         <div class="d-flex justify-center align-center flex-sm-row flex-column my-4">
@@ -17,10 +17,10 @@
             src="/images/logo-text-white.svg"
           />
 
-          <v-btn to="/contact" class="f-18 ma-2 px-14" color="white" depressed exact large outlined rounded>
+          <v-btn class="f-18 ma-2 px-14" color="white" depressed exact large outlined rounded to="/contact">
             CONTACT US
           </v-btn>
-          <v-btn to="/storytellers" class="f-18 ma-2 px-14" color="white" depressed exact large rounded>
+          <v-btn class="f-18 ma-2 px-14" color="white" depressed exact large rounded to="/storytellers">
             ABOUT US
           </v-btn>
         </div>
@@ -55,8 +55,8 @@
 
     <v-sheet :color="isMobile ? 'slategrey' : 'rgba(76, 109, 128, 1)'" class="white--text text-center">
       <v-sheet
-        :max-width="globalMaxWidth"
         :class="['mx-auto py-8 w-full white--text', isMobile ? 'px-4' : 'px-12']"
+        :max-width="globalMaxWidth"
         color="transparent"
       >
         <div class="d-flex justify-center">
