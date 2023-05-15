@@ -1,7 +1,7 @@
 <template>
   <div>
     <div style="background-color: #66869a">
-      <v-sheet color="transparent" :max-width="globalMaxWidth" :class="['mx-auto py-10', isMobile ? 'px-12' : 'px-8']">
+      <v-sheet color="transparent" :max-width="globalMaxWidth" :class="['mx-auto py-10', isMobile ? 'px-8' : 'px-9']">
         <div class="d-flex justify-space-between">
           <div class="d-flex">
             <div class="d-flex flex-column justify-center" style="max-width: 380px">
@@ -53,7 +53,7 @@
       referrerpolicy="no-referrer-when-downgrade"
     />
 
-    <v-sheet :max-width="globalMaxWidth" :class="['mx-auto', isMobile ? 'px-8' : 'px-12']">
+    <v-sheet :max-width="globalMaxWidth" :class="['mx-auto', isMobile ? 'px-8' : 'px-9']">
       <h4
         :class="['bel mt-16 f-40 text--darken-3 font-weight-regular', { 'text-center': isMobile }]"
         style="color: #59595b"
