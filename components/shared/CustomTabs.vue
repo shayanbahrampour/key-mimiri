@@ -5,8 +5,8 @@
       :key="index"
       :ripple="false"
       active-class="black--text"
-      style="text-transform: unset !important"
       class="bel f-20 bg-transparent text-capitalize"
+      style="text-transform: unset !important"
     >
       {{ item.title }}
     </v-tab>

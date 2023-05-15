@@ -7,10 +7,10 @@
       <v-sheet
         v-if="activeItem"
         :color="activeItem.color"
-        class="position-absolute z-1 top-0 end-0 start-0 mx-auto rounded-circle"
         :height="isMobile ? 400 : 500"
-        style="mix-blend-mode: color; margin-top: -100px; opacity: 0.69"
         :width="isMobile ? 400 : 500"
+        class="position-absolute z-1 top-0 end-0 start-0 mx-auto rounded-circle"
+        style="mix-blend-mode: color; margin-top: -100px; opacity: 0.69"
       />
     </v-fade-transition>
 
@@ -53,10 +53,10 @@
       <svg
         v-if="!isMobile"
         class="position-absolute end-0 start-0 mx-auto"
-        viewBox="0 0 403 127"
         fill="none"
-        xmlns="http://www.w3.org/2000/svg"
         style="width: 400px; bottom: -1px"
+        viewBox="0 0 403 127"
+        xmlns="http://www.w3.org/2000/svg"
       >
         <path
           d="M68.3299 74.2707C88.7907 38.1636 123.727 12.5401 164.313 3.87321L167.08 3.28241C186.492 -0.862906 206.543 -1.03394 226.023 2.77962L239.386 5.39564C272.351 11.8491 301.24 31.5086 319.34 59.8056L339.908 91.9612C353.672 113.48 377.455 126.5 403 126.5V126.5H0V126.5C25.7035 123.992 48.5772 109.129 61.3095 86.6597L68.3299 74.2707Z"
@@ -95,7 +95,7 @@
         </v-scroll-y-transition>
       </div>
 
-      <div class="nuclear z-0" :style="`width: ${isMobile ? '100%' : '200px'}; height: ${isMobile ? '100%' : '200px'}`">
+      <div :style="`width: ${isMobile ? '100%' : '200px'}; height: ${isMobile ? '100%' : '200px'}`" class="nuclear z-0">
         <v-sheet
           v-for="(item, index) in shapes"
           :key="index"

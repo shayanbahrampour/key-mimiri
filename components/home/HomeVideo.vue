@@ -6,9 +6,9 @@
         isMobile ? 'text-center align-start py-8' : 'align-end py-16',
         $vuetify.breakpoint.xl && 'rounded-xl'
       ]"
+      :max-width="globalMaxWidth"
       max-height="80vh"
       min-height="500"
-      :max-width="globalMaxWidth"
       src="/images/temp/home_video_cover.png"
     >
       <v-img
@@ -21,8 +21,8 @@
         src="/images/home/home_video_button.svg"
       />
       <v-sheet
-        :max-width="globalMaxWidth"
         :class="['position-relative z-1 mx-auto white--text w-full', isMobile ? 'px-8' : 'px-12']"
+        :max-width="globalMaxWidth"
         color="transparent"
       >
         <v-row align="center" dense>

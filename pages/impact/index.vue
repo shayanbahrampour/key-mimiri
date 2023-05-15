@@ -25,7 +25,7 @@
       <CustomTabs :items="tabs" class="mt-4" />
 
       <v-row v-else v-if="!isMobile" class="my-8">
-        <v-col v-for="(item, index) in items" :key="index" xl="4" md="6" cols="12">
+        <v-col v-for="(item, index) in items" :key="index" cols="12" md="6" xl="4">
           <ImpactCards :item="item" />
         </v-col>
       </v-row>
@@ -80,6 +80,11 @@ export default {
           }
         }
       }
+    };
+  },
+  head() {
+    return {
+      title: this.$t('pageTitles.impact_stories')
     };
   }
 };

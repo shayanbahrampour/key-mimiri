@@ -19,14 +19,14 @@
           <p :class="['f-12', isMobile ? 'mb-6 mr-0' : 'mb-0 mr-6']" style="color: #939393">Published 3 months ago</p>
         </div>
         <div :class="[isMobile ? 'mt-8 mx-auto' : undefined]">
-          <v-btn outlined color="#66869A" height="50" min-width="50" style="border-radius: 30%">
-            <v-img src="/images/icons/linkedin-primary.png" max-width="20" height="20" />
+          <v-btn color="#66869A" height="50" min-width="50" outlined style="border-radius: 30%">
+            <v-img height="20" max-width="20" src="/images/icons/linkedin-primary.png" />
           </v-btn>
-          <v-btn outlined class="ml-4" color="#66869A" height="50" min-width="50" style="border-radius: 30%">
-            <v-img src="/images/icons/whatsapp-primary.png" max-width="20" height="20" />
+          <v-btn class="ml-4" color="#66869A" height="50" min-width="50" outlined style="border-radius: 30%">
+            <v-img height="20" max-width="20" src="/images/icons/whatsapp-primary.png" />
           </v-btn>
-          <v-btn outlined class="ml-4" color="#66869A" height="50" min-width="50" style="border-radius: 30%">
-            <v-img src="/images/icons/telegram-primary.png" max-width="20" height="20" />
+          <v-btn class="ml-4" color="#66869A" height="50" min-width="50" outlined style="border-radius: 30%">
+            <v-img height="20" max-width="20" src="/images/icons/telegram-primary.png" />
           </v-btn>
         </div>
       </div>
@@ -48,14 +48,14 @@
           </p>
           <v-divider class="mt-16" style="width: 400px"></v-divider>
           <v-container :class="['px-0 d-flex', isMobile ? 'justify-center' : undefined]" fluid>
-            <v-radio-group class="mr-4" v-model="radioGroup" multiple dense>
-              <v-radio color="#F3911F" v-for="n in 2" :key="n" :label="`feature ${n}`" :value="n"></v-radio>
+            <v-radio-group v-model="radioGroup" class="mr-4" dense multiple>
+              <v-radio v-for="n in 2" :key="n" :label="`feature ${n}`" :value="n" color="#F3911F"></v-radio>
             </v-radio-group>
-            <v-radio-group class="mr-4" v-model="radioGroup" multiple dense>
-              <v-radio color="#F3911F" v-for="n in 2" :key="n" :label="`feature ${n}`" :value="n"></v-radio>
+            <v-radio-group v-model="radioGroup" class="mr-4" dense multiple>
+              <v-radio v-for="n in 2" :key="n" :label="`feature ${n}`" :value="n" color="#F3911F"></v-radio>
             </v-radio-group>
-            <v-radio-group v-model="radioGroup" multiple dense>
-              <v-radio color="#F3911F" v-for="n in 2" :key="n" :label="`feature ${n}`" :value="n"></v-radio>
+            <v-radio-group v-model="radioGroup" dense multiple>
+              <v-radio v-for="n in 2" :key="n" :label="`feature ${n}`" :value="n" color="#F3911F"></v-radio>
             </v-radio-group>
           </v-container>
         </v-col>
@@ -71,7 +71,7 @@
       </p>
     </div>
     <div :class="['d-flex my-16 align-center', isMobile ? 'flex-column px-4' : 'px-14']">
-      <v-img src="/images/news/face.png" max-height="250" width="400" />
+      <v-img max-height="250" src="/images/news/face.png" width="400" />
 
       <p :class="['font-weight-light f-20 mx-4', isMobile ? 'mt-6' : undefined]" style="color: #939393; line-height: 2">
         WHO advises that all women in their reproductive ages, whether having Iron deficiency or not, are required to
@@ -87,6 +87,7 @@
 
 <script>
 import NewsCard from '~/components/news/NewsCard';
+
 export default {
   components: { NewsCard },
   data() {

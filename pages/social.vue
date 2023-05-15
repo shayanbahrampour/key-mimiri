@@ -49,7 +49,7 @@
 export default {
   head() {
     return {
-      title: this.$t('pageTitles.social-health')
+      title: this.$t('pageTitles.social')
     };
   }
 };
@@ -82,6 +82,7 @@ export default {
     rgba(0, 165, 155, 1) 100%
   );
 }
+
 .right-circle {
   width: 100px;
   height: 100px;
@@ -118,6 +119,7 @@ export default {
   top: 150px;
   transform: translate(50%, -50%);
 }
+
 .left-circle-mobile {
   width: 100px;
   height: 100px;

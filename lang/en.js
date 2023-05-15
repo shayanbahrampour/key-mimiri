@@ -7,7 +7,14 @@ export default {
     press_center: 'Press Center'
   },
   pageTitles: {
+    physical: 'Physical',
+    social: 'Social Health',
+    psychological: 'Psychological Health',
+    careers: 'Careers',
+    index: 'Home Page',
     press: 'Press Center',
-    impact_stories: 'Impact Stories'
+    contact: 'Contact Us',
+    impact_stories: 'Impact Stories',
+    storytellers: 'Storytellers'
   }
 };
