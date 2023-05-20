@@ -3,6 +3,7 @@ import fa from './lang/fa';
 import en from './lang/en';
 
 const projectName = 'Cobel';
+const isProduction = process.env.NODE_ENV === 'production';
 
 export default {
   ssr: true,
@@ -101,5 +102,8 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {}
+  build: {
+    extractCSS: isProduction,
+    optimizeCSS: isProduction
+  }
 };
