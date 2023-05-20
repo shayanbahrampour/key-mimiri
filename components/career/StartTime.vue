@@ -1,5 +1,5 @@
 <template>
-  <v-form v-model="valid" class="mt-4 mb-16 mx-4" style="width: 100%">
+  <v-form v-model="valid" :class="['mt-4', !isMobile ? 'mx-4 mb-16' : undefined]" style="width: 100%">
     <div class="d-flex flex-column">
       <p
         :class="['bel mb-4 text--darken-3 font-weight-regular', isMobile ? 'text-center f-36' : 'f-50 mt-10']"
@@ -13,7 +13,7 @@
             <v-text-field
               v-bind="attrs"
               v-on="on"
-              :class="['mb-6', isMobile ? 'contact-background custom-append-icon mt-4' : undefined]"
+              class="mb-6"
               dense
               filled
               hide-details
@@ -38,10 +38,22 @@
           ></v-radio>
         </v-radio-group>
         <div class="d-flex mt-6 align-center">
-          <v-btn color="#00A59B" small max-width="20" height="50" outlined style="border-radius: 30%">
+          <v-btn
+            :class="isMobile ? 'mb-16' : undefined"
+            color="#00A59B"
+            small
+            max-width="20"
+            height="50"
+            outlined
+            style="border-radius: 30%"
+          >
             <v-img max-width="20" src="/images/career/pdf.png" />
           </v-btn>
-          <v-btn class="mt-0 ml-0" text style="text-transform: unset !important; color: #00a59b">
+          <v-btn
+            :class="['mt-0 ml-0', isMobile ? 'mb-16' : undefined]"
+            text
+            style="text-transform: unset !important; color: #00a59b"
+          >
             <p class="mb-0 f-16">Print your application</p>
           </v-btn>
         </div>

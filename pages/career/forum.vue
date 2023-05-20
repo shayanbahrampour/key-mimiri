@@ -39,11 +39,11 @@
     </div>
     <div
       :class="['d-flex flex-column align-start white', isMobile ? 'px-4 f-16' : 'px-16 pb-16']"
-      style="line-height: 2; width: 100%; min-height: 90vh"
+      style="line-height: 2; width: 100%; min-height: 60vh"
     >
-      <AppSteps v-if="!isMobile" :tabs="tabs" :model="counter" class="mb-0 mt-16 mx-4" style="width: 90vw" />
+      <AppSteps v-if="!isMobile" :tabs="tabs" :model="counter" class="mb-0 mt-16 mx-4" style="min-width: 90vw" />
       <Component :is="steps[counter].component"> </Component>
-      <div v-if="counter !== 7" class="d-flex justify-space-between" style="width: 100%">
+      <div v-if="counter !== 7 && !isMobile" class="d-flex justify-space-between" style="width: 100%">
         <v-spacer v-if="counter === 0"></v-spacer>
         <v-btn
           v-if="counter !== 0"
@@ -68,6 +68,32 @@
           @click="counter++"
         >
           {{ counter === 6 ? 'Send Form' : 'NEXT' }}
+        </v-btn>
+      </div>
+      <div v-if="counter !== 7 && isMobile" class="d-flex flex-column" style="width: 100%">
+        <v-btn
+          class="rounded-xl d-flex justify-center white--text font-weight-bold f-20 mb-6"
+          :min-width="!isMobile ? '300' : '80%'"
+          color="slategrey"
+          elevation="0"
+          height="40"
+          @click="counter++"
+        >
+          {{ counter === 6 ? 'Send Form' : 'NEXT' }}
+        </v-btn>
+        <v-btn
+          v-if="counter !== 0"
+          :class="[
+            'rounded-xl d-flex justify-center slategrey--text font-weight-bold',
+            isMobile ? 'f-20 mb-16' : 'f-14 mb-16 ml-4'
+          ]"
+          :min-width="!isMobile ? '300' : '80%'"
+          color="slategrey"
+          height="40"
+          outlined
+          @click="counter--"
+        >
+          Back
         </v-btn>
       </div>
     </div>

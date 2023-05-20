@@ -1,5 +1,5 @@
 <template>
-  <v-form v-model="valid" class="mt-4 mb-16 mx-4" style="width: 100%">
+  <v-form v-model="valid" :class="['mt-4', !isMobile ? 'mx-4 mb-16' : undefined]" style="width: 100%">
     <div class="d-flex flex-column">
       <p
         :class="['bel mb-4 text--darken-3 font-weight-regular', isMobile ? 'text-center f-36' : 'f-50 mt-10']"
@@ -8,7 +8,7 @@
         Let us know you
       </p>
       <v-textarea
-        :class="['mb-8', isMobile ? 'contact-background' : undefined]"
+        class="mb-8"
         dense
         filled
         height="160"
@@ -17,7 +17,7 @@
         rounded
       ></v-textarea
       ><v-textarea
-        :class="['mb-8', isMobile ? 'contact-background' : undefined]"
+        class="mb-8"
         dense
         filled
         height="160"
@@ -26,7 +26,7 @@
         rounded
       ></v-textarea
       ><v-textarea
-        :class="['mb-4', isMobile ? 'contact-background' : undefined]"
+        class="mb-8"
         dense
         filled
         height="160"
