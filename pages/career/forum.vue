@@ -38,21 +38,93 @@
       </div>
     </div>
     <div
-      :class="['d-flex flex-column align-start white', isMobile ? 'px-4 f-16' : 'px-16']"
+      :class="['d-flex flex-column align-start white', isMobile ? 'px-4 f-16' : 'px-16 pb-16']"
       style="line-height: 2; width: 100%; min-height: 90vh"
     >
-      <Education />
+      <AppSteps v-if="!isMobile" :tabs="tabs" :model="counter" class="mb-0 mt-16 mx-4" style="width: 90vw" />
+      <Component :is="steps[counter].component"> </Component>
+      <div v-if="counter !== 7" class="d-flex justify-space-between" style="width: 100%">
+        <v-spacer v-if="counter === 0"></v-spacer>
+        <v-btn
+          v-if="counter !== 0"
+          :class="[
+            'rounded-xl d-flex justify-center slategrey--text font-weight-bold',
+            isMobile ? 'f-20' : 'f-14 mb-16 ml-4'
+          ]"
+          :min-width="!isMobile ? '300' : '80%'"
+          color="slategrey"
+          height="40"
+          outlined
+          @click="counter--"
+        >
+          Back
+        </v-btn>
+        <v-btn
+          :class="['rounded-xl d-flex justify-center white--text font-weight-bold', isMobile ? 'f-20' : 'f-14 mb-16']"
+          :min-width="!isMobile ? '300' : '80%'"
+          color="slategrey"
+          elevation="0"
+          height="40"
+          @click="counter++"
+        >
+          {{ counter === 6 ? 'Send Form' : 'NEXT' }}
+        </v-btn>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import KnowYou from '~/components/career/KnowYou';
-import Information from '~/components/career/Information.vue';
-import Education from '~/components/career/Education.vue';
+import Information from '~/components/career/Information';
+import Education from '~/components/career/Education';
+import Experiences from '~/components/career/Experiences';
+import Skills from '~/components/career/Skills';
+import AttachFiles from '~/components/career/AttachFiles';
+import StartTime from '~/components/career/StartTime';
+import FinishComponent from '~/components/career/FinishComponent';
+import AppSteps from '~/components/career/AppSteps';
 
 export default {
-  components: { KnowYou, Information, Education }
+  components: {
+    KnowYou,
+    Information,
+    Education,
+    Experiences,
+    Skills,
+    AttachFiles,
+    StartTime,
+    FinishComponent,
+    AppSteps
+  },
+  data() {
+    return {
+      counter: 0,
+      tabs: [
+        { title: 'Let us know you', value: '' },
+        { title: 'Information', value: '' },
+        { title: 'Education', value: '' },
+        { title: 'Experiences', value: '' },
+        { title: 'Skills', value: '' },
+        { title: 'Attach files', value: '' },
+        { title: 'Print your application', value: '' }
+      ]
+    };
+  },
+  computed: {
+    steps() {
+      return [
+        { component: KnowYou },
+        { component: Information },
+        { component: Education },
+        { component: Experiences },
+        { component: Skills },
+        { component: AttachFiles },
+        { component: StartTime },
+        { component: FinishComponent }
+      ].filter((item) => !!item);
+    }
+  }
 };
 </script>
 
