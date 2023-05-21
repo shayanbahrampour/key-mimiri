@@ -126,6 +126,7 @@
           you when the right opportunity comes up.
         </p>
         <v-btn
+          to="/career/forum"
           :class="['rounded-xl d-flex justify-center white--text font-weight-bold', isMobile ? 'f-20' : 'f-14']"
           :min-width="!isMobile ? '250' : '80%'"
           color="#A01E64"
