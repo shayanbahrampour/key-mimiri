@@ -15,7 +15,7 @@
     />
 
     <v-sheet
-      :class="['position-relative z-1 mx-auto d-flex align-center', isMobile ? 'px-12' : 'px-8']"
+      :class="['position-relative z-1 mx-auto d-flex align-center', isMobile ? 'px-8' : 'px-16']"
       :max-width="globalMaxWidth"
       color="transparent"
       height="100%"

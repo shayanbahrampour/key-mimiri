@@ -1,7 +1,7 @@
 <template>
-  <div :style="{ height: isMobile ? '90px' : '120px' }">
+  <div :style="{ height: isMobile ? '70px' : '120px' }">
     <v-app-bar
-      :height="isMobile ? 90 : 120"
+      :height="isMobile ? 70 : 120"
       :scroll-threshold="120"
       class="appbar"
       color="white"
@@ -11,20 +11,12 @@
       tile
     >
       <v-sheet
-        :class="['mx-auto d-flex align-center h-full w-full', { 'px-6': !isMobile }]"
+        :class="['mx-auto d-flex align-center h-full w-full', { 'px-12': !isMobile }]"
         :max-width="globalMaxWidth"
         color="transparent"
       >
         <nuxt-link exact to="/">
-          <v-img
-            v-if="isMobile"
-            alt="cobel"
-            class="logo"
-            contain
-            height="60"
-            max-width="85"
-            src="/images/logo-shape.png"
-          />
+          <v-img v-if="isMobile" alt="cobel" class="logo" contain height="40" max-width="130" src="/images/logo.png" />
 
           <div v-else class="logo-container overflow-hidden">
             <div class="position-relative">
@@ -117,10 +109,6 @@ export default {
       height: 56px !important;
     }
 
-    .logo {
-      max-width: 50px !important;
-    }
-
     .logo-container {
       height: 56px;
       transition: all ease-in 0.2s !important;
@@ -131,10 +119,6 @@ export default {
         transition: all ease-in 0.2s !important;
       }
     }
-  }
-
-  .logo {
-    transition: max-width ease-out 0.2s !important;
   }
 
   .logo-container {

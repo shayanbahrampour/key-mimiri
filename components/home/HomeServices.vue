@@ -1,8 +1,5 @@
 <template>
-  <div
-    :class="['home-services position-relative z-0 mx-auto', { 'mt-16': isMobile }]"
-    :style="`max-width: ${globalMaxWidth}px`"
-  >
+  <div :class="['home-services position-relative z-0', { 'mt-16': isMobile }]">
     <v-fade-transition>
       <v-sheet
         v-if="activeItem"
@@ -17,10 +14,9 @@
     <v-carousel v-model="active" class="position-relative z-0" height="auto" hide-delimiters show-arrows-on-hover>
       <v-carousel-item v-for="(item, index) in shapes" :key="index">
         <v-img
-          :class="['align-end home-services-container mx-auto', $vuetify.breakpoint.xl && 'rounded-xl']"
+          class="align-end home-services-container mx-auto"
           :height="isMobile ? 400 : 'calc(100vh - 300px)'"
           :src="item.src"
-          :width="isMobile ? '' : globalMaxWidth"
           gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,.83)"
           max-height="700"
           min-height="550"
@@ -31,17 +27,17 @@
             style="mix-blend-mode: color"
           />
           <div
-            :class="['mx-auto white--text position-relative z-1', isMobile ? 'py-4 px-8' : 'py-16 px-12']"
+            :class="['mx-auto white--text position-relative z-1', isMobile ? 'py-4 px-8' : 'pa-16']"
             :style="`max-width: ${globalMaxWidth}px`"
           >
             <h3
-              :class="`bel font-weight-regular ${isMobile ? 'f-40 text-center' : 'f-80'}`"
-              :style="`${!isMobile && 'max-width: 80%'};`"
+              :class="`bel font-weight-regular mb-3 ${isMobile ? 'f-40 text-center' : 'f-80'}`"
+              :style="`${!isMobile && 'max-width: 900px'};`"
             >
               {{ item.bannerTitle }}
             </h3>
             <p
-              :class="`font-weight-light m${isRTL ? 'r' : 'l'}-auto ${isMobile ? 'text-center f-20' : 'f-22'}`"
+              :class="`font-weight-light mb-8 m${isRTL ? 'r' : 'l'}-auto ${isMobile ? 'text-center f-20' : 'f-22'}`"
               :style="`line-height: 32px; ${!isMobile && 'max-width: 450px;'}`"
             >
               {{ item.bannerDescription }}
@@ -84,7 +80,7 @@
         <v-scroll-y-transition>
           <h3
             v-if="activeItem"
-            :class="['bel font-weight-regular', isMobile ? 'f-40' : 'f-50 mb-3']"
+            :class="['bel font-weight-regular', isMobile ? 'f-40' : 'f-50 mb-1']"
             :style="`color:${activeItem.color};line-height: 50px;`"
           >
             {{ activeItem.title }}
@@ -156,10 +152,10 @@ export default {
             'Enjoyment of social interaction, sharing experiences, sense of belonging to a group, promoting participation'
         },
         {
-          bannerTitle: 'Treatment and prevention paradigm',
+          bannerTitle: 'Treatment and prevention paradigm shift',
           bannerDescription:
             'Be an enabler to enhance peoples physical, psychological and social quality of life (HRQoL) through high quality and innovative solutions',
-          src: '/images/temp/cover-2.png',
+          src: '/images/temp/cover-1.jpg',
           position: coordinates.side,
           color: 'rgba(243, 145, 31, 1)',
           title: 'Psychological Health',
@@ -167,10 +163,10 @@ export default {
             'Emotional and interpersonal functioning: Increased self efficiency, confidence, learning new skills, raised awareness'
         },
         {
-          bannerTitle: 'Treatment and prevention',
+          bannerTitle: 'Treatment and prevention paradigm shift',
           bannerDescription:
             'Be an enabler to enhance peoples physical, psychological and social quality of life (HRQoL) through high quality and innovative solutions',
-          src: '/images/temp/cover-3.png',
+          src: '/images/temp/cover-1.jpg',
           position: coordinates.bottom,
           color: 'rgba(0, 165, 155, 1)',
           title: 'Physical Health',
