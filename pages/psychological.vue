@@ -1,17 +1,23 @@
 <template>
-  <div class="d-flex flex-column align-center text-center" style="background-color: #f3911f">
-    <h1 :class="['bel mt-16 white--text text--darken-3 font-weight-regular', isMobile ? 'f-40' : 'f-80']">
+  <div
+    :class="['d-flex flex-column align-center text-center', !isMobile ? 'pt-10' : undefined]"
+    style="background-color: #f3911f"
+  >
+    <h1 :class="['bel white--text text--darken-3 font-weight-regular', isMobile ? 'f-36 mt-12' : 'f-80 mt-16']">
       Psychological Health
     </h1>
-    <p class="bel mt-6 f-20 white--text text--darken-3">
+    <p :class="['mt-6 white--text text--darken-3 font-weight-light', !isMobile ? 'f-22 mb-16' : 'f-20 mx-6']">
       Enjoyment of social interaction, sharing experiences, sense of belonging to a group, promoting participation
     </p>
     <v-sheet v-if="!isMobile" class="custom-gradient w-full mt-16" height="10" />
 
-    <v-img :class="[!isMobile ? 'mt-0' : 'mt-16']" contain src="/images/video_content/psychological.png" />
+    <v-img :class="[!isMobile ? 'mt-0' : 'mt-10']" contain src="/images/video_content/social.png" />
     <div :class="[isMobile ? 'text-start px-6 h-full psy-screen d-flex flex-column' : 'text-center ma-16 px-16']">
-      <div class="d-flex relative-container-psy">
-        <p :class="['mt-6 f-20 white--text text--darken-3 font-weight-light', isMobile ? 'text-center' : undefined]">
+      <div class="d-flex relative-container-social">
+        <p
+          :class="['white--text text--darken-3 font-weight-regular', isMobile ? 'text-center f-20 mt-10' : 'f-22 mt-6']"
+          style="line-height: 40px"
+        >
           Psychological health is an important component of health‐related quality of life, alongside physical and
           social health. It refers to emotional well‐being, mental states, and ability to manage stress, maintain
           interpersonal relationships, and make sound decisions. Psychological health is essential for leading a happy
@@ -20,9 +26,9 @@
         <div v-if="!isMobile" class="right-circle"></div>
         <div v-else class="right-circle-mobile"></div>
       </div>
-      <v-divider :class="[isMobile ? 'mt-6' : 'mt-16']" style="background-color: #a01e64"></v-divider>
+      <v-divider :class="[isMobile ? 'my-6' : 'my-10']" style="background-color: #f3911f"></v-divider>
       <h4
-        :class="['bel my-8 f-40 text--darken-3 font-weight-regular', isMobile ? 'text-center' : undefined]"
+        :class="['bel text--darken-3 font-weight-regular', isMobile ? 'text-center f-30' : 'f-50']"
         style="color: #a01e64"
       >
         High levels of psychological health enable individuals to be more efficient and productive in their personal and
@@ -30,8 +36,14 @@
       </h4>
       <div v-if="!isMobile" class="left-circle"></div>
       <div v-else class="left-circle-mobile"></div>
-      <v-divider :class="[isMobile ? 'mb-6' : 'mb-16']" style="background-color: #a01e64"></v-divider>
-      <p :class="['mt-6 f-20 white--text text--darken-3 font-weight-light', isMobile ? 'text-center mb-6' : undefined]">
+      <v-divider :class="[isMobile ? 'my-6' : 'my-10']" style="background-color: #f3911f"></v-divider>
+      <p
+        :class="[
+          'f-22 white--text text--darken-3 font-weight-regular',
+          isMobile ? 'text-center mb-16' : 'mx-4 mb-16 mt-6'
+        ]"
+        style="line-height: 40px"
+      >
         Moreover, when individuals are psychologically healthy, they possess high levels of self‐ awareness,
         self‐esteem, and confidence, which means they are empowered to set and achieve goals that support their overall
         well‐being. Psychological health is therefore critical to a high quality of life and should be prioritized in
@@ -46,7 +58,7 @@
 export default {
   head() {
     return {
-      title: this.$t('pageTitles.psychological')
+      title: this.$t('pageTitles.social')
     };
   }
 };
@@ -87,11 +99,11 @@ export default {
   background-color: #a01e64;
   position: absolute;
   right: -130px;
-  top: 50%;
+  top: 30%;
   transform: translate(50%, -50%);
 }
 
-.relative-container-psy {
+.relative-container-social {
   position: relative;
 }
 
@@ -102,7 +114,7 @@ export default {
   background-color: #00a59b;
   position: absolute;
   left: -100px;
-  top: 60%;
+  top: 62%;
   transform: translate(50%, -50%);
 }
 
@@ -124,7 +136,7 @@ export default {
   background-color: #00a59b;
   position: absolute;
   left: -140px;
-  top: 1650px;
+  top: 1750px;
   transform: translate(50%, -50%);
 }
 </style>
