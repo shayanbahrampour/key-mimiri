@@ -1,12 +1,18 @@
 <template>
-  <v-tabs v-model="model" center-active :class="['w-full career-custom-tabs', setStep(model)]" grow show-arrows>
+  <v-tabs
+    v-model="model"
+    center-active
+    :class="['career-custom-tabs', isMobile ? 'mobile-tab' : setStep(model)]"
+    grow
+    :show-arrows="!isMobile"
+  >
     <v-tab
       v-for="(item, index) in items"
       :key="index"
       :ripple="false"
       disabled
       active-class="black--text"
-      class="bel f-20 bg-transparent text-capitalize"
+      :class="['bel bg-transparent text-capitalize', isMobile ? 'f-24 ml-16 pl-6 text-center' : 'f-20']"
       style="text-transform: unset !important"
     >
       {{ item.title }}
@@ -70,9 +76,15 @@ export default {
     position: absolute;
     bottom: 0;
     left: 0;
-    height: 2px; /* Adjust the height as needed */
+    height: 2px;
     width: 100%;
-    background-color: #ececec; /* Replace "your-color" with the desired color value */
+    background-color: #ececec;
+  }
+}
+
+.mobile-tab {
+  .v-slide-group__prev {
+    display: none !important;
   }
 }
 
@@ -99,6 +111,11 @@ export default {
 .tab-five {
   .v-tabs-slider {
     width: 640% !important;
+  }
+}
+.tab-six {
+  .v-tabs-slider {
+    width: 560% !important;
   }
 }
 .tab-six {

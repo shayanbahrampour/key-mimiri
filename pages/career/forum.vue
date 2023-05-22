@@ -41,7 +41,12 @@
       :class="['d-flex flex-column align-start white', isMobile ? 'px-4 f-16' : 'px-16 pb-16']"
       style="line-height: 2; width: 100%; min-height: 60vh"
     >
-      <AppSteps v-if="!isMobile" :tabs="tabs" :model="counter" class="mb-0 mt-16 mx-4" style="min-width: 90vw" />
+      <AppSteps
+        :tabs="tabs"
+        :model="counter"
+        :class="[!isMobile ? 'mt-16 mx-4' : 'mt-4 mb-6']"
+        style="min-width: 90vw"
+      />
       <Component :is="steps[counter].component"> </Component>
       <div v-if="counter !== 7 && !isMobile" class="d-flex justify-space-between" style="width: 100%">
         <v-spacer v-if="counter === 0"></v-spacer>
