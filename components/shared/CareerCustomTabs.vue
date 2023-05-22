@@ -51,6 +51,7 @@ export default {
 
 <style lang="scss">
 .career-custom-tabs {
+  transition: width 0.3s ease-in-out;
   .v-tabs-slider-wrapper {
     left: 0px !important;
   }
@@ -77,50 +78,36 @@ export default {
 
 .tab-one {
   .v-tabs-slider {
-    background: none repeat scroll 0 0 transparent;
-    background: #4c6d80 !important;
     width: 50% !important;
   }
 }
 .tab-two {
   .v-tabs-slider {
-    background: none repeat scroll 0 0 transparent;
-    background: #4c6d80 !important;
     width: 180% !important;
   }
 }
 .tab-three {
   .v-tabs-slider {
-    background: none repeat scroll 0 0 transparent;
-    background: #4c6d80 !important;
     width: 290% !important;
   }
 }
 .tab-four {
   .v-tabs-slider {
-    background: none repeat scroll 0 0 transparent;
-    background: #4c6d80 !important;
     width: 350% !important;
   }
 }
 .tab-five {
   .v-tabs-slider {
-    background: none repeat scroll 0 0 transparent;
-    background: #4c6d80 !important;
     width: 640% !important;
   }
 }
 .tab-six {
   .v-tabs-slider {
-    background: none repeat scroll 0 0 transparent;
-    background: #4c6d80 !important;
     width: 560% !important;
   }
 }
 .tab-seven {
   .v-tabs-slider {
-    background: none repeat scroll 0 0 transparent;
-    background: #4c6d80 !important;
     width: 450% !important;
   }
 }
