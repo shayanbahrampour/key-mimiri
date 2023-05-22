@@ -1,17 +1,23 @@
 <template>
-  <div class="d-flex flex-column align-center text-center" style="background-color: #a01e64">
-    <h1 :class="['bel mt-16 white--text text--darken-3 font-weight-regular', isMobile ? 'f-40' : 'f-80']">
+  <div
+    :class="['d-flex flex-column align-center text-center', !isMobile ? 'pt-10' : undefined]"
+    style="background-color: #a01e64"
+  >
+    <h1 :class="['bel white--text text--darken-3 font-weight-regular', isMobile ? 'f-36 mt-12' : 'f-80 mt-16']">
       Social Health
     </h1>
-    <p class="bel mt-6 f-20 white--text text--darken-3">
+    <p :class="['mt-6 white--text text--darken-3 font-weight-light', !isMobile ? 'f-22 mb-16' : 'f-20 mx-6']">
       Enjoyment of social interaction, sharing experiences, sense of belonging to a group, promoting participation
     </p>
     <v-sheet v-if="!isMobile" class="custom-gradient w-full mt-16" height="10" />
 
-    <v-img :class="[!isMobile ? 'mt-0' : 'mt-16']" contain src="/images/video_content/social.png" />
+    <v-img :class="[!isMobile ? 'mt-0' : 'mt-10']" contain src="/images/video_content/social.png" />
     <div :class="[isMobile ? 'text-start px-6 h-full psy-screen d-flex flex-column' : 'text-center ma-16 px-16']">
       <div class="d-flex relative-container-social">
-        <p :class="['mt-6 f-20 white--text text--darken-3 font-weight-light', isMobile ? 'text-center' : undefined]">
+        <p
+          :class="['white--text text--darken-3 font-weight-regular', isMobile ? 'text-center f-20 mt-10' : 'f-22 mt-6']"
+          style="line-height: 40px"
+        >
           Social health is an important aspect of overall health‐related quality of life, along with physical and
           psychological wellness. Social health refers to the ability to maintain positive relationships and
           interactions with others, including a sense of belonging within a community or group. Humans are social
@@ -23,9 +29,9 @@
         <div v-if="!isMobile" class="right-circle"></div>
         <div v-else class="right-circle-mobile"></div>
       </div>
-      <v-divider :class="[isMobile ? 'mt-6' : 'mt-16']" style="background-color: #f3911f"></v-divider>
+      <v-divider :class="[isMobile ? 'my-6' : 'my-10']" style="background-color: #f3911f"></v-divider>
       <h4
-        :class="['bel my-8 f-40 text--darken-3 font-weight-regular', isMobile ? 'text-center' : undefined]"
+        :class="['bel text--darken-3 font-weight-regular', isMobile ? 'text-center f-30' : 'f-50']"
         style="color: #f3911f"
       >
         Corporate social responsibilities can promote social health by providing supportive work environments,
@@ -33,8 +39,14 @@
       </h4>
       <div v-if="!isMobile" class="left-circle"></div>
       <div v-else class="left-circle-mobile"></div>
-      <v-divider :class="[isMobile ? 'mb-6' : 'mb-16']" style="background-color: #f3911f"></v-divider>
-      <p :class="['mt-6 f-20 white--text text--darken-3 font-weight-light', isMobile ? 'text-center mb-6' : undefined]">
+      <v-divider :class="[isMobile ? 'my-6' : 'my-10']" style="background-color: #f3911f"></v-divider>
+      <p
+        :class="[
+          'f-22 white--text text--darken-3 font-weight-regular',
+          isMobile ? 'text-center mb-16' : 'mx-4 mb-16 mt-6'
+        ]"
+        style="line-height: 40px"
+      >
         When individuals are socially healthy, they are less lonely, less stressed, and committed to their communities,
         which can have a positive impact on overall health and well‐being. Therefore, it is important to prioritize
         social health and engage in activities that support positive social interaction in order to enhance health and
@@ -90,7 +102,7 @@ export default {
   background-color: #f3911f;
   position: absolute;
   right: -130px;
-  top: 50%;
+  top: 30%;
   transform: translate(50%, -50%);
 }
 
@@ -105,7 +117,7 @@ export default {
   background-color: #00a59b;
   position: absolute;
   left: -100px;
-  top: 60%;
+  top: 62%;
   transform: translate(50%, -50%);
 }
 
@@ -127,7 +139,7 @@ export default {
   background-color: #00a59b;
   position: absolute;
   left: -140px;
-  top: 1650px;
+  top: 1750px;
   transform: translate(50%, -50%);
 }
 </style>
