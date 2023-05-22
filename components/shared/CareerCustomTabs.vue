@@ -51,8 +51,8 @@ export default {
 
 <style lang="scss">
 .career-custom-tabs {
-  transition: width 0.3s ease-in-out;
   .v-tabs-slider-wrapper {
+    transition: width 0.3s ease-in-out;
     left: 0px !important;
   }
   .v-tabs-slider {
