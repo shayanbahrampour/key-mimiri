@@ -1,12 +1,11 @@
 <template>
-  <v-tabs v-model="model" center-active class="w-full custom-tabs" grow show-arrows>
+  <v-tabs v-model="model" center-active class="w-full custom-tabs" show-arrows>
     <v-tab
       v-for="(item, index) in items"
       :key="index"
       :ripple="false"
       active-class="black--text"
-      class="bel f-20 bg-transparent text-capitalize"
-      style="text-transform: unset !important"
+      :class="['bel f-20 bg-transparent text-capitalize', { 'px-10': !isMobile }]"
     >
       {{ item.title }}
     </v-tab>

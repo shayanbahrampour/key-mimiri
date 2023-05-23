@@ -6,7 +6,7 @@
       >
         Tell Us Your Story
       </h3>
-      <v-btn class="f-18 mt-4 px-14" color="primary" depressed exact large rounded> Click Here</v-btn>
+      <v-btn class="f-18 mt-4 px-14 text-capitalize" color="primary" depressed exact large rounded> Click Here</v-btn>
     </div>
   </v-sheet>
 </template>

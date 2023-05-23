@@ -1,20 +1,34 @@
 <template>
   <div class="position-relative">
-    <v-carousel v-model="model" class="position-relative z-0" height="auto" cycle hide-delimiters show-arrows-on-hover>
+    <v-carousel
+      v-model="model"
+      class="position-relative z-0"
+      height="auto"
+      cycle
+      hide-delimiters
+      show-arrows-on-hover
+      :show-arrows="items.length > 1"
+    >
       <v-carousel-item v-for="(item, index) in items" :key="index">
-        <v-img :height="isMobile ? 250 : 470" :src="item.src" class="position-relative z-0" position="center center">
-          <div
-            v-if="items.length > 1"
-            :class="['position-absolute bottom-0 start-0 end-0 mx-auto', isMobile ? 'px-6 mb-4' : 'px-16 mb-16 pb-10']"
-            :style="`max-width: ${globalMaxWidth}px`"
-          >
-            <v-icon v-for="(item, index) in items" :key="index" color="white" size="25">
-              {{ index === model ? 'mdi-radiobox-marked' : 'mdi-radiobox-blank' }}
-            </v-icon>
-          </div>
-        </v-img>
+        <v-img :height="isMobile ? 250 : 600" :src="item.src" class="position-relative z-0" />
       </v-carousel-item>
     </v-carousel>
+    <div
+      v-if="items.length > 1"
+      :class="['position-absolute start-0 end-0 mx-auto z-0', isMobile ? 'px-6' : 'px-16']"
+      :style="`max-width: ${globalMaxWidth}px; top: ${isMobile ? 210 : 480}px`"
+    >
+      <v-icon
+        v-for="(item, index) in items"
+        :key="index"
+        :class="`m${isRTL ? 'r' : 'l'}-1`"
+        color="white"
+        size="25"
+        @click="model = index"
+      >
+        {{ index === model ? 'mdi-radiobox-marked' : 'mdi-radiobox-blank' }}
+      </v-icon>
+    </div>
 
     <div class="position-relative z-1">
       <div :class="['mx-auto', !isMobile && `p${isRTL ? 'l' : 'r'}-4`]" :style="`max-width: ${globalMaxWidth}px`">
