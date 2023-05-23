@@ -11,35 +11,40 @@
       />
     </v-fade-transition>
 
-    <div class="position-relative z-0">
-      <v-img
-        class="align-end home-services-container mx-auto"
-        :height="isMobile ? 400 : 'calc(100vh - 300px)'"
-        src="/images/temp/cover-1.jpg"
-        gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,.83)"
-        max-height="700"
-        min-height="550"
-      >
-        <v-sheet class="w-full h-full position-absolute top-0 start-0" color="#4d6e81" style="mix-blend-mode: color" />
-        <div
-          :class="['mx-auto white--text position-relative z-1', isMobile ? 'py-4 px-8' : 'pa-16']"
-          :style="`max-width: ${globalMaxWidth}px`"
+    <v-carousel v-model="active" class="position-relative z-0" cycle height="auto" hide-delimiters show-arrows-on-hover>
+      <v-carousel-item v-for="(item, index) in shapes" :key="index">
+        <v-img
+          class="align-end home-services-container mx-auto"
+          :height="isMobile ? 400 : 'calc(100vh - 300px)'"
+          :src="item.src"
+          gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,.83)"
+          max-height="700"
+          min-height="550"
         >
-          <h3
-            :class="`bel font-weight-regular mb-3 ${isMobile ? 'f-40 text-center' : 'f-80'}`"
-            :style="`${!isMobile && 'max-width: 900px'};`"
+          <v-sheet
+            class="w-full h-full position-absolute top-0 start-0"
+            color="#4d6e81"
+            style="mix-blend-mode: color"
+          />
+          <div
+            :class="['mx-auto white--text position-relative z-1', isMobile ? 'py-4 px-8' : 'pa-16']"
+            :style="`max-width: ${globalMaxWidth}px`"
           >
-            Treatment and prevention paradigm shift
-          </h3>
-          <p
-            :class="`font-weight-light mb-8 m${isRTL ? 'r' : 'l'}-auto ${isMobile ? 'text-center f-20' : 'f-22'}`"
-            :style="`line-height: 32px; ${!isMobile && 'max-width: 450px;'}`"
-          >
-            Be an enabler to enhance peoples physical, psychological and social quality of life (HRQoL) through high
-            quality and innovative solutions
-          </p>
-        </div>
-      </v-img>
+            <h3
+              :class="`bel font-weight-regular mb-3 ${isMobile ? 'f-40 text-center' : 'f-80'}`"
+              :style="`${!isMobile && 'max-width: 900px'};`"
+            >
+              {{ item.bannerTitle }}
+            </h3>
+            <p
+              :class="`font-weight-light mb-8 m${isRTL ? 'r' : 'l'}-auto ${isMobile ? 'text-center f-20' : 'f-22'}`"
+              :style="`line-height: 32px; ${!isMobile && 'max-width: 450px;'}`"
+            >
+              {{ item.bannerDescription }}
+            </p>
+          </div>
+        </v-img>
+      </v-carousel-item>
 
       <svg
         v-if="!isMobile"
@@ -54,7 +59,7 @@
           fill="white"
         />
       </svg>
-    </div>
+    </v-carousel>
 
     <v-sheet
       :class="['mx-auto position-relative z-0 d-flex justify-end', isMobile ? 'px-4 align-end' : 'px-14 align-center']"
@@ -107,17 +112,18 @@ export default {
   data() {
     return {
       active: 0,
-      interval: null,
       activeItem: null
     };
   },
   computed: {
     ballSize() {
       if (this.isMobile) return 80;
+
       return 160;
     },
     ballActiveSize() {
       if (this.isMobile) return 100;
+
       return 200;
     },
     shapes() {
@@ -135,6 +141,10 @@ export default {
 
       const data = [
         {
+          bannerTitle: 'Treatment and prevention paradigm shift',
+          bannerDescription:
+            'Be an enabler to enhance peoples physical, psychological and social quality of life (HRQoL) through high quality and innovative solutions',
+          src: '/images/temp/cover-1.jpg',
           position: coordinates.top,
           color: 'rgba(160, 30, 100, 1)',
           title: 'Social Health',
@@ -142,6 +152,10 @@ export default {
             'Enjoyment of social interaction, sharing experiences, sense of belonging to a group, promoting participation'
         },
         {
+          bannerTitle: 'Treatment and prevention paradigm shift',
+          bannerDescription:
+            'Be an enabler to enhance peoples physical, psychological and social quality of life (HRQoL) through high quality and innovative solutions',
+          src: '/images/temp/cover-1.jpg',
           position: coordinates.side,
           color: 'rgba(243, 145, 31, 1)',
           title: 'Psychological Health',
@@ -149,6 +163,10 @@ export default {
             'Emotional and interpersonal functioning: Increased self efficiency, confidence, learning new skills, raised awareness'
         },
         {
+          bannerTitle: 'Treatment and prevention paradigm shift',
+          bannerDescription:
+            'Be an enabler to enhance peoples physical, psychological and social quality of life (HRQoL) through high quality and innovative solutions',
+          src: '/images/temp/cover-1.jpg',
           position: coordinates.bottom,
           color: 'rgba(0, 165, 155, 1)',
           title: 'Physical Health',
@@ -180,30 +198,8 @@ export default {
         this.activeItem = null;
         setTimeout(() => {
           this.activeItem = this.shapes[this.active];
-          this.setInterval();
         }, 600);
       }
-    }
-  },
-  beforeDestroy() {
-    this.clearInterval();
-  },
-  methods: {
-    clearInterval() {
-      clearInterval(this.interval);
-    },
-    setInterval() {
-      this.clearInterval();
-      const maxIndex = this.shapes.length - 1;
-      this.interval = setInterval(() => {
-        if (this.active === maxIndex) {
-          this.active = 0;
-        } else {
-          this.active++;
-        }
-
-        this.activeItem = this.shapes[this.active];
-      }, 3000);
     }
   }
 };
