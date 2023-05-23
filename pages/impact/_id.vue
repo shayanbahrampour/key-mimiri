@@ -17,7 +17,7 @@
           </v-sheet>
         </v-sheet>
       </v-col>
-      <v-col cols="12" lg="6" md="7" offset-lg="1">
+      <v-col cols="12" lg="6" md="7" offset-xl="0" offset-lg="1">
         <div :class="[isMobile ? 'pa-4 mt-6' : 'pa-16 mt-5']">
           <h1 :class="['bel grey--text text--darken-3 font-weight-regular', isMobile ? 'f-40' : 'f-80 mb-8']">
             Woman empowerment future enrichment
@@ -138,16 +138,18 @@
           </p>
         </v-col>
       </v-row>
+    </v-sheet>
 
+    <v-sheet :max-width="globalMaxWidth" class="mx-auto">
       <template v-if="!isMobile">
-        <h2 class="bel f-55 grey--text text--darken-2 font-weight-regular d-block">You may also like these</h2>
+        <h2 class="bel f-55 grey--text text--darken-2 font-weight-regular d-block px-16">You may also like these</h2>
 
         <client-only>
           <swiper
             v-if="items.length !== 0"
             id="impactSwiper"
             key="impactSwiper"
-            :class="['w-full', isMobile ? 'mt-8' : 'my-8']"
+            :class="['w-full mr-0 px-16', isMobile ? 'mt-8' : 'my-8']"
             :dir="isRTL ? 'rtl' : 'ltr'"
             :options="swiperOptions"
           >
@@ -177,10 +179,10 @@ export default {
         grabCursor: true,
         breakpoints: {
           1904: {
-            slidesPerView: 4.2
+            slidesPerView: 3.2
           },
           1264: {
-            slidesPerView: 3.5
+            slidesPerView: 2.5
           },
           960: {
             slidesPerView: 1.8
