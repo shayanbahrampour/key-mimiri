@@ -26,7 +26,7 @@
         </div>
 
         <v-row v-if="!isMobile" class="mt-16">
-          <v-col v-for="(item, index) in items" :key="index" cols="12" lg="3" md="6">
+          <v-col v-for="(item, index) in items" :key="index" cols="12" lg="3" sm="6">
             <h4 class="mb-3 f-15 text-uppercase">{{ item.title }}</h4>
 
             <div class="d-flex flex-column align-start">

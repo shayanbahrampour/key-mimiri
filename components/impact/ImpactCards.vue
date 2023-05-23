@@ -13,7 +13,7 @@
         flat
         tile
       >
-        <div :style="`${item.descriptions && !isMobile && 'width: 50%'}`" class="f-35 bel flex-shrink-0">
+        <div :style="`${item.descriptions && !isMobile ? 'width: 50%' : 'width: 100%'}`" class="f-35 bel flex-shrink-0">
           {{ item.title }}
         </div>
         <div

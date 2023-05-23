@@ -7,7 +7,7 @@
 
           <v-sheet v-if="!isMobile" class="extra-space white--text pa-12" color="slategrey">
             <h2 class="f-24 mb-4 white--text">Woman empowerment future enrichment</h2>
-            <p class="f-19 font-weight-light ma-0">
+            <p class="f-19 font-weight-light ma-0" style="line-height: 30px">
               Iron deficiency, leading to Anemia, has negative health effects on all individuals, especially women, and
               causes enormous social and financial burden on the societies. -Economic burden of Anemia has reverse
               association with sociodemographic factors, including nutrition, access to health solutions and education.
@@ -31,16 +31,33 @@
             and innovative solutions.
           </p>
 
-          <div :class="['d-flex flex-md-row flex-column justify-md-space-between', { 'mt-16 pt-5 f-13': !isMobile }]">
-            <div class="grey--text py-1">Read time: 13min</div>
-            <div class="grey--text py-1">Writed by: mehrab mohammadi</div>
-            <div class="grey--text py-1">Published 3 moth ago</div>
+          <div
+            :class="[
+              'd-flex flex-md-row flex-column justify-md-space-between',
+              { 'mt-12 pt-5 f-13': !isTablet && !isMobile }
+            ]"
+          >
+            <div class="grey--text text--darken-2 py-1">Read time: 13min</div>
+            <div class="grey--text text--darken-2 py-1">Writed by: mehrab mohammadi</div>
+            <div class="grey--text text--darken-2 py-1">Published 3 moth ago</div>
           </div>
 
           <template v-if="!isMobile">
+            <div class="d-flex mt-8 mb-16">
+              <nuxt-link to="/" class="mr-4">
+                <v-img contain height="50" src="/images/social/icon-linkedin.svg" width="50" />
+              </nuxt-link>
+              <nuxt-link to="/" class="mr-4">
+                <v-img contain height="50" src="/images/social/icon-whatsapp.svg" width="50" />
+              </nuxt-link>
+              <nuxt-link to="/" class="mr-4">
+                <v-img contain height="50" src="/images/social/icon-telegram.svg" width="50" />
+              </nuxt-link>
+            </div>
+
             <v-divider class="my-6" />
 
-            <p class="grey--text text--darken-2 mb-8">
+            <p class="grey--text text--darken-2 mb-8" style="line-height: 25px">
               In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society
               and are committed to enhance their physical, psychological and social quality of life through high quality
               and innovative solutions.
@@ -65,7 +82,7 @@
       </p>
     </v-sheet>
 
-    <v-sheet :class="['mx-auto pt-16 mt-sm-16', isMobile ? 'px-8' : 'px-12']" :max-width="globalMaxWidth">
+    <v-sheet :class="['mx-auto pt-16 mt-sm-16', isMobile ? 'px-6' : 'px-16']" :max-width="globalMaxWidth">
       <h2
         :class="['bel grey--text text--darken-2 text-center font-weight-regular d-block', isMobile ? 'f-40' : 'f-50']"
       >
@@ -74,15 +91,15 @@
     </v-sheet>
 
     <v-img
-      :class="['mt-10 mx-auto', { 'px-12': !isMobile }]"
+      :class="['mt-10 mx-auto', { 'px-16': !isMobile }]"
       :max-width="globalMaxWidth"
       contain
       src="/images/video_content/physical.png"
     />
 
-    <v-sheet :class="['mx-auto', isMobile ? 'px-8' : 'px-12']" :max-width="globalMaxWidth">
-      <v-row class="my-sm-16 pt-16">
-        <v-col lg="8">
+    <v-sheet :class="['mx-auto', isMobile ? 'px-6' : 'px-16']" :max-width="globalMaxWidth">
+      <v-row class="my-sm-16 pt-md-16">
+        <v-col md="8">
           <h3 class="f-45 font-weight-regular bel cyan--text mb-4 text-center text-sm-start">
             32 Million people in need of 2 Billion doses of iron supplement; less than 800 Million doses is consumed
           </h3>
@@ -98,7 +115,7 @@
             could be highly affected by lack of awareness and access challenges to high quality Iron supplements.
           </p>
         </v-col>
-        <v-col :class="{ 'px-8': !isMobile }" lg="4">
+        <v-col class="px-md-8" md="4">
           <v-img height="600" src="/images/temp/impact_detail.png" />
         </v-col>
         <v-col lg="12">
@@ -142,7 +159,7 @@
       </template>
     </v-sheet>
 
-    <HomeTellUsStory class="my-16 pb-16 pt-4" />
+    <HomeTellUsStory class="my-16 pb-16" />
   </div>
 </template>
 
@@ -160,10 +177,16 @@ export default {
         grabCursor: true,
         breakpoints: {
           1904: {
-            slidesPerView: 4.5
+            slidesPerView: 4.2
+          },
+          1264: {
+            slidesPerView: 3.5
           },
           960: {
-            slidesPerView: 3.5
+            slidesPerView: 1.8
+          },
+          760: {
+            slidesPerView: 1.4
           }
         }
       },
