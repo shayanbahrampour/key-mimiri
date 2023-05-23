@@ -14,7 +14,7 @@
             color="#66869A"
             elevation="0"
             height="30"
-            min-width="180"
+            min-width="200"
           >
             Apply Now
           </v-btn>
@@ -37,7 +37,7 @@
             color="#66869A"
             elevation="0"
             height="30"
-            min-width="180"
+            min-width="200"
           >
             Apply Now
           </v-btn>
@@ -62,7 +62,7 @@
             color="#66869A"
             elevation="0"
             height="30"
-            min-width="180"
+            min-width="200"
           >
             Apply Now
           </v-btn>
@@ -85,7 +85,7 @@
             color="#66869A"
             elevation="0"
             height="30"
-            min-width="180"
+            min-width="200"
           >
             Apply Now
           </v-btn>
@@ -98,7 +98,10 @@
   <div v-else class="d-flex flex-column mb-16">
     <div v-for="i in 3" :key="i" class="d-flex flex-column">
       <h4 class="bel f-30 text--darken-3 font-weight-regular" style="color: #66869a">Senior project manager</h4>
-      <p class="f-18 mt-4 mb-0 text--darken-3 font-weight-light mb-auto" style="max-width: 80%; color: #59595b">
+      <p
+        class="f-18 mt-4 mb-0 text--darken-3 font-weight-light mb-auto"
+        style="max-width: 80%; color: #59595b; line-height: 24px"
+      >
         Who advises that all women in their reproductive ages, whether having Iron deficiency or not, are required to
         supplements per week.
       </p>
