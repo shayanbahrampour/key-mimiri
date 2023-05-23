@@ -19,11 +19,11 @@
       </v-col>
       <v-col cols="12" lg="6" md="7" offset-xl="0" offset-lg="1">
         <div :class="[isMobile ? 'pa-4 mt-6' : 'pa-16 mt-5']">
-          <h1 :class="['bel grey--text text--darken-3 font-weight-regular', isMobile ? 'f-40' : 'f-80 mb-8']">
+          <h1 :class="['bel grey--text text--darken-2 font-weight-regular', isMobile ? 'f-40' : 'f-80 mb-4']">
             Woman empowerment future enrichment
           </h1>
 
-          <div class="blue--text mb-8">Long-term value creation</div>
+          <div class="blue--text mb-8 f-19">Long-term value creation</div>
 
           <p v-if="isMobile" class="grey--text text--darken-2 mb-8">
             In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society
@@ -43,7 +43,7 @@
           </div>
 
           <template v-if="!isMobile">
-            <div class="d-flex mt-8 mb-16">
+            <div class="d-flex mt-8 mb-16 pb-6">
               <nuxt-link to="/" class="mr-4">
                 <v-img contain height="50" src="/images/social/icon-linkedin.svg" width="50" />
               </nuxt-link>
@@ -57,11 +57,13 @@
 
             <v-divider class="my-6" />
 
-            <p class="grey--text text--darken-2 mb-8" style="line-height: 25px">
+            <p class="grey--text text--darken-1 ma-0 f-19" style="line-height: 25px">
               In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society
               and are committed to enhance their physical, psychological and social quality of life through high quality
               and innovative solutions.
             </p>
+
+            <v-divider class="my-6" />
           </template>
         </div>
       </v-col>
@@ -69,7 +71,7 @@
 
     <v-sheet
       v-if="isMobile"
-      class="pa-8 mx-4 position-relative z-0 extra-space white--text rounded-b-xl"
+      class="pa-8 mx-4 position-relative z-0 extra-space white--text custom-rounded-b-lg"
       color="slategrey"
     >
       <h2 class="f-24 mb-4 white--text">Woman empowerment future enrichment</h2>
@@ -98,12 +100,17 @@
     />
 
     <v-sheet :class="['mx-auto', isMobile ? 'px-6' : 'px-16']" :max-width="globalMaxWidth">
-      <v-row class="my-sm-16 pt-md-16">
+      <v-row class="my-sm-16 pt-16">
         <v-col md="8">
-          <h3 class="f-45 font-weight-regular bel cyan--text mb-4 text-center text-sm-start">
+          <h3
+            :class="[
+              'font-weight-regular bel success--text mb-4 text-center text-sm-start',
+              isMobile ? 'f-35' : 'f-45'
+            ]"
+          >
             32 Million people in need of 2 Billion doses of iron supplement; less than 800 Million doses is consumed
           </h3>
-          <p class="f-20 mb-6" style="line-height: 30px">
+          <p class="f-20 mb-6 font-weight-light" style="line-height: 30px">
             WHO advises that all women in their reproductive ages, whether having Iron deficiency or not, are required
             to consume 60 mg of iron supplements per week. This amount should be higher in pregnant women and any
             deficiencies will not only affect themselves, but it also affects their fetus. In addition, Iranian men and
@@ -119,7 +126,7 @@
           <v-img height="600" src="/images/temp/impact_detail.png" />
         </v-col>
         <v-col lg="12">
-          <p class="f-20 mb-6" style="line-height: 30px">
+          <p class="f-20 mb-6 font-weight-light" style="line-height: 30px">
             Lastly, acknowledging our social responsibility commitments, we have identified various underprivileged
             provinces with the highest prevalence of iron deficiency in women, such as Sistan and Balouchestan province
             and Dahak village, and supplied FerroFort supplements for the need of 6,000 people for a time horizon of one
@@ -127,11 +134,16 @@
             Iranian society.
           </p>
 
-          <h4 class="f-45 font-weight-regular bel cyan--text my-8 text-center text-sm-start">
+          <h4
+            :class="[
+              'font-weight-regular bel success--text mb-4 text-center text-sm-start',
+              isMobile ? 'f-35' : 'f-45'
+            ]"
+          >
             providing high‐quality supplements, not only for women, but also for men and children.
           </h4>
 
-          <p class="f-20 mb-6" style="line-height: 30px">
+          <p class="f-20 mb-6 font-weight-light" style="line-height: 30px">
             We at Cobel Group recognize the importance of woman empowerment and are committed to enhancing their
             physical, psychological, and social quality of life through high‐quality and innovative healthcare
             solutions.
@@ -141,24 +153,31 @@
     </v-sheet>
 
     <v-sheet :max-width="globalMaxWidth" class="mx-auto">
-      <template v-if="!isMobile">
-        <h2 class="bel f-55 grey--text text--darken-2 font-weight-regular d-block px-16">You may also like these</h2>
+      <div :class="['d-flex align-center text-center', isMobile ? 'px-6 mt-10' : 'px-16']">
+        <h2 :class="['bel grey--text text--darken-2 font-weight-regular d-block', isMobile ? 'f-40' : 'f-55']">
+          You may also like these
+        </h2>
 
-        <client-only>
-          <swiper
-            v-if="items.length !== 0"
-            id="impactSwiper"
-            key="impactSwiper"
-            :class="['w-full mr-0 px-16', isMobile ? 'mt-8' : 'my-8']"
-            :dir="isRTL ? 'rtl' : 'ltr'"
-            :options="swiperOptions"
-          >
-            <swiper-slide v-for="(item, index) in items" :key="index">
-              <ImpactCards :item="item" class="mt-2 mb-3" />
-            </swiper-slide>
-          </swiper>
-        </client-only>
-      </template>
+        <template v-if="!isMobile">
+          <v-spacer />
+          <nuxt-link to="/impact" class="grey--text text-decoration-none">See All</nuxt-link>
+        </template>
+      </div>
+
+      <client-only>
+        <swiper
+          v-if="items.length !== 0"
+          id="impactSwiper"
+          key="impactSwiper"
+          :class="['w-full mr-0', isMobile ? 'mt-8 px-6' : 'my-8 px-16']"
+          :dir="isRTL ? 'rtl' : 'ltr'"
+          :options="swiperOptions"
+        >
+          <swiper-slide v-for="(item, index) in items" :key="index">
+            <ImpactCards :item="item" class="mt-2 mb-3" />
+          </swiper-slide>
+        </swiper>
+      </client-only>
     </v-sheet>
 
     <HomeTellUsStory class="my-16 pb-16" />
@@ -212,5 +231,10 @@ export default {
 <style lang="scss" scoped>
 .custom-shadow {
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.3) !important;
+}
+
+.custom-rounded-b-lg {
+  border-bottom-left-radius: 47px !important;
+  border-bottom-right-radius: 47px !important;
 }
 </style>

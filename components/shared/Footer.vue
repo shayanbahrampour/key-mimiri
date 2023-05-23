@@ -55,7 +55,7 @@
 
     <v-sheet :color="isMobile ? 'slategrey' : 'rgba(76, 109, 128, 1)'" class="white--text text-center">
       <v-sheet
-        :class="['mx-auto py-8 w-full white--text', isMobile ? 'px-6' : 'px-16']"
+        :class="['mx-auto w-full white--text', isMobile ? 'px-6 pt-6 pb-8' : 'px-16 py-8']"
         :max-width="globalMaxWidth"
         color="transparent"
       >
@@ -70,7 +70,7 @@
           </v-btn>
         </div>
 
-        <v-divider v-if="isMobile" class="white my-3" />
+        <v-divider v-if="isMobile" class="white my-6" style="opacity: 0.3" />
 
         <div>© 2023 Cobel Group. All Rights Reserved.</div>
       </v-sheet>
