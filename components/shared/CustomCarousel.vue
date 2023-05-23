@@ -1,11 +1,11 @@
 <template>
   <div class="position-relative">
-    <v-carousel v-model="model" class="position-relative z-0" height="auto" hide-delimiters show-arrows-on-hover>
+    <v-carousel v-model="model" class="position-relative z-0" height="auto" cycle hide-delimiters show-arrows-on-hover>
       <v-carousel-item v-for="(item, index) in items" :key="index">
         <v-img :height="isMobile ? 250 : 470" :src="item.src" class="position-relative z-0" position="center center">
           <div
             v-if="items.length > 1"
-            :class="['position-absolute bottom-0 start-0 end-0 mx-auto', isMobile ? 'px-8 mb-4' : 'px-12 mb-16 pb-10']"
+            :class="['position-absolute bottom-0 start-0 end-0 mx-auto', isMobile ? 'px-6 mb-4' : 'px-16 mb-16 pb-10']"
             :style="`max-width: ${globalMaxWidth}px`"
           >
             <v-icon v-for="(item, index) in items" :key="index" color="white" size="25">
@@ -21,7 +21,7 @@
         <v-sheet
           :class="[
             `m${isRTL ? 'l' : 'r'}-auto carousel-sheet`,
-            isMobile ? 'px-8 py-8' : `px-12 py-16 rounded-${isRTL ? 'l' : 'r'}-xl`
+            isMobile ? 'px-6 py-8' : `px-16 py-16 rounded-${isRTL ? 'l' : 'r'}-xl`
           ]"
           :max-width="globalMaxWidth * 0.9"
           :style="`${!isMobile && `margin-top: -78px`}`"

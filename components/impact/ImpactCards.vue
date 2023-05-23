@@ -6,14 +6,14 @@
         :class="[
           'white--text pointer flex-shrink-0',
           isMobile ? 'text-center' : 'd-flex',
-          item.descriptions ? 'px-12 py-8' : 'text-center py-8 px-12'
+          item.descriptions ? 'px-12 py-8' : 'text-center py-8 px-10'
         ]"
         :to="`/impact/${item.id}`"
         color="slategrey"
         flat
         tile
       >
-        <div :style="`${item.descriptions && !isMobile && 'min-width: 320px'}; min-height: 160px`" class="f-35 bel">
+        <div :style="`${item.descriptions && !isMobile ? 'width: 50%' : 'width: 100%'}`" class="f-35 bel flex-shrink-0">
           {{ item.title }}
         </div>
         <div

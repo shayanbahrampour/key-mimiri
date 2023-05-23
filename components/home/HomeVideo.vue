@@ -3,11 +3,10 @@
     <v-img
       :class="[
         'position-relative d-flex justify-center z-0 mx-auto',
-        isMobile ? 'text-center align-start py-8' : 'align-end py-16',
-        $vuetify.breakpoint.xl && 'rounded-xl'
+        isMobile ? 'text-center align-start py-8' : 'align-end py-16'
       ]"
-      :max-width="globalMaxWidth"
-      max-height="80vh"
+      height="85vh"
+      :max-height="isMobile ? 500 : 800"
       min-height="500"
       src="/images/temp/home_video_cover.png"
     >
@@ -21,7 +20,7 @@
         src="/images/home/home_video_button.svg"
       />
       <v-sheet
-        :class="['position-relative z-1 mx-auto white--text w-full', isMobile ? 'px-8' : 'px-12']"
+        class="position-relative z-1 mx-auto white--text w-full px-16"
         :max-width="globalMaxWidth"
         color="transparent"
       >
@@ -44,12 +43,13 @@
         </v-row>
       </v-sheet>
     </v-img>
+
     <v-sheet class="custom-gradient my-1" height="16" />
 
     <v-sheet
       v-if="isMobile"
       :max-width="globalMaxWidth"
-      class="px-8 mx-auto f-23 my-4 grey--text text--darken-2 font-weight-light text-center"
+      class="px-6 mx-auto f-23 my-4 grey--text text--darken-2 font-weight-light text-center"
       color="transparent"
     >
       Enjoyment of social interaction, sharing experience sense of belonging to a group, promoting participation

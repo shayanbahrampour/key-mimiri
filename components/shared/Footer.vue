@@ -1,8 +1,8 @@
 <template>
   <div>
-    <v-footer :class="[isMobile ? 'pt-10' : 'py-16']" color="slategrey">
+    <v-footer :class="[isMobile ? 'pt-10' : 'py-16 px-0']" color="slategrey">
       <v-sheet
-        :class="['mx-auto w-full white--text', isMobile ? 'px-4' : 'px-6']"
+        :class="['mx-auto w-full white--text', isMobile ? 'px-6' : 'px-16']"
         :max-width="globalMaxWidth"
         color="transparent"
       >
@@ -26,7 +26,7 @@
         </div>
 
         <v-row v-if="!isMobile" class="mt-16">
-          <v-col v-for="(item, index) in items" :key="index" cols="12" lg="3" md="6">
+          <v-col v-for="(item, index) in items" :key="index" cols="12" lg="3" sm="6">
             <h4 class="mb-3 f-15 text-uppercase">{{ item.title }}</h4>
 
             <div class="d-flex flex-column align-start">
@@ -55,7 +55,7 @@
 
     <v-sheet :color="isMobile ? 'slategrey' : 'rgba(76, 109, 128, 1)'" class="white--text text-center">
       <v-sheet
-        :class="['mx-auto py-8 w-full white--text', isMobile ? 'px-4' : 'px-12']"
+        :class="['mx-auto w-full white--text', isMobile ? 'px-6 pt-6 pb-8' : 'px-16 py-8']"
         :max-width="globalMaxWidth"
         color="transparent"
       >
@@ -70,7 +70,7 @@
           </v-btn>
         </div>
 
-        <v-divider v-if="isMobile" class="white my-3" />
+        <v-divider v-if="isMobile" class="white my-6" style="opacity: 0.3" />
 
         <div>© 2023 Cobel Group. All Rights Reserved.</div>
       </v-sheet>
@@ -86,12 +86,12 @@ export default {
         {
           title: 'Navigation',
           children: [
-            { title: 'Feeds/ News', to: '#' },
-            { title: 'Cobel Group in Nut Shell', to: '#' },
-            { title: 'Innovation', to: '#' },
-            { title: 'Impact Stories', to: '#' },
-            { title: 'People & Career', to: '#' },
-            { title: 'Reach Us', to: '#' }
+            { title: 'Feeds/ News', to: '/news' },
+            { title: 'Cobel Group in Nut Shell', to: '/' },
+            { title: 'Innovation', to: '/' },
+            { title: 'Impact Stories', to: '/impact' },
+            { title: 'People & Career', to: '/career' },
+            { title: 'Reach Us', to: '/contact' }
           ]
         },
         {
@@ -115,7 +115,7 @@ export default {
           children: [
             { title: 'support@ercom.com', href: 'mailto:support@ercom.com' },
             { title: '+66 2399 1145', href: 'tel:+66 2399 1145' },
-            { title: 'Contact Us', to: '#' }
+            { title: 'Contact Us', to: '/contact' }
           ]
         }
       ]

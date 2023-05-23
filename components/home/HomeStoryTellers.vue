@@ -4,14 +4,14 @@
       <h3
         :class="[
           'font-weight-regular bel grey--text text--darken-2',
-          isMobile ? 'px-8 f-45 text-center d-block' : 'px-12 f-50'
+          isMobile ? 'px-4 f-45 text-center d-block' : 'px-16 f-50'
         ]"
       >
         Storytellers
       </h3>
       <client-only>
         <swiper
-          :class="['w-full mr-0 px-8', isMobile ? 'mt-8' : 'my-8']"
+          :class="['w-full mr-0', isMobile ? 'mt-8 px-8' : 'my-8 px-16']"
           :dir="isRTL ? 'rtl' : 'ltr'"
           :options="{
             spaceBetween: 16,
@@ -25,7 +25,7 @@
                 slidesPerView: 3.5
               },
               1300: {
-                slidesPerView: 4.5
+                slidesPerView: 4.2
               },
               1904: {
                 slidesPerView: 5.2

@@ -1,35 +1,35 @@
 <template>
   <div>
-    <v-sheet :max-width="globalMaxWidth" class="mx-auto grey--text text--darken-2">
-      <div :class="isMobile ? 'px-8' : 'px-12'">
-        <div :class="['d-flex align-center mb-8', { 'flex-column text-center': isMobile }]">
-          <h3
-            :class="[
-              'font-weight-regular bel grey--text text--darken-2 flex-shrink-0',
-              isMobile ? 'f-45 text-center d-block' : 'f-50'
-            ]"
-          >
-            Impact Stories
-          </h3>
+    <v-sheet :max-width="globalMaxWidth" :class="['mx-auto grey--text text--darken-2', isMobile ? 'px-6' : 'px-16']">
+      <div :class="['d-flex align-center mb-8', { 'flex-column text-center': isMobile }]">
+        <h3
+          :class="[
+            'font-weight-regular bel grey--text text--darken-2 flex-shrink-0',
+            isMobile ? 'f-45 text-center d-block' : 'f-50'
+          ]"
+        >
+          Impact Stories
+        </h3>
 
-          <p
-            :class="`mb-0 ${!isMobile && `m${isRTL ? 'r' : 'l'}-8 p${isRTL ? 'r' : 'l'}-8`}`"
-            :style="`${!isMobile && `border-${isRTL ? 'right' : 'left'}: 1px solid #aaa`}`"
-          >
-            Patients are the center of all projects being conducted in the Cobel Group. Stories of hope, innovation,
-            collaboration, inspiration and empowerment helps us measure our impact and inspire us to create more.
-          </p>
-        </div>
-
-        <CustomTabs :items="tabs" />
+        <p
+          :class="`mb-0 ${!isMobile && `m${isRTL ? 'r' : 'l'}-8 p${isRTL ? 'r' : 'l'}-8`}`"
+          :style="`${!isMobile && `border-${isRTL ? 'right' : 'left'}: 1px solid #aaa`}`"
+        >
+          Patients are the center of all projects being conducted in the Cobel Group. Stories of hope, innovation,
+          collaboration, inspiration and empowerment helps us measure our impact and inspire us to create more.
+        </p>
       </div>
 
+      <CustomTabs :items="tabs" />
+    </v-sheet>
+
+    <v-sheet :max-width="globalMaxWidth" class="mx-auto">
       <client-only>
         <swiper
           v-if="items.length !== 0"
           id="impactSwiper"
           key="impactSwiper"
-          :class="['w-full mr-0', isMobile ? 'px-8 mt-8' : 'px-12 my-8']"
+          :class="['w-full mr-0', isMobile ? 'mt-8 px-6' : 'my-8 px-16']"
           :dir="isRTL ? 'rtl' : 'ltr'"
           :options="swiperOptions"
         >
