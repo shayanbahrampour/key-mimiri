@@ -35,7 +35,7 @@
             to consume 60 mg of iron supplements per week.
           </p>
           <v-btn
-            to="forum"
+            :to="`${locale}/forum`"
             :class="[
               'rounded-xl d-flex justify-center white--text font-weight-regular',
               isMobile ? 'f-20 mb-6' : 'f-14 mt-16 mb-0'

@@ -9,7 +9,7 @@
         </p>
         <div class="d-flex align-start mt-6">
           <v-btn
-            :to="`/career/123`"
+            :to="`${locale}/career/123`"
             class="rounded-xl d-flex justify-center white--text f-14"
             color="#66869A"
             elevation="0"
@@ -32,7 +32,7 @@
         </p>
         <div class="d-flex align-start mt-6">
           <v-btn
-            :to="`/career/123`"
+            :to="`${locale}/career/123`"
             class="rounded-xl d-flex justify-center white--text f-14"
             color="#66869A"
             elevation="0"
@@ -57,7 +57,7 @@
         </p>
         <div class="d-flex align-start mt-6">
           <v-btn
-            :to="`/career/123`"
+            :to="`${locale}/career/123`"
             class="rounded-xl d-flex justify-center white--text f-14"
             color="#66869A"
             elevation="0"
@@ -80,7 +80,7 @@
         </p>
         <div class="d-flex align-start mt-6">
           <v-btn
-            :to="`/career/123`"
+            :to="`${locale}/career/123`"
             class="rounded-xl d-flex justify-center white--text f-14"
             color="#66869A"
             elevation="0"

@@ -4,7 +4,7 @@
       We appreciate your interest in our company and the time you took to apply for this position
     </p>
     <v-btn
-      to="/"
+      :to="`${locale}/`"
       :class="['rounded-xl d-flex justify-center white--text font-weight-bold', isMobile ? 'f-16 mt-6' : 'f-14 mt-4']"
       :min-width="!isMobile ? '300' : '80%'"
       color="#66869A"

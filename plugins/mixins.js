@@ -8,6 +8,9 @@ Vue.mixin({
     };
   },
   computed: {
+    locale() {
+      return this.$i18n.locale === 'en' ? '' : this.$i18n.locale;
+    },
     isRTL() {
       return this.$vuetify.rtl;
     },

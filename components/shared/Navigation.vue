@@ -15,7 +15,7 @@
         :max-width="globalMaxWidth"
         color="transparent"
       >
-        <nuxt-link exact to="/">
+        <nuxt-link exact :to="`/${locale}`">
           <v-img v-if="isMobile" alt="cobel" class="logo" contain height="40" max-width="130" src="/images/logo.png" />
 
           <div v-else class="logo-container overflow-hidden">
@@ -82,12 +82,12 @@ export default {
   computed: {
     items() {
       return [
-        { value: 'menu.point_of_view', path: '#' },
+        { value: 'menu.point_of_view', path: '/' },
         { value: 'menu.impact_stories', path: '/impact' },
         { value: 'menu.education', path: '/education' },
         { value: 'menu.people_careers', path: '/career' },
         { value: 'menu.press_center', path: '/news' }
-      ];
+      ].map((item) => ({ ...item, path: `${this.locale}${item.path}` }));
     }
   }
 };
