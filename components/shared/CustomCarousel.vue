@@ -1,6 +1,6 @@
 <template>
   <div class="position-relative">
-    <v-carousel v-model="model" class="position-relative z-0" height="auto" hide-delimiters show-arrows-on-hover>
+    <v-carousel v-model="model" class="position-relative z-0" height="auto" cycle hide-delimiters show-arrows-on-hover>
       <v-carousel-item v-for="(item, index) in items" :key="index">
         <v-img :height="isMobile ? 250 : 470" :src="item.src" class="position-relative z-0" position="center center">
           <div
