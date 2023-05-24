@@ -1,5 +1,6 @@
 <template>
   <v-sheet
+    v-if="src"
     :id="`${ref}-sheet`"
     :class="[
       'flex-shrink-0 d-flex align-center justify-center text-center mx-auto position-relative overflow-hidden',
@@ -12,105 +13,85 @@
     color="transparent"
     min-height="50"
   >
-    <v-progress-circular v-if="flag.loading" :width="2" color="white" indeterminate />
-    <template v-else-if="src">
-      <div
-        v-if="flag.isEnded && !flag.isPlaying && autoplay"
-        class="start-0 bottom-0 w-full h-full position-absolute z-2 rounded d-flex align-center justify-center white--text"
-        style="background-color: rgba(0, 0, 0, 0.7)"
-      >
-        <div
-          class="pointer d-flex flex-column"
-          @click="
-            flag.isEnded = false;
-            play();
-          "
-        >
-          <v-icon color="white" size="20"> fas fa-rotate-right</v-icon>
-          <div class="pt-2">مشاهده مجدد</div>
-        </div>
-      </div>
-
-      <template v-if="autoplay">
-        <div class="pa-2 top-0 start-0 z-2 position-absolute">
-          <v-btn
-            color="rgba(0, 0, 0, 0.2)"
-            depressed
-            fab
-            height="35"
-            style="backdrop-filter: blur(2px)"
-            width="35"
-            @click="toggleFullscreen"
-          >
-            <v-icon color="white" size="16"> fas fa-regular fa-expand</v-icon>
-          </v-btn>
-        </div>
-
-        <div class="pa-2 top-0 end-0 z-2 position-absolute">
-          <v-btn
-            color="rgba(0, 0, 0, 0.2)"
-            depressed
-            fab
-            height="35"
-            style="backdrop-filter: blur(2px)"
-            width="35"
-            @click="toggleMute"
-          >
-            <v-icon color="white" size="15">
-              <template v-if="flag.isMuted"> fas fa-volume-mute</template>
-              <template v-else> fas fa-volume-high</template>
-            </v-icon>
-          </v-btn>
-        </div>
-      </template>
-
-      <div
-        v-intersect="
-          autoplay
-            ? {
-                handler: onAutoPlay,
-                options: {
-                  threshold: 1
-                }
-              }
-            : {}
-        "
-        class="position-absolute top-0 bottom-0 start-0 end-0 ma-auto z-1 h-100 w-100 d-flex align-center justify-center"
-        @click.prevent="togglePlay"
-      >
+    <template v-if="autoplay">
+      <div class="pa-2 top-0 start-0 z-2 position-absolute">
         <v-btn
-          v-if="showPlayButton"
           color="rgba(0, 0, 0, 0.2)"
           depressed
           fab
-          height="50"
+          height="35"
           style="backdrop-filter: blur(2px)"
-          width="50"
+          width="35"
+          @click="toggleFullscreen"
         >
-          <v-icon color="white" size="25">far fa-play</v-icon>
+          <v-icon color="white" size="16"> fas fa-regular fa-expand</v-icon>
         </v-btn>
       </div>
-      <videoPlayer
-        :ref="ref"
-        :events="['fullscreenchange']"
-        :options="playerOptions"
-        class="position-relative z-0 w-full vjs-theme-sea"
-        playsinline
-        @ended="onEnded"
-        @error="onRetry"
-        @fullscreenchange="onFullscreen"
-        @pause="flag.isPlaying = false"
-        @play="flag.isPlaying = true"
-        @ready="onReady"
-      />
+
+      <div class="pa-2 top-0 end-0 z-2 position-absolute">
+        <v-btn
+          color="rgba(0, 0, 0, 0.2)"
+          depressed
+          fab
+          height="35"
+          style="backdrop-filter: blur(2px)"
+          width="35"
+          @click="toggleMute"
+        >
+          <v-icon color="white" size="15">
+            <template v-if="flag.isMuted"> fas fa-volume-mute</template>
+            <template v-else> fas fa-volume-high</template>
+          </v-icon>
+        </v-btn>
+      </div>
     </template>
+    <div
+      v-intersect="
+        autoplay
+          ? {
+              handler: onAutoPlay,
+              options: {
+                threshold: 1
+              }
+            }
+          : {}
+      "
+      class="position-absolute top-0 bottom-0 start-0 end-0 ma-auto z-1 h-100 w-100 d-flex align-center justify-center"
+      @click.prevent="togglePlay"
+    >
+      <v-btn
+        v-if="showPlayButton"
+        color="rgba(0, 0, 0, 0.2)"
+        depressed
+        fab
+        height="50"
+        style="backdrop-filter: blur(2px)"
+        width="50"
+      >
+        <v-icon color="white" size="25">far fa-play</v-icon>
+      </v-btn>
+    </div>
+    <videoPlayer
+      :ref="ref"
+      :events="['fullscreenchange']"
+      :options="playerOptions"
+      class="position-relative z-0 w-full vjs-theme-sea"
+      playsinline
+      @ended="onEnded"
+      @error="onRetry"
+      @fullscreenchange="onFullscreen"
+      @pause="flag.isPlaying = false"
+      @play="flag.isPlaying = true"
+      @ready="onReady"
+    />
   </v-sheet>
 </template>
 
 <script>
 import 'video.js/dist/video-js.css';
-import { videoPlayer } from 'vue-video-player';
-import FileMixin from '~/components/shared/libs/mixin.file';
+import { videoPlayer } from 'vue-video-player/dist/ssr';
+
+import FileMixin from '~/mixins/mixin.file';
 
 export default {
   name: 'VideoLoader',
@@ -159,6 +140,7 @@ export default {
       );
     },
     playerOptions() {
+      console.log(this.poster);
       return {
         fluid: true,
         muted: true,

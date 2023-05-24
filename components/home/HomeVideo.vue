@@ -1,6 +1,5 @@
 <template>
   <div>
-    <VideoLoader src="/video/temp.mp4" poster="/images/temp/home_video_cover.png" />
     <v-img
       :class="[
         'position-relative d-flex justify-center z-0 mx-auto',
@@ -9,7 +8,7 @@
       height="85vh"
       :max-height="isMobile ? 500 : 800"
       min-height="500"
-      src="/images/temp/home_video_cover.png"
+      src="/images/temp/cover-6.png"
     >
       <v-img
         :height="isMobile ? 80 : 130"

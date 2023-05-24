@@ -4,7 +4,7 @@
       <v-img :src="item.src" height="250" width="100%" />
       <v-card
         :class="[
-          'white--text pointer flex-shrink-0',
+          'white--text pointer flex-shrink-0 custom-card-container',
           isMobile ? 'text-center' : 'd-flex',
           item.descriptions ? 'px-12 py-8' : 'text-center py-8 px-10'
         ]"
@@ -52,9 +52,17 @@ export default {
     transition: all ease-in 0.4s;
   }
 
+  .custom-card-container {
+    transition: all ease-in 0.3s;
+  }
+
   &:hover {
     .v-image {
       filter: grayscale(0%);
+    }
+
+    .custom-card-container {
+      background-color: #4c6d80 !important;
     }
   }
 }
