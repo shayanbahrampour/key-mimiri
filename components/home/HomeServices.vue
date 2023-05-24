@@ -15,9 +15,9 @@
       <v-carousel v-model="active" cycle height="auto" hide-delimiters show-arrows-on-hover>
         <v-carousel-item v-for="(item, index) in shapes" :key="index">
           <v-img
-            class="align-end home-services-container mx-auto"
             :height="isMobile ? 400 : 'calc(100vh - 300px)'"
             :src="item.src"
+            class="align-end home-services-container mx-auto"
             gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,.83)"
             max-height="700"
             min-height="550"
@@ -56,8 +56,8 @@
         <svg
           v-if="!isMobile"
           :class="`position-absolute end-0 start-0 m${isRTL ? 'l' : 'r'}-auto`"
-          fill="none"
           :style="`width: 400px; bottom: -1px; margin-${isRTL ? 'right' : 'left'}: 25%`"
+          fill="none"
           viewBox="0 0 403 127"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -103,12 +103,12 @@
       </div>
 
       <div
-        :style="`width: ${isMobile ? '100%' : '400px'}; height: ${isMobile ? '100%' : '200px'}; margin-${
-          isRTL ? 'right' : 'left'
-        }: ${isMobile ? 'auto' : '25%'}`"
         :class="`nuclear z-0 start-0 top-0 end-0 bottom-0 position-absolute rounded-circle my-auto d-flex align-center justify-center m${
           isRTL ? 'l' : 'r'
         }-auto`"
+        :style="`width: ${isMobile ? '100%' : '400px'}; height: ${isMobile ? '100%' : '200px'}; margin-${
+          isRTL ? 'right' : 'left'
+        }: ${isMobile ? 'auto' : '25%'}`"
       >
         <div v-if="!isTablet" class="f-60 font-weight-regular bel grey--text text--darken-1 text-center mb-sm-0 mb-6">
           HRQOL

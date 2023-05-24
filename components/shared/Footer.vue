@@ -19,6 +19,7 @@
 
           <template v-if="!horizontal">
             <v-btn
+              :to="localePath('/contact')"
               class="f-18 ma-2 px-14"
               color="white"
               depressed
@@ -26,18 +27,17 @@
               large
               outlined
               rounded
-              :to="localePath('/contact')"
             >
               {{ $t('footer.contact') }}
             </v-btn>
             <v-btn
+              :to="localePath('/storytellers')"
               class="f-18 ma-2 px-14"
               color="white"
               depressed
               exact
               large
               rounded
-              :to="localePath('/storytellers')"
             >
               {{ $t('footer.about') }}
             </v-btn>
@@ -45,16 +45,16 @@
         </div>
 
         <v-row v-if="!isMobile" :class="['justify-center', { 'mt-16': !horizontal }]">
-          <v-col v-for="(item, index) in items" :key="index" cols="12" :lg="horizontal ? 2 : 3" sm="6">
+          <v-col v-for="(item, index) in items" :key="index" :lg="horizontal ? 2 : 3" cols="12" sm="6">
             <h4 class="mb-3 f-15 text-start text-uppercase font-weight-regular">{{ $t(item.title) }}</h4>
             <div class="d-flex flex-column align-start">
               <v-btn
                 v-for="(link, j) in item.children"
                 :key="j"
+                :class="['pa-0 f-15 bg-transparent', link.name ? 'ltr text-lowercase' : 'text-capitalize']"
                 :href="link.href ? link.href : undefined"
                 :ripple="false"
                 :to="link.to ? localePath(link.to) : undefined"
-                :class="['pa-0 f-15 bg-transparent', link.name ? 'ltr text-lowercase' : 'text-capitalize']"
                 color="white"
                 exact
                 link
@@ -68,18 +68,19 @@
           <v-col v-if="horizontal" cols="12" lg="3" sm="6">
             <div class="d-flex flex-column align-center">
               <v-btn
+                :to="localePath('/storytellers')"
                 class="f-18 mb-4"
-                width="200"
                 color="white"
                 depressed
                 exact
                 large
                 rounded
-                :to="localePath('/storytellers')"
+                width="200"
               >
                 {{ $t('footer.about') }}
               </v-btn>
               <v-btn
+                :to="localePath('/contact')"
                 class="f-18"
                 color="white"
                 depressed
@@ -88,7 +89,6 @@
                 outlined
                 rounded
                 width="200"
-                :to="localePath('/contact')"
               >
                 {{ $t('footer.contact') }}
               </v-btn>
@@ -108,18 +108,19 @@
       >
         <div v-if="isMobile" class="d-flex flex-column align-center mb-6">
           <v-btn
+            :to="localePath('/storytellers')"
             class="f-18 mb-4"
-            width="200"
             color="white"
             depressed
             exact
             large
             rounded
-            :to="localePath('/storytellers')"
+            width="200"
           >
             {{ $t('footer.about') }}
           </v-btn>
           <v-btn
+            :to="localePath('/contact')"
             class="f-18"
             color="white"
             depressed
@@ -128,7 +129,6 @@
             outlined
             rounded
             width="200"
-            :to="localePath('/contact')"
           >
             {{ $t('footer.contact') }}
           </v-btn>

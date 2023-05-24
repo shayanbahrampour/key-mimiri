@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-sheet :max-width="globalMaxWidth" :class="['mx-auto grey--text text--darken-2', isMobile ? 'px-6' : 'px-16']">
+    <v-sheet :class="['mx-auto grey--text text--darken-2', isMobile ? 'px-6' : 'px-16']" :max-width="globalMaxWidth">
       <div :class="['d-flex align-center mb-8', { 'flex-column text-center': isMobile }]">
         <h3
           :class="[

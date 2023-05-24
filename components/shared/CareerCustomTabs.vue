@@ -1,18 +1,18 @@
 <template>
   <v-tabs
     v-model="model"
-    center-active
     :class="['career-custom-tabs', isMobile ? 'mobile-tab' : setStep(model)]"
-    grow
     :show-arrows="!isMobile"
+    center-active
+    grow
   >
     <v-tab
       v-for="(item, index) in items"
       :key="index"
-      :ripple="false"
-      disabled
-      active-class="black--text"
       :class="['bel bg-transparent text-capitalize', isMobile ? 'f-24 ml-16 pl-6 text-center' : 'f-20']"
+      :ripple="false"
+      active-class="black--text"
+      disabled
       style="text-transform: unset !important"
     >
       {{ item.title }}
@@ -61,10 +61,12 @@ export default {
     transition: width 0.3s ease-in-out;
     left: 0px !important;
   }
+
   .v-tabs-slider {
     background: none repeat scroll 0 0 transparent;
     background: #4c6d80 !important;
   }
+
   .v-slide-group__content,
   .v-tabs-bar__content {
     position: relative;
@@ -93,36 +95,43 @@ export default {
     width: 50% !important;
   }
 }
+
 .tab-two {
   .v-tabs-slider {
     width: 180% !important;
   }
 }
+
 .tab-three {
   .v-tabs-slider {
     width: 290% !important;
   }
 }
+
 .tab-four {
   .v-tabs-slider {
     width: 350% !important;
   }
 }
+
 .tab-five {
   .v-tabs-slider {
     width: 640% !important;
   }
 }
+
 .tab-six {
   .v-tabs-slider {
     width: 560% !important;
   }
 }
+
 .tab-six {
   .v-tabs-slider {
     width: 560% !important;
   }
 }
+
 .tab-seven {
   .v-tabs-slider {
     width: 450% !important;

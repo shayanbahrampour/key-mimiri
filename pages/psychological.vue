@@ -23,7 +23,7 @@
           interpersonal relationships, and make sound decisions. Psychological health is essential for leading a happy
           and fulfilling life, as it enables individuals to handle life's challenges with confidence and resilience.
         </p>
-        <div v-if="!isMobile" class="right-circle" :class="{ 'animate-dot': scrollPosition > 0 }"></div>
+        <div v-if="!isMobile" :class="{ 'animate-dot': scrollPosition > 0 }" class="right-circle"></div>
         <div v-else class="right-circle-mobile"></div>
       </div>
       <v-divider :class="[isMobile ? 'my-6' : 'my-10']" style="background-color: #f3911f"></v-divider>
@@ -34,7 +34,7 @@
         High levels of psychological health enable individuals to be more efficient and productive in their personal and
         professional lives, as they are able to think clearly, communicate effectively, and learn new skills.
       </h4>
-      <div v-if="!isMobile" class="left-circle" :class="{ 'animate-dot': scrollPosition > 0 }"></div>
+      <div v-if="!isMobile" :class="{ 'animate-dot': scrollPosition > 0 }" class="left-circle"></div>
       <div v-else class="left-circle-mobile"></div>
       <v-divider :class="[isMobile ? 'my-6' : 'my-10']" style="background-color: #f3911f"></v-divider>
       <p
@@ -118,6 +118,7 @@ export default {
     top: 30%;
   }
 }
+
 @keyframes dotAnimationLeft {
   30% {
     transform: translate(50%, -50%);
@@ -138,6 +139,7 @@ export default {
   right: -130px;
   top: 30%;
   transform: translate(50%, -50%);
+
   &.animate-dot {
     animation: dotAnimationRight 1s linear;
   }
@@ -156,6 +158,7 @@ export default {
   left: -100px;
   top: 62%;
   transform: translate(50%, -50%);
+
   &.animate-dot {
     animation: dotAnimationLeft 1s linear;
   }

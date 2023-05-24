@@ -13,8 +13,8 @@
       >
         <div :class="['d-flex font-weight-light', isMobile ? 'w-full flex-wrap' : undefined]" style="width: 50%">
           <p :class="['f-12', isMobile ? 'mb-6 mr-10' : 'mb-0 mr-6']" style="color: #939393">
-            <v-icon v-if="isMobile" class="mr-1" size="16">mdi-clock-outline</v-icon
-            >{{ !isMobile ? 'Read time: 13min' : '13min' }}
+            <v-icon v-if="isMobile" class="mr-1" size="16">mdi-clock-outline </v-icon>
+            {{ !isMobile ? 'Read time: 13min' : '13min' }}
           </p>
           <p :class="['f-12', isMobile ? 'mb-6 mr-10' : 'mb-0 mr-6']" style="color: #939393">
             <v-icon v-if="isMobile" class="mr-1" size="16">mdi-fountain-pen-tip</v-icon>

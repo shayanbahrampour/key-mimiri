@@ -97,8 +97,8 @@
     </div>
     <div class="d-flex flex-column align-center w-full white">
       <v-card
-        :width="isMobile ? '90%' : '70%'"
         :class="['rounded-xl d-flex py-16 flex-column align-center justify-center', !isMobile ? 'mb-16' : 'mb-2']"
+        :width="isMobile ? '90%' : '70%'"
         color="#ECECEC"
         elevation="0"
         height="350"
@@ -129,12 +129,12 @@
           you when the right opportunity comes up.
         </p>
         <v-btn
-          :to="localePath('/career/forum')"
           :class="[
             'rounded-xl d-flex justify-center white--text',
             isMobile ? 'f-20 mt-6 font-weight-regular' : 'f-14 font-weight-bold'
           ]"
           :min-width="!isMobile ? '300' : '80%'"
+          :to="localePath('/career/forum')"
           color="#A01E64"
           elevation="0"
           height="40"

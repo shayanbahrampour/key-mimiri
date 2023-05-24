@@ -35,12 +35,12 @@
             to consume 60 mg of iron supplements per week.
           </p>
           <v-btn
-            :to="`/career/forum?job=${true}`"
             :class="[
               'rounded-xl d-flex justify-center white--text font-weight-regular',
               isMobile ? 'f-20 mb-6' : 'f-14 mt-16 mb-0'
             ]"
             :min-width="!isMobile ? '250' : '100%'"
+            :to="`/career/forum?job=${true}`"
             color="#A01E64"
             elevation="0"
             height="50"
@@ -53,9 +53,9 @@
     <div :class="['d-flex flex-column align-start white', isMobile ? 'px-4 f-16' : 'px-16']" style="line-height: 2">
       <v-img
         :class="[isMobile ? 'mt-14' : 'mx-6 mt-10']"
-        contain
         :max-height="isMobile ? '50' : '30'"
         :width="isMobile ? '100%' : '100'"
+        contain
         src="/images/logo.png"
       />
       <p :class="['mx-2 mt-6', isMobile ? 'text-center' : undefined]" style="color: #939393">
@@ -162,6 +162,7 @@ export default {
 .mobile-contact {
   max-width: 90vw !important;
 }
+
 .desktop-contact {
   max-width: 70vw !important;
 }

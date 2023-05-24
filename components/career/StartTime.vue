@@ -11,18 +11,18 @@
         <v-menu offset-y open-on-click>
           <template v-slot:activator="{ on, attrs }">
             <v-text-field
-              v-bind="attrs"
-              v-on="on"
+              append-icon="mdi-triangle-down 10"
+              append-icon-size="16"
               class="mb-6"
               dense
               filled
               hide-details
-              readonly
-              append-icon="mdi-triangle-down 10"
-              append-icon-size="16"
               label="Will be available for work"
+              readonly
               rounded
               style="max-width: 400px"
+              v-bind="attrs"
+              v-on="on"
             ></v-text-field>
           </template>
           <v-list>
@@ -41,18 +41,18 @@
           <v-btn
             :class="isMobile ? 'mb-16' : undefined"
             color="#00A59B"
-            small
-            max-width="20"
             height="50"
+            max-width="20"
             outlined
+            small
             style="border-radius: 30%"
           >
             <v-img max-width="20" src="/images/career/pdf.png" />
           </v-btn>
           <v-btn
             :class="['mt-0 ml-0', isMobile ? 'mb-16' : undefined]"
-            text
             style="text-transform: unset !important; color: #00a59b"
+            text
           >
             <p class="mb-0 f-16">Print your application</p>
           </v-btn>
@@ -77,6 +77,7 @@ export default {
 .contact-background {
   background-color: #d9d9d9;
 }
+
 .mdi-triangle-down::before {
   font-size: 16px;
   color: slategrey;

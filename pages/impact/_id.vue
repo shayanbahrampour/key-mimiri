@@ -17,7 +17,7 @@
           </v-sheet>
         </v-sheet>
       </v-col>
-      <v-col cols="12" lg="6" md="7" offset-xl="0" offset-lg="1">
+      <v-col cols="12" lg="6" md="7" offset-lg="1" offset-xl="0">
         <div :class="[isMobile ? 'pa-4 mt-6' : 'pa-16 mt-5']">
           <h1 :class="['bel grey--text text--darken-2 font-weight-regular', isMobile ? 'f-40' : 'f-80 mb-4']">
             Woman empowerment future enrichment

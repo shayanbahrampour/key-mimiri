@@ -15,7 +15,7 @@
         :max-width="globalMaxWidth"
         color="transparent"
       >
-        <nuxt-link exact :to="localePath('/')">
+        <nuxt-link :to="localePath('/')" exact>
           <v-img v-if="isMobile" alt="cobel" class="logo" contain height="40" max-width="130" src="/images/logo.png" />
 
           <div v-else class="logo-container overflow-hidden">

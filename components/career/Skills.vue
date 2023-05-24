@@ -39,8 +39,8 @@
         <v-col cols="12" md="4">
           <v-btn
             class="mb-6 mt-1 ml-0"
-            text
             style="text-transform: unset !important; color: #0a91df"
+            text
             @click="counter_lang++"
           >
             <p class="mb-0 f-16">Add new <span class="font-weight-bold">Skills</span></p>
@@ -79,8 +79,8 @@
         <v-col cols="12" md="4">
           <v-btn
             class="mb-12 mt-2 ml-0"
-            text
             style="text-transform: unset !important; color: #0a91df"
+            text
             @click="counter_com++"
           >
             <p class="mb-0 f-16">Add new <span class="font-weight-bold">Skills</span></p>

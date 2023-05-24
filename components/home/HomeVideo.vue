@@ -5,8 +5,8 @@
         'position-relative d-flex justify-center z-0 mx-auto',
         isMobile ? 'text-center align-start py-8' : 'align-end py-16'
       ]"
-      height="85vh"
       :max-height="isMobile ? 500 : 800"
+      height="85vh"
       min-height="500"
       src="/images/temp/cover-6.png"
     >
@@ -20,8 +20,8 @@
         src="/images/home/home_video_button.svg"
       />
       <v-sheet
-        class="position-relative z-1 mx-auto white--text w-full px-16"
         :max-width="globalMaxWidth"
+        class="position-relative z-1 mx-auto white--text w-full px-16"
         color="transparent"
       >
         <v-row align="center" dense>
@@ -37,7 +37,7 @@
             </v-col>
             <v-col cols="12" lg="6" md="7">
               <div class="f-25 grey--text text--lighten-2 font-weight-light">
-              {{ $t('homePage.video.description') }}
+                {{ $t('homePage.video.description') }}
               </div>
             </v-col>
           </template>
