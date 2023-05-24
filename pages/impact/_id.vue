@@ -210,7 +210,7 @@ export default {
   data() {
     return {
       swiperOptions: {
-        spaceBetween: 16,
+        spaceBetween: 32,
         slidesPerView: 1.1,
         grabCursor: true,
         breakpoints: {
@@ -241,6 +241,14 @@ export default {
     return {
       title: this.$t('pageTitles.impact_stories')
     };
+  },
+  async fetch() {
+    try {
+      const { data } = await this.$store.dispatch('impact/getList', { id: 'featured' });
+      console.log(data.results);
+    } catch (e) {
+      console.log(e);
+    }
   }
 };
 </script>

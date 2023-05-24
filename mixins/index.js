@@ -26,8 +26,7 @@ Vue.mixin({
   },
   methods: {
     changeDirection() {
-      const currentLang = this.$i18n.locale || 'en';
-      const direction = locales.find((item) => item.code === currentLang);
+      const direction = locales.find((item) => item.code === this.$i18n.locale);
       if (direction) this.$vuetify.rtl = direction.dir === 'rtl';
     },
     errorHandler(error) {

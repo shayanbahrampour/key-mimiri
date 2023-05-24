@@ -94,11 +94,11 @@
             :class="['bel font-weight-regular mb-1', isMobile ? 'f-40' : 'f-50']"
             :style="`color:${activeItem.color}; line-height: ${isMobile ? '30px' : '50px'};`"
           >
-            {{ activeItem.title }}
+            {{ $t(activeItem.title) }}
           </h3>
         </v-scroll-y-transition>
         <v-scroll-y-transition>
-          <p v-if="activeItem" class="f-20 font-weight-light ma-0">{{ activeItem.description }}</p>
+          <p v-if="activeItem" class="f-20 font-weight-light ma-0">{{ $t(activeItem.description) }}</p>
         </v-scroll-y-transition>
       </div>
 
@@ -165,24 +165,22 @@ export default {
           src: '/images/temp/cover-1.jpg',
           position: coordinates.top,
           color: 'rgba(160, 30, 100, 1)',
-          title: 'Social Health',
-          description:
-            'Enjoyment of social interaction, sharing experiences, sense of belonging to a group, promoting participation'
+          title: 'homePage.services.balls.social_health',
+          description: 'homePage.services.balls.social_health_description'
         },
         {
           src: '/images/temp/cover-2.png',
           position: coordinates.side,
           color: 'rgba(243, 145, 31, 1)',
-          title: 'Psychological Health',
-          description:
-            'Emotional and interpersonal functioning: Increased self efficiency, confidence, learning new skills, raised awareness'
+          title: 'homePage.services.balls.psychological_health',
+          description: 'homePage.services.balls.psychological_health_description'
         },
         {
           src: '/images/temp/cover-3.png',
           position: coordinates.bottom,
           color: 'rgba(0, 165, 155, 1)',
-          title: 'Physical Health',
-          description: 'Perceived improvement in balance, strength, flexibility, endurance and functional activities'
+          title: 'homePage.services.balls.physical_health',
+          description: 'homePage.services.balls.physical_health_description'
         }
       ];
 
