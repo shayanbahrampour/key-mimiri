@@ -1,0 +1,53 @@
+@import './mixins';
+@import './vuetify';
+
+.rounded-circle,
+.rounded {
+  .video-player {
+    overflow: hidden !important;
+  }
+}
+
+.rounded-circle .video-player {
+  @include border-radius(50%);
+  overflow: hidden;
+}
+
+.rounded .video-player {
+  @include border-radius($border-radius-root);
+  overflow: hidden;
+}
+
+.autoplay {
+  .video-js {
+    min-height: calc(50vh - 32px - 90px) !important;
+  }
+}
+
+.rounded-top .video-player {
+  overflow: hidden;
+  @include border-radius($border-radius-root $border-radius-root 0 0);
+}
+
+.video-player {
+  > div {
+    .vjs-tech {
+      min-height: 66px;
+    }
+  }
+}
+
+.fill-poster {
+  .vjs-poster,
+  .vjs-tech {
+    object-fit: cover;
+  }
+}
+
+.video-js.vjs-fluid {
+  min-height: 120px;
+}
+
+.vjs-big-play-button {
+  display: none !important;
+}

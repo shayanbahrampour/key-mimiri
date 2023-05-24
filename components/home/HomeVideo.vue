@@ -1,5 +1,6 @@
 <template>
   <div>
+    <VideoLoader src="/video/temp.mp4" poster="/images/temp/home_video_cover.png" />
     <v-img
       :class="[
         'position-relative d-flex justify-center z-0 mx-auto',
@@ -58,7 +59,11 @@
 </template>
 
 <script>
-export default {};
+import VideoLoader from '~/components/shared/VideoLoader.vue';
+
+export default {
+  components: { VideoLoader }
+};
 </script>
 
 <style lang="scss" scoped>
