@@ -20,9 +20,16 @@ export default {
   homePage: {
     slider: {
       title: 'Unleashing the next level health solutions',
-      more_about: 'More_About',
-      cobel_group: 'Cobel_Group',
+      more_about: 'More About',
+      cobel_group: 'Cobel Group',
       swipe_down: 'Swipe Down...'
+    },
+    services: {
+      slider: {
+        title: 'Treatment and prevention paradigm shift',
+        description:
+          'Be an enabler to enhance peoples physical, psychological and social quality of life (HRQoL) through high quality and innovative solutions'
+      }
     }
   },
   footer: {
