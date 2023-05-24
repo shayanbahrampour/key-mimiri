@@ -44,13 +44,13 @@
 
           <template v-if="!isMobile">
             <div class="d-flex mt-8 mb-16 pb-6">
-              <nuxt-link to="/" class="mr-4">
+              <nuxt-link :to="`${locale}/`" class="mr-4">
                 <v-img contain height="50" src="/images/social/icon-linkedin.svg" width="50" />
               </nuxt-link>
-              <nuxt-link to="/" class="mr-4">
+              <nuxt-link :to="`${locale}/`" class="mr-4">
                 <v-img contain height="50" src="/images/social/icon-whatsapp.svg" width="50" />
               </nuxt-link>
-              <nuxt-link to="/" class="mr-4">
+              <nuxt-link :to="`${locale}/`" class="mr-4">
                 <v-img contain height="50" src="/images/social/icon-telegram.svg" width="50" />
               </nuxt-link>
             </div>
@@ -160,7 +160,7 @@
 
         <template v-if="!isMobile">
           <v-spacer />
-          <nuxt-link to="/impact" class="grey--text text-decoration-none">See All</nuxt-link>
+          <nuxt-link :to="`${locale}/impact`" class="grey--text text-decoration-none">See All</nuxt-link>
         </template>
       </div>
 
@@ -169,7 +169,7 @@
           v-if="items.length !== 0"
           id="impactSwiper"
           key="impactSwiper"
-          :class="['w-full mr-0', isMobile ? 'mt-8 px-6' : 'my-8 px-16']"
+          :class="[`w-full m${isRTL ? 'l' : 'r'}-0`, isMobile ? 'mt-8 px-6' : 'my-8 px-16']"
           :dir="isRTL ? 'rtl' : 'ltr'"
           :options="swiperOptions"
         >

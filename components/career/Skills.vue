@@ -7,28 +7,20 @@
       >
         Skills
       </p>
-      <v-row class="align-start justify-center">
-        <v-col :class="isMobile ? 'pb-0' : undefined" cols="12" md="4">
-          <v-text-field class="mb-8" dense filled hide-details label="Foreign Languages" rounded></v-text-field>
+      <v-row v-for="i in counter_lang" :key="i" class="align-start justify-start">
+        <v-col cols="12" md="4">
           <v-text-field
-            v-if="!isMobile"
-            class="mb-8"
+            :class="!isMobile ? 'mb-4' : 'mb-0'"
             dense
             filled
             hide-details
-            label="Computer Knowledge"
+            label="Foreign Languages"
             rounded
           ></v-text-field>
-          <v-text-field v-else class="mb-4" dense filled hide-details label="Level" rounded></v-text-field>
         </v-col>
-        <v-btn v-if="isMobile" class="mb-4" text style="text-transform: unset !important; color: #0a91df">
-          <p class="mb-0 f-16">Add new <span class="font-weight-bold">Skills</span></p>
-        </v-btn>
-        <v-col :class="isMobile ? 'py-0' : undefined" cols="12" md="4">
-          <v-text-field v-if="!isMobile" class="mb-8" dense filled hide-details label="Level" rounded></v-text-field>
-          <v-text-field v-else class="mb-8" dense filled hide-details label="Computer Knowledge" rounded></v-text-field>
+        <v-col cols="12" md="4">
           <v-text-field
-            :class="!isMobile ? 'mb-8' : 'mb-0'"
+            :class="!isMobile ? 'mb-4' : 'mb-0'"
             dense
             filled
             hide-details
@@ -36,19 +28,63 @@
             rounded
           ></v-text-field>
         </v-col>
-        <v-col :class="isMobile ? 'pt-0' : undefined" cols="12" md="4">
-          <div :class="['d-flex flex-column', !isMobile ? 'align-start' : 'align-center']">
-            <v-btn v-if="!isMobile" class="mb-12 ml-0" text style="text-transform: unset !important; color: #0a91df">
-              <p class="mb-0 f-16">Add new <span class="font-weight-bold">Skills</span></p>
-            </v-btn>
-            <v-btn
-              :class="['ml-0', !isMobile ? 'mt-2' : 'my-4']"
-              text
-              style="text-transform: unset !important; color: #0a91df"
-            >
-              <p class="mb-0 f-16">Add new <span class="font-weight-bold">Skills</span></p>
-            </v-btn>
-          </div>
+      </v-row>
+      <v-row class="align-start justify-center">
+        <v-col cols="12" md="4">
+          <v-text-field class="mb-0" dense filled hide-details label="Foreign Languages" rounded></v-text-field>
+        </v-col>
+        <v-col cols="12" md="4">
+          <v-text-field class="mb-0" dense filled hide-details label="Level" rounded></v-text-field>
+        </v-col>
+        <v-col cols="12" md="4">
+          <v-btn
+            class="mb-6 mt-1 ml-0"
+            text
+            style="text-transform: unset !important; color: #0a91df"
+            @click="counter_lang++"
+          >
+            <p class="mb-0 f-16">Add new <span class="font-weight-bold">Skills</span></p>
+          </v-btn>
+        </v-col>
+      </v-row>
+      <v-row v-for="j in counter_com" :key="j" class="align-start justify-start">
+        <v-col cols="12" md="4">
+          <v-text-field
+            :class="!isMobile ? 'mb-4' : 'mb-0'"
+            dense
+            filled
+            hide-details
+            label="Computer Knowledge"
+            rounded
+          ></v-text-field>
+        </v-col>
+        <v-col cols="12" md="4">
+          <v-text-field
+            :class="!isMobile ? 'mb-4' : 'mb-0'"
+            dense
+            filled
+            hide-details
+            label="Level"
+            rounded
+          ></v-text-field>
+        </v-col>
+      </v-row>
+      <v-row class="align-start justify-center">
+        <v-col cols="12" md="4">
+          <v-text-field class="mb-0" dense filled hide-details label="Computer Knowledge" rounded></v-text-field>
+        </v-col>
+        <v-col cols="12" md="4">
+          <v-text-field class="mb-0" dense filled hide-details label="Level" rounded></v-text-field>
+        </v-col>
+        <v-col cols="12" md="4">
+          <v-btn
+            class="mb-12 mt-2 ml-0"
+            text
+            style="text-transform: unset !important; color: #0a91df"
+            @click="counter_com++"
+          >
+            <p class="mb-0 f-16">Add new <span class="font-weight-bold">Skills</span></p>
+          </v-btn>
         </v-col>
       </v-row>
       <v-textarea class="mb-8" dense filled height="140" hide-details label="Soft skills…" rounded></v-textarea>
@@ -60,7 +96,9 @@
 export default {
   data() {
     return {
-      valid: null
+      valid: null,
+      counter_lang: 0,
+      counter_com: 0
     };
   }
 };

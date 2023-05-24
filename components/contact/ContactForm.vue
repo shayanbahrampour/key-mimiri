@@ -47,9 +47,6 @@
         ></v-textarea>
       </v-col>
     </v-row>
-    <v-radio-group v-model="radioGroup" class="mt-0 pt-0">
-      <v-radio color="#4C6D80" label="Let me know by email"></v-radio>
-    </v-radio-group>
     <div :class="['d-flex', isMobile ? 'flex-column' : undefined]">
       <v-btn
         :class="[

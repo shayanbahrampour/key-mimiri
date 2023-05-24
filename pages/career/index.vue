@@ -127,7 +127,7 @@
           you when the right opportunity comes up.
         </p>
         <v-btn
-          to="/career/forum"
+          :to="`${locale}/career/forum`"
           :class="[
             'rounded-xl d-flex justify-center white--text',
             isMobile ? 'f-20 mt-6 font-weight-regular' : 'f-14 font-weight-bold'

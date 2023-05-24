@@ -23,7 +23,7 @@
       <v-row>
         <v-col cols="12" lg="8" md="9">
           <h1 :class="['bel grey--text text--darken-2 font-weight-regular mb-8', isMobile ? 'f-50 pt-10' : 'f-70']">
-            Unleashing the next level health solutions
+            {{ $t('homePage.slider.title') }}
           </h1>
 
           <v-btn
@@ -35,7 +35,7 @@
             rounded
             text
           >
-            More About
+            {{ $t('homePage.slider.more_about') }}
           </v-btn>
           <v-btn
             :block="isMobile"
@@ -46,7 +46,7 @@
             large
             rounded
           >
-            Cobel Group
+            {{ $t('homePage.slider.cobel_group') }}
           </v-btn>
         </v-col>
       </v-row>
@@ -63,7 +63,7 @@
       text
     >
       <div class="d-flex flex-column justify-center align-center">
-        <div>Swipe Down...</div>
+        <div>{{ $t('homePage.slider.swipe_down') }}</div>
         <v-icon class="mt-2">mdi-chevron-double-down</v-icon>
       </div>
     </v-btn>

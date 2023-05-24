@@ -29,7 +29,7 @@
           v-if="items.length !== 0"
           id="impactSwiper"
           key="impactSwiper"
-          :class="['w-full mr-0', isMobile ? 'mt-8 px-6' : 'my-8 px-16']"
+          :class="[`w-full m${isRTL ? 'l' : 'r'}-0`, isMobile ? 'mt-8 px-6' : 'my-8 px-16']"
           :dir="isRTL ? 'rtl' : 'ltr'"
           :options="swiperOptions"
         >

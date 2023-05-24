@@ -16,19 +16,11 @@
             max-width="250"
             src="/images/logo-text-white.svg"
           />
-
-          <v-btn class="f-18 ma-2 px-14" color="white" depressed exact large outlined rounded to="/contact">
-            CONTACT US
-          </v-btn>
-          <v-btn class="f-18 ma-2 px-14" color="white" depressed exact large rounded to="/storytellers">
-            ABOUT US
-          </v-btn>
         </div>
 
-        <v-row v-if="!isMobile" class="mt-16">
-          <v-col v-for="(item, index) in items" :key="index" cols="12" lg="3" sm="6">
-            <h4 class="mb-3 f-15 text-uppercase">{{ item.title }}</h4>
-
+        <v-row v-if="!isMobile" class="mt-0 justify-center">
+          <v-col v-for="(item, index) in items" :key="index" cols="12" lg="2" sm="6">
+            <h4 class="mb-3 f-15 text-start text-uppercase font-weight-regular">{{ $t(item.title) }}</h4>
             <div class="d-flex flex-column align-start">
               <v-btn
                 v-for="(link, j) in item.children"
@@ -36,14 +28,43 @@
                 :href="link.href ? link.href : undefined"
                 :ripple="false"
                 :to="link.to ? link.to : undefined"
-                class="text-capitalize pa-0 f-15 bg-transparent"
+                :class="['pa-0 f-15 bg-transparent', link.name ? 'ltr text-lowercase' : 'text-capitalize']"
                 color="white"
                 exact
                 link
                 min-width="0"
                 text
               >
-                {{ link.title }}
+                {{ link.title ? $t(link.title) : link.name }}
+              </v-btn>
+            </div>
+          </v-col>
+          <v-col cols="12" lg="3" sm="6">
+            <div class="d-flex flex-column align-center">
+              <v-btn
+                class="f-18 mb-4"
+                width="200"
+                color="white"
+                depressed
+                exact
+                large
+                rounded
+                :to="`${locale}/storytellers`"
+              >
+                {{ $t('footer.about') }}
+              </v-btn>
+              <v-btn
+                class="f-18"
+                color="white"
+                depressed
+                exact
+                large
+                outlined
+                rounded
+                width="200"
+                :to="`${locale}/contact`"
+              >
+                {{ $t('footer.contact') }}
               </v-btn>
             </div>
           </v-col>
@@ -59,6 +80,33 @@
         :max-width="globalMaxWidth"
         color="transparent"
       >
+        <div v-if="isMobile" class="d-flex flex-column align-center mb-6">
+          <v-btn
+            class="f-18 mb-4"
+            width="200"
+            color="white"
+            depressed
+            exact
+            large
+            rounded
+            :to="`${locale}/storytellers`"
+          >
+            {{ $t('footer.about') }}
+          </v-btn>
+          <v-btn
+            class="f-18"
+            color="white"
+            depressed
+            exact
+            large
+            outlined
+            rounded
+            width="200"
+            :to="`${locale}/contact`"
+          >
+            {{ $t('footer.contact') }}
+          </v-btn>
+        </div>
         <div class="d-flex justify-center">
           <template v-if="!isMobile">
             <v-img alt="cobel" contain height="65" max-width="200" src="/images/logo-text-white.svg" />
@@ -72,7 +120,7 @@
 
         <v-divider v-if="isMobile" class="white my-6" style="opacity: 0.3" />
 
-        <div>© 2023 Cobel Group. All Rights Reserved.</div>
+        <div>{{ $t('footer.copyright') }}</div>
       </v-sheet>
     </v-sheet>
   </div>
@@ -80,46 +128,49 @@
 
 <script>
 export default {
-  data() {
-    return {
-      items: [
+  computed: {
+    items() {
+      return [
         {
-          title: 'Navigation',
+          title: 'footer.title.navigation',
           children: [
-            { title: 'Feeds/ News', to: '/news' },
-            { title: 'Cobel Group in Nut Shell', to: '/' },
-            { title: 'Innovation', to: '/' },
-            { title: 'Impact Stories', to: '/impact' },
-            { title: 'People & Career', to: '/career' },
-            { title: 'Reach Us', to: '/contact' }
+            { title: 'footer.links.feeds', to: '/news' },
+            { title: 'footer.links.cobel_group_in_nut_shell', to: '/' },
+            { title: 'footer.links.innovation', to: '/' },
+            { title: 'footer.links.impact_stories', to: '/impact' },
+            { title: 'footer.links.people_career', to: '/career' },
+            { title: 'footer.links.reach_us', to: '/contact' }
           ]
         },
         {
-          title: 'Life & Careers',
+          title: 'footer.title.life',
           children: [
-            { title: 'Life at Cobel Group', to: '#' },
-            { title: 'Careers', to: '#' },
-            { title: 'Talent Pool', to: '#' }
+            { title: 'footer.links.life_at_cobel_group', to: '#' },
+            { title: 'footer.links.careers', to: '/career' },
+            { title: 'footer.links.talent_pool', to: '#' }
           ]
         },
         {
-          title: 'Legal',
+          title: 'footer.title.legal',
           children: [
-            { title: 'General Info', to: '#' },
-            { title: 'Privacy Policy', to: '#' },
-            { title: 'Terms of Service', to: '#' }
+            { title: 'footer.links.general_info', to: '#' },
+            { title: 'footer.links.privacy_policy', to: '#' },
+            { title: 'footer.links.terms_of_service', to: '#' }
           ]
         },
         {
-          title: 'Talk to Us',
+          title: 'footer.title.talk_to_us',
           children: [
-            { title: 'support@ercom.com', href: 'mailto:support@ercom.com' },
-            { title: '+66 2399 1145', href: 'tel:+66 2399 1145' },
-            { title: 'Contact Us', to: '/contact' }
+            { name: 'support@ercom.com', href: 'mailto:support@ercom.com' },
+            { name: '(+66) 2399 1145', href: 'tel:+6623991145' },
+            { title: 'footer.links.contact', to: '/contact' }
           ]
         }
-      ]
-    };
+      ].map((item) => ({
+        ...item,
+        children: item.children.map((path) => ({ ...path, to: path.to ? `${this.locale}${path.to}` : undefined }))
+      }));
+    }
   }
 };
 </script>
@@ -150,5 +201,9 @@ export default {
     rgba(160, 30, 100, 1) 51%,
     rgba(0, 165, 155, 1) 100%
   );
+}
+
+.text-lowercase {
+  text-transform: lowercase !important;
 }
 </style>

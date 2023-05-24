@@ -38,7 +38,7 @@
       </p>
     </div>
     <NewsCard :class="['mt-10', !isMobile ? 'mx-10' : undefined]" title="More Articles" />
-    <HomeStoryTellers :small="!isMobile" />
+    <HomeStoryTellers :class="[isMobile ? 'mt-0' : 'mt-6']" />
   </div>
 </template>
 

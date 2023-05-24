@@ -4,10 +4,13 @@ import locals from '~/lang';
 Vue.mixin({
   data() {
     return {
-      globalMaxWidth: 1760
+      globalMaxWidth: 1904
     };
   },
   computed: {
+    locale() {
+      return this.$i18n.locale === 'en' ? '' : this.$i18n.locale;
+    },
     isRTL() {
       return this.$vuetify.rtl;
     },
