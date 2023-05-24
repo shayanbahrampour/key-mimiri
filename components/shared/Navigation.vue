@@ -15,7 +15,7 @@
         :max-width="globalMaxWidth"
         color="transparent"
       >
-        <nuxt-link exact :to="`/${locale}`">
+        <nuxt-link exact :to="localePath('/')">
           <v-img v-if="isMobile" alt="cobel" class="logo" contain height="40" max-width="130" src="/images/logo.png" />
 
           <div v-else class="logo-container overflow-hidden">
@@ -35,7 +35,7 @@
             v-for="(item, index) in items"
             :key="index"
             :ripple="false"
-            :to="item.path ? item.path : undefined"
+            :to="item.path ? localePath(item.path) : undefined"
             active-class="primary--text"
             class="bg-transparent"
             color="transparent"
@@ -87,7 +87,7 @@ export default {
         { value: 'menu.education', path: '/education' },
         { value: 'menu.people_careers', path: '/career' },
         { value: 'menu.press_center', path: '/news' }
-      ].map((item) => ({ ...item, path: `${this.locale}${item.path}` }));
+      ];
     }
   }
 };

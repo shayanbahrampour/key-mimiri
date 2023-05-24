@@ -45,13 +45,13 @@
 
           <template v-if="!isMobile">
             <div class="d-flex mt-8 mb-16 pb-6">
-              <nuxt-link :to="`${locale}/`" class="mr-4">
+              <nuxt-link :to="localePath('/')" class="mr-4">
                 <v-img contain height="50" src="/images/social/icon-linkedin.svg" width="50" />
               </nuxt-link>
-              <nuxt-link :to="`${locale}/`" class="mr-4">
+              <nuxt-link :to="localePath('/')" class="mr-4">
                 <v-img contain height="50" src="/images/social/icon-whatsapp.svg" width="50" />
               </nuxt-link>
-              <nuxt-link :to="`${locale}/`" class="mr-4">
+              <nuxt-link :to="localePath('/')" class="mr-4">
                 <v-img contain height="50" src="/images/social/icon-telegram.svg" width="50" />
               </nuxt-link>
             </div>
@@ -174,7 +174,7 @@
 
         <template v-if="!isMobile">
           <v-spacer />
-          <nuxt-link :to="`${locale}/impact`" class="grey--text text-decoration-none">
+          <nuxt-link :to="localePath('/impact')" class="grey--text text-decoration-none">
             {{ $t('impactPage.see_all') }}
           </nuxt-link>
         </template>

@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import locals from '~/lang';
+import locales from '~/lang';
 
 Vue.mixin({
   data() {
@@ -8,9 +8,6 @@ Vue.mixin({
     };
   },
   computed: {
-    locale() {
-      return this.$i18n.locale === 'en' ? '' : this.$i18n.locale;
-    },
     isRTL() {
       return this.$vuetify.rtl;
     },
@@ -30,7 +27,7 @@ Vue.mixin({
   methods: {
     changeDirection() {
       const currentLang = this.$i18n.locale || 'en';
-      const direction = locals.find((item) => item.code === currentLang);
+      const direction = locales.find((item) => item.code === currentLang);
       if (direction) this.$vuetify.rtl = direction.dir === 'rtl';
     },
     errorHandler(error) {

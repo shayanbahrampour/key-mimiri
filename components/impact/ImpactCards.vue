@@ -8,7 +8,7 @@
           isMobile ? 'text-center' : 'd-flex',
           item.descriptions ? 'px-12 py-8' : 'text-center py-8 px-10'
         ]"
-        :to="`${locale}/impact/${item.id}`"
+        :to="localePath(`/impact/${item.id}`)"
         color="slategrey"
         flat
         tile

@@ -84,7 +84,7 @@ export default {
   modules: ['@nuxtjs/axios', '@nuxtjs/i18n', ['@nuxtjs/robots', { UserAgent: '*', Disallow: '/' }]],
 
   i18n: {
-    locales,
+    locales: ['en', 'fa'],
     defaultDirection: 'ltr',
     defaultLocale: 'en',
     vueI18n: {

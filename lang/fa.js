@@ -1,21 +1,21 @@
 export default {
   menu: {
-    point_of_view: 'Point of view',
-    impact_stories: 'Impact Stories',
-    education: 'Education',
-    people_careers: 'People & Careers',
-    press_center: 'Press Center'
+    point_of_view: 'دیدگاه‌ها',
+    impact_stories: 'داستان‌های الهامبخش',
+    education: 'آموزش',
+    people_careers: 'منابع انسانی و فرصت‌های حرفه‌ای',
+    press_center: 'مطبوعات'
   },
   pageTitles: {
     physical: 'Physical',
     social: 'Social Health',
     psychological: 'Psychological Health',
-    careers: 'Careers',
-    index: 'Home Page',
-    press: 'Press Center',
-    contact: 'Contact Us',
-    impact_stories: 'Impact Stories',
-    storytellers: 'Storytellers'
+    careers: 'منابع انسانی و فرصت‌های حرفه‌ای',
+    index: 'صفحه نخست',
+    press: 'مطبوعات',
+    contact: 'تماس با ما',
+    impact_stories: 'داستان‌های الهامبخش',
+    storytellers: 'راویان الهامبخش'
   },
   footer: {
     about: 'About Us',
