@@ -108,6 +108,7 @@
       <div class="d-flex flex-column align-start mt-6">
         <v-img max-height="60" src="/images/logo.png" width="120" />
         <v-btn
+          :to="`${locale}/career/123`"
           class="rounded-xl d-flex justify-center white--text f-20 mt-6"
           color="#66869A"
           elevation="0"

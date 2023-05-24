@@ -42,13 +42,17 @@
       style="line-height: 2; width: 100%; min-height: 60vh"
     >
       <AppSteps
-        :tabs="tabs"
+        :tabs="$route.query.job ? certainJob : apply"
         :model="counter"
         :class="[!isMobile ? 'mt-16 mx-4' : 'mt-4 mb-6']"
         style="min-width: 90vw"
       />
       <Component :is="steps[counter].component"> </Component>
-      <div v-if="counter !== 7 && !isMobile" class="d-flex justify-space-between" style="width: 100%">
+      <div
+        v-if="((counter !== 7 && !$route.query.job) || (counter !== 6 && $route.query.job)) && !isMobile"
+        class="d-flex justify-space-between"
+        style="width: 100%"
+      >
         <v-spacer v-if="counter === 0"></v-spacer>
         <v-btn
           v-if="counter !== 0"
@@ -72,10 +76,14 @@
           height="40"
           @click="counter++"
         >
-          {{ counter === 6 ? 'Send Form' : 'NEXT' }}
+          {{ (counter === 6 && !$route.query.job) || (counter === 5 && $route.query.job) ? 'Send Form' : 'NEXT' }}
         </v-btn>
       </div>
-      <div v-if="counter !== 7 && isMobile" class="d-flex flex-column" style="width: 100%">
+      <div
+        v-if="((counter !== 7 && !$route.query.job) || (counter !== 6 && $route.query.job)) && isMobile"
+        class="d-flex flex-column"
+        style="width: 100%"
+      >
         <v-btn
           class="rounded-xl d-flex justify-center white--text font-weight-bold f-20 mb-6"
           :min-width="!isMobile ? '300' : '80%'"
@@ -84,7 +92,7 @@
           height="40"
           @click="counter++"
         >
-          {{ counter === 6 ? 'Send Form' : 'NEXT' }}
+          {{ (counter === 6 && !$route.query.job) || (counter === 5 && $route.query.job) ? 'Send Form' : 'NEXT' }}
         </v-btn>
         <v-btn
           v-if="counter !== 0"
@@ -131,7 +139,15 @@ export default {
   data() {
     return {
       counter: 0,
-      tabs: [
+      certainJob: [
+        { title: 'Information', value: '' },
+        { title: 'Education', value: '' },
+        { title: 'Experiences', value: '' },
+        { title: 'Skills', value: '' },
+        { title: 'Attach files', value: '' },
+        { title: 'Print your application', value: '' }
+      ],
+      apply: [
         { title: 'Let us know you', value: '' },
         { title: 'Information', value: '' },
         { title: 'Education', value: '' },
@@ -145,7 +161,7 @@ export default {
   computed: {
     steps() {
       return [
-        { component: KnowYou },
+        this.$route.query.job ? undefined : { component: KnowYou },
         { component: Information },
         { component: Education },
         { component: Experiences },
@@ -155,6 +171,9 @@ export default {
         { component: FinishComponent }
       ].filter((item) => !!item);
     }
+  },
+  created() {
+    console.log(this.$route.query.job);
   }
 };
 </script>
