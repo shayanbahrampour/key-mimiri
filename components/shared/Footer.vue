@@ -177,17 +177,17 @@ export default {
         {
           title: 'footer.title.life',
           children: [
-            { title: 'footer.links.life_at_cobel_group', to: '#' },
+            { title: 'footer.links.life_at_cobel_group', to: '/' },
             { title: 'footer.links.careers', to: '/career' },
-            { title: 'footer.links.talent_pool', to: '#' }
+            { title: 'footer.links.talent_pool', to: '/' }
           ]
         },
         {
           title: 'footer.title.legal',
           children: [
-            { title: 'footer.links.general_info', to: '#' },
-            { title: 'footer.links.privacy_policy', to: '#' },
-            { title: 'footer.links.terms_of_service', to: '#' }
+            { title: 'footer.links.general_info', to: '/' },
+            { title: 'footer.links.privacy_policy', to: '/' },
+            { title: 'footer.links.terms_of_service', to: '/' }
           ]
         },
         {
