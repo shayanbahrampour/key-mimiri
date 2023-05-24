@@ -146,7 +146,7 @@
 
         <v-divider v-if="isMobile" class="white my-6" style="opacity: 0.3" />
 
-        <div>{{ $t('footer.copyright') }}</div>
+        <div class="ltr">{{ $t('footer.copyright') }}</div>
       </v-sheet>
     </v-sheet>
   </div>

@@ -8,15 +8,14 @@
             isMobile ? 'f-45 text-center d-block' : 'f-50'
           ]"
         >
-          Impact Stories
+          {{ $t('homePage.impact.title') }}
         </h3>
 
         <p
           :class="`mb-0 ${!isMobile && `m${isRTL ? 'r' : 'l'}-8 p${isRTL ? 'r' : 'l'}-8`}`"
           :style="`${!isMobile && `border-${isRTL ? 'right' : 'left'}: 1px solid #aaa`}`"
         >
-          Patients are the center of all projects being conducted in the Cobel Group. Stories of hope, innovation,
-          collaboration, inspiration and empowerment helps us measure our impact and inspire us to create more.
+          {{ $t('homePage.impact.description') }}
         </p>
       </div>
 

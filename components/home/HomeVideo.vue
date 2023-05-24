@@ -26,7 +26,9 @@
       >
         <v-row align="center" dense>
           <v-col cols="12" lg="5" md="4">
-            <h3 class="font-weight-regular bel f-50">Life at Cobel Group®</h3>
+            <h3 class="font-weight-regular bel f-50">
+              {{ $t('homePage.video.title') }}
+            </h3>
           </v-col>
 
           <template v-if="!isMobile">
@@ -35,8 +37,7 @@
             </v-col>
             <v-col cols="12" lg="6" md="7">
               <div class="f-25 grey--text text--lighten-2 font-weight-light">
-                Enjoyment of social interaction, sharing experience sense of belonging to a group, promoting
-                participation
+              {{ $t('homePage.video.description') }}
               </div>
             </v-col>
           </template>

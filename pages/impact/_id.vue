@@ -36,7 +36,7 @@
               {{ $t('impactPage.read_time') }}: 13min
             </div>
             <div :class="['grey--text text--darken-2 py-1', !isMobile && `p${isRTL ? 'l' : 'r'}-5`]">
-              {{ $t('impactPage.wrote_by') }}: mehrab
+              {{ $t('impactPage.written_by') }}: mehrab
             </div>
             <div :class="['grey--text text--darken-2 py-1', !isMobile && `p${isRTL ? 'l' : 'r'}-5`]">
               {{ $t('impactPage.published') }} 3 moth ago
