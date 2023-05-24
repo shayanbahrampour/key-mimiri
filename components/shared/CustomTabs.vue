@@ -5,7 +5,7 @@
       :key="index"
       :ripple="false"
       active-class="black--text"
-      :class="['bel f-20 bg-transparent text-capitalize', { 'px-10': !isMobile }]"
+      :class="['bel f-20 bg-transparent text-capitalize tab-news', { 'px-10': !isMobile }]"
     >
       {{ item.title }}
     </v-tab>
@@ -38,6 +38,11 @@ export default {
   .v-tabs-slider {
     background: none repeat scroll 0 0 transparent;
     background: linear-gradient(90deg, #f3911f 8%, #a01e64 51%, #00a59b 100%) !important;
+  }
+}
+.tab-news {
+  &:hover {
+    color: black !important;
   }
 }
 </style>
