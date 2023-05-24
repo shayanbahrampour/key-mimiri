@@ -37,7 +37,7 @@
             <v-card class="overflow-hidden mt-2" flat style="border-radius: 80px">
               <v-img :height="small ? '300' : '380'" :src="item.src" :width="small ? '250' : '100%'" />
             </v-card>
-            <div class="text-center bel f-20 py-4">
+            <div class="text-center bel f-24 py-4">
               {{ item.title }}
             </div>
           </swiper-slide>
