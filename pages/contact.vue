@@ -1,7 +1,7 @@
 <template>
   <div>
     <div style="background-color: #66869a">
-      <v-sheet :class="['mx-auto py-10', isMobile ? 'px-8' : 'px-9']" :max-width="globalMaxWidth" color="transparent">
+      <v-sheet :class="['mx-auto py-16', isMobile ? 'px-8' : 'px-9']" :max-width="globalMaxWidth" color="transparent">
         <div class="d-flex justify-space-between">
           <div class="d-flex">
             <div class="d-flex flex-column justify-center" style="max-width: 380px">
@@ -24,8 +24,17 @@
             </div>
           </div>
           <div>
-            <v-btn v-if="!isMobile" color="white" height="50" min-width="50" outlined style="border-radius: 30%">
-              <v-img height="20" max-width="20" src="/images/icons/linkedin.png" />
+            <v-btn
+              v-if="!isMobile"
+              class="rounded d-flex align-center"
+              color="white"
+              height="40"
+              min-width="160"
+              outlined
+            >
+              <span class="bel mt-1 f-20 text-capitalize">Follow us</span>
+              <v-divider class="mr-4 ml-6 white" vertical></v-divider>
+              <v-img class="ma-0" height="20" max-width="20" src="/images/icons/linkedin.png" />
             </v-btn>
           </div>
         </div>
