@@ -58,7 +58,7 @@
       </div>
       <div class="d-flex">
         <div v-if="!isMobile" class="mr-8">
-          <v-btn class="mr-4 rounded" color="white" height="50" min-width="50" outline>
+          <v-btn class="mr-4 rounded" color="white" height="50" min-width="50" outlined>
             <v-img height="20" max-width="20" src="/images/icons/linkedin.png" />
           </v-btn>
           <v-btn class="mr-4 rounded" color="white" height="50" min-width="50" outlined>
