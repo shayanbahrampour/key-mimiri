@@ -17,6 +17,32 @@ export default {
     impact_stories: 'Impact Stories',
     storytellers: 'Storytellers'
   },
+  footer: {
+    about: 'About Us',
+    contact: 'Contact Us',
+    title: {
+      navigation: 'Navigation',
+      life: 'Life & Careers',
+      legal: 'Legal',
+      talk_to_us: 'Talk to Us'
+    },
+    links: {
+      feeds: 'Feeds/News',
+      cobel_group_in_nut_shell: 'Cobel Group in Nut Shell',
+      impact_stories: 'Impact Stories',
+      people_career: 'People & Career',
+      reach_us: 'Reach Us',
+      life_at_cobel_group: 'Life at Cobel Group',
+      careers: 'Careers',
+      talent_pool: 'Talent Pool',
+      general_info: 'General Info',
+      privacy_policy: 'Privacy Policy',
+      terms_of_service: 'Terms of Service',
+      contact: 'Contact Us',
+      innovation: 'innovation'
+    },
+    copyright: '©2023 Cobel Group. All Rights Reserved.'
+  },
   homePage: {
     slider: {
       title: 'Unleashing the next level health solutions',
@@ -47,31 +73,5 @@ export default {
     published: 'Published',
     other_links: 'You may also like these',
     see_all: 'See All'
-  },
-  footer: {
-    about: 'About Us',
-    contact: 'Contact Us',
-    title: {
-      navigation: 'Navigation',
-      life: 'Life & Careers',
-      legal: 'Legal',
-      talk_to_us: 'Talk to Us'
-    },
-    links: {
-      feeds: 'Feeds/News',
-      cobel_group_in_nut_shell: 'Cobel Group in Nut Shell',
-      impact_stories: 'Impact Stories',
-      people_career: 'People & Career',
-      reach_us: 'Reach Us',
-      life_at_cobel_group: 'Life at Cobel Group',
-      careers: 'Careers',
-      talent_pool: 'Talent Pool',
-      general_info: 'General Info',
-      privacy_policy: 'Privacy Policy',
-      terms_of_service: 'Terms of Service',
-      contact: 'Contact Us',
-      innovation: 'innovation'
-    },
-    copyright: '©2023 Cobel Group. All Rights Reserved.'
   }
 };
