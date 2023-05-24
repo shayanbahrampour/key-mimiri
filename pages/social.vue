@@ -11,7 +11,12 @@
     </p>
     <v-sheet v-if="!isMobile" class="custom-gradient w-full mt-16" height="10" />
 
-    <v-img :class="[!isMobile ? 'mt-0' : 'mt-10']" contain src="/images/video_content/social.png" />
+    <v-img
+      :class="[!isMobile ? 'mt-0' : 'mt-10']"
+      contain
+      src="/images/video_content/social.png"
+      style="z-index: 3 !important"
+    />
     <div :class="[isMobile ? 'text-start px-6 h-full psy-screen d-flex flex-column' : 'text-center ma-16 px-16']">
       <div class="d-flex relative-container-social">
         <p
@@ -26,7 +31,7 @@
           and promote a sense of connectivity. Social health is evaluated in categories such as social support, social
           capital, and social networks.
         </p>
-        <div v-if="!isMobile" class="right-circle"></div>
+        <div v-if="!isMobile" class="right-circle" :class="{ 'animate-dot': scrollPosition > 0 }"></div>
         <div v-else class="right-circle-mobile"></div>
       </div>
       <v-divider :class="[isMobile ? 'my-6' : 'my-10']" style="background-color: #f3911f"></v-divider>
@@ -37,7 +42,7 @@
         Corporate social responsibilities can promote social health by providing supportive work environments,
         facilitating community service opportunities, and encouraging team‐building activities.
       </h4>
-      <div v-if="!isMobile" class="left-circle"></div>
+      <div v-if="!isMobile" class="left-circle" :class="{ 'animate-dot': scrollPosition > 0 }"></div>
       <div v-else class="left-circle-mobile"></div>
       <v-divider :class="[isMobile ? 'my-6' : 'my-10']" style="background-color: #f3911f"></v-divider>
       <p
@@ -63,6 +68,22 @@ export default {
     return {
       title: this.$t('pageTitles.social')
     };
+  },
+  data() {
+    return {
+      scrollPosition: 0
+    };
+  },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      this.scrollPosition = window.scrollY;
+    }
   }
 };
 </script>
@@ -95,6 +116,27 @@ export default {
   );
 }
 
+@keyframes dotAnimationRight {
+  30% {
+    transform: translate(50%, -50%);
+    top: 100%;
+  }
+  100% {
+    transform: translate(50%, -50%);
+    top: 30%;
+  }
+}
+@keyframes dotAnimationLeft {
+  30% {
+    transform: translate(50%, -50%);
+    top: 30%;
+  }
+  100% {
+    transform: translate(50%, -50%);
+    top: 62%;
+  }
+}
+
 .right-circle {
   width: 100px;
   height: 100px;
@@ -104,6 +146,9 @@ export default {
   right: -130px;
   top: 30%;
   transform: translate(50%, -50%);
+  &.animate-dot {
+    animation: dotAnimationRight 1s linear;
+  }
 }
 
 .relative-container-social {
@@ -119,6 +164,9 @@ export default {
   left: -100px;
   top: 62%;
   transform: translate(50%, -50%);
+  &.animate-dot {
+    animation: dotAnimationLeft 1s linear;
+  }
 }
 
 .right-circle-mobile {

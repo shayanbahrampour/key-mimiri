@@ -17,14 +17,6 @@ export default {
     impact_stories: 'Impact Stories',
     storytellers: 'Storytellers'
   },
-  homePage: {
-    slider: {
-      title: 'Unleashing the next level health solutions',
-      more_about: 'More_About',
-      cobel_group: 'Cobel_Group',
-      swipe_down: 'Swipe Down...'
-    }
-  },
   footer: {
     about: 'About Us',
     contact: 'Contact Us',
@@ -50,5 +42,36 @@ export default {
       innovation: 'innovation'
     },
     copyright: '©2023 Cobel Group. All Rights Reserved.'
+  },
+  homePage: {
+    slider: {
+      title: 'Unleashing the next level health solutions',
+      more_about: 'More About',
+      cobel_group: 'Cobel Group',
+      swipe_down: 'Swipe Down...'
+    },
+    services: {
+      slider: {
+        title: 'Treatment and prevention paradigm shift',
+        description:
+          'Be an enabler to enhance peoples physical, psychological and social quality of life (HRQoL) through high quality and innovative solutions'
+      }
+    },
+    tell_us_your_story: 'Tell Us Your Story',
+    click_here: 'Click Here'
+  },
+  impactPage: {
+    title: 'Impact Story',
+    slider: {
+      see_more: 'see more',
+      title: 'Woman empowerment future enrichment',
+      description:
+        'Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women...'
+    },
+    read_time: 'Read time',
+    wrote_by: 'Wrote by',
+    published: 'Published',
+    other_links: 'You may also like these',
+    see_all: 'See All'
   }
 };

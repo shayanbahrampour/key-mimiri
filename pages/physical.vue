@@ -25,7 +25,7 @@
           medicine, innovative healthcare solutions have been developed to help individuals manage their physical health
           issues.
         </p>
-        <div v-if="!isMobile" class="right-circle"></div>
+        <div v-if="!isMobile" class="right-circle" :class="{ 'animate-dot': scrollPosition > 0 }"></div>
         <div v-else class="right-circle-mobile"></div>
       </div>
       <v-divider :class="[isMobile ? 'my-6' : 'my-10']" style="background-color: #a01e64"></v-divider>
@@ -40,7 +40,7 @@
         of life, as it allows individuals to be physically active and self‐sufficient, promoting independence and
         overall happiness.
       </h4>
-      <div v-if="!isMobile" class="left-circle"></div>
+      <div v-if="!isMobile" class="left-circle" :class="{ 'animate-dot': scrollPosition > 0 }"></div>
       <div v-else class="left-circle-mobile"></div>
       <v-spacer></v-spacer>
     </div>
@@ -53,6 +53,22 @@ export default {
     return {
       title: this.$t('pageTitles.social')
     };
+  },
+  data() {
+    return {
+      scrollPosition: 0
+    };
+  },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      this.scrollPosition = window.scrollY;
+    }
   }
 };
 </script>
@@ -85,6 +101,27 @@ export default {
   );
 }
 
+@keyframes dotAnimationRight {
+  30% {
+    transform: translate(50%, -50%);
+    top: 100%;
+  }
+  100% {
+    transform: translate(50%, -50%);
+    top: 30%;
+  }
+}
+@keyframes dotAnimationLeft {
+  30% {
+    transform: translate(50%, -50%);
+    top: 30%;
+  }
+  100% {
+    transform: translate(50%, -50%);
+    top: 64%;
+  }
+}
+
 .right-circle {
   width: 100px;
   height: 100px;
@@ -94,6 +131,9 @@ export default {
   right: -130px;
   top: 30%;
   transform: translate(50%, -50%);
+  &.animate-dot {
+    animation: dotAnimationRight 1s linear;
+  }
 }
 
 .relative-container-social {
@@ -109,6 +149,9 @@ export default {
   left: -100px;
   top: 64%;
   transform: translate(50%, -50%);
+  &.animate-dot {
+    animation: dotAnimationLeft 1s linear;
+  }
 }
 
 .right-circle-mobile {

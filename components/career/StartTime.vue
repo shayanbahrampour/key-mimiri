@@ -79,6 +79,6 @@ export default {
 }
 .mdi-triangle-down::before {
   font-size: 16px;
-  color: #66869a;
+  color: slategrey;
 }
 </style>

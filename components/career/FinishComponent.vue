@@ -7,7 +7,7 @@
       :to="`${locale}/`"
       :class="['rounded-xl d-flex justify-center white--text font-weight-bold', isMobile ? 'f-16 mt-6' : 'f-14 mt-4']"
       :min-width="!isMobile ? '300' : '80%'"
-      color="#66869A"
+      color="slategrey"
       elevation="0"
       height="40"
     >
@@ -32,7 +32,7 @@ export default {
 }
 .mdi-triangle-down::before {
   font-size: 16px;
-  color: #66869a;
+  color: slategrey;
 }
 .desktop-congrats {
   width: 500px;

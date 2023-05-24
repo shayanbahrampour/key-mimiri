@@ -3,23 +3,16 @@
     <CustomCarousel
       :items="[
         {
-          title: 'Woman empowerment future enrichment',
-          src: '/images/impact/cover.png',
-          description:
-            'Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women...'
-        },
-        {
-          title: 'Woman empowerment',
-          src: '/images/impact/cover.png',
-          description:
-            'Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women...'
+          src: '/images/temp/cover-5.png',
+          title: $t('impactPage.slider.title'),
+          description: $t('impactPage.slider.description')
         }
       ]"
     />
 
     <v-sheet :class="['mx-auto', isMobile ? 'px-2 mt-16' : 'px-16 my-16']" :max-width="globalMaxWidth">
       <h1 :class="['bel f-50 grey--text text--darken-2 font-weight-regular', { 'text-center': isMobile }]">
-        Impact Story
+        {{ $t('impactPage.title') }}
       </h1>
 
       <CustomTabs :items="tabs" class="mt-4" />
@@ -54,6 +47,7 @@ import ImpactCards from '~/components/impact/ImpactCards.vue';
 import CustomCarousel from '~/components/shared/CustomCarousel.vue';
 
 export default {
+  layout: 'impact',
   components: { ImpactCards, CustomTabs, CustomCarousel },
   data() {
     return {
@@ -65,6 +59,10 @@ export default {
         { title: 'Localized know-how', value: '' }
       ],
       items: [
+        { id: 1, title: 'Rise from the society return to the society', src: '/images/temp/cover-1.jpg' },
+        { id: 2, title: 'Rise from the society return to the society', src: '/images/temp/cover-3.png' },
+        { id: 3, title: 'Rise from the society return to the society', src: '/images/temp/cover-2.png' },
+        { id: 4, title: 'Rise from the society return to the society', src: '/images/temp/cover-1.jpg' },
         { id: 1, title: 'Rise from the society return to the society', src: '/images/temp/cover-1.jpg' },
         { id: 2, title: 'Rise from the society return to the society', src: '/images/temp/cover-3.png' },
         { id: 3, title: 'Rise from the society return to the society', src: '/images/temp/cover-2.png' },

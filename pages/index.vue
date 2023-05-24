@@ -18,6 +18,7 @@ import HomeStoryTellers from '~/components/home/HomeStoryTellers.vue';
 import HomeServices from '~/components/home/HomeServices.vue';
 
 export default {
+  layout: 'impact',
   components: { HomeServices, HomeImpact, HomeStoryTellers, HomeTellUsStory, HomeVideo, HomeSlider },
   head() {
     return {

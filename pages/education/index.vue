@@ -12,7 +12,7 @@
       <v-card
         :width="isMobile ? '90%' : undefined"
         class="rounded-r-xl white--text rounded-l-0 d-flex py-6 px-10 flex-column mr-14 align-center justify-center"
-        color="#66869a"
+        color="slategrey"
         elevation="0"
         height="240"
         style="margin-top: -120px"
@@ -30,7 +30,7 @@
         <NewsCategory :tabs="tabs" class="my-6" title="More Articles" />
       </div>
     </div>
-    <div v-else class="pa-6" style="background-color: #66869a">
+    <div v-else class="pa-6 slategrey">
       <p class="f-24 white--text mb-0" style="line-height: 30px">
         Empowers to achieve, Inspires to create the greatest Cobel Group promise is to empower, inspire and trigger
         ideas that make a significant impact in how we deliver solutions. Therefore, we invest on education; not only to

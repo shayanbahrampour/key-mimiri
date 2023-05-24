@@ -8,7 +8,7 @@
       height="85vh"
       :max-height="isMobile ? 500 : 800"
       min-height="500"
-      src="/images/temp/home_video_cover.png"
+      src="/images/temp/cover-6.png"
     >
       <v-img
         :height="isMobile ? 80 : 130"
@@ -58,7 +58,11 @@
 </template>
 
 <script>
-export default {};
+import VideoLoader from '~/components/shared/VideoLoader.vue';
+
+export default {
+  components: { VideoLoader }
+};
 </script>
 
 <style lang="scss" scoped>
