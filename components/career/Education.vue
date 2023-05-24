@@ -7,6 +7,21 @@
       >
         Education
       </p>
+      <v-row v-for="i in counter" :key="i" class="align-start justify-center">
+        <v-col :class="isMobile ? 'pb-0' : undefined" cols="12" md="4">
+          <v-text-field class="mb-8" dense filled hide-details label="Degree" rounded></v-text-field>
+          <v-text-field class="mb-8" dense filled hide-details label="Country" rounded></v-text-field>
+          <v-text-field class="mb-8" dense filled hide-details label="Graduation Year" rounded></v-text-field>
+        </v-col>
+        <v-col :class="isMobile ? 'py-0' : undefined" cols="12" md="4">
+          <v-text-field class="mb-8" dense filled hide-details label="Major" rounded></v-text-field>
+          <v-text-field class="mb-8" dense filled hide-details label="State" rounded></v-text-field>
+        </v-col>
+        <v-col :class="isMobile ? 'pt-0' : undefined" cols="12" md="4">
+          <v-text-field class="mb-8" dense filled hide-details label="University name" rounded></v-text-field>
+          <v-text-field class="mb-8" dense filled hide-details label="City" rounded></v-text-field>
+        </v-col>
+      </v-row>
       <v-row class="align-start justify-center">
         <v-col :class="isMobile ? 'pb-0' : undefined" cols="12" md="4">
           <v-text-field class="mb-8" dense filled hide-details label="Degree" rounded></v-text-field>
@@ -16,7 +31,13 @@
         <v-col :class="isMobile ? 'py-0' : undefined" cols="12" md="4">
           <v-text-field class="mb-8" dense filled hide-details label="Major" rounded></v-text-field>
           <v-text-field class="mb-8" dense filled hide-details label="State" rounded></v-text-field>
-          <v-btn v-if="!isMobile" class="mt-2 ml-0" text style="text-transform: unset !important; color: #0a91df">
+          <v-btn
+            v-if="!isMobile"
+            class="mt-2 ml-0"
+            text
+            style="text-transform: unset !important; color: #0a91df"
+            @click="counter++"
+          >
             <p class="mb-0 f-16">Add new education</p>
           </v-btn>
         </v-col>
@@ -25,7 +46,7 @@
           <v-text-field class="mb-8" dense filled hide-details label="City" rounded></v-text-field>
         </v-col>
       </v-row>
-      <v-btn v-if="isMobile" text style="text-transform: unset !important; color: #0a91df">
+      <v-btn v-if="isMobile" text style="text-transform: unset !important; color: #0a91df" @click="counter++">
         <p :class="['f-16', !isMobile ? 'mb-0' : 'mb-8']">Add new education</p>
       </v-btn>
       <v-textarea
@@ -45,7 +66,8 @@
 export default {
   data() {
     return {
-      valid: null
+      valid: null,
+      counter: 0
     };
   }
 };

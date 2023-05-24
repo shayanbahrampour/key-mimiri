@@ -171,9 +171,6 @@ export default {
         { component: FinishComponent }
       ].filter((item) => !!item);
     }
-  },
-  created() {
-    console.log(this.$route.query.job);
   }
 };
 </script>
