@@ -42,6 +42,18 @@
           <v-col cols="12" lg="3" sm="6">
             <div class="d-flex flex-column align-center">
               <v-btn
+                class="f-18 mb-4"
+                width="200"
+                color="white"
+                depressed
+                exact
+                large
+                rounded
+                :to="`${locale}/storytellers`"
+              >
+                {{ $t('footer.about') }}
+              </v-btn>
+              <v-btn
                 class="f-18"
                 color="white"
                 depressed
@@ -53,18 +65,6 @@
                 :to="`${locale}/contact`"
               >
                 {{ $t('footer.contact') }}
-              </v-btn>
-              <v-btn
-                class="f-18 mt-4"
-                width="200"
-                color="white"
-                depressed
-                exact
-                large
-                rounded
-                :to="`${locale}/storytellers`"
-              >
-                {{ $t('footer.about') }}
               </v-btn>
             </div>
           </v-col>
