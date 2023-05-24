@@ -3,7 +3,7 @@
     <v-row :class="['position-relative z-1', { 'custom-shadow pb-4': isMobile }]" no-gutters>
       <v-col cols="12" md="5">
         <v-sheet :class="[`overflow-hidden ${!isMobile && `rounded-${isRTL ? 'l' : 'r'}-xl`}`]" max-width="700">
-          <v-img max-height="calc(100vh - 150px)" src="/images/impact/cover-detail.png" />
+          <v-img max-height="calc(100vh - 150px)" src="/images/temp/cover-5-vertical.png" />
 
           <v-sheet v-if="!isMobile" class="extra-space white--text pa-12" color="slategrey">
             <h2 class="f-24 mb-4 white--text">Woman empowerment future enrichment</h2>
@@ -31,15 +31,16 @@
             and innovative solutions.
           </p>
 
-          <div
-            :class="[
-              'd-flex flex-md-row flex-column justify-md-space-between',
-              { 'mt-12 pt-5 f-13': !isTablet && !isMobile }
-            ]"
-          >
-            <div class="grey--text text--darken-2 py-1">Read time: 13min</div>
-            <div class="grey--text text--darken-2 py-1">Writed by: mehrab mohammadi</div>
-            <div class="grey--text text--darken-2 py-1">Published 3 moth ago</div>
+          <div :class="['d-flex flex-md-row flex-column', { 'mt-12 pt-5 f-13': !isTablet && !isMobile }]">
+            <div :class="['grey--text text--darken-2 py-1', !isMobile && `p${isRTL ? 'l' : 'r'}-5`]">
+              {{ $t('impactPage.read_time') }}: 13min
+            </div>
+            <div :class="['grey--text text--darken-2 py-1', !isMobile && `p${isRTL ? 'l' : 'r'}-5`]">
+              {{ $t('impactPage.wrote_by') }}: mehrab
+            </div>
+            <div :class="['grey--text text--darken-2 py-1', !isMobile && `p${isRTL ? 'l' : 'r'}-5`]">
+              {{ $t('impactPage.published') }} 3 moth ago
+            </div>
           </div>
 
           <template v-if="!isMobile">
@@ -85,19 +86,32 @@
     </v-sheet>
 
     <v-sheet :class="['mx-auto pt-16 mt-sm-16', isMobile ? 'px-6' : 'px-16']" :max-width="globalMaxWidth">
-      <h2
-        :class="['bel grey--text text--darken-2 text-center font-weight-regular d-block', isMobile ? 'f-40' : 'f-50']"
-      >
+      <h2 :class="['bel grey--text text--darken-2 font-weight-regular d-block', isMobile ? 'f-40' : 'f-50']">
         Sistan and Balouchestan, highest prevalence of Iron deficiency in Iran
       </h2>
     </v-sheet>
 
-    <v-img
-      :class="['mt-10 mx-auto', { 'px-16': !isMobile }]"
-      :max-width="globalMaxWidth"
-      contain
-      src="/images/video_content/physical.png"
-    />
+    <div :class="{ 'px-16': !isMobile }">
+      <v-img
+        :class="[
+          'position-relative d-flex justify-center align-center z-0 mx-auto mt-10 mx-auto',
+          isMobile ? 'py-8' : 'py-16'
+        ]"
+        :max-width="globalMaxWidth"
+        max-height="600"
+        src="/images/temp/cover-4.png"
+      >
+        <v-img
+          :height="isMobile ? 80 : 130"
+          :max-height="isMobile ? 80 : 130"
+          :max-width="isMobile ? 80 : 130"
+          :width="isMobile ? 80 : 130"
+          class="ma-auto position-absolute top-0 bottom-0 end-0 start-0 z-1"
+          contain
+          src="/images/home/home_video_button.svg"
+        />
+      </v-img>
+    </div>
 
     <v-sheet :class="['mx-auto', isMobile ? 'px-6' : 'px-16']" :max-width="globalMaxWidth">
       <v-row class="my-sm-16 pt-16">
@@ -155,12 +169,14 @@
     <v-sheet :max-width="globalMaxWidth" class="mx-auto">
       <div :class="['d-flex align-center text-center', isMobile ? 'px-6 mt-10' : 'px-16']">
         <h2 :class="['bel grey--text text--darken-2 font-weight-regular d-block', isMobile ? 'f-40' : 'f-55']">
-          You may also like these
+          {{ $t('impactPage.other_links') }}
         </h2>
 
         <template v-if="!isMobile">
           <v-spacer />
-          <nuxt-link :to="`${locale}/impact`" class="grey--text text-decoration-none">See All</nuxt-link>
+          <nuxt-link :to="`${locale}/impact`" class="grey--text text-decoration-none">
+            {{ $t('impactPage.see_all') }}
+          </nuxt-link>
         </template>
       </div>
 
@@ -189,6 +205,7 @@ import ImpactCards from '~/components/impact/ImpactCards.vue';
 import HomeTellUsStory from '~/components/home/HomeTellUsStory.vue';
 
 export default {
+  layout: 'impact',
   components: { HomeTellUsStory, ImpactCards },
   data() {
     return {

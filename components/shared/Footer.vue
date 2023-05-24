@@ -16,10 +16,28 @@
             max-width="250"
             src="/images/logo-text-white.svg"
           />
+
+          <template v-if="!horizontal">
+            <v-btn
+              class="f-18 ma-2 px-14"
+              color="white"
+              depressed
+              exact
+              large
+              outlined
+              rounded
+              :to="`${locale}/contact`"
+            >
+              {{ $t('footer.contact') }}
+            </v-btn>
+            <v-btn class="f-18 ma-2 px-14" color="white" depressed exact large rounded :to="`${locale}/storytellers`">
+              {{ $t('footer.about') }}
+            </v-btn>
+          </template>
         </div>
 
-        <v-row v-if="!isMobile" class="mt-0 justify-center">
-          <v-col v-for="(item, index) in items" :key="index" cols="12" lg="2" sm="6">
+        <v-row v-if="!isMobile" :class="['justify-center', { 'mt-16': !horizontal }]">
+          <v-col v-for="(item, index) in items" :key="index" cols="12" :lg="horizontal ? 2 : 3" sm="6">
             <h4 class="mb-3 f-15 text-start text-uppercase font-weight-regular">{{ $t(item.title) }}</h4>
             <div class="d-flex flex-column align-start">
               <v-btn
@@ -39,7 +57,7 @@
               </v-btn>
             </div>
           </v-col>
-          <v-col cols="12" lg="3" sm="6">
+          <v-col v-if="horizontal" cols="12" lg="3" sm="6">
             <div class="d-flex flex-column align-center">
               <v-btn
                 class="f-18 mb-4"
@@ -128,6 +146,12 @@
 
 <script>
 export default {
+  props: {
+    horizontal: {
+      type: Boolean,
+      default: true
+    }
+  },
   computed: {
     items() {
       return [

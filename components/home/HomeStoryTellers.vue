@@ -14,7 +14,7 @@
           :class="['w-full mr-0', isMobile ? 'mt-8 px-8' : 'my-8 px-16']"
           :dir="isRTL ? 'rtl' : 'ltr'"
           :options="{
-            spaceBetween: 16,
+            spaceBetween: 32,
             slidesPerView: 1.1,
             grabCursor: true,
             breakpoints: {
@@ -22,20 +22,20 @@
                 slidesPerView: 2.5
               },
               960: {
-                slidesPerView: 3.5
-              },
-              1300: {
                 slidesPerView: 4.2
               },
-              1904: {
+              1450: {
                 slidesPerView: 5.2
+              },
+              1904: {
+                slidesPerView: 5.7
               }
             }
           }"
         >
           <swiper-slide v-for="(item, index) in items" :key="index" class="d-flex flex-column align-center">
             <v-card class="overflow-hidden mt-2" flat style="border-radius: 80px">
-              <v-img :height="small ? '300' : '380'" :src="item.src" :width="small ? '250' : '100%'" />
+              <v-img eager :height="small ? '300' : '380'" :src="item.src" :width="small ? '250' : '100%'" />
             </v-card>
             <div class="text-center bel f-24 py-4">
               {{ item.title }}
@@ -58,6 +58,10 @@ export default {
   data() {
     return {
       items: [
+        { id: 1, title: 'Masoumeh Seyedi', src: '/images/home/storytellers/1.png' },
+        { id: 2, title: 'Nima Brardjanian', src: '/images/home/storytellers/2.png' },
+        { id: 3, title: 'Bahador Nayebi', src: '/images/home/storytellers/3.png' },
+        { id: 4, title: 'Mohamad javid', src: '/images/home/storytellers/4.png' },
         { id: 1, title: 'Masoumeh Seyedi', src: '/images/home/storytellers/1.png' },
         { id: 2, title: 'Nima Brardjanian', src: '/images/home/storytellers/2.png' },
         { id: 3, title: 'Bahador Nayebi', src: '/images/home/storytellers/3.png' },

@@ -12,33 +12,41 @@
     </v-fade-transition>
 
     <div class="position-relative z-0">
-      <v-img
-        class="align-end home-services-container mx-auto"
-        :height="isMobile ? 400 : 'calc(100vh - 300px)'"
-        src="/images/temp/cover-1.jpg"
-        gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,.83)"
-        max-height="700"
-        min-height="550"
-      >
-        <v-sheet class="w-full h-full position-absolute top-0 start-0" color="#4d6e81" style="mix-blend-mode: color" />
-        <div
-          :class="['mx-auto white--text position-relative z-1', isMobile ? 'py-4 px-8' : 'pa-16']"
-          :style="`max-width: ${globalMaxWidth}px`"
-        >
-          <h3
-            :class="`bel font-weight-regular mb-3 ${isMobile ? 'f-40 text-center' : 'f-80'}`"
-            :style="`${!isMobile && 'max-width: 900px'};`"
+      <v-carousel v-model="active" cycle height="auto" hide-delimiters show-arrows-on-hover>
+        <v-carousel-item v-for="(item, index) in shapes" :key="index">
+          <v-img
+            class="align-end home-services-container mx-auto"
+            :height="isMobile ? 400 : 'calc(100vh - 300px)'"
+            :src="item.src"
+            gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,.83)"
+            max-height="700"
+            min-height="550"
           >
-            {{ $t('homePage.services.slider.title') }}
-          </h3>
-          <p
-            :class="`font-weight-light mb-8 m${isRTL ? 'r' : 'l'}-auto ${isMobile ? 'text-center f-20' : 'f-22'}`"
-            :style="`line-height: 32px; ${!isMobile && 'max-width: 450px;'}`"
-          >
-            {{ $t('homePage.services.slider.description') }}
-          </p>
-        </div>
-      </v-img>
+            <v-sheet
+              class="w-full h-full position-absolute top-0 start-0"
+              color="#4d6e81"
+              style="mix-blend-mode: color"
+            />
+            <div
+              :class="['mx-auto white--text position-relative z-1', isMobile ? 'py-4 px-8' : 'pa-16']"
+              :style="`max-width: ${globalMaxWidth}px`"
+            >
+              <h3
+                :class="`bel font-weight-regular mb-3 ${isMobile ? 'f-40 text-center' : 'f-80'}`"
+                :style="`${!isMobile && 'max-width: 900px'};`"
+              >
+                {{ $t('homePage.services.slider.title') }}
+              </h3>
+              <p
+                :class="`font-weight-light mb-8 m${isRTL ? 'r' : 'l'}-auto ${isMobile ? 'text-center f-20' : 'f-22'}`"
+                :style="`line-height: 32px; ${!isMobile && 'max-width: 450px;'}`"
+              >
+                {{ $t('homePage.services.slider.description') }}
+              </p>
+            </div>
+          </v-img>
+        </v-carousel-item>
+      </v-carousel>
 
       <v-sheet
         :class="['mx-auto position-relative z-0', isMobile ? 'px-6' : 'px-16']"
@@ -62,8 +70,11 @@
     </div>
 
     <v-sheet
-      :class="['mx-auto position-relative z-0 d-flex justify-end', isMobile ? 'px-4 align-end' : 'px-14 align-center']"
-      :height="isMobile ? 400 : 500"
+      :class="[
+        'mx-auto position-relative z-0 d-flex justify-end',
+        isMobile ? 'px-4 align-end' : 'px-lg-16 px-4 align-center'
+      ]"
+      :height="isMobile ? 450 : 500"
       :max-width="globalMaxWidth"
       color="transparent"
     >
@@ -72,9 +83,9 @@
         :style="`${
           isMobile
             ? $vuetify.breakpoint.smOnly
-              ? 'width: calc(100vw - 190px); margin-bottom: 25px'
+              ? 'width: calc(100vw - 250px); margin-bottom: 25px'
               : 'width: calc(100vw - 140px)'
-            : 'max-width: 490px'
+            : `max-width: ${$vuetify.breakpoint.lgAndUp ? '490px' : '400px'}`
         }; ${!isMobile && `border-${isRTL ? 'right' : 'left'}: 1px solid #aaa`}`"
       >
         <v-scroll-y-transition>
@@ -99,7 +110,10 @@
           isRTL ? 'l' : 'r'
         }-auto`"
       >
-        <div class="f-60 font-weight-regular bel grey--text text--darken-1 text-center">HRQOL</div>
+        <div v-if="!isTablet" class="f-60 font-weight-regular bel grey--text text--darken-1 text-center mb-sm-0 mb-6">
+          HRQOL
+        </div>
+
         <v-sheet
           v-for="(item, index) in shapes"
           :key="index"
@@ -148,6 +162,7 @@ export default {
 
       const data = [
         {
+          src: '/images/temp/cover-1.jpg',
           position: coordinates.top,
           color: 'rgba(160, 30, 100, 1)',
           title: 'Social Health',
@@ -155,6 +170,7 @@ export default {
             'Enjoyment of social interaction, sharing experiences, sense of belonging to a group, promoting participation'
         },
         {
+          src: '/images/temp/cover-2.png',
           position: coordinates.side,
           color: 'rgba(243, 145, 31, 1)',
           title: 'Psychological Health',
@@ -162,6 +178,7 @@ export default {
             'Emotional and interpersonal functioning: Increased self efficiency, confidence, learning new skills, raised awareness'
         },
         {
+          src: '/images/temp/cover-3.png',
           position: coordinates.bottom,
           color: 'rgba(0, 165, 155, 1)',
           title: 'Physical Health',
@@ -193,7 +210,7 @@ export default {
         this.activeItem = null;
         setTimeout(() => {
           this.activeItem = this.shapes[this.active];
-          // this.setInterval();
+          this.setInterval();
         }, 600);
       }
     }

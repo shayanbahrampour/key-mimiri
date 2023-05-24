@@ -69,8 +69,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '@/mixins/index',
     '@/plugins/axios',
-    '@/plugins/mixins',
     '@/plugins/filters',
     '@/plugins/device',
     '@/plugins/swiper.client',

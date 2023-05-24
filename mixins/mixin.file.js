@@ -1,4 +1,4 @@
-import FilePropsMixin from '~/components/shared/libs/mixin.props';
+import FilePropsMixin from '~/mixins/mixin.props';
 
 export default {
   mixins: [FilePropsMixin], // All loader components

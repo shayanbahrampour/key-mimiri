@@ -52,7 +52,9 @@
               <p class="f-22 white--text font-weight-light mt-lg-0">
                 {{ activeSlide.description }}
               </p>
-              <v-btn class="font-weight-bold f-18 ml-n4 text-lowercase" color="white" exact link text> see more</v-btn>
+              <v-btn class="font-weight-bold f-18 ml-n4 text-lowercase" color="white" exact link text>
+                {{ $t('impactPage.slider.see_more') }}
+              </v-btn>
             </v-col>
           </v-row>
         </v-sheet>

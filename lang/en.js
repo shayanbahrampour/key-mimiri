@@ -30,7 +30,23 @@ export default {
         description:
           'Be an enabler to enhance peoples physical, psychological and social quality of life (HRQoL) through high quality and innovative solutions'
       }
-    }
+    },
+    tell_us_your_story: 'Tell Us Your Story',
+    click_here: 'Click Here'
+  },
+  impactPage: {
+    title: 'Impact Story',
+    slider: {
+      see_more: 'see more',
+      title: 'Woman empowerment future enrichment',
+      description:
+        'Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women...'
+    },
+    read_time: 'Read time',
+    wrote_by: 'Wrote by',
+    published: 'Published',
+    other_links: 'You may also like these',
+    see_all: 'See All'
   },
   footer: {
     about: 'About Us',
