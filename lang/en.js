@@ -57,6 +57,16 @@ export default {
           'Be an enabler to enhance peoples physical, psychological and social quality of life (HRQoL) through high quality and innovative solutions'
       }
     },
+    video: {
+      title: 'Life at Cobel Group®',
+      description:
+        'Enjoyment of social interaction, sharing experience sense of belonging to a group, promoting participation'
+    },
+    impact: {
+      title: 'Impact Stories',
+      description:
+        'Patients are the center of all projects being conducted in the Cobel Group. Stories of hope, innovation, collaboration, inspiration and empowerment helps us measure our impact and inspire us to create more.'
+    },
     tell_us_your_story: 'Tell Us Your Story',
     click_here: 'Click Here'
   },
@@ -69,7 +79,7 @@ export default {
         'Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women...'
     },
     read_time: 'Read time',
-    wrote_by: 'Wrote by',
+    written_by: 'Written by',
     published: 'Published',
     other_links: 'You may also like these',
     see_all: 'See All'

@@ -1,77 +1,88 @@
 export default {
   menu: {
-    point_of_view: 'Point of view',
-    impact_stories: 'Impact Stories',
-    education: 'Education',
-    people_careers: 'People & Careers',
-    press_center: 'Press Center'
+    point_of_view: 'دیدگاه‌ها',
+    impact_stories: 'داستان‌های الهامبخش',
+    education: 'آموزش',
+    people_careers: 'منابع انسانی و فرصت‌های حرفه‌ای',
+    press_center: 'مطبوعات'
   },
   pageTitles: {
     physical: 'Physical',
     social: 'Social Health',
     psychological: 'Psychological Health',
-    careers: 'Careers',
-    index: 'Home Page',
-    press: 'Press Center',
-    contact: 'Contact Us',
-    impact_stories: 'Impact Stories',
-    storytellers: 'Storytellers'
+    careers: 'منابع انسانی و فرصت‌های حرفه‌ای',
+    index: 'صفحه نخست',
+    press: 'مطبوعات',
+    contact: 'تماس با ما',
+    impact_stories: 'داستان‌های الهامبخش',
+    storytellers: 'راویان الهامبخش'
   },
   footer: {
-    about: 'About Us',
-    contact: 'Contact Us',
+    about: 'درباره ما',
+    contact: 'با ما تماس بگیرید',
     title: {
-      navigation: 'Navigation',
-      life: 'Life & Careers',
-      legal: 'Legal',
-      talk_to_us: 'Talk to Us'
+      navigation: 'جهت یابی',
+      life: 'افراد و مشاغل',
+      legal: 'قوانین',
+      talk_to_us: 'با ما صحبت کن'
     },
     links: {
-      feeds: 'Feeds/News',
-      cobel_group_in_nut_shell: 'Cobel Group in Nut Shell',
-      impact_stories: 'Impact Stories',
-      people_career: 'People & Career',
-      reach_us: 'Reach Us',
-      life_at_cobel_group: 'Life at Cobel Group',
-      careers: 'Careers',
-      talent_pool: 'Talent Pool',
-      general_info: 'General Info',
-      privacy_policy: 'Privacy Policy',
-      terms_of_service: 'Terms of Service',
-      contact: 'Contact Us',
-      innovation: 'innovation'
+      feeds: 'فیلد/اخبار',
+      cobel_group_in_nut_shell: 'گروه کوبل در یک کلام',
+      impact_stories: 'داستان های الهامبخش',
+      people_career: 'افراد و مشاغل',
+      reach_us: 'به ما برسید',
+      life_at_cobel_group: 'زندگی در گروه کوبل',
+      careers: 'مشاغل',
+      talent_pool: 'استعداد ها',
+      general_info: 'اطلاعات عمومی',
+      privacy_policy: 'حفظ حریم خصوصی',
+      terms_of_service: 'شرایط استفاده از خدمات',
+      contact: 'با ما تماس بگیرید',
+      innovation: 'نوآوری'
     },
-    copyright: '©2023 Cobel Group. All Rights Reserved.'
+    copyright: '© ۱۴۰۲ گروه کوبل، تمامی حقوق محفوظ است'
   },
   homePage: {
     slider: {
-      title: 'Unleashing the next level health solutions',
-      more_about: 'More About',
+      title: 'راه گشای توسعه‌ی سلامت',
+      more_about: 'اطلاعات بیشتر',
       cobel_group: 'Cobel Group',
-      swipe_down: 'Swipe Down...'
+      swipe_down: 'پایین بروید...'
     },
     services: {
       slider: {
-        title: 'Treatment and prevention paradigm shift',
+        title: 'تغییر الگوی درمان و پیشگیری',
         description:
-          'Be an enabler to enhance peoples physical, psychological and social quality of life (HRQoL) through high quality and innovative solutions'
+          'توانمندی برای ارتقای کیفیت زندگی جسمی، روانی و اجتماعی مردم (HRQoL) از طریق راه حل های با کیفیت بالا و نوآورانه'
       }
     },
-    tell_us_your_story: 'Tell Us Your Story',
-    click_here: 'Click Here'
+    video: {
+      title: 'زندگی در گروه کوبل®',
+      description: 'برخورداری از تعاملات اجتماعی، به اشتراك گذاری تجربيات، احساس تعلق به يك گروه، مشاركت اجتماعی'
+    },
+    impact: {
+      title: 'داستانهای الهامبخش',
+      description:
+        'بیماران مرکز تمام پروژه هایی هستند که در گروه Cobel انجام می شود. داستان‌های امید، نوآوری، همکاری، الهام‌بخشی و توانمندسازی به ما کمک می‌کند تاثیر خود را اندازه‌گیری کنیم و به ما انگیزه ایجاد کنیم.'
+    },
+    storytellers: {
+      title: 'راویان الهامبخش'
+    },
+    tell_us_your_story: 'داستان خود را به ما بگویید',
+    click_here: 'اینجا کلیک کنید'
   },
   impactPage: {
-    title: 'Impact Story',
+    title: 'داستانهای الهامبخش',
     slider: {
-      see_more: 'see more',
-      title: 'Woman empowerment future enrichment',
-      description:
-        'Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women...'
+      see_more: 'بیشتر بخوانید',
+      title: 'توانمند سازي امروز زنان، توانگري فرداي جامعه',
+      description: 'کمبود آهن که منجر به کم خونی می شود، اثرات منفی بر سلامتی همه افراد به ویژه زنان دارد...'
     },
-    read_time: 'Read time',
-    wrote_by: 'Wrote by',
-    published: 'Published',
-    other_links: 'You may also like these',
-    see_all: 'See All'
+    read_time: 'زمان مطالعه',
+    wrote_by: 'نویسنده',
+    published: 'منتشر شده',
+    other_links: 'ممکن است اینها را هم دوست داشته باشید',
+    see_all: 'مشاهده همه'
   }
 };

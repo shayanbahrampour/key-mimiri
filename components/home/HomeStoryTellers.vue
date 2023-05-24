@@ -7,7 +7,7 @@
           isMobile ? 'px-4 f-45 text-center d-block' : 'px-16 f-50'
         ]"
       >
-        Storytellers
+        {{ $t('homePage.storytellers.title') }}
       </h3>
       <client-only>
         <swiper
@@ -24,7 +24,7 @@
               960: {
                 slidesPerView: 4.2
               },
-              1450: {
+              1550: {
                 slidesPerView: 5.2
               },
               1904: {

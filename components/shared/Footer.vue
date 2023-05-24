@@ -26,11 +26,19 @@
               large
               outlined
               rounded
-              :to="`${locale}/contact`"
+              :to="localePath('/contact')"
             >
               {{ $t('footer.contact') }}
             </v-btn>
-            <v-btn class="f-18 ma-2 px-14" color="white" depressed exact large rounded :to="`${locale}/storytellers`">
+            <v-btn
+              class="f-18 ma-2 px-14"
+              color="white"
+              depressed
+              exact
+              large
+              rounded
+              :to="localePath('/storytellers')"
+            >
               {{ $t('footer.about') }}
             </v-btn>
           </template>
@@ -45,7 +53,7 @@
                 :key="j"
                 :href="link.href ? link.href : undefined"
                 :ripple="false"
-                :to="link.to ? link.to : undefined"
+                :to="link.to ? localePath(link.to) : undefined"
                 :class="['pa-0 f-15 bg-transparent', link.name ? 'ltr text-lowercase' : 'text-capitalize']"
                 color="white"
                 exact
@@ -67,7 +75,7 @@
                 exact
                 large
                 rounded
-                :to="`${locale}/storytellers`"
+                :to="localePath('/storytellers')"
               >
                 {{ $t('footer.about') }}
               </v-btn>
@@ -80,7 +88,7 @@
                 outlined
                 rounded
                 width="200"
-                :to="`${locale}/contact`"
+                :to="localePath('/contact')"
               >
                 {{ $t('footer.contact') }}
               </v-btn>
@@ -107,7 +115,7 @@
             exact
             large
             rounded
-            :to="`${locale}/storytellers`"
+            :to="localePath('/storytellers')"
           >
             {{ $t('footer.about') }}
           </v-btn>
@@ -120,7 +128,7 @@
             outlined
             rounded
             width="200"
-            :to="`${locale}/contact`"
+            :to="localePath('/contact')"
           >
             {{ $t('footer.contact') }}
           </v-btn>
@@ -138,7 +146,7 @@
 
         <v-divider v-if="isMobile" class="white my-6" style="opacity: 0.3" />
 
-        <div>{{ $t('footer.copyright') }}</div>
+        <div class="ltr">{{ $t('footer.copyright') }}</div>
       </v-sheet>
     </v-sheet>
   </div>
@@ -169,17 +177,17 @@ export default {
         {
           title: 'footer.title.life',
           children: [
-            { title: 'footer.links.life_at_cobel_group', to: '#' },
+            { title: 'footer.links.life_at_cobel_group', to: '/' },
             { title: 'footer.links.careers', to: '/career' },
-            { title: 'footer.links.talent_pool', to: '#' }
+            { title: 'footer.links.talent_pool', to: '/' }
           ]
         },
         {
           title: 'footer.title.legal',
           children: [
-            { title: 'footer.links.general_info', to: '#' },
-            { title: 'footer.links.privacy_policy', to: '#' },
-            { title: 'footer.links.terms_of_service', to: '#' }
+            { title: 'footer.links.general_info', to: '/' },
+            { title: 'footer.links.privacy_policy', to: '/' },
+            { title: 'footer.links.terms_of_service', to: '/' }
           ]
         },
         {
@@ -190,10 +198,7 @@ export default {
             { title: 'footer.links.contact', to: '/contact' }
           ]
         }
-      ].map((item) => ({
-        ...item,
-        children: item.children.map((path) => ({ ...path, to: path.to ? `${this.locale}${path.to}` : undefined }))
-      }));
+      ];
     }
   }
 };

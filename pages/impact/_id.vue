@@ -36,7 +36,7 @@
               {{ $t('impactPage.read_time') }}: 13min
             </div>
             <div :class="['grey--text text--darken-2 py-1', !isMobile && `p${isRTL ? 'l' : 'r'}-5`]">
-              {{ $t('impactPage.wrote_by') }}: mehrab
+              {{ $t('impactPage.written_by') }}: mehrab
             </div>
             <div :class="['grey--text text--darken-2 py-1', !isMobile && `p${isRTL ? 'l' : 'r'}-5`]">
               {{ $t('impactPage.published') }} 3 moth ago
@@ -45,13 +45,13 @@
 
           <template v-if="!isMobile">
             <div class="d-flex mt-8 mb-16 pb-6">
-              <nuxt-link :to="`${locale}/`" class="mr-4">
+              <nuxt-link :to="localePath('/')" class="mr-4">
                 <v-img contain height="50" src="/images/social/icon-linkedin.svg" width="50" />
               </nuxt-link>
-              <nuxt-link :to="`${locale}/`" class="mr-4">
+              <nuxt-link :to="localePath('/')" class="mr-4">
                 <v-img contain height="50" src="/images/social/icon-whatsapp.svg" width="50" />
               </nuxt-link>
-              <nuxt-link :to="`${locale}/`" class="mr-4">
+              <nuxt-link :to="localePath('/')" class="mr-4">
                 <v-img contain height="50" src="/images/social/icon-telegram.svg" width="50" />
               </nuxt-link>
             </div>
@@ -174,7 +174,7 @@
 
         <template v-if="!isMobile">
           <v-spacer />
-          <nuxt-link :to="`${locale}/impact`" class="grey--text text-decoration-none">
+          <nuxt-link :to="localePath('/impact')" class="grey--text text-decoration-none">
             {{ $t('impactPage.see_all') }}
           </nuxt-link>
         </template>
