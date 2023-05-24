@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex flex-column" style="background-color: #66869a">
+  <div class="d-flex flex-column slategrey">
     <div :class="['d-flex', isMobile ? 'mt-6 px-5 justify-center' : 'my-16 px-12 justify-space-between']">
       <div class="d-flex">
         <div
@@ -44,13 +44,13 @@
             Environment
           </p>
           <div v-if="isMobile" :class="[isMobile ? 'mt-4 mb-6' : undefined]">
-            <v-btn color="white" height="50" min-width="50" outlined style="border-radius: 30%">
+            <v-btn class="rounded" color="white" height="50" min-width="50" outlined>
               <v-img height="20" max-width="20" src="/images/icons/linkedin.png" />
             </v-btn>
-            <v-btn class="ml-4" color="white" height="50" min-width="50" outlined style="border-radius: 30%">
+            <v-btn class="ml-4 rounded" color="white" height="50" min-width="50" outlined>
               <v-img height="20" max-width="20" src="/images/icons/whatsapp.png" />
             </v-btn>
-            <v-btn class="ml-4" color="white" height="50" min-width="50" outlined style="border-radius: 30%">
+            <v-btn class="ml-4 rounded" color="white" height="50" min-width="50">
               <v-img height="20" max-width="20" src="/images/icons/telegram.png" />
             </v-btn>
           </div>
@@ -58,13 +58,13 @@
       </div>
       <div class="d-flex">
         <div v-if="!isMobile" class="mr-8">
-          <v-btn class="mr-4" color="white" height="50" min-width="50" outlined style="border-radius: 30%">
+          <v-btn class="mr-4 rounded" color="white" height="50" min-width="50" outline>
             <v-img height="20" max-width="20" src="/images/icons/linkedin.png" />
           </v-btn>
-          <v-btn class="mr-4" color="white" height="50" min-width="50" outlined style="border-radius: 30%">
+          <v-btn class="mr-4 rounded" color="white" height="50" min-width="50" outlined>
             <v-img height="20" max-width="20" src="/images/icons/whatsapp.png" />
           </v-btn>
-          <v-btn color="white" height="50" min-width="50" outlined style="border-radius: 30%">
+          <v-btn color="white rounded" height="50" min-width="50" outlined>
             <v-img height="20" max-width="20" src="/images/icons/telegram.png" />
           </v-btn>
         </div>
@@ -76,7 +76,7 @@
       src="/images/video_content/physical.png"
       width="100%"
     />
-    <div class="h-full mt-16" style="background-color: #66869a; height: 400px">
+    <div class="h-full mt-16 slategrey" style="height: 400px">
       <div v-if="!isMobile" class="d-flex justify-center mt-2 px-16">
         <div class="d-flex align-center justify-center">
           <h4 class="bel f-40 white--text text--darken-3 font-weight-regular">Life at Cobel Group®</h4>
@@ -105,8 +105,10 @@
         style="margin-top: -175px"
       >
         <h4
-          :class="['bel text-center text--darken-3 font-weight-regular', isMobile ? 'f-30 mb-6' : 'f-50 mb-2']"
-          style="color: #66869a"
+          :class="[
+            'bel text-center text--darken-3 font-weight-regular slategrey--text',
+            isMobile ? 'f-30 mb-6' : 'f-50 mb-2'
+          ]"
         >
           Join the Cobel Group®
         </h4>

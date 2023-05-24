@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex flex-column" style="background-color: #66869a">
+  <div class="d-flex flex-column slategrey">
     <div :class="['d-flex', isMobile ? 'mt-8 px-4 justify-center' : 'mt-16 mb-8 px-16 justify-space-between']">
       <div class="d-flex">
         <div

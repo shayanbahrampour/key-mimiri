@@ -9,7 +9,7 @@
         v-if="!isMobile"
         class="d-flex rounded-xl overflow-hidden mr-4"
         elevation="0"
-        style="border: 2px solid #66869a; overflow: hidden"
+        style="border: 2px solid slategrey; overflow: hidden"
         :to="`${locale}/education/1234`"
       >
         <div class="d-flex">
@@ -39,7 +39,7 @@
           :class="['d-flex flex-column rounded-lg align-start mx-6']"
           elevation="0"
           height="550"
-          style="border: 2px solid #66869a; overflow: hidden"
+          style="border: 2px solid slategrey; overflow: hidden"
         >
           <v-img max-height="250" src="/images/news/face.png" />
           <div class="d-flex flex-column py-2 mx-6 flex">

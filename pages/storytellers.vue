@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex flex-column" style="background-color: #66869a">
+  <div class="d-flex flex-column slategrey">
     <div
       :class="[
         'd-flex px-16 mt-16 align-center justify-space-between',
@@ -33,13 +33,13 @@
         </div>
       </div>
       <div :class="[isMobile ? 'mt-6' : undefined]">
-        <v-btn color="white" height="50" min-width="50" outlined style="border-radius: 30%">
+        <v-btn class="rounded" color="white" height="50" min-width="50" outlined>
           <v-img height="20" max-width="20" src="/images/icons/linkedin.png" />
         </v-btn>
-        <v-btn class="ml-4" color="white" height="50" min-width="50" outlined style="border-radius: 30%">
+        <v-btn class="ml-4 rounded" color="white" height="50" min-width="50" outlined>
           <v-img height="20" max-width="20" src="/images/icons/whatsapp.png" />
         </v-btn>
-        <v-btn class="ml-4" color="white" height="50" min-width="50" outlined style="border-radius: 30%">
+        <v-btn class="ml-4 rounded" color="white" height="50" min-width="50" outlined>
           <v-img height="20" max-width="20" src="/images/icons/telegram.png" />
         </v-btn>
       </div>

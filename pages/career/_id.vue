@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex flex-column" style="background-color: #66869a">
+  <div class="d-flex flex-column slategrey">
     <div :class="['d-flex', isMobile ? 'mt-8 px-4 justify-center' : 'mt-16 mb-8 px-16 justify-space-between']">
       <div class="d-flex">
         <div
@@ -64,7 +64,7 @@
         and requirements will vary from company to company. A senior project manager may have additional
         responsibilities relating to the management of projects, project managers, and the organization as a whole.
       </p>
-      <h4 :class="['bel mb-6 mt-16 f-30 font-weight-regular', isMobile ? 'mx-2' : 'mx-6']" style="color: #66869a">
+      <h4 :class="['bel mb-6 mt-16 f-30 font-weight-regular slategrey--text', isMobile ? 'mx-2' : 'mx-6']">
         Project responsibilities may include:
       </h4>
       <div v-for="(item, i) in items" :key="i" :class="['d-flex justify-center mb-8', isMobile ? 'px-2' : 'px-6']">
