@@ -6,6 +6,7 @@
       :class="['bel f-20 bg-transparent text-capitalize tab-news', { 'px-10': !isMobile }]"
       :ripple="false"
       active-class="black--text"
+      @click="$emit('select', item.id)"
     >
       {{ item.title }}
     </v-tab>

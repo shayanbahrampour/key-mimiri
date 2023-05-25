@@ -25,8 +25,8 @@ export default {
       title: this.$t('pageTitles.index')
     };
   },
-  async fetch() {
-    await this.$store.dispatch('impact/getCategories');
+  created() {
+    if (this.categories.length === 0) this.$store.dispatch('impact/getCategories');
   }
 };
 </script>

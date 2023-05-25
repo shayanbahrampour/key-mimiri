@@ -1,10 +1,12 @@
 import * as api from '~/api';
 
 export const state = () => ({
+  list: [],
   categories: []
 });
 
 export const getters = {
+  list: (state) => state.list,
   categories: (state) => state.categories
 };
 

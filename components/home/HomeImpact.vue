@@ -19,7 +19,13 @@
         </p>
       </div>
 
-      <CustomTabs :items="categories.map((item) => ({ ...item, title: item[`${$i18n.locale}_name`] }))" />
+      <CustomTabs
+        :items="categories.map((item) => ({ ...item, title: item[`${$i18n.locale}_name`] }))"
+        @select="
+          model.category = $event;
+          $fetch();
+        "
+      />
     </v-sheet>
 
     <v-sheet :max-width="globalMaxWidth" class="mx-auto">
@@ -50,6 +56,9 @@ export default {
   components: { ImpactCards, CustomTabs },
   data() {
     return {
+      model: {
+        category: null
+      },
       items: [
         {
           id: 1,

@@ -196,6 +196,8 @@
       </client-only>
     </v-sheet>
 
+    <v-progress-linear v-if="$fetchState.pending" />
+
     <HomeTellUsStory class="my-16 pb-16" />
   </div>
 </template>
@@ -228,13 +230,7 @@ export default {
           }
         }
       },
-      items: [
-        { id: 1, title: 'Rise from the society return to the society', src: '/images/temp/cover-1.jpg' },
-        { id: 2, title: 'Rise from the society return to the society', src: '/images/temp/cover-2.png' },
-        { id: 3, title: 'Rise from the society return to the society', src: '/images/temp/cover-3.png' },
-        { id: 4, title: 'Rise from the society return to the society', src: '/images/temp/cover-1.jpg' },
-        { id: 5, title: 'Rise from the society return to the society', src: '/images/temp/cover-2.png' }
-      ]
+      items: []
     };
   },
   head() {
@@ -244,8 +240,16 @@ export default {
   },
   async fetch() {
     try {
-      const { data } = await this.$store.dispatch('impact/getList', { id: 'featured' });
+      const { data } = await this.$store.dispatch('impact/getList', { id: this.$route.params.id });
       console.log(data.results);
+    } catch (e) {
+      console.log(e);
+    }
+  },
+  async created() {
+    try {
+      const { data } = await this.$store.dispatch('impact/getList', { id: 'featured' });
+      this.items = data.results;
     } catch (e) {
       console.log(e);
     }
