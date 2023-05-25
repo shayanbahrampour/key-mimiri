@@ -15,8 +15,8 @@
         hide-details
         label="Why do you consider yourself as a talent?"
         rounded
-      ></v-textarea
-      ><v-textarea
+      ></v-textarea>
+      <v-textarea
         class="mb-8"
         dense
         filled
@@ -24,8 +24,8 @@
         hide-details
         label="Why do you like to work with Cobel Group?"
         rounded
-      ></v-textarea
-      ><v-textarea
+      ></v-textarea>
+      <v-textarea
         class="mb-8"
         dense
         filled

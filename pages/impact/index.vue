@@ -15,15 +15,26 @@
         {{ $t('impactPage.title') }}
       </h1>
 
-      <CustomTabs :items="tabs" class="mt-4" />
+      <CustomTabs
+        :items="categories.map((item) => ({ ...item, title: item[`${$i18n.locale}_name`] }))"
+        class="mt-4"
+        @select="
+          model.category = $event;
+          $fetch();
+        "
+      />
 
-      <v-row v-if="!isMobile" class="my-8">
-        <v-col v-for="(item, index) in items" :key="index" cols="12" md="6" xl="4">
-          <ImpactCards :item="item" />
-        </v-col>
-      </v-row>
+      <template v-if="!isMobile">
+        <v-row v-if="items.length" class="my-8">
+          <v-col v-for="(item, index) in items" :key="index" cols="12" md="6" xl="4">
+            <ImpactCards :item="item" />
+          </v-col>
+        </v-row>
+        <div v-else-if="!$fetchState.pending" class="mt-8 text-center">
+          {{ $t('impactPage.not_found') }}
+        </div>
+      </template>
     </v-sheet>
-
     <client-only v-if="isMobile">
       <swiper
         v-if="items.length !== 0"
@@ -38,6 +49,8 @@
         </swiper-slide>
       </swiper>
     </client-only>
+
+    <v-progress-linear v-if="$fetchState.pending" />
   </div>
 </template>
 
@@ -45,29 +58,20 @@
 import CustomTabs from '~/components/shared/CustomTabs.vue';
 import ImpactCards from '~/components/impact/ImpactCards.vue';
 import CustomCarousel from '~/components/shared/CustomCarousel.vue';
+import { mapGetters } from 'vuex';
 
 export default {
   layout: 'impact',
   components: { ImpactCards, CustomTabs, CustomCarousel },
   data() {
     return {
-      tabs: [
-        { title: 'All', value: '' },
-        { title: 'Best talent', value: '' },
-        { title: 'Long-term value creation', value: '' },
-        { title: 'Social responsibility', value: '' },
-        { title: 'Localized know-how', value: '' }
-      ],
-      items: [
-        { id: 1, title: 'Rise from the society return to the society', src: '/images/temp/cover-1.jpg' },
-        { id: 2, title: 'Rise from the society return to the society', src: '/images/temp/cover-3.png' },
-        { id: 3, title: 'Rise from the society return to the society', src: '/images/temp/cover-2.png' },
-        { id: 4, title: 'Rise from the society return to the society', src: '/images/temp/cover-1.jpg' },
-        { id: 1, title: 'Rise from the society return to the society', src: '/images/temp/cover-1.jpg' },
-        { id: 2, title: 'Rise from the society return to the society', src: '/images/temp/cover-3.png' },
-        { id: 3, title: 'Rise from the society return to the society', src: '/images/temp/cover-2.png' },
-        { id: 4, title: 'Rise from the society return to the society', src: '/images/temp/cover-1.jpg' }
-      ],
+      model: {
+        category: null
+      },
+      pagination: {
+        current_page: 1
+      },
+      items: [],
       swiperOptions: {
         spaceBetween: 16,
         slidesPerView: 1.1,
@@ -79,6 +83,29 @@ export default {
     return {
       title: this.$t('pageTitles.impact_stories')
     };
+  },
+  computed: {
+    ...mapGetters({
+      categories: 'impact/categories'
+    })
+  },
+  async fetch() {
+    try {
+      const { data } = await this.$store.dispatch('impact/getList', {
+        params: {
+          page: this.pagination.current_page,
+          impact_story_category_id: this.model.category
+        }
+      });
+
+      this.items = data.results;
+      this.pagination = data.pagination;
+    } catch (e) {
+      console.log(e);
+    }
+  },
+  created() {
+    if (this.categories.length === 0) this.$store.dispatch('impact/getCategories');
   }
 };
 </script>

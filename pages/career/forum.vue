@@ -43,12 +43,12 @@
     >
       <AppSteps
         v-if="!isMobile"
-        :tabs="$route.query.job ? certainJob : apply"
-        :model="counter"
         :class="[!isMobile ? 'mt-16 mx-4' : 'mt-4 mb-6']"
+        :model="counter"
+        :tabs="$route.query.job ? certainJob : apply"
         style="min-width: 90vw"
       />
-      <Component :is="steps[counter].component"> </Component>
+      <Component :is="steps[counter].component"></Component>
       <div
         v-if="((counter !== 7 && !$route.query.job) || (counter !== 6 && $route.query.job)) && !isMobile"
         class="d-flex justify-space-between"
@@ -86,8 +86,8 @@
         style="width: 100%"
       >
         <v-btn
-          class="rounded-xl d-flex justify-center white--text font-weight-bold f-20 mb-6"
           :min-width="!isMobile ? '300' : '80%'"
+          class="rounded-xl d-flex justify-center white--text font-weight-bold f-20 mb-6"
           color="slategrey"
           elevation="0"
           height="40"
@@ -180,6 +180,7 @@ export default {
 .mobile-contact {
   max-width: 90vw !important;
 }
+
 .desktop-contact {
   max-width: 70vw !important;
 }

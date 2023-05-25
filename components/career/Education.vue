@@ -34,8 +34,8 @@
           <v-btn
             v-if="!isMobile"
             class="mt-2 ml-0"
-            text
             style="text-transform: unset !important; color: #0a91df"
+            text
             @click="counter++"
           >
             <p class="mb-0 f-16">Add new education</p>
@@ -46,7 +46,7 @@
           <v-text-field class="mb-8" dense filled hide-details label="City" rounded></v-text-field>
         </v-col>
       </v-row>
-      <v-btn v-if="isMobile" text style="text-transform: unset !important; color: #0a91df" @click="counter++">
+      <v-btn v-if="isMobile" style="text-transform: unset !important; color: #0a91df" text @click="counter++">
         <p :class="['f-16', !isMobile ? 'mb-0' : 'mb-8']">Add new education</p>
       </v-btn>
       <v-textarea

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-sheet :max-width="globalMaxWidth" :class="['mx-auto grey--text text--darken-2', isMobile ? 'px-6' : 'px-16']">
+    <v-sheet :class="['mx-auto grey--text text--darken-2', isMobile ? 'px-6' : 'px-16']" :max-width="globalMaxWidth">
       <div :class="['d-flex align-center mb-8', { 'flex-column text-center': isMobile }]">
         <h3
           :class="[
@@ -19,7 +19,13 @@
         </p>
       </div>
 
-      <CustomTabs :items="tabs" />
+      <CustomTabs
+        :items="categories.map((item) => ({ ...item, title: item[`${$i18n.locale}_name`] }))"
+        @select="
+          model.category = $event;
+          $fetch();
+        "
+      />
     </v-sheet>
 
     <v-sheet :max-width="globalMaxWidth" class="mx-auto">
@@ -42,6 +48,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import CustomTabs from '~/components/shared/CustomTabs.vue';
 import ImpactCards from '~/components/impact/ImpactCards.vue';
 
@@ -49,13 +56,9 @@ export default {
   components: { ImpactCards, CustomTabs },
   data() {
     return {
-      tabs: [
-        { title: 'All', value: '' },
-        { title: 'Best talent', value: '' },
-        { title: 'Long-term value creation', value: '' },
-        { title: 'Social responsibility', value: '' },
-        { title: 'Localized know-how', value: '' }
-      ],
+      model: {
+        category: null
+      },
       items: [
         {
           id: 1,
@@ -80,7 +83,7 @@ export default {
         }
       ],
       swiperOptions: {
-        spaceBetween: 16,
+        spaceBetween: 32,
         slidesPerView: 1.1,
         grabCursor: true,
         breakpoints: {
@@ -96,6 +99,11 @@ export default {
         }
       }
     };
+  },
+  computed: {
+    ...mapGetters({
+      categories: 'impact/categories'
+    })
   }
 };
 </script>

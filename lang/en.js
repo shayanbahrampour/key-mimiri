@@ -55,6 +55,17 @@ export default {
         title: 'Treatment and prevention paradigm shift',
         description:
           'Be an enabler to enhance peoples physical, psychological and social quality of life (HRQoL) through high quality and innovative solutions'
+      },
+      balls: {
+        social_health: 'Social Health',
+        social_health_description:
+          'Enjoyment of social interaction, sharing experiences, sense of belonging to a group, promoting participation',
+        psychological_health: 'Psychological Health',
+        psychological_health_description:
+          'Emotional and interpersonal functioning: Increased self efficiency, confidence, learning new skills, raised awareness',
+        physical_health: 'Physical Health',
+        physical_health_description:
+          'Perceived improvement in balance, strength, flexibility, endurance and functional activities'
       }
     },
     video: {
@@ -78,6 +89,7 @@ export default {
       description:
         'Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women...'
     },
+    not_found: 'Not Found',
     read_time: 'Read time',
     written_by: 'Written by',
     published: 'Published',

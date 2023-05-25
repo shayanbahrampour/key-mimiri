@@ -48,8 +48,8 @@
           <v-btn
             v-if="!isMobile"
             class="mt-2 ml-0"
-            text
             style="text-transform: unset !important; color: #0a91df"
+            text
             @click="counter++"
           >
             <p class="mb-0 f-16">Add new experiences</p>
@@ -58,8 +58,8 @@
         <v-btn
           v-if="isMobile"
           class="mt-2 ml-0 mb-10"
-          text
           style="text-transform: unset !important; color: #0a91df"
+          text
           @click="counter++"
         >
           <p class="mb-0 f-16">Add new experiences</p>

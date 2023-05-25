@@ -15,9 +15,9 @@
       <v-carousel v-model="active" cycle height="auto" hide-delimiters show-arrows-on-hover>
         <v-carousel-item v-for="(item, index) in shapes" :key="index">
           <v-img
-            class="align-end home-services-container mx-auto"
             :height="isMobile ? 400 : 'calc(100vh - 300px)'"
             :src="item.src"
+            class="align-end home-services-container mx-auto"
             gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,.83)"
             max-height="700"
             min-height="550"
@@ -56,8 +56,8 @@
         <svg
           v-if="!isMobile"
           :class="`position-absolute end-0 start-0 m${isRTL ? 'l' : 'r'}-auto`"
-          fill="none"
           :style="`width: 400px; bottom: -1px; margin-${isRTL ? 'right' : 'left'}: 25%`"
+          fill="none"
           viewBox="0 0 403 127"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -94,21 +94,21 @@
             :class="['bel font-weight-regular mb-1', isMobile ? 'f-40' : 'f-50']"
             :style="`color:${activeItem.color}; line-height: ${isMobile ? '30px' : '50px'};`"
           >
-            {{ activeItem.title }}
+            {{ $t(activeItem.title) }}
           </h3>
         </v-scroll-y-transition>
         <v-scroll-y-transition>
-          <p v-if="activeItem" class="f-20 font-weight-light ma-0">{{ activeItem.description }}</p>
+          <p v-if="activeItem" class="f-20 font-weight-light ma-0">{{ $t(activeItem.description) }}</p>
         </v-scroll-y-transition>
       </div>
 
       <div
-        :style="`width: ${isMobile ? '100%' : '400px'}; height: ${isMobile ? '100%' : '200px'}; margin-${
-          isRTL ? 'right' : 'left'
-        }: ${isMobile ? 'auto' : '25%'}`"
         :class="`nuclear z-0 start-0 top-0 end-0 bottom-0 position-absolute rounded-circle my-auto d-flex align-center justify-center m${
           isRTL ? 'l' : 'r'
         }-auto`"
+        :style="`width: ${isMobile ? '100%' : '400px'}; height: ${isMobile ? '100%' : '200px'}; margin-${
+          isRTL ? 'right' : 'left'
+        }: ${isMobile ? 'auto' : '25%'}`"
       >
         <div v-if="!isTablet" class="f-60 font-weight-regular bel grey--text text--darken-1 text-center mb-sm-0 mb-6">
           HRQOL
@@ -165,24 +165,22 @@ export default {
           src: '/images/temp/cover-1.jpg',
           position: coordinates.top,
           color: 'rgba(160, 30, 100, 1)',
-          title: 'Social Health',
-          description:
-            'Enjoyment of social interaction, sharing experiences, sense of belonging to a group, promoting participation'
+          title: 'homePage.services.balls.social_health',
+          description: 'homePage.services.balls.social_health_description'
         },
         {
           src: '/images/temp/cover-2.png',
           position: coordinates.side,
           color: 'rgba(243, 145, 31, 1)',
-          title: 'Psychological Health',
-          description:
-            'Emotional and interpersonal functioning: Increased self efficiency, confidence, learning new skills, raised awareness'
+          title: 'homePage.services.balls.psychological_health',
+          description: 'homePage.services.balls.psychological_health_description'
         },
         {
           src: '/images/temp/cover-3.png',
           position: coordinates.bottom,
           color: 'rgba(0, 165, 155, 1)',
-          title: 'Physical Health',
-          description: 'Perceived improvement in balance, strength, flexibility, endurance and functional activities'
+          title: 'homePage.services.balls.physical_health',
+          description: 'homePage.services.balls.physical_health_description'
         }
       ];
 

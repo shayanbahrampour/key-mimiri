@@ -2,12 +2,12 @@
   <div class="position-relative">
     <v-carousel
       v-model="model"
+      :show-arrows="items.length > 1"
       class="position-relative z-0"
-      height="auto"
       cycle
+      height="auto"
       hide-delimiters
       show-arrows-on-hover
-      :show-arrows="items.length > 1"
     >
       <v-carousel-item v-for="(item, index) in items" :key="index">
         <v-img :height="isMobile ? 250 : 600" :src="item.src" class="position-relative z-0" />

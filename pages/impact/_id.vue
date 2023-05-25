@@ -17,7 +17,7 @@
           </v-sheet>
         </v-sheet>
       </v-col>
-      <v-col cols="12" lg="6" md="7" offset-xl="0" offset-lg="1">
+      <v-col cols="12" lg="6" md="7" offset-lg="1" offset-xl="0">
         <div :class="[isMobile ? 'pa-4 mt-6' : 'pa-16 mt-5']">
           <h1 :class="['bel grey--text text--darken-2 font-weight-regular', isMobile ? 'f-40' : 'f-80 mb-4']">
             Woman empowerment future enrichment
@@ -196,6 +196,8 @@
       </client-only>
     </v-sheet>
 
+    <v-progress-linear v-if="$fetchState.pending" />
+
     <HomeTellUsStory class="my-16 pb-16" />
   </div>
 </template>
@@ -210,7 +212,7 @@ export default {
   data() {
     return {
       swiperOptions: {
-        spaceBetween: 16,
+        spaceBetween: 32,
         slidesPerView: 1.1,
         grabCursor: true,
         breakpoints: {
@@ -228,19 +230,29 @@ export default {
           }
         }
       },
-      items: [
-        { id: 1, title: 'Rise from the society return to the society', src: '/images/temp/cover-1.jpg' },
-        { id: 2, title: 'Rise from the society return to the society', src: '/images/temp/cover-2.png' },
-        { id: 3, title: 'Rise from the society return to the society', src: '/images/temp/cover-3.png' },
-        { id: 4, title: 'Rise from the society return to the society', src: '/images/temp/cover-1.jpg' },
-        { id: 5, title: 'Rise from the society return to the society', src: '/images/temp/cover-2.png' }
-      ]
+      items: []
     };
   },
   head() {
     return {
       title: this.$t('pageTitles.impact_stories')
     };
+  },
+  async fetch() {
+    try {
+      const { data } = await this.$store.dispatch('impact/getList', { id: this.$route.params.id });
+      console.log(data.results);
+    } catch (e) {
+      console.log(e);
+    }
+  },
+  async created() {
+    try {
+      const { data } = await this.$store.dispatch('impact/getList', { id: 'featured' });
+      this.items = data.results;
+    } catch (e) {
+      console.log(e);
+    }
   }
 };
 </script>

@@ -7,10 +7,10 @@
     <div v-for="i in 4" :key="i" class="d-flex justify-center mb-8">
       <v-card
         v-if="!isMobile"
+        :to="localePath('/education/1234')"
         class="d-flex rounded-xl overflow-hidden mr-4"
         elevation="0"
         style="border: 2px solid slategrey; overflow: hidden"
-        :to="localePath('/education/1234')"
       >
         <div class="d-flex">
           <v-img height="100%" src="/images/news/face.png" width="280" />
@@ -34,7 +34,7 @@
           </div>
         </div>
       </v-card>
-      <v-card v-else class="d-flex mt-6 overflow-hidden" elevation="0" :to="localePath('/education/1234')">
+      <v-card v-else :to="localePath('/education/1234')" class="d-flex mt-6 overflow-hidden" elevation="0">
         <v-card
           :class="['d-flex flex-column rounded-lg align-start mx-6']"
           elevation="0"

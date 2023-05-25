@@ -25,7 +25,7 @@
           medicine, innovative healthcare solutions have been developed to help individuals manage their physical health
           issues.
         </p>
-        <div v-if="!isMobile" class="right-circle" :class="{ 'animate-dot': scrollPosition > 0 }"></div>
+        <div v-if="!isMobile" :class="{ 'animate-dot': scrollPosition > 0 }" class="right-circle"></div>
         <div v-else class="right-circle-mobile"></div>
       </div>
       <v-divider :class="[isMobile ? 'my-6' : 'my-10']" style="background-color: #a01e64"></v-divider>
@@ -40,7 +40,7 @@
         of life, as it allows individuals to be physically active and self‐sufficient, promoting independence and
         overall happiness.
       </h4>
-      <div v-if="!isMobile" class="left-circle" :class="{ 'animate-dot': scrollPosition > 0 }"></div>
+      <div v-if="!isMobile" :class="{ 'animate-dot': scrollPosition > 0 }" class="left-circle"></div>
       <div v-else class="left-circle-mobile"></div>
       <v-spacer></v-spacer>
     </div>
@@ -111,6 +111,7 @@ export default {
     top: 30%;
   }
 }
+
 @keyframes dotAnimationLeft {
   30% {
     transform: translate(50%, -50%);
@@ -131,6 +132,7 @@ export default {
   right: -130px;
   top: 30%;
   transform: translate(50%, -50%);
+
   &.animate-dot {
     animation: dotAnimationRight 1s linear;
   }
@@ -149,6 +151,7 @@ export default {
   left: -100px;
   top: 64%;
   transform: translate(50%, -50%);
+
   &.animate-dot {
     animation: dotAnimationLeft 1s linear;
   }

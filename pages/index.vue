@@ -24,6 +24,9 @@ export default {
     return {
       title: this.$t('pageTitles.index')
     };
+  },
+  created() {
+    if (this.categories.length === 0) this.$store.dispatch('impact/getCategories');
   }
 };
 </script>

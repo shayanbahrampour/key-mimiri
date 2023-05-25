@@ -3,9 +3,10 @@
     <v-tab
       v-for="(item, index) in items"
       :key="index"
+      :class="['bel f-20 bg-transparent text-capitalize tab-news', { 'px-10': !isMobile }]"
       :ripple="false"
       active-class="black--text"
-      :class="['bel f-20 bg-transparent text-capitalize tab-news', { 'px-10': !isMobile }]"
+      @click="$emit('select', item.id)"
     >
       {{ item.title }}
     </v-tab>
@@ -40,6 +41,7 @@ export default {
     background: linear-gradient(90deg, #f3911f 8%, #a01e64 51%, #00a59b 100%) !important;
   }
 }
+
 .tab-news {
   &:hover {
     color: black !important;
