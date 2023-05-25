@@ -30,7 +30,7 @@
             <ImpactCards :item="item" />
           </v-col>
         </v-row>
-        <div v-else class="mt-8 text-center">
+        <div v-else-if="!$fetchState.pending" class="mt-8 text-center">
           {{ $t('impactPage.not_found') }}
         </div>
       </template>

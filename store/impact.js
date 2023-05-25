@@ -22,7 +22,7 @@ export const actions = {
   async getCategories({ commit }, { params, id } = {}) {
     try {
       const { data } = await this.$axios.$get(api.impact_story_categories(id), { params });
-      commit('SET', { categories: data });
+      commit('SET', { categories: [{ id: null, en_name: 'All', fa_name: 'همه' }, ...data] });
     } catch (e) {
       console.log(e);
     }
