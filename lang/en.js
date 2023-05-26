@@ -43,6 +43,17 @@ export default {
     },
     copyright: '©2023 Cobel Group. All Rights Reserved.'
   },
+  socialHealth: {
+    header_description:
+      'Enjoyment of social interaction, sharing experiences, sense of belonging to a group, promoting participation',
+    description:
+      'Social health is an important aspect of overall health‐related quality of life, along with physical and psychological wellness. Social health refers to the ability to maintain positive relationships and interactions with others, including a sense of belonging within a community or group. Humans are social creatures, and social well‐being is critical for happiness and fulfillment. Enjoyment of social interaction, sharing experiences with others, and promoting participation in group activities can bring joy to ones life and promote a sense of connectivity. Social health is evaluated in categories such as social support, social capital, and social networks.',
+    responsibility:
+      'Corporate social responsibilities can promote social health by providing supportive work environments, facilitating community service opportunities, and encouraging team‐building activities.',
+    individual:
+      'When individuals are socially healthy, they are less lonely, less stressed, and committed to their communities, which can have a positive impact on overall health and well‐being. Therefore, it is important to prioritize social health and engage in activities that support positive social interaction in order to enhance health and quality of life.'
+  },
+
   homePage: {
     slider: {
       title: 'Unleashing the next level health solutions',
