@@ -14,7 +14,7 @@
             color="slategrey"
             elevation="0"
             height="30"
-            min-width="200"
+            min-width="220"
           >
             Apply Now
           </v-btn>
@@ -37,7 +37,7 @@
             color="slategrey"
             elevation="0"
             height="30"
-            min-width="200"
+            min-width="220"
           >
             Apply Now
           </v-btn>
@@ -62,7 +62,7 @@
             color="slategrey"
             elevation="0"
             height="30"
-            min-width="200"
+            min-width="220"
           >
             Apply Now
           </v-btn>
@@ -85,7 +85,7 @@
             color="slategrey"
             elevation="0"
             height="30"
-            min-width="200"
+            min-width="220"
           >
             Apply Now
           </v-btn>
