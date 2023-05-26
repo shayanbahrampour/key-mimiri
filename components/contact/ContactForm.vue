@@ -18,7 +18,7 @@
         <v-textarea :class="['mb-8']" dense filled height="260" hide-details label="Descriptions" rounded></v-textarea>
       </v-col>
     </v-row>
-    <div :class="['d-flex', isMobile ? 'flex-column' : undefined]">
+    <div :class="['d-flex', isMobile ? 'flex-column align-center' : undefined]">
       <v-btn
         :class="[
           'rounded-xl white--text d-flex justify-center',
@@ -28,6 +28,7 @@
         elevation="0"
         height="36"
         min-width="250"
+        :width="isMobile ? '100' : undefined"
       >
         Send Form
       </v-btn>
@@ -39,6 +40,7 @@
         color="#4C6D80"
         height="36"
         min-width="250"
+        :width="isMobile ? '100' : undefined"
         outlined
       >
         Clear
