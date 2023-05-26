@@ -60,8 +60,10 @@
 
     <v-sheet :class="['mx-auto', isMobile ? 'px-4' : 'px-16']" :max-width="globalMaxWidth">
       <h4
-        :class="['bel mt-16 f-40 text--darken-3 font-weight-regular', { 'text-center': isMobile }]"
-        style="color: #59595b"
+        :class="[
+          'bel mt-16 f-40 text--darken-3 font-weight-regular',
+          isMobile ? 'text-center slategrey--text' : 'cobelgrey--text'
+        ]"
       >
         Contact form
       </h4>
