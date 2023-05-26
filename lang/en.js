@@ -100,7 +100,6 @@ export default {
     individual:
       'Moreover, when individuals are psychologically healthy, they possess high levels of self‐ awareness, self‐esteem, and confidence, which means they are empowered to set and achieve goals that support their overall well‐being. Psychological health is therefore critical to a high quality of life and should be prioritized in any individuals overall health and wellness regime.'
   },
-
   homePage: {
     slider: {
       title: 'Unleashing the next level health solutions',
@@ -156,5 +155,8 @@ export default {
     published: 'Published',
     other_links: 'You may also like these',
     see_all: 'See All'
+  },
+  shared: {
+    see_more: 'see more'
   }
 };

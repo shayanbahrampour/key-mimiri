@@ -30,14 +30,14 @@
             <ImpactCards :item="item" />
           </v-col>
         </v-row>
-        <div v-else-if="!$fetchState.pending" class="mt-8 text-center">
+        <div v-else-if="!$fetchState.pending" class="mt-8">
           {{ $t('impactPage.not_found') }}
         </div>
       </template>
     </v-sheet>
     <client-only v-if="isMobile">
       <swiper
-        v-if="items.length !== 0"
+        v-if="items && items.length !== 0"
         id="impactSwiper"
         key="impactSwiper"
         :class="['w-full px-6', isMobile ? 'mt-8 mb-16' : 'my-8']"
@@ -48,9 +48,14 @@
           <ImpactCards :item="item" class="mt-2 mb-3" />
         </swiper-slide>
       </swiper>
+      <div v-else-if="!$fetchState.pending" class="mt-8">
+        {{ $t('impactPage.not_found') }}
+      </div>
     </client-only>
 
-    <v-progress-linear v-if="$fetchState.pending" />
+    <div v-if="$fetchState.pending" class="d-flex align-center justify-center">
+      <v-progress-circular indeterminate class="mx-auto" />
+    </div>
   </div>
 </template>
 
@@ -61,7 +66,6 @@ import CustomCarousel from '~/components/shared/CustomCarousel.vue';
 import { mapGetters } from 'vuex';
 
 export default {
-  layout: 'impact',
   components: { ImpactCards, CustomTabs, CustomCarousel },
   data() {
     return {
@@ -105,7 +109,7 @@ export default {
     }
   },
   created() {
-    if (this.categories.length === 0) this.$store.dispatch('impact/getCategories');
+    if (this.categories && this.categories.length === 0) this.$store.dispatch('impact/getCategories');
   }
 };
 </script>

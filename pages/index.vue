@@ -18,15 +18,11 @@ import HomeStoryTellers from '~/components/home/HomeStoryTellers.vue';
 import HomeServices from '~/components/home/HomeServices.vue';
 
 export default {
-  layout: 'impact',
   components: { HomeServices, HomeImpact, HomeStoryTellers, HomeTellUsStory, HomeVideo, HomeSlider },
   head() {
     return {
       title: this.$t('pageTitles.index')
     };
-  },
-  created() {
-    if (this.categories.length === 0) this.$store.dispatch('impact/getCategories');
   }
 };
 </script>
