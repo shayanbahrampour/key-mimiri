@@ -43,6 +43,15 @@ export default {
     },
     copyright: '© ۱۴۰۲ گروه کوبل، تمامی حقوق محفوظ است'
   },
+  contact: {
+    fields: {
+      full_name: 'نام و نام خوانوادگی',
+      email: 'ایمیل',
+      mobile: 'شماره تماس',
+      topic: 'موضوع',
+      description: 'توضیحات'
+    }
+  },
   socialHealth: {
     header_description: 'برخورداري از تعاملات اجتماعي، به اشتراك گذاري تجربيات، احساس تعلق به يك گروه، مشاركت اجتماعي',
     description:
