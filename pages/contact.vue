@@ -1,11 +1,7 @@
 <template>
   <div>
-    <div class="slategrey">
-      <v-sheet
-        :class="['mx-auto', isMobile ? 'px-8 py-8' : 'px-9 py-16']"
-        :max-width="globalMaxWidth"
-        color="transparent"
-      >
+    <div :class="['slategrey', !isMobile ? 'pr-4' : undefined]">
+      <v-sheet :class="['mx-auto', isMobile ? 'px-8 py-8' : 'pa-16']" :max-width="globalMaxWidth" color="transparent">
         <div class="d-flex justify-space-between">
           <div class="d-flex">
             <div class="d-flex flex-column justify-center" style="max-width: 380px">
