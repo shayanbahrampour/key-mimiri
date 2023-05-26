@@ -21,7 +21,8 @@ export default {
         cyan: '#00a59b',
         blue: '#0A91DF',
         slategrey: '#66869A',
-        cobelgrey: '#59595b'
+        cobelgrey: '#59595b',
+        lightgrey: '#D9D9D9'
       }
     }
   }

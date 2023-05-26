@@ -1,10 +1,10 @@
 <template>
-  <v-form v-model="flag.isValid" class="mt-4 mb-16">
+  <v-form v-model="flag.isValid" class="mt-6 mb-16">
     <v-row class="align-start justify-center">
       <v-col cols="12" md="6">
         <v-text-field
           v-model="model.full_name"
-          :class="['mb-4']"
+          :class="['mb-4', { lightgrey: isMobile }]"
           dense
           filled
           hide-details
@@ -14,7 +14,7 @@
         ></v-text-field>
         <v-text-field
           v-model="model.email"
-          :class="['mb-4']"
+          :class="['mb-4', { lightgrey: isMobile }]"
           dense
           filled
           hide-details
@@ -24,7 +24,7 @@
         ></v-text-field>
         <v-text-field
           v-model="model.mobile"
-          :class="['mb-4']"
+          :class="['mb-4', { lightgrey: isMobile }]"
           dense
           filled
           hide-details
@@ -34,7 +34,7 @@
         ></v-text-field>
         <v-text-field
           v-model="model.topic"
-          :class="!isMobile ? 'mb-4' : 'mb-0'"
+          :class="!isMobile ? 'mb-4' : 'mb-0 lightgrey'"
           dense
           filled
           hide-details
@@ -43,10 +43,10 @@
           :rules="[rule.required]"
         ></v-text-field>
       </v-col>
-      <v-col cols="12" md="6">
+      <v-col :class="{ 'pt-2': isMobile }" cols="12" md="6">
         <v-textarea
           v-model="model.description"
-          :class="['mb-8']"
+          :class="['mb-4', { 'mb-10 lightgrey': isMobile }]"
           dense
           filled
           height="260"
