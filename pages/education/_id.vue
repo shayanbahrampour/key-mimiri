@@ -47,7 +47,7 @@
         have a 2 prevalence of Anemia and are also require to manage the disease accordingly (3).
       </p>
     </div>
-    <div :class="[isMobile ? 'px-4 py-10' : 'mt-16 px-14 py-16']" style="background-color: #ececec">
+    <div :class="[isMobile ? 'px-4 pt-10' : 'mt-16 px-14 py-16']" style="background-color: #ececec">
       <v-row>
         <v-col cols="12" lg="5" md="4">
           <h4 :class="['font-weight-regular bel slategrey--text', isMobile ? 'f-40' : 'f-50']">Main sample titles</h4>
@@ -55,17 +55,9 @@
             In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society
             and are committed to
           </p>
-          <v-divider class="mt-16" style="width: 400px"></v-divider>
-          <v-container :class="['px-0 d-flex', isMobile ? 'justify-center' : undefined]" fluid>
-            <v-radio-group v-model="radioGroup" class="mr-4" dense multiple>
-              <v-radio v-for="n in 2" :key="n" :label="`feature ${n}`" :value="n" color="#F3911F"></v-radio>
-            </v-radio-group>
-            <v-radio-group v-model="radioGroup" class="mr-4" dense multiple>
-              <v-radio v-for="n in 2" :key="n" :label="`feature ${n}`" :value="n" color="#F3911F"></v-radio>
-            </v-radio-group>
-            <v-radio-group v-model="radioGroup" dense multiple>
-              <v-radio v-for="n in 2" :key="n" :label="`feature ${n}`" :value="n" color="#F3911F"></v-radio>
-            </v-radio-group>
+          <v-divider v-if="!isMobile" class="mt-16" style="width: 400px"></v-divider>
+          <v-container :class="['px-0 d-flex', isMobile ? 'justify-center' : undefined]" fluid
+            ><FeatureSelection />
           </v-container>
         </v-col>
         <v-col cols="12" lg="5" md="4">
@@ -96,9 +88,10 @@
 
 <script>
 import NewsCard from '~/components/news/NewsCard';
+import FeatureSelection from '~/components/education/FeatureSelection';
 
 export default {
-  components: { NewsCard },
+  components: { NewsCard, FeatureSelection },
   data() {
     return {
       radioGroup: 1
