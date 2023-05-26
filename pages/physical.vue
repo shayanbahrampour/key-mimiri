@@ -19,7 +19,7 @@
           {{ $t('physical.description') }}
         </p>
         <div v-if="!isMobile" :class="{ 'animate-dot': scrollPosition > 0 }" class="right-circle"></div>
-        <div v-else class="right-circle-mobile"></div>
+        <div v-else :class="{ 'animate-dot': scrollPosition > 0 }" class="right-circle-mobile"></div>
       </div>
       <v-divider :class="[isMobile ? 'my-6' : 'my-10']" style="background-color: #a01e64"></v-divider>
       <h4
@@ -32,7 +32,7 @@
         {{ $t('physical.responsibility') }}
       </h4>
       <div v-if="!isMobile" :class="{ 'animate-dot': scrollPosition > 0 }" class="left-circle"></div>
-      <div v-else class="left-circle-mobile"></div>
+      <div v-else :class="{ 'animate-dot': scrollPosition > 0 }" class="left-circle-mobile"></div>
       <v-spacer></v-spacer>
     </div>
   </div>
@@ -157,6 +157,9 @@ export default {
   right: -60px;
   top: 150px;
   transform: translate(50%, -50%);
+  &.animate-dot {
+    animation: dotAnimationRight 1s linear;
+  }
 }
 
 .left-circle-mobile {
@@ -168,5 +171,8 @@ export default {
   left: -140px;
   top: 1750px;
   transform: translate(50%, -50%);
+  &.animate-dot {
+    animation: dotAnimationLeft 1s linear;
+  }
 }
 </style>
