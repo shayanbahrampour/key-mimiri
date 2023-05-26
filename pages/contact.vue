@@ -58,14 +58,14 @@
       style="border: 0"
     />
 
-    <v-sheet :class="['mx-auto', isMobile ? 'px-8' : 'px-16']" :max-width="globalMaxWidth">
+    <v-sheet :class="['mx-auto', isMobile ? 'px-4' : 'px-16']" :max-width="globalMaxWidth">
       <h4
         :class="['bel mt-16 f-40 text--darken-3 font-weight-regular', { 'text-center': isMobile }]"
         style="color: #59595b"
       >
         Contact form
       </h4>
-      <ContactForm class="mr-4" />
+      <ContactForm :class="!isMobile ? 'mr-4' : undefined" />
     </v-sheet>
   </div>
 </template>
