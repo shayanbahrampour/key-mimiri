@@ -47,7 +47,7 @@
         have a 2 prevalence of Anemia and are also require to manage the disease accordingly (3).
       </p>
     </div>
-    <div :class="[isMobile ? 'px-4 pt-10' : 'mt-16 px-14 py-16']" style="background-color: #ececec">
+    <div :class="[isMobile ? 'px-4 pt-10' : 'mt-16 px-16 py-16']" style="background-color: #ececec">
       <v-row>
         <v-col cols="12" lg="5" md="4">
           <h4 :class="['font-weight-regular bel slategrey--text', isMobile ? 'f-40' : 'f-50']">Main sample titles</h4>
@@ -71,7 +71,7 @@
         have a 2 prevalence of Anemia and are also require to manage the disease accordingly (3).
       </p>
     </div>
-    <div :class="['d-flex align-center', isMobile ? 'flex-column px-4 my-4' : 'px-14 my-16']">
+    <div :class="['d-flex align-center', isMobile ? 'flex-column px-4 my-4' : 'px-16 my-16']">
       <v-img max-height="220" src="/images/news/face.png" width="350" />
 
       <p :class="['font-weight-light f-20 mx-4', isMobile ? 'mt-6' : undefined]" style="color: #939393; line-height: 2">
@@ -81,8 +81,8 @@
         have a 2 prevalence of Anemia and are also require to manage the disease accordingly (3).
       </p>
     </div>
-    <h1 class="bel f-50 grey--text text--darken-2 font-weight-regular ml-14 mt-10">More Articles</h1>
-    <NewsCard :class="['mt-10', !isMobile ? 'mx-10' : undefined]" />
+    <h1 class="bel f-50 grey--text text--darken-2 font-weight-regular ml-16 mt-10">More Articles</h1>
+    <NewsCard :class="['mt-10', !isMobile ? 'mx-14' : undefined]" />
   </div>
 </template>
 
