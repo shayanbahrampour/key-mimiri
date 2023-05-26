@@ -53,6 +53,24 @@ export default {
     individual:
       'When individuals are socially healthy, they are less lonely, less stressed, and committed to their communities, which can have a positive impact on overall health and well‐being. Therefore, it is important to prioritize social health and engage in activities that support positive social interaction in order to enhance health and quality of life.'
   },
+  physical: {
+    header_description:
+      'Enjoyment of social interaction, sharing experiences, sense of belonging to a group, promoting participation',
+    description:
+      'Physical health is one of the three main components of health‐related quality of life, alongside psychological and social health. It is crucial to maintain good physical health to ensure ones overall well‐ being and longevity. Maintaining a physical health, as a perceived improvement in balance, strength, flexibility, endurance and functional activities, requires regular exercise, keeping a balanced diet, getting enough sleep, and avoiding harmful habits such as smoking. Additionally, it is important to manage physical health issues with proper healthcare solutions and high‐quality treatment strategies. With advancements in technology and medicine, innovative healthcare solutions have been developed to help individuals manage their physical health issues.',
+    responsibility:
+      'Ensuring good physical health not only improves ones life expectancy but also contributes to a better quality of life, as it allows individuals to be physically active and self‐sufficient, promoting independence and overall happiness.'
+  },
+  psychological: {
+    header_description:
+      'Enjoyment of social interaction, sharing experiences, sense of belonging to a group, promoting participation',
+    description:
+      'Psychological health is an important component of health‐related quality of life, alongside physical and social health. It refers to emotional well‐being, mental states, and ability to manage stress, maintain interpersonal relationships, and make sound decisions. Psychological health is essential for leading a happy and fulfilling life, as it enables individuals to handle lifes challenges with confidence and resilience.',
+    responsibility:
+      'High levels of psychological health enable individuals to be more efficient and productive in their personal and professional lives, as they are able to think clearly, communicate effectively, and learn new skills.',
+    individual:
+      'Moreover, when individuals are psychologically healthy, they possess high levels of self‐ awareness, self‐esteem, and confidence, which means they are empowered to set and achieve goals that support their overall well‐being. Psychological health is therefore critical to a high quality of life and should be prioritized in any individuals overall health and wellness regime.'
+  },
 
   homePage: {
     slider: {

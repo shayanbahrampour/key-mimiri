@@ -4,10 +4,10 @@
     style="background-color: #f3911f"
   >
     <h1 :class="['bel white--text text--darken-3 font-weight-regular', isMobile ? 'f-36 mt-12' : 'f-80 mt-16']">
-      Psychological Health
+      {{ $t('pageTitles.psychological') }}
     </h1>
     <p :class="['mt-6 white--text text--darken-3 font-weight-light', !isMobile ? 'f-22 mb-16' : 'f-20 mx-6']">
-      Enjoyment of social interaction, sharing experiences, sense of belonging to a group, promoting participation
+      {{ $t('psychological.header_description') }}
     </p>
     <v-sheet v-if="!isMobile" class="custom-gradient w-full mt-16" height="10" />
 
@@ -18,10 +18,7 @@
           :class="['white--text text--darken-3 font-weight-regular', isMobile ? 'text-center f-20 mt-10' : 'f-22 mt-6']"
           style="line-height: 40px"
         >
-          Psychological health is an important component of health‐related quality of life, alongside physical and
-          social health. It refers to emotional well‐being, mental states, and ability to manage stress, maintain
-          interpersonal relationships, and make sound decisions. Psychological health is essential for leading a happy
-          and fulfilling life, as it enables individuals to handle life's challenges with confidence and resilience.
+          {{ $t('psychological.description') }}
         </p>
         <div v-if="!isMobile" :class="{ 'animate-dot': scrollPosition > 0 }" class="right-circle"></div>
         <div v-else class="right-circle-mobile"></div>
@@ -31,8 +28,7 @@
         :class="['bel text--darken-3 font-weight-regular', isMobile ? 'text-center f-30' : 'f-50']"
         style="color: #a01e64"
       >
-        High levels of psychological health enable individuals to be more efficient and productive in their personal and
-        professional lives, as they are able to think clearly, communicate effectively, and learn new skills.
+        {{ $t('psychological.responsibility') }}
       </h4>
       <div v-if="!isMobile" :class="{ 'animate-dot': scrollPosition > 0 }" class="left-circle"></div>
       <div v-else class="left-circle-mobile"></div>
@@ -44,10 +40,7 @@
         ]"
         style="line-height: 40px"
       >
-        Moreover, when individuals are psychologically healthy, they possess high levels of self‐ awareness,
-        self‐esteem, and confidence, which means they are empowered to set and achieve goals that support their overall
-        well‐being. Psychological health is therefore critical to a high quality of life and should be prioritized in
-        any individual's overall health and wellness regime.
+        {{ $t('psychological.individual') }}
       </p>
       <v-spacer></v-spacer>
     </div>
