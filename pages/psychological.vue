@@ -11,7 +11,7 @@
     </p>
     <v-sheet v-if="!isMobile" class="custom-gradient w-full mt-16" height="10" />
 
-    <v-img :class="[!isMobile ? 'mt-0' : 'mt-10']" contain src="/images/video_content/social.png" />
+    <v-img :class="[!isMobile ? 'mt-0' : 'mt-10']" max-height="500" src="/images/video_content/social.png" />
     <div :class="[isMobile ? 'text-start px-6 h-full psy-screen d-flex flex-column' : 'text-center ma-16 px-16']">
       <div class="d-flex relative-container-social">
         <p
@@ -21,7 +21,7 @@
           {{ $t('psychological.description') }}
         </p>
         <div v-if="!isMobile" :class="{ 'animate-dot': scrollPosition > 0 }" class="right-circle"></div>
-        <div v-else class="right-circle-mobile"></div>
+        <div v-else :class="{ 'animate-dot': scrollPosition > 0 }" class="right-circle-mobile"></div>
       </div>
       <v-divider :class="[isMobile ? 'my-6' : 'my-10']" style="background-color: #f3911f"></v-divider>
       <h4
@@ -31,7 +31,7 @@
         {{ $t('psychological.responsibility') }}
       </h4>
       <div v-if="!isMobile" :class="{ 'animate-dot': scrollPosition > 0 }" class="left-circle"></div>
-      <div v-else class="left-circle-mobile"></div>
+      <div v-else :class="{ 'animate-dot': scrollPosition > 0 }" class="left-circle-mobile"></div>
       <v-divider :class="[isMobile ? 'my-6' : 'my-10']" style="background-color: #f3911f"></v-divider>
       <p
         :class="[
@@ -166,6 +166,9 @@ export default {
   right: -60px;
   top: 150px;
   transform: translate(50%, -50%);
+  &.animate-dot {
+    animation: dotAnimationRight 1s linear;
+  }
 }
 
 .left-circle-mobile {
@@ -177,5 +180,8 @@ export default {
   left: -140px;
   top: 1750px;
   transform: translate(50%, -50%);
+  &.animate-dot {
+    animation: dotAnimationLeft 1s linear;
+  }
 }
 </style>

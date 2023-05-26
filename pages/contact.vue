@@ -1,11 +1,7 @@
 <template>
   <div>
-    <div class="slategrey">
-      <v-sheet
-        :class="['mx-auto', isMobile ? 'px-8 py-8' : 'px-9 py-16']"
-        :max-width="globalMaxWidth"
-        color="transparent"
-      >
+    <div :class="['slategrey', !isMobile ? 'pr-4' : undefined]">
+      <v-sheet :class="['mx-auto', isMobile ? 'px-8 py-8' : 'pa-16']" :max-width="globalMaxWidth" color="transparent">
         <div class="d-flex justify-space-between">
           <div class="d-flex">
             <div class="d-flex flex-column justify-center" style="max-width: 380px">
@@ -20,7 +16,7 @@
               <p
                 :class="[
                   'white--text mb-0 text--darken-3',
-                  isMobile ? 'mt-4 text-center font-weight-light f-16' : 'bel f-20'
+                  isMobile ? 'mt-4 text-center font-weight-light f-16 contact-address' : 'bel f-20'
                 ]"
               >
                 Address: No. 39, Alvand St., Argentine Square, Tehran / IRAN ZIP Code: 1516673115
@@ -62,14 +58,16 @@
       style="border: 0"
     />
 
-    <v-sheet :class="['mx-auto', isMobile ? 'px-8' : 'px-9']" :max-width="globalMaxWidth">
+    <v-sheet :class="['mx-auto', isMobile ? 'px-4' : 'px-16']" :max-width="globalMaxWidth">
       <h4
-        :class="['bel mt-16 f-40 text--darken-3 font-weight-regular', { 'text-center': isMobile }]"
-        style="color: #59595b"
+        :class="[
+          'bel f-40 text--darken-3 font-weight-regular',
+          isMobile ? 'text-center contact-title-mobile mt-6' : 'contact-title-des mt-16'
+        ]"
       >
         Contact form
       </h4>
-      <ContactForm />
+      <ContactForm :class="!isMobile ? 'mr-4 pb-16' : undefined" />
     </v-sheet>
   </div>
 </template>
@@ -87,4 +85,16 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+.contact-title-mobile {
+  color: #66869a;
+}
+
+.contact-title-des {
+  color: #59595b !important;
+}
+
+.contact-address {
+  line-height: 30px;
+}
+</style>

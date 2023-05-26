@@ -4,26 +4,18 @@
       :class="['d-flex align-center justify-space-between', isMobile ? 'flex-column align-center mt-6' : 'px-16 mt-16']"
     >
       <div :class="['d-flex', isMobile ? 'flex-column align-center' : undefined]">
-        <v-img
-          :height="isMobile ? '120' : '90'"
-          :max-width="isMobile ? '120' : '90'"
-          src="/images/face/masoume.png"
-          style="border-radius: 50%"
-        />
+        <v-img height="155" max-width="155" src="/images/face/masoume.png" style="border-radius: 50%" />
         <div class="d-flex flex-column justify-center ml-4">
           <p
             :class="[
-              'bel f-26 white--text mb-0 text--darken-3 font-weight-bold',
-              isMobile ? 'text-center mt-6' : undefined
+              'bel white--text mb-0 text--darken-3 font-weight-regular',
+              isMobile ? 'text-center mt-2 f-36' : 'f-42'
             ]"
           >
             Masoumeh Seyedi
           </p>
           <p
-            :class="[
-              'f-20 white--text mb-0 text--darken-3',
-              isMobile ? 'text-center mt-2 font-weight-light' : undefined
-            ]"
+            :class="['white--text mb-0 text--darken-3 font-weight-light', isMobile ? 'text-center mt-1 f-20 ' : 'f-22']"
           >
             Project Manager at Cobel® Group
           </p>
@@ -43,7 +35,10 @@
     </div>
     <p
       v-if="isMobile"
-      :class="['f-20 mx-16 white--text text--darken-3 font-weight-light', isMobile ? 'text-center mt-8 mb-0' : 'mt-16']"
+      :class="[
+        'f-20 white--text text--darken-3 font-weight-light',
+        isMobile ? 'text-center mt-8 mb-0 mx-8' : 'mt-16 mx-16'
+      ]"
       style="line-height: 30px"
     >
       Who advises that all women in their reproductive ages, whether having Iron deficiency or not, are required to
@@ -70,7 +65,7 @@
       text
       ><p>see more</p></v-btn
     >
-    <v-img :class="[isMobile ? 'mt-4' : 'mt-16']" contain src="/images/video_content/physical.png" />
+    <v-img :class="[isMobile ? 'mt-4' : 'mt-16']" max-height="500" src="/images/video_content/physical.png" />
     <div :class="['h-full white', isMobile ? 'px-4' : 'px-16']">
       <h4
         :class="['bel f-40 text-center text--darken-3 font-weight-regular', isMobile ? 'mt-6' : 'mt-16']"
@@ -90,71 +85,77 @@
       >
         You may also like listening more stories
       </h4>
-      <div :class="['d-flex mt-16', isMobile ? 'flex-column align-center' : 'justify-space-between']">
+      <div :class="['d-flex mt-16', isMobile ? 'flex-column align-center' : 'justify-space-between align-center']">
         <div :class="['d-flex', isMobile ? 'flex-column align-center' : undefined]">
           <v-img
-            :height="isMobile ? '120' : '90'"
-            :max-width="isMobile ? '120' : '90'"
+            :height="isMobile ? '140' : '155'"
+            :max-width="isMobile ? '140' : '155'"
             src="/images/face/bahador.png"
             style="border-radius: 50%"
           />
           <div class="d-flex flex-column justify-center ml-4">
             <p
               :class="[
-                'bel black--text mb-0 text--darken-3',
-                isMobile ? 'text-center mt-4 f-32 font-weight-regular' : 'f-26 font-weight-regular'
+                'bel cobelgrey--text mb-0 text--darken-3',
+                isMobile ? 'text-center mt-4 f-32 font-weight-regular' : 'f-42 font-weight-regular'
               ]"
             >
               Bahador Nayebi
             </p>
-            <p :class="['bel  mb-0 text--darken-3', isMobile ? 'mt-2 f-24' : '-20']" style="color: #939393">
+            <p
+              :class="['bel  mb-0 text--darken-3', isMobile ? 'mt-2 f-24' : 'f-20 font-weight-light']"
+              style="color: #939393"
+            >
               Project Manager at Cobel® Group
             </p>
             <v-divider v-if="isMobile" class="my-4" style="background-color: #00a59b"></v-divider>
           </div>
         </div>
-        <v-divider color="#00a59b" vertical></v-divider>
-        <p v-if="!isMobile" class="bel f-20 mb-0 text--darken-3" style="max-width: 60%; color: #939393">
+        <v-divider class="mx-4" color="#00a59b" vertical></v-divider>
+        <p v-if="!isMobile" class="f-22 mb-0 text--darken-3 justify-center" style="max-width: 60%; color: #939393">
           In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society and
           are committed to enhance their physical, psychological and social quality of life through high quality and
           innovative solutions.
         </p>
-        <p v-else class="f-20 text-center mb-0 text--darken-3" style="color: #939393">
+        <p v-else class="f-20 text-center mx-6 mb-0 text--darken-3" style="color: #939393">
           In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society and
           are committed to enhance their physical, psychological and social quality of life through high quality and
           innovative solutions.
         </p>
       </div>
-      <div :class="['d-flex my-16', isMobile ? 'flex-column' : 'justify-space-between']">
+      <div :class="['d-flex my-16', isMobile ? 'flex-column' : 'justify-space-between align-center']">
         <div :class="['d-flex', isMobile ? 'flex-column align-center' : undefined]">
           <v-img
-            :height="isMobile ? '120' : '90'"
-            :max-width="isMobile ? '120' : '90'"
+            :height="isMobile ? '140' : '155'"
+            :max-width="isMobile ? '140' : '155'"
             src="/images/face/mohammad.png"
             style="border-radius: 50%"
           />
           <div class="d-flex flex-column justify-center ml-4">
             <p
               :class="[
-                'bel black--text mb-0 text--darken-3',
-                isMobile ? 'text-center mt-4 f-32 font-weight-regular' : 'f-26 font-weight-regular'
+                'bel cobelgrey--text mb-0 text--darken-3',
+                isMobile ? 'text-center mt-4 f-32 font-weight-regular' : 'f-42 font-weight-regular'
               ]"
             >
               Mohamad javid
             </p>
-            <p :class="['bel  mb-0 text--darken-3', isMobile ? 'mt-2 f-24' : '-20']" style="color: #939393">
+            <p
+              :class="['bel mb-0 text--darken-3', isMobile ? 'mt-2 f-24' : 'f-20 font-weight-light']"
+              style="color: #939393"
+            >
               Project Manager at Cobel® Group
             </p>
             <v-divider v-if="isMobile" class="my-4" style="background-color: #00a59b"></v-divider>
           </div>
         </div>
-        <v-divider color="#00a59b" vertical></v-divider>
-        <p v-if="!isMobile" class="bel f-20 mb-0 text--darken-3" style="max-width: 60%; color: #939393">
+        <v-divider class="mx-4" color="#00a59b" vertical></v-divider>
+        <p v-if="!isMobile" class="f-22 mb-0 text--darken-3" style="max-width: 60%; color: #939393">
           In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society and
           are committed to enhance their physical, psychological and social quality of life through high quality and
           innovative solutions.
         </p>
-        <p v-else class="f-20 text-center mb-0 text--darken-3" style="color: #939393">
+        <p v-else class="f-20 text-center mb-0 mx-6 text--darken-3" style="color: #939393">
           In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society and
           are committed to enhance their physical, psychological and social quality of life through high quality and
           innovative solutions.

@@ -8,15 +8,15 @@
       <v-card
         v-if="!isMobile"
         :to="localePath('/education/1234')"
-        class="d-flex rounded-xl overflow-hidden mr-4"
+        class="d-flex rounded-xl overflow-hidden mr-4 custom-news-card"
         elevation="0"
-        style="border: 2px solid slategrey; overflow: hidden"
+        style="border: 2px solid #59595b; overflow: hidden"
       >
         <div class="d-flex">
           <v-img height="100%" src="/images/news/face.png" width="280" />
         </div>
         <div class="d-flex flex-column py-6 ml-16 align-start">
-          <h4 class="bel f-40 text--darken-3 font-weight-regular mb-auto" style="color: #59595b">
+          <h4 class="bel f-40 text--darken-3 font-weight-regular mb-auto cobelgrey--text custom-card-title">
             Rise from the society return to the society
           </h4>
           <p
@@ -72,4 +72,13 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.custom-news-card {
+  &:hover {
+    border: 2px solid slategrey !important;
+    .custom-card-title {
+      color: slategrey !important;
+    }
+  }
+}
+</style>

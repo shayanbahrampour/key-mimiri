@@ -1,5 +1,6 @@
 <template>
   <div>
+    <v-sheet v-if="isMobile" class="custom-gradient w-full" height="5" />
     <v-footer :class="[isMobile ? 'pt-10' : 'py-16 px-0']" color="slategrey">
       <v-sheet
         :class="['mx-auto w-full white--text', isMobile ? 'px-6' : 'px-16']"
@@ -133,10 +134,10 @@
             {{ $t('footer.contact') }}
           </v-btn>
         </div>
-        <div class="d-flex justify-center">
+        <div :class="['d-flex', !isMobile ? 'justify-space-between align-center px-6' : 'justify-center']">
           <template v-if="!isMobile">
             <v-img alt="cobel" contain height="65" max-width="200" src="/images/logo-text-white.svg" />
-            <v-spacer />
+            <div v-if="!isMobile" class="ltr" style="margin-right: 120px">{{ $t('footer.copyright') }}</div>
           </template>
 
           <v-btn color="white" depressed height="55" min-width="55" outlined width="55">
@@ -146,7 +147,7 @@
 
         <v-divider v-if="isMobile" class="white my-6" style="opacity: 0.3" />
 
-        <div class="ltr">{{ $t('footer.copyright') }}</div>
+        <div v-if="isMobile" class="ltr">{{ $t('footer.copyright') }}</div>
       </v-sheet>
     </v-sheet>
   </div>

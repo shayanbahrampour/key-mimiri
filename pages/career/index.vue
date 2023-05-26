@@ -70,12 +70,7 @@
         </div>
       </div>
     </div>
-    <v-img
-      :contain="!isMobile"
-      :height="isMobile ? '200' : undefined"
-      src="/images/video_content/physical.png"
-      width="100%"
-    />
+    <v-img :height="isMobile ? '200' : '500'" src="/images/video_content/physical.png" width="100%" />
     <div class="h-full mt-16 slategrey" style="height: 400px">
       <div v-if="!isMobile" class="d-flex justify-center mt-2 px-16">
         <div class="d-flex align-center justify-center">

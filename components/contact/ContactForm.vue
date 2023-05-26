@@ -1,53 +1,63 @@
 <template>
-  <v-form v-model="valid" class="mt-4 mb-16">
+  <v-form v-model="flag.isValid" class="mt-6 mb-16">
     <v-row class="align-start justify-center">
       <v-col cols="12" md="6">
         <v-text-field
-          :class="['mb-4', isMobile ? 'contact-background' : undefined]"
+          v-model="model.full_name"
+          :class="['mb-4', { lightgrey: isMobile }]"
           dense
           filled
           hide-details
           label="Full Name"
           rounded
+          :rules="[rule.required]"
         ></v-text-field>
         <v-text-field
-          :class="['mb-4', isMobile ? 'contact-background' : undefined]"
+          v-model="model.email"
+          :class="['mb-4', { lightgrey: isMobile }]"
           dense
           filled
           hide-details
           label="Email Address"
           rounded
+          :rules="[rule.required, rule.email]"
         ></v-text-field>
         <v-text-field
-          :class="['mb-4', isMobile ? 'contact-background' : undefined]"
+          v-model="model.mobile"
+          :class="['mb-4', { lightgrey: isMobile }]"
           dense
           filled
           hide-details
           label="Mobile"
           rounded
+          :rules="[rule.required, rule.mobile]"
         ></v-text-field>
         <v-text-field
-          :class="['mb-4', isMobile ? 'contact-background' : undefined]"
+          v-model="model.topic"
+          :class="!isMobile ? 'mb-4' : 'mb-0 lightgrey'"
           dense
           filled
           hide-details
           label="Topic"
           rounded
+          :rules="[rule.required]"
         ></v-text-field>
       </v-col>
-      <v-col cols="12" md="6">
+      <v-col :class="{ 'pt-2': isMobile }" cols="12" md="6">
         <v-textarea
-          :class="['mb-4', isMobile ? 'contact-background' : undefined]"
+          v-model="model.description"
+          :class="['mb-4', { 'mb-10 lightgrey': isMobile }]"
           dense
           filled
-          height="280"
+          height="260"
           hide-details
           label="Descriptions"
           rounded
+          :rules="[rule.required]"
         ></v-textarea>
       </v-col>
     </v-row>
-    <div :class="['d-flex', isMobile ? 'flex-column' : undefined]">
+    <div :class="['d-flex', isMobile ? 'flex-column align-center' : undefined]">
       <v-btn
         :class="[
           'rounded-xl white--text d-flex justify-center',
@@ -57,6 +67,10 @@
         elevation="0"
         height="36"
         min-width="250"
+        :width="isMobile ? '100' : undefined"
+        :disabled="flag.loading"
+        :loading="flag.loading"
+        @click="onSubmit()"
       >
         Send Form
       </v-btn>
@@ -68,7 +82,9 @@
         color="#4C6D80"
         height="36"
         min-width="250"
+        :width="isMobile ? '100' : undefined"
         outlined
+        @click="clearData()"
       >
         Clear
       </v-btn>
@@ -77,11 +93,48 @@
 </template>
 
 <script>
+import mixinRules from '~/mixins/mixin.rules';
 export default {
+  mixins: [mixinRules],
   data() {
     return {
-      valid: null
+      flag: {
+        isValid: false,
+        loading: false
+      },
+      model: {
+        full_name: null,
+        email: null,
+        mobile: null,
+        topic: null,
+        description: null
+      }
     };
+  },
+  methods: {
+    async onSubmit() {
+      if (!this.flag.isValid) {
+        this.$toast.clear();
+        this.$toast.error('لطفا همه فیلدهای قرمز را تکمیل کنید');
+        return;
+      }
+      try {
+        this.flag.loading = true;
+        const formData = new FormData();
+        for (let item in this.model) formData.append(item, this.model[item] || '');
+
+        await this.$store.dispatch('contact/sendContact', { body: formData });
+        this.$toast.success('یادداشت با موفقیت ذخیره شد!');
+        this.$emit('submit');
+      } catch (e) {
+        this.errorHandler(e);
+      }
+
+      this.flag.loading = false;
+    },
+    clearData() {
+      for (let item in this.model) this.model[item] = null;
+    }
   }
 };
 </script>
