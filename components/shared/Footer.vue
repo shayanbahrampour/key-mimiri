@@ -1,5 +1,6 @@
 <template>
   <div>
+    <v-sheet v-if="isMobile" class="custom-gradient w-full" height="5" />
     <v-footer :class="[isMobile ? 'pt-10' : 'py-16 px-0']" color="slategrey">
       <v-sheet
         :class="['mx-auto w-full white--text', isMobile ? 'px-6' : 'px-16']"
