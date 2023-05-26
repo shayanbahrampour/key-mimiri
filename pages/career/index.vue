@@ -50,7 +50,7 @@
             <v-btn class="ml-4 rounded" color="white" height="50" min-width="50" outlined>
               <v-img height="20" max-width="20" src="/images/icons/whatsapp.png" />
             </v-btn>
-            <v-btn class="ml-4 rounded" color="white" height="50" min-width="50">
+            <v-btn class="ml-4 rounded" color="white" height="50" min-width="50" outlined>
               <v-img height="20" max-width="20" src="/images/icons/telegram.png" />
             </v-btn>
           </div>

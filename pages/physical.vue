@@ -4,10 +4,10 @@
     style="background-color: #00a59b"
   >
     <h1 :class="['bel white--text text--darken-3 font-weight-regular', isMobile ? 'f-36 mt-12' : 'f-80 mt-16']">
-      Physical Health
+      {{ $t('pageTitles.physical') }}
     </h1>
     <p :class="['mt-6 white--text text--darken-3 font-weight-light', !isMobile ? 'f-22 mb-16' : 'f-20 mx-6']">
-      Enjoyment of social interaction, sharing experiences, sense of belonging to a group, promoting participation
+      {{ $t('physical.header_description') }}
     </p>
     <v-img class="mt-10" contain src="/images/video_content/social.png" />
     <div :class="[isMobile ? 'text-start px-6 h-full psy-screen d-flex flex-column' : 'text-center ma-16 px-16']">
@@ -16,14 +16,7 @@
           :class="['white--text text--darken-3 font-weight-regular', isMobile ? 'text-center f-20 mt-10' : 'f-22 mt-6']"
           style="line-height: 40px"
         >
-          Physical health is one of the three main components of health‐related quality of life, alongside psychological
-          and social health. It is crucial to maintain good physical health to ensure one's overall well‐ being and
-          longevity. Maintaining a physical health, as a perceived improvement in balance, strength, flexibility,
-          endurance and functional activities, requires regular exercise, keeping a balanced diet, getting enough sleep,
-          and avoiding harmful habits such as smoking. Additionally, it is important to manage physical health issues
-          with proper healthcare solutions and high‐quality treatment strategies. With advancements in technology and
-          medicine, innovative healthcare solutions have been developed to help individuals manage their physical health
-          issues.
+          {{ $t('physical.description') }}
         </p>
         <div v-if="!isMobile" :class="{ 'animate-dot': scrollPosition > 0 }" class="right-circle"></div>
         <div v-else class="right-circle-mobile"></div>
@@ -36,9 +29,7 @@
         ]"
         style="color: #a01e64"
       >
-        Ensuring good physical health not only improves one's life expectancy but also contributes to a better quality
-        of life, as it allows individuals to be physically active and self‐sufficient, promoting independence and
-        overall happiness.
+        {{ $t('physical.responsibility') }}
       </h4>
       <div v-if="!isMobile" :class="{ 'animate-dot': scrollPosition > 0 }" class="left-circle"></div>
       <div v-else class="left-circle-mobile"></div>

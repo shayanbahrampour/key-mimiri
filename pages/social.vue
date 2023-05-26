@@ -4,10 +4,10 @@
     style="background-color: #a01e64"
   >
     <h1 :class="['bel white--text text--darken-3 font-weight-regular', isMobile ? 'f-36 mt-12' : 'f-80 mt-16']">
-      Social Health
+      {{ $t('pageTitles.social') }}
     </h1>
     <p :class="['mt-6 white--text text--darken-3 font-weight-light', !isMobile ? 'f-22 mb-16' : 'f-20 mx-6']">
-      Enjoyment of social interaction, sharing experiences, sense of belonging to a group, promoting participation
+      {{ $t('socialHealth.header_description') }}
     </p>
     <v-sheet v-if="!isMobile" class="custom-gradient w-full mt-16" height="10" />
 
@@ -23,13 +23,7 @@
           :class="['white--text text--darken-3 font-weight-regular', isMobile ? 'text-center f-20 mt-10' : 'f-22 mt-6']"
           style="line-height: 40px"
         >
-          Social health is an important aspect of overall health‐related quality of life, along with physical and
-          psychological wellness. Social health refers to the ability to maintain positive relationships and
-          interactions with others, including a sense of belonging within a community or group. Humans are social
-          creatures, and social well‐being is critical for happiness and fulfillment. Enjoyment of social interaction,
-          sharing experiences with others, and promoting participation in group activities can bring joy to one's life
-          and promote a sense of connectivity. Social health is evaluated in categories such as social support, social
-          capital, and social networks.
+          {{ $t('socialHealth.description') }}
         </p>
         <div v-if="!isMobile" :class="{ 'animate-dot': scrollPosition > 0 }" class="right-circle"></div>
         <div v-else class="right-circle-mobile"></div>
@@ -39,8 +33,7 @@
         :class="['bel text--darken-3 font-weight-regular', isMobile ? 'text-center f-30' : 'f-50']"
         style="color: #f3911f"
       >
-        Corporate social responsibilities can promote social health by providing supportive work environments,
-        facilitating community service opportunities, and encouraging team‐building activities.
+        {{ $t('socialHealth.responsibility') }}
       </h4>
       <div v-if="!isMobile" :class="{ 'animate-dot': scrollPosition > 0 }" class="left-circle"></div>
       <div v-else class="left-circle-mobile"></div>
@@ -52,10 +45,7 @@
         ]"
         style="line-height: 40px"
       >
-        When individuals are socially healthy, they are less lonely, less stressed, and committed to their communities,
-        which can have a positive impact on overall health and well‐being. Therefore, it is important to prioritize
-        social health and engage in activities that support positive social interaction in order to enhance health and
-        quality of life.
+        {{ $t('socialHealth.individual') }}
       </p>
       <v-spacer></v-spacer>
     </div>
