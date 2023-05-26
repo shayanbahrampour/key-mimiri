@@ -2,32 +2,11 @@
   <v-form v-model="valid" class="mt-4 mb-16">
     <v-row class="align-start justify-center">
       <v-col cols="12" md="6">
+        <v-text-field :class="['mb-4']" dense filled hide-details label="Full Name" rounded></v-text-field>
+        <v-text-field :class="['mb-4']" dense filled hide-details label="Email Address" rounded></v-text-field>
+        <v-text-field :class="['mb-4']" dense filled hide-details label="Mobile" rounded></v-text-field>
         <v-text-field
-          :class="['mb-4', isMobile ? 'contact-background' : undefined]"
-          dense
-          filled
-          hide-details
-          label="Full Name"
-          rounded
-        ></v-text-field>
-        <v-text-field
-          :class="['mb-4', isMobile ? 'contact-background' : undefined]"
-          dense
-          filled
-          hide-details
-          label="Email Address"
-          rounded
-        ></v-text-field>
-        <v-text-field
-          :class="['mb-4', isMobile ? 'contact-background' : undefined]"
-          dense
-          filled
-          hide-details
-          label="Mobile"
-          rounded
-        ></v-text-field>
-        <v-text-field
-          :class="['mb-4', isMobile ? 'contact-background' : undefined]"
+          :class="!isMobile ? 'mb-4' : 'mb-0'"
           dense
           filled
           hide-details
@@ -36,15 +15,7 @@
         ></v-text-field>
       </v-col>
       <v-col cols="12" md="6">
-        <v-textarea
-          :class="['mb-4', isMobile ? 'contact-background' : undefined]"
-          dense
-          filled
-          height="280"
-          hide-details
-          label="Descriptions"
-          rounded
-        ></v-textarea>
+        <v-textarea :class="['mb-8']" dense filled height="260" hide-details label="Descriptions" rounded></v-textarea>
       </v-col>
     </v-row>
     <div :class="['d-flex', isMobile ? 'flex-column' : undefined]">
