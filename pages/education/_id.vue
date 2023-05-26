@@ -72,7 +72,7 @@
       </p>
     </div>
     <div :class="['d-flex align-center', isMobile ? 'flex-column px-4 my-4' : 'px-14 my-16']">
-      <v-img max-height="250" src="/images/news/face.png" width="400" />
+      <v-img max-height="220" src="/images/news/face.png" width="350" />
 
       <p :class="['font-weight-light f-20 mx-4', isMobile ? 'mt-6' : undefined]" style="color: #939393; line-height: 2">
         WHO advises that all women in their reproductive ages, whether having Iron deficiency or not, are required to
