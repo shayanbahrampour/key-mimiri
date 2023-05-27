@@ -1,56 +1,10 @@
 <template>
-  <div class="d-flex flex-column slategrey">
-    <div :class="['d-flex', isMobile ? 'mt-8 px-4 justify-center' : 'mt-16 mb-8 px-16 justify-space-between']">
-      <div class="d-flex">
-        <div
-          :class="[
-            'd-flex flex-column justify-center',
-            isMobile ? 'align-center mobile-contact' : 'align-start ml-4 desktop-contact'
-          ]"
-        >
-          <p
-            :class="[
-              'bel white--text mb-0 text--darken-3 font-weight-regular',
-              isMobile ? 'text-center f-36' : 'f-60 '
-            ]"
-          >
-            Senior project manager
-          </p>
-          <p
-            v-if="isMobile"
-            class="font-weight-light mt-10 f-20 mb-6 text-center white--text"
-            style="max-width: 500px; line-height: 2"
-          >
-            Who advises that all women in their reproductive ages, whether having Iron deficiency or not, are required
-            to consume 60 mg of iron supple ments per week.
-          </p>
-          <p
-            v-if="!isMobile"
-            :class="[
-              'white--text mb-0 text--darken-3 font-weight-light',
-              isMobile ? 'mt-4 text-center  f-18' : 'f-20 mt-0 mb-10'
-            ]"
-          >
-            Who advises that all women in their reproductive ages, whether having Iron deficiency or not, are required
-            to consume 60 mg of iron supplements per week.
-          </p>
-          <v-btn
-            :class="[
-              'rounded-xl d-flex justify-center white--text font-weight-regular',
-              isMobile ? 'f-20 mb-6' : 'f-14 mt-16 mb-0'
-            ]"
-            :min-width="!isMobile ? '250' : '100%'"
-            :to="`/career/forum?job=${true}`"
-            color="#A01E64"
-            elevation="0"
-            height="50"
-          >
-            APPLY NOW
-          </v-btn>
-        </div>
-      </div>
-    </div>
-    <div :class="['d-flex flex-column align-start white', isMobile ? 'px-4 f-16' : 'px-16']" style="line-height: 2">
+  <div class="d-flex flex-column">
+    <CareerHeader />
+    <div
+      :class="['d-flex flex-column align-start white', isMobile ? 'px-4 f-16' : 'px-16 scrolled-desktop']"
+      style="line-height: 2"
+    >
       <v-img
         :class="[isMobile ? 'mt-14' : 'mx-6 mt-10']"
         :max-height="isMobile ? '50' : '30'"
@@ -111,6 +65,7 @@
 
 <script>
 import JobsGrid from '~/components/career/JobsGrid';
+import CareerHeader from '~/components/career/CareerHeader';
 
 export default {
   data() {
@@ -154,7 +109,7 @@ export default {
       ]
     };
   },
-  components: { JobsGrid }
+  components: { JobsGrid, CareerHeader }
 };
 </script>
 
@@ -165,5 +120,8 @@ export default {
 
 .desktop-contact {
   max-width: 70vw !important;
+}
+.scrolled-desktop {
+  margin-top: 320px !important;
 }
 </style>

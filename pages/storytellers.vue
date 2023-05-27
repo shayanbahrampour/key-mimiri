@@ -41,8 +41,7 @@
       ]"
       style="line-height: 30px"
     >
-      Who advises that all women in their reproductive ages, whether having Iron deficiency or not, are required to
-      consume 60 mg of iron
+      {{ seeMore ? text.full : text.compact }}
     </p>
     <p
       v-else
@@ -57,13 +56,15 @@
     </p>
     <v-btn
       v-if="isMobile"
-      class="bel pa-0 ma-0 mt-2 justify-center f-20 font-weight-bold"
+      class="bel pa-0 ma-0 mt-2 justify-center f-20 font-weight-bold bg-transparent"
       color="white"
       depressed
       rounded
+      :ripple="false"
       style="text-transform: unset !important"
       text
-      ><p>see more</p></v-btn
+      @click="seeMore = !seeMore"
+      ><p>{{ seeMore ? 'see less' : 'see more' }}</p></v-btn
     >
     <v-img :class="[isMobile ? 'mt-4' : 'mt-16']" max-height="500" src="/images/video_content/physical.png" />
     <div :class="['h-full white', isMobile ? 'px-4' : 'px-16']">
@@ -170,6 +171,16 @@ export default {
   head() {
     return {
       title: this.$t('pageTitles.storytellers')
+    };
+  },
+  data() {
+    return {
+      seeMore: false,
+      text: {
+        compact:
+          'Who advises that all women in their reproductive ages, whether having Iron deficiency or not, are required to consume 60 mg of iron',
+        full: 'WHO advises that all women in their reproductive ages, whether having Iron deficiency or not, are required to consume 60 mg of iron supplements per week. This amount should be higher in pregnant women and any deficiencies will not only affect themselves, but it also affects their fetus. In addition, Iranian men and menopaused women have a 2 prevalence of Anemia and are also require to manage the disease accordingly (3). Studies conducted by Cobel Group medico-marketing teams indicated'
+      }
     };
   }
 };

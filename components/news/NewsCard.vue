@@ -49,10 +49,16 @@
             <p class="f-20 text--darken-3 mb-auto font-weight-light" style="color: #59595b">
               In Cobel Group, acknowledge importance of woman empowerment and inspir....
             </p>
-            <div class="d-flex flex-column font-weight-light mb-auto" style="width: 80%">
-              <p class="f-12 mb-2" style="color: #59595b">Read time: 13min</p>
-              <p class="f-12 mb-2" style="color: #59595b">Written by: mehrab mohammadi</p>
-              <p class="f-12 mb-0" style="color: #59595b">Published 3 months ago</p>
+            <div class="d-flex flex-column font-weight-light mb-auto" style="width: 90%">
+              <p class="f-14 mb-2 d-flex align-center" style="color: #59595b">
+                <v-icon class="mr-1" size="12">mdi-clock-outline </v-icon>Read time: 13min
+              </p>
+              <p class="f-14 mb-2 d-flex align-center" style="color: #59595b">
+                <v-icon class="mr-1" size="12">mdi-pencil-outline </v-icon>Written by: mehrab mohammadi
+              </p>
+              <p class="f-14 mb-0 d-flex align-center" style="color: #59595b">
+                <v-icon class="mr-1" size="12">mdi-bullhorn-variant-outline </v-icon>Published 3 months ago
+              </p>
             </div>
           </div>
         </v-card>
