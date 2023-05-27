@@ -92,6 +92,7 @@
       Cobel Group medico-marketing teams indicated
     </p>
     <v-img :class="[isMobile ? 'mt-4' : 'mt-16']" max-height="500" src="/images/video_content/physical.png" />
+    <v-sheet class="custom-gradient w-full" height="5" />
     <div :class="['h-full white', isMobile ? 'px-4' : 'px-16']">
       <h4
         :class="['bel f-40 text-center text--darken-3 font-weight-regular', isMobile ? 'mt-6' : 'mt-16']"
@@ -211,4 +212,31 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.custom-gradient {
+  background-image: -webkit-linear-gradient(
+    90deg,
+    rgba(243, 145, 31, 1) 8%,
+    rgba(160, 30, 100, 1) 51%,
+    rgba(0, 165, 155, 1) 100%
+  );
+  background-image: -moz-linear-gradient(
+    90deg,
+    rgba(243, 145, 31, 1) 8%,
+    rgba(160, 30, 100, 1) 51%,
+    rgba(0, 165, 155, 1) 100%
+  );
+  background-image: -o-linear-gradient(
+    90deg,
+    rgba(243, 145, 31, 1) 8%,
+    rgba(160, 30, 100, 1) 51%,
+    rgba(0, 165, 155, 1) 100%
+  );
+  background-image: linear-gradient(
+    90deg,
+    rgba(243, 145, 31, 1) 8%,
+    rgba(160, 30, 100, 1) 51%,
+    rgba(0, 165, 155, 1) 100%
+  );
+}
+</style>
