@@ -47,7 +47,9 @@
 
         <v-row v-if="!isMobile" :class="['justify-center', { 'mt-16': !horizontal }]">
           <v-col v-for="(item, index) in items" :key="index" :lg="horizontal ? 2 : 3" cols="12" sm="6">
-            <h4 class="mb-3 f-15 text-start text-uppercase font-weight-regular">{{ $t(item.title) }}</h4>
+            <h4 class="mb-3 f-15 text-start text-uppercase font-weight-regular pb-2 footer-title">
+              {{ $t(item.title) }}
+            </h4>
             <div class="d-flex flex-column align-start">
               <v-btn
                 v-for="(link, j) in item.children"
@@ -140,8 +142,16 @@
             <div v-if="!isMobile" class="ltr" style="margin-right: 120px">{{ $t('footer.copyright') }}</div>
           </template>
 
-          <v-btn color="white" depressed height="55" min-width="55" outlined width="55">
-            <v-img contain height="30" src="/images/social/linkedin.svg" width="30" />
+          <v-btn
+            color="white"
+            depressed
+            height="55"
+            min-width="55"
+            outlined
+            width="55"
+            style="border-radius: 35%; border: 3px solid white"
+          >
+            <v-img contain height="24" src="/images/social/linkedin.svg" width="24" />
           </v-btn>
         </div>
 
@@ -235,5 +245,21 @@ export default {
 
 .text-lowercase {
   text-transform: lowercase !important;
+}
+
+.footer-title {
+  position: relative;
+  z-index: 1;
+}
+
+.footer-title:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 30%;
+  border-bottom: 1px solid white;
+  opacity: 0.2;
 }
 </style>
