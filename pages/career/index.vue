@@ -191,7 +191,7 @@
         v-if="!isMobile"
         :class="[
           'd-flex flex-column align-start justify-space-between mt-16 white w-full',
-          !isMobile ? 'px-16 ml-16' : undefined
+          !isMobile ? 'px-16' : undefined
         ]"
       >
         <h4 class="bel f-40 text-center text--darken-3 font-weight-regular mb-auto" style="color: #59595b">
