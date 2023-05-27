@@ -108,6 +108,7 @@
         :class="['mx-auto w-full white--text', isMobile ? 'px-6 pt-6 pb-8' : 'px-16 py-8']"
         :max-width="globalMaxWidth"
         color="transparent"
+        style="margin-top: -2px"
       >
         <div v-if="isMobile" class="d-flex flex-column align-center mb-6">
           <v-btn
