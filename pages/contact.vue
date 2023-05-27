@@ -4,7 +4,7 @@
       <v-sheet :class="['mx-auto', isMobile ? 'px-8 py-8' : 'pa-16']" :max-width="globalMaxWidth" color="transparent">
         <div class="d-flex justify-space-between">
           <div class="d-flex">
-            <div class="d-flex flex-column justify-center" style="max-width: 380px">
+            <div class="d-flex flex-column justify-center" style="max-width: 500px">
               <p
                 :class="[
                   'bel white--text mb-0 text--darken-3 font-weight-regular',
@@ -16,7 +16,7 @@
               <p
                 :class="[
                   'white--text mb-0 text--darken-3',
-                  isMobile ? 'mt-4 text-center font-weight-light f-16 contact-address' : 'bel f-20'
+                  isMobile ? 'mt-4 text-center font-weight-light f-16 contact-address' : 'f-20 font-weight-light'
                 ]"
               >
                 Address: No. 39, Alvand St., Argentine Square, Tehran / IRAN ZIP Code: 1516673115
