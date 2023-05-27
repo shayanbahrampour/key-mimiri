@@ -7,7 +7,7 @@
     >
       <v-img
         :class="[isMobile ? 'mt-14' : 'mx-6 mt-10']"
-        :max-height="isMobile ? '50' : '30'"
+        :max-height="isMobile ? '50' : '70'"
         :width="isMobile ? '100%' : '100'"
         contain
         src="/images/logo.png"
