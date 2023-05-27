@@ -25,10 +25,10 @@
             <div class="d-flex flex-column justify-center ml-4">
               <p
                 :class="[
-                  'bel cobelgrey--text mb-0 text--darken-3',
-                  isMobile ? 'text-center mt-4 f-32 font-weight-regular' : 'f-42 font-weight-regular'
+                  'bel mb-0 text--darken-3',
+                  isMobile ? 'text-center mt-4 f-32 font-weight-regular' : 'f-42 font-weight-regular story-name'
                 ]"
-                style="color: #59595b !important"
+                style="color: #59595b"
               >
                 Bahador Nayebi
               </p>
@@ -72,8 +72,7 @@ export default {
 <style lang="scss">
 .custom-story-card {
   &:hover {
-    border: 2px solid slategrey !important;
-    .custom-card-title {
+    .story-name {
       color: slategrey !important;
     }
   }
