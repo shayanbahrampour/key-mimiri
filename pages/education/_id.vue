@@ -12,33 +12,21 @@
         ]"
       >
         <div :class="['d-flex font-weight-light', isMobile ? 'w-full flex-wrap' : undefined]" style="width: 50%">
-          <p :class="['f-12', isMobile ? 'mb-6 mr-10' : 'mb-0 mr-6']" style="color: #939393">
+          <p :class="['f-16', isMobile ? 'mb-6 mr-10' : 'mb-0 mr-6']" style="color: #939393">
             <v-icon v-if="isMobile" class="mr-1" size="16">mdi-clock-outline </v-icon>
             {{ !isMobile ? 'Read time: 13min' : '13min' }}
           </p>
-          <p :class="['f-12', isMobile ? 'mb-6 mr-10' : 'mb-0 mr-6']" style="color: #939393">
+          <p :class="['f-16', isMobile ? 'mb-6 mr-10' : 'mb-0 mr-6']" style="color: #939393">
             <v-icon v-if="isMobile" class="mr-1" size="16">mdi-fountain-pen-tip</v-icon>
             {{ !isMobile ? 'Written by: mehrab mohammadi' : 'mehrab mohammadi' }}
           </p>
-          <p :class="['f-12', isMobile ? 'mb-6 mr-0' : 'mb-0 mr-6']" style="color: #939393">
+          <p :class="['f-16', isMobile ? 'mb-6 mr-0' : 'mb-0 mr-6']" style="color: #939393">
             <v-icon v-if="isMobile" class="mr-1" size="16">mdi-bullhorn-variant-outline</v-icon>
             {{ !isMobile ? 'Published 3 months ago' : '3 months ago' }}
           </p>
         </div>
-        <div :class="[isMobile ? 'mt-2' : 'd-flex align-center']">
-          <span :class="['f-16 slategrey--text', isMobile ? undefined : 'mr-4']">share it:</span>
-          <div :class="[isMobile ? 'mt-2' : undefined]">
-            <v-btn class="rounded" color="slategrey" height="50" min-width="50" outlined>
-              <v-img height="20" max-width="20" src="/images/icons/linkedin-primary.png" />
-            </v-btn>
-            <v-btn class="ml-4 rounded" color="slategrey" height="50" min-width="50" outlined>
-              <v-img height="20" max-width="20" src="/images/icons/whatsapp-primary.png" />
-            </v-btn>
-            <v-btn class="ml-4 rounded" color="slategrey" height="50" min-width="50" outlined>
-              <v-img height="20" max-width="20" src="/images/icons/telegram-primary.png" />
-            </v-btn>
-          </div>
-        </div>
+
+        <ShareOptions />
       </div>
       <p v-if="!isMobile" class="font-weight-light f-20 mt-10" style="color: #939393; line-height: 2">
         WHO advises that all women in their reproductive ages, whether having Iron deficiency or not, are required to
@@ -71,16 +59,7 @@
         have a 2 prevalence of Anemia and are also require to manage the disease accordingly (3).
       </p>
     </div>
-    <div :class="['d-flex align-center', isMobile ? 'flex-column px-4 my-4' : 'px-16 my-16']">
-      <v-img max-height="220" src="/images/news/face.png" width="350" />
-
-      <p :class="['font-weight-light f-20 mx-4', isMobile ? 'mt-6' : undefined]" style="color: #939393; line-height: 2">
-        WHO advises that all women in their reproductive ages, whether having Iron deficiency or not, are required to
-        consume 60 mg of iron supplements per week. This amount should be higher in pregnant women and any deficiencies
-        will not only affect themselves, but it also affects their fetus. In addition, Iranian men and menopaused women
-        have a 2 prevalence of Anemia and are also require to manage the disease accordingly (3).
-      </p>
-    </div>
+    <EducationDetail />
     <h1 class="bel f-50 grey--text text--darken-2 font-weight-regular ml-16 mt-10">More Articles</h1>
     <NewsCard :class="['mt-10', !isMobile ? 'mx-14' : undefined]" />
   </div>
@@ -89,9 +68,11 @@
 <script>
 import NewsCard from '~/components/news/NewsCard';
 import FeatureSelection from '~/components/education/FeatureSelection';
+import EducationDetail from '~/components/education/EducationDetail';
+import ShareOptions from '~/components/shared/ShareOptions';
 
 export default {
-  components: { NewsCard, FeatureSelection },
+  components: { NewsCard, FeatureSelection, EducationDetail, ShareOptions },
   data() {
     return {
       radioGroup: 1

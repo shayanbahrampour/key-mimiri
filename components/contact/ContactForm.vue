@@ -8,7 +8,7 @@
           dense
           filled
           hide-details
-          label="Full Name"
+          :label="$t('contact.fields.full_name')"
           rounded
           :rules="[rule.required]"
         ></v-text-field>
@@ -18,7 +18,7 @@
           dense
           filled
           hide-details
-          label="Email Address"
+          :label="$t('contact.fields.email')"
           rounded
           :rules="[rule.required, rule.email]"
         ></v-text-field>
@@ -28,7 +28,7 @@
           dense
           filled
           hide-details
-          label="Mobile"
+          :label="$t('contact.fields.mobile')"
           rounded
           :rules="[rule.required, rule.mobile]"
         ></v-text-field>
@@ -38,7 +38,7 @@
           dense
           filled
           hide-details
-          label="Topic"
+          :label="$t('contact.fields.topic')"
           rounded
           :rules="[rule.required]"
         ></v-text-field>
@@ -51,7 +51,7 @@
           filled
           height="260"
           hide-details
-          label="Descriptions"
+          :label="$t('contact.fields.description')"
           rounded
           :rules="[rule.required]"
         ></v-textarea>
@@ -93,6 +93,7 @@
 </template>
 
 <script>
+import { contact } from '~/api';
 import mixinRules from '~/mixins/mixin.rules';
 export default {
   mixins: [mixinRules],

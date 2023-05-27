@@ -17,15 +17,17 @@
             People and Careers
           </p>
           <p v-if="isMobile" class="font-weight-light mt-4 f-20 mb-0 text-center white--text" style="line-height: 30px">
-            In Cobel Group, acknowledge importance of woman empowerment and inspiration to all.
+            {{ seeMore ? text.full : text.compact }}
           </p>
           <v-btn
             v-if="isMobile"
-            class="f-18 white--text mt-2 mb-0 pa-0 font-weight-bold"
+            class="f-18 white--text mt-2 mb-0 pa-0 font-weight-bold bg-transparent"
+            :ripple="false"
             style="text-transform: unset !important"
             text
+            @click="seeMore = !seeMore"
           >
-            <p>see more</p>
+            <p>{{ seeMore ? 'see less' : 'see more' }}</p>
           </v-btn>
           <p
             v-if="!isMobile"
@@ -168,7 +170,16 @@ export default {
       title: this.$t('pageTitles.careers')
     };
   },
-  components: { JobsGrid }
+  components: { JobsGrid },
+  data() {
+    return {
+      seeMore: false,
+      text: {
+        compact: 'In Cobel Group, acknowledge importance of woman empowerment and inspiration to all.',
+        full: 'In Cobel Group, we intend to provide a dynamic and professional atmosphere for our employees by using below strategies: Equity, as equal progress opportunity and equal work-specific pay, despite of age, gender, nationality and disabilities. Diversity, in educational background, profession, gender, age and believes. Inclusion and Talent Empowerment, by designing individual development plans (IDP), on-the-job efficient trainings, and implementing regular surveys to discover employee experiences and acting upon Promoting a Knowledge-Centered Environment'
+      }
+    };
+  }
 };
 </script>
 

@@ -43,6 +43,15 @@ export default {
     },
     copyright: '©2023 Cobel Group. All Rights Reserved.'
   },
+  contact: {
+    fields: {
+      full_name: 'Full Name',
+      email: 'Email Address',
+      mobile: 'Mobile',
+      topic: 'Topic',
+      description: 'Description'
+    }
+  },
   socialHealth: {
     header_description:
       'Enjoyment of social interaction, sharing experiences, sense of belonging to a group, promoting participation',
