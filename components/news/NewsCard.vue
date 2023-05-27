@@ -51,13 +51,13 @@
             </p>
             <div class="d-flex flex-column font-weight-light mb-auto" style="width: 90%">
               <p class="f-14 mb-2 d-flex align-center" style="color: #59595b">
-                <v-icon class="mr-1" size="12">mdi-clock-outline </v-icon>Read time: 13min
+                <v-icon class="mr-1" size="12">mdi-clock-outline </v-icon>13min
               </p>
               <p class="f-14 mb-2 d-flex align-center" style="color: #59595b">
-                <v-icon class="mr-1" size="12">mdi-pencil-outline </v-icon>Written by: mehrab mohammadi
+                <v-icon class="mr-1" size="12">mdi-pencil-outline </v-icon>mehrab mohammadi
               </p>
               <p class="f-14 mb-0 d-flex align-center" style="color: #59595b">
-                <v-icon class="mr-1" size="12">mdi-bullhorn-variant-outline </v-icon>Published 3 months ago
+                <v-icon class="mr-1" size="12">mdi-bullhorn-variant-outline </v-icon>3 months ago
               </p>
             </div>
           </div>
