@@ -183,7 +183,8 @@ export default {
             { title: 'footer.links.innovation', to: '/' },
             { title: 'footer.links.impact_stories', to: '/impact' },
             { title: 'footer.links.people_career', to: '/career' },
-            { title: 'footer.links.reach_us', to: '/contact' }
+            { title: 'footer.links.reach_us', to: '/contact' },
+            { title: 'footer.links.storytellers', to: '/storytellers' }
           ]
         },
         {

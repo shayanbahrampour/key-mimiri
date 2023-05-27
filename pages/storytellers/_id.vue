@@ -47,16 +47,39 @@
         </v-btn>
       </div>
     </div>
-    <p
-      v-if="isMobile"
-      :class="[
-        'f-20 white--text text--darken-3 font-weight-light',
-        isMobile ? 'text-center mt-8 mb-0 mx-8' : 'mt-16 mx-16'
-      ]"
-      style="line-height: 30px"
-    >
-      {{ seeMore ? text.full : text.compact }}
-    </p>
+    <v-expansion-panels v-if="isMobile" flat>
+      <v-expansion-panel class="transparent d-flex flex-column justify-center">
+        <p
+          v-if="!seeMore"
+          :class="[
+            'f-20 white--text text--darken-3 font-weight-light',
+            isMobile ? 'text-center mt-8 mb-0 mx-8' : 'mt-16 mx-16'
+          ]"
+          style="line-height: 30px"
+        >
+          {{ text.compact }}
+        </p>
+        <v-expansion-panel-content class="text-center">
+          <p
+            v-if="seeMore"
+            :class="[
+              'f-20 white--text text--darken-3 font-weight-light',
+              isMobile ? 'text-center mt-8 mb-0 mx-8' : 'mt-16 mx-16'
+            ]"
+            style="line-height: 30px"
+          >
+            {{ text.full }}
+          </p>
+        </v-expansion-panel-content>
+        <v-expansion-panel-header
+          class="pa-0 ma-0 white--text justify-center f-20 font-weight-bold bg-transparent"
+          hide-actions
+          @click="seeMore = !seeMore"
+          style="height: 20px; margin-top: -12px !important"
+          >{{ seeMore ? 'see less' : 'see more' }}</v-expansion-panel-header
+        >
+      </v-expansion-panel>
+    </v-expansion-panels>
     <p
       v-else
       :class="['f-20 mx-16 white--text text--darken-3 font-weight-light', isMobile ? 'text-center mt-8 mb-0' : 'mt-16']"
@@ -68,19 +91,8 @@
       have a 2 prevalence of Anemia and are also require to manage the disease accordingly (3). Studies conducted by
       Cobel Group medico-marketing teams indicated
     </p>
-    <v-btn
-      v-if="isMobile"
-      class="bel pa-0 ma-0 mt-2 justify-center f-20 font-weight-bold bg-transparent"
-      color="white"
-      depressed
-      rounded
-      :ripple="false"
-      style="text-transform: unset !important"
-      text
-      @click="seeMore = !seeMore"
-      ><p>{{ seeMore ? 'see less' : 'see more' }}</p></v-btn
-    >
     <v-img :class="[isMobile ? 'mt-4' : 'mt-16']" max-height="500" src="/images/video_content/physical.png" />
+    <v-sheet class="custom-gradient w-full" height="5" />
     <div :class="['h-full white', isMobile ? 'px-4' : 'px-16']">
       <h4
         :class="['bel f-40 text-center text--darken-3 font-weight-regular', isMobile ? 'mt-6' : 'mt-16']"
@@ -200,4 +212,31 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.custom-gradient {
+  background-image: -webkit-linear-gradient(
+    90deg,
+    rgba(243, 145, 31, 1) 8%,
+    rgba(160, 30, 100, 1) 51%,
+    rgba(0, 165, 155, 1) 100%
+  );
+  background-image: -moz-linear-gradient(
+    90deg,
+    rgba(243, 145, 31, 1) 8%,
+    rgba(160, 30, 100, 1) 51%,
+    rgba(0, 165, 155, 1) 100%
+  );
+  background-image: -o-linear-gradient(
+    90deg,
+    rgba(243, 145, 31, 1) 8%,
+    rgba(160, 30, 100, 1) 51%,
+    rgba(0, 165, 155, 1) 100%
+  );
+  background-image: linear-gradient(
+    90deg,
+    rgba(243, 145, 31, 1) 8%,
+    rgba(160, 30, 100, 1) 51%,
+    rgba(0, 165, 155, 1) 100%
+  );
+}
+</style>

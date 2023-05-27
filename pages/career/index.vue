@@ -16,19 +16,39 @@
           >
             People and Careers
           </p>
-          <p v-if="isMobile" class="font-weight-light mt-4 f-20 mb-0 text-center white--text" style="line-height: 30px">
-            {{ seeMore ? text.full : text.compact }}
-          </p>
-          <v-btn
-            v-if="isMobile"
-            class="f-18 white--text mt-2 mb-0 pa-0 font-weight-bold bg-transparent"
-            :ripple="false"
-            style="text-transform: unset !important"
-            text
-            @click="seeMore = !seeMore"
-          >
-            <p>{{ seeMore ? 'see less' : 'see more' }}</p>
-          </v-btn>
+          <v-expansion-panels v-if="isMobile" flat>
+            <v-expansion-panel class="transparent d-flex flex-column justify-center">
+              <p
+                v-if="!seeMore"
+                :class="[
+                  'f-20 white--text text--darken-3 font-weight-light',
+                  isMobile ? 'text-center mt-8 mb-0 mx-0' : 'mt-16 mx-16'
+                ]"
+                style="line-height: 30px"
+              >
+                {{ text.compact }}
+              </p>
+              <v-expansion-panel-content class="text-center">
+                <p
+                  v-if="seeMore"
+                  :class="[
+                    'f-20 white--text text--darken-3 font-weight-light',
+                    isMobile ? 'text-center mt-8 mb-0 mx-0' : 'mt-16 mx-16'
+                  ]"
+                  style="line-height: 30px"
+                >
+                  {{ text.full }}
+                </p>
+              </v-expansion-panel-content>
+              <v-expansion-panel-header
+                class="pa-0 ma-0 white--text justify-center f-20 font-weight-bold bg-transparent"
+                hide-actions
+                @click="seeMore = !seeMore"
+                style="height: 20px; margin-top: -12px !important"
+                >{{ seeMore ? 'see less' : 'see more' }}</v-expansion-panel-header
+              >
+            </v-expansion-panel>
+          </v-expansion-panels>
           <p
             v-if="!isMobile"
             :class="[
@@ -46,27 +66,55 @@
             Environment
           </p>
           <div v-if="isMobile" :class="[isMobile ? 'mt-4 mb-6' : undefined]">
-            <v-btn class="rounded" color="white" height="50" min-width="50" outlined>
+            <v-btn height="50" min-width="50" width="50" outlined style="border-radius: 35%; border: 3px solid white">
               <v-img height="20" max-width="20" src="/images/icons/linkedin.png" />
             </v-btn>
-            <v-btn class="ml-4 rounded" color="white" height="50" min-width="50" outlined>
+            <v-btn
+              class="ml-4"
+              height="50"
+              min-width="50"
+              width="50"
+              outlined
+              style="border-radius: 35%; border: 3px solid white"
+            >
               <v-img height="20" max-width="20" src="/images/icons/whatsapp.png" />
             </v-btn>
-            <v-btn class="ml-4 rounded" color="white" height="50" min-width="50" outlined>
+            <v-btn
+              class="ml-4"
+              height="50"
+              min-width="50"
+              width="50"
+              outlined
+              style="border-radius: 35%; border: 3px solid white"
+            >
               <v-img height="20" max-width="20" src="/images/icons/telegram.png" />
             </v-btn>
           </div>
         </div>
       </div>
       <div class="d-flex">
-        <div v-if="!isMobile" class="mr-8">
-          <v-btn class="mr-4 rounded" color="white" height="50" min-width="50" outlined>
+        <div v-if="!isMobile" :class="[isMobile ? 'mt-6' : undefined]">
+          <v-btn height="50" min-width="50" width="50" outlined style="border-radius: 35%; border: 3px solid white">
             <v-img height="20" max-width="20" src="/images/icons/linkedin.png" />
           </v-btn>
-          <v-btn class="mr-4 rounded" color="white" height="50" min-width="50" outlined>
+          <v-btn
+            class="ml-4"
+            height="50"
+            min-width="50"
+            width="50"
+            outlined
+            style="border-radius: 35%; border: 3px solid white"
+          >
             <v-img height="20" max-width="20" src="/images/icons/whatsapp.png" />
           </v-btn>
-          <v-btn color="white rounded" height="50" min-width="50" outlined>
+          <v-btn
+            class="ml-4"
+            height="50"
+            min-width="50"
+            width="50"
+            outlined
+            style="border-radius: 35%; border: 3px solid white"
+          >
             <v-img height="20" max-width="20" src="/images/icons/telegram.png" />
           </v-btn>
         </div>
