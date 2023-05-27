@@ -42,7 +42,6 @@
       style="line-height: 2; width: 100%; min-height: 60vh"
     >
       <AppSteps
-        v-if="!isMobile"
         :class="[!isMobile ? 'mt-16 mx-4' : 'mt-4 mb-6']"
         :model="counter"
         :tabs="$route.query.job ? certainJob : apply"

@@ -16,12 +16,29 @@
         <v-col :class="isMobile ? 'py-0' : undefined" cols="12" md="4">
           <v-text-field class="mb-8" dense filled hide-details label="Major" rounded></v-text-field>
           <v-text-field class="mb-8" dense filled hide-details label="State" rounded></v-text-field>
+          <v-btn
+            v-if="!isMobile"
+            class="mt-2 ml-0"
+            style="text-transform: unset !important; color: #fc2642"
+            text
+            @click="counter--"
+          >
+            <p class="mb-0 f-16">Remove education</p>
+          </v-btn>
         </v-col>
         <v-col :class="isMobile ? 'pt-0' : undefined" cols="12" md="4">
           <v-text-field class="mb-8" dense filled hide-details label="University name" rounded></v-text-field>
           <v-text-field class="mb-8" dense filled hide-details label="City" rounded></v-text-field>
         </v-col>
       </v-row>
+      <v-btn
+        v-if="isMobile && counter !== 0"
+        style="text-transform: unset !important; color: #fc2642"
+        text
+        @click="counter--"
+      >
+        <p :class="['f-16', !isMobile ? 'mb-0' : 'mb-8']">Remove education</p>
+      </v-btn>
       <v-row class="align-start justify-center">
         <v-col :class="isMobile ? 'pb-0' : undefined" cols="12" md="4">
           <v-text-field class="mb-8" dense filled hide-details label="Degree" rounded></v-text-field>

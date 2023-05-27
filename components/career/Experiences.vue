@@ -25,7 +25,25 @@
             label="Reason for leaving (the organization)"
             rounded
           ></v-text-field>
+          <v-btn
+            v-if="!isMobile"
+            class="mt-2 ml-0"
+            style="text-transform: unset !important; color: #fc2642"
+            text
+            @click="counter--"
+          >
+            <p class="mb-0 f-16">Remove experiences</p>
+          </v-btn>
         </v-col>
+        <v-btn
+          v-if="isMobile"
+          class="mt-2 ml-0 mb-10"
+          style="text-transform: unset !important; color: #fc2642"
+          text
+          @click="counter--"
+        >
+          <p class="mb-0 f-16">Remove experiences</p>
+        </v-btn>
       </v-row>
       <v-row class="align-start justify-center">
         <v-col :class="isMobile ? 'pb-0' : undefined" cols="12" md="4">
