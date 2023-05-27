@@ -7,7 +7,7 @@
     <div v-for="i in 4" :key="i" class="d-flex justify-center mb-4">
       <v-card
         :to="localePath('/storytellers/1234')"
-        class="d-flex rounded-xl overflow-hidden mr-4 custom-story-card align-center"
+        :class="['d-flex rounded-xl overflow-hidden align-center', !isMobile ? 'custom-story-card mr-4' : undefined]"
         elevation="0"
         style="border: 2px solid white"
       >
