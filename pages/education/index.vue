@@ -27,7 +27,7 @@
         v-if="!isMobile"
         :class="['d-flex flex-column align-start mt-16 white w-full', !isMobile ? 'pl-10' : undefined]"
       >
-        <NewsCategory :tabs="tabs" class="my-6" title="More Articles" />
+        <NewsCategory :tabs="tabs" class="my-6 mx-6" title="More Articles" />
       </div>
     </div>
     <div v-else class="pa-6 slategrey">
@@ -37,7 +37,7 @@
         our personnel, but to our stakeholders. Our education material are available to all.
       </p>
     </div>
-    <NewsCard :class="['mt-10', !isMobile ? 'mx-10' : undefined]" title="More Articles" />
+    <NewsCard :class="['mt-10', !isMobile ? 'mx-16' : undefined]" title="More Articles" />
     <HomeStoryTellers :class="[isMobile ? 'mt-0' : 'mt-6']" />
   </div>
 </template>
