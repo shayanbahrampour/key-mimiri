@@ -6,23 +6,25 @@
       style="line-height: 2"
     >
       <v-img
-        :class="[isMobile ? 'mt-14' : 'mx-6 mt-10']"
-        :max-height="isMobile ? '50' : '70'"
-        :width="isMobile ? '100%' : '100'"
+        :class="[isMobile ? 'my-12' : 'mx-2 mt-16']"
+        :max-height="isMobile ? '40' : '100'"
+        :width="isMobile ? '100%' : '200'"
         contain
-        src="/images/logo.png"
+        src="/images/company/medarman.png"
       />
-      <p :class="['mx-2 mt-6 f-18', isMobile ? 'text-center' : undefined]" style="color: #939393; line-height: 40px">
+      <v-divider v-if="isMobile" style="width: 100% !important"></v-divider>
+      <p :class="['mx-2 f-18', isMobile ? 'text-center my-2' : 'mt-6']" style="color: #939393; line-height: 40px">
         A senior project manager is often thought of as a more experienced project manager. They are entrusted with
         larger and more complex projects and may be put in charge of several projects at once. The exact job description
         and requirements will vary from company to company. A senior project manager may have additional
         responsibilities relating to the management of projects, project managers, and the organization as a whole.
       </p>
+      <v-divider v-if="isMobile" style="width: 100% !important"></v-divider>
       <h4 :class="['bel mb-6 mt-16 f-30 font-weight-regular slategrey--text', isMobile ? 'mx-2' : 'mx-6']">
         Project responsibilities may include:
       </h4>
       <div v-for="(item, i) in items" :key="i" :class="['d-flex justify-center mb-8', isMobile ? 'px-2' : 'px-6']">
-        <v-icon class="ml-4 mr-6 mt-3 align-self-start" size="4">mdi-circle</v-icon>
+        <v-icon class="ml-4 mr-6 mt-4 align-self-start" size="6">mdi-circle</v-icon>
         <p class="mb-0 f-18 align-self-start" style="color: #818181">
           <span class="font-weight-regular" style="line-height: 40px">{{ item.title }}:</span>
           <span class="font-weight-light" style="line-height: 40px">{{ item.subtitle }}</span>
@@ -45,7 +47,7 @@
         v-if="!isMobile"
         :class="[
           'd-flex flex-column align-start justify-space-between mt-16 white w-full',
-          !isMobile ? 'px-16 ml-16' : undefined
+          !isMobile ? 'px-16' : undefined
         ]"
       >
         <h4 class="bel f-40 text-center text--darken-3 font-weight-regular mb-auto" style="color: #59595b">
