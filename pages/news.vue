@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex flex-column pb-16">
     <v-img v-if="!isMobile" :class="['d-flex align-end px-10']" height="85vh" src="/images/news/slider.png">
-      <v-sheet class="ml-0 rounded-t-xl py-6 px-12 slategrey" height="480" width="480">
+      <v-sheet class="ml-6 rounded-t-xl py-6 px-12 slategrey" height="480" width="480">
         <h4 class="bel mt-16 f-50 text--darken-3 white--text font-weight-regular">13th Episode of Co-Talk Event</h4>
         <p class="mt-6 f-20 white--text text--darken-3 mb-0 font-weight-light">
           Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women...
@@ -68,8 +68,8 @@
     </div>
 
     <v-sheet v-if="!isMobile" :max-width="globalMaxWidth" class="mx-auto px-10 my-16">
-      <NewsCategory v-if="!isMobile" :tabs="tabs" class="mb-16" title="More important" />
-      <NewsCard />
+      <NewsCategory v-if="!isMobile" :tabs="tabs" class="mb-16 mx-6" title="More important" />
+      <NewsCard class="mx-6" />
     </v-sheet>
     <NewsCard v-else class="mt-16" title="More important" />
   </div>
