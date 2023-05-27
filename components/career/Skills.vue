@@ -28,6 +28,16 @@
             rounded
           ></v-text-field>
         </v-col>
+        <v-col cols="12" md="4">
+          <v-btn
+            class="mb-6 mt-1 ml-0"
+            style="text-transform: unset !important; color: #fc2642"
+            text
+            @click="counter_lang--"
+          >
+            <p class="mb-0 f-16">Remove <span class="font-weight-bold">Skills</span></p>
+          </v-btn>
+        </v-col>
       </v-row>
       <v-row class="align-start justify-center">
         <v-col cols="12" md="4">
@@ -67,6 +77,16 @@
             label="Level"
             rounded
           ></v-text-field>
+        </v-col>
+        <v-col cols="12" md="4">
+          <v-btn
+            class="mb-12 mt-2 ml-0"
+            style="text-transform: unset !important; color: #fc2642"
+            text
+            @click="counter_com--"
+          >
+            <p class="mb-0 f-16">Remove <span class="font-weight-bold">Skills</span></p>
+          </v-btn>
         </v-col>
       </v-row>
       <v-row class="align-start justify-center">
