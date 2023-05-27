@@ -12,7 +12,7 @@
         contain
         src="/images/logo.png"
       />
-      <p :class="['mx-2 mt-6', isMobile ? 'text-center' : undefined]" style="color: #939393">
+      <p :class="['mx-2 mt-6', isMobile ? 'text-center' : 'f-18']" style="color: #939393; line-height: 40px">
         A senior project manager is often thought of as a more experienced project manager. They are entrusted with
         larger and more complex projects and may be put in charge of several projects at once. The exact job description
         and requirements will vary from company to company. A senior project manager may have additional
@@ -23,13 +23,13 @@
       </h4>
       <div v-for="(item, i) in items" :key="i" :class="['d-flex justify-center mb-8', isMobile ? 'px-2' : 'px-6']">
         <v-icon class="ml-4 mr-6 mt-3 align-self-start" size="4">mdi-circle</v-icon>
-        <p class="mb-0 align-self-start" style="color: #818181">
-          <span class="font-weight-regular">{{ item.title }}:</span>
-          <span class="font-weight-light">{{ item.subtitle }}</span>
+        <p class="mb-0 f-18 align-self-start" style="color: #818181">
+          <span class="font-weight-regular" style="line-height: 40px">{{ item.title }}:</span>
+          <span class="font-weight-light" style="line-height: 40px">{{ item.subtitle }}</span>
         </p>
       </div>
 
-      <p v-if="!isMobile" class="font-weight-light mt-10 mx-8 f-18" style="color: #939393">
+      <p v-if="!isMobile" class="font-weight-light mt-10 mx-8 f-18" style="color: #939393; line-height: 40px">
         The Senior Project Manager is responsible for leading teams to deliver project(s) that span across one or more
         business units. Manage resources, schedules, financials and adhere to stage gate quality and SDLC control
         guidelines throughout the full systems development life cycle. This also includes management of issues, risks
