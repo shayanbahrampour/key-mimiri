@@ -16,19 +16,39 @@
           >
             People and Careers
           </p>
-          <p v-if="isMobile" class="font-weight-light mt-4 f-20 mb-0 text-center white--text" style="line-height: 30px">
-            {{ seeMore ? text.full : text.compact }}
-          </p>
-          <v-btn
-            v-if="isMobile"
-            class="f-18 white--text mt-2 mb-0 pa-0 font-weight-bold bg-transparent"
-            :ripple="false"
-            style="text-transform: unset !important"
-            text
-            @click="seeMore = !seeMore"
-          >
-            <p>{{ seeMore ? 'see less' : 'see more' }}</p>
-          </v-btn>
+          <v-expansion-panels v-if="isMobile" flat>
+            <v-expansion-panel class="transparent d-flex flex-column justify-center">
+              <p
+                v-if="!seeMore"
+                :class="[
+                  'f-20 white--text text--darken-3 font-weight-light',
+                  isMobile ? 'text-center mt-8 mb-0 mx-0' : 'mt-16 mx-16'
+                ]"
+                style="line-height: 30px"
+              >
+                {{ text.compact }}
+              </p>
+              <v-expansion-panel-content class="text-center">
+                <p
+                  v-if="seeMore"
+                  :class="[
+                    'f-20 white--text text--darken-3 font-weight-light',
+                    isMobile ? 'text-center mt-8 mb-0 mx-0' : 'mt-16 mx-16'
+                  ]"
+                  style="line-height: 30px"
+                >
+                  {{ text.full }}
+                </p>
+              </v-expansion-panel-content>
+              <v-expansion-panel-header
+                class="pa-0 ma-0 white--text justify-center f-20 font-weight-bold bg-transparent"
+                hide-actions
+                @click="seeMore = !seeMore"
+                style="height: 20px; margin-top: -12px !important"
+                >{{ seeMore ? 'see less' : 'see more' }}</v-expansion-panel-header
+              >
+            </v-expansion-panel>
+          </v-expansion-panels>
           <p
             v-if="!isMobile"
             :class="[
