@@ -66,27 +66,55 @@
             Environment
           </p>
           <div v-if="isMobile" :class="[isMobile ? 'mt-4 mb-6' : undefined]">
-            <v-btn class="rounded" color="white" height="50" min-width="50" outlined>
+            <v-btn height="50" min-width="50" width="50" outlined style="border-radius: 35%; border: 3px solid white">
               <v-img height="20" max-width="20" src="/images/icons/linkedin.png" />
             </v-btn>
-            <v-btn class="ml-4 rounded" color="white" height="50" min-width="50" outlined>
+            <v-btn
+              class="ml-4"
+              height="50"
+              min-width="50"
+              width="50"
+              outlined
+              style="border-radius: 35%; border: 3px solid white"
+            >
               <v-img height="20" max-width="20" src="/images/icons/whatsapp.png" />
             </v-btn>
-            <v-btn class="ml-4 rounded" color="white" height="50" min-width="50" outlined>
+            <v-btn
+              class="ml-4"
+              height="50"
+              min-width="50"
+              width="50"
+              outlined
+              style="border-radius: 35%; border: 3px solid white"
+            >
               <v-img height="20" max-width="20" src="/images/icons/telegram.png" />
             </v-btn>
           </div>
         </div>
       </div>
       <div class="d-flex">
-        <div v-if="!isMobile" class="mr-8">
-          <v-btn class="mr-4 rounded" color="white" height="50" min-width="50" outlined>
+        <div v-if="!isMobile" :class="[isMobile ? 'mt-6' : undefined]">
+          <v-btn height="50" min-width="50" width="50" outlined style="border-radius: 35%; border: 3px solid white">
             <v-img height="20" max-width="20" src="/images/icons/linkedin.png" />
           </v-btn>
-          <v-btn class="mr-4 rounded" color="white" height="50" min-width="50" outlined>
+          <v-btn
+            class="ml-4"
+            height="50"
+            min-width="50"
+            width="50"
+            outlined
+            style="border-radius: 35%; border: 3px solid white"
+          >
             <v-img height="20" max-width="20" src="/images/icons/whatsapp.png" />
           </v-btn>
-          <v-btn color="white rounded" height="50" min-width="50" outlined>
+          <v-btn
+            class="ml-4"
+            height="50"
+            min-width="50"
+            width="50"
+            outlined
+            style="border-radius: 35%; border: 3px solid white"
+          >
             <v-img height="20" max-width="20" src="/images/icons/telegram.png" />
           </v-btn>
         </div>

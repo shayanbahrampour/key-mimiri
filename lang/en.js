@@ -39,7 +39,8 @@ export default {
       privacy_policy: 'Privacy Policy',
       terms_of_service: 'Terms of Service',
       contact: 'Contact Us',
-      innovation: 'innovation'
+      innovation: 'innovation',
+      storytellers: 'storytellers'
     },
     copyright: '©2023 Cobel Group. All Rights Reserved.'
   },

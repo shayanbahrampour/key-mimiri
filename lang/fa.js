@@ -39,7 +39,8 @@ export default {
       privacy_policy: 'حفظ حریم خصوصی',
       terms_of_service: 'شرایط استفاده از خدمات',
       contact: 'با ما تماس بگیرید',
-      innovation: 'نوآوری'
+      innovation: 'نوآوری',
+      storytellers: 'داستانهای الهامبخش'
     },
     copyright: '© ۱۴۰۲ گروه کوبل، تمامی حقوق محفوظ است'
   },
