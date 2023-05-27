@@ -12,7 +12,7 @@
         contain
         src="/images/logo.png"
       />
-      <p :class="['mx-2 mt-6', isMobile ? 'text-center' : 'f-18']" style="color: #939393; line-height: 40px">
+      <p :class="['mx-2 mt-6 f-18', isMobile ? 'text-center' : undefined]" style="color: #939393; line-height: 40px">
         A senior project manager is often thought of as a more experienced project manager. They are entrusted with
         larger and more complex projects and may be put in charge of several projects at once. The exact job description
         and requirements will vary from company to company. A senior project manager may have additional
