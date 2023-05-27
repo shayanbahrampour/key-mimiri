@@ -1,7 +1,7 @@
 <template>
   <div
     :class="['d-flex flex-column align-center text-center', !isMobile ? 'pt-10' : undefined]"
-    style="background-color: #a01e64"
+    style="background-color: #a01e64; margin-bottom: -40px"
   >
     <h1 :class="['bel white--text text--darken-3 font-weight-regular', isMobile ? 'f-36 mt-12' : 'f-80 mt-16']">
       {{ $t('pageTitles.social') }}
@@ -15,7 +15,7 @@
       :class="[!isMobile ? 'mt-0' : 'mt-10']"
       max-height="500"
       src="/images/video_content/social.png"
-      style="z-index: 3 !important"
+      style="z-index: 2 !important"
     />
     <div :class="[isMobile ? 'text-start px-6 h-full psy-screen d-flex flex-column' : 'text-center ma-16 px-16']">
       <div class="d-flex relative-container-social">
@@ -25,8 +25,8 @@
         >
           {{ $t('socialHealth.description') }}
         </p>
-        <div v-if="!isMobile" :class="{ 'animate-dot': scrollPosition > 0 }" class="right-circle"></div>
-        <div v-else :class="{ 'animate-dot': scrollPosition > 0 }" class="right-circle-mobile"></div>
+        <div v-if="!isMobile" class="right-circle"></div>
+        <div v-else class="right-circle-mobile"></div>
       </div>
       <v-divider :class="[isMobile ? 'my-6' : 'my-10']" style="background-color: #f3911f"></v-divider>
       <h4
@@ -35,8 +35,8 @@
       >
         {{ $t('socialHealth.responsibility') }}
       </h4>
-      <div v-if="!isMobile" :class="{ 'animate-dot': scrollPosition > 0 }" class="left-circle"></div>
-      <div v-else :class="{ 'animate-dot': scrollPosition > 0 }" class="left-circle-mobile"></div>
+      <div v-if="!isMobile" class="left-circle"></div>
+      <div v-else class="left-circle-mobile"></div>
       <v-divider :class="[isMobile ? 'my-6' : 'my-10']" style="background-color: #f3911f"></v-divider>
       <p
         :class="[
@@ -61,7 +61,11 @@ export default {
   },
   data() {
     return {
-      scrollPosition: 0
+      scrollPosition: 0,
+      circleRightDesktopPosition: 0,
+      circleRightMobilePosition: 0,
+      circleLeftDesktopPosition: 0,
+      circleLeftMobilePosition: 0
     };
   },
   mounted() {
@@ -73,12 +77,50 @@ export default {
   methods: {
     handleScroll() {
       this.scrollPosition = window.scrollY;
+
+      this.circleRightDesktopPosition = this.scrollPosition;
+      this.circleLeftDesktopPosition = this.scrollPosition;
+      this.circleRightMobilePosition = this.scrollPosition;
+      this.circleLeftMobilePosition = this.scrollPosition;
+
+      document.documentElement.style.setProperty(
+        '--circleRightDesktopPosition',
+        `${1400 - this.circleRightDesktopPosition}px`
+      );
+
+      document.documentElement.style.setProperty(
+        '--circleRightMobilePosition',
+        `${2000 - this.circleRightMobilePosition}px`
+      );
+      if (this.scrollPosition > 300) {
+        document.documentElement.style.setProperty(
+          '--circleLeftMobilePosition',
+          `${300 + this.circleLeftDesktopPosition}px`
+        );
+      } else {
+        document.documentElement.style.setProperty(
+          '--circleLeftMobilePosition',
+          `${1000 + this.circleLeftDesktopPosition}px`
+        );
+      }
+
+      if (this.scrollPosition > 300) {
+        document.documentElement.style.setProperty(
+          '--circleLeftDesktopPosition',
+          `${400 + this.circleLeftDesktopPosition}px`
+        );
+      } else {
+        document.documentElement.style.setProperty(
+          '--circleLeftDesktopPosition',
+          `${1000 + this.circleLeftDesktopPosition}px`
+        );
+      }
     }
   }
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .custom-gradient {
   background-image: -webkit-linear-gradient(
     90deg,
@@ -106,28 +148,6 @@ export default {
   );
 }
 
-@keyframes dotAnimationRight {
-  30% {
-    transform: translate(50%, -50%);
-    top: 100%;
-  }
-  100% {
-    transform: translate(50%, -50%);
-    top: 30%;
-  }
-}
-
-@keyframes dotAnimationLeft {
-  30% {
-    transform: translate(50%, -50%);
-    top: 30%;
-  }
-  100% {
-    transform: translate(50%, -50%);
-    top: 62%;
-  }
-}
-
 .right-circle {
   width: 100px;
   height: 100px;
@@ -135,12 +155,8 @@ export default {
   background-color: #f3911f;
   position: absolute;
   right: -130px;
-  top: 30%;
+  top: var(--circleRightDesktopPosition);
   transform: translate(50%, -50%);
-
-  &.animate-dot {
-    animation: dotAnimationRight 1s linear;
-  }
 }
 
 .relative-container-social {
@@ -154,12 +170,8 @@ export default {
   background-color: #00a59b;
   position: absolute;
   left: -100px;
-  top: 62%;
+  top: var(--circleLeftDesktopPosition);
   transform: translate(50%, -50%);
-
-  &.animate-dot {
-    animation: dotAnimationLeft 1s linear;
-  }
 }
 
 .right-circle-mobile {
@@ -169,11 +181,8 @@ export default {
   background-color: #f3911f;
   position: absolute;
   right: -60px;
-  top: 150px;
+  top: var(--circleRightMobilePosition);
   transform: translate(50%, -50%);
-  &.animate-dot {
-    animation: dotAnimationRight 1s linear;
-  }
 }
 
 .left-circle-mobile {
@@ -183,10 +192,7 @@ export default {
   background-color: #00a59b;
   position: absolute;
   left: -140px;
-  top: 1750px;
+  top: var(--circleLeftMobilePosition);
   transform: translate(50%, -50%);
-  &.animate-dot {
-    animation: dotAnimationLeft 1s linear;
-  }
 }
 </style>
