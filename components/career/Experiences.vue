@@ -7,52 +7,56 @@
       >
         Experiences
       </p>
-      <v-row v-for="i in counter" :key="i" class="align-start justify-center">
-        <v-col :class="isMobile ? 'pb-0' : undefined" cols="12" md="4">
-          <v-text-field class="mb-8" dense filled hide-details label="Company name" rounded></v-text-field>
-          <v-text-field class="mb-8" dense filled hide-details label="Date (from)" rounded></v-text-field>
-        </v-col>
-        <v-col :class="isMobile ? 'py-0' : undefined" cols="12" md="4">
-          <v-text-field class="mb-8" dense filled hide-details label="Position" rounded></v-text-field>
-          <v-text-field class="mb-8" dense filled hide-details label="Date (to)" rounded></v-text-field>
-        </v-col>
-        <v-col :class="isMobile ? 'pt-0' : undefined" cols="12" md="4">
-          <v-text-field
-            :class="!isMobile ? 'mb-8' : 'mb-0'"
-            dense
-            filled
-            hide-details
-            label="Reason for leaving (the organization)"
-            rounded
-          ></v-text-field>
-          <v-btn
-            v-if="!isMobile"
-            class="mt-2 ml-0"
-            style="text-transform: unset !important; color: #fc2642"
-            text
-            @click="counter--"
-          >
-            <p class="mb-0 f-16">Remove experiences</p>
-          </v-btn>
-        </v-col>
-        <v-btn
-          v-if="isMobile"
-          class="mt-2 ml-0 mb-10"
-          style="text-transform: unset !important; color: #fc2642"
-          text
-          @click="counter--"
-        >
-          <p class="mb-0 f-16">Remove experiences</p>
-        </v-btn>
-      </v-row>
       <v-row class="align-start justify-center">
         <v-col :class="isMobile ? 'pb-0' : undefined" cols="12" md="4">
           <v-text-field class="mb-8" dense filled hide-details label="Company name" rounded></v-text-field>
-          <v-text-field class="mb-8" dense filled hide-details label="Date (from)" rounded></v-text-field>
+          <v-menu offset-y open-on-click>
+            <template v-slot:activator="{ on, attrs }">
+              <v-text-field
+                append-icon="mdi-triangle-down 10"
+                append-icon-size="16"
+                class="mb-6"
+                dense
+                filled
+                hide-details
+                label="Date (from)"
+                readonly
+                rounded
+                v-bind="attrs"
+                v-on="on"
+              ></v-text-field>
+            </template>
+            <v-list>
+              <v-list-item v-for="(item, index) in items" :key="index">
+                <v-list-item-title>{{ item.title }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
         </v-col>
         <v-col :class="isMobile ? 'py-0' : undefined" cols="12" md="4">
           <v-text-field class="mb-8" dense filled hide-details label="Position" rounded></v-text-field>
-          <v-text-field class="mb-8" dense filled hide-details label="Date (to)" rounded></v-text-field>
+          <v-menu offset-y open-on-click>
+            <template v-slot:activator="{ on, attrs }">
+              <v-text-field
+                append-icon="mdi-triangle-down 10"
+                append-icon-size="16"
+                class="mb-6"
+                dense
+                filled
+                hide-details
+                label="Date (to)"
+                readonly
+                rounded
+                v-bind="attrs"
+                v-on="on"
+              ></v-text-field>
+            </template>
+            <v-list>
+              <v-list-item v-for="(item, index) in items" :key="index">
+                <v-list-item-title>{{ item.title }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
         </v-col>
         <v-col :class="isMobile ? 'pt-0' : undefined" cols="12" md="4">
           <v-text-field
@@ -83,6 +87,86 @@
           <p class="mb-0 f-16">Add new experiences</p>
         </v-btn>
       </v-row>
+      <v-row v-for="i in counter" :key="i" class="align-start justify-center">
+        <v-col :class="isMobile ? 'pb-0' : undefined" cols="12" md="4">
+          <v-text-field class="mb-8" dense filled hide-details label="Company name" rounded></v-text-field>
+          <v-menu offset-y open-on-click>
+            <template v-slot:activator="{ on, attrs }">
+              <v-text-field
+                append-icon="mdi-triangle-down 10"
+                append-icon-size="16"
+                class="mb-6"
+                dense
+                filled
+                hide-details
+                label="Date (from)"
+                readonly
+                rounded
+                v-bind="attrs"
+                v-on="on"
+              ></v-text-field>
+            </template>
+            <v-list>
+              <v-list-item v-for="(item, index) in items" :key="index">
+                <v-list-item-title>{{ item.title }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
+        </v-col>
+        <v-col :class="isMobile ? 'py-0' : undefined" cols="12" md="4">
+          <v-text-field class="mb-8" dense filled hide-details label="Position" rounded></v-text-field>
+          <v-menu offset-y open-on-click>
+            <template v-slot:activator="{ on, attrs }">
+              <v-text-field
+                append-icon="mdi-triangle-down 10"
+                append-icon-size="16"
+                class="mb-6"
+                dense
+                filled
+                hide-details
+                label="Date (to)"
+                readonly
+                rounded
+                v-bind="attrs"
+                v-on="on"
+              ></v-text-field>
+            </template>
+            <v-list>
+              <v-list-item v-for="(item, index) in items" :key="index">
+                <v-list-item-title>{{ item.title }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
+        </v-col>
+        <v-col :class="isMobile ? 'pt-0' : undefined" cols="12" md="4">
+          <v-text-field
+            :class="!isMobile ? 'mb-8' : 'mb-0'"
+            dense
+            filled
+            hide-details
+            label="Reason for leaving (the organization)"
+            rounded
+          ></v-text-field>
+          <v-btn
+            v-if="!isMobile"
+            class="mt-2 ml-0"
+            style="text-transform: unset !important; color: #fc2642"
+            text
+            @click="counter--"
+          >
+            <p class="mb-0 f-16">Remove experiences</p>
+          </v-btn>
+        </v-col>
+        <v-btn
+          v-if="isMobile"
+          class="mt-2 ml-0 mb-10"
+          style="text-transform: unset !important; color: #fc2642"
+          text
+          @click="counter--"
+        >
+          <p class="mb-0 f-16">Remove experiences</p>
+        </v-btn>
+      </v-row>
     </div>
   </v-form>
 </template>
@@ -92,7 +176,8 @@ export default {
   data() {
     return {
       valid: null,
-      counter: 0
+      counter: 0,
+      items: [{ title: '1390' }, { title: '1391' }, { title: '1392' }]
     };
   }
 };
