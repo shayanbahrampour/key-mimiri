@@ -53,6 +53,25 @@ export default {
       description: 'Description'
     }
   },
+  career: {
+    title: 'People and Careers',
+    description_short:
+      'In Cobel Group, we intend to provide a dynamic and professional atmosphere for our employees by using below strategies: ',
+    description:
+      'Equity, as equal progress opportunity and equal work-specific pay, despite of age, gender, nationality and disabilities. Diversity, in educational background, profession, gender, age and believes. Inclusion and Talent Empowerment, by designing individual development plans (IDP), on-the-job efficient trainings, and implementing regular surveys to discover employee experiences and acting upon Promoting a Knowledge-Centered Environment',
+    divider_title: 'Life at Cobel Group®',
+    divider_description:
+      'Enjoyment of social interaction, sharing experience sense of belonging to a group, promoting participation',
+    card_title: 'Join the Cobel Group®',
+    card_description:
+      'If you are willing to cooperate with us, please fill this form and share with us your resume. We will reach you when the right opportunity comes up.',
+    card_action: 'CLICK HERE',
+    job_title: 'Job positions',
+    job_position: 'Senior project manager',
+    job_description:
+      'Who advises that all women in their reproductive ages, whether having Iron deficiency or not, are required to supplements per week.',
+    job_action: 'APPLY NOW'
+  },
   socialHealth: {
     header_description:
       'Enjoyment of social interaction, sharing experiences, sense of belonging to a group, promoting participation',
