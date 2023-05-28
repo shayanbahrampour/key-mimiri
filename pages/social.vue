@@ -84,36 +84,53 @@ export default {
       this.circleRightMobilePosition = this.scrollPosition;
       this.circleLeftMobilePosition = this.scrollPosition;
 
-      document.documentElement.style.setProperty(
-        '--circleRightDesktopPosition',
-        `${1400 - this.circleRightDesktopPosition}px`
-      );
-
-      document.documentElement.style.setProperty(
-        '--circleRightMobilePosition',
-        `${2000 - this.circleRightMobilePosition}px`
-      );
-      if (this.scrollPosition > 300) {
+      if (this.scrollPosition < 1150) {
         document.documentElement.style.setProperty(
-          '--circleLeftMobilePosition',
-          `${300 + this.circleLeftDesktopPosition}px`
+          '--circleRightDesktopPosition',
+          `${1400 - this.circleRightDesktopPosition}px`
         );
       } else {
         document.documentElement.style.setProperty(
-          '--circleLeftMobilePosition',
-          `${1000 + this.circleLeftDesktopPosition}px`
+          '--circleRightDesktopPosition',
+          `${this.circleRightDesktopPosition - 900}px`
+        );
+      }
+
+      if (this.scrollPosition < 1150) {
+        document.documentElement.style.setProperty(
+          '--circleRightMobilePosition',
+          `${2000 - this.circleRightMobilePosition}px`
+        );
+      } else {
+        document.documentElement.style.setProperty(
+          '--circleRightMobilePosition',
+          `${this.circleRightMobilePosition - 320}px`
         );
       }
 
       if (this.scrollPosition > 300) {
         document.documentElement.style.setProperty(
-          '--circleLeftDesktopPosition',
-          `${400 + this.circleLeftDesktopPosition}px`
+          '--circleLeftMobilePosition',
+          `${190 + this.circleLeftMobilePosition}px`
         );
       } else {
         document.documentElement.style.setProperty(
+          '--circleLeftMobilePosition',
+          `${1000 + this.circleLeftMobilePosition}px`
+        );
+      }
+
+      if (this.scrollPosition > 300) {
+        if (this.scrollPosition < 1450) {
+          document.documentElement.style.setProperty(
+            '--circleLeftDesktopPosition',
+            `${400 + this.circleLeftDesktopPosition * 1.1}px`
+          );
+        }
+      } else {
+        document.documentElement.style.setProperty(
           '--circleLeftDesktopPosition',
-          `${1000 + this.circleLeftDesktopPosition}px`
+          `${1150 + this.circleLeftDesktopPosition}px`
         );
       }
     }
