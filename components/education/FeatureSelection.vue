@@ -11,7 +11,7 @@
       </div>
     </v-col>
   </v-row>
-  <div v-else class="d-flex justify-space-between w-full mx-2">
+  <div v-else class="d-flex justify-center align-center w-full mx-2">
     <div v-for="i in 2" class="d-flex flex-column justify-space-between" style="width: 100%">
       <div class="d-flex align-center justify-center mb-4">
         <v-icon class="mr-1" size="20">mdi-circle-outline</v-icon>
@@ -22,7 +22,7 @@
         <span class="f-20 cobelgrey--text">Feature</span>
       </div>
       <div class="d-flex align-center justify-center mb-4">
-        <v-icon class="mr-1" size="20">mdi-circle-outline</v-icon>
+        <v-icon class="mr-1" size="20" color="orange">mdi-circle</v-icon>
         <span class="f-20 cobelgrey--text">Feature</span>
       </div>
     </div>
