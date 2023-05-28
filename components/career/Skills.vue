@@ -7,6 +7,24 @@
       >
         Skills
       </p>
+      <v-row class="align-start justify-center">
+        <v-col cols="12" md="4">
+          <v-text-field class="mb-0" dense filled hide-details label="Foreign Languages" rounded></v-text-field>
+        </v-col>
+        <v-col cols="12" md="4">
+          <v-text-field class="mb-0" dense filled hide-details label="Level" rounded></v-text-field>
+        </v-col>
+        <v-col cols="12" md="4">
+          <v-btn
+            class="mb-6 mt-1 ml-0"
+            style="text-transform: unset !important; color: #0a91df"
+            text
+            @click="counter_lang++"
+          >
+            <p class="mb-0 f-16">Add new <span class="font-weight-bold">Skills</span></p>
+          </v-btn>
+        </v-col>
+      </v-row>
       <v-row v-for="i in counter_lang" :key="i" class="align-start justify-start">
         <v-col cols="12" md="4">
           <v-text-field
@@ -41,17 +59,17 @@
       </v-row>
       <v-row class="align-start justify-center">
         <v-col cols="12" md="4">
-          <v-text-field class="mb-0" dense filled hide-details label="Foreign Languages" rounded></v-text-field>
+          <v-text-field class="mb-0" dense filled hide-details label="Computer Knowledge" rounded></v-text-field>
         </v-col>
         <v-col cols="12" md="4">
           <v-text-field class="mb-0" dense filled hide-details label="Level" rounded></v-text-field>
         </v-col>
         <v-col cols="12" md="4">
           <v-btn
-            class="mb-6 mt-1 ml-0"
+            class="mb-12 mt-2 ml-0"
             style="text-transform: unset !important; color: #0a91df"
             text
-            @click="counter_lang++"
+            @click="counter_com++"
           >
             <p class="mb-0 f-16">Add new <span class="font-weight-bold">Skills</span></p>
           </v-btn>
@@ -86,24 +104,6 @@
             @click="counter_com--"
           >
             <p class="mb-0 f-16">Remove <span class="font-weight-bold">Skills</span></p>
-          </v-btn>
-        </v-col>
-      </v-row>
-      <v-row class="align-start justify-center">
-        <v-col cols="12" md="4">
-          <v-text-field class="mb-0" dense filled hide-details label="Computer Knowledge" rounded></v-text-field>
-        </v-col>
-        <v-col cols="12" md="4">
-          <v-text-field class="mb-0" dense filled hide-details label="Level" rounded></v-text-field>
-        </v-col>
-        <v-col cols="12" md="4">
-          <v-btn
-            class="mb-12 mt-2 ml-0"
-            style="text-transform: unset !important; color: #0a91df"
-            text
-            @click="counter_com++"
-          >
-            <p class="mb-0 f-16">Add new <span class="font-weight-bold">Skills</span></p>
           </v-btn>
         </v-col>
       </v-row>
