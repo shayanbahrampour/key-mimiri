@@ -9,7 +9,13 @@
     <p :class="['mt-6 white--text text--darken-3 font-weight-light', !isMobile ? 'f-22 mb-16' : 'f-20 mx-6']">
       {{ $t('physical.header_description') }}
     </p>
-    <v-img class="mt-10" max-height="500" src="/images/video_content/social.png" style="z-index: 2 !important" />
+    <v-img
+      class="mt-10"
+      max-height="500"
+      src="/images/video_content/social.png"
+      width="100vw"
+      style="z-index: 2 !important"
+    />
     <div :class="[isMobile ? 'text-start px-6 h-full psy-screen d-flex flex-column' : 'text-center ma-16 px-16']">
       <div class="d-flex relative-container-social">
         <p

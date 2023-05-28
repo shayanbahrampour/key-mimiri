@@ -14,6 +14,7 @@
     <v-img
       :class="[!isMobile ? 'mt-0' : 'mt-10']"
       max-height="500"
+      width="100vw"
       src="/images/video_content/social.png"
       style="z-index: 2 !important"
     />
