@@ -3,7 +3,7 @@
     <v-sheet v-if="isMobile" class="custom-gradient w-full" height="5" />
     <v-footer :class="[isMobile ? 'pt-10' : 'py-16 px-0']" color="slategrey">
       <v-sheet
-        :class="['mx-auto w-full white--text', isMobile ? 'px-6' : 'px-16']"
+        :class="['mx-auto w-full white--text', isMobile ? 'px-6' : 'px-8']"
         :max-width="globalMaxWidth"
         color="transparent"
       >
@@ -69,7 +69,7 @@
             </div>
           </v-col>
           <v-col v-if="horizontal" cols="12" lg="3" sm="6">
-            <div class="d-flex flex-column align-center">
+            <div class="d-flex flex-column align-end">
               <v-btn
                 :to="localePath('/storytellers')"
                 class="f-18 mb-4"
