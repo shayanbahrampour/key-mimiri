@@ -9,8 +9,9 @@
     <p :class="['mt-6 white--text text--darken-3 font-weight-light', !isMobile ? 'f-22 mb-16' : 'f-20 mx-6']">
       {{ $t('physical.header_description') }}
     </p>
+    <v-sheet v-if="!isMobile" class="custom-gradient w-full mt-16" height="10" />
     <v-img
-      class="mt-10"
+      :class="[!isMobile ? 'mt-0' : 'mt-10']"
       max-height="500"
       src="/images/video_content/social.png"
       width="100vw"
@@ -48,7 +49,7 @@
 export default {
   head() {
     return {
-      title: this.$t('pageTitles.social')
+      title: this.$t('pageTitles.physical')
     };
   },
   data() {
