@@ -57,7 +57,7 @@
 export default {
   head() {
     return {
-      title: this.$t('pageTitles.social')
+      title: this.$t('pageTitles.psychological')
     };
   },
   data() {
