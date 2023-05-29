@@ -1,30 +1,32 @@
 <template>
-  <div>
-    <v-card class="overflow-hidden custom-card" flat style="border-radius: 80px">
+  <div class="h-full">
+    <v-card
+      class="overflow-hidden custom-card h-full custom-card-container"
+      :color="!isMobile && 'slategrey'"
+      flat
+      style="border-radius: 80px"
+      :to="localePath(`/impact/${item.id}`)"
+    >
       <v-img :src="src" height="250" width="100%" />
-      <v-card
+      <div
         :class="[
-          'white--text pointer flex-shrink-0 custom-card-container',
+          'white--text pointer flex-shrink-0',
           isMobile ? 'text-center' : 'd-flex',
-          summary ? 'px-12 py-8' : 'text-center py-8 px-10'
+          summary ? `p${isRTL ? 'r' : 'l'}-8 p${isRTL ? 'l' : 'r'}-6 pt-5 pb-10` : 'text-center pa-8'
         ]"
-        :to="localePath(`/impact/${item.id}`)"
-        color="slategrey"
-        flat
-        tile
       >
         <div :style="`${summary && !isMobile ? 'width: 50%' : 'width: 100%'}`" class="f-35 bel flex-shrink-0">
-          {{ title }}
+          {{ title | truncate({ length: 50 }) }}
         </div>
-        <div v-if="!isMobile && summary" :class="`font-weight-light f-21 p${isRTL ? 'r' : 'l'}-5`">
-          {{ summary }}
+        <div v-if="!isMobile && summary" :class="`font-weight-light f-21 p${isRTL ? 'r' : 'l'}-4`">
+          <p v-html="summary" class="ma-0" />
           <strong class="f-18 font-weight-bold mt-2 d-block">{{ $t('shared.see_more') }}</strong>
         </div>
-      </v-card>
+      </div>
     </v-card>
 
     <div v-if="isMobile && summary" class="font-weight-light f-21 text-center mt-4 grey--text text--darken-1">
-      {{ summary }}
+      <p v-html="summary" class="ma-0" />
       <strong class="f-18 font-weight-bold mt-2 d-block">{{ $t('shared.see_more') }}</strong>
     </div>
   </div>
@@ -65,7 +67,7 @@ export default {
     transition: all ease-in 0.4s;
   }
 
-  .custom-card-container {
+  &.custom-card-container {
     transition: all ease-in 0.3s;
   }
 
@@ -74,7 +76,7 @@ export default {
       filter: grayscale(0%);
     }
 
-    .custom-card-container {
+    &.custom-card-container {
       background-color: #4c6d80 !important;
     }
   }
