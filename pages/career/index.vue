@@ -1,21 +1,34 @@
 <template>
   <div class="d-flex flex-column slategrey">
-    <div :class="['d-flex', isMobile ? 'mt-6 px-5 justify-center' : 'my-16 px-12 justify-space-between']">
+    <div :class="['d-flex', isMobile ? 'mt-6 px-5 justify-center' : 'my-16 px-16 justify-space-between']">
       <div class="d-flex">
         <div
           :class="[
             'd-flex flex-column justify-center',
-            isMobile ? 'align-center' : 'align-start ml-4 desktop-screen-career'
+            isMobile ? 'align-center' : 'align-start desktop-screen-career'
           ]"
         >
-          <p
-            :class="[
-              'bel white--text mb-0 text--darken-3 font-weight-regular',
-              isMobile ? 'text-center f-40' : 'f-60 '
-            ]"
-          >
-            People and Careers
-          </p>
+          <div :class="[!isMobile ? 'd-flex justify-space-between w-full' : undefined]">
+            <p
+              :class="[
+                'bel white--text mb-0 text--darken-3 font-weight-regular',
+                isMobile ? 'text-center f-40' : 'f-60 '
+              ]"
+            >
+              {{ $t('career.title') }}
+            </p>
+            <div v-if="!isMobile" class="d-flex justify-space-between" style="width: 180px">
+              <v-btn height="50" min-width="50" width="50" outlined style="border-radius: 35%; border: 3px solid white">
+                <v-img height="20" max-width="20" src="/images/icons/linkedin.png" />
+              </v-btn>
+              <v-btn height="50" min-width="50" width="50" outlined style="border-radius: 35%; border: 3px solid white">
+                <v-img height="20" max-width="20" src="/images/icons/whatsapp.png" />
+              </v-btn>
+              <v-btn height="50" min-width="50" width="50" outlined style="border-radius: 35%; border: 3px solid white">
+                <v-img height="20" max-width="20" src="/images/icons/telegram.png" />
+              </v-btn>
+            </div>
+          </div>
           <v-expansion-panels v-if="isMobile" flat>
             <v-expansion-panel class="transparent d-flex flex-column justify-center">
               <p
@@ -57,20 +70,15 @@
             ]"
             style="line-height: 30px"
           >
-            In Cobel Group, we intend to provide a dynamic and professional atmosphere for our employees by using below
-            strategies: <br /><br />
-            Equity, as equal progress opportunity and equal work-specific pay, despite of age, gender, nationality and
-            disabilities. Diversity, in educational background, profession, gender, age and believes. Inclusion and
-            Talent Empowerment, by designing individual development plans (IDP), on-the-job efficient trainings, and
-            implementing regular surveys to discover employee experiences and acting upon Promoting a Knowledge-Centered
-            Environment
+            {{ $t('career.description_short') }} <br /><br />
+            {{ $t('career.description') }}
           </p>
           <div v-if="isMobile" :class="[isMobile ? 'mt-4 mb-6' : undefined]">
             <v-btn height="50" min-width="50" width="50" outlined style="border-radius: 35%; border: 3px solid white">
               <v-img height="20" max-width="20" src="/images/icons/linkedin.png" />
             </v-btn>
             <v-btn
-              class="ml-4"
+              class="mx-4"
               height="50"
               min-width="50"
               width="50"
@@ -79,44 +87,10 @@
             >
               <v-img height="20" max-width="20" src="/images/icons/whatsapp.png" />
             </v-btn>
-            <v-btn
-              class="ml-4"
-              height="50"
-              min-width="50"
-              width="50"
-              outlined
-              style="border-radius: 35%; border: 3px solid white"
-            >
+            <v-btn height="50" min-width="50" width="50" outlined style="border-radius: 35%; border: 3px solid white">
               <v-img height="20" max-width="20" src="/images/icons/telegram.png" />
             </v-btn>
           </div>
-        </div>
-      </div>
-      <div class="d-flex">
-        <div v-if="!isMobile" :class="[isMobile ? 'mt-6' : undefined]">
-          <v-btn height="50" min-width="50" width="50" outlined style="border-radius: 35%; border: 3px solid white">
-            <v-img height="20" max-width="20" src="/images/icons/linkedin.png" />
-          </v-btn>
-          <v-btn
-            class="ml-4"
-            height="50"
-            min-width="50"
-            width="50"
-            outlined
-            style="border-radius: 35%; border: 3px solid white"
-          >
-            <v-img height="20" max-width="20" src="/images/icons/whatsapp.png" />
-          </v-btn>
-          <v-btn
-            class="ml-4"
-            height="50"
-            min-width="50"
-            width="50"
-            outlined
-            style="border-radius: 35%; border: 3px solid white"
-          >
-            <v-img height="20" max-width="20" src="/images/icons/telegram.png" />
-          </v-btn>
         </div>
       </div>
     </div>
@@ -124,18 +98,23 @@
     <div class="h-full mt-16 slategrey" style="height: 400px">
       <div v-if="!isMobile" class="d-flex justify-center mt-2 px-16">
         <div class="d-flex align-center justify-center">
-          <h4 class="bel f-40 white--text text--darken-3 font-weight-regular">Life at Cobel Group®</h4>
+          <h4
+            :class="['bel f-40 white--text text--darken-3 font-weight-regular', `text-${isRTL ? 'start' : 'end'}`]"
+            style="width: 40%"
+          >
+            {{ $t('career.divider_title') }}
+          </h4>
           <v-divider class="mx-8" color="white" style="min-height: 100px" vertical />
           <p class="f-20 white--text mb-0 text--darken-3 font-weight-light" style="max-width: 40%">
-            Enjoyment of social interaction, sharing experience sense of belonging to a group, promoting participation
+            {{ $t('career.divider_description') }}
           </p>
         </div>
       </div>
       <div v-else class="d-flex flex-column justify-center ma-0 px-6">
         <div class="d-flex flex-column align-start justify-center">
-          <h4 class="bel f-36 white--text text--darken-3 font-weight-regular">Life at Cobel Group®</h4>
+          <h4 class="bel f-36 white--text text--darken-3 font-weight-regular">{{ $t('career.divider_title') }}</h4>
           <p class="f-20 white--text mb-0 text--darken-3 font-weight-light mt-6" style="line-height: 30px">
-            Enjoyment of social interaction, sharing experience sense of belonging to a group, promoting participation
+            {{ $t('career.divider_description') }}
           </p>
         </div>
       </div>
@@ -155,23 +134,21 @@
             isMobile ? 'f-30 mb-6' : 'f-50 mb-2'
           ]"
         >
-          Join the Cobel Group®
+          {{ $t('career.card_title') }}
         </h4>
         <p
           v-if="!isMobile"
           class="f-18 text-center mb-0 text--darken-3 font-weight-light mb-auto"
           style="max-width: 60%; color: #59595b; line-height: 30px"
         >
-          If you are willing to cooperate with us, please fill this form and share with us your resume. We will reach
-          you when the right opportunity comes up.
+          {{ $t('career.card_description') }}
         </p>
         <p
           v-else
           class="f-20 text-center mb-0 text--darken-3 px-10 font-weight-light mb-auto"
           style="color: #59595b; line-height: 30px"
         >
-          If you are willing to cooperate with us, please fill this form and share with us your resume. We will reach
-          you when the right opportunity comes up.
+          {{ $t('career.card_description') }}
         </p>
         <v-btn
           :class="[
@@ -184,7 +161,7 @@
           elevation="0"
           height="40"
         >
-          Click Here
+          {{ $t('career.card_action') }}
         </v-btn>
       </v-card>
       <div
@@ -195,7 +172,7 @@
         ]"
       >
         <h4 class="bel f-40 text-center text--darken-3 font-weight-regular mb-auto" style="color: #59595b">
-          Job positions
+          {{ $t('career.job_title') }}
         </h4>
         <div class="d-flex align-center justify-center">
           <JobsGrid />
@@ -233,6 +210,6 @@ export default {
 
 <style lang="scss">
 .desktop-screen-career {
-  max-width: 70vw;
+  max-width: 90vw;
 }
 </style>

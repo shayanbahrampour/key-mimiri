@@ -166,7 +166,7 @@
       </v-row>
     </v-sheet>
 
-    <v-sheet :max-width="globalMaxWidth" class="mx-auto">
+    <v-sheet v-if="items && items.length !== 0" :max-width="globalMaxWidth" class="mx-auto">
       <div :class="['d-flex align-center text-center', isMobile ? 'px-6 mt-10' : 'px-16']">
         <h2 :class="['bel grey--text text--darken-2 font-weight-regular d-block', isMobile ? 'f-40' : 'f-55']">
           {{ $t('impactPage.other_links') }}
@@ -182,7 +182,7 @@
 
       <client-only>
         <swiper
-          v-if="items.length !== 0"
+          v-if="items && items.length !== 0"
           id="impactSwiper"
           key="impactSwiper"
           :class="[`w-full m${isRTL ? 'l' : 'r'}-0`, isMobile ? 'mt-8 px-6' : 'my-8 px-16']"
@@ -193,6 +193,9 @@
             <ImpactCards :item="item" class="mt-2 mb-3" />
           </swiper-slide>
         </swiper>
+        <div v-else-if="!$fetchState.pending" class="mt-8 text-center">
+          {{ $t('impactPage.not_found') }}
+        </div>
       </client-only>
     </v-sheet>
 
@@ -207,7 +210,6 @@ import ImpactCards from '~/components/impact/ImpactCards.vue';
 import HomeTellUsStory from '~/components/home/HomeTellUsStory.vue';
 
 export default {
-  layout: 'impact',
   components: { HomeTellUsStory, ImpactCards },
   data() {
     return {
@@ -241,17 +243,27 @@ export default {
   async fetch() {
     try {
       const { data } = await this.$store.dispatch('impact/getList', { id: this.$route.params.id });
-      console.log(data.results);
+      console.log(data);
     } catch (e) {
       console.log(e);
     }
   },
-  async created() {
-    try {
-      const { data } = await this.$store.dispatch('impact/getList', { id: 'featured' });
-      this.items = data.results;
-    } catch (e) {
-      console.log(e);
+  created() {
+    this.getRelated();
+  },
+  methods: {
+    async getRelated(category_id) {
+      if (!category_id) return;
+
+      try {
+        const { data } = await this.$store.dispatch('impact/getList', {
+          page: 1,
+          id: 'featured'
+        });
+        this.items = data.results;
+      } catch (e) {
+        console.log(e);
+      }
     }
   }
 };

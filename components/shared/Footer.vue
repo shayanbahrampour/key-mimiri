@@ -7,9 +7,8 @@
         :max-width="globalMaxWidth"
         color="transparent"
       >
-        <div class="d-flex justify-center align-center flex-sm-row flex-column my-4">
+        <div v-if="isMobile" class="d-flex justify-center align-center flex-sm-row flex-column my-4">
           <v-img
-            v-if="isMobile"
             alt="cobel"
             class="w-full mb-4"
             contain
@@ -17,36 +16,10 @@
             max-width="250"
             src="/images/logo-text-white.svg"
           />
-
-          <template v-if="!horizontal">
-            <v-btn
-              :to="localePath('/contact')"
-              class="f-18 ma-2 px-14"
-              color="white"
-              depressed
-              exact
-              large
-              outlined
-              rounded
-            >
-              {{ $t('footer.contact') }}
-            </v-btn>
-            <v-btn
-              :to="localePath('/storytellers')"
-              class="f-18 ma-2 px-14"
-              color="white"
-              depressed
-              exact
-              large
-              rounded
-            >
-              {{ $t('footer.about') }}
-            </v-btn>
-          </template>
         </div>
 
-        <v-row v-if="!isMobile" :class="['justify-center', { 'mt-16': !horizontal }]">
-          <v-col v-for="(item, index) in items" :key="index" :lg="horizontal ? 2 : 3" cols="12" sm="6">
+        <v-row v-if="!isMobile" class="justify-center">
+          <v-col v-for="(item, index) in items" :key="index" order="2" lg="2" cols="12" sm="6">
             <h4 class="mb-3 f-15 text-start text-uppercase font-weight-regular pb-2 footer-title">
               {{ $t(item.title) }}
             </h4>
@@ -68,11 +41,11 @@
               </v-btn>
             </div>
           </v-col>
-          <v-col v-if="horizontal" cols="12" lg="3" sm="6">
-            <div class="d-flex flex-column align-end">
+          <v-col cols="12" lg="3" order-lg="3" order="1">
+            <div class="d-flex flex-lg-column align-lg-end align-center justify-center mb-lg-0 mb-12">
               <v-btn
                 :to="localePath('/storytellers')"
-                class="f-18 mb-4"
+                class="f-18 mb-lg-4 mx-lg-0 mx-3"
                 color="white"
                 depressed
                 exact
@@ -84,7 +57,7 @@
               </v-btn>
               <v-btn
                 :to="localePath('/contact')"
-                class="f-18"
+                class="f-18 mx-lg-0 mx-3"
                 color="white"
                 depressed
                 exact
@@ -166,12 +139,6 @@
 
 <script>
 export default {
-  props: {
-    horizontal: {
-      type: Boolean,
-      default: true
-    }
-  },
   computed: {
     items() {
       return [
@@ -252,16 +219,23 @@ export default {
 .footer-title {
   position: relative;
   z-index: 1;
+
+  &:before {
+    left: 0;
+    bottom: 0;
+    width: 30%;
+    content: '';
+    height: 1px;
+    position: absolute;
+    border-bottom: 1px solid white;
+    opacity: 0.2;
+  }
 }
 
-.footer-title:before {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 1px;
-  width: 30%;
-  border-bottom: 1px solid white;
-  opacity: 0.2;
+.v-application--is-rtl {
+  .footer-title:before {
+    left: auto !important;
+    right: 0;
+  }
 }
 </style>

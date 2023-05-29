@@ -140,7 +140,6 @@ export default {
       );
     },
     playerOptions() {
-      console.log(this.poster);
       return {
         fluid: true,
         muted: true,

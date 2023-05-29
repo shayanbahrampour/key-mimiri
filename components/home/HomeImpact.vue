@@ -31,17 +31,25 @@
     <v-sheet :max-width="globalMaxWidth" class="mx-auto">
       <client-only>
         <swiper
-          v-if="items.length !== 0"
           id="impactSwiper"
           key="impactSwiper"
           :class="[`w-full m${isRTL ? 'l' : 'r'}-0`, isMobile ? 'mt-8 px-6' : 'my-8 px-16']"
           :dir="isRTL ? 'rtl' : 'ltr'"
           :options="swiperOptions"
         >
-          <swiper-slide v-for="(item, index) in items" :key="index">
-            <ImpactCards :item="item" class="mt-2 mb-3" />
+          <template v-if="items.length !== 0">
+            <swiper-slide v-for="(item, index) in items" :key="index">
+              <ImpactCards :item="item" class="mt-2 mb-3" style="min-height: 400px" />
+            </swiper-slide>
+          </template>
+          <swiper-slide v-if="$fetchState.pending">
+            <v-progress-circular indeterminate style="min-height: 400px" />
           </swiper-slide>
         </swiper>
+
+        <div v-if="items.length === 0 && !$fetchState.pending" class="mt-8 text-center">
+          {{ $t('impactPage.not_found') }}
+        </div>
       </client-only>
     </v-sheet>
   </div>
@@ -59,29 +67,7 @@ export default {
       model: {
         category: null
       },
-      items: [
-        {
-          id: 1,
-          title: 'Woman empowerment future',
-          descriptions:
-            'Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women...',
-          src: '/images/temp/cover-1.jpg'
-        },
-        {
-          id: 2,
-          title: 'Rise from the society return to the society',
-          descriptions:
-            'Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women...',
-          src: '/images/temp/cover-5.png'
-        },
-        {
-          id: 2,
-          title: 'Rise from the society return to the society',
-          descriptions:
-            'Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women...',
-          src: '/images/temp/cover-1.jpg'
-        }
-      ],
+      items: [],
       swiperOptions: {
         spaceBetween: 32,
         slidesPerView: 1.1,
@@ -104,6 +90,23 @@ export default {
     ...mapGetters({
       categories: 'impact/categories'
     })
+  },
+  async fetch() {
+    try {
+      const { data } = await this.$store.dispatch('impact/getList', {
+        params: {
+          page: 1,
+          impact_story_category_id: this.model.category
+        }
+      });
+
+      this.items = data.results;
+    } catch (e) {
+      console.log(e);
+    }
+  },
+  created() {
+    if (this.categories && this.categories.length === 0) this.$store.dispatch('impact/getCategories');
   }
 };
 </script>

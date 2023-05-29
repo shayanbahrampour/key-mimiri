@@ -10,7 +10,7 @@
       :position="isRTL ? 'center left' : 'center right'"
       :style="`${isMobile ? 'top:-250px' : `${isRTL ? 'left' : 'right'}:-450px;bottom:0;top:0;`};`"
       :width="isMobile ? 400 : 650"
-      class="position-absolute my-auto z-0 rounded-circle"
+      :class="['position-absolute my-auto z-0 rounded-circle', { 'mx-auto start-0 end-0': isMobile }]"
       src="/images/temp/home.png"
     />
 
