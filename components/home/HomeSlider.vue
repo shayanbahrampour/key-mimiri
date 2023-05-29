@@ -1,7 +1,7 @@
 <template>
   <v-sheet
     :class="['position-relative mx-auto', { 'pb-16': isMobile }]"
-    :height="isMobile ? 'calc(100vh - 90px)' : 'calc(100vh - 120px - 30px)'"
+    :height="isMobile ? 'calc(100vh - 90px)' : 'calc(100vh - 120px)'"
     color="transparent"
     min-height="650"
   >

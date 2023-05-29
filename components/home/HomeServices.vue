@@ -4,10 +4,10 @@
       <v-sheet
         v-if="activeItem"
         :color="activeItem.color"
-        :height="isMobile ? 400 : 500"
-        :width="isMobile ? 400 : 500"
+        :height="isMobile ? 400 : 450"
+        :width="isMobile ? 400 : 450"
         class="position-absolute z-1 top-0 end-0 start-0 mx-auto rounded-circle"
-        style="mix-blend-mode: color; margin-top: -100px; opacity: 0.69"
+        style="mix-blend-mode: color; margin-top: -70px; opacity: 0.69"
       />
     </v-fade-transition>
 

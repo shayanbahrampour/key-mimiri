@@ -25,9 +25,9 @@
       />
 
       <template v-if="!isMobile">
-        <v-row v-if="items.length" class="my-8">
+        <v-row v-if="items.length" class="my-8" align="stretch">
           <v-col v-for="(item, index) in items" :key="index" cols="12" md="6" xl="4">
-            <ImpactCards :item="item" />
+            <ImpactCards :item="item" class="h-full" />
           </v-col>
         </v-row>
         <div v-else-if="!$fetchState.pending" class="mt-8">
