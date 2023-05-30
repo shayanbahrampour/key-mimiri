@@ -22,6 +22,7 @@
     />
 
     <v-img
+      v-if="!options.autoplay"
       :height="isMobile ? 40 : 120"
       :max-height="isMobile ? 40 : 120"
       :max-width="isMobile ? 40 : 120"
