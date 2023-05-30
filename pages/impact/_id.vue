@@ -252,13 +252,12 @@ export default {
     this.getRelated();
   },
   methods: {
-    async getRelated(category_id) {
-      if (!category_id) return;
-
+    async getRelated() {
       try {
         const { data } = await this.$store.dispatch('impact/getList', {
-          page: 1,
-          id: 'featured'
+          params: {
+            page: 1
+          }
         });
         this.items = data.results;
       } catch (e) {
