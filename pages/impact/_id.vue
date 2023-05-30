@@ -110,7 +110,6 @@
     <div :class="{ 'px-16': !isMobile }">
       <client-only>
         <VideoLoader
-          ref="impact-video"
           class="w-full"
           :options="{
             poster: '/images/temp/cover-4.png',

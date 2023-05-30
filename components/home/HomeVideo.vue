@@ -3,14 +3,13 @@
     <div class="position-relative">
       <client-only>
         <VideoLoader
-          ref="home-video"
           class="w-full"
           :options="{
             poster: '/images/temp/cover-6.png',
             sources: [
               {
                 type: 'video/mp4',
-                src: '/video/temp-2.mp4'
+                src: '/video/temp.mp4'
               }
             ]
           }"

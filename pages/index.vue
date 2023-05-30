@@ -16,9 +16,10 @@ import HomeImpact from '~/components/home/HomeImpact.vue';
 import HomeSlider from '~/components/home/HomeSlider.vue';
 import HomeTellUsStory from '~/components/home/HomeTellUsStory.vue';
 import HomeStoryTellers from '~/components/home/HomeStoryTellers.vue';
+import VideoLoader from '~/components/shared/VideoLoader.vue';
 
 export default {
-  components: { HomeServices, HomeImpact, HomeStoryTellers, HomeTellUsStory, HomeVideo, HomeSlider },
+  components: { VideoLoader, HomeServices, HomeImpact, HomeStoryTellers, HomeTellUsStory, HomeVideo, HomeSlider },
   head() {
     return {
       title: this.$t('pageTitles.index')

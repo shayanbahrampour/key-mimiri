@@ -11,15 +11,16 @@
       aspectRatio: '16:9',
       ...options
     }"
+    preload="none"
     playsinline
-    :events="['fullscreenchange']"
-    @ready="onReady"
-    @ended="onEnded"
-    @pause="flag.isPlaying = false"
-    @play="flag.isPlaying = true"
-    @fullscreenchange="onFullscreen"
     :style="height ? `height: ${height}px; max-height: ${height}px; min-height: ${height}px;` : ''"
   />
+  <!--  :events="['fullscreenchange']"-->
+  <!--  @ready="onReady"-->
+  <!--  @ended="onEnded"-->
+  <!--  @pause="flag.isPlaying = false"-->
+  <!--  @play="flag.isPlaying = true"-->
+  <!--  @fullscreenchange="onFullscreen"-->
 </template>
 
 <script>

@@ -98,7 +98,6 @@
     <div class="w-full">
       <client-only>
         <VideoLoader
-          ref="career-video"
           class="w-full"
           :options="{
             poster: '/images/temp/cover-6.png',
