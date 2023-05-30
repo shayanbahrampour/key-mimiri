@@ -1,9 +1,9 @@
 <template>
   <v-sheet
     :class="['position-relative mx-auto', { 'pb-8': isMobile }]"
-    :height="isMobile ? 'calc(100vh - 70px)' : 'calc(100vh - 120px)'"
+    height="calc(100vh - 120px)"
     color="transparent"
-    min-height="650"
+    min-height="600"
   >
     <v-img
       :height="isMobile ? 400 : 650"
@@ -22,11 +22,12 @@
     >
       <v-row>
         <v-col cols="12" lg="8" md="9">
-          <h1 :class="['bel grey--text text--darken-2 font-weight-regular mb-8', isMobile ? 'f-50 pt-10' : 'f-70']">
+          <h1 :class="['bel grey--text text--darken-2 font-weight-regular mb-8', isMobile ? 'f-45 pt-16' : 'f-70']">
             {{ $t('homePage.slider.title') }}
           </h1>
 
           <v-btn
+            v-if="!isMobile"
             :block="isMobile"
             :class="['f-18 text-capitalize grey--text', { 'ml-n4': !isMobile }]"
             depressed
@@ -51,22 +52,6 @@
         </v-col>
       </v-row>
     </v-sheet>
-
-    <v-btn
-      v-if="isMobile"
-      block
-      class="f-18 position-absolute bottom-0 text-capitalize grey--text text--darken-2 mb-16"
-      depressed
-      exact
-      large
-      rounded
-      text
-    >
-      <div class="d-flex flex-column justify-center align-center">
-        <div>{{ $t('homePage.slider.swipe_down') }}</div>
-        <v-icon class="mt-2">mdi-chevron-double-down</v-icon>
-      </div>
-    </v-btn>
   </v-sheet>
 </template>
 

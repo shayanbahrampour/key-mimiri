@@ -190,7 +190,7 @@
           :options="swiperOptions"
         >
           <swiper-slide v-for="(item, index) in items" :key="index">
-            <ImpactCards :item="item" class="mt-2 mb-3" />
+            <ImpactCards :item="item" class="mt-2 mb-3" :style="`border-radius: 80px`" />
           </swiper-slide>
         </swiper>
         <div v-else-if="!$fetchState.pending" class="mt-8 text-center">

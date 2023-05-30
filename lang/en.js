@@ -104,8 +104,7 @@ export default {
     slider: {
       title: 'Unleashing the next level health solutions',
       more_about: 'More About',
-      cobel_group: 'Cobel Group',
-      swipe_down: 'Swipe Down...'
+      cobel_group: 'Cobel Group'
     },
     services: {
       slider: {

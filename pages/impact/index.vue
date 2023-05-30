@@ -6,6 +6,11 @@
           src: '/images/temp/cover-5.png',
           title: $t('impactPage.slider.title'),
           description: $t('impactPage.slider.description')
+        },
+        {
+          src: '/images/temp/cover-4.png',
+          title: $t('impactPage.slider.title'),
+          description: $t('impactPage.slider.description')
         }
       ]"
     />
@@ -24,34 +29,15 @@
         "
       />
 
-      <template v-if="!isMobile">
-        <v-row v-if="items.length" class="my-8" align="stretch">
-          <v-col v-for="(item, index) in items" :key="index" cols="12" md="6" xl="4">
-            <ImpactCards :item="item" class="h-full" />
-          </v-col>
-        </v-row>
-        <div v-else-if="!$fetchState.pending" class="mt-8">
-          {{ $t('impactPage.not_found') }}
-        </div>
-      </template>
-    </v-sheet>
-    <client-only v-if="isMobile">
-      <swiper
-        v-if="items && items.length !== 0"
-        id="impactSwiper"
-        key="impactSwiper"
-        :class="['w-full px-6', isMobile ? 'mt-8 mb-16' : 'my-8']"
-        :dir="isRTL ? 'rtl' : 'ltr'"
-        :options="swiperOptions"
-      >
-        <swiper-slide v-for="(item, index) in items" :key="index">
-          <ImpactCards :item="item" class="mt-2 mb-3" />
-        </swiper-slide>
-      </swiper>
+      <v-row v-if="items.length" class="my-8" align="stretch">
+        <v-col v-for="(item, index) in items" :key="index" cols="12" md="6" xl="4">
+          <ImpactCards :item="item" class="h-full" :style="`border-radius: 80px`" />
+        </v-col>
+      </v-row>
       <div v-else-if="!$fetchState.pending" class="mt-8">
         {{ $t('impactPage.not_found') }}
       </div>
-    </client-only>
+    </v-sheet>
 
     <div v-if="$fetchState.pending" class="d-flex align-center justify-center">
       <v-progress-circular indeterminate class="mx-auto" />
