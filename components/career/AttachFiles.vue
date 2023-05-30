@@ -9,26 +9,56 @@
       </p>
       <v-row class="align-start justify-center">
         <v-col :class="isMobile ? 'pb-0' : undefined" cols="12" md="6">
-          <v-text-field class="mb-9" dense filled hide-details label="Cover letter" rounded></v-text-field>
-          <v-text-field
+          <v-file-input
+            v-model="model.coverLetter"
             class="mb-9"
+            :append-icon="model.coverLetter ? false : 'mdi-file-upload slategrey--text'"
+            clear-icon="mdi-delete black--text"
+            :prepend-icon="false"
+            dense
+            filled
+            hide-details
+            label="Cover letter"
+            rounded
+          ></v-file-input>
+          <v-file-input
+            v-model="model.address"
+            class="mb-9"
+            :append-icon="model.address ? false : 'mdi-file-upload slategrey--text'"
+            clear-icon="mdi-delete black--text"
+            :prepend-icon="false"
             dense
             filled
             hide-details
             label="Letter addressing key selection criteria"
             rounded
-          ></v-text-field>
+          ></v-file-input>
         </v-col>
         <v-col :class="isMobile ? 'pt-0' : undefined" cols="12" md="6">
-          <v-text-field class="mb-9" dense filled hide-details label="Curriculum Vitae" rounded></v-text-field>
-          <v-text-field
+          <v-file-input
+            v-model="model.vitae"
             class="mb-9"
+            :append-icon="model.vitae ? false : 'mdi-file-upload slategrey--text'"
+            clear-icon="mdi-delete black--text"
+            :prepend-icon="false"
+            dense
+            filled
+            hide-details
+            label="Curriculum Vitae"
+            rounded
+          ></v-file-input>
+          <v-file-input
+            v-model="model.material"
+            class="mb-9"
+            :append-icon="model.material ? false : 'mdi-file-upload slategrey--text'"
+            clear-icon="mdi-delete black--text"
+            :prepend-icon="false"
             dense
             filled
             hide-details
             label="Supplementary material (optional)"
             rounded
-          ></v-text-field>
+          ></v-file-input>
         </v-col>
       </v-row>
     </div>
@@ -39,7 +69,13 @@
 export default {
   data() {
     return {
-      valid: null
+      valid: null,
+      model: {
+        coverLetter: null,
+        material: null,
+        address: null,
+        vitae: null
+      }
     };
   }
 };
