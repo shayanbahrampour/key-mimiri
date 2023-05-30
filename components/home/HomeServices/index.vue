@@ -42,7 +42,7 @@
           'h-full w-full d-flex justify-center mx-auto z-4 white--text position-absolute top-0 start-0 end-0',
           isMobile ? 'py-4 px-5 align-end' : 'px-16 pt-16 align-center'
         ]"
-        :style="`max-width: ${globalMaxWidth}px; padding-bottom: 170px;`"
+        :style="`max-width: ${globalMaxWidth}px; padding-bottom: 150px;`"
       >
         <div class="w-full">
           <h3
@@ -100,9 +100,9 @@
         <div
           :class="[
             'font-weight-regular bel grey--text text--darken-2 text-center flex-shrink-0',
-            isMobile ? 'mb-4 text-center f-65' : 'f-60'
+            isMobile ? 'mb-4 text-center f-65' : 'text-end f-60'
           ]"
-          :style="`width: ${isMobile ? '100%' : '300px'}`"
+          :style="`width: ${isMobile ? '100%' : '250px'}`"
         >
           HRQoL
         </div>
