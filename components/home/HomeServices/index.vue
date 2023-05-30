@@ -1,7 +1,7 @@
 <template>
   <div :class="['home-services position-relative z-0', { 'mt-16': isMobile }]">
     <div class="slategrey position-relative">
-      <v-fade-transition leave-absolute hide-on-leave>
+      <v-fade-transition hide-on-leave leave-absolute>
         <v-sheet
           v-if="activeItem"
           :color="activeItem.color"
@@ -15,11 +15,11 @@
         v-model="active"
         :interval="5000"
         :show-arrows="false"
+        class="position-relative z-0"
         continuous
         cycle
         hide-delimiters
         mandatory
-        class="position-relative z-0"
       >
         <v-carousel-item
           v-for="(item, i) in shapes"

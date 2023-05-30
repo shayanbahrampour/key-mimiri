@@ -1,64 +1,34 @@
 <template>
   <v-app-bar
     v-if="!isMobile"
-    :class="[!isMobile ? 'head-container' : undefined]"
-    :height="isMobile ? 400 : 320"
-    :hide-on-scroll="!isMobile"
-    :scroll-threshold="120"
-    :style="`${!isMobile ? 'margin-top: 120px' : 'margin-top: 60px'}`"
+    class="head-container"
     color="slategrey"
+    elevate-on-scroll
     fixed
     flat
+    height="320"
+    style="margin-top: 120px"
     tile
   >
-    <div :class="['d-flex', isMobile ? 'mt-8 px-4 justify-center' : 'mt-16 mb-8 px-8 justify-space-between']">
+    <div class="d-flex mt-16 mb-8 px-8 justify-space-between">
       <div class="d-flex">
-        <div
-          :class="[
-            'd-flex flex-column justify-center',
-            isMobile
-              ? 'align-center mobile-contact container-scrolled-mobile'
-              : 'align-start ml-4 desktop-contact container-scrolled-des'
-          ]"
-        >
+        <div class="d-flex flex-column justify-center align-start ml-4 desktop-contact container-scrolled-des">
           <div>
-            <h2
-              :class="[
-                'bel white--text mb-0 text--darken-3 font-weight-regular',
-                isMobile ? 'text-center f-36 header-mobile' : 'f-60 header-des'
-              ]"
-            >
+            <h2 class="bel white--text mb-0 text--darken-3 font-weight-regular f-60 header-des">
               Senior project manager
             </h2>
-            <p
-              v-if="isMobile"
-              class="font-weight-light mt-6 f-20 mb-6 text-center white--text"
-              style="max-width: 500px; line-height: 2"
-            >
-              Who advises that all women in their reproductive ages, whether having Iron deficiency or not, are required
-              to consume 60 mg of iron supple ments per week.
-            </p>
-            <p
-              v-if="!isMobile"
-              :class="[
-                'white--text mb-0 text--darken-3 font-weight-light description-des',
-                isMobile ? 'mt-4 text-center  f-18' : 'f-20 mt-0 mb-10'
-              ]"
-            >
+            <p class="white--text mb-0 text--darken-3 font-weight-light description-des f-20 mt-0 mb-10">
               Who advises that all women in their reproductive ages, whether having Iron deficiency or not, are required
               to consume 60 mg of iron supplements per week.
             </p>
           </div>
           <v-btn
-            :class="[
-              'rounded-xl d-flex justify-center white--text font-weight-regular',
-              isMobile ? 'f-20 mb-6' : 'f-14 mt-10 mb-6'
-            ]"
-            :min-width="!isMobile ? '250' : '100%'"
             :to="`/career/forum?job=${true}`"
+            class="rounded-xl d-flex justify-center white--text font-weight-regular f-14 mt-10 mb-6"
             color="#A01E64"
             elevation="0"
             height="50"
+            min-width="250"
           >
             APPLY NOW
           </v-btn>
@@ -66,37 +36,21 @@
       </div>
     </div>
   </v-app-bar>
-
-  <div
-    v-else
-    :class="['d-flex', isMobile ? 'py-6 px-4 justify-center slategrey' : 'mt-16 mb-8 px-16 justify-space-between']"
-  >
+  <div v-else class="d-flex py-6 px-4 justify-center slategrey">
     <div class="d-flex">
-      <div
-        :class="[
-          'd-flex flex-column justify-center',
-          isMobile ? 'align-center mobile-contact' : 'align-start ml-4 desktop-contact'
-        ]"
-      >
-        <p
-          :class="['bel white--text mb-0 text--darken-3 font-weight-regular', isMobile ? 'text-center f-36' : 'f-60 ']"
-        >
-          Senior project manager
-        </p>
+      <div class="d-flex flex-column justify-center align-center mobile-contact">
+        <p class="bel white--text mb-0 text--darken-3 font-weight-regular text-center f-36">Senior project manager</p>
         <p class="font-weight-light mt-6 f-20 mb-6 text-center white--text" style="max-width: 500px; line-height: 2">
           Who advises that all women in their reproductive ages, whether having Iron deficiency or not, are required to
-          consume 60 mg of iron supple ments per week.
+          consume 60 mg of iron supplements per week.
         </p>
         <v-btn
-          :class="[
-            'rounded-xl d-flex justify-center white--text font-weight-regular',
-            isMobile ? 'f-20 mb-6' : 'f-14 mt-16 mb-0'
-          ]"
-          :min-width="!isMobile ? '250' : '100%'"
           :to="`/career/forum?job=${true}`"
+          class="rounded-xl d-flex justify-center white--text font-weight-regular f-20 mb-6"
           color="#A01E64"
           elevation="0"
           height="50"
+          min-width="100%"
         >
           APPLY NOW
         </v-btn>
@@ -112,12 +66,8 @@ export default {};
 <style lang="scss">
 .head-container.v-app-bar {
   &.v-app-bar--is-scrolled {
-    transition: all ease-in 0.2s !important;
-    box-shadow: 0 17px 13px -13px rgba(0, 0, 0, 0.2) !important;
-  }
-
-  &.v-app-bar--hide-shadow {
     transform: none !important;
+    transition: all ease-in 0.2s !important;
     box-shadow: 0 17px 13px -13px rgba(0, 0, 0, 0.2) !important;
 
     &,
@@ -143,7 +93,7 @@ export default {};
       align-items: center !important;
 
       .v-btn {
-        margin-top: 0px !important;
+        margin-top: 0 !important;
         position: absolute;
         right: 82px !important;
       }
@@ -159,28 +109,6 @@ export default {};
         position: absolute;
         right: 82px !important;
       }
-    }
-
-    .logo-container {
-      height: 56px;
-      transition: all ease-in 0.2s !important;
-
-      > div {
-        bottom: 0;
-        min-height: 90px;
-        transition: all ease-in 0.2s !important;
-      }
-    }
-  }
-
-  .logo-container {
-    height: 120px;
-    transition: all ease-out 0.2s !important;
-
-    > div {
-      bottom: 90px;
-      min-height: 120px;
-      transition: all ease-out 0.2s !important;
     }
   }
 

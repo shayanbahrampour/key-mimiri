@@ -1,8 +1,8 @@
 <template>
   <v-sheet
+    :height="isMobile ? 'calc(100vh - 180px)' : 'calc(100vh - 120px)'"
     class="position-relative mx-auto"
     color="transparent"
-    :height="isMobile ? 'calc(100vh - 180px)' : 'calc(100vh - 120px)'"
     min-height="550"
   >
     <v-img

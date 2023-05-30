@@ -1,15 +1,6 @@
 <template>
   <div :style="{ height: isMobile ? '70px' : '120px' }">
-    <v-app-bar
-      :height="isMobile ? 70 : 120"
-      :scroll-threshold="120"
-      class="appbar"
-      color="white"
-      fixed
-      flat
-      hide-on-scroll
-      tile
-    >
+    <v-app-bar :height="isMobile ? 70 : 120" class="appbar" color="white" elevate-on-scroll fixed flat tile>
       <v-sheet
         :class="['mx-auto d-flex align-center h-full w-full', { 'px-12': !isMobile }]"
         :max-width="globalMaxWidth"
@@ -96,12 +87,8 @@ export default {
 <style lang="scss">
 .appbar.v-app-bar {
   &.v-app-bar--is-scrolled {
-    transition: all ease-in 0.2s !important;
-    box-shadow: 0 17px 13px -13px rgba(0, 0, 0, 0.2) !important;
-  }
-
-  &.v-app-bar--hide-shadow {
     transform: none !important;
+    transition: all ease-in 0.2s !important;
     box-shadow: 0 17px 13px -13px rgba(0, 0, 0, 0.2) !important;
 
     &,
