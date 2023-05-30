@@ -44,22 +44,20 @@
         ]"
         :style="`max-width: ${globalMaxWidth}px; padding-bottom: 170px;`"
       >
-        <v-fade-transition>
-          <div v-if="flag.showContent" class="w-full">
-            <h3
-              :class="`bel font-weight-regular mb-5 ${isMobile ? 'f-35 text-center' : 'f-65'}`"
-              :style="`${!isMobile && 'max-width: 900px'};`"
-            >
-              {{ $t('homePage.services.slider.title') }}
-            </h3>
-            <div
-              :class="`font-weight-light m${isRTL ? 'r' : 'l'}-auto ${isMobile ? 'text-center f-20' : 'f-22'}`"
-              :style="`line-height: 32px; ${!isMobile && 'max-width: 450px;'}`"
-            >
-              {{ $t('homePage.services.slider.description') }}
-            </div>
+        <div class="w-full">
+          <h3
+            :class="`bel font-weight-regular mb-5 ${isMobile ? 'f-35 text-center' : 'f-65'}`"
+            :style="`${!isMobile && 'max-width: 900px'};`"
+          >
+            {{ $t('homePage.services.slider.title') }}
+          </h3>
+          <div
+            :class="`font-weight-light m${isRTL ? 'r' : 'l'}-auto ${isMobile ? 'text-center f-20' : 'f-22'}`"
+            :style="`line-height: 32px; ${!isMobile && 'max-width: 450px;'}`"
+          >
+            {{ $t('homePage.services.slider.description') }}
           </div>
-        </v-fade-transition>
+        </div>
       </div>
       <v-sheet
         v-if="!isMobile"
@@ -106,7 +104,7 @@
           ]"
           :style="`width: ${isMobile ? '100%' : '300px'}`"
         >
-          HRQOL
+          HRQoL
         </div>
         <BallContents v-if="!isMobile" :item="activeItem" />
 
@@ -134,10 +132,7 @@ export default {
   data() {
     return {
       active: 0,
-      activeItem: null,
-      flag: {
-        showContent: false
-      }
+      activeItem: null
     };
   },
   computed: {
@@ -210,12 +205,7 @@ export default {
     active: {
       immediate: true,
       handler() {
-        this.flag.showContent = false;
         this.activeItem = this.shapes[this.active];
-
-        setTimeout(() => {
-          this.flag.showContent = true;
-        }, 500);
       }
     }
   }
