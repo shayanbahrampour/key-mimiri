@@ -22,16 +22,16 @@
         </div>
       </div>
       <div :class="[isMobile ? 'mt-6' : undefined]">
-        <v-btn height="50" min-width="50" width="50" outlined style="border-radius: 35%; border: 3px solid white">
+        <v-btn height="50" min-width="50" outlined style="border-radius: 35%; border: 3px solid white" width="50">
           <v-img height="20" max-width="20" src="/images/icons/linkedin.png" />
         </v-btn>
         <v-btn
           class="ml-4"
           height="50"
           min-width="50"
-          width="50"
           outlined
           style="border-radius: 35%; border: 3px solid white"
+          width="50"
         >
           <v-img height="20" max-width="20" src="/images/icons/whatsapp.png" />
         </v-btn>
@@ -39,9 +39,9 @@
           class="ml-4"
           height="50"
           min-width="50"
-          width="50"
           outlined
           style="border-radius: 35%; border: 3px solid white"
+          width="50"
         >
           <v-img height="20" max-width="20" src="/images/icons/telegram.png" />
         </v-btn>
@@ -74,10 +74,10 @@
         <v-expansion-panel-header
           class="pa-0 ma-0 white--text justify-center f-20 font-weight-bold bg-transparent"
           hide-actions
-          @click="seeMore = !seeMore"
           style="height: 20px; margin-top: -12px !important"
-          >{{ seeMore ? 'see less' : 'see more' }}</v-expansion-panel-header
-        >
+          @click="seeMore = !seeMore"
+          >{{ seeMore ? 'see less' : 'see more' }}
+        </v-expansion-panel-header>
       </v-expansion-panel>
     </v-expansion-panels>
     <p

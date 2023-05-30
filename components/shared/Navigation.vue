@@ -54,7 +54,7 @@
       </v-sheet>
     </v-app-bar>
 
-    <v-navigation-drawer v-if="isMobile" v-model="flag.showDrawer" app fixed :right="isRTL">
+    <v-navigation-drawer v-if="isMobile" v-model="flag.showDrawer" :right="isRTL" app fixed>
       <v-list class="my-4" nav>
         <template v-for="(item, index) in items">
           <v-list-item :key="index" :to="item.path ? item.path : undefined" color="primary" exact link>

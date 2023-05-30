@@ -6,9 +6,9 @@
         color="slategrey"
         height="50"
         min-width="50"
-        width="50"
         outlined
         style="border-radius: 35%; border: 3px solid slategrey"
+        width="50"
       >
         <v-img height="18" max-width="18" src="/images/icons/linkedin-primary.png" />
       </v-btn>
@@ -16,9 +16,9 @@
         class="ml-4"
         height="50"
         min-width="50"
-        width="50"
         outlined
         style="border-radius: 35%; border: 3px solid slategrey"
+        width="50"
       >
         <v-img height="18" max-width="18" src="/images/icons/whatsapp-primary.png" />
       </v-btn>
@@ -26,9 +26,9 @@
         class="ml-4"
         height="50"
         min-width="50"
-        width="50"
         outlined
         style="border-radius: 35%; border: 3px solid slategrey"
+        width="50"
       >
         <v-img height="18" max-width="18" src="/images/icons/telegram-primary.png" />
       </v-btn>

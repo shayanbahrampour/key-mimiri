@@ -4,15 +4,15 @@
       <v-sheet
         v-if="activeItem"
         :color="activeItem.color"
-        height="400"
-        width="400"
         class="position-absolute z-1 top-0 end-0 start-0 mx-auto rounded-circle"
+        height="400"
         style="mix-blend-mode: color; margin-top: -70px; opacity: 0.69"
+        width="400"
       />
     </v-fade-transition>
 
     <div class="position-relative z-0 slategrey" style="min-height: 500px">
-      <v-carousel v-model="active" cycle continuous hide-delimiters :show-arrows="false" :interval="5000" mandatory>
+      <v-carousel v-model="active" :interval="5000" :show-arrows="false" continuous cycle hide-delimiters mandatory>
         <v-carousel-item
           v-for="(item, i) in shapes"
           :key="i"
@@ -26,8 +26,8 @@
             style="mix-blend-mode: color"
           />
           <v-sheet
-            color="transparent"
             class="w-full h-full position-absolute top-0 start-0 z-0 home-services-gradient"
+            color="transparent"
           />
         </v-carousel-item>
       </v-carousel>
@@ -39,7 +39,7 @@
         :style="`max-width: ${globalMaxWidth}px; padding-bottom: 130px;`"
       >
         <v-fade-transition>
-          <div class="w-full" v-if="flag.showContent">
+          <div v-if="flag.showContent" class="w-full">
             <h3
               :class="`bel font-weight-regular mb-3 ${isMobile ? 'f-35 text-center' : 'f-70'}`"
               :style="`${!isMobile && 'max-width: 900px'};`"
@@ -82,8 +82,8 @@
         'mx-auto position-relative z-0 d-flex justify-end',
         isMobile ? 'px-4 align-end' : 'px-lg-16 px-4 align-center'
       ]"
-      :min-height="isMobile ? 400 : 500"
       :max-width="globalMaxWidth"
+      :min-height="isMobile ? 400 : 500"
       color="transparent"
     >
       <div

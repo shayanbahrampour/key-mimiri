@@ -1,4 +1,3 @@
-import locales from './lang';
 import fa from './lang/fa';
 import en from './lang/en';
 

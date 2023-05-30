@@ -20,8 +20,8 @@
         src="/images/home/home_video_button.svg"
       />
       <v-sheet
-        :max-width="globalMaxWidth"
         :class="['position-relative z-1 mx-auto white--text w-full', isMobile ? 'px-6' : 'px-16']"
+        :max-width="globalMaxWidth"
         color="transparent"
       >
         <v-row align="center" dense>

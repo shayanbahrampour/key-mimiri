@@ -1,16 +1,17 @@
 <template>
   <v-app-bar
     v-if="!isMobile"
-    :height="isMobile ? 400 : 320"
-    :scroll-threshold="120"
     :class="[!isMobile ? 'head-container' : undefined]"
+    :height="isMobile ? 400 : 320"
+    :hide-on-scroll="!isMobile"
+    :scroll-threshold="120"
+    :style="`${!isMobile ? 'margin-top: 120px' : 'margin-top: 60px'}`"
     color="slategrey"
     fixed
     flat
-    :hide-on-scroll="!isMobile"
     tile
-    :style="`${!isMobile ? 'margin-top: 120px' : 'margin-top: 60px'}`"
-    ><div :class="['d-flex', isMobile ? 'mt-8 px-4 justify-center' : 'mt-16 mb-8 px-8 justify-space-between']">
+  >
+    <div :class="['d-flex', isMobile ? 'mt-8 px-4 justify-center' : 'mt-16 mb-8 px-8 justify-space-between']">
       <div class="d-flex">
         <div
           :class="[
@@ -63,8 +64,8 @@
           </v-btn>
         </div>
       </div>
-    </div></v-app-bar
-  >
+    </div>
+  </v-app-bar>
 
   <div
     v-else
@@ -135,10 +136,12 @@ export default {};
       font-size: 16px !important;
       max-width: 90% !important;
     }
+
     .container-scrolled-des {
       margin-top: -110px !important;
       flex-direction: row !important;
       align-items: center !important;
+
       .v-btn {
         margin-top: 0px !important;
         position: absolute;
@@ -150,6 +153,7 @@ export default {};
       margin-top: -210px !important;
       flex-direction: row !important;
       align-items: center !important;
+
       .v-btn {
         margin-top: 0px !important;
         position: absolute;

@@ -13,7 +13,7 @@
       >
         <div :class="['d-flex font-weight-light', isMobile ? 'w-full flex-wrap' : undefined]" style="width: 50%">
           <p :class="['f-16', isMobile ? 'mb-6 mr-10' : 'mb-0 mr-6']" style="color: #939393">
-            <v-icon v-if="isMobile" class="mr-1" size="16">mdi-clock-outline </v-icon>
+            <v-icon v-if="isMobile" class="mr-1" size="16">mdi-clock-outline</v-icon>
             {{ !isMobile ? 'Read time: 13min' : '13min' }}
           </p>
           <p :class="['f-16', isMobile ? 'mb-6 mr-10' : 'mb-0 mr-6']" style="color: #939393">
@@ -44,8 +44,8 @@
             and are committed to
           </p>
           <v-divider v-if="!isMobile" class="mt-16" style="width: 400px"></v-divider>
-          <v-container :class="['px-0 d-flex', isMobile ? 'justify-center' : undefined]" fluid
-            ><FeatureSelection />
+          <v-container :class="['px-0 d-flex', isMobile ? 'justify-center' : undefined]" fluid>
+            <FeatureSelection />
           </v-container>
         </v-col>
         <v-col cols="12" lg="5" md="4">

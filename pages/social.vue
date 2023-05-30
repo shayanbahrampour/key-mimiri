@@ -14,9 +14,9 @@
     <v-img
       :class="[!isMobile ? 'mt-0' : 'mt-10']"
       max-height="500"
-      width="100vw"
       src="/images/video_content/social.png"
       style="z-index: 2 !important"
+      width="100vw"
     />
     <div :class="[isMobile ? 'text-start px-6 h-full psy-screen d-flex flex-column' : 'text-center ma-16 px-16']">
       <div class="d-flex relative-container-social">

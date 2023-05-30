@@ -19,7 +19,7 @@
         </div>
 
         <v-row v-if="!isMobile" class="justify-center">
-          <v-col v-for="(item, index) in items" :key="index" order="2" lg="2" cols="12" sm="6">
+          <v-col v-for="(item, index) in items" :key="index" cols="12" lg="2" order="2" sm="6">
             <h4 class="mb-3 f-15 text-start text-uppercase font-weight-regular pb-2 footer-title">
               {{ $t(item.title) }}
             </h4>
@@ -41,7 +41,7 @@
               </v-btn>
             </div>
           </v-col>
-          <v-col cols="12" lg="3" order-lg="3" order="1">
+          <v-col cols="12" lg="3" order="1" order-lg="3">
             <div class="d-flex flex-lg-column align-lg-end align-center justify-center mb-lg-0 mb-12">
               <v-btn
                 :to="localePath('/storytellers')"
@@ -122,8 +122,8 @@
             height="55"
             min-width="55"
             outlined
-            width="55"
             style="border-radius: 35%; border: 3px solid white"
+            width="55"
           >
             <v-img contain height="24" src="/images/social/linkedin.svg" width="24" />
           </v-btn>

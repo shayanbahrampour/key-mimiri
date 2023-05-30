@@ -123,6 +123,7 @@ export default {
 .desktop-contact {
   max-width: 70vw !important;
 }
+
 .scrolled-desktop {
   margin-top: 320px !important;
 }

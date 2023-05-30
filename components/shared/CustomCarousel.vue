@@ -51,7 +51,7 @@
                 {{ activeSlide.title }}
               </h2>
             </v-col>
-            <v-col cols="12" lg="6" offset-lg="1" :class="isMobile && 'text-center'">
+            <v-col :class="isMobile && 'text-center'" cols="12" lg="6" offset-lg="1">
               <p class="f-22 white--text font-weight-light mt-lg-0">
                 {{ activeSlide.description }}
               </p>
