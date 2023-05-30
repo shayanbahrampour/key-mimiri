@@ -1,14 +1,15 @@
 <template>
-  <div :style="{ height: isMobile ? '70px' : '120px' }">
+  <div>
     <v-app-bar
       :height="isMobile ? 70 : 120"
-      :scroll-threshold="120"
       class="appbar"
       color="white"
+      elevate-on-scroll
       fixed
+      app
       flat
-      hide-on-scroll
       tile
+      :scroll-threshold="isMobile ? 70 : 120"
     >
       <v-sheet
         :class="['mx-auto d-flex align-center h-full w-full', { 'px-12': !isMobile }]"
@@ -30,7 +31,7 @@
 
         <v-spacer />
 
-        <template v-if="!isMobile">
+        <template v-if="$vuetify.breakpoint.mdAndUp">
           <v-btn
             v-for="(item, index) in items"
             :key="index"
@@ -47,14 +48,14 @@
           </v-btn>
         </template>
 
-        <v-icon v-if="isMobile" @click="flag.showDrawer = !flag.showDrawer">mdi-menu</v-icon>
+        <v-icon v-if="$vuetify.breakpoint.smAndDown" @click="flag.showDrawer = !flag.showDrawer">mdi-menu</v-icon>
 
         <v-btn v-if="$i18n.locale === 'en'" :to="switchLocalePath('fa')" class="mx-1" color="primary" icon> Fa</v-btn>
         <v-btn v-else :to="switchLocalePath('en')" class="mx-1" color="primary" icon>En</v-btn>
       </v-sheet>
     </v-app-bar>
 
-    <v-navigation-drawer v-if="isMobile" v-model="flag.showDrawer" app fixed :right="isRTL">
+    <v-navigation-drawer v-if="$vuetify.breakpoint.smAndDown" v-model="flag.showDrawer" :right="isRTL" app fixed>
       <v-list class="my-4" nav>
         <template v-for="(item, index) in items">
           <v-list-item :key="index" :to="item.path ? item.path : undefined" color="primary" exact link>
@@ -96,12 +97,8 @@ export default {
 <style lang="scss">
 .appbar.v-app-bar {
   &.v-app-bar--is-scrolled {
-    transition: all ease-in 0.2s !important;
-    box-shadow: 0 17px 13px -13px rgba(0, 0, 0, 0.2) !important;
-  }
-
-  &.v-app-bar--hide-shadow {
     transform: none !important;
+    transition: all ease-in 0.2s !important;
     box-shadow: 0 17px 13px -13px rgba(0, 0, 0, 0.2) !important;
 
     &,

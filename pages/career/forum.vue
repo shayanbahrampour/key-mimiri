@@ -38,7 +38,7 @@
       </div>
     </div>
     <div
-      :class="['d-flex flex-column align-start white', isMobile ? 'px-4 f-16' : 'px-16 pb-16']"
+      :class="['d-flex flex-column align-start white', isMobile ? 'px-4 f-16' : 'px-12 pb-16']"
       style="line-height: 2; width: 100%; min-height: 60vh"
     >
       <AppSteps

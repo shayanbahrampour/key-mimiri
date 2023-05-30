@@ -18,13 +18,13 @@
               {{ $t('career.title') }}
             </p>
             <div v-if="!isMobile" class="d-flex justify-space-between" style="width: 180px">
-              <v-btn height="50" min-width="50" width="50" outlined style="border-radius: 35%; border: 3px solid white">
+              <v-btn height="50" min-width="50" outlined style="border-radius: 35%; border: 3px solid white" width="50">
                 <v-img height="20" max-width="20" src="/images/icons/linkedin.png" />
               </v-btn>
-              <v-btn height="50" min-width="50" width="50" outlined style="border-radius: 35%; border: 3px solid white">
+              <v-btn height="50" min-width="50" outlined style="border-radius: 35%; border: 3px solid white" width="50">
                 <v-img height="20" max-width="20" src="/images/icons/whatsapp.png" />
               </v-btn>
-              <v-btn height="50" min-width="50" width="50" outlined style="border-radius: 35%; border: 3px solid white">
+              <v-btn height="50" min-width="50" outlined style="border-radius: 35%; border: 3px solid white" width="50">
                 <v-img height="20" max-width="20" src="/images/icons/telegram.png" />
               </v-btn>
             </div>
@@ -56,10 +56,10 @@
               <v-expansion-panel-header
                 class="pa-0 ma-0 white--text justify-center f-20 font-weight-bold bg-transparent"
                 hide-actions
-                @click="seeMore = !seeMore"
                 style="height: 20px; margin-top: -12px !important"
-                >{{ seeMore ? 'see less' : 'see more' }}</v-expansion-panel-header
-              >
+                @click="seeMore = !seeMore"
+                >{{ seeMore ? 'see less' : 'see more' }}
+              </v-expansion-panel-header>
             </v-expansion-panel>
           </v-expansion-panels>
           <p
@@ -74,27 +74,44 @@
             {{ $t('career.description') }}
           </p>
           <div v-if="isMobile" :class="[isMobile ? 'mt-4 mb-6' : undefined]">
-            <v-btn height="50" min-width="50" width="50" outlined style="border-radius: 35%; border: 3px solid white">
+            <v-btn height="50" min-width="50" outlined style="border-radius: 35%; border: 3px solid white" width="50">
               <v-img height="20" max-width="20" src="/images/icons/linkedin.png" />
             </v-btn>
             <v-btn
               class="mx-4"
               height="50"
               min-width="50"
-              width="50"
               outlined
               style="border-radius: 35%; border: 3px solid white"
+              width="50"
             >
               <v-img height="20" max-width="20" src="/images/icons/whatsapp.png" />
             </v-btn>
-            <v-btn height="50" min-width="50" width="50" outlined style="border-radius: 35%; border: 3px solid white">
+            <v-btn height="50" min-width="50" outlined style="border-radius: 35%; border: 3px solid white" width="50">
               <v-img height="20" max-width="20" src="/images/icons/telegram.png" />
             </v-btn>
           </div>
         </div>
       </div>
     </div>
-    <v-img :height="isMobile ? '200' : '500'" src="/images/video_content/physical.png" width="100%" />
+
+    <client-only>
+      <VideoLoader
+        ref="career-video"
+        class="w-full"
+        :options="{
+          fluid: true,
+          poster: '/images/temp/cover-6.png',
+          sources: [
+            {
+              type: 'video/mp4',
+              src: '/video/main.mp4'
+            }
+          ]
+        }"
+      />
+    </client-only>
+
     <div class="h-full mt-16 slategrey" style="height: 400px">
       <div v-if="!isMobile" class="d-flex justify-center mt-2 px-16">
         <div class="d-flex align-center justify-center">
@@ -188,6 +205,7 @@
 
 <script>
 import JobsGrid from '~/components/career/JobsGrid';
+import VideoLoader from '~/components/shared/VideoLoader.vue';
 
 export default {
   head() {
@@ -195,7 +213,7 @@ export default {
       title: this.$t('pageTitles.careers')
     };
   },
-  components: { JobsGrid },
+  components: { VideoLoader, JobsGrid },
   data() {
     return {
       seeMore: false,

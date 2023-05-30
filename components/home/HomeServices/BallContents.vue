@@ -9,7 +9,7 @@
         :class="['bel font-weight-regular mb-1', isMobile ? 'f-35' : 'f-40']"
         :style="`color:${item.color}; line-height: ${isMobile ? '30px' : '50px'};`"
       >
-        <nuxt-link style="color: inherit" class="text-decoration-none" :to="item.path">{{ $t(item.title) }}</nuxt-link>
+        <nuxt-link :to="item.path" class="text-decoration-none" style="color: inherit">{{ $t(item.title) }}</nuxt-link>
       </h3>
     </v-scroll-y-transition>
     <v-scroll-y-transition>

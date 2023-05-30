@@ -7,13 +7,13 @@
     <div v-for="i in 4" :key="i" class="d-flex justify-center mb-8">
       <v-card
         v-if="!isMobile"
-        :to="localePath('/education/1234')"
+        :to="localePath('/impact/1')"
         class="d-flex rounded-xl overflow-hidden mr-4 custom-news-card"
         elevation="0"
-        style="border: 2px solid #59595b; overflow: hidden"
+        style="border: 2px solid #59595b; overflow: hidden; transition: all ease-in 0.4s"
       >
         <div class="d-flex">
-          <v-img height="100%" src="/images/news/face.png" width="280" />
+          <v-img height="100%" src="/images/news/slider.png" width="280" />
         </div>
         <div class="d-flex flex-column py-6 ml-16 align-start">
           <h4 class="bel f-40 text--darken-3 font-weight-regular mb-auto cobelgrey--text custom-card-title">
@@ -34,7 +34,7 @@
           </div>
         </div>
       </v-card>
-      <v-card v-else :to="localePath('/education/1234')" class="d-flex mt-6 overflow-hidden" elevation="0">
+      <v-card v-else :to="localePath('/impact/1')" class="d-flex mt-6 overflow-hidden" elevation="0">
         <v-card
           :class="['d-flex flex-column rounded-lg align-start mx-6']"
           elevation="0"
@@ -51,13 +51,16 @@
             </p>
             <div class="d-flex flex-column font-weight-light mb-auto" style="width: 90%">
               <p class="f-14 mb-2 d-flex align-center" style="color: #59595b">
-                <v-icon class="mr-1" size="12">mdi-clock-outline </v-icon>13min
+                <v-icon class="mr-1" size="12">mdi-clock-outline</v-icon>
+                13min
               </p>
               <p class="f-14 mb-2 d-flex align-center" style="color: #59595b">
-                <v-icon class="mr-1" size="12">mdi-pencil-outline </v-icon>mehrab mohammadi
+                <v-icon class="mr-1" size="12">mdi-pencil-outline</v-icon>
+                mehrab mohammadi
               </p>
               <p class="f-14 mb-0 d-flex align-center" style="color: #59595b">
-                <v-icon class="mr-1" size="12">mdi-bullhorn-variant-outline </v-icon>3 months ago
+                <v-icon class="mr-1" size="12">mdi-bullhorn-variant-outline</v-icon>
+                3 months ago
               </p>
             </div>
           </div>
@@ -80,10 +83,20 @@ export default {
 
 <style lang="scss">
 .custom-news-card {
+  .v-image {
+    filter: grayscale(100%);
+    transition: all ease-in 0.4s;
+  }
   &:hover {
     border: 2px solid slategrey !important;
+
     .custom-card-title {
       color: slategrey !important;
+      transition: all ease-in 0.4s;
+    }
+
+    .v-image {
+      filter: grayscale(0%);
     }
   }
 }

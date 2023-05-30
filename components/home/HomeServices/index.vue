@@ -1,18 +1,24 @@
 <template>
   <div :class="['home-services position-relative z-0', { 'mt-16': isMobile }]">
-    <v-fade-transition>
+    <div class="slategrey position-relative">
       <v-sheet
         v-if="activeItem"
         :color="activeItem.color"
+        class="position-absolute z-1 top-0 end-0 start-0 mx-auto rounded-circle transition-ease-in-out"
         height="400"
-        width="400"
-        class="position-absolute z-1 top-0 end-0 start-0 mx-auto rounded-circle"
         style="mix-blend-mode: color; margin-top: -70px; opacity: 0.69"
+        width="400"
       />
-    </v-fade-transition>
-
-    <div class="position-relative z-0 slategrey" style="min-height: 500px">
-      <v-carousel v-model="active" cycle continuous hide-delimiters :show-arrows="false" :interval="5000" mandatory>
+      <v-carousel
+        v-model="active"
+        :interval="5000"
+        :show-arrows="false"
+        class="position-relative z-0"
+        continuous
+        cycle
+        hide-delimiters
+        mandatory
+      >
         <v-carousel-item
           v-for="(item, i) in shapes"
           :key="i"
@@ -26,22 +32,22 @@
             style="mix-blend-mode: color"
           />
           <v-sheet
-            color="transparent"
             class="w-full h-full position-absolute top-0 start-0 z-0 home-services-gradient"
+            color="transparent"
           />
         </v-carousel-item>
       </v-carousel>
       <div
         :class="[
-          'h-full w-full d-flex justify-center mx-auto z-2 white--text position-absolute top-0 start-0 end-0',
+          'h-full w-full d-flex justify-center mx-auto z-4 white--text position-absolute top-0 start-0 end-0',
           isMobile ? 'py-4 px-5 align-end' : 'px-16 pt-16 align-center'
         ]"
-        :style="`max-width: ${globalMaxWidth}px; padding-bottom: 130px;`"
+        :style="`max-width: ${globalMaxWidth}px; padding-bottom: 170px;`"
       >
         <v-fade-transition>
-          <div class="w-full" v-if="flag.showContent">
+          <div v-if="flag.showContent" class="w-full">
             <h3
-              :class="`bel font-weight-regular mb-3 ${isMobile ? 'f-35 text-center' : 'f-70'}`"
+              :class="`bel font-weight-regular mb-5 ${isMobile ? 'f-35 text-center' : 'f-65'}`"
               :style="`${!isMobile && 'max-width: 900px'};`"
             >
               {{ $t('homePage.services.slider.title') }}
@@ -55,14 +61,13 @@
           </div>
         </v-fade-transition>
       </div>
-
       <v-sheet
-        :class="['mx-auto position-relative z-0', isMobile ? 'px-6' : 'px-16']"
+        v-if="!isMobile"
+        :class="['mx-auto position-relative z-2', isMobile ? 'px-6' : 'px-16']"
         :max-width="globalMaxWidth"
         color="transparent"
       >
         <svg
-          v-if="!isMobile"
           :class="`position-absolute end-0 start-0 m${isRTL ? 'l' : 'r'}-auto`"
           :style="`width: 400px; bottom: -1px; margin-${isRTL ? 'right' : 'left'}: 25%`"
           fill="none"
@@ -79,11 +84,11 @@
 
     <v-sheet
       :class="[
-        'mx-auto position-relative z-0 d-flex justify-end',
+        'mx-auto position-relative z-3 d-flex justify-end',
         isMobile ? 'px-4 align-end' : 'px-lg-16 px-4 align-center'
       ]"
-      :min-height="isMobile ? 400 : 500"
       :max-width="globalMaxWidth"
+      :min-height="isMobile ? 400 : 500"
       color="transparent"
     >
       <div

@@ -35,10 +35,10 @@
         >
           <swiper-slide v-for="(item, index) in items" :key="index" class="d-flex flex-column align-center">
             <v-card
+              :to="localePath(`/storytellers/${item.id}`)"
               class="overflow-hidden mt-2"
               flat
               style="border-radius: 80px; border: 1px solid #ececec; overflow: hidden"
-              :to="localePath(`/storytellers/${item.id}`)"
             >
               <v-img :height="small ? '300' : '380'" :src="item.src" :width="small ? '250' : '100%'" eager />
             </v-card>
@@ -66,14 +66,14 @@ export default {
   data() {
     return {
       items: [
-        { id: 1, title: 'Masoumeh Seyedi', src: '/images/home/storytellers/1.png' },
-        { id: 2, title: 'Nima Brardjanian', src: '/images/home/storytellers/2.png' },
-        { id: 3, title: 'Bahador Nayebi', src: '/images/home/storytellers/3.png' },
-        { id: 4, title: 'Mohamad javid', src: '/images/home/storytellers/4.png' },
-        { id: 1, title: 'Masoumeh Seyedi', src: '/images/home/storytellers/1.png' },
-        { id: 2, title: 'Nima Brardjanian', src: '/images/home/storytellers/2.png' },
-        { id: 3, title: 'Bahador Nayebi', src: '/images/home/storytellers/3.png' },
-        { id: 4, title: 'Mohamad javid', src: '/images/home/storytellers/4.png' }
+        { id: 1, title: 'Masoumeh Seyedi', src: '/images/temp/storytellers/1.png' },
+        { id: 2, title: 'Nima Brardjanian', src: '/images/temp/storytellers/2.png' },
+        { id: 3, title: 'Bahador Nayebi', src: '/images/temp/storytellers/3.png' },
+        { id: 4, title: 'Mohamad javid', src: '/images/temp/storytellers/4.png' },
+        { id: 1, title: 'Masoumeh Seyedi', src: '/images/temp/storytellers/1.png' },
+        { id: 2, title: 'Nima Brardjanian', src: '/images/temp/storytellers/2.png' },
+        { id: 3, title: 'Bahador Nayebi', src: '/images/temp/storytellers/3.png' },
+        { id: 4, title: 'Mohamad javid', src: '/images/temp/storytellers/4.png' }
       ]
     };
   }

@@ -92,25 +92,22 @@
     </v-sheet>
 
     <div :class="{ 'px-16': !isMobile }">
-      <v-img
-        :class="[
-          'position-relative d-flex justify-center align-center z-0 mx-auto mt-10 mx-auto',
-          isMobile ? 'py-8' : 'py-16'
-        ]"
-        :max-width="globalMaxWidth"
-        max-height="600"
-        src="/images/temp/cover-4.png"
-      >
-        <v-img
-          :height="isMobile ? 80 : 130"
-          :max-height="isMobile ? 80 : 130"
-          :max-width="isMobile ? 80 : 130"
-          :width="isMobile ? 80 : 130"
-          class="ma-auto position-absolute top-0 bottom-0 end-0 start-0 z-1"
-          contain
-          src="/images/home/home_video_button.svg"
+      <client-only>
+        <VideoLoader
+          ref="impact-video"
+          class="w-full"
+          :options="{
+            fluid: true,
+            poster: '/images/temp/cover-4.png',
+            sources: [
+              {
+                type: 'video/mp4',
+                src: '/video/main.mp4'
+              }
+            ]
+          }"
         />
-      </v-img>
+      </client-only>
     </div>
 
     <v-sheet :class="['mx-auto', isMobile ? 'px-6' : 'px-16']" :max-width="globalMaxWidth">
@@ -190,7 +187,7 @@
           :options="swiperOptions"
         >
           <swiper-slide v-for="(item, index) in items" :key="index">
-            <ImpactCards :item="item" class="mt-2 mb-3" :style="`border-radius: 80px`" />
+            <ImpactCards :item="item" :style="`border-radius: 80px`" class="mt-2 mb-3" />
           </swiper-slide>
         </swiper>
         <div v-else-if="!$fetchState.pending" class="mt-8 text-center">
@@ -208,9 +205,10 @@
 <script>
 import ImpactCards from '~/components/impact/ImpactCards.vue';
 import HomeTellUsStory from '~/components/home/HomeTellUsStory.vue';
+import VideoLoader from '~/components/shared/VideoLoader.vue';
 
 export default {
-  components: { HomeTellUsStory, ImpactCards },
+  components: { VideoLoader, HomeTellUsStory, ImpactCards },
   data() {
     return {
       swiperOptions: {
@@ -241,12 +239,12 @@ export default {
     };
   },
   async fetch() {
-    try {
-      const { data } = await this.$store.dispatch('impact/getList', { id: this.$route.params.id });
-      console.log(data);
-    } catch (e) {
-      console.log(e);
-    }
+    // try {
+    //   const { data } = await this.$store.dispatch('impact/getList', { id: this.$route.params.id });
+    //   console.log(data);
+    // } catch (e) {
+    //   console.log(e);
+    // }
   },
   created() {
     this.getRelated();
@@ -254,11 +252,110 @@ export default {
   methods: {
     async getRelated() {
       try {
-        const { data } = await this.$store.dispatch('impact/getList', {
-          params: {
-            page: 1
+        // const { data } = await this.$store.dispatch('impact/getList', {
+        //   params: {
+        //     page: 1
+        //   }
+        // });
+        const { data } = {
+          data: {
+            results: [
+              {
+                id: 230305135,
+                en_title: 'Woman empowerment future enrichment',
+                en_summary:
+                  '<p>Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women<\/p>',
+                files: [
+                  { url: 'cover-5.png', type: 'column_section_file' },
+                  { url: 'cover-5.png', type: 'subtitle_file' },
+                  { url: 'cover-5.png', type: 'body_file' }
+                ],
+                impact_story_categories: [
+                  {
+                    id: 47161516,
+                    en_name: 'Best talent',
+                    fa_name: '\u0627\u0633\u062a\u0639\u062f\u0627\u062f\u0647\u0627\u06cc \u0628\u0631\u062a\u0631'
+                  },
+                  {
+                    id: 140945966,
+                    en_name: 'Social responsibility',
+                    fa_name: '\u0645\u0633\u0648\u0644\u06cc\u062a \u0627\u062c\u062a\u0645\u0627\u0639\u06cc'
+                  }
+                ]
+              },
+              {
+                id: 507360168,
+                en_title: 'Rise from the society\u2028return to the society',
+                en_summary:
+                  '<p>Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women<\/p>',
+                files: [
+                  { url: 'cover-3.png', type: 'column_section_file' },
+                  { url: 'cover-3.png', type: 'subtitle_file' },
+                  { url: 'cover-3.png', type: 'body_file' }
+                ],
+                impact_story_categories: [
+                  {
+                    id: 47161516,
+                    en_name: 'Best talent',
+                    fa_name: '\u0627\u0633\u062a\u0639\u062f\u0627\u062f\u0647\u0627\u06cc \u0628\u0631\u062a\u0631'
+                  },
+                  {
+                    id: 230305135,
+                    en_name: 'Long-term value creation',
+                    fa_name:
+                      '\u062e\u0644\u0642 \u0627\u0631\u0632\u0634 \u0647\u0627 \u062f\u0631 \u0628\u0644\u0646\u062f \u0645\u062f\u062a'
+                  }
+                ]
+              },
+              {
+                id: 47161516,
+                en_title: 'Rise from the society\u2028return to the society',
+                en_summary:
+                  '<p>Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women<\/p>',
+                files: [
+                  { url: 'cover-2.png', type: 'column_section_file' },
+                  { url: 'cover-2.png', type: 'subtitle_file' },
+                  { url: 'cover-2.png', type: 'body_file' }
+                ],
+                impact_story_categories: [
+                  {
+                    id: 47161516,
+                    en_name: 'Best talent',
+                    fa_name: '\u0627\u0633\u062a\u0639\u062f\u0627\u062f\u0647\u0627\u06cc \u0628\u0631\u062a\u0631'
+                  },
+                  {
+                    id: 140945966,
+                    en_name: 'Social responsibility',
+                    fa_name: '\u0645\u0633\u0648\u0644\u06cc\u062a \u0627\u062c\u062a\u0645\u0627\u0639\u06cc'
+                  }
+                ]
+              },
+              {
+                id: 47161516,
+                en_title: 'Rise from the society\u2028return to the society',
+                en_summary:
+                  '<p>Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women<\/p>',
+                files: [
+                  { url: 'cover-1.jpg', type: 'column_section_file' },
+                  { url: 'cover-1.jpg', type: 'subtitle_file' },
+                  { url: 'cover-1.jpg', type: 'body_file' }
+                ],
+                impact_story_categories: [
+                  {
+                    id: 47161516,
+                    en_name: 'Best talent',
+                    fa_name: '\u0627\u0633\u062a\u0639\u062f\u0627\u062f\u0647\u0627\u06cc \u0628\u0631\u062a\u0631'
+                  },
+                  {
+                    id: 140945966,
+                    en_name: 'Social responsibility',
+                    fa_name: '\u0645\u0633\u0648\u0644\u06cc\u062a \u0627\u062c\u062a\u0645\u0627\u0639\u06cc'
+                  }
+                ]
+              }
+            ]
           }
-        });
+        };
         this.items = data.results;
       } catch (e) {
         console.log(e);

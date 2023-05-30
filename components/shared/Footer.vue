@@ -3,7 +3,7 @@
     <v-sheet v-if="isMobile" class="custom-gradient w-full" height="5" />
     <v-footer :class="[isMobile ? 'pt-10' : 'py-16 px-0']" color="slategrey">
       <v-sheet
-        :class="['mx-auto w-full white--text', isMobile ? 'px-6' : 'px-8']"
+        :class="['mx-auto w-full white--text', isMobile ? 'px-6' : 'px-16']"
         :max-width="globalMaxWidth"
         color="transparent"
       >
@@ -17,9 +17,8 @@
             src="/images/logo-text-white.svg"
           />
         </div>
-
         <v-row v-if="!isMobile" class="justify-center">
-          <v-col v-for="(item, index) in items" :key="index" order="2" lg="2" cols="12" sm="6">
+          <v-col v-for="(item, index) in items" :key="index" cols="12" lg="2" order="2" sm="6">
             <h4 class="mb-3 f-15 text-start text-uppercase font-weight-regular pb-2 footer-title">
               {{ $t(item.title) }}
             </h4>
@@ -41,7 +40,7 @@
               </v-btn>
             </div>
           </v-col>
-          <v-col cols="12" lg="3" order-lg="3" order="1">
+          <v-col cols="12" xl="4" lg="4" order="1" order-lg="3">
             <div class="d-flex flex-lg-column align-lg-end align-center justify-center mb-lg-0 mb-12">
               <v-btn
                 :to="localePath('/storytellers')"
@@ -110,7 +109,7 @@
             {{ $t('footer.contact') }}
           </v-btn>
         </div>
-        <div :class="['d-flex', !isMobile ? 'justify-space-between align-center px-6' : 'justify-center']">
+        <div :class="['d-flex', !isMobile ? 'justify-space-between align-center' : 'justify-center']">
           <template v-if="!isMobile">
             <v-img alt="cobel" contain height="65" max-width="200" src="/images/logo-text-white.svg" />
             <div v-if="!isMobile" class="ltr" style="margin-right: 120px">{{ $t('footer.copyright') }}</div>
@@ -122,8 +121,8 @@
             height="55"
             min-width="55"
             outlined
-            width="55"
             style="border-radius: 35%; border: 3px solid white"
+            width="55"
           >
             <v-img contain height="24" src="/images/social/linkedin.svg" width="24" />
           </v-btn>
@@ -157,7 +156,7 @@ export default {
         {
           title: 'footer.title.life',
           children: [
-            { title: 'footer.links.life_at_cobel_group', to: '/' },
+            { title: 'footer.links.life_at_cobel_group', to: '/career' },
             { title: 'footer.links.careers', to: '/career' },
             { title: 'footer.links.talent_pool', to: '/' }
           ]

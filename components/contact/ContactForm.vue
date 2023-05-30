@@ -4,56 +4,56 @@
       <v-col cols="12" md="6">
         <v-text-field
           v-model="model.full_name"
+          :label="$t('contact.fields.full_name')"
+          :rules="[rule.required]"
           class="mb-4"
           dense
           filled
           hide-details
-          :label="$t('contact.fields.full_name')"
           rounded
-          :rules="[rule.required]"
         ></v-text-field>
         <v-text-field
           v-model="model.email"
+          :label="$t('contact.fields.email')"
+          :rules="[rule.required, rule.email]"
           class="mb-4"
           dense
           filled
           hide-details
-          :label="$t('contact.fields.email')"
           rounded
-          :rules="[rule.required, rule.email]"
         ></v-text-field>
         <v-text-field
           v-model="model.mobile"
+          :label="$t('contact.fields.mobile')"
+          :rules="[rule.required, rule.mobile]"
           class="mb-4"
           dense
           filled
           hide-details
-          :label="$t('contact.fields.mobile')"
           rounded
-          :rules="[rule.required, rule.mobile]"
         ></v-text-field>
         <v-text-field
           v-model="model.topic"
           :class="!isMobile ? 'mb-4' : 'mb-0'"
+          :label="$t('contact.fields.topic')"
+          :rules="[rule.required]"
           dense
           filled
           hide-details
-          :label="$t('contact.fields.topic')"
           rounded
-          :rules="[rule.required]"
         ></v-text-field>
       </v-col>
       <v-col :class="{ 'pt-2': isMobile }" cols="12" md="6">
         <v-textarea
           v-model="model.description"
           :class="['mb-4', { 'mb-10': isMobile }]"
+          :label="$t('contact.fields.description')"
+          :rules="[rule.required]"
           dense
           filled
           height="260"
           hide-details
-          :label="$t('contact.fields.description')"
           rounded
-          :rules="[rule.required]"
         ></v-textarea>
       </v-col>
     </v-row>
@@ -63,13 +63,13 @@
           'rounded-xl white--text d-flex justify-center',
           isMobile ? 'f-20 font-weight-light' : 'mr-4 f-14 font-weight-bold'
         ]"
+        :disabled="flag.loading"
+        :loading="flag.loading"
+        :width="isMobile ? '100' : undefined"
         color="#4C6D80"
         elevation="0"
         height="36"
         min-width="250"
-        :width="isMobile ? '100' : undefined"
-        :disabled="flag.loading"
-        :loading="flag.loading"
         @click="onSubmit()"
       >
         Send Form
@@ -79,10 +79,10 @@
           'rounded-xl d-flex justify-center ',
           isMobile ? 'mt-4 f-20 font-weight-light' : 'f-14 font-weight-bold'
         ]"
+        :width="isMobile ? '100' : undefined"
         color="#4C6D80"
         height="36"
         min-width="250"
-        :width="isMobile ? '100' : undefined"
         outlined
         @click="clearData()"
       >
@@ -93,8 +93,8 @@
 </template>
 
 <script>
-import { contact } from '~/api';
 import mixinRules from '~/mixins/mixin.rules';
+
 export default {
   mixins: [mixinRules],
   data() {

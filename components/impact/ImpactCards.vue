@@ -1,27 +1,27 @@
 <template>
   <v-card
+    :to="localePath(`/impact/${item.id}`)"
     class="overflow-hidden custom-card h-full custom-card-container"
     color="slategrey"
     flat
-    :to="localePath(`/impact/${item.id}`)"
   >
     <v-img :src="src" height="250" width="100%" />
     <v-card
-      color="transparent"
       :class="[
         'white--text pointer flex-shrink-0',
         isMobile ? 'text-center' : 'd-flex',
         summary && !isMobile ? `p${isRTL ? 'r' : 'l'}-8 p${isRTL ? 'l' : 'r'}-6 pt-5 pb-10` : 'text-center pa-8'
       ]"
+      color="transparent"
     >
       <div
-        :style="`${summary && !isMobile ? 'width: 50%' : 'width: 100%'}`"
         :class="['bel flex-shrink-0', isMobile ? 'f-25' : 'f-35']"
+        :style="`${summary && !isMobile ? 'width: 50%' : 'width: 100%'}`"
       >
         {{ title | truncate({ length: 50 }) }}
       </div>
       <div v-if="!isMobile && summary" :class="`font-weight-light f-21 p${isRTL ? 'r' : 'l'}-4`">
-        <p v-html="summary" class="ma-0" />
+        <p class="ma-0" v-html="summary" />
         <strong class="f-18 font-weight-bold mt-2 d-block">{{ $t('shared.see_more') }}</strong>
       </div>
     </v-card>

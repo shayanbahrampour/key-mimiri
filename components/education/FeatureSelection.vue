@@ -6,7 +6,7 @@
         <span class="f-16 cobelgrey--text">Feature</span>
       </div>
       <div class="d-flex align-center mb-4">
-        <v-icon class="mr-1" size="16" color="orange">mdi-circle</v-icon>
+        <v-icon class="mr-1" color="orange" size="16">mdi-circle</v-icon>
         <span class="f-16 cobelgrey--text">Feature</span>
       </div>
     </v-col>
@@ -22,7 +22,7 @@
         <span class="f-20 cobelgrey--text">Feature</span>
       </div>
       <div class="d-flex align-center justify-center mb-4">
-        <v-icon class="mr-1" size="20" color="orange">mdi-circle</v-icon>
+        <v-icon class="mr-1" color="orange" size="20">mdi-circle</v-icon>
         <span class="f-20 cobelgrey--text">Feature</span>
       </div>
     </div>

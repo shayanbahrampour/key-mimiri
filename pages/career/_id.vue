@@ -2,24 +2,25 @@
   <div class="d-flex flex-column">
     <CareerHeader />
     <div
-      :class="['d-flex flex-column align-start white', isMobile ? 'px-4 f-16' : 'px-16 scrolled-desktop']"
+      :class="['d-flex flex-column align-start white mx-auto', isMobile ? 'px-4 f-16' : 'px-16 scrolled-desktop']"
       style="line-height: 2"
+      :style="`max-width: ${globalMaxWidth}px;`"
     >
       <v-img
         :class="[isMobile ? 'my-12' : 'mx-2 mt-16']"
         :max-height="isMobile ? '40' : '100'"
         :width="isMobile ? '100%' : '200'"
         contain
-        src="/images/company/medarman.png"
+        src="/images/company/.png"
       />
-      <v-divider v-if="isMobile" style="width: 100% !important"></v-divider>
+      <v-divider v-if="isMobile" style="width: 100% !important" />
       <p :class="['mx-2 f-18', isMobile ? 'text-center my-2' : 'mt-6']" style="color: #939393; line-height: 40px">
         A senior project manager is often thought of as a more experienced project manager. They are entrusted with
         larger and more complex projects and may be put in charge of several projects at once. The exact job description
         and requirements will vary from company to company. A senior project manager may have additional
         responsibilities relating to the management of projects, project managers, and the organization as a whole.
       </p>
-      <v-divider v-if="isMobile" style="width: 100% !important"></v-divider>
+      <v-divider v-if="isMobile" style="width: 100% !important" />
       <h4 :class="['bel mb-6 mt-16 f-30 font-weight-regular slategrey--text', isMobile ? 'mx-2' : 'mx-6']">
         Project responsibilities may include:
       </h4>
@@ -68,6 +69,7 @@
 <script>
 import JobsGrid from '~/components/career/JobsGrid';
 import CareerHeader from '~/components/career/CareerHeader';
+import VideoLoader from '~/components/shared/VideoLoader.vue';
 
 export default {
   data() {
@@ -111,7 +113,7 @@ export default {
       ]
     };
   },
-  components: { JobsGrid, CareerHeader }
+  components: { VideoLoader, JobsGrid, CareerHeader }
 };
 </script>
 
@@ -123,6 +125,7 @@ export default {
 .desktop-contact {
   max-width: 70vw !important;
 }
+
 .scrolled-desktop {
   margin-top: 320px !important;
 }

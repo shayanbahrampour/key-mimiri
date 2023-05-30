@@ -1,4 +1,3 @@
-import locales from './lang';
 import fa from './lang/fa';
 import en from './lang/en';
 
@@ -73,6 +72,7 @@ export default {
     '@/plugins/axios',
     '@/plugins/filters',
     '@/plugins/device',
+    '@/plugins/video.client',
     '@/plugins/swiper.client',
     '@/plugins/dynamic-domain'
   ],

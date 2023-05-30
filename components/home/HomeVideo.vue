@@ -1,38 +1,38 @@
 <template>
   <div>
-    <v-img
-      :class="[
-        'position-relative d-flex justify-center z-0 mx-auto',
-        isMobile ? 'text-center align-start py-8' : 'align-end py-16'
-      ]"
-      :max-height="isMobile ? 300 : 800"
-      height="85vh"
-      min-height="300"
-      src="/images/temp/cover-6.png"
-    >
-      <v-img
-        :height="isMobile ? 40 : 130"
-        :max-height="isMobile ? 40 : 130"
-        :max-width="isMobile ? 40 : 130"
-        :width="isMobile ? 40 : 130"
-        class="ma-auto position-absolute top-0 bottom-0 end-0 start-0 z-1"
-        contain
-        src="/images/home/home_video_button.svg"
-      />
+    <div class="position-relative home-video">
+      <client-only>
+        <VideoLoader
+          ref="home-video"
+          class="w-full"
+          :options="{
+            fill: false,
+            fluid: false,
+            poster: '/images/temp/cover-6.png',
+            sources: [
+              {
+                type: 'video/mp4',
+                src: '/video/main.mp4'
+              }
+            ]
+          }"
+        />
+      </client-only>
+
       <v-sheet
+        :class="['position-absolute bottom-0 z-1 mx-auto white--text w-full h-full', isMobile ? 'px-6' : 'px-16 pb-5']"
         :max-width="globalMaxWidth"
-        :class="['position-relative z-1 mx-auto white--text w-full', isMobile ? 'px-6' : 'px-16']"
         color="transparent"
       >
-        <v-row align="center" dense>
+        <v-row class="h-full" :align="isMobile ? 'start' : 'end'" dense>
           <v-col cols="12" lg="5" md="4">
-            <h3 :class="['font-weight-regular bel', isMobile ? 'f-40' : 'f-50']">
+            <h3 :class="['font-weight-regular bel', isMobile ? 'f-40 text-center pt-4' : 'f-50']">
               {{ $t('homePage.video.title') }}
             </h3>
           </v-col>
 
           <template v-if="!isMobile">
-            <v-col md="1">
+            <v-col md="1" cols="12">
               <v-divider class="white" style="height: 100px" vertical />
             </v-col>
             <v-col cols="12" lg="6" md="7">
@@ -43,7 +43,7 @@
           </template>
         </v-row>
       </v-sheet>
-    </v-img>
+    </div>
 
     <v-sheet class="custom-gradient my-1" height="16" />
 
@@ -65,6 +65,14 @@ export default {
   components: { VideoLoader }
 };
 </script>
+
+<style lang="scss">
+.home-video {
+  .video-js {
+    height: 100% !important;
+  }
+}
+</style>
 
 <style lang="scss" scoped>
 .custom-gradient {

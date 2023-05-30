@@ -1,18 +1,38 @@
 <template>
   <v-sheet
-    :class="['position-relative mx-auto', { 'pb-8': isMobile }]"
-    height="calc(100vh - 120px)"
+    :height="isMobile ? 'calc(100vh - 180px)' : 'calc(100vh - 120px)'"
+    class="position-relative mx-auto home-slider"
     color="transparent"
-    min-height="600"
+    min-height="550"
+    :max-height="900"
   >
-    <v-img
-      :height="isMobile ? 400 : 650"
-      :position="isRTL ? 'center left' : 'center right'"
-      :style="`${isMobile ? 'top:-250px' : `${isRTL ? 'left' : 'right'}:-450px;bottom:0;top:0;`};`"
-      :width="isMobile ? 400 : 650"
-      :class="['position-absolute my-auto z-0 rounded-circle', { 'mx-auto start-0 end-0': isMobile }]"
-      src="/images/temp/home.png"
-    />
+    <client-only>
+      <video-player
+        playsinline
+        :style="`${isMobile ? 'top:-250px;' : `${isRTL ? 'left' : 'right'}:-450px;bottom:0;`}height:${
+          isMobile ? 400 : 650
+        }px;width:${isMobile ? 400 : 650}px;max-height:${isMobile ? 400 : 650}px;max-width:${isMobile ? 400 : 650}px;`"
+        :class="[
+          'position-absolute white my-auto z-0 rounded-circle overflow-hidden end-0 rounded-circle top-0',
+          { 'mx-auto start-0 end-0': isMobile }
+        ]"
+        :options="{
+          fullscreen: true,
+          responsive: true,
+          fill: true,
+          fluid: false,
+          autoplay: true,
+          controls: false,
+          aspectRatio: '1:1',
+          sources: [
+            {
+              type: 'video/mp4',
+              src: '/video/home-slider.mp4'
+            }
+          ]
+        }"
+      />
+    </client-only>
 
     <v-sheet
       :class="['position-relative z-1 mx-auto d-flex align-center', isMobile ? 'px-8' : 'px-16']"
@@ -21,8 +41,10 @@
       height="100%"
     >
       <v-row>
-        <v-col cols="12" lg="8" md="9">
-          <h1 :class="['bel grey--text text--darken-2 font-weight-regular mb-8', isMobile ? 'f-45 pt-16' : 'f-70']">
+        <v-col cols="12" lg="8" sm="9">
+          <h1
+            :class="['bel grey--text text--darken-2 font-weight-regular mb-8', isMobile ? 'f-38 pt-16 mt-12' : 'f-70']"
+          >
             {{ $t('homePage.slider.title') }}
           </h1>
 
@@ -40,7 +62,7 @@
           </v-btn>
           <v-btn
             :block="isMobile"
-            :class="['f-18 px-14 text-capitalize', isMobile ? 'mt-3' : 'mx-4']"
+            :class="['f-18 px-14 text-capitalize', isMobile ? 'mt-16' : 'mx-4']"
             color="primary"
             depressed
             exact
@@ -56,7 +78,17 @@
 </template>
 
 <script>
-export default {};
+import VideoLoader from '@/components/shared/VideoLoader';
+
+export default {
+  components: { VideoLoader }
+};
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+.home-slider {
+  video {
+    object-fit: cover;
+  }
+}
+</style>
