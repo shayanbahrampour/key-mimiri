@@ -144,7 +144,7 @@ export default {
     },
     not_found: 'داده‌ای یافت نشد',
     read_time: 'زمان مطالعه',
-    wrote_by: 'نویسنده',
+    written_by: 'نویسنده',
     published: 'منتشر شده',
     other_links: 'ممکن است اینها را هم دوست داشته باشید',
     see_all: 'مشاهده همه'

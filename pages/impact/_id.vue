@@ -1,13 +1,17 @@
 <template>
   <div>
     <v-row :class="['position-relative z-1', { 'custom-shadow pb-4': isMobile }]" no-gutters>
-      <v-col cols="12" md="5">
+      <v-col cols="12" lg="6" md="6">
         <v-sheet :class="[`overflow-hidden ${!isMobile && `rounded-${isRTL ? 'l' : 'r'}-xl`}`]" max-width="700">
           <v-img max-height="calc(100vh - 150px)" src="/images/temp/cover-5-vertical.png" />
 
-          <v-sheet v-if="!isMobile" class="extra-space white--text pa-12" color="slategrey">
+          <v-sheet
+            v-if="!isMobile"
+            :class="['extra-space white--text', `p${isRTL ? 'r' : 'l'}-16 p${isRTL ? 'l' : 'r'}-10 py-8`]"
+            color="slategrey"
+          >
             <h2 class="f-24 mb-4 white--text">Woman empowerment future enrichment</h2>
-            <p class="f-19 font-weight-light ma-0" style="line-height: 30px">
+            <p class="f-19 font-weight-light ma-0" style="line-height: 35px">
               Iron deficiency, leading to Anemia, has negative health effects on all individuals, especially women, and
               causes enormous social and financial burden on the societies. -Economic burden of Anemia has reverse
               association with sociodemographic factors, including nutrition, access to health solutions and education.
@@ -17,8 +21,8 @@
           </v-sheet>
         </v-sheet>
       </v-col>
-      <v-col cols="12" lg="6" md="7" offset-lg="1" offset-xl="0">
-        <div :class="[isMobile ? 'pa-5 mt-6' : 'pa-16 mt-5']">
+      <v-col cols="12" lg="5" md="6" offset-lg="1" offset-xl="0">
+        <div :class="[isMobile ? 'pa-5 mt-6' : `p${isRTL ? 'l' : 'r'}-16 p${isRTL ? 'r' : 'l'}-10 py-8 mt-16`]">
           <h1 :class="['bel grey--text text--darken-2 font-weight-regular', isMobile ? 'f-40 mb-2' : 'f-70 mb-4']">
             Woman empowerment future enrichment
           </h1>
@@ -50,14 +54,14 @@
           </div>
 
           <h4 v-if="isMobile" class="slategrey--text mt-8 px-1">Share it:</h4>
-          <div class="d-flex mt-2">
-            <nuxt-link :to="localePath('/')" class="mr-4">
+          <div :class="['d-flex', isMobile ? 'mt-2' : 'mt-10']">
+            <nuxt-link :to="localePath('/')" :class="`m${isRTL ? 'l' : 'r'}-4`">
               <v-img contain height="50" src="/images/social/icon-linkedin.svg" width="50" />
             </nuxt-link>
-            <nuxt-link :to="localePath('/')" class="mr-4">
+            <nuxt-link :to="localePath('/')" :class="`m${isRTL ? 'l' : 'r'}-4`">
               <v-img contain height="50" src="/images/social/icon-whatsapp.svg" width="50" />
             </nuxt-link>
-            <nuxt-link :to="localePath('/')" class="mr-4">
+            <nuxt-link :to="localePath('/')" :class="`m${isRTL ? 'l' : 'r'}-4`">
               <v-img contain height="50" src="/images/social/icon-telegram.svg" width="50" />
             </nuxt-link>
           </div>
@@ -65,7 +69,7 @@
           <template v-if="!isMobile">
             <v-divider class="my-6" />
 
-            <p class="grey--text text--darken-1 ma-0 f-19" style="line-height: 25px">
+            <p class="grey--text text--darken-1 ma-0 f-19" style="line-height: 30px">
               In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society
               and are committed to enhance their physical, psychological and social quality of life through high quality
               and innovative solutions.
@@ -96,7 +100,7 @@
       <h2
         :class="[
           'bel grey--text text--darken-2 font-weight-regular d-block',
-          isMobile ? 'f-33 text-center mb-6' : 'f-50'
+          isMobile ? 'f-33 text-center mb-6' : 'f-45 mb-6'
         ]"
       >
         Sistan and Balouchestan, highest prevalence of Iron deficiency in Iran
@@ -106,7 +110,6 @@
     <div :class="{ 'px-16': !isMobile }">
       <client-only>
         <VideoLoader
-          :height="isMobile ? null : 700"
           ref="impact-video"
           class="w-full"
           :options="{
@@ -124,7 +127,7 @@
     </div>
 
     <v-sheet :class="['mx-auto', isMobile ? 'px-6' : 'px-16']" :max-width="globalMaxWidth">
-      <v-row class="my-sm-16 pt-16">
+      <v-row class="py-16">
         <v-col md="8">
           <h3
             :class="[
@@ -134,7 +137,7 @@
           >
             32 Million people in need of 2 Billion doses of iron supplement; less than 800 Million doses is consumed
           </h3>
-          <p class="f-20 mb-6 font-weight-light" style="line-height: 30px">
+          <p class="f-20 mb-6 font-weight-light" style="line-height: 35px">
             WHO advises that all women in their reproductive ages, whether having Iron deficiency or not, are required
             to consume 60 mg of iron supplements per week. This amount should be higher in pregnant women and any
             deficiencies will not only affect themselves, but it also affects their fetus. In addition, Iranian men and
@@ -150,7 +153,7 @@
           <v-img height="600" src="/images/temp/impact_detail.png" />
         </v-col>
         <v-col lg="12">
-          <p class="f-20 mb-6 font-weight-light" style="line-height: 30px">
+          <p class="f-20 mb-6 font-weight-light" style="line-height: 35px">
             Lastly, acknowledging our social responsibility commitments, we have identified various underprivileged
             provinces with the highest prevalence of iron deficiency in women, such as Sistan and Balouchestan province
             and Dahak village, and supplied FerroFort supplements for the need of 6,000 people for a time horizon of one
@@ -167,7 +170,7 @@
             providing high‐quality supplements, not only for women, but also for men and children.
           </h4>
 
-          <p class="f-20 mb-6 font-weight-light" style="line-height: 30px">
+          <p class="f-20 mb-6 font-weight-light" style="line-height: 35px">
             We at Cobel Group recognize the importance of woman empowerment and are committed to enhancing their
             physical, psychological, and social quality of life through high‐quality and innovative healthcare
             solutions.
