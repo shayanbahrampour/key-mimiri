@@ -13,12 +13,13 @@
         aspectRatio: '16:9',
         ...options
       }"
-      class="vjs-theme-sea"
+      class="vjs-theme-sea w-full"
       playsinline
       :events="['fullscreenchange']"
       @ready="onReady"
       @ended="onEnded"
       @fullscreenchange="onFullscreen"
+      :style="height ? `height: ${height}px; max-height: ${height}px; min-height: ${height}px;` : ''"
     />
 
     <v-img
@@ -38,6 +39,10 @@
 <script>
 export default {
   props: {
+    height: {
+      type: Number,
+      require: true
+    },
     options: {
       type: Object,
       require: true

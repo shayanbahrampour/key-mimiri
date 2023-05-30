@@ -1,13 +1,10 @@
 <template>
   <div>
-    <div class="position-relative home-video" :style="`min-height: ${isMobile ? 300 : 700}px;`">
+    <div class="position-relative home-video">
       <client-only>
         <VideoLoader
           ref="home-video"
           class="w-full"
-          :style="`height: ${isMobile ? 300 : 700}px; max-height: ${isMobile ? 300 : 700}px; min-height: ${
-            isMobile ? 300 : 700
-          }px;`"
           :options="{
             fill: false,
             fluid: false,
@@ -23,20 +20,19 @@
       </client-only>
 
       <v-sheet
-        :class="['position-absolute bottom-0 pb-5 z-1 mx-auto white--text w-full', isMobile ? 'px-6' : 'px-16']"
+        :class="['position-absolute bottom-0 z-1 mx-auto white--text w-full h-full', isMobile ? 'px-6' : 'px-16 pb-5']"
         :max-width="globalMaxWidth"
         color="transparent"
-        :height="isMobile ? 300 : 700"
       >
-        <v-row align="end" dense class="h-full">
+        <v-row class="h-full" :align="isMobile ? 'start' : 'end'" dense>
           <v-col cols="12" lg="5" md="4">
-            <h3 :class="['font-weight-regular bel', isMobile ? 'f-40' : 'f-50']">
+            <h3 :class="['font-weight-regular bel', isMobile ? 'f-40 text-center pt-4' : 'f-50']">
               {{ $t('homePage.video.title') }}
             </h3>
           </v-col>
 
           <template v-if="!isMobile">
-            <v-col md="1">
+            <v-col md="1" cols="12">
               <v-divider class="white" style="height: 100px" vertical />
             </v-col>
             <v-col cols="12" lg="6" md="7">
