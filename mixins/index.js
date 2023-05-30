@@ -25,6 +25,19 @@ Vue.mixin({
     }
   },
   methods: {
+    generateId() {
+      const idGenerator = () => {
+        return Math.floor((1 + Math.random()) * 0x10000)
+          .toString(16)
+          .substring(1);
+      };
+
+      let result = '';
+      for (let i = 0; i <= 3; i++) {
+        result += idGenerator();
+      }
+      return result;
+    },
     changeDirection() {
       const direction = locales.find((item) => item.code === this.$i18n.locale);
       if (direction) this.$vuetify.rtl = direction.dir === 'rtl';

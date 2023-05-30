@@ -1,20 +1,24 @@
 <template>
   <v-app-bar
     v-if="!isMobile"
-    class="head-container"
+    class="career-header"
     color="slategrey"
     elevate-on-scroll
     fixed
     flat
     height="320"
-    style="margin-top: 120px"
     tile
+    style="margin-top: 120px"
   >
-    <div class="d-flex mt-16 mb-8 px-8 justify-space-between">
+    <v-sheet
+      class="d-flex mx-auto mt-16 mb-8 px-8 justify-space-between w-full"
+      :max-width="globalMaxWidth"
+      color="transparent"
+    >
       <div class="d-flex">
-        <div class="d-flex flex-column justify-center align-start ml-4 desktop-contact container-scrolled-des">
+        <div class="d-flex flex-column justify-center align-start ml-4 container-scrolled-des">
           <div>
-            <h2 class="bel white--text mb-0 text--darken-3 font-weight-regular f-60 header-des">
+            <h2 class="bel white--text mb-0 text--darken-3 font-weight-regular f-50 header-des">
               Senior project manager
             </h2>
             <p class="white--text mb-0 text--darken-3 font-weight-light description-des f-20 mt-0 mb-10">
@@ -34,7 +38,7 @@
           </v-btn>
         </div>
       </div>
-    </div>
+    </v-sheet>
   </v-app-bar>
   <div v-else class="d-flex py-6 px-4 justify-center slategrey">
     <div class="d-flex">
@@ -64,7 +68,7 @@ export default {};
 </script>
 
 <style lang="scss">
-.head-container.v-app-bar {
+.career-header {
   &.v-app-bar--is-scrolled {
     transform: none !important;
     transition: all ease-in 0.2s !important;

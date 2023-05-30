@@ -72,6 +72,7 @@ export default {
     '@/plugins/axios',
     '@/plugins/filters',
     '@/plugins/device',
+    '@/plugins/video.client',
     '@/plugins/swiper.client',
     '@/plugins/dynamic-domain'
   ],
