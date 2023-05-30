@@ -113,12 +113,11 @@
           ref="impact-video"
           class="w-full"
           :options="{
-            fluid: true,
             poster: '/images/temp/cover-4.png',
             sources: [
               {
                 type: 'video/mp4',
-                src: '/video/main.mp4'
+                src: '/video/temp.mp4'
               }
             ]
           }"
@@ -257,7 +256,6 @@ export default {
   async fetch() {
     // try {
     //   const { data } = await this.$store.dispatch('impact/getList', { id: this.$route.params.id });
-    //   console.log(data);
     // } catch (e) {
     //   console.log(e);
     // }

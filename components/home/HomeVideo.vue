@@ -1,28 +1,25 @@
 <template>
   <div>
-    <div class="position-relative home-video">
+    <div class="position-relative">
       <client-only>
         <VideoLoader
-          :height="isMobile ? null : isTablet ? 500 : 700"
           ref="home-video"
           class="w-full"
           :options="{
-            fill: true,
             poster: '/images/temp/cover-6.png',
             sources: [
               {
                 type: 'video/mp4',
-                src: '/video/main.mp4'
+                src: '/video/temp-2.mp4'
               }
             ]
           }"
         />
       </client-only>
-
       <v-sheet
         :class="[
-          'position-absolute bottom-0 z-1 mx-auto white--text w-full h-full d-flex',
-          isMobile ? 'px-6 align-start' : 'px-16 pb-8 align-end'
+          'position-absolute z-1 mx-auto white--text w-full d-flex',
+          isMobile ? 'px-6 align-start top-0' : 'px-16 pb-8 align-end bottom-0'
         ]"
         :max-width="globalMaxWidth"
         color="transparent"
@@ -68,14 +65,6 @@ export default {
   components: { VideoLoader }
 };
 </script>
-
-<style lang="scss">
-.home-video {
-  .video-js {
-    height: 100% !important;
-  }
-}
-</style>
 
 <style lang="scss" scoped>
 .custom-gradient {

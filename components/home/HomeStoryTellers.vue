@@ -18,6 +18,9 @@
             slidesPerView: 1.1,
             grabCursor: true,
             breakpoints: {
+              500: {
+                slidesPerView: 1.8
+              },
               768: {
                 slidesPerView: 2.5
               },
