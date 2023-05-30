@@ -33,15 +33,15 @@
       </v-carousel>
       <div
         :class="[
-          'h-full w-full d-flex align-center justify-center mx-auto z-2 white--text position-absolute top-0 start-0 end-0',
-          isMobile ? 'py-4 px-8' : 'px-16 pt-16'
+          'h-full w-full d-flex justify-center mx-auto z-2 white--text position-absolute top-0 start-0 end-0',
+          isMobile ? 'py-4 px-5 align-end' : 'px-16 pt-16 align-center'
         ]"
         :style="`max-width: ${globalMaxWidth}px; padding-bottom: 130px;`"
       >
         <v-fade-transition>
           <div class="w-full" v-if="flag.showContent">
             <h3
-              :class="`bel font-weight-regular mb-3 ${isMobile ? 'f-40 text-center' : 'f-70'}`"
+              :class="`bel font-weight-regular mb-3 ${isMobile ? 'f-35 text-center' : 'f-70'}`"
               :style="`${!isMobile && 'max-width: 900px'};`"
             >
               {{ $t('homePage.services.slider.title') }}
@@ -82,7 +82,7 @@
         'mx-auto position-relative z-0 d-flex justify-end',
         isMobile ? 'px-4 align-end' : 'px-lg-16 px-4 align-center'
       ]"
-      min-height="500"
+      :min-height="isMobile ? 400 : 500"
       :max-width="globalMaxWidth"
       color="transparent"
     >
@@ -96,8 +96,8 @@
       >
         <div
           :class="[
-            'f-60 font-weight-regular bel grey--text text--darken-1 text-center flex-shrink-0',
-            isMobile && 'mb-4 text-center'
+            'font-weight-regular bel grey--text text--darken-2 text-center flex-shrink-0',
+            isMobile ? 'mb-4 text-center f-65' : 'f-60'
           ]"
           :style="`width: ${isMobile ? '100%' : '300px'}`"
         >

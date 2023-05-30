@@ -6,14 +6,16 @@
     <v-scroll-y-transition>
       <h3
         v-if="item"
-        :class="['bel font-weight-regular mb-1 f-40']"
+        :class="['bel font-weight-regular mb-1', isMobile ? 'f-35' : 'f-40']"
         :style="`color:${item.color}; line-height: ${isMobile ? '30px' : '50px'};`"
       >
         <nuxt-link style="color: inherit" class="text-decoration-none" :to="item.path">{{ $t(item.title) }}</nuxt-link>
       </h3>
     </v-scroll-y-transition>
     <v-scroll-y-transition>
-      <p v-if="item" class="f-20 font-weight-light ma-0">{{ $t(item.description) }}</p>
+      <p v-if="item" :class="['font-weight-light ma-0 grey--text text--darken-2', isMobile ? 'f-18' : 'f-20']">
+        {{ $t(item.description) }}
+      </p>
     </v-scroll-y-transition>
   </div>
 </template>

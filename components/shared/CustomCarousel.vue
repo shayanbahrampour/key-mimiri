@@ -10,13 +10,13 @@
       show-arrows-on-hover
     >
       <v-carousel-item v-for="(item, index) in items" :key="index">
-        <v-img :height="isMobile ? 250 : 600" :src="item.src" class="position-relative z-0" />
+        <v-img :height="isMobile ? 250 : 500" :src="item.src" class="position-relative z-0" />
       </v-carousel-item>
     </v-carousel>
     <div
       v-if="items.length > 1"
       :class="['position-absolute start-0 end-0 mx-auto z-0', isMobile ? 'px-6' : 'px-16']"
-      :style="`max-width: ${globalMaxWidth}px; top: ${isMobile ? 210 : 480}px`"
+      :style="`max-width: ${globalMaxWidth}px; top: ${isMobile ? 210 : 370}px`"
     >
       <v-icon
         v-for="(item, index) in items"

@@ -6,6 +6,11 @@
           src: '/images/temp/cover-5.png',
           title: $t('impactPage.slider.title'),
           description: $t('impactPage.slider.description')
+        },
+        {
+          src: '/images/temp/cover-4.png',
+          title: $t('impactPage.slider.title'),
+          description: $t('impactPage.slider.description')
         }
       ]"
     />

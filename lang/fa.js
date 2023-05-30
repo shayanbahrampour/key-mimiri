@@ -101,8 +101,7 @@ export default {
     slider: {
       title: 'راه گشای توسعه‌ی سلامت',
       more_about: 'اطلاعات بیشتر',
-      cobel_group: 'Cobel Group',
-      swipe_down: 'پایین بروید...'
+      cobel_group: 'Cobel Group'
     },
     services: {
       slider: {

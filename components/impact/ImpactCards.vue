@@ -1,38 +1,32 @@
 <template>
-  <div class="h-full">
+  <v-card
+    class="overflow-hidden custom-card h-full custom-card-container"
+    color="slategrey"
+    flat
+    :to="localePath(`/impact/${item.id}`)"
+    :style="`border-radius: ${isMobile ? '30px' : '80px'}`"
+  >
+    <v-img :src="src" height="250" width="100%" />
     <v-card
-      class="overflow-hidden custom-card h-full custom-card-container"
-      color="slategrey"
-      flat
-      style="border-radius: 80px"
+      color="transparent"
+      :class="[
+        'white--text pointer flex-shrink-0',
+        isMobile ? 'text-center' : 'd-flex',
+        summary && !isMobile ? `p${isRTL ? 'r' : 'l'}-8 p${isRTL ? 'l' : 'r'}-6 pt-5 pb-10` : 'text-center pa-8'
+      ]"
     >
-      <v-img :src="src" height="250" width="100%" />
-      <v-card
-        color="transparent"
-        :to="localePath(`/impact/${item.id}`)"
-        :class="[
-          'white--text pointer flex-shrink-0',
-          isMobile ? 'text-center' : 'd-flex',
-          summary && !isMobile ? `p${isRTL ? 'r' : 'l'}-8 p${isRTL ? 'l' : 'r'}-6 pt-5 pb-10` : 'text-center pa-8'
-        ]"
+      <div
+        :style="`${summary && !isMobile ? 'width: 50%' : 'width: 100%'}`"
+        :class="['bel flex-shrink-0', isMobile ? 'f-25' : 'f-35']"
       >
-        <div :style="`${summary && !isMobile ? 'width: 50%' : 'width: 100%'}`" class="f-35 bel flex-shrink-0">
-          {{ title | truncate({ length: 50 }) }}
-        </div>
-        <div v-if="!isMobile && summary" :class="`font-weight-light f-21 p${isRTL ? 'r' : 'l'}-4`">
-          <p v-html="summary" class="ma-0" />
-          <strong class="f-18 font-weight-bold mt-2 d-block">{{ $t('shared.see_more') }}</strong>
-        </div>
-      </v-card>
+        {{ title | truncate({ length: 50 }) }}
+      </div>
+      <div v-if="!isMobile && summary" :class="`font-weight-light f-21 p${isRTL ? 'r' : 'l'}-4`">
+        <p v-html="summary" class="ma-0" />
+        <strong class="f-18 font-weight-bold mt-2 d-block">{{ $t('shared.see_more') }}</strong>
+      </div>
     </v-card>
-
-    <div v-if="isMobile && summary" class="font-weight-light f-21 text-center mt-4 grey--text text--darken-1">
-      <p v-html="summary" class="ma-0" />
-      <nuxt-link :to="localePath(`/impact/${item.id}`)" class="grey--text text--darken-1 text-decoration-none mt-2">
-        <strong class="f-18 font-weight-bold d-block">{{ $t('shared.see_more') }}</strong>
-      </nuxt-link>
-    </div>
-  </div>
+  </v-card>
 </template>
 
 <script>
