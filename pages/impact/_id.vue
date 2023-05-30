@@ -128,7 +128,7 @@
 
     <v-sheet :class="['mx-auto', isMobile ? 'px-6' : 'px-16']" :max-width="globalMaxWidth">
       <v-row class="py-16">
-        <v-col md="8">
+        <v-col md="7">
           <h3
             :class="[
               'font-weight-regular bel success--text mb-4 text-center text-sm-start',
@@ -149,7 +149,7 @@
             could be highly affected by lack of awareness and access challenges to high quality Iron supplements.
           </p>
         </v-col>
-        <v-col class="px-md-8" md="4">
+        <v-col class="px-md-8" md="5">
           <v-img height="600" src="/images/temp/impact_detail.png" />
         </v-col>
         <v-col lg="12">
