@@ -1,0 +1,32 @@
+<template>
+  <div
+    :class="[`position-relative flex-shrink-0 z-0 ${!isMobile && `p${isRTL ? 'r' : 'l'}-8 m${isRTL ? 'r' : 'l'}-8`}`]"
+    :style="`width: 400px; ${!isMobile && `border-${isRTL ? 'right' : 'left'}: 1px solid #aaa`}`"
+  >
+    <v-scroll-y-transition>
+      <h3
+        v-if="item"
+        :class="['bel font-weight-regular mb-1 f-40']"
+        :style="`color:${item.color}; line-height: ${isMobile ? '30px' : '50px'};`"
+      >
+        <nuxt-link style="color: inherit" class="text-decoration-none" :to="item.path">{{ $t(item.title) }}</nuxt-link>
+      </h3>
+    </v-scroll-y-transition>
+    <v-scroll-y-transition>
+      <p v-if="item" class="f-20 font-weight-light ma-0">{{ $t(item.description) }}</p>
+    </v-scroll-y-transition>
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    item: {
+      type: Object,
+      required: true
+    }
+  }
+};
+</script>
+
+<style lang="scss" scoped></style>

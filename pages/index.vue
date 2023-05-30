@@ -11,11 +11,11 @@
 
 <script>
 import HomeVideo from '~/components/home/HomeVideo.vue';
+import HomeServices from '~/components/home/HomeServices';
 import HomeImpact from '~/components/home/HomeImpact.vue';
 import HomeSlider from '~/components/home/HomeSlider.vue';
 import HomeTellUsStory from '~/components/home/HomeTellUsStory.vue';
 import HomeStoryTellers from '~/components/home/HomeStoryTellers.vue';
-import HomeServices from '~/components/home/HomeServices.vue';
 
 export default {
   components: { HomeServices, HomeImpact, HomeStoryTellers, HomeTellUsStory, HomeVideo, HomeSlider },

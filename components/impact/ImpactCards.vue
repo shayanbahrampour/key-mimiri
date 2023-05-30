@@ -2,7 +2,7 @@
   <div class="h-full">
     <v-card
       class="overflow-hidden custom-card h-full custom-card-container"
-      :color="!isMobile && 'slategrey'"
+      color="slategrey"
       flat
       style="border-radius: 80px"
       :to="localePath(`/impact/${item.id}`)"

@@ -11,8 +11,8 @@
       />
     </v-fade-transition>
 
-    <div class="position-relative z-0 slategrey">
-      <v-carousel v-model="active" cycle hide-delimiters :show-arrows="false" :interval="5000" mandatory>
+    <div class="position-relative z-0 slategrey" style="min-height: 500px">
+      <v-carousel v-model="active" cycle continuous hide-delimiters :show-arrows="false" :interval="5000" mandatory>
         <v-carousel-item
           v-for="(item, i) in shapes"
           :key="i"
@@ -38,21 +38,24 @@
         ]"
         :style="`max-width: ${globalMaxWidth}px; padding-bottom: 130px;`"
       >
-        <div class="w-full">
-          <h3
-            :class="`bel font-weight-regular mb-3 ${isMobile ? 'f-40 text-center' : 'f-70'}`"
-            :style="`${!isMobile && 'max-width: 900px'};`"
-          >
-            {{ $t('homePage.services.slider.title') }}
-          </h3>
-          <div
-            :class="`font-weight-light m${isRTL ? 'r' : 'l'}-auto ${isMobile ? 'text-center f-20' : 'f-22'}`"
-            :style="`line-height: 32px; ${!isMobile && 'max-width: 450px;'}`"
-          >
-            {{ $t('homePage.services.slider.description') }}
+        <v-fade-transition>
+          <div class="w-full" v-if="flag.showContent">
+            <h3
+              :class="`bel font-weight-regular mb-3 ${isMobile ? 'f-40 text-center' : 'f-70'}`"
+              :style="`${!isMobile && 'max-width: 900px'};`"
+            >
+              {{ $t('homePage.services.slider.title') }}
+            </h3>
+            <div
+              :class="`font-weight-light m${isRTL ? 'r' : 'l'}-auto ${isMobile ? 'text-center f-20' : 'f-22'}`"
+              :style="`line-height: 32px; ${!isMobile && 'max-width: 450px;'}`"
+            >
+              {{ $t('homePage.services.slider.description') }}
+            </div>
           </div>
-        </div>
+        </v-fade-transition>
       </div>
+
       <v-sheet
         :class="['mx-auto position-relative z-0', isMobile ? 'px-6' : 'px-16']"
         :max-width="globalMaxWidth"
@@ -79,45 +82,28 @@
         'mx-auto position-relative z-0 d-flex justify-end',
         isMobile ? 'px-4 align-end' : 'px-lg-16 px-4 align-center'
       ]"
-      :height="isMobile ? 450 : 500"
+      min-height="500"
       :max-width="globalMaxWidth"
       color="transparent"
     >
       <div
-        :class="[`position-relative z-0 ${!isMobile && `mb-16 p${isRTL ? 'r' : 'l'}-8`}`]"
-        :style="`${
-          isMobile
-            ? $vuetify.breakpoint.smOnly
-              ? 'width: calc(100vw - 250px); margin-bottom: 25px'
-              : 'width: calc(100vw - 140px)'
-            : `max-width: ${$vuetify.breakpoint.lgAndUp ? '490px' : '400px'}`
-        }; ${!isMobile && `border-${isRTL ? 'right' : 'left'}: 1px solid #aaa`}`"
-      >
-        <v-scroll-y-transition>
-          <h3
-            v-if="activeItem"
-            :class="['bel font-weight-regular mb-1', isMobile ? 'f-40' : 'f-50']"
-            :style="`color:${activeItem.color}; line-height: ${isMobile ? '30px' : '50px'};`"
-          >
-            {{ $t(activeItem.title) }}
-          </h3>
-        </v-scroll-y-transition>
-        <v-scroll-y-transition>
-          <p v-if="activeItem" class="f-20 font-weight-light ma-0">{{ $t(activeItem.description) }}</p>
-        </v-scroll-y-transition>
-      </div>
-
-      <div
-        :class="`nuclear z-0 start-0 top-0 end-0 bottom-0 position-absolute rounded-circle my-auto d-flex align-center justify-center m${
+        :class="`nuclear z-0 start-0 top-0 end-0 bottom-0 position-absolute rounded-circle my-auto d-flex m${
           isRTL ? 'l' : 'r'
-        }-auto`"
-        :style="`width: ${isMobile ? '100%' : '400px'}; height: ${isMobile ? '100%' : '200px'}; margin-${
+        }-auto ${isMobile ? 'flex-column align-start justify-center' : 'align-center justify-start'}`"
+        :style="`width: ${isMobile ? '100%' : '300px'}; height: ${isMobile ? '100%' : '200px'}; margin-${
           isRTL ? 'right' : 'left'
         }: ${isMobile ? 'auto' : '25%'}`"
       >
-        <div v-if="!isTablet" class="f-60 font-weight-regular bel grey--text text--darken-1 text-center mb-sm-0 mb-6">
+        <div
+          :class="[
+            'f-60 font-weight-regular bel grey--text text--darken-1 text-center flex-shrink-0',
+            isMobile && 'mb-4 text-center'
+          ]"
+          :style="`width: ${isMobile ? '100%' : '300px'}`"
+        >
           HRQOL
         </div>
+        <BallContents v-if="!isMobile" :item="activeItem" />
 
         <v-sheet
           v-for="(item, index) in shapes"
@@ -130,16 +116,23 @@
           @click="active = index"
         />
       </div>
+      <BallContents v-if="isMobile" :item="activeItem" style="max-width: calc(100vw - 150px)" />
     </v-sheet>
   </div>
 </template>
 
 <script>
+import BallContents from '~/components/home/HomeServices/BallContents.vue';
+
 export default {
+  components: { BallContents },
   data() {
     return {
       active: 0,
-      activeItem: null
+      activeItem: null,
+      flag: {
+        showContent: false
+      }
     };
   },
   computed: {
@@ -159,13 +152,14 @@ export default {
             bottom: ['1%', '50%']
           }
         : {
-            top: ['100px', '250px'],
-            side: ['400px', '30px'],
-            bottom: ['-50px', '-140px']
+            top: ['0', '250px'],
+            side: ['300px', '30px'],
+            bottom: ['-80px', '-170px']
           };
 
       const data = [
         {
+          path: '/social',
           src: '/images/temp/cover-1.jpg',
           position: coordinates.top,
           color: 'rgba(160, 30, 100, 1)',
@@ -173,6 +167,7 @@ export default {
           description: 'homePage.services.balls.social_health_description'
         },
         {
+          path: '/psychological',
           src: '/images/temp/cover-2.png',
           position: coordinates.side,
           color: 'rgba(243, 145, 31, 1)',
@@ -180,6 +175,7 @@ export default {
           description: 'homePage.services.balls.psychological_health_description'
         },
         {
+          path: '/physical',
           src: '/images/temp/cover-3.png',
           position: coordinates.bottom,
           color: 'rgba(0, 165, 155, 1)',
@@ -209,8 +205,12 @@ export default {
     active: {
       immediate: true,
       handler() {
-        console.log(this.active);
+        this.flag.showContent = false;
         this.activeItem = this.shapes[this.active];
+
+        setTimeout(() => {
+          this.flag.showContent = true;
+        }, 500);
       }
     }
   }
