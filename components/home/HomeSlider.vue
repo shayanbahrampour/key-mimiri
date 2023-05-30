@@ -1,9 +1,9 @@
 <template>
   <v-sheet
-    :class="['position-relative mx-auto', { 'pb-8': isMobile }]"
+    class="position-relative mx-auto"
     color="transparent"
-    height="calc(100vh - 120px)"
-    min-height="600"
+    :height="isMobile ? 'calc(100vh - 180px)' : 'calc(100vh - 120px)'"
+    min-height="550"
   >
     <v-img
       :class="['position-absolute my-auto z-0 rounded-circle', { 'mx-auto start-0 end-0': isMobile }]"
@@ -22,7 +22,9 @@
     >
       <v-row>
         <v-col cols="12" lg="8" md="9">
-          <h1 :class="['bel grey--text text--darken-2 font-weight-regular mb-8', isMobile ? 'f-45 pt-16' : 'f-70']">
+          <h1
+            :class="['bel grey--text text--darken-2 font-weight-regular mb-8', isMobile ? 'f-38 pt-16 mt-12' : 'f-70']"
+          >
             {{ $t('homePage.slider.title') }}
           </h1>
 
@@ -40,7 +42,7 @@
           </v-btn>
           <v-btn
             :block="isMobile"
-            :class="['f-18 px-14 text-capitalize', isMobile ? 'mt-3' : 'mx-4']"
+            :class="['f-18 px-14 text-capitalize', isMobile ? 'mt-16' : 'mx-4']"
             color="primary"
             depressed
             exact

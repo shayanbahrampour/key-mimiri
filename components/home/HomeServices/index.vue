@@ -1,18 +1,26 @@
 <template>
   <div :class="['home-services position-relative z-0', { 'mt-16': isMobile }]">
-    <v-fade-transition>
-      <v-sheet
-        v-if="activeItem"
-        :color="activeItem.color"
-        class="position-absolute z-1 top-0 end-0 start-0 mx-auto rounded-circle"
-        height="400"
-        style="mix-blend-mode: color; margin-top: -70px; opacity: 0.69"
-        width="400"
-      />
-    </v-fade-transition>
-
-    <div class="position-relative z-0 slategrey" style="min-height: 500px">
-      <v-carousel v-model="active" :interval="5000" :show-arrows="false" continuous cycle hide-delimiters mandatory>
+    <div class="slategrey position-relative">
+      <v-fade-transition leave-absolute hide-on-leave>
+        <v-sheet
+          v-if="activeItem"
+          :color="activeItem.color"
+          class="position-absolute z-1 top-0 end-0 start-0 mx-auto rounded-circle"
+          height="400"
+          style="mix-blend-mode: color; margin-top: -70px; opacity: 0.69"
+          width="400"
+        />
+      </v-fade-transition>
+      <v-carousel
+        v-model="active"
+        :interval="5000"
+        :show-arrows="false"
+        continuous
+        cycle
+        hide-delimiters
+        mandatory
+        class="position-relative z-0"
+      >
         <v-carousel-item
           v-for="(item, i) in shapes"
           :key="i"
@@ -33,7 +41,7 @@
       </v-carousel>
       <div
         :class="[
-          'h-full w-full d-flex justify-center mx-auto z-2 white--text position-absolute top-0 start-0 end-0',
+          'h-full w-full d-flex justify-center mx-auto z-4 white--text position-absolute top-0 start-0 end-0',
           isMobile ? 'py-4 px-5 align-end' : 'px-16 pt-16 align-center'
         ]"
         :style="`max-width: ${globalMaxWidth}px; padding-bottom: 130px;`"
@@ -55,31 +63,30 @@
           </div>
         </v-fade-transition>
       </div>
-
-      <v-sheet
-        :class="['mx-auto position-relative z-0', isMobile ? 'px-6' : 'px-16']"
-        :max-width="globalMaxWidth"
-        color="transparent"
-      >
-        <svg
-          v-if="!isMobile"
-          :class="`position-absolute end-0 start-0 m${isRTL ? 'l' : 'r'}-auto`"
-          :style="`width: 400px; bottom: -1px; margin-${isRTL ? 'right' : 'left'}: 25%`"
-          fill="none"
-          viewBox="0 0 403 127"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M68.3299 74.2707C88.7907 38.1636 123.727 12.5401 164.313 3.87321L167.08 3.28241C186.492 -0.862906 206.543 -1.03394 226.023 2.77962L239.386 5.39564C272.351 11.8491 301.24 31.5086 319.34 59.8056L339.908 91.9612C353.672 113.48 377.455 126.5 403 126.5V126.5H0V126.5C25.7035 123.992 48.5772 109.129 61.3095 86.6597L68.3299 74.2707Z"
-            fill="white"
-          />
-        </svg>
-      </v-sheet>
+      <!--      <v-sheet-->
+      <!--      v-if="!isMobile"-->
+      <!--        :class="['mx-auto position-relative z-2', isMobile ? 'px-6' : 'px-16']"-->
+      <!--        :max-width="globalMaxWidth"-->
+      <!--        color="transparent"-->
+      <!--      >-->
+      <!--        <svg-->
+      <!--          :class="`position-absolute end-0 start-0 m${isRTL ? 'l' : 'r'}-auto`"-->
+      <!--          :style="`width: 400px; bottom: -1px; margin-${isRTL ? 'right' : 'left'}: 25%`"-->
+      <!--          fill="none"-->
+      <!--          viewBox="0 0 403 127"-->
+      <!--          xmlns="http://www.w3.org/2000/svg"-->
+      <!--        >-->
+      <!--          <path-->
+      <!--            d="M68.3299 74.2707C88.7907 38.1636 123.727 12.5401 164.313 3.87321L167.08 3.28241C186.492 -0.862906 206.543 -1.03394 226.023 2.77962L239.386 5.39564C272.351 11.8491 301.24 31.5086 319.34 59.8056L339.908 91.9612C353.672 113.48 377.455 126.5 403 126.5V126.5H0V126.5C25.7035 123.992 48.5772 109.129 61.3095 86.6597L68.3299 74.2707Z"-->
+      <!--            fill="white"-->
+      <!--          />-->
+      <!--        </svg>-->
+      <!--      </v-sheet>-->
     </div>
 
     <v-sheet
       :class="[
-        'mx-auto position-relative z-0 d-flex justify-end',
+        'mx-auto position-relative z-3 d-flex justify-end',
         isMobile ? 'px-4 align-end' : 'px-lg-16 px-4 align-center'
       ]"
       :max-width="globalMaxWidth"

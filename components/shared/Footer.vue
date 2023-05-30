@@ -157,7 +157,7 @@ export default {
         {
           title: 'footer.title.life',
           children: [
-            { title: 'footer.links.life_at_cobel_group', to: '/' },
+            { title: 'footer.links.life_at_cobel_group', to: '/career' },
             { title: 'footer.links.careers', to: '/career' },
             { title: 'footer.links.talent_pool', to: '/' }
           ]
