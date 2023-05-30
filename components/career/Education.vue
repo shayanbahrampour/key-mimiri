@@ -9,17 +9,16 @@
       </p>
       <v-row class="align-start justify-center">
         <v-col :class="isMobile ? 'pb-0' : undefined" cols="12" md="4">
-          <v-text-field class="mb-8" dense filled hide-details label="Degree" rounded></v-text-field>
           <v-menu offset-y open-on-click>
             <template v-slot:activator="{ on, attrs }">
               <v-text-field
                 append-icon="mdi-triangle-down 10"
                 append-icon-size="16"
-                class="mb-6"
+                class="mb-8"
                 dense
                 filled
                 hide-details
-                label="Country"
+                label="Degree"
                 readonly
                 rounded
                 v-bind="attrs"
@@ -32,6 +31,7 @@
               </v-list-item>
             </v-list>
           </v-menu>
+          <v-text-field class="mb-8" dense filled hide-details label="Country" rounded></v-text-field>
           <v-text-field class="mb-8" dense filled hide-details label="Graduation Year" rounded></v-text-field>
         </v-col>
         <v-col :class="isMobile ? 'py-0' : undefined" cols="12" md="4">
@@ -57,17 +57,16 @@
       </v-btn>
       <v-row v-for="i in counter" :key="i" class="align-start justify-center">
         <v-col :class="isMobile ? 'pb-0' : undefined" cols="12" md="4">
-          <v-text-field class="mb-8" dense filled hide-details label="Degree" rounded></v-text-field>
           <v-menu offset-y open-on-click>
             <template v-slot:activator="{ on, attrs }">
               <v-text-field
                 append-icon="mdi-triangle-down 10"
                 append-icon-size="16"
-                class="mb-6"
+                class="mb-8"
                 dense
                 filled
                 hide-details
-                label="Country"
+                label="Degree"
                 readonly
                 rounded
                 v-bind="attrs"
@@ -80,6 +79,7 @@
               </v-list-item>
             </v-list>
           </v-menu>
+          <v-text-field class="mb-8" dense filled hide-details label="Country" rounded></v-text-field>
           <v-text-field class="mb-8" dense filled hide-details label="Graduation Year" rounded></v-text-field>
         </v-col>
         <v-col :class="isMobile ? 'py-0' : undefined" cols="12" md="4">
@@ -127,7 +127,14 @@ export default {
     return {
       valid: null,
       counter: 0,
-      items: [{ title: 'Iran' }, { title: 'United States' }, { title: 'United Kingdom' }]
+      items: [
+        { title: 'Graduate' },
+        { title: 'Associate' },
+        { title: 'Bachelor' },
+        { title: 'Master' },
+        { title: 'Doctorate' },
+        { title: 'Professional' }
+      ]
     };
   }
 };

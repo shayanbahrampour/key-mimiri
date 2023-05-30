@@ -144,12 +144,11 @@ export default {
         {
           title: 'footer.title.navigation',
           children: [
-            { title: 'footer.links.feeds', to: '/news' },
-            { title: 'footer.links.cobel_group_in_nut_shell', to: '/' },
-            { title: 'footer.links.innovation', to: '/' },
+            { title: 'footer.links.point_of_view', to: '/' },
             { title: 'footer.links.impact_stories', to: '/impact' },
-            { title: 'footer.links.people_career', to: '/career' },
-            { title: 'footer.links.reach_us', to: '/contact' },
+            { title: 'footer.links.education', to: '/education' },
+            { title: 'footer.links.people_careers', to: '/career' },
+            { title: 'footer.links.press_center', to: '/news' },
             { title: 'footer.links.storytellers', to: '/storytellers' }
           ]
         },
@@ -158,15 +157,15 @@ export default {
           children: [
             { title: 'footer.links.life_at_cobel_group', to: '/career' },
             { title: 'footer.links.careers', to: '/career' },
-            { title: 'footer.links.talent_pool', to: '/' }
+            { title: 'footer.links.talent_pool', to: '/career' }
           ]
         },
         {
-          title: 'footer.title.legal',
+          title: 'footer.title.HRQoL',
           children: [
-            { title: 'footer.links.general_info', to: '/' },
-            { title: 'footer.links.privacy_policy', to: '/' },
-            { title: 'footer.links.terms_of_service', to: '/' }
+            { title: 'footer.links.psychological_health', to: '/psychological' },
+            { title: 'footer.links.physical_health', to: '/physical' },
+            { title: 'footer.links.social_health', to: '/social' }
           ]
         },
         {

@@ -23,23 +23,22 @@ export default {
     title: {
       navigation: 'جهت یابی',
       life: 'افراد و مشاغل',
-      legal: 'قوانین',
+      HRQoL: 'HRQoL',
       talk_to_us: 'با ما صحبت کن'
     },
     links: {
-      feeds: 'فیلد/اخبار',
-      cobel_group_in_nut_shell: 'گروه کوبل در یک کلام',
-      impact_stories: 'داستان های الهامبخش',
-      people_career: 'افراد و مشاغل',
-      reach_us: 'به ما برسید',
+      point_of_view: 'دیدگاه‌ها',
+      impact_stories: 'داستان‌های الهام‌بخش',
+      education: 'آموزش',
+      people_careers: 'منابع انسانی و فرصت‌های حرفه‌ای',
+      press_center: 'مطبوعات',
       life_at_cobel_group: 'زندگی در گروه کوبل',
       careers: 'مشاغل',
       talent_pool: 'استعداد ها',
-      general_info: 'اطلاعات عمومی',
-      privacy_policy: 'حفظ حریم خصوصی',
-      terms_of_service: 'شرایط استفاده از خدمات',
+      social_health: 'سلامت اجتماعی',
+      psychological_health: 'سلامت روانی',
+      physical_health: 'سلامت فیزیکی',
       contact: 'با ما تماس بگیرید',
-      innovation: 'نوآوری',
       storytellers: 'داستانهای الهامبخش'
     },
     copyright: '© ۱۴۰۲ گروه کوبل، تمامی حقوق محفوظ است'
@@ -145,9 +144,16 @@ export default {
     },
     not_found: 'داده‌ای یافت نشد',
     read_time: 'زمان مطالعه',
-    wrote_by: 'نویسنده',
+    written_by: 'نویسنده',
     published: 'منتشر شده',
     other_links: 'ممکن است اینها را هم دوست داشته باشید',
     see_all: 'مشاهده همه'
+  },
+  shared: {
+    see_more: 'موارد بیشتر'
+  },
+  error: {
+    home: 'برگشت به خانه',
+    reload: 'لود مجدد'
   }
 };

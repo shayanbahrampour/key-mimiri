@@ -1,5 +1,5 @@
 <template>
-  <v-tabs v-model="model" class="custom-career-tabs">
+  <v-tabs v-model="model" class="custom-career-tabs" center-active>
     <v-tab
       v-for="(item, index) in items"
       :key="index"
@@ -42,7 +42,9 @@ export default {
 .custom-career-tabs {
   .v-tabs-slider {
     background: none repeat scroll 0 0 transparent;
-    background: transparent;
+    background: slategrey;
+    position: absolute;
+    left: -50% !important;
   }
 
   .v-slide-group__prev {

@@ -3,6 +3,7 @@
     <div class="position-relative home-video">
       <client-only>
         <VideoLoader
+          :height="isMobile ? null : isTablet ? 500 : 700"
           ref="home-video"
           class="w-full"
           :options="{
@@ -19,22 +20,25 @@
       </client-only>
 
       <v-sheet
-        :class="['position-absolute bottom-0 z-1 mx-auto white--text w-full h-full', isMobile ? 'px-6' : 'px-16 pb-5']"
+        :class="[
+          'position-absolute bottom-0 z-1 mx-auto white--text w-full h-full d-flex',
+          isMobile ? 'px-6 align-start' : 'px-16 pb-8 align-end'
+        ]"
         :max-width="globalMaxWidth"
         color="transparent"
       >
-        <v-row class="h-full" :align="isMobile ? 'start' : 'end'" dense>
-          <v-col cols="12" lg="5" md="4">
+        <v-row :align="isMobile ? 'start' : 'center'" no-gutters>
+          <v-col cols="12" md="4" sm="5">
             <h3 :class="['font-weight-regular bel', isMobile ? 'f-40 text-center pt-4' : 'f-50']">
               {{ $t('homePage.video.title') }}
             </h3>
           </v-col>
 
           <template v-if="!isMobile">
-            <v-col md="1" cols="12">
-              <v-divider class="white" style="height: 100px" vertical />
+            <v-col sm="1" cols="12" class="d-flex justify-center">
+              <v-divider class="white mx-auto" style="height: 100px" vertical />
             </v-col>
-            <v-col cols="12" lg="6" md="7">
+            <v-col cols="12" md="7" sm="6">
               <div class="f-25 grey--text text--lighten-2 font-weight-light">
                 {{ $t('homePage.video.description') }}
               </div>

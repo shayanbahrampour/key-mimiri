@@ -41,7 +41,7 @@ export default {
   props: {
     height: {
       type: Number,
-      default: 600
+      default: null
     },
     options: {
       type: Object,

@@ -95,22 +95,25 @@
       </div>
     </div>
 
-    <client-only>
-      <VideoLoader
-        ref="career-video"
-        class="w-full"
-        :options="{
-          fill: true,
-          poster: '/images/temp/cover-6.png',
-          sources: [
-            {
-              type: 'video/mp4',
-              src: '/video/main.mp4'
-            }
-          ]
-        }"
-      />
-    </client-only>
+    <div class="w-full">
+      <client-only>
+        <VideoLoader
+          :height="isMobile ? null : 700"
+          ref="career-video"
+          class="w-full"
+          :options="{
+            fill: true,
+            poster: '/images/temp/cover-6.png',
+            sources: [
+              {
+                type: 'video/mp4',
+                src: '/video/main.mp4'
+              }
+            ]
+          }"
+        />
+      </client-only>
+    </div>
 
     <div class="h-full mt-16 slategrey" style="height: 400px">
       <div v-if="!isMobile" class="d-flex justify-center mt-2 px-16">

@@ -14,7 +14,6 @@
         :interval="5000"
         :show-arrows="false"
         class="position-relative z-0"
-        continuous
         cycle
         hide-delimiters
         mandatory
@@ -42,24 +41,22 @@
           'h-full w-full d-flex justify-center mx-auto z-4 white--text position-absolute top-0 start-0 end-0',
           isMobile ? 'py-4 px-5 align-end' : 'px-16 pt-16 align-center'
         ]"
-        :style="`max-width: ${globalMaxWidth}px; padding-bottom: 170px;`"
+        :style="`max-width: ${globalMaxWidth}px; padding-bottom: 150px;`"
       >
-        <v-fade-transition>
-          <div v-if="flag.showContent" class="w-full">
-            <h3
-              :class="`bel font-weight-regular mb-5 ${isMobile ? 'f-35 text-center' : 'f-65'}`"
-              :style="`${!isMobile && 'max-width: 900px'};`"
-            >
-              {{ $t('homePage.services.slider.title') }}
-            </h3>
-            <div
-              :class="`font-weight-light m${isRTL ? 'r' : 'l'}-auto ${isMobile ? 'text-center f-20' : 'f-22'}`"
-              :style="`line-height: 32px; ${!isMobile && 'max-width: 450px;'}`"
-            >
-              {{ $t('homePage.services.slider.description') }}
-            </div>
+        <div class="w-full">
+          <h3
+            :class="`bel font-weight-regular mb-5 ${isMobile ? 'f-35 text-center' : 'f-65'}`"
+            :style="`${!isMobile && 'max-width: 900px'};`"
+          >
+            {{ $t('homePage.services.slider.title') }}
+          </h3>
+          <div
+            :class="`font-weight-light m${isRTL ? 'r' : 'l'}-auto ${isMobile ? 'text-center f-20' : 'f-22'}`"
+            :style="`line-height: 32px; ${!isMobile && 'max-width: 450px;'}`"
+          >
+            {{ $t('homePage.services.slider.description') }}
           </div>
-        </v-fade-transition>
+        </div>
       </div>
       <v-sheet
         v-if="!isMobile"
@@ -81,7 +78,6 @@
         </svg>
       </v-sheet>
     </div>
-
     <v-sheet
       :class="[
         'mx-auto position-relative z-3 d-flex justify-end',
@@ -102,11 +98,11 @@
         <div
           :class="[
             'font-weight-regular bel grey--text text--darken-2 text-center flex-shrink-0',
-            isMobile ? 'mb-4 text-center f-65' : 'f-60'
+            isMobile ? 'mb-4 text-center f-65' : 'text-end f-60'
           ]"
-          :style="`width: ${isMobile ? '100%' : '300px'}`"
+          :style="`width: ${isMobile ? '100%' : '250px'}`"
         >
-          HRQOL
+          HRQoL
         </div>
         <BallContents v-if="!isMobile" :item="activeItem" />
 
@@ -134,10 +130,7 @@ export default {
   data() {
     return {
       active: 0,
-      activeItem: null,
-      flag: {
-        showContent: false
-      }
+      activeItem: null
     };
   },
   computed: {
@@ -159,7 +152,7 @@ export default {
         : {
             top: ['0', '250px'],
             side: ['300px', '30px'],
-            bottom: ['-80px', '-170px']
+            bottom: ['-80px', '-190px']
           };
 
       const data = [
@@ -210,12 +203,7 @@ export default {
     active: {
       immediate: true,
       handler() {
-        this.flag.showContent = false;
         this.activeItem = this.shapes[this.active];
-
-        setTimeout(() => {
-          this.flag.showContent = true;
-        }, 500);
       }
     }
   }

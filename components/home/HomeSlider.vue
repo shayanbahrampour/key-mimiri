@@ -1,6 +1,6 @@
 <template>
   <v-sheet
-    :height="isMobile ? 'calc(100vh - 180px)' : 'calc(100vh - 120px)'"
+    :height="isMobile ? 'calc(100vh - 180px)' : 'calc(100vh - 140px)'"
     class="position-relative mx-auto home-slider"
     color="transparent"
     min-height="550"

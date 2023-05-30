@@ -69,7 +69,7 @@ export default {
       },
       items: [],
       swiperOptions: {
-        spaceBetween: 32,
+        spaceBetween: 28,
         slidesPerView: 1.1,
         grabCursor: true,
         breakpoints: {
