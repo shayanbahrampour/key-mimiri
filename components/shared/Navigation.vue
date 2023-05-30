@@ -1,6 +1,16 @@
 <template>
-  <div :style="{ height: isMobile ? '70px' : '120px' }">
-    <v-app-bar :height="isMobile ? 70 : 120" class="appbar" color="white" elevate-on-scroll fixed flat tile>
+  <div>
+    <v-app-bar
+      :height="isMobile ? 70 : 120"
+      class="appbar"
+      color="white"
+      elevate-on-scroll
+      fixed
+      app
+      flat
+      tile
+      :scroll-threshold="isMobile ? 70 : 120"
+    >
       <v-sheet
         :class="['mx-auto d-flex align-center h-full w-full', { 'px-12': !isMobile }]"
         :max-width="globalMaxWidth"

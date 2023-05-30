@@ -13,7 +13,7 @@
     <v-img
       :class="[!isMobile ? 'mt-0' : 'mt-10']"
       max-height="500"
-      src="/images/video_content/social.png"
+      src="/images/temp/social.png"
       style="z-index: 2 !important"
       width="100vw"
     />

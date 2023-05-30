@@ -1,18 +1,38 @@
 <template>
   <v-sheet
     :height="isMobile ? 'calc(100vh - 180px)' : 'calc(100vh - 120px)'"
-    class="position-relative mx-auto"
+    class="position-relative mx-auto home-slider"
     color="transparent"
     min-height="550"
+    :max-height="900"
   >
-    <v-img
-      :class="['position-absolute my-auto z-0 rounded-circle', { 'mx-auto start-0 end-0': isMobile }]"
-      :height="isMobile ? 400 : 650"
-      :position="isRTL ? 'center left' : 'center right'"
-      :style="`${isMobile ? 'top:-250px' : `${isRTL ? 'left' : 'right'}:-450px;bottom:0;top:0;`};`"
-      :width="isMobile ? 400 : 650"
-      src="/images/temp/home.png"
-    />
+    <client-only>
+      <video-player
+        playsinline
+        :style="`${isMobile ? 'top:-250px;' : `${isRTL ? 'left' : 'right'}:-450px;bottom:0;`}height:${
+          isMobile ? 400 : 650
+        }px;width:${isMobile ? 400 : 650}px;max-height:${isMobile ? 400 : 650}px;max-width:${isMobile ? 400 : 650}px;`"
+        :class="[
+          'position-absolute white my-auto z-0 rounded-circle overflow-hidden end-0 rounded-circle top-0',
+          { 'mx-auto start-0 end-0': isMobile }
+        ]"
+        :options="{
+          fullscreen: true,
+          responsive: true,
+          fill: true,
+          fluid: false,
+          autoplay: true,
+          controls: false,
+          aspectRatio: '1:1',
+          sources: [
+            {
+              type: 'video/mp4',
+              src: '/video/home-slider.mp4'
+            }
+          ]
+        }"
+      />
+    </client-only>
 
     <v-sheet
       :class="['position-relative z-1 mx-auto d-flex align-center', isMobile ? 'px-8' : 'px-16']"
@@ -58,7 +78,17 @@
 </template>
 
 <script>
-export default {};
+import VideoLoader from '@/components/shared/VideoLoader';
+
+export default {
+  components: { VideoLoader }
+};
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+.home-slider {
+  video {
+    object-fit: cover;
+  }
+}
+</style>

@@ -1,16 +1,14 @@
 <template>
   <div :class="['home-services position-relative z-0', { 'mt-16': isMobile }]">
     <div class="slategrey position-relative">
-      <v-fade-transition hide-on-leave leave-absolute>
-        <v-sheet
-          v-if="activeItem"
-          :color="activeItem.color"
-          class="position-absolute z-1 top-0 end-0 start-0 mx-auto rounded-circle"
-          height="400"
-          style="mix-blend-mode: color; margin-top: -70px; opacity: 0.69"
-          width="400"
-        />
-      </v-fade-transition>
+      <v-sheet
+        v-if="activeItem"
+        :color="activeItem.color"
+        class="position-absolute z-1 top-0 end-0 start-0 mx-auto rounded-circle transition-ease-in-out"
+        height="400"
+        style="mix-blend-mode: color; margin-top: -70px; opacity: 0.69"
+        width="400"
+      />
       <v-carousel
         v-model="active"
         :interval="5000"

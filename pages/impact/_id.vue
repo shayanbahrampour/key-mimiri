@@ -92,25 +92,22 @@
     </v-sheet>
 
     <div :class="{ 'px-16': !isMobile }">
-      <v-img
-        :class="[
-          'position-relative d-flex justify-center align-center z-0 mx-auto mt-10 mx-auto',
-          isMobile ? 'py-8' : 'py-16'
-        ]"
-        :max-width="globalMaxWidth"
-        max-height="600"
-        src="/images/temp/cover-4.png"
-      >
-        <v-img
-          :height="isMobile ? 80 : 130"
-          :max-height="isMobile ? 80 : 130"
-          :max-width="isMobile ? 80 : 130"
-          :width="isMobile ? 80 : 130"
-          class="ma-auto position-absolute top-0 bottom-0 end-0 start-0 z-1"
-          contain
-          src="/images/home/home_video_button.svg"
+      <client-only>
+        <VideoLoader
+          ref="impact-video"
+          class="w-full"
+          :options="{
+            fluid: true,
+            poster: '/images/temp/cover-4.png',
+            sources: [
+              {
+                type: 'video/mp4',
+                src: '/video/main.mp4'
+              }
+            ]
+          }"
         />
-      </v-img>
+      </client-only>
     </div>
 
     <v-sheet :class="['mx-auto', isMobile ? 'px-6' : 'px-16']" :max-width="globalMaxWidth">
@@ -208,9 +205,10 @@
 <script>
 import ImpactCards from '~/components/impact/ImpactCards.vue';
 import HomeTellUsStory from '~/components/home/HomeTellUsStory.vue';
+import VideoLoader from '~/components/shared/VideoLoader.vue';
 
 export default {
-  components: { HomeTellUsStory, ImpactCards },
+  components: { VideoLoader, HomeTellUsStory, ImpactCards },
   data() {
     return {
       swiperOptions: {

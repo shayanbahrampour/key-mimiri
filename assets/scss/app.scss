@@ -38,3 +38,12 @@
 .swiper-wrapper {
   align-items: stretch;
 }
+
+.video-js {
+  background-color: white !important;
+
+  .vjs-poster {
+    object-fit: cover;
+    background-size: cover !important;
+  }
+}

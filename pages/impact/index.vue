@@ -21,6 +21,7 @@
       </h1>
 
       <CustomTabs
+        id="impact"
         :items="categories.map((item) => ({ ...item, title: item[`${$i18n.locale}_name`] }))"
         class="mt-4"
         @select="

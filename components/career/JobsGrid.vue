@@ -90,7 +90,6 @@
       </v-col>
     </v-row>
   </div>
-
   <div v-else class="d-flex flex-column mb-16">
     <div v-for="i in 3" :key="i" class="d-flex flex-column">
       <h4 class="bel f-30 text--darken-3 font-weight-regular slategrey--text">{{ $t('career.job_position') }}</h4>

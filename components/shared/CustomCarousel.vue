@@ -61,7 +61,7 @@
                 exact
                 link
                 text
-                @click="$vuetify.goTo('#impactSwiper', { offset: 150 })"
+                @click="$vuetify.goTo('#impact', { offset: 0 })"
               >
                 {{ $t('impactPage.slider.see_more') }}
               </v-btn>

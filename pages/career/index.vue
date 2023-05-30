@@ -94,7 +94,24 @@
         </div>
       </div>
     </div>
-    <v-img :height="isMobile ? '200' : '500'" src="/images/video_content/physical.png" width="100%" />
+
+    <client-only>
+      <VideoLoader
+        ref="career-video"
+        class="w-full"
+        :options="{
+          fluid: true,
+          poster: '/images/temp/cover-6.png',
+          sources: [
+            {
+              type: 'video/mp4',
+              src: '/video/main.mp4'
+            }
+          ]
+        }"
+      />
+    </client-only>
+
     <div class="h-full mt-16 slategrey" style="height: 400px">
       <div v-if="!isMobile" class="d-flex justify-center mt-2 px-16">
         <div class="d-flex align-center justify-center">
@@ -188,6 +205,7 @@
 
 <script>
 import JobsGrid from '~/components/career/JobsGrid';
+import VideoLoader from '~/components/shared/VideoLoader.vue';
 
 export default {
   head() {
@@ -195,7 +213,7 @@ export default {
       title: this.$t('pageTitles.careers')
     };
   },
-  components: { JobsGrid },
+  components: { VideoLoader, JobsGrid },
   data() {
     return {
       seeMore: false,
