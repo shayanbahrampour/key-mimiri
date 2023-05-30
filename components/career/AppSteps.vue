@@ -1,9 +1,7 @@
 <template>
-  <div class="d-flex align-center">
-    <div class="flex-grow-1">
-      <CareerCustomTabs :items="tabs" :model="model" />
-      <v-progress-linear class="mr-0 mt-4" :value="calculateWidth()" color="#4C6D80"></v-progress-linear>
-    </div>
+  <div class="w-full">
+    <CareerCustomTabs :items="tabs" :model="model" />
+    <v-progress-linear class="mr-0 mt-4" :value="calculateWidth()" color="#4C6D80"></v-progress-linear>
   </div>
 </template>
 
