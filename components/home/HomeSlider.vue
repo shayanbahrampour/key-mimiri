@@ -21,7 +21,7 @@
       height="100%"
     >
       <v-row>
-        <v-col cols="12" lg="8" md="9">
+        <v-col cols="12" lg="8" sm="9">
           <h1
             :class="['bel grey--text text--darken-2 font-weight-regular mb-8', isMobile ? 'f-38 pt-16 mt-12' : 'f-70']"
           >

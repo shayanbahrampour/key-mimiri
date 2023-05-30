@@ -30,7 +30,7 @@
 
         <v-spacer />
 
-        <template v-if="!isMobile">
+        <template v-if="$vuetify.breakpoint.mdAndUp">
           <v-btn
             v-for="(item, index) in items"
             :key="index"
@@ -47,14 +47,14 @@
           </v-btn>
         </template>
 
-        <v-icon v-if="isMobile" @click="flag.showDrawer = !flag.showDrawer">mdi-menu</v-icon>
+        <v-icon v-if="$vuetify.breakpoint.smAndDown" @click="flag.showDrawer = !flag.showDrawer">mdi-menu</v-icon>
 
         <v-btn v-if="$i18n.locale === 'en'" :to="switchLocalePath('fa')" class="mx-1" color="primary" icon> Fa</v-btn>
         <v-btn v-else :to="switchLocalePath('en')" class="mx-1" color="primary" icon>En</v-btn>
       </v-sheet>
     </v-app-bar>
 
-    <v-navigation-drawer v-if="isMobile" v-model="flag.showDrawer" :right="isRTL" app fixed>
+    <v-navigation-drawer v-if="$vuetify.breakpoint.smAndDown" v-model="flag.showDrawer" :right="isRTL" app fixed>
       <v-list class="my-4" nav>
         <template v-for="(item, index) in items">
           <v-list-item :key="index" :to="item.path ? item.path : undefined" color="primary" exact link>

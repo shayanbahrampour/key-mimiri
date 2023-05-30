@@ -44,12 +44,12 @@
           'h-full w-full d-flex justify-center mx-auto z-4 white--text position-absolute top-0 start-0 end-0',
           isMobile ? 'py-4 px-5 align-end' : 'px-16 pt-16 align-center'
         ]"
-        :style="`max-width: ${globalMaxWidth}px; padding-bottom: 130px;`"
+        :style="`max-width: ${globalMaxWidth}px; padding-bottom: 170px;`"
       >
         <v-fade-transition>
           <div v-if="flag.showContent" class="w-full">
             <h3
-              :class="`bel font-weight-regular mb-3 ${isMobile ? 'f-35 text-center' : 'f-70'}`"
+              :class="`bel font-weight-regular mb-5 ${isMobile ? 'f-35 text-center' : 'f-65'}`"
               :style="`${!isMobile && 'max-width: 900px'};`"
             >
               {{ $t('homePage.services.slider.title') }}
@@ -63,25 +63,25 @@
           </div>
         </v-fade-transition>
       </div>
-      <!--      <v-sheet-->
-      <!--      v-if="!isMobile"-->
-      <!--        :class="['mx-auto position-relative z-2', isMobile ? 'px-6' : 'px-16']"-->
-      <!--        :max-width="globalMaxWidth"-->
-      <!--        color="transparent"-->
-      <!--      >-->
-      <!--        <svg-->
-      <!--          :class="`position-absolute end-0 start-0 m${isRTL ? 'l' : 'r'}-auto`"-->
-      <!--          :style="`width: 400px; bottom: -1px; margin-${isRTL ? 'right' : 'left'}: 25%`"-->
-      <!--          fill="none"-->
-      <!--          viewBox="0 0 403 127"-->
-      <!--          xmlns="http://www.w3.org/2000/svg"-->
-      <!--        >-->
-      <!--          <path-->
-      <!--            d="M68.3299 74.2707C88.7907 38.1636 123.727 12.5401 164.313 3.87321L167.08 3.28241C186.492 -0.862906 206.543 -1.03394 226.023 2.77962L239.386 5.39564C272.351 11.8491 301.24 31.5086 319.34 59.8056L339.908 91.9612C353.672 113.48 377.455 126.5 403 126.5V126.5H0V126.5C25.7035 123.992 48.5772 109.129 61.3095 86.6597L68.3299 74.2707Z"-->
-      <!--            fill="white"-->
-      <!--          />-->
-      <!--        </svg>-->
-      <!--      </v-sheet>-->
+      <v-sheet
+        v-if="!isMobile"
+        :class="['mx-auto position-relative z-2', isMobile ? 'px-6' : 'px-16']"
+        :max-width="globalMaxWidth"
+        color="transparent"
+      >
+        <svg
+          :class="`position-absolute end-0 start-0 m${isRTL ? 'l' : 'r'}-auto`"
+          :style="`width: 400px; bottom: -1px; margin-${isRTL ? 'right' : 'left'}: 25%`"
+          fill="none"
+          viewBox="0 0 403 127"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M68.3299 74.2707C88.7907 38.1636 123.727 12.5401 164.313 3.87321L167.08 3.28241C186.492 -0.862906 206.543 -1.03394 226.023 2.77962L239.386 5.39564C272.351 11.8491 301.24 31.5086 319.34 59.8056L339.908 91.9612C353.672 113.48 377.455 126.5 403 126.5V126.5H0V126.5C25.7035 123.992 48.5772 109.129 61.3095 86.6597L68.3299 74.2707Z"
+            fill="white"
+          />
+        </svg>
+      </v-sheet>
     </div>
 
     <v-sheet
