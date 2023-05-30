@@ -10,10 +10,10 @@
         :to="localePath('/impact/1')"
         class="d-flex rounded-xl overflow-hidden mr-4 custom-news-card"
         elevation="0"
-        style="border: 2px solid #59595b; overflow: hidden"
+        style="border: 2px solid #59595b; overflow: hidden; transition: all ease-in 0.4s"
       >
         <div class="d-flex">
-          <v-img height="100%" src="/images/news/face.png" width="280" />
+          <v-img height="100%" src="/images/news/slider.png" width="280" />
         </div>
         <div class="d-flex flex-column py-6 ml-16 align-start">
           <h4 class="bel f-40 text--darken-3 font-weight-regular mb-auto cobelgrey--text custom-card-title">
@@ -83,11 +83,20 @@ export default {
 
 <style lang="scss">
 .custom-news-card {
+  .v-image {
+    filter: grayscale(100%);
+    transition: all ease-in 0.4s;
+  }
   &:hover {
     border: 2px solid slategrey !important;
 
     .custom-card-title {
       color: slategrey !important;
+      transition: all ease-in 0.4s;
+    }
+
+    .v-image {
+      filter: grayscale(0%);
     }
   }
 }
