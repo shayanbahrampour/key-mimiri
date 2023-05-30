@@ -1,5 +1,5 @@
 <template>
-  <v-tabs v-model="model" center-active class="w-full custom-career-tabs">
+  <v-tabs v-model="model" class="custom-career-tabs">
     <v-tab
       v-for="(item, index) in items"
       :key="index"

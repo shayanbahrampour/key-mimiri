@@ -6,8 +6,7 @@
           ref="home-video"
           class="w-full"
           :options="{
-            fill: false,
-            fluid: false,
+            fill: true,
             poster: '/images/temp/cover-6.png',
             sources: [
               {

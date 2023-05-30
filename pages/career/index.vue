@@ -100,7 +100,7 @@
         ref="career-video"
         class="w-full"
         :options="{
-          fluid: true,
+          fill: true,
           poster: '/images/temp/cover-6.png',
           sources: [
             {

@@ -45,7 +45,6 @@
         :class="[!isMobile ? 'mt-16 mx-4' : 'mt-4 mb-6']"
         :model="counter"
         :tabs="$route.query.job ? certainJob : apply"
-        style="min-width: 90vw"
       />
       <Component :is="steps[counter].component"></Component>
       <div

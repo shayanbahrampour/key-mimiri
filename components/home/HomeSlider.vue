@@ -17,6 +17,7 @@
           { 'mx-auto start-0 end-0': isMobile }
         ]"
         :options="{
+          muted: true,
           fullscreen: true,
           responsive: true,
           fill: true,
