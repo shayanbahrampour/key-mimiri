@@ -10,13 +10,16 @@
       show-arrows-on-hover
     >
       <v-carousel-item v-for="(item, index) in items" :key="index">
-        <v-img :height="isMobile ? 250 : 500" :src="item.src" class="position-relative z-0" />
+        <v-img :height="isMobile ? 300 : 500" :src="item.src" class="position-relative z-0" />
       </v-carousel-item>
     </v-carousel>
     <div
       v-if="items.length > 1"
-      :class="['position-absolute start-0 end-0 mx-auto z-0', isMobile ? 'px-6' : 'px-16']"
-      :style="`max-width: ${globalMaxWidth}px; top: ${isMobile ? 210 : 370}px`"
+      :class="[
+        'position-absolute start-0 end-0 mx-auto z-0',
+        isMobile ? 'd-flex justify-center align-center px-6' : 'px-16'
+      ]"
+      :style="`max-width: ${globalMaxWidth}px; top: ${isMobile ? 260 : 370}px`"
     >
       <v-icon
         v-for="(item, index) in items"
@@ -44,15 +47,22 @@
         >
           <v-row v-if="activeSlide" :no-gutters="!isMobile" class="position-relative z-1" justify="center">
             <v-col cols="12" lg="5">
-              <h2 :class="['bel white--text font-weight-regular', isMobile ? 'f-40' : 'f-50']">
+              <h2 :class="['bel white--text font-weight-regular', isMobile ? 'f-35 text-center' : 'f-50']">
                 {{ activeSlide.title }}
               </h2>
             </v-col>
-            <v-col cols="12" lg="6" offset-lg="1">
+            <v-col cols="12" lg="6" offset-lg="1" :class="isMobile && 'text-center'">
               <p class="f-22 white--text font-weight-light mt-lg-0">
                 {{ activeSlide.description }}
               </p>
-              <v-btn class="font-weight-bold f-18 ml-n4 text-lowercase" color="white" exact link text>
+              <v-btn
+                class="font-weight-bold f-18 ml-n4 text-lowercase"
+                color="white"
+                exact
+                link
+                text
+                @click="$vuetify.goTo('#impactSwiper', { offset: 150 })"
+              >
                 {{ $t('impactPage.slider.see_more') }}
               </v-btn>
             </v-col>

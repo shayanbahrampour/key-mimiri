@@ -4,7 +4,6 @@
     color="slategrey"
     flat
     :to="localePath(`/impact/${item.id}`)"
-    :style="`border-radius: ${isMobile ? '30px' : '80px'}`"
   >
     <v-img :src="src" height="250" width="100%" />
     <v-card
