@@ -1,39 +1,26 @@
 <template>
-  <div class="position-relative">
-    <video-player
-      :id="ref"
-      :ref="ref"
-      :options="{
-        fluid: true,
-        muted: true,
-        controls: true,
-        autoplay: false,
-        fullscreen: true,
-        responsive: true,
-        aspectRatio: '16:9',
-        ...options
-      }"
-      class="vjs-theme-sea w-full overflow-hidden"
-      playsinline
-      :events="['fullscreenchange']"
-      @ready="onReady"
-      @ended="onEnded"
-      @fullscreenchange="onFullscreen"
-      :style="height ? `height: ${height}px; max-height: ${height}px; min-height: ${height}px;` : ''"
-    />
-
-    <v-img
-      v-if="!options.autoplay"
-      :height="isMobile ? 40 : 120"
-      :max-height="isMobile ? 40 : 120"
-      :max-width="isMobile ? 40 : 120"
-      :width="isMobile ? 40 : 120"
-      class="ma-auto position-absolute top-0 bottom-0 end-0 start-0 z-2 pointer"
-      contain
-      src="/images/icons/play-btn.svg"
-      @click="play"
-    />
-  </div>
+  <video-player
+    :id="ref"
+    :ref="ref"
+    :options="{
+      fluid: true,
+      muted: true,
+      fullscreen: true,
+      responsive: true,
+      controls: true,
+      aspectRatio: '16:9',
+      ...options
+    }"
+    preload="none"
+    playsinline
+    :style="height ? `height: ${height}px; max-height: ${height}px; min-height: ${height}px;` : ''"
+  />
+  <!--  :events="['fullscreenchange']"-->
+  <!--  @ready="onReady"-->
+  <!--  @ended="onEnded"-->
+  <!--  @pause="flag.isPlaying = false"-->
+  <!--  @play="flag.isPlaying = true"-->
+  <!--  @fullscreenchange="onFullscreen"-->
 </template>
 
 <script>
@@ -60,6 +47,13 @@ export default {
       }
     };
   },
+  beforeDestroy() {
+    try {
+      if (this.$refs[this.ref]) this.$refs[this.ref].$destroy();
+    } catch (e) {
+      console.log(e);
+    }
+  },
   created() {
     this.ref = this.generateId();
   },
@@ -70,9 +64,6 @@ export default {
     play() {
       if (!this.player) return;
       if (this.flag.isPlaying) return;
-
-      console.log(this.player);
-      this.flag.isPlaying = true;
 
       try {
         this.player.play();
@@ -86,15 +77,15 @@ export default {
       if (!this.flag.isPlaying) return;
 
       this.player.pause();
-      this.flag.isPlaying = false;
     },
     onReady() {
       if (this.flag.ready) return;
+      if (this.player) return;
 
       this.flag.ready = true;
       this.player = this.$refs[this.ref].player;
 
-      this.player.fluid(this.options.fluid || false);
+      this.player.fluid(typeof this.options.fluid === 'undefined' ? true : this.options.fluid);
       if (this.options.fill) this.player.fill(true);
 
       this.$emit('ready', this.player);

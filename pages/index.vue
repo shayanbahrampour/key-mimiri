@@ -2,7 +2,7 @@
   <div class="mb-16">
     <HomeSlider />
     <HomeServices class="mb-16" />
-    <HomeVideo class="my-16" />
+    <HomeVideo :class="['my-16', { 'pt-12': !isMobile }]" />
     <HomeImpact class="my-16" />
     <HomeStoryTellers class="mt-16" />
     <HomeTellUsStory class="mb-16 pb-16" />
@@ -16,9 +16,10 @@ import HomeImpact from '~/components/home/HomeImpact.vue';
 import HomeSlider from '~/components/home/HomeSlider.vue';
 import HomeTellUsStory from '~/components/home/HomeTellUsStory.vue';
 import HomeStoryTellers from '~/components/home/HomeStoryTellers.vue';
+import VideoLoader from '~/components/shared/VideoLoader.vue';
 
 export default {
-  components: { HomeServices, HomeImpact, HomeStoryTellers, HomeTellUsStory, HomeVideo, HomeSlider },
+  components: { VideoLoader, HomeServices, HomeImpact, HomeStoryTellers, HomeTellUsStory, HomeVideo, HomeSlider },
   head() {
     return {
       title: this.$t('pageTitles.index')

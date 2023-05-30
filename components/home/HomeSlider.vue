@@ -4,11 +4,10 @@
     class="position-relative mx-auto home-slider"
     color="transparent"
     min-height="550"
-    :max-height="900"
+    max-height="900"
   >
     <client-only>
-      <video-player
-        playsinline
+      <VideoLoader
         :style="`${isMobile ? 'top:-250px;' : `${isRTL ? 'left' : 'right'}:-450px;bottom:0;`}height:${
           isMobile ? 400 : 650
         }px;width:${isMobile ? 400 : 650}px;max-height:${isMobile ? 400 : 650}px;max-width:${isMobile ? 400 : 650}px;`"
@@ -17,11 +16,9 @@
           { 'mx-auto start-0 end-0': isMobile }
         ]"
         :options="{
+          fill: true,
           loop: true,
           muted: true,
-          fullscreen: true,
-          responsive: true,
-          fill: true,
           fluid: false,
           autoplay: true,
           controls: false,
@@ -29,7 +26,7 @@
           sources: [
             {
               type: 'video/mp4',
-              src: '/video/home-slider.mp4'
+              src: '/video/temp-2.mp4'
             }
           ]
         }"
