@@ -19,11 +19,14 @@
       </client-only>
 
       <v-sheet
-        :class="['position-absolute bottom-0 z-1 mx-auto white--text w-full h-full', isMobile ? 'px-6' : 'px-16 pb-5']"
+        :class="[
+          'position-absolute bottom-0 z-1 mx-auto white--text w-full h-full d-flex',
+          isMobile ? 'px-6 align-start' : 'px-16 pb-8 align-end'
+        ]"
         :max-width="globalMaxWidth"
         color="transparent"
       >
-        <v-row class="h-full" :align="isMobile ? 'start' : 'end'" dense>
+        <v-row :align="isMobile ? 'start' : 'center'" dense>
           <v-col cols="12" lg="5" md="4">
             <h3 :class="['font-weight-regular bel', isMobile ? 'f-40 text-center pt-4' : 'f-50']">
               {{ $t('homePage.video.title') }}
