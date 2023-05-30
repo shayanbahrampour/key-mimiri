@@ -2,17 +2,18 @@
   <div class="h-full">
     <v-card
       class="overflow-hidden custom-card h-full custom-card-container"
-      :color="!isMobile && 'slategrey'"
+      color="slategrey"
       flat
       style="border-radius: 80px"
-      :to="localePath(`/impact/${item.id}`)"
     >
       <v-img :src="src" height="250" width="100%" />
-      <div
+      <v-card
+        color="transparent"
+        :to="localePath(`/impact/${item.id}`)"
         :class="[
           'white--text pointer flex-shrink-0',
           isMobile ? 'text-center' : 'd-flex',
-          summary ? `p${isRTL ? 'r' : 'l'}-8 p${isRTL ? 'l' : 'r'}-6 pt-5 pb-10` : 'text-center pa-8'
+          summary && !isMobile ? `p${isRTL ? 'r' : 'l'}-8 p${isRTL ? 'l' : 'r'}-6 pt-5 pb-10` : 'text-center pa-8'
         ]"
       >
         <div :style="`${summary && !isMobile ? 'width: 50%' : 'width: 100%'}`" class="f-35 bel flex-shrink-0">
@@ -22,12 +23,14 @@
           <p v-html="summary" class="ma-0" />
           <strong class="f-18 font-weight-bold mt-2 d-block">{{ $t('shared.see_more') }}</strong>
         </div>
-      </div>
+      </v-card>
     </v-card>
 
     <div v-if="isMobile && summary" class="font-weight-light f-21 text-center mt-4 grey--text text--darken-1">
       <p v-html="summary" class="ma-0" />
-      <strong class="f-18 font-weight-bold mt-2 d-block">{{ $t('shared.see_more') }}</strong>
+      <nuxt-link :to="localePath(`/impact/${item.id}`)" class="grey--text text--darken-1 text-decoration-none mt-2">
+        <strong class="f-18 font-weight-bold d-block">{{ $t('shared.see_more') }}</strong>
+      </nuxt-link>
     </div>
   </div>
 </template>
@@ -38,6 +41,10 @@ export default {
     item: {
       type: Object,
       default: () => ({})
+    },
+    showSummary: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -46,7 +53,7 @@ export default {
       return this.item[`${this.$i18n.locale}_title`];
     },
     summary() {
-      if (!this.item) return '';
+      if (!this.item || !this.showSummary) return '';
       return this.item[`${this.$i18n.locale}_summary`];
     },
     src() {

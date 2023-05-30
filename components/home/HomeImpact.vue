@@ -39,7 +39,7 @@
         >
           <template v-if="items.length !== 0">
             <swiper-slide v-for="(item, index) in items" :key="index">
-              <ImpactCards :item="item" />
+              <ImpactCards :item="item" :showSummary="true" />
             </swiper-slide>
           </template>
           <swiper-slide v-if="$fetchState.pending">
