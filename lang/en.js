@@ -27,19 +27,18 @@ export default {
       talk_to_us: 'Talk to Us'
     },
     links: {
-      feeds: 'Feeds/News',
-      cobel_group_in_nut_shell: 'Cobel Group in Nut Shell',
+      point_of_view: 'Point of view',
       impact_stories: 'Impact Stories',
-      people_career: 'People & Career',
-      reach_us: 'Reach Us',
+      education: 'Education',
+      people_careers: 'People & Careers',
+      press_center: 'Press Center',
       life_at_cobel_group: 'Life at Cobel Group',
       careers: 'Careers',
       talent_pool: 'Talent Pool',
-      general_info: 'General Info',
-      privacy_policy: 'Privacy Policy',
-      terms_of_service: 'Terms of Service',
+      psychological_health: 'Psychological Health',
+      physical_health: 'Physical Health',
+      social_health: 'Social Health',
       contact: 'Contact Us',
-      innovation: 'innovation',
       storytellers: 'storytellers'
     },
     copyright: '©2023 Cobel Group. All Rights Reserved.'
