@@ -1,7 +1,6 @@
 <template>
   <div class="w-full">
     <CareerCustomTabs :items="tabs" :model="model" />
-    <v-progress-linear class="mr-0 mt-4" :value="calculateWidth()" color="#4C6D80"></v-progress-linear>
   </div>
 </template>
 
