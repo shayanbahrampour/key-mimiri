@@ -3,6 +3,7 @@
     <div class="position-relative home-video">
       <client-only>
         <VideoLoader
+          :height="isMobile ? null : 700"
           ref="home-video"
           class="w-full"
           :options="{

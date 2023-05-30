@@ -97,6 +97,7 @@
 
     <client-only>
       <VideoLoader
+        :height="isMobile ? null : 700"
         ref="career-video"
         class="w-full"
         :options="{

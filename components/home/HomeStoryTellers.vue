@@ -14,7 +14,7 @@
           :class="['w-full mr-0', isMobile ? 'mt-8 px-8' : 'my-8 px-16']"
           :dir="isRTL ? 'rtl' : 'ltr'"
           :options="{
-            spaceBetween: 32,
+            spaceBetween: 28,
             slidesPerView: 1.1,
             grabCursor: true,
             breakpoints: {
