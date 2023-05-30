@@ -23,7 +23,7 @@ export default {
     title: {
       navigation: 'جهت یابی',
       life: 'افراد و مشاغل',
-      legal: 'قوانین',
+      HRQoL: 'HRQoL',
       talk_to_us: 'با ما صحبت کن'
     },
     links: {
@@ -148,5 +148,12 @@ export default {
     published: 'منتشر شده',
     other_links: 'ممکن است اینها را هم دوست داشته باشید',
     see_all: 'مشاهده همه'
+  },
+  shared: {
+    see_more: 'موارد بیشتر'
+  },
+  error: {
+    home: 'برگشت به خانه',
+    reload: 'لود مجدد'
   }
 };

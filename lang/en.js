@@ -23,7 +23,7 @@ export default {
     title: {
       navigation: 'Navigation',
       life: 'Life & Careers',
-      legal: 'Legal',
+      HRQoL: 'HRQoL',
       talk_to_us: 'Talk to Us'
     },
     links: {
@@ -156,5 +156,9 @@ export default {
   },
   shared: {
     see_more: 'see more'
+  },
+  error: {
+    home: 'Back Home',
+    reload: 'Reload'
   }
 };

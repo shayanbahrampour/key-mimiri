@@ -10,8 +10,10 @@
       <v-divider class="mb-4 mt-10" />
 
       <div class="d-flex align-center justify-center">
-        <v-btn :to="localePath('/')" class="px-6 mx-2" color="red" height="48" outlined>Back Home</v-btn>
-        <v-btn class="px-6 mx-2" color="light" depressed height="48" outlined @click="$router.go()">Reload</v-btn>
+        <v-btn :to="localePath('/')" class="px-6 mx-2" color="red" height="48" outlined>{{ $t('error.home') }}</v-btn>
+        <v-btn class="px-6 mx-2" color="light" depressed height="48" outlined @click="$router.go()">
+          {{ $t('error.reload') }}
+        </v-btn>
       </div>
     </v-col>
   </v-row>

@@ -14,7 +14,6 @@
         :interval="5000"
         :show-arrows="false"
         class="position-relative z-0"
-        continuous
         cycle
         hide-delimiters
         mandatory
@@ -79,7 +78,6 @@
         </svg>
       </v-sheet>
     </div>
-
     <v-sheet
       :class="[
         'mx-auto position-relative z-3 d-flex justify-end',
@@ -154,7 +152,7 @@ export default {
         : {
             top: ['0', '250px'],
             side: ['300px', '30px'],
-            bottom: ['-80px', '-170px']
+            bottom: ['-80px', '-190px']
           };
 
       const data = [

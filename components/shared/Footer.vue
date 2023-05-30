@@ -161,7 +161,7 @@ export default {
           ]
         },
         {
-          title: 'HRQoL',
+          title: 'footer.title.HRQoL',
           children: [
             { title: 'footer.links.psychological_health', to: '/psychological' },
             { title: 'footer.links.physical_health', to: '/physical' },
