@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import CareerCustomTabs from '~/components/shared/CareerCustomTabs.vue';
+import CareerCustomTabs from '~/components/career/CareerCustomTabs.vue';
 
 export default {
   components: { CareerCustomTabs },

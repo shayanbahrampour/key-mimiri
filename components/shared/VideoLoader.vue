@@ -13,7 +13,7 @@
         aspectRatio: '16:9',
         ...options
       }"
-      class="vjs-theme-sea w-full"
+      class="vjs-theme-sea w-full overflow-hidden"
       playsinline
       :events="['fullscreenchange']"
       @ready="onReady"
@@ -41,7 +41,7 @@ export default {
   props: {
     height: {
       type: Number,
-      require: true
+      default: 600
     },
     options: {
       type: Object,
