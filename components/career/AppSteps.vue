@@ -1,6 +1,22 @@
 <template>
   <div class="w-full">
     <CareerCustomTabs :items="tabs" :model="model" />
+    <v-progress-linear
+      v-if="!isMobile"
+      class="mr-0 mt-4"
+      :value="calculateWidth()"
+      color="#4C6D80"
+      height="2"
+      style="width: 90vw"
+    ></v-progress-linear>
+    <v-progress-linear
+      v-else
+      class="mr-0 mt-4"
+      :value="model !== tabs.length ? 50 : 100"
+      color="#4C6D80"
+      height="2"
+      style="width: 100vw; margin-left: -16px"
+    ></v-progress-linear>
   </div>
 </template>
 
@@ -21,23 +37,42 @@ export default {
   },
   methods: {
     calculateWidth() {
-      switch (this.model) {
-        case 0:
-          return '8';
-        case 1:
-          return '23';
-        case 2:
-          return '35';
-        case 3:
-          return '48';
-        case 4:
-          return '58';
-        case 5:
-          return '68';
-        case 6:
-          return '86';
-        case 7:
-          return '100';
+      if (!this.$route.query.job) {
+        switch (this.model) {
+          case 0:
+            return '8';
+          case 1:
+            return '23';
+          case 2:
+            return '35';
+          case 3:
+            return '47';
+          case 4:
+            return '58';
+          case 5:
+            return '69';
+          case 6:
+            return '86';
+          case 7:
+            return '100';
+        }
+      } else {
+        switch (this.model) {
+          case 0:
+            return '6';
+          case 1:
+            return '18';
+          case 2:
+            return '30';
+          case 3:
+            return '42';
+          case 4:
+            return '52';
+          case 5:
+            return '69';
+          case 6:
+            return '100';
+        }
       }
     }
   }
