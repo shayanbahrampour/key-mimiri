@@ -98,16 +98,13 @@
     <div class="w-full">
       <client-only>
         <VideoLoader
-          :height="isMobile ? null : 700"
-          ref="career-video"
           class="w-full"
           :options="{
-            fill: true,
             poster: '/images/temp/cover-6.png',
             sources: [
               {
                 type: 'video/mp4',
-                src: '/video/main.mp4'
+                src: '/video/temp.mp4'
               }
             ]
           }"

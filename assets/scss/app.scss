@@ -5,7 +5,6 @@
 @import 'font-size';
 @import 'overwrite';
 @import 'video';
-@import 'video-theme';
 
 .anjoman {
   font-family: 'anjoman', 'proxima', 'bel', sans-serif;
@@ -37,13 +36,4 @@
 
 .swiper-wrapper {
   align-items: stretch;
-}
-
-.video-js {
-  background-color: white !important;
-
-  .vjs-poster {
-    //object-fit: cover;
-    background-size: cover !important;
-  }
 }
