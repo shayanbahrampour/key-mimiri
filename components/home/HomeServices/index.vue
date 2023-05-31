@@ -84,7 +84,7 @@
         isMobile ? 'px-4 align-end' : 'px-lg-16 px-4 align-center'
       ]"
       :max-width="globalMaxWidth"
-      :min-height="isMobile ? 400 : 500"
+      :min-height="isMobile ? 400 : 430"
       color="transparent"
     >
       <div
@@ -152,7 +152,7 @@ export default {
             bottom: ['1%', '50%']
           }
         : {
-            top: ['20px', '250px'],
+            top: ['20px', '220px'],
             side: ['330px', '90px'],
             bottom: ['40px', '-180px']
           };
