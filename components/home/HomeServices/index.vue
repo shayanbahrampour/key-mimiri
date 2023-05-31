@@ -66,7 +66,7 @@
       >
         <svg
           :class="`position-absolute end-0 start-0 m${isRTL ? 'l' : 'r'}-auto`"
-          :style="`width: 400px; bottom: -1px; margin-${isRTL ? 'right' : 'left'}: 25%`"
+          :style="`width: 370px; bottom: -1px; margin-${isRTL ? 'right' : 'left'}: 25%`"
           fill="none"
           viewBox="0 0 403 127"
           xmlns="http://www.w3.org/2000/svg"
@@ -97,13 +97,15 @@
       >
         <div
           :class="[
-            'font-weight-regular bel grey--text text--darken-2 text-center flex-shrink-0',
-            isMobile ? 'mb-4 text-center f-65' : 'text-end f-60'
+            'font-weight-regular bel grey--text text--darken-3 text-center flex-shrink-0',
+            isMobile ? 'mb-4 text-center f-65' : 'f-60',
+            $vuetify.breakpoint.lgAndUp ? 'text-center' : !isMobile && 'text-end'
           ]"
-          :style="`width: ${isMobile ? '100%' : '250px'}`"
+          :style="`width: ${isMobile ? '100%' : $vuetify.breakpoint.lgAndUp ? '400px' : '230px'}`"
         >
           HRQoL
         </div>
+
         <BallContents v-if="!isMobile" :item="activeItem" />
 
         <v-sheet
@@ -136,11 +138,11 @@ export default {
   computed: {
     ballSize() {
       if (this.isMobile) return 80;
-      return 160;
+      return 140;
     },
     ballActiveSize() {
       if (this.isMobile) return 100;
-      return 200;
+      return 180;
     },
     shapes() {
       const coordinates = this.isMobile
@@ -150,9 +152,9 @@ export default {
             bottom: ['1%', '50%']
           }
         : {
-            top: ['0', '250px'],
-            side: ['300px', '30px'],
-            bottom: ['-80px', '-190px']
+            top: ['20px', '250px'],
+            side: ['330px', '90px'],
+            bottom: ['40px', '-180px']
           };
 
       const data = [

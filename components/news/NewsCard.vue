@@ -7,13 +7,13 @@
     <div v-for="i in 4" :key="i" class="d-flex justify-center mb-8">
       <v-card
         v-if="!isMobile"
-        :to="localePath('/impact/1')"
-        class="d-flex rounded-xl overflow-hidden mr-4 custom-news-card"
+        :to="path"
+        class="d-flex rounded-0 overflow-hidden mr-4 custom-news-card"
         elevation="0"
-        style="border: 2px solid #59595b; overflow: hidden; transition: all ease-in 0.4s"
+        style="transition: all ease-in 0.4s"
       >
         <div class="d-flex">
-          <v-img height="100%" src="/images/news/slider.png" width="280" />
+          <v-img height="100%" src="/images/news/slider.png" width="250" />
         </div>
         <div class="d-flex flex-column py-6 ml-16 align-start">
           <h4 class="bel f-40 text--darken-3 font-weight-regular mb-auto cobelgrey--text custom-card-title">
@@ -41,7 +41,7 @@
           height="550"
           style="border: 2px solid slategrey; overflow: hidden"
         >
-          <v-img max-height="250" src="/images/news/face.png" />
+          <v-img max-height="250" src="/images/news/slider.png" />
           <div class="d-flex flex-column py-2 mx-6 flex">
             <h4 class="bel f-28 text--darken-3 font-weight-regular mb-auto mt-4" style="color: #59595b">
               Rise from the society return to the society
@@ -76,6 +76,10 @@ export default {
     title: {
       type: String,
       default: ''
+    },
+    path: {
+      type: String,
+      default: '#'
     }
   }
 };
@@ -88,8 +92,6 @@ export default {
     transition: all ease-in 0.4s;
   }
   &:hover {
-    border: 2px solid slategrey !important;
-
     .custom-card-title {
       color: slategrey !important;
       transition: all ease-in 0.4s;
