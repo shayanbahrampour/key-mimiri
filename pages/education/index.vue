@@ -37,7 +37,11 @@
         our personnel, but to our stakeholders. Our education material are available to all.
       </p>
     </div>
-    <NewsCard :class="['mt-10', !isMobile ? 'mx-16' : undefined]" title="More Articles" path="/education/1" />
+    <NewsCard
+      :class="['mt-10', !isMobile ? 'mx-16' : undefined]"
+      title="More Articles"
+      :path="localePath('/education/1')"
+    />
     <HomeStoryTellers :class="[isMobile ? 'mt-0' : 'mt-6']" />
   </div>
 </template>
