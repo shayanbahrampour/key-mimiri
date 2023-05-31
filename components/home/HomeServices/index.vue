@@ -97,7 +97,7 @@
       >
         <div
           :class="[
-            'font-weight-regular bel grey--text text--darken-2 text-center flex-shrink-0',
+            'font-weight-regular bel grey--text text--darken-3 text-center flex-shrink-0',
             isMobile ? 'mb-4 text-center f-65' : 'f-60',
             $vuetify.breakpoint.lgAndUp ? 'text-center' : !isMobile && 'text-end'
           ]"
@@ -153,8 +153,8 @@ export default {
           }
         : {
             top: ['20px', '250px'],
-            side: ['300px', '70px'],
-            bottom: ['80px', '-180px']
+            side: ['330px', '90px'],
+            bottom: ['40px', '-180px']
           };
 
       const data = [
