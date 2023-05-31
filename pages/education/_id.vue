@@ -69,7 +69,7 @@
     </div>
     <EducationDetail />
     <h1 class="bel f-50 grey--text text--darken-2 font-weight-regular ml-16 mt-10">More Articles</h1>
-    <NewsCard :class="['mt-10', !isMobile ? 'mx-14' : undefined]" />
+    <NewsCard :class="['mt-10', !isMobile ? 'mx-14' : undefined]" path="/education/1" />
   </div>
 </template>
 
