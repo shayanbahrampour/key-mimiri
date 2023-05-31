@@ -4,7 +4,7 @@
       <h4 class="bel f-36 text--darken-3 font-weight-regular" style="color: #59595b">{{ title }}</h4>
     </div>
 
-    <div v-for="i in 4" :key="i" class="d-flex justify-center mb-8">
+    <div v-for="i in 4" :key="i" class="d-flex flex-column justify-center mb-0">
       <v-card
         v-if="!isMobile"
         :to="path"
@@ -66,6 +66,7 @@
           </div>
         </v-card>
       </v-card>
+      <v-divider v-if="i !== 4 && !isMobile" class="my-8"></v-divider>
     </div>
   </div>
 </template>
