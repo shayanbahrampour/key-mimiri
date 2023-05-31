@@ -84,7 +84,7 @@
         isMobile ? 'px-4 align-end' : 'px-lg-16 px-4 align-center'
       ]"
       :max-width="globalMaxWidth"
-      :min-height="isMobile ? 400 : 500"
+      :min-height="isMobile ? 400 : 430"
       color="transparent"
     >
       <div
@@ -97,7 +97,7 @@
       >
         <div
           :class="[
-            'font-weight-regular bel grey--text text--darken-2 text-center flex-shrink-0',
+            'font-weight-regular bel grey--text text--darken-3 text-center flex-shrink-0',
             isMobile ? 'mb-4 text-center f-65' : 'f-60',
             $vuetify.breakpoint.lgAndUp ? 'text-center' : !isMobile && 'text-end'
           ]"
@@ -152,9 +152,9 @@ export default {
             bottom: ['1%', '50%']
           }
         : {
-            top: ['20px', '250px'],
-            side: ['300px', '70px'],
-            bottom: ['80px', '-180px']
+            top: ['20px', '220px'],
+            side: ['330px', '90px'],
+            bottom: ['40px', '-180px']
           };
 
       const data = [
