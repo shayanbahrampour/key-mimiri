@@ -1,10 +1,9 @@
 <template>
   <v-sheet
-    :height="isMobile ? 'calc(100vh - 180px)' : 'calc(100vh - 140px)'"
+    :height="isMobile ? 'calc(100vh - 180px)' : 'calc(100vh - 120px)'"
     class="position-relative mx-auto home-slider"
     color="transparent"
     min-height="550"
-    max-height="900"
   >
     <client-only>
       <VideoLoader
