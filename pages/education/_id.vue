@@ -53,12 +53,10 @@
         </v-col>
         <v-col cols="12" md="6">
           <client-only>
-            <PdfLoader />
+            <PdfLoader class="mb-6" />
           </client-only>
         </v-col>
       </v-row>
-
-      <FeatureSelection v-if="isMobile" />
 
       <p v-if="!isMobile" class="font-weight-light mt-16 f-20" style="color: #59595b; line-height: 2">
         WHO advises that all women in their reproductive ages, whether having Iron deficiency or not, are required to

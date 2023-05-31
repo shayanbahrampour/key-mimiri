@@ -1,7 +1,9 @@
 <template>
   <div
     :class="[`position-relative flex-shrink-0 z-0 ${!isMobile && `p${isRTL ? 'r' : 'l'}-8 m${isRTL ? 'r' : 'l'}-8`}`]"
-    :style="`width: 400px; ${!isMobile && `border-${isRTL ? 'right' : 'left'}: 1px solid #aaa`}`"
+    :style="`width: ${$vuetify.breakpoint.mdAndUp ? '400px' : '300px'}; ${
+      !isMobile && `border-${isRTL ? 'right' : 'left'}: 1px solid #aaa`
+    }`"
   >
     <h3
       v-if="item"
