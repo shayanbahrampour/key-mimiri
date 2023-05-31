@@ -68,7 +68,10 @@
           Back
         </v-btn>
         <v-btn
-          :class="['rounded-xl d-flex justify-center white--text font-weight-bold', isMobile ? 'f-20' : 'f-14 mb-16']"
+          :class="[
+            'rounded-xl d-flex justify-center white--text font-weight-bold',
+            isMobile ? 'f-20' : 'f-14 mb-16 mr-4'
+          ]"
           :min-width="!isMobile ? '300' : '80%'"
           color="slategrey"
           elevation="0"
