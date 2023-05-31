@@ -43,10 +43,13 @@
             In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society
             and are committed to
           </p>
-          <v-divider v-if="!isMobile" class="mt-16" style="width: 400px"></v-divider>
-          <v-container :class="['px-0 d-flex', isMobile ? 'justify-center' : undefined]" fluid>
-            <FeatureSelection />
-          </v-container>
+
+          <template v-if="!isMobile">
+            <v-divider class="mt-16" style="width: 400px"></v-divider>
+            <v-container :class="['px-0 d-flex', isMobile ? 'justify-center' : undefined]" fluid>
+              <FeatureSelection />
+            </v-container>
+          </template>
         </v-col>
         <v-col cols="12" md="6">
           <client-only>
@@ -54,6 +57,9 @@
           </client-only>
         </v-col>
       </v-row>
+
+      <FeatureSelection v-if="isMobile" />
+
       <p v-if="!isMobile" class="font-weight-light mt-16 f-20" style="color: #59595b; line-height: 2">
         WHO advises that all women in their reproductive ages, whether having Iron deficiency or not, are required to
         consume 60 mg of iron supplements per week. This amount should be higher in pregnant women and any deficiencies

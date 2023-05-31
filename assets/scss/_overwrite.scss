@@ -144,10 +144,12 @@ table {
 .v-application--is-rtl {
   .start-0 {
     right: 0;
+    left: auto;
   }
 
   .end-0 {
     left: 0;
+    right: auto;
   }
 
   .text-start {
