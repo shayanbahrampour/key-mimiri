@@ -74,6 +74,7 @@ export default {
     '@/plugins/device',
     '@/plugins/video.client',
     '@/plugins/swiper.client',
+    '@/plugins/vue-pdf.client',
     '@/plugins/dynamic-domain'
   ],
 

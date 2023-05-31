@@ -50,7 +50,7 @@ import HomeStoryTellers from '~/components/home/HomeStoryTellers';
 export default {
   head() {
     return {
-      title: this.$t('pageTitles.storytellers')
+      title: this.$t('pageTitles.education')
     };
   },
   components: { NewsCard, NewsCategory, HomeStoryTellers },
