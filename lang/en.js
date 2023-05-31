@@ -22,10 +22,10 @@ export default {
     about: 'About Us',
     contact: 'Contact Us',
     title: {
-      navigation: 'Navigation',
-      life: 'Life & Careers',
+      navigation: 'NAVIGATION',
+      life: 'LIFE & CAREERS',
       HRQoL: 'HRQoL',
-      talk_to_us: 'Talk to Us'
+      talk_to_us: 'TALK TO US'
     },
     links: {
       point_of_view: 'Point of view',

@@ -19,7 +19,7 @@
         </div>
         <v-row v-if="!isMobile" class="justify-center">
           <v-col v-for="(item, index) in items" :key="index" cols="12" lg="2" order="2" sm="6">
-            <h4 class="mb-3 f-15 text-start text-uppercase font-weight-regular pb-2 footer-title">
+            <h4 class="mb-3 f-15 text-start font-weight-regular pb-2 footer-title">
               {{ $t(item.title) }}
             </h4>
             <div class="d-flex flex-column align-start">
