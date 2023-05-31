@@ -7,7 +7,7 @@
   >
     <h3
       v-if="item"
-      :class="['bel font-weight-regular mb-1', isMobile ? 'f-35' : $vuetify.breakpoint.lgAndUp ? 'f-45' : 'f-40']"
+      :class="['bel font-weight-regular mb-1', isMobile ? 'f-35' : 'f-40']"
       :style="`color:${item.color}; line-height: ${isMobile ? '30px' : '50px'};`"
     >
       <nuxt-link :to="item.path" class="text-decoration-none" style="color: inherit">{{ $t(item.title) }}</nuxt-link>

@@ -39,9 +39,11 @@
       <div
         :class="[
           'h-full w-full d-flex justify-center mx-auto z-4 white--text position-absolute top-0 start-0 end-0',
-          isMobile ? 'py-4 px-5 align-end' : 'px-16 pt-16 align-center'
+          isMobile ? 'py-4 px-5 align-end' : 'px-16 align-center'
         ]"
-        :style="`max-width: ${globalMaxWidth}px; padding-bottom: 150px;`"
+        :style="`max-width: ${globalMaxWidth}px; padding-bottom: ${
+          $vuetify.breakpoint.mdAndUp ? '0' : '20px'
+        }; padding-top: ${$vuetify.breakpoint.mdAndUp ? '140px' : '0'};`"
       >
         <div class="w-full">
           <h3
@@ -51,8 +53,11 @@
             {{ $t('homePage.services.slider.title') }}
           </h3>
           <div
-            :class="`font-weight-light m${isRTL ? 'r' : 'l'}-auto ${isMobile ? 'text-center f-20' : 'f-22'}`"
-            :style="`line-height: 32px; ${!isMobile && 'max-width: 450px;'}`"
+            :class="`font-weight-light m${isRTL ? 'r' : 'l'}-auto ${isMobile ? 'text-center f-20' : 'f-25'}`"
+            :style="`line-height: 32px; ${
+              !isMobile &&
+              `max-width: ${$vuetify.breakpoint.lgAndUp ? '550px' : $vuetify.breakpoint.smAndDown ? '100%' : '400px'};`
+            }`"
           >
             {{ $t('homePage.services.slider.description') }}
           </div>
