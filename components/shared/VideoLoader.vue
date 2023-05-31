@@ -14,13 +14,13 @@
     preload="none"
     playsinline
     :style="height ? `height: ${height}px; max-height: ${height}px; min-height: ${height}px;` : ''"
+    :events="['fullscreenchange']"
+    @ready="onReady"
+    @ended="onEnded"
+    @pause="flag.isPlaying = false"
+    @play="flag.isPlaying = true"
+    @fullscreenchange="onFullscreen"
   />
-  <!--  :events="['fullscreenchange']"-->
-  <!--  @ready="onReady"-->
-  <!--  @ended="onEnded"-->
-  <!--  @pause="flag.isPlaying = false"-->
-  <!--  @play="flag.isPlaying = true"-->
-  <!--  @fullscreenchange="onFullscreen"-->
 </template>
 
 <script>
@@ -59,6 +59,7 @@ export default {
   },
   methods: {
     onFullscreen(event) {
+      this.$emit('fullscreenchange', event.isFullscreen_);
       if (!event.isFullscreen_) this.pause();
     },
     play() {

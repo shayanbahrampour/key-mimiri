@@ -5,9 +5,9 @@
         v-if="activeItem"
         :color="activeItem.color"
         class="position-absolute z-1 top-0 end-0 start-0 mx-auto rounded-circle transition-ease-in-out"
-        height="400"
+        :height="isMobile ? 300 : 400"
         style="mix-blend-mode: color; margin-top: -70px; opacity: 0.69"
-        width="400"
+        :width="isMobile ? 300 : 400"
       />
       <v-carousel
         v-model="active"
@@ -17,6 +17,7 @@
         cycle
         hide-delimiters
         mandatory
+        :height="isMobile ? 400 : 600"
       >
         <v-carousel-item
           v-for="(item, i) in shapes"
@@ -39,20 +40,23 @@
       <div
         :class="[
           'h-full w-full d-flex justify-center mx-auto z-4 white--text position-absolute top-0 start-0 end-0',
-          isMobile ? 'py-4 px-5 align-end' : 'px-16 pt-16 align-center'
+          isMobile ? 'pb-6 px-5 align-end' : 'px-16 align-end pb-10'
         ]"
-        :style="`max-width: ${globalMaxWidth}px; padding-bottom: 150px;`"
+        :style="`max-width: ${globalMaxWidth}px`"
       >
         <div class="w-full">
           <h3
-            :class="`bel font-weight-regular mb-5 ${isMobile ? 'f-35 text-center' : 'f-65'}`"
+            :class="`bel font-weight-regular mb-3 ${isMobile ? 'f-35 text-center' : 'f-65'}`"
             :style="`${!isMobile && 'max-width: 900px'};`"
           >
             {{ $t('homePage.services.slider.title') }}
           </h3>
           <div
-            :class="`font-weight-light m${isRTL ? 'r' : 'l'}-auto ${isMobile ? 'text-center f-20' : 'f-22'}`"
-            :style="`line-height: 32px; ${!isMobile && 'max-width: 450px;'}`"
+            :class="`font-weight-light m${isRTL ? 'r' : 'l'}-auto ${isMobile ? 'text-center f-20' : 'f-25'}`"
+            :style="`line-height: 32px; ${
+              !isMobile &&
+              `max-width: ${$vuetify.breakpoint.lgAndUp ? '550px' : $vuetify.breakpoint.smAndDown ? '100%' : '400px'};`
+            }`"
           >
             {{ $t('homePage.services.slider.description') }}
           </div>
@@ -98,7 +102,7 @@
         <div
           :class="[
             'font-weight-regular bel grey--text text--darken-3 text-center flex-shrink-0',
-            isMobile ? 'mb-4 text-center f-65' : 'f-60',
+            isMobile ? 'mb-4 text-center f-65' : 'f-55',
             $vuetify.breakpoint.lgAndUp ? 'text-center' : !isMobile && 'text-end'
           ]"
           :style="`width: ${isMobile ? '100%' : $vuetify.breakpoint.lgAndUp ? '400px' : '230px'}`"
@@ -154,7 +158,7 @@ export default {
         : {
             top: ['20px', '220px'],
             side: ['330px', '90px'],
-            bottom: ['40px', '-180px']
+            bottom: ['100px', '-170px']
           };
 
       const data = [
