@@ -1,35 +1,38 @@
 <template>
   <v-sheet
-    :height="isMobile ? 'calc(100vh - 180px)' : 'calc(100vh - 120px)'"
+    :height="isMobile ? 'calc(100vh - 270px)' : 'calc(100vh - 120px)'"
     class="position-relative mx-auto home-slider"
     color="transparent"
     min-height="550"
   >
     <client-only>
-      <VideoLoader
-        :style="`${isMobile ? 'top:-250px;' : `${isRTL ? 'left' : 'right'}:-450px;bottom:0;`}height:${
-          isMobile ? 400 : 650
-        }px;width:${isMobile ? 400 : 650}px;max-height:${isMobile ? 400 : 650}px;max-width:${isMobile ? 400 : 650}px;`"
+      <div
         :class="[
-          'position-absolute white my-auto z-0 rounded-circle overflow-hidden end-0 rounded-circle top-0',
-          { 'mx-auto start-0 end-0': isMobile }
+          'position-absolute white my-auto z-0 end-0 top-0 d-flex align-center',
+          isMobile ? 'start-0 mx-auto justify-center' : 'h-screen bottom-0'
         ]"
-        :options="{
-          fill: true,
-          loop: true,
-          muted: true,
-          fluid: false,
-          autoplay: true,
-          controls: false,
-          aspectRatio: '1:1',
-          sources: [
-            {
-              type: 'video/mp4',
-              src: '/video/temp-2.mp4'
-            }
-          ]
-        }"
-      />
+        :style="`${isMobile ? 'top:-250px;' : `top:-120px; ${isRTL ? 'left' : 'right'}:-450px;`}`"
+      >
+        <VideoLoader
+          class="rounded-circle overflow-hidden my-auto"
+          :style="`height:${videoSize}px;width:${videoSize}px;max-height:${videoSize}px;max-width:${videoSize}px;`"
+          :options="{
+            fill: true,
+            loop: true,
+            muted: true,
+            fluid: false,
+            autoplay: true,
+            controls: false,
+            aspectRatio: '1:1',
+            sources: [
+              {
+                type: 'video/mp4',
+                src: '/video/temp-2.mp4'
+              }
+            ]
+          }"
+        />
+      </div>
     </client-only>
 
     <v-sheet
@@ -79,7 +82,12 @@
 import VideoLoader from '@/components/shared/VideoLoader';
 
 export default {
-  components: { VideoLoader }
+  components: { VideoLoader },
+  computed: {
+    videoSize() {
+      return this.isMobile ? 400 : 700;
+    }
+  }
 };
 </script>
 
