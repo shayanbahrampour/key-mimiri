@@ -15,6 +15,7 @@ export default {
     press: 'Press Center',
     contact: 'Contact Us',
     impact_stories: 'Impact Stories',
+    education: 'Education',
     storytellers: 'Storytellers'
   },
   footer: {

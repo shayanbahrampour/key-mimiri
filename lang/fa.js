@@ -15,7 +15,8 @@ export default {
     press: 'مطبوعات',
     contact: 'تماس با ما',
     impact_stories: 'داستان‌های الهامبخش',
-    storytellers: 'راویان الهامبخش'
+    storytellers: 'راویان الهامبخش',
+    education: 'آموزش'
   },
   footer: {
     about: 'درباره ما',
