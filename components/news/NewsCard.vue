@@ -8,8 +8,10 @@
       <v-card
         v-if="!isMobile"
         :to="path"
-        class="d-flex rounded-0 overflow-hidden mr-4 custom-news-card"
+        color="transparent"
+        class="d-flex rounded-0 overflow-hidden mr-4 custom-news-card bg-transparent"
         elevation="0"
+        :ripple="false"
         style="transition: all ease-in 0.4s"
       >
         <div class="d-flex">
@@ -34,7 +36,14 @@
           </div>
         </div>
       </v-card>
-      <v-card v-else :to="localePath('/impact/1')" class="d-flex mt-6 overflow-hidden" elevation="0">
+      <v-card
+        v-else
+        :to="path"
+        :ripple="false"
+        class="d-flex mt-6 overflow-hidden bg-transparent"
+        color="transparent"
+        elevation="0"
+      >
         <v-card
           :class="['d-flex flex-column rounded-lg align-start mx-6']"
           elevation="0"
@@ -80,7 +89,7 @@ export default {
     },
     path: {
       type: String,
-      default: '#'
+      default: ''
     }
   }
 };
