@@ -37,7 +37,7 @@
     </div>
     <div :class="[isMobile ? 'px-4 pt-10' : 'mt-16 px-16 py-16']" style="background-color: #ececec">
       <v-row>
-        <v-col cols="12" lg="6" md="4">
+        <v-col cols="12" md="6">
           <h4 :class="['font-weight-regular bel slategrey--text', isMobile ? 'f-40' : 'f-50']">Main sample titles</h4>
           <p class="font-weight-regular mt-10 f-20 pb-16" style="max-width: 380px; color: #59595b; line-height: 30px">
             In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society
@@ -51,9 +51,9 @@
             </v-container>
           </template>
         </v-col>
-        <v-col cols="12" md="6">
+        <v-col cols="12" md="6" :class="[{ 'mb-6': isMobile }]">
           <client-only>
-            <PdfLoader class="mb-6" />
+            <PdfLoader />
           </client-only>
         </v-col>
       </v-row>

@@ -1,8 +1,8 @@
 <template>
-  <div class="position-relative z-0">
+  <div class="position-relative z-0 h-full">
     <vue-pdf
-      class="w-full position-relative z-0 ltr"
-      style="font-family: inherit; height: 250px"
+      class="w-full position-relative z-0 ltr white"
+      style="font-family: inherit; min-height: 250px"
       :src="src"
       :page="page"
       @num-pages="pageCount = $event"
