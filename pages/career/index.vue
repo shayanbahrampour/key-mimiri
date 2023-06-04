@@ -96,20 +96,7 @@
     </div>
 
     <div class="w-full">
-      <client-only>
-        <VideoLoader
-          class="w-full"
-          :options="{
-            poster: '/images/temp/cover-6.png',
-            sources: [
-              {
-                type: 'video/mp4',
-                src: '/video/temp.mp4'
-              }
-            ]
-          }"
-        />
-      </client-only>
+      <VideoContents src="/video/temp.mp4" poster="/images/temp/cover-6.png" />
     </div>
 
     <div class="h-full mt-16 slategrey" style="height: 400px">
@@ -205,7 +192,7 @@
 
 <script>
 import JobsGrid from '~/components/career/JobsGrid';
-import VideoLoader from '~/components/shared/VideoLoader.vue';
+import VideoContents from '~/components/shared/VideoContents.vue';
 
 export default {
   head() {
@@ -213,7 +200,7 @@ export default {
       title: this.$t('pageTitles.careers')
     };
   },
-  components: { VideoLoader, JobsGrid },
+  components: { VideoContents, JobsGrid },
   data() {
     return {
       seeMore: false,

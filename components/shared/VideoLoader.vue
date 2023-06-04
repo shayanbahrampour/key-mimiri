@@ -15,11 +15,17 @@
     playsinline
     :style="height ? `height: ${height}px; max-height: ${height}px; min-height: ${height}px;` : ''"
     :events="['fullscreenchange']"
-    @ready="onReady"
-    @ended="onEnded"
-    @pause="flag.isPlaying = false"
-    @play="flag.isPlaying = true"
     @fullscreenchange="onFullscreen"
+    @ready="onReady"
+    @pause="flag.isPlaying = false"
+    @ended="
+      flag.isPlaying = false;
+      toggleFullscreen();
+    "
+    @play="
+      flag.isPlaying = true;
+      toggleFullscreen();
+    "
   />
 </template>
 
@@ -40,12 +46,12 @@ export default {
       ref: null,
       player: null,
       flag: {
-        ready: false,
-        isEnded: false,
-        isMuted: false,
         isPlaying: false
       }
     };
+  },
+  created() {
+    this.ref = this.generateId();
   },
   beforeDestroy() {
     try {
@@ -54,13 +60,20 @@ export default {
       console.log(e);
     }
   },
-  created() {
-    this.ref = this.generateId();
-  },
   methods: {
     onFullscreen(event) {
-      this.$emit('fullscreenchange', event.isFullscreen_);
       if (!event.isFullscreen_) this.pause();
+      this.play();
+    },
+    pause() {
+      if (!this.player) return;
+      if (!this.flag.isPlaying) return;
+
+      try {
+        this.player.pause();
+      } catch (e) {
+        console.log(e);
+      }
     },
     play() {
       if (!this.player) return;
@@ -68,35 +81,26 @@ export default {
 
       try {
         this.player.play();
+      } catch (e) {
+        console.log(e);
+      }
+    },
+    toggleFullscreen() {
+      if (!this.player) return;
+      if (this.options.autoplay) return;
+
+      try {
         this.player.requestFullscreen();
       } catch (e) {
         console.log(e);
       }
     },
-    pause() {
-      if (!this.player) return;
-      if (!this.flag.isPlaying) return;
-
-      this.player.pause();
-    },
     onReady() {
-      if (this.flag.ready) return;
       if (this.player) return;
-
-      this.flag.ready = true;
       this.player = this.$refs[this.ref].player;
-
-      this.player.fluid(typeof this.options.fluid === 'undefined' ? true : this.options.fluid);
-      if (this.options.fill) this.player.fill(true);
-
-      this.$emit('ready', this.player);
-    },
-    onEnded() {
-      this.flag.isPlaying = false;
-      this.flag.isEnded = true;
     }
   }
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style lang="scss" scoped></style>

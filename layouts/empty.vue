@@ -1,9 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <v-fade-transition hide-on-leave leave-absolute>
-        <Nuxt />
-      </v-fade-transition>
+      <Nuxt />
     </v-main>
   </v-app>
 </template>

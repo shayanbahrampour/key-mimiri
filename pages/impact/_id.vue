@@ -108,20 +108,7 @@
     </v-sheet>
 
     <div :class="{ 'px-16': !isMobile }">
-      <client-only>
-        <VideoLoader
-          class="w-full"
-          :options="{
-            poster: '/images/temp/cover-4.png',
-            sources: [
-              {
-                type: 'video/mp4',
-                src: '/video/temp.mp4'
-              }
-            ]
-          }"
-        />
-      </client-only>
+      <VideoContents src="/video/temp.mp4" poster="/images/temp/cover-4.png" />
     </div>
 
     <v-sheet :class="['mx-auto', isMobile ? 'px-6' : 'px-16']" :max-width="globalMaxWidth">
@@ -219,10 +206,10 @@
 <script>
 import ImpactCards from '~/components/impact/ImpactCards.vue';
 import HomeTellUsStory from '~/components/home/HomeTellUsStory.vue';
-import VideoLoader from '~/components/shared/VideoLoader.vue';
+import VideoContents from '~/components/shared/VideoContents.vue';
 
 export default {
-  components: { VideoLoader, HomeTellUsStory, ImpactCards },
+  components: { VideoContents, HomeTellUsStory, ImpactCards },
   data() {
     return {
       swiperOptions: {
