@@ -5,35 +5,38 @@
     color="transparent"
     min-height="550"
   >
-    <client-only>
-      <div
-        :class="[
-          'position-absolute white my-auto z-0 end-0 top-0 d-flex align-center',
-          isMobile ? 'start-0 mx-auto justify-center' : 'h-screen bottom-0'
-        ]"
-        :style="`${isMobile ? 'top:-250px;' : `top:-120px; ${isRTL ? 'left' : 'right'}:-450px;`}`"
-      >
-        <VideoLoader
-          class="rounded-circle overflow-hidden my-auto"
-          :style="`height:${videoSize}px;width:${videoSize}px;max-height:${videoSize}px;max-width:${videoSize}px;`"
-          :options="{
-            fill: true,
-            loop: true,
-            muted: true,
-            fluid: false,
-            autoplay: true,
-            controls: false,
-            aspectRatio: '1:1',
-            sources: [
-              {
-                type: 'video/mp4',
-                src: '/video/temp-2.mp4'
-              }
-            ]
-          }"
-        />
-      </div>
-    </client-only>
+    <v-sheet
+      :class="[
+        'my-auto z-2 end-0 top-0 d-flex align-center',
+        isMobile ? 'start-0 mx-auto justify-center' : 'h-screen bottom-0',
+        flag.showFullscreen ? 'w-screen start-0 position-fixed' : 'position-absolute'
+      ]"
+      :color="flag.showFullscreen ? 'black' : 'white'"
+      :style="`${isMobile ? 'top:-250px;' : !flag.showFullscreen && `top:-120px; ${isRTL ? 'left' : 'right'}:-450px;`}`"
+      @click="flag.showFullscreen = true"
+    >
+      <VideoLoader
+        ref="player"
+        :class="[{ 'rounded-circle overflow-hidden my-auto': !flag.showFullscreen }]"
+        :options="{
+          fill: true,
+          loop: true,
+          muted: true,
+          fluid: false,
+          autoplay: true,
+          controls: false,
+          aspectRatio: flag.showFullscreen ? '16:9' : '1:1',
+          sources: [
+            {
+              type: 'video/mp4',
+              src: '/video/temp-2.mp4'
+            }
+          ]
+        }"
+        :style="`height:${videoSize};width:${videoSize};max-height:${videoSize};max-width:${videoSize};`"
+        @fullscreenchange="flag.showFullscreen = $event"
+      />
+    </v-sheet>
 
     <v-sheet
       :class="['position-relative z-1 mx-auto d-flex align-center', isMobile ? 'px-8' : 'px-16']"
@@ -83,9 +86,17 @@ import VideoLoader from '@/components/shared/VideoLoader';
 
 export default {
   components: { VideoLoader },
+  data() {
+    return {
+      flag: {
+        showFullscreen: false
+      }
+    };
+  },
   computed: {
     videoSize() {
-      return this.isMobile ? 400 : 700;
+      if (this.flag.showFullscreen) return '100%';
+      return this.isMobile ? '400px' : '700px';
     }
   }
 };
