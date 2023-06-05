@@ -12,7 +12,7 @@
         flag.showFullscreen ? 'w-screen start-0 position-fixed' : 'position-absolute'
       ]"
       :color="flag.showFullscreen ? 'black' : 'white'"
-      :style="`${isMobile ? 'top:-250px;' : !flag.showFullscreen && `top:-120px; ${isRTL ? 'left' : 'right'}:-450px;`}`"
+      :style="`${isMobile ? 'top:-250px;' : `top:-120px; ${isRTL ? 'left' : 'right'}:-450px;`}`"
       @click="flag.showFullscreen = true"
     >
       <VideoContents
@@ -25,9 +25,10 @@
           controls: false,
           aspectRatio: '1:1'
         }"
-        :style="`height:${videoSize};width:${videoSize};max-height:${videoSize};max-width:${videoSize};`"
+        :size="videoSize"
         class="rounded-circle overflow-hidden my-auto"
         src="/video/temp-2.mp4"
+        poster="/images/temp/home-video.png"
       />
     </v-sheet>
 
@@ -36,6 +37,7 @@
       :max-width="globalMaxWidth"
       color="transparent"
       height="100%"
+      :style="isMobile ? '' : 'top:-30px;'"
     >
       <v-row>
         <v-col cols="12" lg="8" sm="9">
@@ -90,7 +92,7 @@ export default {
   computed: {
     videoSize() {
       if (this.flag.showFullscreen) return '100%';
-      return this.isMobile ? '400px' : '700px';
+      return this.isMobile ? '400px' : '600px';
     }
   }
 };

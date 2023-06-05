@@ -13,7 +13,7 @@
       ...options
     }"
     :style="height ? `height: ${height}px; max-height: ${height}px; min-height: ${height}px;` : ''"
-    playsinline
+    :playsinline="true"
     preload="none"
     @ended="
       flag.isPlaying = false;
@@ -99,6 +99,10 @@ export default {
     onReady() {
       if (this.player) return;
       this.player = this.$refs[this.ref].player;
+
+      this.player.fluid(typeof this.options.fluid === 'undefined' ? true : this.options.fluid);
+      if (this.options.fill) this.player.fill(true);
+      if (this.options.autoplay) this.play();
     }
   }
 };

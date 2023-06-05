@@ -108,7 +108,7 @@
     </v-sheet>
 
     <div :class="{ 'px-16': !isMobile }">
-      <VideoContents poster="/images/temp/cover-4.png" src="/video/temp.mp4" />
+      <VideoContents class="w-full" poster="/images/temp/cover-4.png" src="/video/temp.mp4" />
     </div>
 
     <v-sheet :class="['mx-auto', isMobile ? 'px-6' : 'px-16']" :max-width="globalMaxWidth">
