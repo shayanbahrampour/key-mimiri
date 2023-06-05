@@ -28,8 +28,8 @@
           v-if="!isMobile"
           class="ml-6 rounded-t-xl py-6 px-12 slategrey"
           height="480"
-          width="480"
           style="margin-top: -480px"
+          width="480"
         >
           <h4 class="bel mt-16 f-50 text--darken-3 white--text font-weight-regular">13th Episode of Co-Talk Event</h4>
           <p class="mt-6 f-20 white--text text--darken-3 mb-0 font-weight-light">

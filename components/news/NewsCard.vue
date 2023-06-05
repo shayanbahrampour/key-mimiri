@@ -7,11 +7,11 @@
     <div v-for="i in 4" :key="i" class="d-flex flex-column justify-center mb-0">
       <v-card
         v-if="!isMobile"
-        :to="path"
-        color="transparent"
-        class="d-flex rounded-0 overflow-hidden mr-4 custom-news-card bg-transparent"
-        elevation="0"
         :ripple="false"
+        :to="path"
+        class="d-flex rounded-0 overflow-hidden mr-4 custom-news-card bg-transparent"
+        color="transparent"
+        elevation="0"
         style="transition: all ease-in 0.4s"
       >
         <div class="d-flex">
@@ -38,8 +38,8 @@
       </v-card>
       <v-card
         v-else
-        :to="path"
         :ripple="false"
+        :to="path"
         class="d-flex mt-6 overflow-hidden bg-transparent"
         color="transparent"
         elevation="0"
@@ -101,6 +101,7 @@ export default {
     filter: grayscale(100%);
     transition: all ease-in 0.4s;
   }
+
   &:hover {
     .custom-card-title {
       color: slategrey !important;

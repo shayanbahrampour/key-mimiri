@@ -3,8 +3,8 @@
     <CareerHeader />
     <div
       :class="['d-flex flex-column align-start white mx-auto', isMobile ? 'px-4 f-16' : 'px-16 scrolled-desktop']"
-      style="line-height: 2"
       :style="`max-width: ${globalMaxWidth}px;`"
+      style="line-height: 2"
     >
       <v-img
         :class="[isMobile ? 'my-12' : 'mx-2 mt-16']"

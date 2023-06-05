@@ -15,9 +15,7 @@
       :style="`${isMobile ? 'top:-250px;' : !flag.showFullscreen && `top:-120px; ${isRTL ? 'left' : 'right'}:-450px;`}`"
       @click="flag.showFullscreen = true"
     >
-      <VideoLoader
-        ref="player"
-        :class="[{ 'rounded-circle overflow-hidden my-auto': !flag.showFullscreen }]"
+      <VideoContents
         :options="{
           fill: true,
           loop: true,
@@ -25,16 +23,11 @@
           fluid: false,
           autoplay: true,
           controls: false,
-          aspectRatio: flag.showFullscreen ? '16:9' : '1:1',
-          sources: [
-            {
-              type: 'video/mp4',
-              src: '/video/temp-2.mp4'
-            }
-          ]
+          aspectRatio: '1:1'
         }"
         :style="`height:${videoSize};width:${videoSize};max-height:${videoSize};max-width:${videoSize};`"
-        @fullscreenchange="flag.showFullscreen = $event"
+        class="rounded-circle overflow-hidden my-auto"
+        src="/video/temp-2.mp4"
       />
     </v-sheet>
 
@@ -83,9 +76,10 @@
 
 <script>
 import VideoLoader from '@/components/shared/VideoLoader';
+import VideoContents from '~/components/shared/VideoContents.vue';
 
 export default {
-  components: { VideoLoader },
+  components: { VideoContents, VideoLoader },
   data() {
     return {
       flag: {

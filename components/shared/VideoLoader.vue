@@ -2,6 +2,7 @@
   <video-player
     :id="ref"
     :ref="ref"
+    :events="['fullscreenchange']"
     :options="{
       fluid: true,
       muted: true,
@@ -11,21 +12,20 @@
       aspectRatio: '16:9',
       ...options
     }"
-    preload="none"
-    playsinline
     :style="height ? `height: ${height}px; max-height: ${height}px; min-height: ${height}px;` : ''"
-    :events="['fullscreenchange']"
-    @fullscreenchange="onFullscreen"
-    @ready="onReady"
-    @pause="flag.isPlaying = false"
+    playsinline
+    preload="none"
     @ended="
       flag.isPlaying = false;
       toggleFullscreen();
     "
+    @fullscreenchange="onFullscreen"
+    @pause="flag.isPlaying = false"
     @play="
       flag.isPlaying = true;
       toggleFullscreen();
     "
+    @ready="onReady"
   />
 </template>
 
@@ -62,6 +62,7 @@ export default {
   },
   methods: {
     onFullscreen(event) {
+      this.$emit('toggleFullscreen', event.isFullscreen_);
       if (!event.isFullscreen_) this.pause();
       this.play();
     },

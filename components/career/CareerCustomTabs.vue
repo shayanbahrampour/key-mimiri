@@ -1,5 +1,5 @@
 <template>
-  <v-tabs v-model="model" class="custom-career-tabs" center-active hide-slider>
+  <v-tabs v-model="model" center-active class="custom-career-tabs" hide-slider>
     <v-spacer v-if="model === 0 && !$route.query.job && isMobile" style="width: 6%"></v-spacer>
     <v-spacer v-else-if="model === 0 && $route.query.job && isMobile" style="width: 9%"></v-spacer>
     <v-tab
@@ -7,8 +7,8 @@
       :key="index"
       :class="['bel f-24 bg-transparent text-capitalize tab-news text-no-wrap', !isMobile ? 'px-6' : 'px-8 mt-2']"
       :ripple="false"
-      disabled
       active-class="black--text"
+      disabled
     >
       {{ item.title }}
     </v-tab>

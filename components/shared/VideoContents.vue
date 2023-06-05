@@ -1,8 +1,8 @@
 <template>
   <VideoLoader
-    class="w-full"
     :options="{
-      poster: poster,
+      ...options,
+      poster,
       sources: [
         {
           type: 'video/mp4',
@@ -10,6 +10,8 @@
         }
       ]
     }"
+    class="w-full"
+    @toggleFullscreen="$emit('toggleFullscreen', $event)"
   />
 </template>
 
@@ -26,6 +28,10 @@ export default {
     src: {
       type: String,
       require: true
+    },
+    options: {
+      type: Object,
+      default: () => ({})
     }
   }
 };

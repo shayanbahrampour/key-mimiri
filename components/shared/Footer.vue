@@ -40,7 +40,7 @@
               </v-btn>
             </div>
           </v-col>
-          <v-col cols="12" xl="4" lg="4" order="1" order-lg="3">
+          <v-col cols="12" lg="4" order="1" order-lg="3" xl="4">
             <div class="d-flex flex-lg-column align-lg-end align-center justify-center mb-lg-0 mb-12">
               <v-btn
                 :to="localePath('/storytellers')"

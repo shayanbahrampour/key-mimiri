@@ -3,16 +3,16 @@
     <CareerCustomTabs :items="tabs" :model="model" />
     <v-progress-linear
       v-if="!isMobile"
-      class="mr-0 mt-4"
       :value="calculateWidth()"
+      class="mr-0 mt-4"
       color="#4C6D80"
       height="2"
       style="width: 90vw"
     ></v-progress-linear>
     <v-progress-linear
       v-else
-      class="mr-0 mt-4"
       :value="model !== tabs.length ? 50 : 100"
+      class="mr-0 mt-4"
       color="#4C6D80"
       height="2"
       style="width: 100vw; margin-left: -16px"

@@ -96,7 +96,7 @@
     </div>
 
     <div class="w-full">
-      <VideoContents src="/video/temp.mp4" poster="/images/temp/cover-6.png" />
+      <VideoContents poster="/images/temp/cover-6.png" src="/video/temp.mp4" />
     </div>
 
     <div class="h-full mt-16 slategrey" style="height: 400px">

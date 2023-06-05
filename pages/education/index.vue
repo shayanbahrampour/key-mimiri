@@ -39,8 +39,8 @@
     </div>
     <NewsCard
       :class="['mt-10', !isMobile ? 'mx-16' : undefined]"
-      title="More Articles"
       :path="localePath('/education/1')"
+      title="More Articles"
     />
     <HomeStoryTellers :class="[isMobile ? 'mt-0' : 'mt-6']" />
   </div>
