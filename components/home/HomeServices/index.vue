@@ -1,5 +1,5 @@
 <template>
-  <div :class="['home-services position-relative z-0', { 'mt-16': isMobile }]">
+  <div :class="['home-services position-relative z-0', { 'mt-16': isMobile }]" style="min-height: 800px">
     <div class="slategrey position-relative">
       <v-sheet
         v-if="activeItem"
