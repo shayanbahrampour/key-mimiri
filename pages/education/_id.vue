@@ -51,7 +51,7 @@
             </v-container>
           </template>
         </v-col>
-        <v-col cols="12" md="6" :class="[{ 'mb-6': isMobile }]">
+        <v-col :class="[{ 'mb-6': isMobile }]" cols="12" md="6">
           <client-only>
             <PdfLoader />
           </client-only>

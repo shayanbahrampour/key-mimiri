@@ -12,8 +12,8 @@
         isMobile ? 'text-center' : 'd-flex',
         summary && !isMobile ? `p${isRTL ? 'r' : 'l'}-8 p${isRTL ? 'l' : 'r'}-6 pt-5 pb-10` : 'text-center pa-8'
       ]"
-      flat
       color="transparent"
+      flat
     >
       <div
         :class="['bel flex-shrink-0', isMobile ? 'f-25' : 'f-35']"

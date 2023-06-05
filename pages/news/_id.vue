@@ -38,30 +38,30 @@
           <div :class="['d-flex', { 'mt-12 pt-5 f-13': !isTablet && !isMobile }]">
             <div :class="['d-flex align-center grey--text text--darken-2 py-1', `p${isRTL ? 'l' : 'r'}-5`]">
               <span v-if="!isMobile"> {{ $t('impactPage.read_time') }}: </span>
-              <v-img contain max-width="20" height="20" v-else src="/images/icons/timer.svg" />
+              <v-img v-else contain height="20" max-width="20" src="/images/icons/timer.svg" />
               <span :class="`m${isRTL ? 'r' : 'l'}-2 d-inline-block`"> 13min </span>
             </div>
             <div :class="['d-flex align-center grey--text text--darken-2 py-1', `p${isRTL ? 'l' : 'r'}-5`]">
               <span v-if="!isMobile"> {{ $t('impactPage.written_by') }}: </span>
-              <v-img contain max-width="20" height="20" v-else src="/images/icons/written.svg" />
+              <v-img v-else contain height="20" max-width="20" src="/images/icons/written.svg" />
               <span :class="`m${isRTL ? 'r' : 'l'}-2 d-inline-block`"> Mehrab </span>
             </div>
             <div :class="['d-flex align-center grey--text text--darken-2 py-1', `p${isRTL ? 'l' : 'r'}-5`]">
               <span v-if="!isMobile"> {{ $t('impactPage.published') }}: </span>
-              <v-img contain max-width="20" height="20" v-else src="/images/icons/published.svg" />
+              <v-img v-else contain height="20" max-width="20" src="/images/icons/published.svg" />
               <span :class="`m${isRTL ? 'r' : 'l'}-2 d-inline-block`"> 3 month ago </span>
             </div>
           </div>
 
           <h4 v-if="isMobile" class="slategrey--text mt-8 px-1">Share it:</h4>
           <div :class="['d-flex', isMobile ? 'mt-2' : 'mt-10']">
-            <nuxt-link :to="localePath('/')" :class="`m${isRTL ? 'l' : 'r'}-4`">
+            <nuxt-link :class="`m${isRTL ? 'l' : 'r'}-4`" :to="localePath('/')">
               <v-img contain height="50" src="/images/social/icon-linkedin.svg" width="50" />
             </nuxt-link>
-            <nuxt-link :to="localePath('/')" :class="`m${isRTL ? 'l' : 'r'}-4`">
+            <nuxt-link :class="`m${isRTL ? 'l' : 'r'}-4`" :to="localePath('/')">
               <v-img contain height="50" src="/images/social/icon-whatsapp.svg" width="50" />
             </nuxt-link>
-            <nuxt-link :to="localePath('/')" :class="`m${isRTL ? 'l' : 'r'}-4`">
+            <nuxt-link :class="`m${isRTL ? 'l' : 'r'}-4`" :to="localePath('/')">
               <v-img contain height="50" src="/images/social/icon-telegram.svg" width="50" />
             </nuxt-link>
           </div>
@@ -108,7 +108,7 @@
     </v-sheet>
 
     <div :class="{ 'px-16': !isMobile }">
-      <VideoContents src="/video/temp.mp4" poster="/images/temp/cover-4.png" />
+      <VideoContents class="w-full" poster="/images/temp/cover-4.png" src="/video/temp.mp4" />
     </div>
 
     <v-sheet :class="['mx-auto', isMobile ? 'px-6' : 'px-16']" :max-width="globalMaxWidth">

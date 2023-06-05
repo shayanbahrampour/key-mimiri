@@ -2,14 +2,14 @@
   <div>
     <v-app-bar
       :height="isMobile ? 70 : 120"
+      :scroll-threshold="isMobile ? 70 : 120"
+      app
       class="appbar"
       color="white"
       elevate-on-scroll
       fixed
-      app
       flat
       tile
-      :scroll-threshold="isMobile ? 70 : 120"
     >
       <v-sheet
         :class="['mx-auto d-flex align-center h-full w-full', { 'px-12': !isMobile }]"

@@ -1,27 +1,16 @@
 <template>
   <div>
-    <VideoLoader
-      :options="{
-        poster: '/images/temp/cover-6.png',
-        sources: [
-          {
-            type: 'video/mp4',
-            src: '/video/temp.mp4'
-          }
-        ]
-      }"
-      class="w-full"
-    />
+    <VideoContents class="w-full" poster="/images/temp/cover-6.png" src="/video/temp.mp4" />
     <HomeVideoContents />
   </div>
 </template>
 
 <script>
-import VideoLoader from '~/components/shared/VideoLoader.vue';
 import HomeVideoContents from '~/components/home/HomeVideoContents.vue';
+import VideoContents from '~/components/shared/VideoContents.vue';
 
 export default {
-  components: { HomeVideoContents, VideoLoader }
+  components: { VideoContents, HomeVideoContents }
 };
 </script>
 

@@ -4,20 +4,20 @@
       <v-sheet
         v-if="activeItem"
         :color="activeItem.color"
-        class="position-absolute z-1 top-0 end-0 start-0 mx-auto rounded-circle transition-ease-in-out"
         :height="isMobile ? 300 : 400"
-        style="mix-blend-mode: color; margin-top: -70px; opacity: 0.69"
         :width="isMobile ? 300 : 400"
+        class="position-absolute z-1 top-0 end-0 start-0 mx-auto rounded-circle transition-ease-in-out"
+        style="mix-blend-mode: color; margin-top: -70px; opacity: 0.69"
       />
       <v-carousel
         v-model="active"
+        :height="isMobile ? 400 : 600"
         :interval="5000"
         :show-arrows="false"
         class="position-relative z-0"
         cycle
         hide-delimiters
         mandatory
-        :height="isMobile ? 400 : 600"
       >
         <v-carousel-item
           v-for="(item, i) in shapes"

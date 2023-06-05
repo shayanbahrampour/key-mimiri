@@ -12,12 +12,10 @@
         flag.showFullscreen ? 'w-screen start-0 position-fixed' : 'position-absolute'
       ]"
       :color="flag.showFullscreen ? 'black' : 'white'"
-      :style="`${isMobile ? 'top:-250px;' : !flag.showFullscreen && `top:-120px; ${isRTL ? 'left' : 'right'}:-450px;`}`"
+      :style="`${isMobile ? 'top:-250px;' : `top:-120px; ${isRTL ? 'left' : 'right'}:-450px;`}`"
       @click="flag.showFullscreen = true"
     >
-      <VideoLoader
-        ref="player"
-        :class="[{ 'rounded-circle overflow-hidden my-auto': !flag.showFullscreen }]"
+      <VideoContents
         :options="{
           fill: true,
           loop: true,
@@ -25,16 +23,12 @@
           fluid: false,
           autoplay: true,
           controls: false,
-          aspectRatio: flag.showFullscreen ? '16:9' : '1:1',
-          sources: [
-            {
-              type: 'video/mp4',
-              src: '/video/temp-2.mp4'
-            }
-          ]
+          aspectRatio: '1:1'
         }"
-        :style="`height:${videoSize};width:${videoSize};max-height:${videoSize};max-width:${videoSize};`"
-        @fullscreenchange="flag.showFullscreen = $event"
+        :size="videoSize"
+        class="rounded-circle overflow-hidden my-auto"
+        src="/video/temp-2.mp4"
+        poster="/images/temp/home-video.png"
       />
     </v-sheet>
 
@@ -43,6 +37,7 @@
       :max-width="globalMaxWidth"
       color="transparent"
       height="100%"
+      :style="isMobile ? '' : 'top:-30px;'"
     >
       <v-row>
         <v-col cols="12" lg="8" sm="9">
@@ -83,9 +78,10 @@
 
 <script>
 import VideoLoader from '@/components/shared/VideoLoader';
+import VideoContents from '~/components/shared/VideoContents.vue';
 
 export default {
-  components: { VideoLoader },
+  components: { VideoContents, VideoLoader },
   data() {
     return {
       flag: {
@@ -96,7 +92,7 @@ export default {
   computed: {
     videoSize() {
       if (this.flag.showFullscreen) return '100%';
-      return this.isMobile ? '400px' : '700px';
+      return this.isMobile ? '400px' : '600px';
     }
   }
 };

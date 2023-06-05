@@ -96,7 +96,7 @@
     </div>
 
     <div class="w-full">
-      <VideoContents src="/video/temp.mp4" poster="/images/temp/cover-6.png" />
+      <VideoContents class="w-full" poster="/images/temp/cover-6.png" src="/video/temp.mp4" />
     </div>
 
     <div class="h-full mt-16 slategrey" style="height: 400px">
@@ -193,6 +193,7 @@
 <script>
 import JobsGrid from '~/components/career/JobsGrid';
 import VideoContents from '~/components/shared/VideoContents.vue';
+import VideoLoader from '~/components/shared/VideoLoader.vue';
 
 export default {
   head() {
@@ -200,7 +201,7 @@ export default {
       title: this.$t('pageTitles.careers')
     };
   },
-  components: { VideoContents, JobsGrid },
+  components: { VideoLoader, VideoContents, JobsGrid },
   data() {
     return {
       seeMore: false,

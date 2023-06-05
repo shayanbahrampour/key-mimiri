@@ -11,10 +11,10 @@
         <v-col :class="isMobile ? 'pb-0' : undefined" cols="12" md="6">
           <v-file-input
             v-model="model.coverLetter"
-            class="mb-9"
             :append-icon="model.coverLetter ? false : 'mdi-file-upload slategrey--text'"
-            clear-icon="mdi-delete black--text"
             :prepend-icon="false"
+            class="mb-9"
+            clear-icon="mdi-delete black--text"
             dense
             filled
             hide-details
@@ -23,10 +23,10 @@
           ></v-file-input>
           <v-file-input
             v-model="model.address"
-            class="mb-9"
             :append-icon="model.address ? false : 'mdi-file-upload slategrey--text'"
-            clear-icon="mdi-delete black--text"
             :prepend-icon="false"
+            class="mb-9"
+            clear-icon="mdi-delete black--text"
             dense
             filled
             hide-details
@@ -37,10 +37,10 @@
         <v-col :class="isMobile ? 'pt-0' : undefined" cols="12" md="6">
           <v-file-input
             v-model="model.vitae"
-            class="mb-9"
             :append-icon="model.vitae ? false : 'mdi-file-upload slategrey--text'"
-            clear-icon="mdi-delete black--text"
             :prepend-icon="false"
+            class="mb-9"
+            clear-icon="mdi-delete black--text"
             dense
             filled
             hide-details
@@ -49,10 +49,10 @@
           ></v-file-input>
           <v-file-input
             v-model="model.material"
-            class="mb-9"
             :append-icon="model.material ? false : 'mdi-file-upload slategrey--text'"
-            clear-icon="mdi-delete black--text"
             :prepend-icon="false"
+            class="mb-9"
+            clear-icon="mdi-delete black--text"
             dense
             filled
             hide-details
