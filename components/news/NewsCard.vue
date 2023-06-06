@@ -15,7 +15,7 @@
         style="transition: all ease-in 0.4s"
       >
         <div class="d-flex">
-          <v-img height="100%" src="/images/news/slider.png" width="250" />
+          <v-img height="100%" src="/images/temp/cover-2.png" width="250" />
         </div>
         <div class="d-flex flex-column py-6 ml-16 align-start">
           <h4 class="bel f-40 text--darken-3 font-weight-regular mb-auto cobelgrey--text custom-card-title">
@@ -50,7 +50,7 @@
           height="550"
           style="border: 2px solid slategrey; overflow: hidden"
         >
-          <v-img max-height="250" src="/images/news/slider.png" />
+          <v-img max-height="250" src="/images/temp/cover-2.png" />
           <div class="d-flex flex-column py-2 mx-6 flex">
             <h4 class="bel f-28 text--darken-3 font-weight-regular mb-auto mt-4" style="color: #59595b">
               Rise from the society return to the society

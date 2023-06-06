@@ -89,16 +89,18 @@
       </p>
     </v-sheet>
 
-    <v-sheet :class="['mx-auto pt-16 mt-sm-16', isMobile ? 'px-6' : 'px-16 mb-4']" :max-width="globalMaxWidth">
-      <h2
-        :class="[
-          'bel grey--text text--darken-2 font-weight-regular d-block',
-          isMobile ? 'f-33 text-center mb-6' : 'f-45 mb-6'
-        ]"
-      >
-        Sistan and Balouchestan, highest prevalence of Iron deficiency in Iran
-      </h2>
-    </v-sheet>
+    <div :style="`max-width:${globalMaxWidth}`">
+      <v-sheet :class="['mx-auto pt-16 mt-sm-16', isMobile ? 'px-6' : 'px-16 mb-4']">
+        <h2
+          :class="[
+            'bel grey--text text--darken-2 font-weight-regular d-block',
+            isMobile ? 'f-33 text-center mb-6' : 'f-45 mb-6'
+          ]"
+        >
+          Sistan and Balouchestan, highest prevalence of Iron deficiency in Iran
+        </h2>
+      </v-sheet>
+    </div>
 
     <div :class="{ 'px-16': !isMobile }">
       <VideoContents
@@ -109,91 +111,94 @@
       />
     </div>
 
-    <v-sheet :class="['mx-auto', isMobile ? 'px-6' : 'px-16']" :max-width="globalMaxWidth" style="color: #59595b">
-      <v-row :class="[isMobile ? 'pt-16' : 'py-16']">
-        <v-col md="6">
-          <h3
-            :class="[
-              'font-weight-regular bel success--text mb-4 text-center text-sm-start',
-              isMobile ? 'f-33' : 'f-45'
-            ]"
-          >
-            32 Million people in need of 2 Billion doses of iron supplement; less than 800 Million doses is consumed
-          </h3>
-          <p :class="['mb-6 font-weight-light', isMobile ? 'f-20' : 'f-25']" style="line-height: 35px">
-            WHO advises that all women in their reproductive ages, whether having Iron deficiency or not, are required
-            to consume 60 mg of iron supplements per week. This amount should be higher in pregnant women and any
-            deficiencies will not only affect themselves, but it also affects their fetus. In addition, Iranian men and
-            menopaused women have a 2 prevalence of Anemia and are also require to manage the disease accordingly (3).
-            Studies conducted by Cobel Group medico-marketing teams indicated that there are 32 million people in Iran,
-            who require a total amount of 2 Billion doses of Iron supplements; however, surprisingly the consumed amount
-            is less than 800 million doses, based on annual sale statistics. It means that 60 percentage of the people
-            who are required to consume Iron supplements to prevent or manage Anemia, are not rationally using it. This
-            could be highly affected by lack of awareness and access challenges to high quality Iron supplements.
-          </p>
-        </v-col>
-        <v-col class="ps-md-8" md="6">
-          <v-img min-height="600" src="/images/temp/impact_detail.png" />
-        </v-col>
-        <v-col lg="12">
-          <p :class="['mb-6 font-weight-light', isMobile ? 'f-20' : 'f-25']" style="line-height: 35px">
-            Lastly, acknowledging our social responsibility commitments, we have identified various underprivileged
-            provinces with the highest prevalence of iron deficiency in women, such as Sistan and Balouchestan province
-            and Dahak village, and supplied FerroFort supplements for the need of 6,000 people for a time horizon of one
-            year as part of our Abidi 75th birthday project, aimed at empowering and inspiring women in all sectors of
-            Iranian society.
-          </p>
+    <div :style="`max-width:${globalMaxWidth}`">
+      <v-sheet :class="['mx-auto', isMobile ? 'px-6' : 'px-16']" style="color: #59595b">
+        <v-row :class="[isMobile ? 'pt-16' : 'py-16']">
+          <v-col md="6">
+            <h3
+              :class="[
+                'font-weight-regular bel success--text mb-4 text-center text-sm-start',
+                isMobile ? 'f-33' : 'f-45'
+              ]"
+            >
+              32 Million people in need of 2 Billion doses of iron supplement; less than 800 Million doses is consumed
+            </h3>
+            <p :class="['mb-6 font-weight-light', isMobile ? 'f-20' : 'f-25']" style="line-height: 35px">
+              WHO advises that all women in their reproductive ages, whether having Iron deficiency or not, are required
+              to consume 60 mg of iron supplements per week. This amount should be higher in pregnant women and any
+              deficiencies will not only affect themselves, but it also affects their fetus. In addition, Iranian men
+              and menopaused women have a 2 prevalence of Anemia and are also require to manage the disease accordingly
+              (3). Studies conducted by Cobel Group medico-marketing teams indicated that there are 32 million people in
+              Iran, who require a total amount of 2 Billion doses of Iron supplements; however, surprisingly the
+              consumed amount is less than 800 million doses, based on annual sale statistics. It means that 60
+              percentage of the people who are required to consume Iron supplements to prevent or manage Anemia, are not
+              rationally using it. This could be highly affected by lack of awareness and access challenges to high
+              quality Iron supplements.
+            </p>
+          </v-col>
+          <v-col class="ps-md-8" md="6">
+            <v-img min-height="600" src="/images/temp/impact_detail.png" />
+          </v-col>
+          <v-col lg="12">
+            <p :class="['mb-6 font-weight-light', isMobile ? 'f-20' : 'f-25']" style="line-height: 35px">
+              Lastly, acknowledging our social responsibility commitments, we have identified various underprivileged
+              provinces with the highest prevalence of iron deficiency in women, such as Sistan and Balouchestan
+              province and Dahak village, and supplied FerroFort supplements for the need of 6,000 people for a time
+              horizon of one year as part of our Abidi 75th birthday project, aimed at empowering and inspiring women in
+              all sectors of Iranian society.
+            </p>
 
-          <h4
-            :class="[
-              'font-weight-regular bel success--text mb-4 text-center text-sm-start',
-              isMobile ? 'f-35' : 'f-45'
-            ]"
-          >
-            providing high‐quality supplements, not only for women, but also for men and children.
-          </h4>
+            <h4
+              :class="[
+                'font-weight-regular bel success--text mb-4 text-center text-sm-start',
+                isMobile ? 'f-35' : 'f-45'
+              ]"
+            >
+              providing high‐quality supplements, not only for women, but also for men and children.
+            </h4>
 
-          <p :class="['mb-6 font-weight-light', isMobile ? 'f-20' : 'f-25']" style="line-height: 35px">
-            We at Cobel Group recognize the importance of woman empowerment and are committed to enhancing their
-            physical, psychological, and social quality of life through high‐quality and innovative healthcare
-            solutions.
-          </p>
-        </v-col>
-      </v-row>
-    </v-sheet>
+            <p :class="['mb-6 font-weight-light', isMobile ? 'f-20' : 'f-25']" style="line-height: 35px">
+              We at Cobel Group recognize the importance of woman empowerment and are committed to enhancing their
+              physical, psychological, and social quality of life through high‐quality and innovative healthcare
+              solutions.
+            </p>
+          </v-col>
+        </v-row>
+      </v-sheet>
 
-    <v-sheet v-if="items && items.length !== 0" :max-width="globalMaxWidth" class="mx-auto">
-      <div :class="['d-flex align-center text-center', isMobile ? 'px-4 mt-10' : 'px-16']">
-        <h2 :class="['bel grey--text text--darken-2 font-weight-regular d-block', isMobile ? 'f-40' : 'f-55']">
-          {{ $t('impactPage.other_links') }}
-        </h2>
+      <v-sheet v-if="items && items.length !== 0" class="mx-auto">
+        <div :class="['d-flex align-center text-center', isMobile ? 'px-4 mt-10' : 'px-16']">
+          <h2 :class="['bel grey--text text--darken-2 font-weight-regular d-block', isMobile ? 'f-40' : 'f-55']">
+            {{ $t('impactPage.other_links') }}
+          </h2>
 
-        <template v-if="!isMobile">
-          <v-spacer />
-          <nuxt-link :to="localePath('/impact')" class="grey--text text-decoration-none">
-            {{ $t('impactPage.see_all') }}
-          </nuxt-link>
-        </template>
-      </div>
-
-      <client-only>
-        <swiper
-          v-if="items && items.length !== 0"
-          id="impactSwiper"
-          key="impactSwiper"
-          :class="['w-full me-0', isMobile ? 'mt-8 px-5' : 'my-8 px-16']"
-          :dir="isRTL ? 'rtl' : 'ltr'"
-          :options="swiperOptions"
-        >
-          <swiper-slide v-for="(item, index) in items" :key="index">
-            <ImpactCards :item="item" :style="`border-radius: 80px`" class="mt-2 mb-3" />
-          </swiper-slide>
-        </swiper>
-        <div v-else-if="!$fetchState.pending" class="mt-8 text-center">
-          {{ $t('impactPage.not_found') }}
+          <template v-if="!isMobile">
+            <v-spacer />
+            <nuxt-link :to="localePath('/impact')" class="grey--text text-decoration-none">
+              {{ $t('impactPage.see_all') }}
+            </nuxt-link>
+          </template>
         </div>
-      </client-only>
-    </v-sheet>
+
+        <client-only>
+          <swiper
+            v-if="items && items.length !== 0"
+            id="impactSwiper"
+            key="impactSwiper"
+            :class="['w-full me-0', isMobile ? 'mt-8 px-5' : 'my-8 px-16']"
+            :dir="isRTL ? 'rtl' : 'ltr'"
+            :options="swiperOptions"
+          >
+            <swiper-slide v-for="(item, index) in items" :key="index">
+              <ImpactCards :item="item" :style="`border-radius: 80px`" class="mt-2 mb-3" />
+            </swiper-slide>
+          </swiper>
+          <div v-else-if="!$fetchState.pending" class="mt-8 text-center">
+            {{ $t('impactPage.not_found') }}
+          </div>
+        </client-only>
+      </v-sheet>
+    </div>
 
     <v-progress-linear v-if="$fetchState.pending" />
 
