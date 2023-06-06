@@ -14,31 +14,37 @@
       </v-carousel-item>
     </v-carousel>
     <div
-      v-if="items.length > 1"
+      v-if="items.length > 1 && !hideDelimiters"
       :class="[
         'position-absolute start-0 end-0 mx-auto z-0',
         isMobile ? 'd-flex justify-center align-center px-6' : 'px-16'
       ]"
       :style="`max-width: ${globalMaxWidth}px; top: ${isMobile ? 260 : 370}px`"
     >
-      <v-icon
-        v-for="(item, index) in items"
-        :key="index"
-        :class="`m${isRTL ? 'r' : 'l'}-1`"
-        color="white"
-        size="25"
-        @click="model = index"
-      >
+      <v-icon v-for="(item, index) in items" :key="index" class="ms-1" color="white" size="25" @click="model = index">
         {{ index === model ? 'mdi-radiobox-marked' : 'mdi-radiobox-blank' }}
       </v-icon>
     </div>
+    <div
+      :class="[
+        'position-absolute start-0 end-0 mx-auto z-0',
+        isMobile ? 'd-flex justify-center align-center px-6' : $vuetify.breakpoint.xl ? 'px-12' : 'px-16'
+      ]"
+      :style="`max-width: ${globalMaxWidth}px; top: ${isMobile ? 260 : 350}px`"
+    >
+      <h4 :class="['bel white--text font-weight-regular text-uppercase', isMobile ? 'f-36' : 'f-70']">
+        {{ title }}
+      </h4>
+    </div>
 
     <div class="position-relative z-1">
-      <div :class="['mx-auto', !isMobile && `p${isRTL ? 'l' : 'r'}-4`]" :style="`max-width: ${globalMaxWidth}px`">
+      <div :class="['mx-auto', !isMobile && 'pe-4']" :style="`max-width: ${globalMaxWidth}px`">
         <v-sheet
           :class="[
-            `m${isRTL ? 'l' : 'r'}-auto carousel-sheet`,
-            isMobile ? 'px-6 py-8' : `px-16 py-16 rounded-${isRTL ? 'l' : 'r'}-xl`
+            'me-auto carousel-sheet',
+            isMobile ? 'py-8' : 'py-16',
+            $vuetify.breakpoint.xl ? 'px-12' : isMobile ? 'px-6' : 'px-16',
+            `rounded-${isRTL ? 'l' : 'r'}-xl`
           ]"
           :max-width="globalMaxWidth * 0.9"
           :style="`${!isMobile && `margin-top: -78px`}`"
@@ -46,12 +52,23 @@
           min-height="240"
         >
           <v-row v-if="activeSlide" :no-gutters="!isMobile" class="position-relative z-1" justify="center">
-            <v-col cols="12" lg="5">
-              <h2 :class="['bel white--text font-weight-regular', isMobile ? 'f-35 text-center' : 'f-50']">
+            <v-col v-if="activeSlide.title" cols="12" :lg="activeSlide.description ? 5 : 12">
+              <h2
+                :class="[
+                  'bel white--text font-weight-regular',
+                  isMobile ? 'f-35 text-center' : activeSlide.description ? 'f-50' : 'f-40'
+                ]"
+              >
                 {{ activeSlide.title }}
               </h2>
             </v-col>
-            <v-col :class="isMobile && 'text-center'" cols="12" lg="6" offset-lg="1">
+            <v-col
+              v-if="activeSlide.description"
+              :class="isMobile && 'text-center'"
+              cols="12"
+              :lg="activeSlide.title ? 6 : 12"
+              :offset-lg="activeSlide.title ? 1 : 0"
+            >
               <p class="f-22 white--text font-weight-light mt-lg-0">
                 {{ activeSlide.description }}
               </p>
@@ -79,6 +96,14 @@ export default {
     items: {
       type: Array,
       default: () => []
+    },
+    title: {
+      type: String,
+      default: ''
+    },
+    hideDelimiters: {
+      type: Boolean,
+      default: false
     }
   },
   data() {

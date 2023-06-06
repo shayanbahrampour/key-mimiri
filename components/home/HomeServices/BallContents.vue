@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="[`position-relative flex-shrink-0 z-0 ${!isMobile && `p${isRTL ? 'r' : 'l'}-8 m${isRTL ? 'r' : 'l'}-8`}`]"
+    :class="['position-relative flex-shrink-0 z-0', !isMobile && 'ps-8 ms-8']"
     :style="`width: ${width}; ${!isMobile && `border-${isRTL ? 'right' : 'left'}: 1px solid #aaa`}`"
   >
     <h3

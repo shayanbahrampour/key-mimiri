@@ -3,10 +3,10 @@
     <NewsCarousel
       :items="[
         {
-          src: '/images/news/slider.png'
+          src: '/images/temp/cover-2.png'
         },
         {
-          src: '/images/news/slider.png'
+          src: '/images/temp/cover-2.png'
         }
       ]"
     />

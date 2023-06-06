@@ -16,7 +16,8 @@ export default {
     contact: 'Contact Us',
     impact_stories: 'Impact Stories',
     education: 'Education',
-    storytellers: 'Storytellers'
+    storytellers: 'Storytellers',
+    timeline: 'Timeline'
   },
   footer: {
     about: 'About Us',
