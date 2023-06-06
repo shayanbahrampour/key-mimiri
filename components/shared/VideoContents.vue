@@ -1,6 +1,7 @@
 <template>
   <client-only>
     <VideoLoader
+      class="vjs-theme-sea"
       :options="{
         ...options,
         poster,

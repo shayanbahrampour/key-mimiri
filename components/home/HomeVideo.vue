@@ -1,6 +1,11 @@
 <template>
-  <div>
-    <VideoContents class="w-full" poster="/images/temp/cover-6.png" src="/video/temp.mp4" />
+  <div class="position-relative">
+    <VideoContents
+      class="w-full overflow-hidden"
+      poster="/images/temp/cover-6.png"
+      src="/video/temp.mp4"
+      style="max-height: calc(100vh - 90px)"
+    />
     <HomeVideoContents />
   </div>
 </template>

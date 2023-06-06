@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-sheet :class="['mx-auto grey--text text--darken-2', { 'px-16': !isMobile }]" :max-width="globalMaxWidth">
-      <div :class="['d-flex align-center mb-8', { 'flex-column text-center px-6': isMobile }]">
+      <div :class="['d-flex align-center mb-14', { 'flex-column text-center px-6': isMobile }]">
         <h3
           :class="[
             'font-weight-regular bel grey--text text--darken-2 flex-shrink-0',
@@ -12,8 +12,10 @@
         </h3>
 
         <p
-          :class="`mb-0 ${!isMobile && `m${isRTL ? 'r' : 'l'}-8 p${isRTL ? 'r' : 'l'}-8`}`"
-          :style="`${!isMobile && `border-${isRTL ? 'right' : 'left'}: 1px solid #aaa`}`"
+          :class="`mb-0 font-weight-light py-3 ${!isMobile && `m${isRTL ? 'r' : 'l'}-8 p${isRTL ? 'r' : 'l'}-8`} ${
+            isMobile ? 'f-16' : 'f-20'
+          }`"
+          :style="`${!isMobile && `border-${isRTL ? 'right' : 'left'}: 1px solid #aaa`}; color: #59595B`"
         >
           {{ $t('homePage.impact.description') }}
         </p>

@@ -1,9 +1,7 @@
 <template>
   <div
     :class="[`position-relative flex-shrink-0 z-0 ${!isMobile && `p${isRTL ? 'r' : 'l'}-8 m${isRTL ? 'r' : 'l'}-8`}`]"
-    :style="`width: ${$vuetify.breakpoint.mdAndUp ? '450px' : '300px'}; ${
-      !isMobile && `border-${isRTL ? 'right' : 'left'}: 1px solid #aaa`
-    }`"
+    :style="`width: ${width}; ${!isMobile && `border-${isRTL ? 'right' : 'left'}: 1px solid #aaa`}`"
   >
     <h3
       v-if="item"
@@ -24,6 +22,13 @@ export default {
     item: {
       type: Object,
       required: true
+    }
+  },
+  computed: {
+    width() {
+      if (this.$vuetify.breakpoint.lgAndUp) return '530px';
+      if (this.$vuetify.breakpoint.mdAndUp) return '450px';
+      return '300px';
     }
   }
 };
