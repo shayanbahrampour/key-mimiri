@@ -2,11 +2,24 @@
   <div
     :class="[
       'pointer overflow-hidden custom-transition',
+      isMobile ? (flag.showFullscreen ? 'z-10' : 'z-1') : 'z-10',
       flag.showFullscreen
-        ? 'black position-fixed h-screen w-screen z-10 d-flex align-center justify-center rounded-0 top-0 start-0'
+        ? 'black position-fixed h-screen w-screen d-flex align-center justify-center rounded-0 top-0 start-0'
         : 'z-2 rounded-circle'
     ]"
   >
+    <v-fade-transition>
+      <v-btn
+        v-if="flag.showFullscreen"
+        icon
+        large
+        class="position-fixed top-0 start-0 ma-2 z-1"
+        @click="flag.showFullscreen = false"
+      >
+        <v-icon color="white">mdi-close</v-icon>
+      </v-btn>
+    </v-fade-transition>
+
     <v-sheet
       :width="flag.showFullscreen ? '100vw' : 0"
       :height="flag.showFullscreen ? '100vh' : 0"
@@ -14,7 +27,13 @@
       :class="['position-absolute top-0 start-0 z-0']"
       @click="flag.showFullscreen = false"
     />
-    <div :class="[flag.showFullscreen && 'w-screen position-relative z-1']" @click="flag.showFullscreen = true">
+    <v-sheet
+      color="transparent"
+      :class="['mx-auto', flag.showFullscreen && 'w-screen position-relative z-1']"
+      @click="flag.showFullscreen = true"
+      :width="flag.showFullscreen ? '90vw' : videoSize"
+      :height="flag.showFullscreen ? undefined : videoSize"
+    >
       <VideoContents
         :options="{
           fill: true,
@@ -25,13 +44,12 @@
           controls: flag.showFullscreen,
           aspectRatio: flag.showFullscreen ? '16:9' : '1:1'
         }"
-        :width="flag.showFullscreen ? '100vw' : videoSize"
+        :width="flag.showFullscreen ? '90vw' : videoSize"
         :height="flag.showFullscreen ? undefined : videoSize"
-        :class="[!flag.showFullscreen && 'rounded-circle overflow-hidden my-auto']"
+        :class="[flag.showFullscreen ? 'mx-auto' : 'my-auto']"
         src="/video/temp-2.mp4"
-        poster="/images/temp/home-video.png"
       />
-    </div>
+    </v-sheet>
   </div>
 </template>
 
@@ -43,7 +61,6 @@ export default {
   components: { VideoContents, VideoLoader },
   data() {
     return {
-      player: '',
       flag: {
         showFullscreen: false
       }
@@ -51,7 +68,7 @@ export default {
   },
   computed: {
     videoSize() {
-      return this.isMobile ? '400px' : '600px';
+      return this.isMobile ? '370px' : '600px';
     }
   }
 };
@@ -59,6 +76,6 @@ export default {
 
 <style lang="scss">
 .custom-transition {
-  transition: border-radius ease-in 1s;
+  transition: border-radius ease-out 50ms;
 }
 </style>

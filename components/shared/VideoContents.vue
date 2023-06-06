@@ -13,9 +13,10 @@
           }
         ]
       }"
+      :width="width"
+      :height="height"
       @ready="$emit('ready', $event)"
       @toggleFullscreen="$emit('toggleFullscreen', $event)"
-      :style="`${height && `height:${height};max-height:${height};`} ${width && `width:${width};max-width:${width};`}`"
     />
   </client-only>
 </template>
