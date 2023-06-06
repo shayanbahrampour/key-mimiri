@@ -153,7 +153,8 @@ export default {
     see_all: 'مشاهده همه'
   },
   shared: {
-    see_more: 'موارد بیشتر'
+    see_more: 'موارد بیشتر',
+    see_less: 'بستن'
   },
   error: {
     home: 'برگشت به خانه',

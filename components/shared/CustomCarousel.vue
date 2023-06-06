@@ -70,17 +70,20 @@
               :offset-lg="activeSlide.title ? 1 : 0"
             >
               <p class="f-22 white--text font-weight-light mt-lg-0">
-                {{ activeSlide.description }}
+                {{
+                  activeSlide.description | truncate({ length: flag.showMore ? activeSlide.description.length : 100 })
+                }}
               </p>
               <v-btn
-                class="font-weight-bold f-18 ml-n4 text-lowercase"
+                class="font-weight-bold f-18 ml-n4 text-lowercase bg-transparent"
                 color="white"
                 exact
                 link
                 text
-                @click="$vuetify.goTo('#impact', { offset: 0 })"
+                :ripple="false"
+                @click="flag.showMore = !flag.showMore"
               >
-                {{ $t('impactPage.slider.see_more') }}
+                {{ flag.showMore ? $t('shared.see_less') : $t('shared.see_more') }}
               </v-btn>
             </v-col>
           </v-row>
@@ -108,7 +111,10 @@ export default {
   },
   data() {
     return {
-      model: 0
+      model: 0,
+      flag: {
+        showMore: false
+      }
     };
   },
   computed: {
