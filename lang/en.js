@@ -41,6 +41,7 @@ export default {
       physical_health: 'Physical Health',
       social_health: 'Social Health',
       contact: 'Contact Us',
+      timeline: 'Timeline',
       storytellers: 'storytellers'
     },
     copyright: '©2023 Cobel Group. All Rights Reserved.'
