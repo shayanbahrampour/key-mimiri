@@ -116,7 +116,7 @@
                     :class="['ps-2', isMobile ? 'd-flex align-center' : 'pt-5']"
                     style="line-height: 30px"
                   >
-                    <strong class="f-20 text-pre-line" v-html="child.title"></strong>
+                    <strong class="f-20 text-pre-line timeline-title" v-html="child.title"></strong>
                   </v-sheet>
                 </v-timeline-item>
               </v-timeline>
@@ -366,9 +366,20 @@ export default {
       transition: all ease 0.4s;
     }
 
-    .v-timeline-item:hover {
-      .v-timeline-item__inner-dot {
-        opacity: 1;
+    .v-timeline-item {
+      .timeline-title {
+        color: #59595b;
+        transition: all ease 0.4s;
+      }
+
+      &:hover {
+        .timeline-title {
+          color: #000;
+        }
+
+        .v-timeline-item__inner-dot {
+          opacity: 1;
+        }
       }
     }
 
