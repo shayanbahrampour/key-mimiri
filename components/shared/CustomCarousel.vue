@@ -26,14 +26,13 @@
       </v-icon>
     </div>
     <div
-      v-if="items.length > 1 && !hideDelimiters"
       :class="[
         'position-absolute start-0 end-0 mx-auto z-0',
-        isMobile ? 'd-flex justify-center align-center px-6' : 'px-16'
+        isMobile ? 'd-flex justify-center align-center px-6' : 'px-12'
       ]"
-      :style="`max-width: ${globalMaxWidth}px; top: ${isMobile ? 260 : 370}px`"
+      :style="`max-width: ${globalMaxWidth}px; top: ${isMobile ? 260 : 350}px`"
     >
-      <h4 v-if="!isMobile" :class="['bel white--text  font-weight-regular text-uppercase', isMobile ? 'f-36' : 'f-70']">
+      <h4 :class="['bel white--text font-weight-regular text-uppercase', isMobile ? 'f-36' : 'f-70']">
         {{ title }}
       </h4>
     </div>

@@ -15,16 +15,13 @@
 </template>
 
 <script>
-import NewsCard from '~/components/news/NewsCard';
-import NewsCategory from '~/components/news/NewsCategory';
-import HomeStoryTellers from '~/components/home/HomeStoryTellers';
 import CustomCarousel from '~/components/shared/CustomCarousel.vue';
 
 export default {
   components: { CustomCarousel },
   head() {
     return {
-      title: this.$t('pageTitles.education')
+      title: this.$t('pageTitles.heritage')
     };
   }
 };
