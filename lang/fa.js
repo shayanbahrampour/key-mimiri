@@ -41,6 +41,7 @@ export default {
       psychological_health: 'سلامت روانی',
       physical_health: 'سلامت فیزیکی',
       contact: 'با ما تماس بگیرید',
+      timeline: 'Timeline',
       storytellers: 'داستانهای الهامبخش'
     },
     copyright: '© ۱۴۰۲ گروه کوبل، تمامی حقوق محفوظ است'
@@ -152,7 +153,8 @@ export default {
     see_all: 'مشاهده همه'
   },
   shared: {
-    see_more: 'موارد بیشتر'
+    see_more: 'موارد بیشتر',
+    see_less: 'بستن'
   },
   error: {
     home: 'برگشت به خانه',
