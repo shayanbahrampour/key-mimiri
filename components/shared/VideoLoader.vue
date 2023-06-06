@@ -102,7 +102,7 @@ export default {
 
       this.player.fluid(typeof this.options.fluid === 'undefined' ? true : this.options.fluid);
       if (this.options.fill) this.player.fill(true);
-      if (this.options.autoplay) this.play();
+      this.$emit('ready', this.player);
     }
   }
 };

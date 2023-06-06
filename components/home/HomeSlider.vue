@@ -7,30 +7,13 @@
   >
     <v-sheet
       :class="[
-        'my-auto z-2 end-0 top-0 d-flex align-center',
-        isMobile ? 'start-0 mx-auto justify-center' : 'h-screen bottom-0',
-        flag.showFullscreen ? 'w-screen start-0 position-fixed' : 'position-absolute'
+        'my-auto end-0 top-0 d-flex align-center position-absolute',
+        isMobile ? 'start-0 mx-auto justify-center' : 'h-screen bottom-0'
       ]"
-      :color="flag.showFullscreen ? 'black' : 'white'"
+      color="white"
       :style="`${isMobile ? 'top:-250px;' : `top:-120px; ${isRTL ? 'left' : 'right'}:-450px;`}`"
-      @click="flag.showFullscreen = true"
     >
-      <VideoContents
-        :options="{
-          fill: true,
-          loop: true,
-          muted: true,
-          fluid: false,
-          autoplay: true,
-          controls: false,
-          aspectRatio: '1:1'
-        }"
-        :width="videoSize"
-        :height="videoSize"
-        class="rounded-circle overflow-hidden my-auto"
-        src="/video/temp-2.mp4"
-        poster="/images/temp/home-video.png"
-      />
+      <HomeSliderVideo />
     </v-sheet>
 
     <v-sheet
@@ -80,22 +63,10 @@
 <script>
 import VideoLoader from '@/components/shared/VideoLoader';
 import VideoContents from '~/components/shared/VideoContents.vue';
+import HomeSliderVideo from '~/components/home/HomeSliderVideo.vue';
 
 export default {
-  components: { VideoContents, VideoLoader },
-  data() {
-    return {
-      flag: {
-        showFullscreen: false
-      }
-    };
-  },
-  computed: {
-    videoSize() {
-      if (this.flag.showFullscreen) return '100%';
-      return this.isMobile ? '400px' : '600px';
-    }
-  }
+  components: { HomeSliderVideo, VideoContents, VideoLoader }
 };
 </script>
 
