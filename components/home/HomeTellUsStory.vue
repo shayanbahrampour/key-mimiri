@@ -9,7 +9,7 @@
       >
         {{ $t('homePage.tell_us_your_story') }}
       </h3>
-      <v-btn class="f-18 mt-4 px-16 text-capitalize" color="primary" :block="isMobile" depressed exact large rounded>
+      <v-btn :block="isMobile" class="f-18 mt-4 px-16 text-capitalize" color="primary" depressed exact large rounded>
         <span class="px-8">{{ $t('homePage.click_here') }}</span>
       </v-btn>
     </div>

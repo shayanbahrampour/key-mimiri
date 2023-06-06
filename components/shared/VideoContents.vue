@@ -2,7 +2,7 @@
   <client-only>
     <VideoLoader
       v-if="src"
-      class="vjs-theme-sea"
+      :height="height"
       :options="{
         ...options,
         poster,
@@ -14,7 +14,7 @@
         ]
       }"
       :width="width"
-      :height="height"
+      class="vjs-theme-sea"
       @ready="$emit('ready', $event)"
       @toggleFullscreen="$emit('toggleFullscreen', $event)"
     />
