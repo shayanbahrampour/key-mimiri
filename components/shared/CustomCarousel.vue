@@ -26,13 +26,14 @@
       </v-icon>
     </div>
     <div
+      v-if="title"
       :class="[
         'position-absolute start-0 end-0 mx-auto z-0',
-        isMobile ? 'd-flex justify-center align-center px-6' : $vuetify.breakpoint.xl ? 'px-12' : 'px-16'
+        isMobile ? 'px-6' : $vuetify.breakpoint.xl ? 'px-12' : 'px-16'
       ]"
-      :style="`max-width: ${globalMaxWidth}px; top: ${isMobile ? 260 : 350}px`"
+      :style="`max-width: ${globalMaxWidth}px; top: ${isMobile ? 230 : 335}px`"
     >
-      <h4 :class="['bel white--text font-weight-regular text-uppercase', isMobile ? 'f-36' : 'f-70']">
+      <h4 :class="['bel white--text font-weight-regular text-uppercase', isMobile ? 'f-50' : 'f-70']">
         {{ title }}
       </h4>
     </div>
@@ -42,21 +43,20 @@
         <v-sheet
           :class="[
             'me-auto carousel-sheet',
-            isMobile ? 'py-8' : 'py-16',
-            $vuetify.breakpoint.xl ? 'px-12' : isMobile ? 'px-6' : 'px-16',
-            `rounded-${isRTL ? 'l' : 'r'}-xl`
+            isMobile ? 'py-8' : `rounded-${isRTL ? 'l' : 'r'}-xl py-16`,
+            $vuetify.breakpoint.xl ? 'px-12' : isMobile ? 'px-6' : 'px-16'
           ]"
           :max-width="globalMaxWidth * 0.9"
           :style="`${!isMobile && `margin-top: -78px`}`"
           color="slategrey"
-          min-height="240"
+          :min-height="$vuetify.breakpoint.mdAndUp ? 240 : 100"
         >
           <v-row v-if="activeSlide" :no-gutters="!isMobile" class="position-relative z-1" justify="center">
             <v-col v-if="activeSlide.title" cols="12" :lg="activeSlide.description ? 5 : 12">
               <h2
                 :class="[
                   'bel white--text font-weight-regular',
-                  isMobile ? 'f-35 text-center' : activeSlide.description ? 'f-50' : 'f-40'
+                  isMobile ? (!activeSlide.description ? 'f-25' : 'f-35 text-center') : 'f-38'
                 ]"
               >
                 {{ activeSlide.title }}
