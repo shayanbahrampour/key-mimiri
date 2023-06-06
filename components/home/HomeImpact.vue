@@ -12,9 +12,7 @@
         </h3>
 
         <p
-          :class="`mb-0 font-weight-light py-3 ${!isMobile && `m${isRTL ? 'r' : 'l'}-8 p${isRTL ? 'r' : 'l'}-8`} ${
-            isMobile ? 'f-16' : 'f-20'
-          }`"
+          :class="['mb-0 font-weight-light py-3', isMobile ? 'f-16' : 'f-20 ms-8 ps-8']"
           :style="`${!isMobile && `border-${isRTL ? 'right' : 'left'}: 1px solid #aaa`}; color: #59595B`"
         >
           {{ $t('homePage.impact.description') }}
@@ -35,7 +33,7 @@
         <swiper
           id="impactSwiper"
           key="impactSwiper"
-          :class="[`w-full m${isRTL ? 'l' : 'r'}-0`, isMobile ? 'mt-8 px-6' : 'my-8 px-16']"
+          :class="[`w-full me-0`, isMobile ? 'mt-8 px-6' : 'my-8 px-16']"
           :dir="isRTL ? 'rtl' : 'ltr'"
           :options="swiperOptions"
         >

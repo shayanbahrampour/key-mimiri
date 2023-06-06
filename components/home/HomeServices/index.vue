@@ -54,7 +54,7 @@
             {{ $t('homePage.services.slider.title') }}
           </h3>
           <div
-            :class="`font-weight-light m${isRTL ? 'r' : 'l'}-auto ${isMobile ? 'text-center f-20' : 'f-25'}`"
+            :class="['font-weight-light ms-auto', isMobile ? 'text-center f-20' : 'f-25']"
             :style="`line-height: 32px; ${
               !isMobile &&
               `max-width: ${$vuetify.breakpoint.lgAndUp ? '550px' : $vuetify.breakpoint.smAndDown ? '100%' : '400px'};`
@@ -71,7 +71,7 @@
         color="transparent"
       >
         <svg
-          :class="`position-absolute end-0 start-0 m${isRTL ? 'l' : 'r'}-auto`"
+          class="position-absolute end-0 start-0 me-auto"
           :style="`width: 370px; bottom: -1px; margin-${isRTL ? 'right' : 'left'}: 25%`"
           fill="none"
           viewBox="0 0 403 127"

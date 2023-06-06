@@ -4,12 +4,7 @@
       <v-col cols="12" lg="6" md="6">
         <v-sheet :class="[`overflow-hidden ${!isMobile && `rounded-${isRTL ? 'l' : 'r'}-xl`}`]" max-width="700">
           <v-img max-height="calc(100vh - 150px)" src="/images/temp/cover-5-vertical.png" />
-
-          <v-sheet
-            v-if="!isMobile"
-            :class="['extra-space white--text', `p${isRTL ? 'r' : 'l'}-16 p${isRTL ? 'l' : 'r'}-10 py-8`]"
-            color="slategrey"
-          >
+          <v-sheet v-if="!isMobile" class="extra-space white--text ps-16 pe-10 py-8" color="slategrey">
             <h2 class="f-24 mb-4 white--text">Woman empowerment future enrichment</h2>
             <p class="f-19 font-weight-light ma-0" style="line-height: 35px">
               Iron deficiency, leading to Anemia, has negative health effects on all individuals, especially women, and
@@ -36,51 +31,43 @@
           </p>
 
           <div :class="['d-flex flex-wrap', { 'mt-12 pt-5 f-13': !isTablet && !isMobile }]">
-            <div
-              :class="['d-flex align-center grey--text text--darken-2 py-1 text-no-wrap', `p${isRTL ? 'l' : 'r'}-5`]"
-            >
+            <div class="d-flex align-center grey--text text--darken-2 py-1 text-no-wrap pe-5">
               <span v-if="!isMobile"> {{ $t('impactPage.read_time') }}: </span>
               <v-img v-else contain height="20" max-width="20" src="/images/icons/timer.svg" />
-              <span :class="`m${isRTL ? 'r' : 'l'}-2 d-inline-block`"> 13min </span>
+              <span :class="`ms-2 d-inline-block`"> 13min </span>
             </div>
-            <div
-              :class="['d-flex align-center grey--text text--darken-2 py-1 text-no-wrap', `p${isRTL ? 'l' : 'r'}-5`]"
-            >
+            <div class="d-flex align-center grey--text text--darken-2 py-1 text-no-wrap pe-5">
               <span v-if="!isMobile"> {{ $t('impactPage.written_by') }}: </span>
               <v-img v-else contain height="20" max-width="20" src="/images/icons/written.svg" />
-              <span :class="`m${isRTL ? 'r' : 'l'}-2 d-inline-block`"> Mehrab </span>
+              <span :class="`ms-2 d-inline-block`"> Mehrab </span>
             </div>
-            <div
-              :class="['d-flex align-center grey--text text--darken-2 py-1 text-no-wrap', `p${isRTL ? 'l' : 'r'}-5`]"
-            >
+            <div class="d-flex align-center grey--text text--darken-2 py-1 text-no-wrap pe-5">
               <span v-if="!isMobile"> {{ $t('impactPage.published') }}: </span>
               <v-img v-else contain height="20" max-width="20" src="/images/icons/published.svg" />
-              <span :class="`m${isRTL ? 'r' : 'l'}-2 d-inline-block`"> 3 month ago </span>
+              <span :class="`ms-2 d-inline-block`"> 3 month ago </span>
             </div>
           </div>
 
           <h4 v-if="isMobile" class="slategrey--text mt-8 px-1">Share it:</h4>
           <div :class="['d-flex', isMobile ? 'mt-2' : 'mt-10 pb-16']">
-            <nuxt-link :class="`m${isRTL ? 'l' : 'r'}-4`" :to="localePath('/')">
+            <nuxt-link class="me-4" :to="localePath('/')">
               <v-img contain height="50" src="/images/social/icon-linkedin.svg" width="50" />
             </nuxt-link>
-            <nuxt-link :class="`m${isRTL ? 'l' : 'r'}-4`" :to="localePath('/')">
+            <nuxt-link class="me-4" :to="localePath('/')">
               <v-img contain height="50" src="/images/social/icon-whatsapp.svg" width="50" />
             </nuxt-link>
-            <nuxt-link :class="`m${isRTL ? 'l' : 'r'}-4`" :to="localePath('/')">
+            <nuxt-link class="me-4" :to="localePath('/')">
               <v-img contain height="50" src="/images/social/icon-telegram.svg" width="50" />
             </nuxt-link>
           </div>
 
           <template v-if="!isMobile">
             <v-divider class="mb-4 mt-10" />
-
             <p class="grey--text text--darken-1 ma-0 f-19" style="line-height: 30px">
               In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society
               and are committed to enhance their physical, psychological and social quality of life through high quality
               and innovative solutions.
             </p>
-
             <v-divider class="my-4" />
           </template>
         </div>
@@ -145,7 +132,7 @@
             could be highly affected by lack of awareness and access challenges to high quality Iron supplements.
           </p>
         </v-col>
-        <v-col :class="[`p${isRTL ? 'r' : 'l'}-md-8`]" md="6">
+        <v-col class="ps-md-8" md="6">
           <v-img min-height="600" src="/images/temp/impact_detail.png" />
         </v-col>
         <v-col lg="12">
@@ -194,7 +181,7 @@
           v-if="items && items.length !== 0"
           id="impactSwiper"
           key="impactSwiper"
-          :class="[`w-full m${isRTL ? 'l' : 'r'}-0`, isMobile ? 'mt-8 px-5' : 'my-8 px-16']"
+          :class="['w-full me-0', isMobile ? 'mt-8 px-5' : 'my-8 px-16']"
           :dir="isRTL ? 'rtl' : 'ltr'"
           :options="swiperOptions"
         >

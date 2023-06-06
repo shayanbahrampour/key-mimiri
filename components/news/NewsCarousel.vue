@@ -10,20 +10,13 @@
       :class="['position-absolute start-8 end-0 bottom-0 mx-auto z-0 px-16 mr-10']"
       :style="`max-width: ${globalMaxWidth}px; bottom: ${isMobile ? 260 : 40}px`"
     >
-      <v-icon
-        v-for="(item, index) in items"
-        :key="index"
-        :class="`m${isRTL ? 'r' : 'l'}-1`"
-        color="white"
-        size="25"
-        @click="model = index"
-      >
+      <v-icon v-for="(item, index) in items" :key="index" class="ms-1" color="white" size="25" @click="model = index">
         {{ index === model ? 'mdi-radiobox-marked' : 'mdi-radiobox-blank' }}
       </v-icon>
     </div>
 
     <div class="position-relative z-1">
-      <div :class="['mx-auto', !isMobile && `p${isRTL ? 'l' : 'r'}-4`]" :style="`max-width: ${globalMaxWidth}px`">
+      <div :class="['mx-auto', !isMobile && 'pe-4']" :style="`max-width: ${globalMaxWidth}px`">
         <v-sheet
           v-if="!isMobile"
           class="ml-6 rounded-t-xl py-6 px-12 slategrey"

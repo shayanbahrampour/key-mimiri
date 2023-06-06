@@ -10,11 +10,7 @@
       :class="[
         'white--text pointer align-center flex-grow-1',
         isMobile ? 'text-center' : 'd-flex',
-        summary && !isMobile
-          ? `p${isRTL ? 'r' : 'l'}-8 p${isRTL ? 'l' : 'r'}-6 pt-5 pb-10`
-          : isMobile
-          ? 'text-center pa-8'
-          : 'text-center px-16 py-8'
+        summary && !isMobile ? 'ps-8 pe-6 pt-5 pb-10' : isMobile ? 'text-center pa-8' : 'text-center px-16 py-8'
       ]"
       color="transparent"
       flat
@@ -25,7 +21,7 @@
       >
         {{ title | truncate({ length: 50 }) }}
       </div>
-      <div v-if="!isMobile && summary" :class="`font-weight-light f-21 p${isRTL ? 'r' : 'l'}-4`">
+      <div v-if="!isMobile && summary" class="font-weight-light f-21 ps-4">
         <p class="ma-0" v-html="summary" />
         <strong class="f-18 font-weight-bold mt-2 d-block">{{ $t('shared.see_more') }}</strong>
       </div>

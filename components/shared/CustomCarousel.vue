@@ -21,25 +21,15 @@
       ]"
       :style="`max-width: ${globalMaxWidth}px; top: ${isMobile ? 260 : 370}px`"
     >
-      <v-icon
-        v-for="(item, index) in items"
-        :key="index"
-        :class="`m${isRTL ? 'r' : 'l'}-1`"
-        color="white"
-        size="25"
-        @click="model = index"
-      >
+      <v-icon v-for="(item, index) in items" :key="index" class="ms-1" color="white" size="25" @click="model = index">
         {{ index === model ? 'mdi-radiobox-marked' : 'mdi-radiobox-blank' }}
       </v-icon>
     </div>
 
     <div class="position-relative z-1">
-      <div :class="['mx-auto', !isMobile && `p${isRTL ? 'l' : 'r'}-4`]" :style="`max-width: ${globalMaxWidth}px`">
+      <div :class="['mx-auto', !isMobile && 'pe-4']" :style="`max-width: ${globalMaxWidth}px`">
         <v-sheet
-          :class="[
-            `m${isRTL ? 'l' : 'r'}-auto carousel-sheet`,
-            isMobile ? 'px-6 py-8' : `px-16 py-16 rounded-${isRTL ? 'l' : 'r'}-xl`
-          ]"
+          :class="['me-auto carousel-sheet', isMobile ? 'px-6 py-8' : 'px-16 py-16 rounded-e-xl']"
           :max-width="globalMaxWidth * 0.9"
           :style="`${!isMobile && `margin-top: -78px`}`"
           color="slategrey"
