@@ -49,11 +49,11 @@
               <v-img :height="small ? 300 : 350" :src="item.src" :width="small ? '250' : '100%'" eager />
             </v-card>
             <nuxt-link
-              :to="localePath(`/storytellers/${item.id}`)"
               :class="[
                 'grey--text text--darken-3 text-decoration-none text-center bel py-4',
                 isMobile ? 'f-24' : 'f-28'
               ]"
+              :to="localePath(`/storytellers/${item.id}`)"
             >
               {{ item.title }}
             </nuxt-link>

@@ -50,13 +50,13 @@
 
           <h4 v-if="isMobile" class="slategrey--text mt-8 px-1">Share it:</h4>
           <div :class="['d-flex', isMobile ? 'mt-2' : 'mt-10 pb-16']">
-            <nuxt-link class="me-4" :to="localePath('/')">
+            <nuxt-link :to="localePath('/')" class="me-4">
               <v-img contain height="50" src="/images/social/icon-linkedin.svg" width="50" />
             </nuxt-link>
-            <nuxt-link class="me-4" :to="localePath('/')">
+            <nuxt-link :to="localePath('/')" class="me-4">
               <v-img contain height="50" src="/images/social/icon-whatsapp.svg" width="50" />
             </nuxt-link>
-            <nuxt-link class="me-4" :to="localePath('/')">
+            <nuxt-link :to="localePath('/')" class="me-4">
               <v-img contain height="50" src="/images/social/icon-telegram.svg" width="50" />
             </nuxt-link>
           </div>

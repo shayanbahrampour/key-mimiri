@@ -71,8 +71,8 @@
         color="transparent"
       >
         <svg
-          class="position-absolute end-0 start-0 me-auto"
           :style="`width: 370px; bottom: -1px; margin-${isRTL ? 'right' : 'left'}: 25%`"
+          class="position-absolute end-0 start-0 me-auto"
           fill="none"
           viewBox="0 0 403 127"
           xmlns="http://www.w3.org/2000/svg"

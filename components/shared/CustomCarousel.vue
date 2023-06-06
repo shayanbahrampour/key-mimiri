@@ -47,12 +47,12 @@
             $vuetify.breakpoint.xl ? 'px-12' : isMobile ? 'px-6' : 'px-16'
           ]"
           :max-width="globalMaxWidth * 0.9"
+          :min-height="$vuetify.breakpoint.mdAndUp ? 240 : 100"
           :style="`${!isMobile && `margin-top: -78px`}`"
           color="slategrey"
-          :min-height="$vuetify.breakpoint.mdAndUp ? 240 : 100"
         >
           <v-row v-if="activeSlide" :no-gutters="!isMobile" class="position-relative z-1" justify="center">
-            <v-col v-if="activeSlide.title" cols="12" :lg="activeSlide.description ? 5 : 12">
+            <v-col v-if="activeSlide.title" :lg="activeSlide.description ? 5 : 12" cols="12">
               <h2
                 :class="[
                   'bel white--text font-weight-regular',
@@ -65,9 +65,9 @@
             <v-col
               v-if="activeSlide.description"
               :class="isMobile && 'text-center'"
-              cols="12"
               :lg="activeSlide.title ? 6 : 12"
               :offset-lg="activeSlide.title ? 1 : 0"
+              cols="12"
             >
               <p class="f-22 white--text font-weight-light mt-lg-0">
                 {{
@@ -75,12 +75,12 @@
                 }}
               </p>
               <v-btn
+                :ripple="false"
                 class="font-weight-bold f-18 ml-n4 text-lowercase bg-transparent"
                 color="white"
                 exact
                 link
                 text
-                :ripple="false"
                 @click="flag.showMore = !flag.showMore"
               >
                 {{ flag.showMore ? $t('shared.see_less') : $t('shared.see_more') }}

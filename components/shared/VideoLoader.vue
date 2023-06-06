@@ -12,8 +12,8 @@
       aspectRatio: '16:9',
       ...options
     }"
-    :style="`${height && `height:${height};max-height:${height};`}${width && `;width:${width};max-width:${width};`}`"
     :playsinline="true"
+    :style="`${height && `height:${height};max-height:${height};`}${width && `;width:${width};max-width:${width};`}`"
     preload="none"
     @ended="
       flag.isPlaying = false;

@@ -10,8 +10,8 @@
         'my-auto end-0 top-0 d-flex align-center position-absolute',
         isMobile ? 'start-0 mx-auto justify-center' : 'h-screen bottom-0'
       ]"
-      color="white"
       :style="`${isMobile ? 'top:-250px;' : `top:-120px; ${isRTL ? 'left' : 'right'}:-450px;`}`"
+      color="white"
     >
       <HomeSliderVideo />
     </v-sheet>
@@ -19,9 +19,9 @@
     <v-sheet
       :class="['position-relative z-1 mx-auto d-flex align-center', isMobile ? 'px-8' : 'px-16']"
       :max-width="globalMaxWidth"
+      :style="isMobile ? '' : 'top:-30px;'"
       color="transparent"
       height="100%"
-      :style="isMobile ? '' : 'top:-30px;'"
     >
       <v-row>
         <v-col cols="12" lg="8" sm="9">

@@ -1,8 +1,6 @@
 <template>
   <div class="timeline-page">
     <CustomCarousel
-      title="Heritage"
-      hide-delimiters
       :items="[
         {
           src: '/images/temp/cover-7.png',
@@ -10,6 +8,8 @@
             'Empowers to achieve, Inspires to create the greatest Cobel Group promise is to empower, inspire and trigger ideas that make a significant impact in how we deliver solutions. Therefore, we invest on education; not only to our '
         }
       ]"
+      hide-delimiters
+      title="Heritage"
     />
 
     <v-sheet
@@ -36,41 +36,41 @@
       </div>
 
       <div :class="[{ 'ps-4': isMobile }]">
-        <v-expansion-panels flat accordion v-model="expanded">
+        <v-expansion-panels v-model="expanded" accordion flat>
           <v-expansion-panel
             v-for="(item, i) in items"
-            :key="i"
             :id="`item-${i}`"
-            @click="scroll(`#item-${i}`)"
+            :key="i"
             :class="[isMobile ? 'ps-2' : 'ps-6']"
+            @click="scroll(`#item-${i}`)"
           >
             <v-sheet
-              width="38"
-              height="38"
-              class="position-absolute z-2 start-0 top-0 rounded-circle custom-border"
               :style="`margin: 50px -10px 0; background-color: ${expanded === i ? '#4c6d80' : '#B0BEC5'}; color: ${
                 expanded === i ? '#4c6d80' : '#B0BEC5'
               }; border: 10px solid white !important`"
+              class="position-absolute z-2 start-0 top-0 rounded-circle custom-border"
+              height="38"
+              width="38"
             />
             <v-sheet
               v-if="i !== items.length - 1"
-              width="0"
               :height="`${i === items.length - 2 ? 'calc(100% + 10px)' : 'calc(100% + 60px)'}`"
-              class="position-absolute z-1 start-0 top-0"
               :style="`margin: 60px 8px 0; border-left: 2px dashed ${expanded === i ? '#4c6d80' : '#B0BEC5'}`"
+              class="position-absolute z-1 start-0 top-0"
+              width="0"
             />
 
             <v-expansion-panel-header
               :class="['bel py-8', isMobile ? 'f-30' : 'f-40']"
-              hide-actions
               :style="`color: ${item.color}`"
+              hide-actions
             >
               <div :class="['d-flex', isMobile ? 'align-start' : 'align-center']">
                 <v-sheet
-                  width="76"
-                  height="76"
                   :color="expanded === i ? item.active : item.color"
                   class="rounded-circle me-5 flex-shrink-0 position-relative z-1"
+                  height="76"
+                  width="76"
                 />
 
                 <div :class="['flex-grow-1 d-flex', isMobile ? 'flex-column pt-2' : 'align-center']">
@@ -79,14 +79,14 @@
                   <v-spacer />
 
                   <v-sheet
-                    :color="expanded === i ? '#66869a' : '#ECECEC'"
-                    width="70"
                     :class="[
                       'f-19 px-3 py-1 text-center d-flex align-center justify-center',
                       { 'white--text': expanded === i },
                       { 'mt-1': isMobile }
                     ]"
+                    :color="expanded === i ? '#66869a' : '#ECECEC'"
                     :style="`border-radius: 14px; color: #66869A`"
+                    width="70"
                   >
                     <span class="mt-1">{{ item.date }}</span>
                   </v-sheet>
@@ -94,9 +94,9 @@
               </div>
             </v-expansion-panel-header>
             <v-expansion-panel-content>
-              <v-timeline align-top dense class="ms-n2 mt-n4 pt-0" :style="`color: ${item.color}`">
+              <v-timeline :style="`color: ${item.color}`" align-top class="ms-n2 mt-n4 pt-0" dense>
                 <v-timeline-item hide-dot>
-                  <p style="color: #59595b" class="font-weight-light ps-2 f-22">
+                  <p class="font-weight-light ps-2 f-22" style="color: #59595b">
                     Cobel Darou is a leading private pharmaceutical company founded in 2002. Cobel Darou main activities
                     are registration, importation, manufacturing, distribution and sales & marketing.
                   </p>
@@ -104,17 +104,17 @@
                 <v-timeline-item
                   v-for="(child, index) in item.children"
                   :key="index"
+                  :class="{ 'pb-0': index === item.children.length - 1 }"
                   :color="item.active"
                   fill-dot
-                  :class="{ 'pb-0': index === item.children.length - 1 }"
                 >
                   <template v-slot:icon>
                     <strong class="white--text">{{ child.date }}</strong>
                   </template>
 
                   <v-sheet
-                    min-height="70"
                     :class="['ps-2', isMobile ? 'd-flex align-center' : 'pt-5']"
+                    min-height="70"
                     style="line-height: 30px"
                   >
                     <strong class="f-20 text-pre-line timeline-title" v-html="child.title"></strong>

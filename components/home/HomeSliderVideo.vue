@@ -11,9 +11,9 @@
     <v-fade-transition>
       <v-btn
         v-if="flag.showFullscreen"
+        class="position-fixed top-0 start-0 ma-2 z-1"
         icon
         large
-        class="position-fixed top-0 start-0 ma-2 z-1"
         @click="flag.showFullscreen = false"
       >
         <v-icon color="white">mdi-close</v-icon>
@@ -21,20 +21,22 @@
     </v-fade-transition>
 
     <v-sheet
-      :width="flag.showFullscreen ? '100vw' : 0"
-      :height="flag.showFullscreen ? '100vh' : 0"
-      color="black"
       :class="['position-absolute top-0 start-0 z-0']"
+      :height="flag.showFullscreen ? '100vh' : 0"
+      :width="flag.showFullscreen ? '100vw' : 0"
+      color="black"
       @click="flag.showFullscreen = false"
     />
     <v-sheet
-      color="transparent"
       :class="['mx-auto', flag.showFullscreen && 'w-screen position-relative z-1']"
-      @click="flag.showFullscreen = true"
-      :width="flag.showFullscreen ? '90vw' : videoSize"
       :height="flag.showFullscreen ? undefined : videoSize"
+      :width="flag.showFullscreen ? '90vw' : videoSize"
+      color="transparent"
+      @click="flag.showFullscreen = true"
     >
       <VideoContents
+        :class="[flag.showFullscreen ? 'mx-auto' : 'my-auto']"
+        :height="flag.showFullscreen ? undefined : videoSize"
         :options="{
           fill: true,
           loop: true,
@@ -45,8 +47,6 @@
           aspectRatio: flag.showFullscreen ? '16:9' : '1:1'
         }"
         :width="flag.showFullscreen ? '90vw' : videoSize"
-        :height="flag.showFullscreen ? undefined : videoSize"
-        :class="[flag.showFullscreen ? 'mx-auto' : 'my-auto']"
         src="/video/temp-2.mp4"
       />
     </v-sheet>

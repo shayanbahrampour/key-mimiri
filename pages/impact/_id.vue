@@ -50,13 +50,13 @@
 
           <h4 v-if="isMobile" class="slategrey--text mt-8 px-1">Share it:</h4>
           <div :class="['d-flex', isMobile ? 'mt-2' : 'mt-10 pb-16']">
-            <nuxt-link class="me-4" :to="localePath('/')">
+            <nuxt-link :to="localePath('/')" class="me-4">
               <v-img contain height="50" src="/images/social/icon-linkedin.svg" width="50" />
             </nuxt-link>
-            <nuxt-link class="me-4" :to="localePath('/')">
+            <nuxt-link :to="localePath('/')" class="me-4">
               <v-img contain height="50" src="/images/social/icon-whatsapp.svg" width="50" />
             </nuxt-link>
-            <nuxt-link class="me-4" :to="localePath('/')">
+            <nuxt-link :to="localePath('/')" class="me-4">
               <v-img contain height="50" src="/images/social/icon-telegram.svg" width="50" />
             </nuxt-link>
           </div>
@@ -113,7 +113,7 @@
       </div>
       <v-sheet :class="[isMobile ? 'px-6' : $vuetify.breakpoint.xl ? 'px-12' : 'px-16']" style="color: #59595b">
         <v-row :class="[isMobile ? 'pt-16' : 'py-16']">
-          <v-col xl="8" md="6">
+          <v-col md="6" xl="8">
             <h3
               :class="[
                 'font-weight-regular bel success--text mb-4 text-center text-sm-start',
@@ -135,7 +135,7 @@
               quality Iron supplements.
             </p>
           </v-col>
-          <v-col xl="4" class="ps-md-8" md="6">
+          <v-col class="ps-md-8" md="6" xl="4">
             <v-img min-height="600" src="/images/temp/impact_detail.png" />
           </v-col>
           <v-col lg="12">

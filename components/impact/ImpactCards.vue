@@ -5,7 +5,7 @@
     color="slategrey"
     flat
   >
-    <v-img :src="src" height="250" max-height="250" width="100%" class="flex-shrink-0" />
+    <v-img :src="src" class="flex-shrink-0" height="250" max-height="250" width="100%" />
     <v-card
       :class="[
         'white--text pointer align-center flex-grow-1',
