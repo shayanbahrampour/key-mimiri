@@ -1,22 +1,26 @@
 <template>
   <v-card
     :to="localePath(`/impact/${item.id}`)"
-    class="overflow-hidden custom-card h-full custom-card-container"
+    class="overflow-hidden custom-card h-full custom-card-container d-flex flex-column"
     color="slategrey"
     flat
   >
-    <v-img :src="src" height="250" width="100%" />
+    <v-img :src="src" height="250" max-height="250" width="100%" class="flex-shrink-0" />
     <v-card
       :class="[
-        'white--text pointer flex-shrink-0',
+        'white--text pointer align-center flex-grow-1',
         isMobile ? 'text-center' : 'd-flex',
-        summary && !isMobile ? `p${isRTL ? 'r' : 'l'}-8 p${isRTL ? 'l' : 'r'}-6 pt-5 pb-10` : 'text-center pa-8'
+        summary && !isMobile
+          ? `p${isRTL ? 'r' : 'l'}-8 p${isRTL ? 'l' : 'r'}-6 pt-5 pb-10`
+          : isMobile
+          ? 'text-center pa-8'
+          : 'text-center px-16 py-8'
       ]"
       color="transparent"
       flat
     >
       <div
-        :class="['bel flex-shrink-0', isMobile ? 'f-25' : 'f-35']"
+        :class="['bel flex-shrink-0', isMobile ? 'f-25' : 'f-40']"
         :style="`${summary && !isMobile ? 'width: 50%' : 'width: 100%'}`"
       >
         {{ title | truncate({ length: 50 }) }}

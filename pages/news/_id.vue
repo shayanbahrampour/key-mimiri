@@ -21,8 +21,8 @@
           </v-sheet>
         </v-sheet>
       </v-col>
-      <v-col cols="12" lg="5" md="6" offset-lg="1" offset-xl="0">
-        <div :class="[isMobile ? 'pa-5 mt-6' : `p${isRTL ? 'l' : 'r'}-16 p${isRTL ? 'r' : 'l'}-10 py-8 mt-16`]">
+      <v-col cols="12" lg="6" md="6" offset-xl="0">
+        <div :class="[isMobile ? 'pa-5 mt-6 py-10' : `py-16 px-16 mt-16`]">
           <h1 :class="['bel grey--text text--darken-2 font-weight-regular', isMobile ? 'f-40 mb-2' : 'f-70 mb-4']">
             Woman empowerment future enrichment
           </h1>
@@ -35,18 +35,24 @@
             and innovative solutions.
           </p>
 
-          <div :class="['d-flex', { 'mt-12 pt-5 f-13': !isTablet && !isMobile }]">
-            <div :class="['d-flex align-center grey--text text--darken-2 py-1', `p${isRTL ? 'l' : 'r'}-5`]">
+          <div :class="['d-flex flex-wrap', { 'mt-12 pt-5 f-13': !isTablet && !isMobile }]">
+            <div
+              :class="['d-flex align-center grey--text text--darken-2 py-1 text-no-wrap', `p${isRTL ? 'l' : 'r'}-5`]"
+            >
               <span v-if="!isMobile"> {{ $t('impactPage.read_time') }}: </span>
               <v-img v-else contain height="20" max-width="20" src="/images/icons/timer.svg" />
               <span :class="`m${isRTL ? 'r' : 'l'}-2 d-inline-block`"> 13min </span>
             </div>
-            <div :class="['d-flex align-center grey--text text--darken-2 py-1', `p${isRTL ? 'l' : 'r'}-5`]">
+            <div
+              :class="['d-flex align-center grey--text text--darken-2 py-1 text-no-wrap', `p${isRTL ? 'l' : 'r'}-5`]"
+            >
               <span v-if="!isMobile"> {{ $t('impactPage.written_by') }}: </span>
               <v-img v-else contain height="20" max-width="20" src="/images/icons/written.svg" />
               <span :class="`m${isRTL ? 'r' : 'l'}-2 d-inline-block`"> Mehrab </span>
             </div>
-            <div :class="['d-flex align-center grey--text text--darken-2 py-1', `p${isRTL ? 'l' : 'r'}-5`]">
+            <div
+              :class="['d-flex align-center grey--text text--darken-2 py-1 text-no-wrap', `p${isRTL ? 'l' : 'r'}-5`]"
+            >
               <span v-if="!isMobile"> {{ $t('impactPage.published') }}: </span>
               <v-img v-else contain height="20" max-width="20" src="/images/icons/published.svg" />
               <span :class="`m${isRTL ? 'r' : 'l'}-2 d-inline-block`"> 3 month ago </span>
@@ -54,7 +60,7 @@
           </div>
 
           <h4 v-if="isMobile" class="slategrey--text mt-8 px-1">Share it:</h4>
-          <div :class="['d-flex', isMobile ? 'mt-2' : 'mt-10']">
+          <div :class="['d-flex', isMobile ? 'mt-2' : 'mt-10 pb-16']">
             <nuxt-link :class="`m${isRTL ? 'l' : 'r'}-4`" :to="localePath('/')">
               <v-img contain height="50" src="/images/social/icon-linkedin.svg" width="50" />
             </nuxt-link>
@@ -67,7 +73,7 @@
           </div>
 
           <template v-if="!isMobile">
-            <v-divider class="my-6" />
+            <v-divider class="mb-4 mt-10" />
 
             <p class="grey--text text--darken-1 ma-0 f-19" style="line-height: 30px">
               In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society
@@ -75,7 +81,7 @@
               and innovative solutions.
             </p>
 
-            <v-divider class="my-6" />
+            <v-divider class="my-4" />
           </template>
         </div>
       </v-col>
@@ -108,12 +114,17 @@
     </v-sheet>
 
     <div :class="{ 'px-16': !isMobile }">
-      <VideoContents class="w-full" poster="/images/temp/cover-4.png" src="/video/temp.mp4" />
+      <VideoContents
+        class="w-full overflow-hidden"
+        poster="/images/temp/cover-4.png"
+        src="/video/temp.mp4"
+        style="max-height: calc(100vh - 200px)"
+      />
     </div>
 
-    <v-sheet :class="['mx-auto', isMobile ? 'px-6' : 'px-16']" :max-width="globalMaxWidth">
-      <v-row class="py-16">
-        <v-col md="7">
+    <v-sheet :class="['mx-auto', isMobile ? 'px-6' : 'px-16']" :max-width="globalMaxWidth" style="color: #59595b">
+      <v-row :class="[isMobile ? 'pt-16' : 'py-16']">
+        <v-col md="6">
           <h3
             :class="[
               'font-weight-regular bel success--text mb-4 text-center text-sm-start',
@@ -122,7 +133,7 @@
           >
             32 Million people in need of 2 Billion doses of iron supplement; less than 800 Million doses is consumed
           </h3>
-          <p class="f-20 mb-6 font-weight-light" style="line-height: 35px">
+          <p :class="['mb-6 font-weight-light', isMobile ? 'f-20' : 'f-25']" style="line-height: 35px">
             WHO advises that all women in their reproductive ages, whether having Iron deficiency or not, are required
             to consume 60 mg of iron supplements per week. This amount should be higher in pregnant women and any
             deficiencies will not only affect themselves, but it also affects their fetus. In addition, Iranian men and
@@ -134,11 +145,11 @@
             could be highly affected by lack of awareness and access challenges to high quality Iron supplements.
           </p>
         </v-col>
-        <v-col :class="[`p${isRTL ? 'r' : 'l'}-md-8`]" md="5">
-          <v-img height="600" src="/images/temp/impact_detail.png" />
+        <v-col :class="[`p${isRTL ? 'r' : 'l'}-md-8`]" md="6">
+          <v-img min-height="600" src="/images/temp/impact_detail.png" />
         </v-col>
         <v-col lg="12">
-          <p class="f-20 mb-6 font-weight-light" style="line-height: 35px">
+          <p :class="['mb-6 font-weight-light', isMobile ? 'f-20' : 'f-25']" style="line-height: 35px">
             Lastly, acknowledging our social responsibility commitments, we have identified various underprivileged
             provinces with the highest prevalence of iron deficiency in women, such as Sistan and Balouchestan province
             and Dahak village, and supplied FerroFort supplements for the need of 6,000 people for a time horizon of one
@@ -155,7 +166,7 @@
             providing high‐quality supplements, not only for women, but also for men and children.
           </h4>
 
-          <p class="f-20 mb-6 font-weight-light" style="line-height: 35px">
+          <p :class="['mb-6 font-weight-light', isMobile ? 'f-20' : 'f-25']" style="line-height: 35px">
             We at Cobel Group recognize the importance of woman empowerment and are committed to enhancing their
             physical, psychological, and social quality of life through high‐quality and innovative healthcare
             solutions.
@@ -199,7 +210,7 @@
 
     <v-progress-linear v-if="$fetchState.pending" />
 
-    <HomeTellUsStory class="my-16 pb-16" />
+    <HomeTellUsStory />
   </div>
 </template>
 

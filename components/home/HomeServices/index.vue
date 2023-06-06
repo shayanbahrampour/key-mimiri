@@ -39,10 +39,12 @@
       </v-carousel>
       <div
         :class="[
-          'h-full w-full d-flex justify-center mx-auto z-4 white--text position-absolute top-0 start-0 end-0',
-          isMobile ? 'pb-6 px-5 align-end' : 'px-16 align-end pb-10'
+          'h-full w-full d-flex justify-center mx-auto z-4 white--text position-absolute top-0 start-0 end-0 align-end',
+          isMobile ? 'pb-6 px-5 align-end' : $vuetify.breakpoint.smAndDown ? 'px-16' : 'px-16 pb-10'
         ]"
-        :style="`max-width: ${globalMaxWidth}px`"
+        :style="`max-width: ${globalMaxWidth}px; ${
+          $vuetify.breakpoint.smAndDown && !isMobile && 'padding-bottom: 140px'
+        }`"
       >
         <div class="w-full">
           <h3
