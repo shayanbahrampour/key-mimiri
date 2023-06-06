@@ -17,7 +17,7 @@ export default {
     impact_stories: 'Impact Stories',
     education: 'Education',
     storytellers: 'Storytellers',
-    heritage: 'Heritage'
+    timeline: 'Timeline'
   },
   footer: {
     about: 'About Us',

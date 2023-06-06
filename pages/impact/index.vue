@@ -15,7 +15,10 @@
       ]"
     />
 
-    <v-sheet :class="['mx-auto', isMobile ? 'px-2 mt-16' : 'px-16 my-16']" :max-width="globalMaxWidth">
+    <v-sheet
+      :class="['mx-auto mt-16', isMobile ? 'px-2' : $vuetify.breakpoint.xl ? 'px-12 mb-16' : 'px-16 mb-16']"
+      :max-width="globalMaxWidth"
+    >
       <h1 :class="['bel f-50 grey--text text--darken-2 font-weight-regular', { 'text-center': isMobile }]">
         {{ $t('impactPage.title') }}
       </h1>

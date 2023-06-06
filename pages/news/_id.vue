@@ -89,8 +89,8 @@
       </p>
     </v-sheet>
 
-    <div :style="`max-width:${globalMaxWidth}`">
-      <v-sheet :class="['mx-auto pt-16 mt-sm-16', isMobile ? 'px-6' : 'px-16 mb-4']">
+    <div :style="`max-width:${globalMaxWidth}`" class="mx-auto">
+      <v-sheet :class="['pt-16 mt-sm-16', isMobile ? 'px-6' : 'px-16 mb-4']">
         <h2
           :class="[
             'bel grey--text text--darken-2 font-weight-regular d-block',
@@ -111,8 +111,8 @@
       />
     </div>
 
-    <div :style="`max-width:${globalMaxWidth}`">
-      <v-sheet :class="['mx-auto', isMobile ? 'px-6' : 'px-16']" style="color: #59595b">
+    <div :style="`max-width:${globalMaxWidth}`" class="mx-auto">
+      <v-sheet :class="[isMobile ? 'px-6' : 'px-16']" style="color: #59595b">
         <v-row :class="[isMobile ? 'pt-16' : 'py-16']">
           <v-col md="6">
             <h3

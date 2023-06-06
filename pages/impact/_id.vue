@@ -16,7 +16,7 @@
           </v-sheet>
         </v-sheet>
       </v-col>
-      <v-col cols="12" lg="6" md="6" offset-xl="0">
+      <v-col cols="12" lg="6" md="6">
         <div :class="[isMobile ? 'pa-5 mt-6 py-10' : `py-16 px-16 mt-16`]">
           <h1 :class="['bel grey--text text--darken-2 font-weight-regular', isMobile ? 'f-40 mb-2' : 'f-70 mb-4']">
             Woman empowerment future enrichment
@@ -89,8 +89,8 @@
       </p>
     </v-sheet>
 
-    <div :style="`max-width:${globalMaxWidth}`">
-      <v-sheet :class="['mx-auto pt-16 mt-sm-16', isMobile ? 'px-6' : 'px-16 mb-4']">
+    <div :style="`max-width:${globalMaxWidth}px`" class="mx-auto">
+      <v-sheet :class="['pt-16 mt-sm-16', isMobile ? 'px-6' : $vuetify.breakpoint.xl ? 'px-12 mb-4' : 'px-16 mb-4']">
         <h2
           :class="[
             'bel grey--text text--darken-2 font-weight-regular d-block',
@@ -102,19 +102,18 @@
       </v-sheet>
     </div>
 
-    <div :class="{ 'px-16': !isMobile }">
-      <VideoContents
-        class="w-full overflow-hidden"
-        poster="/images/temp/cover-4.png"
-        src="/video/temp.mp4"
-        style="max-height: calc(100vh - 200px)"
-      />
-    </div>
-
-    <div :style="`max-width:${globalMaxWidth}`">
-      <v-sheet :class="['mx-auto', isMobile ? 'px-6' : 'px-16']" style="color: #59595b">
+    <div :style="`max-width:${globalMaxWidth}px`" class="mx-auto">
+      <div :class="!isMobile && ($vuetify.breakpoint.xl ? 'px-12' : 'px-16')">
+        <VideoContents
+          class="w-full overflow-hidden"
+          poster="/images/temp/cover-4.png"
+          src="/video/temp.mp4"
+          style="max-height: calc(100vh - 200px)"
+        />
+      </div>
+      <v-sheet :class="[isMobile ? 'px-6' : $vuetify.breakpoint.xl ? 'px-12' : 'px-16']" style="color: #59595b">
         <v-row :class="[isMobile ? 'pt-16' : 'py-16']">
-          <v-col md="6">
+          <v-col xl="8" md="6">
             <h3
               :class="[
                 'font-weight-regular bel success--text mb-4 text-center text-sm-start',
@@ -136,7 +135,7 @@
               quality Iron supplements.
             </p>
           </v-col>
-          <v-col class="ps-md-8" md="6">
+          <v-col xl="4" class="ps-md-8" md="6">
             <v-img min-height="600" src="/images/temp/impact_detail.png" />
           </v-col>
           <v-col lg="12">
@@ -165,9 +164,13 @@
           </v-col>
         </v-row>
       </v-sheet>
-
       <v-sheet v-if="items && items.length !== 0" class="mx-auto">
-        <div :class="['d-flex align-center text-center', isMobile ? 'px-4 mt-10' : 'px-16']">
+        <div
+          :class="[
+            'd-flex align-center text-center',
+            isMobile ? 'px-4 mt-10' : $vuetify.breakpoint.xl ? 'px-12' : 'px-16'
+          ]"
+        >
           <h2 :class="['bel grey--text text--darken-2 font-weight-regular d-block', isMobile ? 'f-40' : 'f-55']">
             {{ $t('impactPage.other_links') }}
           </h2>

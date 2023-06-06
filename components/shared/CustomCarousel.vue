@@ -28,7 +28,7 @@
     <div
       :class="[
         'position-absolute start-0 end-0 mx-auto z-0',
-        isMobile ? 'd-flex justify-center align-center px-6' : 'px-12'
+        isMobile ? 'd-flex justify-center align-center px-6' : $vuetify.breakpoint.xl ? 'px-12' : 'px-16'
       ]"
       :style="`max-width: ${globalMaxWidth}px; top: ${isMobile ? 260 : 350}px`"
     >
@@ -40,7 +40,12 @@
     <div class="position-relative z-1">
       <div :class="['mx-auto', !isMobile && 'pe-4']" :style="`max-width: ${globalMaxWidth}px`">
         <v-sheet
-          :class="['me-auto carousel-sheet', isMobile ? 'px-6 py-8' : 'px-12 py-16', `rounded-${isRTL ? 'l' : 'r'}-xl`]"
+          :class="[
+            'me-auto carousel-sheet',
+            isMobile ? 'py-8' : 'py-16',
+            $vuetify.breakpoint.xl ? 'px-12' : isMobile ? 'px-6' : 'px-16',
+            `rounded-${isRTL ? 'l' : 'r'}-xl`
+          ]"
           :max-width="globalMaxWidth * 0.9"
           :style="`${!isMobile && `margin-top: -78px`}`"
           color="slategrey"

@@ -17,7 +17,7 @@ export default {
     impact_stories: 'داستان‌های الهامبخش',
     storytellers: 'راویان الهامبخش',
     education: 'آموزش',
-    heritage: 'Heritage'
+    timeline: 'Timeline'
   },
   footer: {
     about: 'درباره ما',
