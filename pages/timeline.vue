@@ -35,7 +35,7 @@
         </p>
       </div>
 
-      <div :class="[{ 'ps-4': isMobile }]">
+      <div :class="['mb-16 pb-14', { 'ps-4': isMobile }]">
         <v-expansion-panels v-model="expanded" accordion flat>
           <v-expansion-panel
             v-for="(item, i) in items"
