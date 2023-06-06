@@ -25,7 +25,8 @@
           controls: false,
           aspectRatio: '1:1'
         }"
-        :size="videoSize"
+        :width="videoSize"
+        :height="videoSize"
         class="rounded-circle overflow-hidden my-auto"
         src="/video/temp-2.mp4"
         poster="/images/temp/home-video.png"

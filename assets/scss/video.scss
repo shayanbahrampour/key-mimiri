@@ -1,6 +1,9 @@
 .video-js {
   width: 100%;
-  background-color: white !important;
+
+  &:not(.vjs-fullscreen) {
+    background-color: white !important;
+  }
 }
 
 .fill-poster {

@@ -12,7 +12,7 @@
         ]
       }"
       @toggleFullscreen="$emit('toggleFullscreen', $event)"
-      :style="size ? `height:${size};width:${size};max-height:${size};max-width:${size};` : ''"
+      :style="`${height && `height:${height};max-height:${height};`} ${width && `width:${width};max-width:${width};`}`"
     />
   </client-only>
 </template>
@@ -31,7 +31,11 @@ export default {
       type: String,
       require: true
     },
-    size: {
+    height: {
+      type: Number | String,
+      default: null
+    },
+    width: {
       type: Number | String,
       default: null
     },
