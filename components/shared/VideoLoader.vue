@@ -12,7 +12,7 @@
       aspectRatio: '16:9',
       ...options
     }"
-    :style="height ? `height: ${height}px; max-height: ${height}px; min-height: ${height}px;` : ''"
+    :style="`${height && `height:${height};max-height:${height};`}${width && `;width:${width};max-width:${width};`}`"
     :playsinline="true"
     preload="none"
     @ended="
@@ -33,7 +33,11 @@
 export default {
   props: {
     height: {
-      type: Number,
+      type: Number | String,
+      default: null
+    },
+    width: {
+      type: Number | String,
       default: null
     },
     options: {
@@ -102,10 +106,10 @@ export default {
 
       this.player.fluid(typeof this.options.fluid === 'undefined' ? true : this.options.fluid);
       if (this.options.fill) this.player.fill(true);
-      if (this.options.autoplay) this.play();
+      this.$emit('ready', this.player);
     }
   }
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss"></style>

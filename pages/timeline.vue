@@ -53,8 +53,9 @@
               }; border: 10px solid white !important`"
             />
             <v-sheet
+              v-if="i !== items.length - 1"
               width="0"
-              :height="`${i === items.length - 1 ? 'calc(100% - 60px)' : 'calc(100% + 60px)'}`"
+              :height="`${i === items.length - 2 ? 'calc(100% + 10px)' : 'calc(100% + 60px)'}`"
               class="position-absolute z-1 start-0 top-0"
               :style="`margin: 60px 8px 0; border-left: 2px dashed ${expanded === i ? '#4c6d80' : '#B0BEC5'}`"
             />

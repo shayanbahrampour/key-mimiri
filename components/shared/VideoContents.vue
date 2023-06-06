@@ -1,6 +1,7 @@
 <template>
   <client-only>
     <VideoLoader
+      v-if="src"
       class="vjs-theme-sea"
       :options="{
         ...options,
@@ -8,12 +9,14 @@
         sources: [
           {
             type: 'video/mp4',
-            src: src
+            src
           }
         ]
       }"
+      :width="width"
+      :height="height"
+      @ready="$emit('ready', $event)"
       @toggleFullscreen="$emit('toggleFullscreen', $event)"
-      :style="`${height && `height:${height};max-height:${height};`} ${width && `width:${width};max-width:${width};`}`"
     />
   </client-only>
 </template>
@@ -26,11 +29,11 @@ export default {
   props: {
     poster: {
       type: String,
-      require: true
+      default: ''
     },
     src: {
       type: String,
-      require: true
+      default: ''
     },
     height: {
       type: Number | String,
