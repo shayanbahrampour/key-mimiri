@@ -62,7 +62,7 @@
       <h4
         :class="[
           'bel f-40 text--darken-3 font-weight-regular',
-          isMobile ? 'text-center contact-title-mobile mt-6' : 'contact-title-des mt-16'
+          isMobile ? 'text-center contact-title-mobile my-10' : 'contact-title-des mt-10'
         ]"
       >
         Contact form

@@ -1,7 +1,7 @@
 <template>
   <div class="mb-10">
     <div v-if="isMobile" class="d-flex justify-center">
-      <h4 class="bel f-36 text--darken-3 font-weight-regular" style="color: #59595b">{{ title }}</h4>
+      <h4 class="bel f-36 text--darken-3 font-weight-regular mb-6" style="color: #59595b">{{ title }}</h4>
     </div>
 
     <div v-for="i in 4" :key="i" class="d-flex flex-column justify-center mb-0">
@@ -40,25 +40,20 @@
         v-else
         :ripple="false"
         :to="path"
-        class="d-flex mt-6 overflow-hidden bg-transparent"
+        class="d-flex overflow-hidden bg-transparent custom-news-card"
         color="transparent"
         elevation="0"
       >
-        <v-card
-          :class="['d-flex flex-column rounded-lg align-start mx-6']"
-          elevation="0"
-          height="550"
-          style="border: 2px solid slategrey; overflow: hidden"
-        >
-          <v-img max-height="250" src="/images/temp/cover-2.png" />
-          <div class="d-flex flex-column py-2 mx-6 flex">
-            <h4 class="bel f-28 text--darken-3 font-weight-regular mb-auto mt-4" style="color: #59595b">
+        <v-card :class="['d-flex flex-column rounded-0 align-start mx-6']" elevation="0" style="overflow: hidden">
+          <v-img height="200" src="/images/temp/cover-2.png" />
+          <div class="d-flex flex-column pt-2 mx-0 flex">
+            <h4 class="bel f-28 text--darken-3 font-weight-regular my-4 custom-card-title" style="color: #59595b">
               Rise from the society return to the society
             </h4>
-            <p class="f-20 text--darken-3 mb-auto font-weight-light" style="color: #59595b">
+            <p class="f-20 text--darken-3 font-weight-light mb-6" style="color: #59595b">
               In Cobel Group, acknowledge importance of woman empowerment and inspir....
             </p>
-            <div class="d-flex flex-column font-weight-light mb-auto" style="width: 90%">
+            <div class="d-flex flex-column font-weight-light" style="width: 90%">
               <p class="f-14 mb-2 d-flex align-center" style="color: #59595b">
                 <v-icon class="mr-1" size="12">mdi-clock-outline</v-icon>
                 13min
@@ -75,7 +70,7 @@
           </div>
         </v-card>
       </v-card>
-      <v-divider v-if="i !== 4 && !isMobile" class="my-8"></v-divider>
+      <v-divider :class="[!isMobile ? 'my-8 mr-6' : 'mx-6 my-10']"></v-divider>
     </div>
   </div>
 </template>

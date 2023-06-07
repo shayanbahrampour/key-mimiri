@@ -22,7 +22,7 @@
               src="/images/face/bahador.png"
               style="border-radius: 50%"
             />
-            <div class="d-flex flex-column justify-center ml-4">
+            <div :class="['d-flex flex-column justify-center', !isMobile ? 'ml-4' : undefined]">
               <p
                 :class="[
                   'bel mb-0 text--darken-3',
@@ -33,12 +33,12 @@
                 Bahador Nayebi
               </p>
               <p
-                :class="['bel  mb-0 text--darken-3', isMobile ? 'mt-2 f-24' : 'f-20 font-weight-light']"
+                :class="['bel  mb-0 text--darken-3', isMobile ? 'mt-2 f-24 cobelgrey--text' : 'f-20 font-weight-light']"
                 style="color: #939393"
               >
                 Project Manager at Cobel® Group
               </p>
-              <v-divider v-if="isMobile" class="my-4" style="background-color: #00a59b"></v-divider>
+              <v-divider v-if="isMobile" class="mt-2 mb-6" style="background-color: #00a59b"></v-divider>
             </div>
           </div>
           <v-divider class="mx-4" color="#00a59b" vertical></v-divider>
@@ -47,10 +47,8 @@
             and are committed to enhance their physical, psychological and social quality of life through high quality
             and innovative solutions.
           </p>
-          <p v-else class="f-20 text-center mx-6 mb-0 text--darken-3" style="color: #939393">
-            In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society
-            and are committed to enhance their physical, psychological and social quality of life through high quality
-            and innovative solutions.
+          <p v-else class="f-24 text-center mx-6 mb-0 text--darken-3 font-weight-light cobelgrey--text">
+            In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the
           </p>
         </div>
       </v-card>

@@ -2,7 +2,9 @@
   <div v-if="!isMobile" class="d-flex flex-column justify-center mb-16">
     <v-row class="mt-10" no-gutters>
       <v-col>
-        <h4 class="bel f-30 slategrey--text text--darken-3 font-weight-regular">{{ $t('career.job_position') }}</h4>
+        <h4 class="bel f-30 text--darken-3 font-weight-regular" style="color: #66869a">
+          {{ $t('career.job_position') }}
+        </h4>
         <p class="f-18 mt-4 mb-0 text--darken-3 font-weight-light mb-auto" style="max-width: 80%">
           {{ $t('career.job_description') }}
         </p>
@@ -24,7 +26,9 @@
         <v-divider vertical></v-divider>
       </v-col>
       <v-col>
-        <h4 class="bel f-30 text--darken-3 font-weight-regular slategrey--text">{{ $t('career.job_position') }}</h4>
+        <h4 class="bel f-30 text--darken-3 font-weight-regular" style="color: #66869a">
+          {{ $t('career.job_position') }}
+        </h4>
         <p class="f-18 mt-4 mb-0 text--darken-3 font-weight-light mb-auto" style="max-width: 80%">
           {{ $t('career.job_description') }}
         </p>
@@ -48,7 +52,9 @@
     </v-row>
     <v-row class="mt-10" no-gutters>
       <v-col>
-        <h4 class="bel f-30 text--darken-3 font-weight-regular slategrey--text">{{ $t('career.job_position') }}</h4>
+        <h4 class="bel f-30 text--darken-3 font-weight-regular" style="color: #66869a">
+          {{ $t('career.job_position') }}
+        </h4>
         <p class="f-18 mt-4 mb-0 text--darken-3 font-weight-light mb-auto" style="max-width: 80%">
           {{ $t('career.job_description') }}
         </p>
@@ -70,7 +76,9 @@
         <v-divider style="margin-top: -70px; height: 300px" vertical></v-divider>
       </v-col>
       <v-col>
-        <h4 class="bel f-30 text--darken-3 font-weight-regular slategrey--text">{{ $t('career.job_position') }}</h4>
+        <h4 class="bel f-30 text--darken-3 font-weight-regular" style="color: #66869a">
+          {{ $t('career.job_position') }}
+        </h4>
         <p class="f-18 mt-4 mb-0 text--darken-3 font-weight-light mb-auto" style="max-width: 80%">
           {{ $t('career.job_description') }}
         </p>
@@ -92,7 +100,9 @@
   </div>
   <div v-else class="d-flex flex-column mb-16">
     <div v-for="i in 3" :key="i" class="d-flex flex-column">
-      <h4 class="bel f-30 text--darken-3 font-weight-regular slategrey--text">{{ $t('career.job_position') }}</h4>
+      <h4 class="bel f-30 text--darken-3 font-weight-regular" style="color: #66869a">
+        {{ $t('career.job_position') }}
+      </h4>
       <p
         class="f-18 mt-4 mb-0 text--darken-3 font-weight-light mb-auto"
         style="max-width: 80%; color: #59595b; line-height: 24px"

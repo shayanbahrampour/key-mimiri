@@ -95,24 +95,29 @@
     <v-sheet class="custom-gradient w-full" height="5" />
     <div :class="['h-full white', isMobile ? 'px-4' : 'px-16']">
       <h4
-        :class="['bel f-40 text-center text--darken-3 font-weight-regular', isMobile ? 'mt-6' : 'mt-16']"
+        :class="['bel text-center text--darken-3 font-weight-regular', isMobile ? 'mt-8 f-34 mx-2' : 'mt-16 f-40']"
         style="color: #00a59b"
       >
         32 Million people in need of 2 Billion doses of iron supplement; less than 800 Million doses is consumed
       </h4>
-      <v-divider v-if="!isMobile" class="mt-16"></v-divider>
-      <p :class="['text-center text--darken-3', isMobile ? 'f-25 my-6' : 'f-20 my-4 ']" style="color: #939393">
+      <v-divider :class="isMobile ? 'mt-10 mx-2' : 'mt-16'"></v-divider>
+      <p :class="['text-center text--darken-3', isMobile ? 'f-22 my-6' : 'f-20 my-4 ']" style="color: #939393">
         In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society and
         are committed to enhance their physical, psychological and social quality of life through high quality and
         innovative solutions.
       </p>
-      <v-divider v-if="!isMobile"></v-divider>
+      <v-divider :class="!isMobile ? 'pb-16' : 'mx-2'"></v-divider>
       <h4
-        :class="['bel mt-16 f-40 text--darken-3 black--text font-weight-regular', isMobile ? 'text-center' : undefined]"
+        :class="[
+          'bel text--darken-3 cobelgrey--text font-weight-regular',
+          isMobile ? 'f-40 text-center mt-10' : 'f-50 mt-16'
+        ]"
       >
         You may also like listening more stories
       </h4>
-      <div :class="['d-flex mt-16', isMobile ? 'flex-column align-center' : 'justify-space-between align-center']">
+      <div
+        :class="['d-flex', isMobile ? 'flex-column align-center mt-10' : 'justify-space-between align-center mt-16']"
+      >
         <div :class="['d-flex', isMobile ? 'flex-column align-center' : undefined]">
           <v-img
             :height="isMobile ? '140' : '155'"

@@ -11,11 +11,11 @@
       ]"
     />
 
-    <v-sheet v-if="!isMobile" :max-width="globalMaxWidth" class="mx-auto px-10 my-16">
+    <v-sheet v-if="!isMobile" :max-width="globalMaxWidth" class="mx-auto px-10 mt-16">
       <NewsCategory v-if="!isMobile" :tabs="tabs" class="mb-16 mx-6" title="More important" />
       <NewsCard :path="localePath('/news/1')" class="mx-6" />
     </v-sheet>
-    <NewsCard v-else :path="localePath('/news/1')" class="mt-16" title="More important" />
+    <NewsCard v-else :path="localePath('/news/1')" class="mt-10" title="More important" />
   </div>
 </template>
 
