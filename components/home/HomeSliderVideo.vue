@@ -11,9 +11,9 @@
     <v-fade-transition>
       <v-btn
         v-if="flag.showFullscreen"
-        class="position-fixed top-0 start-0 ma-2 z-1"
-        icon
-        large
+        class="position-fixed top-0 start-0 ma-2 z-2"
+        fab
+        color="black"
         @click="flag.showFullscreen = false"
       >
         <v-icon color="white">mdi-close</v-icon>
@@ -41,7 +41,7 @@
           muted: true,
           fluid: false,
           autoplay: true,
-          controls: flag.showFullscreen,
+          controls: true,
           aspectRatio: flag.showFullscreen ? '16:9' : '1:1'
         }"
         :width="flag.showFullscreen ? '100vw' : videoSize"
