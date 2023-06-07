@@ -100,7 +100,7 @@
         class="w-full overflow-hidden d-flex align-center"
         poster="/images/temp/cover-6.png"
         src="/video/temp.mp4"
-        style="max-height: calc(100vh - 150px); min-height: 500px"
+        style="max-height: 500px"
       />
     </div>
 
@@ -114,7 +114,7 @@
             {{ $t('career.divider_title') }}
           </h4>
           <v-divider class="mx-8" color="white" style="min-height: 100px" vertical />
-          <p class="f-20 white--text mb-0 text--darken-3 font-weight-light" style="max-width: 30%">
+          <p class="f-20 white--text mb-0 text--darken-3 font-weight-light" style="max-width: 40%">
             {{ $t('career.divider_description') }}
           </p>
         </div>
