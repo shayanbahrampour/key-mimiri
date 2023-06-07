@@ -29,13 +29,11 @@
     />
     <v-sheet
       :class="['mx-auto', flag.showFullscreen && 'w-screen position-relative z-1']"
-      :height="flag.showFullscreen ? undefined : videoSize"
-      :width="flag.showFullscreen ? '90vw' : videoSize"
       color="transparent"
       @click="flag.showFullscreen = true"
     >
       <VideoContents
-        :class="[flag.showFullscreen ? 'mx-auto' : 'my-auto']"
+        class="my-auto"
         :height="flag.showFullscreen ? undefined : videoSize"
         :options="{
           fill: true,
@@ -46,7 +44,7 @@
           controls: flag.showFullscreen,
           aspectRatio: flag.showFullscreen ? '16:9' : '1:1'
         }"
-        :width="flag.showFullscreen ? '90vw' : videoSize"
+        :width="flag.showFullscreen ? '100vw' : videoSize"
         src="/video/temp-2.mp4"
       />
     </v-sheet>

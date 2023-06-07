@@ -2,7 +2,7 @@
   <div>
     <v-row :class="['position-relative z-1', { 'custom-shadow pb-4': isMobile }]" no-gutters>
       <v-col cols="12" lg="6" md="6">
-        <v-sheet :class="[`overflow-hidden ${!isMobile && `rounded-${isRTL ? 'l' : 'r'}-xl`}`]" max-width="700">
+        <v-sheet :class="[`overflow-hidden ${!isMobile && `rounded-${isRTL ? 'l' : 'r'}-xl`}`]">
           <v-img max-height="calc(100vh - 150px)" src="/images/temp/cover-5-vertical.png" />
           <v-sheet v-if="!isMobile" class="extra-space white--text ps-16 pe-10 py-8" color="slategrey">
             <h2 class="f-22 mb-4 white--text">Woman empowerment future enrichment</h2>
@@ -18,7 +18,7 @@
       </v-col>
       <v-col cols="12" lg="6" md="6">
         <div :class="[isMobile ? 'pa-5 py-10' : `py-16 px-16 mt-12`]">
-          <h1 :class="['bel font-weight-regular', isMobile ? 'f-35 mb-2' : 'f-65 mb-4']" style="color: #59595b">
+          <h1 :class="['bel font-weight-regular', isMobile ? 'f-35 mb-2' : 'f-70 mb-4']" style="color: #59595b">
             Woman empowerment future enrichment
           </h1>
 
@@ -115,7 +115,7 @@
       </div>
       <v-sheet :class="[isMobile ? 'px-6' : $vuetify.breakpoint.xl ? 'px-12' : 'px-16']" style="color: #59595b">
         <v-row :class="[isMobile ? 'pt-6' : 'mt-md-10 py-16']">
-          <v-col md="6" xl="8">
+          <v-col md="6" lg="7" xl="8">
             <h3
               :class="[
                 'font-weight-regular bel success--text mb-4 text-center text-sm-start',
@@ -136,8 +136,18 @@
               rationally using it. This could be highly affected by lack of awareness and access challenges to high
               quality Iron supplements.
             </p>
+            <p
+              v-if="$vuetify.breakpoint.lgAndUp"
+              :class="['mb-6 font-weight-light', isMobile ? 'f-20' : 'f-25 mt-8']"
+              style="line-height: 35px"
+            >
+              WHO advises that all women in their reproductive ages, whether having Iron deficiency or not, are required
+              to consume 60 mg of iron supplements per week. This amount should be higher in pregnant women and any
+              rationally using it. This could be highly affected by lack of awareness and access challenges to high
+              quality Iron supplements.
+            </p>
           </v-col>
-          <v-col class="ps-md-8" md="6" xl="4">
+          <v-col class="ps-md-8 mb-md-8" md="6" lg="5" xl="4">
             <v-img min-height="600" src="/images/temp/impact_detail.png" />
           </v-col>
           <v-col lg="12">
