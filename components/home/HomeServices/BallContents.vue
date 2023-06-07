@@ -10,7 +10,7 @@
     >
       <nuxt-link :to="item.path" class="text-decoration-none" style="color: inherit">{{ $t(item.title) }}</nuxt-link>
     </h3>
-    <p v-if="item" :class="['font-weight-light ma-0 grey--text text--darken-2', isMobile ? 'f-18' : 'f-20']">
+    <p v-if="item" :class="['font-weight-light ma-0 grey--text text--darken-2', isMobile ? 'f-16' : 'f-20']">
       {{ $t(item.description) }}
     </p>
   </div>

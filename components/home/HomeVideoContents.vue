@@ -10,7 +10,7 @@
     >
       <v-row :align="isMobile ? 'start' : 'center'" no-gutters>
         <v-col cols="12" md="4" sm="5">
-          <h3 :class="['font-weight-regular bel', isMobile ? 'f-40 text-center pt-4' : 'f-50']">
+          <h3 :class="['font-weight-regular bel', isMobile ? 'f-35 text-center pt-4' : 'f-50']">
             {{ $t('homePage.video.title') }}
           </h3>
         </v-col>
@@ -28,12 +28,12 @@
       </v-row>
     </v-sheet>
 
-    <v-sheet class="custom-gradient my-1" height="16" />
+    <v-sheet :height="isMobile ? 10 : 16" class="custom-gradient my-1" />
 
     <v-sheet
       v-if="isMobile"
       :max-width="globalMaxWidth"
-      class="px-6 mx-auto f-23 my-4 grey--text text--darken-2 font-weight-light text-center"
+      class="px-6 mx-auto f-17 my-4 grey--text text--darken-2 font-weight-light text-center"
       color="transparent"
     >
       Enjoyment of social interaction, sharing experience sense of belonging to a group, promoting participation

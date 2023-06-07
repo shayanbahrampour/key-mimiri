@@ -52,7 +52,7 @@
             large
             rounded
           >
-            {{ $t('homePage.slider.cobel_group') }}
+            {{ isMobile ? $t('homePage.slider.about_cobel_group') : $t('homePage.slider.cobel_group') }}
           </v-btn>
         </v-col>
       </v-row>
