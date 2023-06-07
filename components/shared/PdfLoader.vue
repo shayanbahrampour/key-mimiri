@@ -4,7 +4,7 @@
       :page="page"
       :src="src"
       class="w-full position-relative z-0 ltr white"
-      style="font-family: inherit; min-height: 250px"
+      :style="`font-family: inherit; min-height: 300px; height:${$vuetify.breakpoint.xl ? 300 : 250}px`"
       @num-pages="pageCount = $event"
     />
 
