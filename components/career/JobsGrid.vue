@@ -19,7 +19,7 @@
           >
             {{ $t('career.job_action') }}
           </v-btn>
-          <v-img class="mr-16" contain max-height="30" src="/images/logo.png" />
+          <v-img class="me-16" contain max-height="30" src="/images/logo.png" />
         </div>
       </v-col>
       <v-col style="max-width: 100px">
@@ -43,11 +43,11 @@
           >
             {{ $t('career.job_action') }}
           </v-btn>
-          <v-img class="mr-16" contain max-height="30" src="/images/logo.png" />
+          <v-img class="me-16" contain max-height="30" src="/images/logo.png" />
         </div>
       </v-col>
     </v-row>
-    <v-row class="mt-10 mr-16">
+    <v-row class="mt-10 me-16">
       <v-divider></v-divider>
     </v-row>
     <v-row class="mt-10" no-gutters>
@@ -69,7 +69,7 @@
           >
             {{ $t('career.job_action') }}
           </v-btn>
-          <v-img class="mr-16" contain max-height="30" src="/images/logo.png" />
+          <v-img class="me-16" contain max-height="30" src="/images/logo.png" />
         </div>
       </v-col>
       <v-col style="max-width: 100px">
@@ -93,7 +93,7 @@
           >
             {{ $t('career.job_action') }}
           </v-btn>
-          <v-img class="mr-16" contain max-height="30" src="/images/logo.png" />
+          <v-img class="me-16" contain max-height="30" src="/images/logo.png" />
         </div>
       </v-col>
     </v-row>

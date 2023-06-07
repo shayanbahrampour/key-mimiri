@@ -61,7 +61,7 @@
       <v-btn
         :class="[
           'rounded-xl white--text d-flex justify-center',
-          isMobile ? 'f-20 font-weight-light' : 'mr-4 f-14 font-weight-bold'
+          isMobile ? 'f-20 font-weight-light' : 'me-4 f-14 font-weight-bold'
         ]"
         :disabled="flag.loading"
         :loading="flag.loading"

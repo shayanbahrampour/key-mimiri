@@ -16,7 +16,7 @@
         </v-col>
         <v-col :class="{ 'text-center': isMobile }" cols="12" md="4">
           <v-btn
-            class="mt-1 ml-0"
+            class="mt-1 ms-0"
             style="text-transform: unset !important; color: #0a91df"
             text
             @click="counter_lang++"
@@ -48,7 +48,7 @@
         </v-col>
         <v-col :class="{ 'text-center': isMobile }" cols="12" md="4">
           <v-btn
-            class="mt-1 ml-0"
+            class="mt-1 ms-0"
             style="text-transform: unset !important; color: #fc2642"
             text
             @click="counter_lang--"
@@ -65,7 +65,7 @@
           <v-text-field class="mb-0 f-20" dense filled hide-details label="Level" rounded></v-text-field>
         </v-col>
         <v-col :class="{ 'text-center': isMobile }" cols="12" md="4">
-          <v-btn class="mt-1 ml-0" style="text-transform: unset !important; color: #0a91df" text @click="counter_com++">
+          <v-btn class="mt-1 ms-0" style="text-transform: unset !important; color: #0a91df" text @click="counter_com++">
             <p class="mb-0 f-16">Add new <span class="font-weight-bold">Skills</span></p>
           </v-btn>
         </v-col>
@@ -92,7 +92,7 @@
           ></v-text-field>
         </v-col>
         <v-col :class="{ 'text-center': isMobile }" cols="12" md="4">
-          <v-btn class="mt-1 ml-0" style="text-transform: unset !important; color: #fc2642" text @click="counter_com--">
+          <v-btn class="mt-1 ms-0" style="text-transform: unset !important; color: #fc2642" text @click="counter_com--">
             <p class="mb-0 f-16">Remove <span class="font-weight-bold">Skills</span></p>
           </v-btn>
         </v-col>

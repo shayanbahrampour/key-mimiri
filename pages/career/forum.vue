@@ -5,7 +5,7 @@
         <div
           :class="[
             'd-flex flex-column justify-center',
-            isMobile ? 'align-center mobile-contact' : 'align-start ml-4 desktop-contact'
+            isMobile ? 'align-center mobile-contact' : 'align-start ms-4 desktop-contact'
           ]"
         >
           <p
@@ -47,7 +47,7 @@
         :tabs="$route.query.job ? certainJob : apply"
         @select="counter = $event"
       />
-      <Component :is="steps[counter].component" :class="{ 'pr-0': !isMobile }"></Component>
+      <Component :is="steps[counter].component" :class="{ 'pe-0': !isMobile }"></Component>
       <div
         v-if="((counter !== 7 && !$route.query.job) || (counter !== 6 && $route.query.job)) && !isMobile"
         class="d-flex justify-space-between"
@@ -58,7 +58,7 @@
           v-if="counter !== 0"
           :class="[
             'rounded-xl d-flex justify-center slategrey--text font-weight-bold',
-            isMobile ? 'f-20' : 'f-14 mb-16 ml-4'
+            isMobile ? 'f-20' : 'f-14 mb-16 ms-4'
           ]"
           :min-width="!isMobile ? '300' : '80%'"
           color="slategrey"
@@ -71,7 +71,7 @@
         <v-btn
           :class="[
             'rounded-xl d-flex justify-center white--text font-weight-bold',
-            isMobile ? 'f-20' : 'f-14 mb-16 mr-4'
+            isMobile ? 'f-20' : 'f-14 mb-16 me-4'
           ]"
           :min-width="!isMobile ? '300' : '80%'"
           color="slategrey"
@@ -101,7 +101,7 @@
           v-if="counter !== 0"
           :class="[
             'rounded-xl d-flex justify-center slategrey--text font-weight-bold',
-            isMobile ? 'f-20 mb-16' : 'f-14 mb-16 ml-4'
+            isMobile ? 'f-20 mb-16' : 'f-14 mb-16 ms-4'
           ]"
           :min-width="!isMobile ? '300' : '80%'"
           color="slategrey"

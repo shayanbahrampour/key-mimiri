@@ -3,10 +3,10 @@
     <vue-pdf
       :page="page"
       :src="src"
-      class="w-full position-relative z-0 ltr white h-auto"
       :style="`font-family: inherit; height: ${flag.showContent ? 'auto' : '400px'}`"
-      @num-pages="pageCount = $event"
+      class="w-full position-relative z-0 ltr white h-auto"
       @error="onError"
+      @num-pages="pageCount = $event"
     />
 
     <v-btn

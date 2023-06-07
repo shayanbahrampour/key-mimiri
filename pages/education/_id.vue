@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex flex-column">
-    <div :class="['d-flex flex-column mt-16', isMobile ? 'px-4' : 'px-16 mr-4']">
+    <div :class="['d-flex flex-column mt-16', isMobile ? 'px-4' : 'px-16 me-4']">
       <h4 :class="['bel font-weight-regular slategrey--text', isMobile ? 'f-40' : 'f-60']">
         Sample main titles for test education part
       </h4>
@@ -14,16 +14,16 @@
         ]"
       >
         <div :class="['d-flex font-weight-light', isMobile ? 'w-full flex-wrap' : undefined]" style="width: 50%">
-          <p :class="['f-16', isMobile ? 'mb-6 mr-10' : 'mb-0 mr-6']" style="color: #939393">
-            <v-icon v-if="isMobile" class="mr-1" size="16">mdi-clock-outline</v-icon>
+          <p :class="['f-16', isMobile ? 'mb-6 me-10' : 'mb-0 me-6']" style="color: #939393">
+            <v-icon v-if="isMobile" class="me-1" size="16">mdi-clock-outline</v-icon>
             {{ !isMobile ? 'Read time: 13min' : '13min' }}
           </p>
-          <p :class="['f-16', isMobile ? 'mb-6 mr-10' : 'mb-0 mr-6']" style="color: #939393">
-            <v-icon v-if="isMobile" class="mr-1" size="16">mdi-fountain-pen-tip</v-icon>
+          <p :class="['f-16', isMobile ? 'mb-6 me-10' : 'mb-0 me-6']" style="color: #939393">
+            <v-icon v-if="isMobile" class="me-1" size="16">mdi-fountain-pen-tip</v-icon>
             {{ !isMobile ? 'Written by: mehrab mohammadi' : 'mehrab mohammadi' }}
           </p>
-          <p :class="['f-16', isMobile ? 'mb-6 mr-0' : 'mb-0 mr-6']" style="color: #939393">
-            <v-icon v-if="isMobile" class="mr-1" size="16">mdi-bullhorn-variant-outline</v-icon>
+          <p :class="['f-16', isMobile ? 'mb-6 me-0' : 'mb-0 me-6']" style="color: #939393">
+            <v-icon v-if="isMobile" class="me-1" size="16">mdi-bullhorn-variant-outline</v-icon>
             {{ !isMobile ? 'Published 3 months ago' : '3 months ago' }}
           </p>
         </div>
@@ -72,7 +72,7 @@
       </p>
     </div>
     <EducationDetail />
-    <h1 v-if="!isMobile" class="bel f-50 grey--text text--darken-2 font-weight-regular ml-16 mt-10">More Articles</h1>
+    <h1 v-if="!isMobile" class="bel f-50 grey--text text--darken-2 font-weight-regular ms-16 mt-10">More Articles</h1>
     <NewsCard
       :class="['mt-10', !isMobile ? 'mx-14' : undefined]"
       :path="localePath('/education/1')"

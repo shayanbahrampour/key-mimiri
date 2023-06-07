@@ -105,17 +105,17 @@
     <div :style="`max-width:${globalMaxWidth}px`" class="mx-auto">
       <div :class="!isMobile && ($vuetify.breakpoint.xl ? 'px-12' : 'px-16')">
         <VideoContents
+          :style="`max-height: calc(100vh - 150px); min-height: ${isMobile ? '' : '500px'}`"
           class="w-full overflow-hidden d-flex align-center"
           poster="/images/temp/cover-4.png"
           src="/video/temp.mp4"
-          :style="`max-height: calc(100vh - 150px); min-height: ${isMobile ? '' : '500px'}`"
         />
 
         <v-sheet v-if="isMobile" class="custom-gradient my-1" height="16" />
       </div>
       <v-sheet :class="[isMobile ? 'px-6' : $vuetify.breakpoint.xl ? 'px-12' : 'px-16']" style="color: #59595b">
         <v-row :class="[isMobile ? 'pt-6' : 'mt-md-10 py-16']">
-          <v-col md="6" lg="7" xl="8">
+          <v-col lg="7" md="6" xl="8">
             <h3
               :class="[
                 'font-weight-regular bel success--text mb-4 text-center text-sm-start',
@@ -147,7 +147,7 @@
               quality Iron supplements.
             </p>
           </v-col>
-          <v-col v-if="!isMobile" class="ps-md-8 mb-md-8" md="6" lg="5" xl="4">
+          <v-col v-if="!isMobile" class="ps-md-8 mb-md-8" lg="5" md="6" xl="4">
             <v-img min-height="600" src="/images/temp/impact_detail.png" />
           </v-col>
         </v-row>

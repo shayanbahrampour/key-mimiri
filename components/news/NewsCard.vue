@@ -9,7 +9,7 @@
         v-if="!isMobile"
         :ripple="false"
         :to="path"
-        class="d-flex rounded-0 overflow-hidden mr-4 custom-news-card bg-transparent"
+        class="d-flex rounded-0 overflow-hidden me-4 custom-news-card bg-transparent"
         color="transparent"
         elevation="0"
         style="transition: all ease-in 0.4s"
@@ -17,7 +17,7 @@
         <div class="d-flex">
           <v-img height="200" src="/images/temp/cover-2.png" width="250" />
         </div>
-        <div class="d-flex flex-column py-2 ml-16 align-start">
+        <div class="d-flex flex-column py-2 ms-16 align-start">
           <h4 class="bel f-40 text--darken-3 font-weight-regular mb-auto cobelgrey--text custom-card-title">
             Rise from the society return to the society
           </h4>
@@ -55,22 +55,22 @@
             </p>
             <div class="d-flex flex-column font-weight-light" style="width: 90%">
               <p class="f-14 mb-2 d-flex align-center" style="color: #59595b">
-                <v-icon class="mr-1" size="12">mdi-clock-outline</v-icon>
+                <v-icon class="me-1" size="12">mdi-clock-outline</v-icon>
                 13min
               </p>
               <p class="f-14 mb-2 d-flex align-center" style="color: #59595b">
-                <v-icon class="mr-1" size="12">mdi-pencil-outline</v-icon>
+                <v-icon class="me-1" size="12">mdi-pencil-outline</v-icon>
                 mehrab mohammadi
               </p>
               <p class="f-14 mb-0 d-flex align-center" style="color: #59595b">
-                <v-icon class="mr-1" size="12">mdi-bullhorn-variant-outline</v-icon>
+                <v-icon class="me-1" size="12">mdi-bullhorn-variant-outline</v-icon>
                 3 months ago
               </p>
             </div>
           </div>
         </v-card>
       </v-card>
-      <v-divider v-if="i !== 4" :class="[!isMobile ? 'my-8 mr-6' : 'mx-6 my-10']"></v-divider>
+      <v-divider v-if="i !== 4" :class="[!isMobile ? 'my-8 me-6' : 'mx-6 my-10']"></v-divider>
     </div>
   </div>
 </template>

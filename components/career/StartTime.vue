@@ -51,7 +51,7 @@
             <v-img max-width="20" src="/images/career/pdf.png" />
           </v-btn>
           <v-btn
-            :class="['mt-0 ml-0', isMobile ? 'mb-16' : undefined]"
+            :class="['mt-0 ms-0', isMobile ? 'mb-16' : undefined]"
             style="text-transform: unset !important; color: #00a59b"
             text
           >

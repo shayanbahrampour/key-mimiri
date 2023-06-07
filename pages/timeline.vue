@@ -76,7 +76,7 @@
                 />
 
                 <div :class="['flex-grow-1 d-flex', isMobile ? 'flex-column pt-2' : 'align-center']">
-                  <span class="bel" :style="`color: ${expanded === i ? '#4c6d80' : '#66869A'}`">{{ item.title }}</span>
+                  <span :style="`color: ${expanded === i ? '#4c6d80' : '#66869A'}`" class="bel">{{ item.title }}</span>
 
                   <v-spacer />
 
@@ -98,7 +98,7 @@
             <v-expansion-panel-content>
               <v-timeline :style="`color: ${item.color}`" align-top class="ms-n2 pt-0" dense>
                 <v-timeline-item hide-dot>
-                  <p class="font-weight-light ps-2 f-22" style="color: #59595b">
+                  <p :class="['font-weight-light ps-2 f-22', isMobile && 'mt-6']" style="color: #59595b">
                     Cobel Darou is a leading private pharmaceutical company founded in 2002. Cobel Darou main activities
                     are registration, importation, manufacturing, distribution and sales & marketing.
                   </p>
@@ -126,7 +126,7 @@
             </v-expansion-panel-content>
 
             <div class="ps-5">
-              <v-divider style="border-color: #eeeeee; border-top-width: 2px" class="mt-8 ms-10" />
+              <v-divider class="mt-8 ms-10" style="border-color: #eeeeee; border-top-width: 2px" />
             </div>
           </v-expansion-panel>
         </v-expansion-panels>

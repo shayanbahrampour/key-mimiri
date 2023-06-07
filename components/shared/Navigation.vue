@@ -42,19 +42,19 @@
             color="transparent"
             depressed
             exact
-            tile
             min-height="50"
+            tile
           >
             <span class="text-capitalize f-14">{{ $t(item.value) }}</span>
           </v-btn>
         </template>
 
         <v-btn
+          :class="isMobile ? 'me-n2' : 'me-n4'"
+          :ripple="false"
           :to="$i18n.locale === 'en' ? switchLocalePath('fa') : switchLocalePath('en')"
           color="primary"
           icon
-          :ripple="false"
-          :class="isMobile ? 'me-n2' : 'me-n4'"
         >
           <template v-if="$i18n.locale === 'en'">Fa</template>
           <template v-else>En</template>
@@ -62,10 +62,10 @@
 
         <v-btn
           v-if="isMobile"
-          color="black"
-          icon
           :ripple="false"
           class="pe-0 bg-transparent me-n4"
+          color="black"
+          icon
           @click="flag.showDrawer = !flag.showDrawer"
         >
           <v-icon>
@@ -79,21 +79,21 @@
     <v-expand-transition>
       <v-sheet
         v-if="isMobile && flag.showDrawer"
+        :style="`top: ${isMobile ? '65px' : '58px'}`"
         class="position-fixed start-0 end-0 w-screen z-11"
         color="transparent"
-        :style="`top: ${isMobile ? '65px' : '58px'}`"
       >
         <v-card
-          flat
-          tile
           v-for="(item, index) in items"
           :key="index"
           :to="item.path ? item.path : undefined"
+          class="text-center white--text py-4 f-18"
           color="#66869A"
           exact
+          flat
           link
           style="opacity: 0.95; margin-bottom: 2px"
-          class="text-center white--text py-4 f-18"
+          tile
           @click="flag.showDrawer = false"
         >
           {{ $t(item.value) }}

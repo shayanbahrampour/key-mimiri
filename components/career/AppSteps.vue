@@ -4,19 +4,19 @@
     <v-progress-linear
       v-if="!isMobile"
       :value="calculateWidth()"
-      class="mr-0 mt-4"
+      class="me-0 mt-4"
       color="#4C6D80"
       height="2"
       style="width: 100%"
-    ></v-progress-linear>
+    />
     <v-progress-linear
       v-else
       :value="model !== tabs.length ? 50 : 100"
-      class="mr-0 mt-4"
+      class="me-0 mt-4"
       color="#4C6D80"
       height="2"
       style="width: 100vw; margin-left: -16px"
-    ></v-progress-linear>
+    />
   </div>
 </template>
 

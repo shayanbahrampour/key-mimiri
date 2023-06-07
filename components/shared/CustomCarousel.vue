@@ -78,7 +78,7 @@
               </p>
               <v-btn
                 :ripple="false"
-                class="font-weight-bold f-18 ml-n4 text-lowercase bg-transparent"
+                class="font-weight-bold f-18 ms-n4 text-lowercase bg-transparent"
                 color="white"
                 exact
                 link
