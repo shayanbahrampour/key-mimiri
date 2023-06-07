@@ -39,7 +39,7 @@
     </div>
 
     <div class="position-relative z-1">
-      <div :class="['mx-auto', !isMobile && 'pe-4']" :style="`max-width: ${globalMaxWidth}px`">
+      <div :class="['mx-auto', !isMobile && 'pe-16']" :style="`max-width: ${globalMaxWidth}px`">
         <v-sheet
           :class="[
             'me-auto carousel-sheet',
