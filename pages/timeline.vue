@@ -123,7 +123,7 @@
                   </v-sheet>
                 </v-timeline-item>
               </v-timeline>
-              <v-divider style="border-color: #eeeeee; border-top-width: 2px" class="mt-4 ms-10" />
+              <v-divider style="border-color: #eeeeee; border-top-width: 2px" class="mt-8 ms-10" />
             </v-expansion-panel-content>
           </v-expansion-panel>
         </v-expansion-panels>
