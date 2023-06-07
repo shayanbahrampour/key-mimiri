@@ -11,12 +11,11 @@
     </p>
     <v-sheet v-if="!isMobile" class="custom-gradient w-full mt-16" height="10" />
 
-    <v-img
-      :class="[!isMobile ? 'mt-0' : 'mt-10']"
-      max-height="500"
-      src="/images/temp/social.png"
-      style="z-index: 2 !important"
-      width="100vw"
+    <VideoContents
+      :class="['w-full overflow-hidden d-flex align-center', !isMobile ? 'mt-0' : 'mt-10']"
+      poster="/images/temp/cover-6.png"
+      src="/video/temp.mp4"
+      style="max-height: 80vh; z-index: 2 !important"
     />
     <div :class="[isMobile ? 'text-start px-6 h-full psy-screen d-flex flex-column' : 'text-center ma-16 px-16']">
       <div class="d-flex relative-container-social">
@@ -56,12 +55,14 @@
 </template>
 
 <script>
+import VideoContents from '~/components/shared/VideoContents';
 export default {
   head() {
     return {
       title: this.$t('pageTitles.social')
     };
   },
+  components: { VideoContents },
   data() {
     return {
       scrollPosition: 0,
