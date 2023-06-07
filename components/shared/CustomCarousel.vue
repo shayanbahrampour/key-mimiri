@@ -46,7 +46,7 @@
           <h1
             v-if="title"
             :class="['bel white--text font-weight-regular text-uppercase', isMobile ? 'f-50' : 'f-70']"
-            :style="isMobile ? 'margin: -100px 0 40px' : 'margin: -140px 0 80px'"
+            :style="isMobile ? 'margin: -100px 0 40px' : 'margin: -150px 0 90px'"
           >
             {{ title }}
           </h1>
@@ -57,7 +57,10 @@
               </h2>
             </v-col>
             <v-col v-else-if="activeSlide.title && !activeSlide.description" cols="12">
-              <h2 class="white--text font-weight-regular f-30">
+              <h2
+                :class="['white--text font-weight-regular', isMobile ? 'f-24' : 'f-30']"
+                :style="`line-height: ${isMobile ? '30px' : ''}`"
+              >
                 {{ activeSlide.title }}
               </h2>
             </v-col>
