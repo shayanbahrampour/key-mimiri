@@ -12,7 +12,7 @@ $path: '~assets/fonts';
   }
 }
 
-@include font-face-creator('ravi', '#{$path}/anjoman', 'ravi', normal);
+@include font-face-creator('ravi', '#{$path}/ravi', 'ravi', normal);
 @include font-face-creator('bel', '#{$path}/bel', 'bel', normal);
 
 @include font-face-creator('proxima', '#{$path}/proxima', 'ProximaNova-Light', 300);
