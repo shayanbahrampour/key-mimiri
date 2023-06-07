@@ -50,33 +50,33 @@
     <v-expansion-panels v-if="isMobile" class="mb-4" flat>
       <v-expansion-panel class="transparent d-flex flex-column justify-center">
         <p
-          v-if="!seeMore"
+          v-if="!seeMore.header"
           :class="[
             'f-20 white--text text--darken-3 font-weight-light',
             isMobile ? 'text-center mt-8 mb-0 mx-8' : 'mt-16 mx-16'
           ]"
           style="line-height: 30px"
         >
-          {{ text.compact }}
+          {{ textHeader.compact }}
         </p>
         <v-expansion-panel-content class="text-center">
           <p
-            v-if="seeMore"
+            v-if="seeMore.header"
             :class="[
               'f-20 white--text text--darken-3 font-weight-light',
               isMobile ? 'text-center mt-8 mb-0 mx-8' : 'mt-16 mx-16'
             ]"
             style="line-height: 30px"
           >
-            {{ text.full }}
+            {{ textHeader.full }}
           </p>
         </v-expansion-panel-content>
         <v-expansion-panel-header
           class="pa-0 ma-0 white--text justify-center f-20 font-weight-bold bg-transparent"
           hide-actions
           style="height: 20px; margin-top: -12px !important"
-          @click="seeMore = !seeMore"
-          >{{ seeMore ? 'see less' : 'see more' }}
+          @click="seeMore.header = !seeMore.header"
+          >{{ seeMore.header ? 'see less' : 'see more' }}
         </v-expansion-panel-header>
       </v-expansion-panel>
     </v-expansion-panels>
@@ -159,11 +159,36 @@
             and are committed to enhance their physical, psychological and social quality of life through high quality
             and innovative solutions.
           </p>
-          <p v-else class="f-20 text-center mx-6 mb-0 text--darken-3" style="color: #939393">
-            In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society
-            and are committed to enhance their physical, psychological and social quality of life through high quality
-            and innovative solutions.
-          </p>
+          <v-expansion-panels v-if="isMobile" flat>
+            <v-expansion-panel class="transparent d-flex flex-column justify-center">
+              <p
+                v-if="!seeMore.first"
+                :class="[
+                  'f-20 text--darken-3 font-weight-light',
+                  isMobile ? 'text-center mt-0 mb-0 mx-8' : 'mt-16 mx-16'
+                ]"
+                style="line-height: 30px; color: #939393"
+              >
+                {{ textStory.compact }}
+              </p>
+              <v-expansion-panel-content class="text-center">
+                <p
+                  v-if="seeMore.first"
+                  :class="['f-20 text--darken-3 font-weight-light', isMobile ? 'text-center' : 'mt-16 mx-16']"
+                  style="line-height: 30px; color: #939393"
+                >
+                  {{ textStory.full }}
+                </p>
+              </v-expansion-panel-content>
+              <v-expansion-panel-header
+                class="pa-0 ma-0 cobelgrey--text justify-center f-20 font-weight-bold bg-transparent"
+                hide-actions
+                style="margin-top: -12px !important"
+                @click="seeMore.first = !seeMore.first"
+                >{{ seeMore.first ? 'see less' : 'see more' }}
+              </v-expansion-panel-header>
+            </v-expansion-panel>
+          </v-expansion-panels>
         </div>
         <div :class="['d-flex my-16', isMobile ? 'flex-column' : 'justify-space-between align-center']">
           <div :class="['d-flex', isMobile ? 'flex-column align-center' : undefined]">
@@ -197,11 +222,36 @@
             and are committed to enhance their physical, psychological and social quality of life through high quality
             and innovative solutions.
           </p>
-          <p v-else class="f-20 text-center mb-0 mx-6 text--darken-3" style="color: #939393">
-            In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society
-            and are committed to enhance their physical, psychological and social quality of life through high quality
-            and innovative solutions.
-          </p>
+          <v-expansion-panels v-if="isMobile" flat>
+            <v-expansion-panel class="transparent d-flex flex-column justify-center">
+              <p
+                v-if="!seeMore.second"
+                :class="[
+                  'f-20 text--darken-3 font-weight-light',
+                  isMobile ? 'text-center mt-0 mb-0 mx-8' : 'mt-16 mx-16'
+                ]"
+                style="line-height: 30px; color: #939393"
+              >
+                {{ textStory.compact }}
+              </p>
+              <v-expansion-panel-content class="text-center">
+                <p
+                  v-if="seeMore.second"
+                  :class="['f-20 text--darken-3 font-weight-light', isMobile ? 'text-center' : 'mt-16 mx-16']"
+                  style="line-height: 30px; color: #939393"
+                >
+                  {{ textStory.full }}
+                </p>
+              </v-expansion-panel-content>
+              <v-expansion-panel-header
+                class="pa-0 ma-0 cobelgrey--text justify-center f-20 font-weight-bold bg-transparent"
+                hide-actions
+                style="margin-top: -12px !important"
+                @click="seeMore.second = !seeMore.second"
+                >{{ seeMore.second ? 'see less' : 'see more' }}
+              </v-expansion-panel-header>
+            </v-expansion-panel>
+          </v-expansion-panels>
         </div>
       </div>
     </div>
@@ -219,11 +269,19 @@ export default {
   components: { VideoContents },
   data() {
     return {
-      seeMore: false,
-      text: {
+      seeMore: {
+        header: false,
+        first: false,
+        second: false
+      },
+      textHeader: {
         compact:
           'Who advises that all women in their reproductive ages, whether having Iron deficiency or not, are required to consume 60 mg of iron',
         full: 'WHO advises that all women in their reproductive ages, whether having Iron deficiency or not, are required to consume 60 mg of iron supplements per week. This amount should be higher in pregnant women and any deficiencies will not only affect themselves, but it also affects their fetus. In addition, Iranian men and menopaused women have a 2 prevalence of Anemia and are also require to manage the disease accordingly (3). Studies conducted by Cobel Group medico-marketing teams indicated'
+      },
+      textStory: {
+        full: 'In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society and are committed to enhance their physical, psychological and social quality of life through high quality and innovative solutions.',
+        compact: 'In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the'
       }
     };
   }

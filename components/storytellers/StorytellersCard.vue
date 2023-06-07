@@ -49,6 +49,8 @@
           </p>
           <p v-else class="f-24 text-center mx-6 mb-0 text--darken-3 font-weight-light cobelgrey--text">
             In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the
+            <br />
+            <span class="cobelgrey--text font-weight-bold">see more</span>
           </p>
         </div>
       </v-card>
