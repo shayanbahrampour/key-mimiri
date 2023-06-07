@@ -21,7 +21,10 @@
             <h2 class="bel white--text mb-0 text--darken-3 font-weight-regular f-50 header-des">
               Senior project manager
             </h2>
-            <p class="white--text mb-0 text--darken-3 font-weight-light description-des f-20 mt-0 mb-10">
+            <p
+              class="white--text text--darken-3 font-weight-light description-des f-20 mt-0 mb-10"
+              style="max-width: 70%"
+            >
               Who advises that all women in their reproductive ages, whether having Iron deficiency or not, are required
               to consume 60 mg of iron supplements per week.
             </p>
@@ -44,13 +47,13 @@
     <div class="d-flex">
       <div class="d-flex flex-column justify-center align-center mobile-contact">
         <p class="bel white--text mb-0 text--darken-3 font-weight-regular text-center f-36">Senior project manager</p>
-        <p class="font-weight-light mt-6 f-20 mb-6 text-center white--text" style="max-width: 500px; line-height: 2">
+        <p class="font-weight-light my-6 mx-4 f-20 text-center white--text" style="max-width: 500px; line-height: 2">
           Who advises that all women in their reproductive ages, whether having Iron deficiency or not, are required to
           consume 60 mg of iron supplements per week.
         </p>
         <v-btn
           :to="`/career/forum?job=${true}`"
-          class="rounded-xl d-flex justify-center white--text font-weight-regular f-20 mb-6"
+          class="rounded-xl d-flex justify-center white--text font-weight-regular f-20 mb-2 mt-2"
           color="#A01E64"
           elevation="0"
           height="50"
