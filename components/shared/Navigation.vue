@@ -54,16 +54,25 @@
           color="primary"
           icon
           :ripple="false"
-          :class="{ 'me-n4': !isMobile }"
+          :class="isMobile ? 'me-n2' : 'me-n4'"
         >
           <template v-if="$i18n.locale === 'en'">Fa</template>
           <template v-else>En</template>
         </v-btn>
 
-        <v-icon class="ms-1 pe-0 bg-transparent" v-if="isMobile" @click="flag.showDrawer = !flag.showDrawer">
-          <template v-if="flag.showDrawer">mdi-close</template>
-          <template v-else>mdi-menu</template>
-        </v-icon>
+        <v-btn
+          v-if="isMobile"
+          color="black"
+          icon
+          :ripple="false"
+          class="pe-0 bg-transparent me-n4"
+          @click="flag.showDrawer = !flag.showDrawer"
+        >
+          <v-icon>
+            <template v-if="flag.showDrawer">mdi-close</template>
+            <template v-else>mdi-menu</template>
+          </v-icon>
+        </v-btn>
       </v-sheet>
     </v-app-bar>
 

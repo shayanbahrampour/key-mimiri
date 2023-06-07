@@ -1,7 +1,7 @@
 <template>
   <div class="position-relative">
     <VideoContents
-      class="w-full overflow-hidden"
+      class="w-full overflow-hidden d-flex align-center"
       poster="/images/temp/cover-6.png"
       src="/video/temp.mp4"
       style="max-height: calc(100vh - 90px)"
