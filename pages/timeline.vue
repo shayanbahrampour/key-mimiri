@@ -41,12 +41,14 @@
             v-for="(item, i) in items"
             :id="`item-${i}`"
             :key="i"
-            :class="[isMobile ? 'ps-2' : 'ps-6']"
+            :class="['bg-transparent', isMobile ? 'ps-2' : 'ps-6']"
             @click="scroll(`#item-${i}`)"
           >
             <v-sheet
-              :style="`margin: 50px -10px 0; background-color: ${expanded === i ? '#4c6d80' : '#B0BEC5'}; color: ${
-                expanded === i ? '#4c6d80' : '#B0BEC5'
+              :style="`margin: 50px -10px 0; background-color: ${
+                expanded === i ? '#4c6d80' : expanded !== undefined ? '#B0BEC5' : '#66869A'
+              }; color: ${
+                expanded === i ? '#4c6d80' : expanded !== undefined ? '#B0BEC5' : '#66869A'
               }; border: 10px solid white !important`"
               class="position-absolute z-2 start-0 top-0 rounded-circle custom-border"
               height="38"
@@ -61,7 +63,7 @@
             />
 
             <v-expansion-panel-header
-              :class="['bel py-8', isMobile ? 'f-30' : 'f-40']"
+              :class="['py-8 bg-transparent', isMobile ? 'f-30' : 'f-40']"
               :style="`color: ${item.color}`"
               hide-actions
             >
@@ -74,21 +76,21 @@
                 />
 
                 <div :class="['flex-grow-1 d-flex', isMobile ? 'flex-column pt-2' : 'align-center']">
-                  <span :style="`color: ${expanded === i ? '#4c6d80' : '#66869A'}`">{{ item.title }}</span>
+                  <span class="bel" :style="`color: ${expanded === i ? '#4c6d80' : '#66869A'}`">{{ item.title }}</span>
 
                   <v-spacer />
 
                   <v-sheet
                     :class="[
-                      'f-19 px-3 py-1 text-center d-flex align-center justify-center',
+                      'f-18 px-4 py-3 text-center d-flex align-center justify-center',
                       { 'white--text': expanded === i },
                       { 'mt-1': isMobile }
                     ]"
                     :color="expanded === i ? '#66869a' : '#ECECEC'"
                     :style="`border-radius: 14px; color: #66869A`"
-                    width="70"
+                    width="80"
                   >
-                    <span class="mt-1">{{ item.date }}</span>
+                    <span>{{ item.date }}</span>
                   </v-sheet>
                 </div>
               </div>
@@ -121,6 +123,7 @@
                   </v-sheet>
                 </v-timeline-item>
               </v-timeline>
+              <v-divider style="border-color: #eeeeee; border-top-width: 2px" class="mt-4 ms-10" />
             </v-expansion-panel-content>
           </v-expansion-panel>
         </v-expansion-panels>
@@ -306,6 +309,10 @@ export default {
 
 <style lang="scss">
 .timeline-page {
+  .v-expansion-panel-header:before {
+    display: none;
+  }
+
   .custom-border {
     &:after {
       content: '';

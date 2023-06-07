@@ -7,7 +7,7 @@
       class="mr-0 mt-4"
       color="#4C6D80"
       height="2"
-      style="width: 90vw"
+      style="width: 100%"
     ></v-progress-linear>
     <v-progress-linear
       v-else
@@ -42,17 +42,17 @@ export default {
           case 0:
             return '10';
           case 1:
-            return '25';
+            return '24';
           case 2:
-            return '37';
+            return '36';
           case 3:
-            return '51';
+            return '48';
           case 4:
-            return '63';
+            return '60';
           case 5:
-            return '74';
+            return '72';
           case 6:
-            return '91';
+            return '88';
           case 7:
             return '100';
         }
@@ -61,15 +61,15 @@ export default {
           case 0:
             return '10';
           case 1:
-            return '25';
+            return '24';
           case 2:
-            return '40';
+            return '39';
           case 3:
-            return '55';
+            return '53';
           case 4:
-            return '69';
+            return '67';
           case 5:
-            return '90';
+            return '86';
           case 6:
             return '100';
         }
