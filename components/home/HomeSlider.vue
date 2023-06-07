@@ -11,7 +11,7 @@
         isMobile ? 'start-0 mx-auto justify-center' : 'h-screen bottom-0',
         flag.showFullscreen ? 'z-10' : 'z-2'
       ]"
-      :style="`${isMobile ? 'top:-250px;' : `top:-120px; ${isRTL ? 'left' : 'right'}:-450px;`}`"
+      :style="`${isMobile ? 'top:-220px;' : `top:-120px; ${isRTL ? 'left' : 'right'}:-450px;`}`"
       color="white"
     >
       <HomeSliderVideo @showFullscreen="flag.showFullscreen = $event" />

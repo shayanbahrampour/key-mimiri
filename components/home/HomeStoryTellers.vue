@@ -64,7 +64,6 @@ export default {
     swiperOptions() {
       return {
         grabCursor: true,
-        centeredSlides: this.isMobile,
         spaceBetween: 28,
         slidesPerView: 1.3,
         breakpoints: {

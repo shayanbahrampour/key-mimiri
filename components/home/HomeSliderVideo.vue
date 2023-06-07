@@ -40,7 +40,7 @@
           muted: true,
           fluid: true,
           autoplay: true,
-          controls: true,
+          controls: flag.showFullscreen,
           aspectRatio: flag.showFullscreen ? '16:9' : '1:1'
         }"
         :width="flag.showFullscreen ? '100vw' : videoSize"

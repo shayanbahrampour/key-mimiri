@@ -155,7 +155,7 @@ export default {
     shapes() {
       const coordinates = this.isMobile
         ? {
-            top: ['calc(100% - 110px)', '5%'],
+            top: ['calc(100% - 110px)', '0'],
             side: ['65%', '75%'],
             bottom: ['10px', '50%']
           }
