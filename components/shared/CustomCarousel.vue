@@ -10,7 +10,7 @@
       show-arrows-on-hover
     >
       <v-carousel-item v-for="(item, index) in items" :key="index">
-        <v-img :height="isMobile ? 300 : 500" :src="item.src" class="position-relative z-0" />
+        <v-img :height="isMobile ? '30vh' : '65vh'" :src="item.src" class="position-relative z-0" />
       </v-carousel-item>
     </v-carousel>
     <div
@@ -31,7 +31,7 @@
         'position-absolute start-0 end-0 mx-auto z-0',
         isMobile ? 'px-6' : $vuetify.breakpoint.xl ? 'px-12' : 'px-16'
       ]"
-      :style="`max-width: ${globalMaxWidth}px; top: ${isMobile ? 230 : 290}px`"
+      :style="`max-width: ${globalMaxWidth}px; top: ${isMobile ? 230 : 320}px`"
     >
       <h4 :class="['bel white--text font-weight-regular text-uppercase', isMobile ? 'f-50' : 'f-70']">
         {{ title }}
@@ -58,7 +58,7 @@
               </h2>
             </v-col>
             <v-col v-else-if="activeSlide.title && !activeSlide.description" cols="12">
-              <h2 :class="['white--text font-weight-regular', isMobile ? 'f-23' : 'f-35']">
+              <h2 class="white--text font-weight-regular f-30">
                 {{ activeSlide.title }}
               </h2>
             </v-col>

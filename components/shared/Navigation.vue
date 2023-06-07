@@ -31,7 +31,7 @@
 
         <v-spacer />
 
-        <template v-if="$vuetify.breakpoint.mdAndUp">
+        <template v-if="!isMobile">
           <v-btn
             v-for="(item, index) in items"
             :key="index"
@@ -61,7 +61,7 @@
 
         <v-icon
           :class="['ms-1 pe-0 bg-transparent', { 'me-n4': !isMobile }]"
-          v-if="$vuetify.breakpoint.smAndDown"
+          v-if="isMobile"
           @click="flag.showDrawer = !flag.showDrawer"
         >
           <template v-if="flag.showDrawer">mdi-close</template>
@@ -72,10 +72,10 @@
 
     <v-expand-transition>
       <v-sheet
-        v-if="$vuetify.breakpoint.smAndDown && flag.showDrawer"
+        v-if="isMobile && flag.showDrawer"
         class="position-fixed start-0 end-0 w-screen z-11"
         color="transparent"
-        style="top: 65px"
+        :style="`top: ${isMobile ? '65px' : '58px'}`"
       >
         <v-card
           flat
