@@ -106,7 +106,8 @@ export default {
     slider: {
       title: 'Unleashing the next level health solutions',
       more_about: 'More About',
-      cobel_group: 'Cobel Group'
+      cobel_group: 'Cobel Group',
+      about_cobel_group: 'About Cobel Group®'
     },
     services: {
       slider: {
@@ -143,7 +144,7 @@ export default {
     click_here: 'Click Here'
   },
   impactPage: {
-    title: 'Impact Story',
+    title: 'Impact Stories',
     slider: {
       title: 'Woman empowerment future enrichment',
       description:

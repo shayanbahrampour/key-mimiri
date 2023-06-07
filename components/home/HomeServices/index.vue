@@ -4,8 +4,8 @@
       <v-sheet
         v-if="activeItem"
         :color="activeItem.color"
-        :height="isMobile ? 300 : 400"
-        :width="isMobile ? 300 : 400"
+        :height="isMobile ? 300 : 450"
+        :width="isMobile ? 300 : 450"
         class="position-absolute z-1 top-0 end-0 start-0 mx-auto rounded-circle transition-ease-in-out"
         style="mix-blend-mode: color; margin-top: -70px; opacity: 0.69"
       />
@@ -48,16 +48,18 @@
       >
         <div class="w-full">
           <h3
-            :class="`bel font-weight-regular mb-3 ${isMobile ? 'f-35 text-center' : 'f-65'}`"
+            :class="`bel font-weight-regular mb-3 ${isMobile ? 'f-30 text-center' : 'f-70'}`"
             :style="`${!isMobile && 'max-width: 900px'};`"
           >
             {{ $t('homePage.services.slider.title') }}
           </h3>
           <div
-            :class="['font-weight-light ms-auto', isMobile ? 'text-center f-20' : 'f-25']"
-            :style="`line-height: 32px; ${
+            :class="['font-weight-light ms-auto', isMobile ? 'text-center f-18' : 'f-25']"
+            :style="`${
               !isMobile &&
-              `max-width: ${$vuetify.breakpoint.lgAndUp ? '550px' : $vuetify.breakpoint.smAndDown ? '100%' : '400px'};`
+              `line-height: 30px;max-width: ${
+                $vuetify.breakpoint.lgAndUp ? '550px' : $vuetify.breakpoint.smAndDown ? '100%' : '400px'
+              };`
             }`"
           >
             {{ $t('homePage.services.slider.description') }}
@@ -103,8 +105,8 @@
       >
         <div
           :class="[
-            'font-weight-regular bel grey--text text--darken-3 text-center flex-shrink-0',
-            isMobile ? 'mb-4 text-center f-65' : 'f-55',
+            'font-weight-regular bel grey--text text--darken-3 text-center flex-shrink-0 f-55',
+            isMobile && 'mb-4 text-center',
             $vuetify.breakpoint.lgAndUp ? 'text-center' : !isMobile && 'text-end'
           ]"
           :style="`width: ${isMobile ? '100%' : $vuetify.breakpoint.lgAndUp ? '400px' : '230px'}`"
@@ -153,7 +155,7 @@ export default {
     shapes() {
       const coordinates = this.isMobile
         ? {
-            top: ['75%', '5%'],
+            top: ['70%', '5%'],
             side: ['65%', '75%'],
             bottom: ['1%', '50%']
           }

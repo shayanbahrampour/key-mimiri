@@ -2,16 +2,14 @@
   <div class="grey--text text--darken-2">
     <v-sheet :max-width="globalMaxWidth" class="mx-auto">
       <h3
-        :class="[
-          'font-weight-regular bel grey--text text--darken-2',
-          isMobile ? 'px-4 f-45 text-center d-block' : 'px-16 f-50'
-        ]"
+        :class="['font-weight-regular bel', isMobile ? 'px-4 f-45 text-center d-block' : 'px-16 f-50']"
+        style="color: #59595b"
       >
         {{ $t('homePage.storytellers.title') }}
       </h3>
       <client-only>
         <swiper
-          :class="['w-full mr-0', isMobile ? 'mt-8 px-8' : 'my-8 px-16']"
+          :class="['w-full mr-0', isMobile ? 'mt-4 px-8' : 'my-5 px-16']"
           :dir="isRTL ? 'rtl' : 'ltr'"
           :options="{
             spaceBetween: 28,

@@ -56,7 +56,7 @@
               <h2
                 :class="[
                   'bel white--text font-weight-regular',
-                  isMobile ? (!activeSlide.description ? 'f-25' : 'f-35 text-center') : 'f-38'
+                  isMobile ? (!activeSlide.description ? 'f-25' : 'f-35 text-center') : 'f-50'
                 ]"
               >
                 {{ activeSlide.title }}

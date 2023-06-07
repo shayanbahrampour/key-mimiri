@@ -12,7 +12,7 @@
               alt="cobel"
               class="w-full mb-4"
               contain
-              height="60"
+              height="35"
               max-width="250"
               src="/images/logo-text-white.svg"
             />
@@ -116,7 +116,7 @@
           <div :class="['d-flex', !isMobile ? 'justify-space-between align-center' : 'justify-center']">
             <template v-if="!isMobile">
               <v-img alt="cobel" contain height="65" max-width="200" src="/images/logo-text-white.svg" />
-              <div v-if="!isMobile" class="ltr" style="margin-right: 120px">{{ $t('footer.copyright') }}</div>
+              <div v-if="!isMobile" class="ltr f-13" style="margin-right: 120px">{{ $t('footer.copyright') }}</div>
             </template>
 
             <v-btn
@@ -132,7 +132,7 @@
             </v-btn>
           </div>
 
-          <v-divider v-if="isMobile" class="white my-6" style="opacity: 0.3" />
+          <v-divider v-if="isMobile" class="white my-6 f-13" style="opacity: 0.3" />
 
           <div v-if="isMobile" class="ltr">{{ $t('footer.copyright') }}</div>
         </v-sheet>
@@ -189,33 +189,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.custom-gradient {
-  background-image: -webkit-linear-gradient(
-    90deg,
-    rgba(243, 145, 31, 1) 8%,
-    rgba(160, 30, 100, 1) 51%,
-    rgba(0, 165, 155, 1) 100%
-  );
-  background-image: -moz-linear-gradient(
-    90deg,
-    rgba(243, 145, 31, 1) 8%,
-    rgba(160, 30, 100, 1) 51%,
-    rgba(0, 165, 155, 1) 100%
-  );
-  background-image: -o-linear-gradient(
-    90deg,
-    rgba(243, 145, 31, 1) 8%,
-    rgba(160, 30, 100, 1) 51%,
-    rgba(0, 165, 155, 1) 100%
-  );
-  background-image: linear-gradient(
-    90deg,
-    rgba(243, 145, 31, 1) 8%,
-    rgba(160, 30, 100, 1) 51%,
-    rgba(0, 165, 155, 1) 100%
-  );
-}
-
 .text-lowercase {
   text-transform: lowercase !important;
 }

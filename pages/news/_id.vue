@@ -5,8 +5,8 @@
         <v-sheet :class="[`overflow-hidden ${!isMobile && `rounded-${isRTL ? 'l' : 'r'}-xl`}`]" max-width="700">
           <v-img max-height="calc(100vh - 150px)" src="/images/temp/cover-5-vertical.png" />
           <v-sheet v-if="!isMobile" class="extra-space white--text ps-16 pe-10 py-8" color="slategrey">
-            <h2 class="f-24 mb-4 white--text">Woman empowerment future enrichment</h2>
-            <p class="f-19 font-weight-light ma-0" style="line-height: 35px">
+            <h2 class="f-22 mb-4 white--text">Woman empowerment future enrichment</h2>
+            <p class="f-18 font-weight-light" style="line-height: 30px">
               Iron deficiency, leading to Anemia, has negative health effects on all individuals, especially women, and
               causes enormous social and financial burden on the societies. -Economic burden of Anemia has reverse
               association with sociodemographic factors, including nutrition, access to health solutions and education.
@@ -16,13 +16,13 @@
           </v-sheet>
         </v-sheet>
       </v-col>
-      <v-col cols="12" lg="6" md="6" offset-xl="0">
-        <div :class="[isMobile ? 'pa-5 mt-6 py-10' : `py-16 px-16 mt-16`]">
-          <h1 :class="['bel grey--text text--darken-2 font-weight-regular', isMobile ? 'f-40 mb-2' : 'f-70 mb-4']">
+      <v-col cols="12" lg="6" md="6">
+        <div :class="[isMobile ? 'pa-5 py-10' : `py-16 px-16 mt-12`]">
+          <h1 :class="['bel font-weight-regular', isMobile ? 'f-35 mb-2' : 'f-65 mb-4']" style="color: #59595b">
             Woman empowerment future enrichment
           </h1>
 
-          <div class="blue--text mb-8 f-19">Long-term value creation</div>
+          <div class="blue--text mb-8 f-19 font-weight-light">Long-term value creation</div>
 
           <p v-if="isMobile" class="grey--text text--darken-2 mb-8">
             In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society
@@ -34,17 +34,17 @@
             <div class="d-flex align-center grey--text text--darken-2 py-1 text-no-wrap pe-5">
               <span v-if="!isMobile"> {{ $t('impactPage.read_time') }}: </span>
               <v-img v-else contain height="20" max-width="20" src="/images/icons/timer.svg" />
-              <span :class="`ms-2 d-inline-block`"> 13min </span>
+              <span :class="`ms-1 d-inline-block`"> 13min </span>
             </div>
             <div class="d-flex align-center grey--text text--darken-2 py-1 text-no-wrap pe-5">
               <span v-if="!isMobile"> {{ $t('impactPage.written_by') }}: </span>
               <v-img v-else contain height="20" max-width="20" src="/images/icons/written.svg" />
-              <span :class="`ms-2 d-inline-block`"> Mehrab </span>
+              <span :class="`ms-1 d-inline-block`"> Mehrab </span>
             </div>
             <div class="d-flex align-center grey--text text--darken-2 py-1 text-no-wrap pe-5">
               <span v-if="!isMobile"> {{ $t('impactPage.published') }}: </span>
               <v-img v-else contain height="20" max-width="20" src="/images/icons/published.svg" />
-              <span :class="`ms-2 d-inline-block`"> 3 month ago </span>
+              <span :class="`ms-1 d-inline-block`"> 3 month ago </span>
             </div>
           </div>
 
@@ -62,13 +62,13 @@
           </div>
 
           <template v-if="!isMobile">
-            <v-divider class="mb-4 mt-10" />
-            <p class="grey--text text--darken-1 ma-0 f-19" style="line-height: 30px">
+            <v-divider class="mb-4 mt-8" />
+            <p class="ma-0 f-18" style="color: #939393; line-height: 30px">
               In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society
               and are committed to enhance their physical, psychological and social quality of life through high quality
               and innovative solutions.
             </p>
-            <v-divider class="my-4" />
+            <v-divider class="mt-4" />
           </template>
         </div>
       </v-col>
@@ -89,12 +89,12 @@
       </p>
     </v-sheet>
 
-    <div :style="`max-width:${globalMaxWidth}`" class="mx-auto">
-      <v-sheet :class="['pt-16 mt-sm-16', isMobile ? 'px-6' : 'px-16 mb-4']">
+    <div :style="`max-width:${globalMaxWidth}px`" class="mx-auto">
+      <v-sheet :class="['pt-16', isMobile ? 'px-6' : $vuetify.breakpoint.xl ? 'px-12 mb-4' : 'px-16 mb-4']">
         <h2
           :class="[
             'bel grey--text text--darken-2 font-weight-regular d-block',
-            isMobile ? 'f-33 text-center mb-6' : 'f-45 mb-6'
+            isMobile ? 'f-30 text-center mb-6' : 'f-45 mb-6'
           ]"
         >
           Sistan and Balouchestan, highest prevalence of Iron deficiency in Iran
@@ -102,28 +102,29 @@
       </v-sheet>
     </div>
 
-    <div :class="{ 'px-16': !isMobile }">
-      <VideoContents
-        class="w-full overflow-hidden"
-        poster="/images/temp/cover-4.png"
-        src="/video/temp.mp4"
-        style="max-height: calc(100vh - 200px)"
-      />
-    </div>
+    <div :style="`max-width:${globalMaxWidth}px`" class="mx-auto">
+      <div :class="!isMobile && ($vuetify.breakpoint.xl ? 'px-12' : 'px-16')">
+        <VideoContents
+          class="w-full overflow-hidden"
+          poster="/images/temp/cover-4.png"
+          src="/video/temp.mp4"
+          style="max-height: calc(100vh - 200px)"
+        />
 
-    <div :style="`max-width:${globalMaxWidth}`" class="mx-auto">
-      <v-sheet :class="[isMobile ? 'px-6' : 'px-16']" style="color: #59595b">
-        <v-row :class="[isMobile ? 'pt-16' : 'py-16']">
-          <v-col md="6">
+        <v-sheet v-if="isMobile" class="custom-gradient my-1" height="16" />
+      </div>
+      <v-sheet :class="[isMobile ? 'px-6' : $vuetify.breakpoint.xl ? 'px-12' : 'px-16']" style="color: #59595b">
+        <v-row :class="[isMobile ? 'pt-6' : 'mt-md-10 py-16']">
+          <v-col md="6" xl="8">
             <h3
               :class="[
                 'font-weight-regular bel success--text mb-4 text-center text-sm-start',
-                isMobile ? 'f-33' : 'f-45'
+                isMobile ? 'f-30' : 'f-45'
               ]"
             >
               32 Million people in need of 2 Billion doses of iron supplement; less than 800 Million doses is consumed
             </h3>
-            <p :class="['mb-6 font-weight-light', isMobile ? 'f-20' : 'f-25']" style="line-height: 35px">
+            <p :class="['mb-6 font-weight-light', isMobile ? 'f-20' : 'f-25 mt-8']" style="line-height: 35px">
               WHO advises that all women in their reproductive ages, whether having Iron deficiency or not, are required
               to consume 60 mg of iron supplements per week. This amount should be higher in pregnant women and any
               deficiencies will not only affect themselves, but it also affects their fetus. In addition, Iranian men
@@ -136,7 +137,7 @@
               quality Iron supplements.
             </p>
           </v-col>
-          <v-col class="ps-md-8" md="6">
+          <v-col class="ps-md-8" md="6" xl="4">
             <v-img min-height="600" src="/images/temp/impact_detail.png" />
           </v-col>
           <v-col lg="12">
@@ -151,7 +152,7 @@
             <h4
               :class="[
                 'font-weight-regular bel success--text mb-4 text-center text-sm-start',
-                isMobile ? 'f-35' : 'f-45'
+                isMobile ? 'f-30' : 'f-45'
               ]"
             >
               providing high‐quality supplements, not only for women, but also for men and children.
@@ -165,16 +166,23 @@
           </v-col>
         </v-row>
       </v-sheet>
-
       <v-sheet v-if="items && items.length !== 0" class="mx-auto">
-        <div :class="['d-flex align-center text-center', isMobile ? 'px-4 mt-10' : 'px-16']">
-          <h2 :class="['bel grey--text text--darken-2 font-weight-regular d-block', isMobile ? 'f-40' : 'f-55']">
+        <div
+          :class="[
+            'd-flex align-center text-center',
+            isMobile ? 'px-4 mt-10' : $vuetify.breakpoint.xl ? 'px-12' : 'px-16'
+          ]"
+        >
+          <h2
+            :class="['bel font-weight-regular d-block', isMobile ? 'f-40' : 'f-55']"
+            style="color: #595958 !important"
+          >
             {{ $t('impactPage.other_links') }}
           </h2>
 
           <template v-if="!isMobile">
             <v-spacer />
-            <nuxt-link :to="localePath('/impact')" class="grey--text text-decoration-none">
+            <nuxt-link :to="localePath('/impact')" class="grey--text text-decoration-none f-18">
               {{ $t('impactPage.see_all') }}
             </nuxt-link>
           </template>
@@ -190,7 +198,7 @@
             :options="swiperOptions"
           >
             <swiper-slide v-for="(item, index) in items" :key="index">
-              <ImpactCards :item="item" :style="`border-radius: 80px`" class="mt-2 mb-3" />
+              <ImpactCards :item="item" :style="`border-radius: ${isMobile ? '30px' : '80px'}`" class="mt-2 mb-3" />
             </swiper-slide>
           </swiper>
           <div v-else-if="!$fetchState.pending" class="mt-8 text-center">
@@ -224,7 +232,7 @@ export default {
             slidesPerView: 3.2
           },
           1264: {
-            slidesPerView: 2.5
+            slidesPerView: 2.1
           },
           960: {
             slidesPerView: 1.8

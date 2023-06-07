@@ -139,33 +139,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.custom-gradient {
-  background-image: -webkit-linear-gradient(
-    90deg,
-    rgba(243, 145, 31, 1) 8%,
-    rgba(160, 30, 100, 1) 51%,
-    rgba(0, 165, 155, 1) 100%
-  );
-  background-image: -moz-linear-gradient(
-    90deg,
-    rgba(243, 145, 31, 1) 8%,
-    rgba(160, 30, 100, 1) 51%,
-    rgba(0, 165, 155, 1) 100%
-  );
-  background-image: -o-linear-gradient(
-    90deg,
-    rgba(243, 145, 31, 1) 8%,
-    rgba(160, 30, 100, 1) 51%,
-    rgba(0, 165, 155, 1) 100%
-  );
-  background-image: linear-gradient(
-    90deg,
-    rgba(243, 145, 31, 1) 8%,
-    rgba(160, 30, 100, 1) 51%,
-    rgba(0, 165, 155, 1) 100%
-  );
-}
-
 .right-circle {
   width: 100px;
   height: 100px;
