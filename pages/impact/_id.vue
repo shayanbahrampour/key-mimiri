@@ -147,42 +147,45 @@
               quality Iron supplements.
             </p>
           </v-col>
-          <v-col class="ps-md-8 mb-md-8" md="6" lg="5" xl="4">
+          <v-col v-if="!isMobile" class="ps-md-8 mb-md-8" md="6" lg="5" xl="4">
             <v-img min-height="600" src="/images/temp/impact_detail.png" />
-          </v-col>
-          <v-col lg="12">
-            <p :class="['mb-6 font-weight-light', isMobile ? 'f-20' : 'f-25']" style="line-height: 35px">
-              Lastly, acknowledging our social responsibility commitments, we have identified various underprivileged
-              provinces with the highest prevalence of iron deficiency in women, such as Sistan and Balouchestan
-              province and Dahak village, and supplied FerroFort supplements for the need of 6,000 people for a time
-              horizon of one year as part of our Abidi 75th birthday project, aimed at empowering and inspiring women in
-              all sectors of Iranian society.
-            </p>
-
-            <h4
-              :class="[
-                'font-weight-regular bel success--text mb-4 text-center text-sm-start',
-                isMobile ? 'f-30' : 'f-45'
-              ]"
-            >
-              providing high‐quality supplements, not only for women, but also for men and children.
-            </h4>
-
-            <p :class="['mb-6 font-weight-light', isMobile ? 'f-20' : 'f-25']" style="line-height: 35px">
-              We at Cobel Group recognize the importance of woman empowerment and are committed to enhancing their
-              physical, psychological, and social quality of life through high‐quality and innovative healthcare
-              solutions.
-            </p>
           </v-col>
         </v-row>
       </v-sheet>
-      <v-sheet v-if="items && items.length !== 0" class="mx-auto">
-        <div
-          :class="[
-            'd-flex align-center text-center',
-            isMobile ? 'px-4 mt-10' : $vuetify.breakpoint.xl ? 'px-12' : 'px-16'
-          ]"
-        >
+
+      <v-img v-if="isMobile" min-height="600" src="/images/temp/impact_detail.png" />
+
+      <v-sheet
+        v-if="items && items.length !== 0"
+        :class="[isMobile ? 'px-6' : $vuetify.breakpoint.xl ? 'px-12' : 'px-16']"
+        style="color: #59595b"
+      >
+        <div class="mt-4">
+          <p :class="['mb-6 font-weight-light', isMobile ? 'f-20' : 'f-25']" style="line-height: 35px">
+            Lastly, acknowledging our social responsibility commitments, we have identified various underprivileged
+            provinces with the highest prevalence of iron deficiency in women, such as Sistan and Balouchestan province
+            and Dahak village, and supplied FerroFort supplements for the need of 6,000 people for a time horizon of one
+            year as part of our Abidi 75th birthday project, aimed at empowering and inspiring women in all sectors of
+            Iranian society.
+          </p>
+
+          <h4
+            :class="[
+              'font-weight-regular bel success--text mb-4 text-center text-sm-start',
+              isMobile ? 'f-30' : 'f-45'
+            ]"
+          >
+            providing high‐quality supplements, not only for women, but also for men and children.
+          </h4>
+
+          <p :class="['mb-6 font-weight-light', isMobile ? 'f-20' : 'f-25']" style="line-height: 35px">
+            We at Cobel Group recognize the importance of woman empowerment and are committed to enhancing their
+            physical, psychological, and social quality of life through high‐quality and innovative healthcare
+            solutions.
+          </p>
+        </div>
+
+        <div :class="['d-flex align-center text-center', isMobile ? 'px-4 mt-10' : 'mt-16']">
           <h2
             :class="['bel font-weight-regular d-block', isMobile ? 'f-40' : 'f-55']"
             style="color: #595958 !important"
@@ -197,25 +200,25 @@
             </nuxt-link>
           </template>
         </div>
-
-        <client-only>
-          <swiper
-            v-if="items && items.length !== 0"
-            id="impactSwiper"
-            key="impactSwiper"
-            :class="['w-full me-0', isMobile ? 'mt-8 px-5' : 'my-8 px-16']"
-            :dir="isRTL ? 'rtl' : 'ltr'"
-            :options="swiperOptions"
-          >
-            <swiper-slide v-for="(item, index) in items" :key="index">
-              <ImpactCards :item="item" :style="`border-radius: ${isMobile ? '30px' : '80px'}`" class="mt-2 mb-3" />
-            </swiper-slide>
-          </swiper>
-          <div v-else-if="!$fetchState.pending" class="mt-8 text-center">
-            {{ $t('impactPage.not_found') }}
-          </div>
-        </client-only>
       </v-sheet>
+
+      <client-only>
+        <swiper
+          v-if="items && items.length !== 0"
+          id="impactSwiper"
+          key="impactSwiper"
+          :class="['w-full me-0', isMobile ? 'mt-4 px-5' : 'my-3 px-16']"
+          :dir="isRTL ? 'rtl' : 'ltr'"
+          :options="swiperOptions"
+        >
+          <swiper-slide v-for="(item, index) in items" :key="index">
+            <ImpactCards :item="item" :style="`border-radius: ${isMobile ? '30px' : '80px'}`" class="mt-2 mb-3" />
+          </swiper-slide>
+        </swiper>
+        <div v-else-if="!$fetchState.pending" class="mt-8 text-center">
+          {{ $t('impactPage.not_found') }}
+        </div>
+      </client-only>
     </div>
 
     <v-progress-linear v-if="$fetchState.pending" />
@@ -233,25 +236,6 @@ export default {
   components: { VideoContents, HomeTellUsStory, ImpactCards },
   data() {
     return {
-      swiperOptions: {
-        spaceBetween: 28,
-        slidesPerView: 1.1,
-        grabCursor: true,
-        breakpoints: {
-          1904: {
-            slidesPerView: 3.2
-          },
-          1264: {
-            slidesPerView: 2.1
-          },
-          960: {
-            slidesPerView: 1.8
-          },
-          760: {
-            slidesPerView: 1.4
-          }
-        }
-      },
       items: []
     };
   },
@@ -266,6 +250,30 @@ export default {
     // } catch (e) {
     //   console.log(e);
     // }
+  },
+  computed: {
+    swiperOptions() {
+      return {
+        grabCursor: true,
+        centeredSlides: this.isMobile,
+        spaceBetween: 28,
+        slidesPerView: 1.2,
+        breakpoints: {
+          1904: {
+            slidesPerView: 2.5
+          },
+          1264: {
+            slidesPerView: 1.8
+          },
+          960: {
+            slidesPerView: 1.8
+          },
+          760: {
+            slidesPerView: 1.4
+          }
+        }
+      };
+    }
   },
   created() {
     this.getRelated();
