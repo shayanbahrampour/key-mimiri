@@ -21,7 +21,7 @@
             rounded
             hide-details
             dense
-          ></v-select>
+          />
           <v-text-field class="mb-8 f-20" dense filled hide-details label="Country" rounded></v-text-field>
           <v-text-field class="mb-8 f-20" dense filled hide-details label="Graduation Year" rounded></v-text-field>
         </v-col>
@@ -60,7 +60,7 @@
             rounded
             hide-details
             dense
-          ></v-select>
+          />
           <v-text-field class="mb-8 f-20" dense filled hide-details label="Country" rounded></v-text-field>
           <v-text-field class="mb-8 f-20" dense filled hide-details label="Graduation Year" rounded></v-text-field>
         </v-col>
@@ -98,7 +98,7 @@
         hide-details
         label="Other training, certifications or licenses held..."
         rounded
-      ></v-textarea>
+      />
     </div>
   </v-form>
 </template>
