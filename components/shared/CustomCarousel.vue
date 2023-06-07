@@ -19,7 +19,7 @@
         'position-absolute start-0 end-0 mx-auto z-0',
         isMobile ? 'd-flex justify-center align-center px-6' : 'px-16'
       ]"
-      :style="`max-width: ${globalMaxWidth}px; top: ${isMobile ? 260 : 370}px`"
+      :style="`max-width: ${globalMaxWidth}px; top: ${isMobile ? 260 : 330}px`"
     >
       <v-icon v-for="(item, index) in items" :key="index" class="ms-1" color="white" size="25" @click="model = index">
         {{ index === model ? 'mdi-radiobox-marked' : 'mdi-radiobox-blank' }}
@@ -69,7 +69,7 @@
               :offset-lg="activeSlide.title ? 1 : 0"
               cols="12"
             >
-              <p class="f-22 white--text font-weight-light mt-lg-0">
+              <p class="f-22 white--text font-weight-light mt-lg-0 mb-0">
                 {{
                   activeSlide.description | truncate({ length: flag.showMore ? activeSlide.description.length : 100 })
                 }}
