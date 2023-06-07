@@ -4,8 +4,8 @@
       <v-sheet
         v-if="activeItem"
         :color="activeItem.color"
-        :height="isMobile ? 300 : 450"
-        :width="isMobile ? 300 : 450"
+        :height="isMobile ? 270 : 450"
+        :width="isMobile ? 270 : 450"
         class="position-absolute z-1 top-0 end-0 start-0 mx-auto rounded-circle transition-ease-in-out"
         style="mix-blend-mode: color; margin-top: -70px; opacity: 0.69"
       />

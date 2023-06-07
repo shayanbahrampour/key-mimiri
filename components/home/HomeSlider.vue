@@ -8,12 +8,13 @@
     <v-sheet
       :class="[
         'my-auto end-0 top-0 d-flex align-center position-absolute',
-        isMobile ? 'start-0 mx-auto justify-center' : 'h-screen bottom-0'
+        isMobile ? 'start-0 mx-auto justify-center' : 'h-screen bottom-0',
+        flag.showFullscreen ? 'z-10' : 'z-2'
       ]"
       :style="`${isMobile ? 'top:-250px;' : `top:-120px; ${isRTL ? 'left' : 'right'}:-450px;`}`"
       color="white"
     >
-      <HomeSliderVideo />
+      <HomeSliderVideo @showFullscreen="flag.showFullscreen = $event" />
     </v-sheet>
 
     <v-sheet
@@ -66,7 +67,14 @@ import VideoContents from '~/components/shared/VideoContents.vue';
 import HomeSliderVideo from '~/components/home/HomeSliderVideo.vue';
 
 export default {
-  components: { HomeSliderVideo, VideoContents, VideoLoader }
+  components: { HomeSliderVideo, VideoContents, VideoLoader },
+  data() {
+    return {
+      flag: {
+        showFullscreen: false
+      }
+    };
+  }
 };
 </script>
 

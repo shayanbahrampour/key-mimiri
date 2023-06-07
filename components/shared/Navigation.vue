@@ -49,14 +49,8 @@
           </v-btn>
         </template>
 
-        <v-icon v-if="$vuetify.breakpoint.smAndDown" @click="flag.showDrawer = !flag.showDrawer">
-          <template v-if="flag.showDrawer">mdi-close</template>
-          <template v-else>mdi-menu</template>
-        </v-icon>
-
         <v-btn
           :to="$i18n.locale === 'en' ? switchLocalePath('fa') : switchLocalePath('en')"
-          class="ms-1 pe-0 bg-transparent me-n4"
           color="primary"
           icon
           :ripple="false"
@@ -64,6 +58,15 @@
           <template v-if="$i18n.locale === 'en'">Fa</template>
           <template v-else>En</template>
         </v-btn>
+
+        <v-icon
+          class="ms-1 pe-0 bg-transparent me-n4"
+          v-if="$vuetify.breakpoint.smAndDown"
+          @click="flag.showDrawer = !flag.showDrawer"
+        >
+          <template v-if="flag.showDrawer">mdi-close</template>
+          <template v-else>mdi-menu</template>
+        </v-icon>
       </v-sheet>
     </v-app-bar>
 
