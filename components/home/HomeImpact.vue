@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="['my-16', { 'pt-3': !isMobile }]">
     <v-sheet :class="['mx-auto grey--text text--darken-2', { 'px-16': !isMobile }]" :max-width="globalMaxWidth">
       <div :class="['d-flex align-center mb-14', { 'flex-column text-center px-6': isMobile }]">
         <h3
@@ -12,8 +12,8 @@
         </h3>
 
         <p
-          :class="['mb-0 font-weight-light py-3', isMobile ? 'f-16' : 'f-20 ms-8 ps-8']"
-          :style="`${!isMobile && `border-${isRTL ? 'right' : 'left'}: 1px solid #aaa`}; color: #59595B`"
+          :class="['mb-0 font-weight-light py-4', isMobile ? 'f-16' : 'f-20 ms-8 ps-8']"
+          :style="`${!isMobile && `border-${isRTL ? 'right' : 'left'}: 1px solid #59595B`}; color: #59595B`"
         >
           {{ $t('homePage.impact.description') }}
         </p>

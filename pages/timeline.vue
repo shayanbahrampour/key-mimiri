@@ -27,8 +27,8 @@
         </h3>
 
         <p
-          :class="['mb-0 font-weight-light py-3', isMobile ? 'f-17' : 'f-20 ms-8 ps-8']"
-          :style="`${!isMobile && `border-${isRTL ? 'right' : 'left'}: 1px solid #aaa`}; color: #59595B`"
+          :class="['mb-0 font-weight-light py-4', isMobile ? 'f-17' : 'f-20 ms-8 ps-8']"
+          :style="`${!isMobile && `border-${isRTL ? 'right' : 'left'}: 1px solid #59595B`}; color: #59595B`"
         >
           Patients are the center of all projects being conducted in the Cobel Group. Stories of hope, innovation,
           collaboration, inspiration and empowerment helps us measure our impact and inspire us to create more.

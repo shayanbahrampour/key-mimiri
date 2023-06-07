@@ -1,7 +1,7 @@
 <template>
   <div
-    :class="['position-relative flex-shrink-0 z-0', !isMobile && 'ps-8 ms-8']"
-    :style="`width: ${width}; ${!isMobile && `border-${isRTL ? 'right' : 'left'}: 1px solid #aaa`}`"
+    :class="['position-relative flex-shrink-0 z-0 transition-fast-in-fast-out', !isMobile && 'ps-8 ms-8 py-4']"
+    :style="`width: ${width}; ${!isMobile && `border-${isRTL ? 'right' : 'left'}: 1px solid #59595B`}`"
   >
     <h3
       v-if="item"

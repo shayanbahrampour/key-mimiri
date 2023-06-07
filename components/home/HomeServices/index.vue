@@ -4,8 +4,8 @@
       <v-sheet
         v-if="activeItem"
         :color="activeItem.color"
-        :height="isMobile ? 300 : 400"
-        :width="isMobile ? 300 : 400"
+        :height="isMobile ? 300 : 450"
+        :width="isMobile ? 300 : 450"
         class="position-absolute z-1 top-0 end-0 start-0 mx-auto rounded-circle transition-ease-in-out"
         style="mix-blend-mode: color; margin-top: -70px; opacity: 0.69"
       />
@@ -48,7 +48,7 @@
       >
         <div class="w-full">
           <h3
-            :class="`bel font-weight-regular mb-3 ${isMobile ? 'f-35 text-center' : 'f-65'}`"
+            :class="`bel font-weight-regular mb-3 ${isMobile ? 'f-35 text-center' : 'f-70'}`"
             :style="`${!isMobile && 'max-width: 900px'};`"
           >
             {{ $t('homePage.services.slider.title') }}

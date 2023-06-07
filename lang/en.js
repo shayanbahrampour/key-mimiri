@@ -143,7 +143,7 @@ export default {
     click_here: 'Click Here'
   },
   impactPage: {
-    title: 'Impact Story',
+    title: 'Impact Stories',
     slider: {
       title: 'Woman empowerment future enrichment',
       description:
