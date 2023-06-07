@@ -41,7 +41,7 @@
             v-for="(item, i) in items"
             :id="`item-${i}`"
             :key="i"
-            :class="['bg-transparent', isMobile ? 'ps-2' : 'ps-6']"
+            :class="[isMobile ? 'ps-2' : 'ps-6']"
             @click="scroll(`#item-${i}`)"
           >
             <v-sheet
@@ -63,7 +63,7 @@
             />
 
             <v-expansion-panel-header
-              :class="['py-8 bg-transparent', isMobile ? 'f-30' : 'f-40']"
+              :class="['pt-8 pb-0', isMobile ? 'f-30' : 'f-40']"
               :style="`color: ${item.color}`"
               hide-actions
             >
@@ -96,7 +96,7 @@
               </div>
             </v-expansion-panel-header>
             <v-expansion-panel-content>
-              <v-timeline :style="`color: ${item.color}`" align-top class="ms-n2 mt-n4 pt-0" dense>
+              <v-timeline :style="`color: ${item.color}`" align-top class="ms-n2 pt-0" dense>
                 <v-timeline-item hide-dot>
                   <p class="font-weight-light ps-2 f-22" style="color: #59595b">
                     Cobel Darou is a leading private pharmaceutical company founded in 2002. Cobel Darou main activities
@@ -123,8 +123,11 @@
                   </v-sheet>
                 </v-timeline-item>
               </v-timeline>
-              <v-divider style="border-color: #eeeeee; border-top-width: 2px" class="mt-8 ms-10" />
             </v-expansion-panel-content>
+
+            <div class="ps-5">
+              <v-divider style="border-color: #eeeeee; border-top-width: 2px" class="mt-8 ms-10" />
+            </div>
           </v-expansion-panel>
         </v-expansion-panels>
       </div>
@@ -326,22 +329,6 @@ export default {
       width: 24px;
       height: 24px;
       border-radius: 50%;
-    }
-  }
-
-  .v-expansion-panel-header:not(.v-expansion-panel-header--active) {
-    position: relative;
-
-    &:after {
-      content: '';
-      position: absolute;
-      right: 0;
-      left: 0;
-      bottom: 0;
-      margin-left: 60px;
-      margin-right: 25px;
-      border-bottom: 2px solid #eeeeee;
-      transition: all ease 0.4s;
     }
   }
 
