@@ -108,7 +108,7 @@
           class="w-full overflow-hidden"
           poster="/images/temp/cover-4.png"
           src="/video/temp.mp4"
-          style="max-height: calc(100vh - 200px)"
+          style="max-height: calc(100vh - 150px); min-height: 500px"
         />
 
         <v-sheet v-if="isMobile" class="custom-gradient my-1" height="16" />
