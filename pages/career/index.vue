@@ -105,16 +105,16 @@
     </div>
 
     <div class="h-full mt-16 slategrey" style="height: 400px">
-      <div v-if="!isMobile" class="d-flex justify-center mt-2 px-16">
+      <div v-if="!isMobile" class="d-flex justify-center mt-6 px-16">
         <div class="d-flex align-center justify-center">
           <h4
             :class="['bel f-40 white--text text--darken-3 font-weight-regular', `text-${isRTL ? 'start' : 'end'}`]"
-            style="width: 40%"
+            style="width: 30%"
           >
             {{ $t('career.divider_title') }}
           </h4>
           <v-divider class="mx-8" color="white" style="min-height: 100px" vertical />
-          <p class="f-20 white--text mb-0 text--darken-3 font-weight-light" style="max-width: 40%">
+          <p class="f-20 white--text mb-0 text--darken-3 font-weight-light" style="max-width: 30%">
             {{ $t('career.divider_description') }}
           </p>
         </div>
