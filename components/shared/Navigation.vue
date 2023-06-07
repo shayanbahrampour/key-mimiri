@@ -38,7 +38,7 @@
             :ripple="false"
             :to="item.path ? localePath(item.path) : undefined"
             active-class="primary--text"
-            class="bg-transparent"
+            class="bg-transparent px-3"
             color="transparent"
             depressed
             exact
