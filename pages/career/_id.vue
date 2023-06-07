@@ -11,7 +11,7 @@
         :max-height="isMobile ? '40' : '100'"
         :width="isMobile ? '100%' : '200'"
         contain
-        src="/images/company/.png"
+        src="/images/company/medarman.png"
       />
       <v-divider v-if="isMobile" style="width: 100% !important" />
       <p :class="['mx-2', isMobile ? 'text-center my-2 f-20' : 'mt-6 f-18']" style="color: #939393; line-height: 40px">
