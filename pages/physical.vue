@@ -180,6 +180,6 @@ export default {
 }
 
 .phy-container {
-  background-image: url('/images/social/line.png');
+  background-image: url('/images/social/triangle.png');
 }
 </style>

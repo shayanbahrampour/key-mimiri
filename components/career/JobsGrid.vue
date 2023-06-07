@@ -11,10 +11,10 @@
         <div class="d-flex align-start mt-6">
           <v-btn
             :to="localePath('/career/123')"
-            class="rounded-xl d-flex justify-center white--text f-14"
+            class="rounded-xl d-flex justify-center white--text f-18"
             color="slategrey"
             elevation="0"
-            height="30"
+            height="36"
             min-width="220"
           >
             {{ $t('career.job_action') }}
@@ -35,10 +35,10 @@
         <div class="d-flex align-start mt-6">
           <v-btn
             :to="localePath('/career/123')"
-            class="rounded-xl d-flex justify-center white--text f-14"
+            class="rounded-xl d-flex justify-center white--text f-18"
             color="slategrey"
             elevation="0"
-            height="30"
+            height="36"
             min-width="220"
           >
             {{ $t('career.job_action') }}
@@ -61,10 +61,10 @@
         <div class="d-flex align-start mt-6">
           <v-btn
             :to="localePath('/career/123')"
-            class="rounded-xl d-flex justify-center white--text f-14"
+            class="rounded-xl d-flex justify-center white--text f-18"
             color="slategrey"
             elevation="0"
-            height="30"
+            height="36"
             min-width="220"
           >
             {{ $t('career.job_action') }}
@@ -85,10 +85,10 @@
         <div class="d-flex align-start mt-6">
           <v-btn
             :to="localePath('/career/123')"
-            class="rounded-xl d-flex justify-center white--text f-14"
+            class="rounded-xl d-flex justify-center white--text f-18"
             color="slategrey"
             elevation="0"
-            height="30"
+            height="36"
             min-width="220"
           >
             {{ $t('career.job_action') }}

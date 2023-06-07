@@ -40,36 +40,36 @@ export default {
       if (!this.$route.query.job) {
         switch (this.model) {
           case 0:
-            return '8';
+            return '10';
           case 1:
-            return '23';
+            return '25';
           case 2:
-            return '35';
+            return '37';
           case 3:
-            return '47';
+            return '51';
           case 4:
-            return '58';
+            return '63';
           case 5:
-            return '69';
+            return '74';
           case 6:
-            return '86';
+            return '91';
           case 7:
             return '100';
         }
       } else {
         switch (this.model) {
           case 0:
-            return '6';
+            return '10';
           case 1:
-            return '18';
+            return '25';
           case 2:
-            return '30';
+            return '40';
           case 3:
-            return '42';
+            return '55';
           case 4:
-            return '52';
-          case 5:
             return '69';
+          case 5:
+            return '90';
           case 6:
             return '100';
         }
