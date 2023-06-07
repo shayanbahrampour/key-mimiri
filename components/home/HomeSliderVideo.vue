@@ -2,10 +2,10 @@
   <div
     :class="[
       'pointer overflow-hidden custom-transition',
-      isMobile ? (flag.showFullscreen ? 'z-10' : 'z-1') : 'z-10',
+      flag.showFullscreen ? 'z-1' : 'z-10',
       flag.showFullscreen
         ? 'black position-fixed h-screen w-screen d-flex align-center justify-center rounded-0 top-0 start-0'
-        : 'z-2 rounded-circle'
+        : 'z-2 rounded-circle position-relative'
     ]"
   >
     <v-fade-transition>
@@ -67,6 +67,11 @@ export default {
   computed: {
     videoSize() {
       return this.isMobile ? '370px' : '600px';
+    }
+  },
+  watch: {
+    'flag.showFullscreen'() {
+      this.$emit('showFullscreen', this.flag.showFullscreen);
     }
   }
 };

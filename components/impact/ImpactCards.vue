@@ -10,7 +10,7 @@
       :class="[
         'white--text pointer align-center flex-grow-1',
         isMobile ? 'text-center' : 'd-flex',
-        summary && !isMobile ? 'ps-8 pe-6 pt-5 pb-10' : isMobile ? 'text-center pa-8' : 'text-center px-16 py-8'
+        summary && !isMobile ? 'px-8 pb-8 pt-6' : isMobile ? 'text-center pa-6' : 'text-center px-16 py-8'
       ]"
       color="transparent"
       flat

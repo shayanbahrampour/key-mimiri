@@ -69,10 +69,18 @@ export default {
       model: {
         category: null
       },
-      items: [],
-      swiperOptions: {
+      items: []
+    };
+  },
+  computed: {
+    ...mapGetters({
+      categories: 'impact/categories'
+    }),
+    swiperOptions() {
+      return {
+        centeredSlides: this.isMobile,
         spaceBetween: 28,
-        slidesPerView: 1.1,
+        slidesPerView: 1.2,
         grabCursor: true,
         breakpoints: {
           1904: {
@@ -85,13 +93,8 @@ export default {
             slidesPerView: 1.4
           }
         }
-      }
-    };
-  },
-  computed: {
-    ...mapGetters({
-      categories: 'impact/categories'
-    })
+      };
+    }
   },
   async fetch() {
     try {
