@@ -9,29 +9,19 @@
       </p>
       <v-row class="align-start justify-center">
         <v-col :class="isMobile ? 'pb-0' : undefined" cols="12" md="4">
-          <v-menu offset-y open-on-click>
-            <template v-slot:activator="{ on, attrs }">
-              <v-text-field
-                v-model="model.degree[0]"
-                append-icon="mdi-triangle-down 10"
-                append-icon-size="16"
-                class="mb-8 f-20"
-                dense
-                filled
-                hide-details
-                label="Degree"
-                readonly
-                rounded
-                v-bind="attrs"
-                v-on="on"
-              ></v-text-field>
-            </template>
-            <v-list>
-              <v-list-item v-for="(item, index) in items" :key="index" @click="model.degree[0] = item.title">
-                <v-list-item-title>{{ item.title }}</v-list-item-title>
-              </v-list-item>
-            </v-list>
-          </v-menu>
+          <v-select
+            v-model="model.degree[0]"
+            :items="items"
+            class="mb-8"
+            menu-props="auto"
+            append-icon="mdi-triangle-down 10"
+            append-icon-size="16"
+            label="Degree"
+            filled
+            rounded
+            hide-details
+            dense
+          ></v-select>
           <v-text-field class="mb-8 f-20" dense filled hide-details label="Country" rounded></v-text-field>
           <v-text-field class="mb-8 f-20" dense filled hide-details label="Graduation Year" rounded></v-text-field>
         </v-col>
@@ -58,29 +48,19 @@
       </v-btn>
       <v-row v-for="i in counter" :key="i" class="align-start justify-center">
         <v-col :class="isMobile ? 'pb-0' : undefined" cols="12" md="4">
-          <v-menu offset-y open-on-click>
-            <template v-slot:activator="{ on, attrs }">
-              <v-text-field
-                v-model="model.degree[i]"
-                append-icon="mdi-triangle-down 10"
-                append-icon-size="16"
-                class="mb-8 f-20"
-                dense
-                filled
-                hide-details
-                label="Degree"
-                readonly
-                rounded
-                v-bind="attrs"
-                v-on="on"
-              ></v-text-field>
-            </template>
-            <v-list>
-              <v-list-item v-for="(item, index) in items" :key="index" @click="model.degree[i] = item.title">
-                <v-list-item-title>{{ item.title }}</v-list-item-title>
-              </v-list-item>
-            </v-list>
-          </v-menu>
+          <v-select
+            v-model="model.degree[i]"
+            :items="items"
+            class="mb-8"
+            menu-props="auto"
+            append-icon="mdi-triangle-down 10"
+            append-icon-size="16"
+            label="Degree"
+            filled
+            rounded
+            hide-details
+            dense
+          ></v-select>
           <v-text-field class="mb-8 f-20" dense filled hide-details label="Country" rounded></v-text-field>
           <v-text-field class="mb-8 f-20" dense filled hide-details label="Graduation Year" rounded></v-text-field>
         </v-col>
@@ -132,14 +112,7 @@ export default {
       model: {
         degree: []
       },
-      items: [
-        { title: 'Graduate' },
-        { title: 'Associate' },
-        { title: 'Bachelor' },
-        { title: 'Master' },
-        { title: 'Doctorate' },
-        { title: 'Professional' }
-      ]
+      items: ['Graduate', 'Associate', 'Bachelor', 'Master', 'Doctorate', 'Professional']
     };
   }
 };

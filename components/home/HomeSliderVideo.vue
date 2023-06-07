@@ -27,13 +27,12 @@
       color="black"
       @click="flag.showFullscreen = false"
     />
-    <v-sheet
-      :class="['mx-auto', flag.showFullscreen && 'w-screen position-relative z-1']"
-      color="transparent"
+    <div
+      :class="['mx-auto z-1', flag.showFullscreen && 'w-screen position-relative']"
       @click="flag.showFullscreen = true"
     >
       <VideoContents
-        :height="flag.showFullscreen ? undefined : videoSize"
+        :height="flag.showFullscreen ? '100vh' : videoSize"
         :options="{
           fill: true,
           loop: true,
@@ -44,10 +43,10 @@
           aspectRatio: flag.showFullscreen ? '16:9' : '1:1'
         }"
         :width="flag.showFullscreen ? '100vw' : videoSize"
-        class="my-auto"
+        class="my-auto d-flex align-center"
         src="/video/temp-2.mp4"
       />
-    </v-sheet>
+    </div>
   </div>
 </template>
 
@@ -70,8 +69,11 @@ export default {
     }
   },
   watch: {
-    'flag.showFullscreen'() {
-      this.$emit('showFullscreen', this.flag.showFullscreen);
+    'flag.showFullscreen': {
+      immediate: true,
+      handler() {
+        this.$emit('showFullscreen', this.flag.showFullscreen);
+      }
     }
   }
 };

@@ -8,30 +8,20 @@
         Preferred Start Time
       </p>
       <div class="d-flex flex-column">
-        <v-menu offset-y open-on-click>
-          <template v-slot:activator="{ on, attrs }">
-            <v-text-field
-              v-model="file"
-              append-icon="mdi-triangle-down 10"
-              append-icon-size="16"
-              class="mb-6 f-20"
-              dense
-              filled
-              hide-details
-              label="Will be available for work"
-              readonly
-              rounded
-              style="max-width: 400px"
-              v-bind="attrs"
-              v-on="on"
-            ></v-text-field>
-          </template>
-          <v-list>
-            <v-list-item v-for="(item, index) in items" :key="index" @click="file = item.title">
-              <v-list-item-title>{{ item.title }}</v-list-item-title>
-            </v-list-item>
-          </v-list>
-        </v-menu>
+        <v-select
+          v-model="model.date"
+          :items="items"
+          class="mb-6"
+          menu-props="auto"
+          append-icon="mdi-triangle-down 10"
+          append-icon-size="16"
+          label="Will be available for work"
+          filled
+          rounded
+          hide-details
+          dense
+          style="max-width: 400px"
+        ></v-select>
         <v-radio-group v-model="radioGroup" class="mt-6 pt-0">
           <v-radio
             color="#4C6D80"
@@ -68,8 +58,8 @@ export default {
   data() {
     return {
       valid: null,
-      file: null,
-      items: [{ title: 'Option 1' }, { title: 'Option 2' }, { title: 'Option 3' }]
+      model: { date: null },
+      items: ['option 1', 'option 2', 'option 3']
     };
   }
 };
