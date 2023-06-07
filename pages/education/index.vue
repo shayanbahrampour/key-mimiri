@@ -11,7 +11,7 @@
     <div v-if="!isMobile" class="d-flex flex-column align-start w-full white pr-4">
       <v-card
         :width="isMobile ? '90%' : undefined"
-        class="rounded-r-xl white--text rounded-l-0 d-flex py-6 px-10 flex-column mr-16 align-center justify-center"
+        class="rounded-r-xl white--text rounded-l-0 d-flex py-6 px-10 flex-column mr-10 align-center justify-center"
         color="slategrey"
         elevation="0"
         height="240"
