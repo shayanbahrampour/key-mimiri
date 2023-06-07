@@ -28,16 +28,15 @@
       @click="flag.showFullscreen = false"
     />
     <div
-      :class="['mx-auto z-1', flag.showFullscreen && 'w-screen position-relative']"
+      :class="['mx-auto z-1', flag.showFullscreen && 'w-screen h-screen position-relative']"
       @click="flag.showFullscreen = true"
     >
       <VideoContents
         :height="flag.showFullscreen ? '100vh' : videoSize"
         :options="{
-          fill: true,
           loop: true,
           muted: true,
-          fluid: false,
+          fluid: true,
           autoplay: true,
           controls: true,
           aspectRatio: flag.showFullscreen ? '16:9' : '1:1'
