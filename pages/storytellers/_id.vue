@@ -91,7 +91,13 @@
       have a 2 prevalence of Anemia and are also require to manage the disease accordingly (3). Studies conducted by
       Cobel Group medico-marketing teams indicated
     </p>
-    <v-img :class="[isMobile ? 'mt-4' : 'mt-16']" max-height="500" src="/images/temp/physical.png" />
+
+    <VideoContents
+      class="w-full overflow-hidden d-flex align-center"
+      poster="/images/temp/cover-6.png"
+      src="/video/temp.mp4"
+      style="max-height: 500px"
+    />
     <v-sheet class="custom-gradient w-full" height="5" />
     <div :class="['h-full white', isMobile ? 'px-4' : 'px-16']">
       <h4
@@ -198,12 +204,14 @@
 </template>
 
 <script>
+import VideoContents from '~/components/shared/VideoContents';
 export default {
   head() {
     return {
       title: this.$t('pageTitles.storytellers')
     };
   },
+  components: { VideoContents },
   data() {
     return {
       seeMore: false,
