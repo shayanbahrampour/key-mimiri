@@ -11,9 +11,9 @@
     <v-fade-transition>
       <v-btn
         v-if="flag.showFullscreen"
-        class="position-fixed top-0 start-0 ma-2 z-1"
-        icon
-        large
+        class="position-fixed top-0 start-0 ma-2 z-2"
+        fab
+        color="black"
         @click="flag.showFullscreen = false"
       >
         <v-icon color="white">mdi-close</v-icon>
@@ -29,13 +29,11 @@
     />
     <v-sheet
       :class="['mx-auto', flag.showFullscreen && 'w-screen position-relative z-1']"
-      :height="flag.showFullscreen ? undefined : videoSize"
-      :width="flag.showFullscreen ? '90vw' : videoSize"
       color="transparent"
       @click="flag.showFullscreen = true"
     >
       <VideoContents
-        :class="[flag.showFullscreen ? 'mx-auto' : 'my-auto']"
+        class="my-auto"
         :height="flag.showFullscreen ? undefined : videoSize"
         :options="{
           fill: true,
@@ -43,10 +41,10 @@
           muted: true,
           fluid: false,
           autoplay: true,
-          controls: flag.showFullscreen,
+          controls: true,
           aspectRatio: flag.showFullscreen ? '16:9' : '1:1'
         }"
-        :width="flag.showFullscreen ? '90vw' : videoSize"
+        :width="flag.showFullscreen ? '100vw' : videoSize"
         src="/video/temp-2.mp4"
       />
     </v-sheet>

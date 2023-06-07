@@ -52,13 +52,13 @@
           color="slategrey"
         >
           <v-row v-if="activeSlide" :no-gutters="!isMobile" class="position-relative z-1" justify="center">
-            <v-col v-if="activeSlide.title" :lg="activeSlide.description ? 5 : 12" cols="12">
-              <h2
-                :class="[
-                  'bel white--text font-weight-regular',
-                  isMobile ? (!activeSlide.description ? 'f-25' : 'f-35 text-center') : 'f-50'
-                ]"
-              >
+            <v-col v-if="activeSlide.title && activeSlide.description" :lg="activeSlide.description ? 5 : 12" cols="12">
+              <h2 :class="['bel white--text font-weight-regular', isMobile ? 'f-35 text-center' : 'f-50']">
+                {{ activeSlide.title }}
+              </h2>
+            </v-col>
+            <v-col v-else-if="activeSlide.title && !activeSlide.description" cols="12">
+              <h2 :class="['white--text font-weight-regular', isMobile ? 'f-25' : 'f-35']">
                 {{ activeSlide.title }}
               </h2>
             </v-col>
