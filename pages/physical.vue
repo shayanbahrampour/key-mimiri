@@ -181,5 +181,6 @@ export default {
 
 .phy-container {
   background-image: url('/images/social/triangle.png');
+  background-size: cover;
 }
 </style>

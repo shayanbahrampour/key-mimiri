@@ -192,5 +192,6 @@ export default {
 
 .social-container {
   background-image: url('/images/social/line.png');
+  background-size: cover;
 }
 </style>
