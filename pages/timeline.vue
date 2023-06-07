@@ -148,7 +148,7 @@ export default {
   },
   data() {
     return {
-      expanded: null,
+      expanded: undefined,
       items: [
         {
           title: 'Cobel Darou',
