@@ -13,7 +13,7 @@
             v-model="model.coverLetter"
             :append-icon="model.coverLetter ? false : 'mdi-file-upload slategrey--text'"
             :prepend-icon="false"
-            class="mb-9"
+            class="mb-9 attach-file"
             clear-icon="mdi-delete black--text"
             dense
             filled
@@ -25,7 +25,7 @@
             v-model="model.address"
             :append-icon="model.address ? false : 'mdi-file-upload slategrey--text'"
             :prepend-icon="false"
-            class="mb-9"
+            class="mb-9 attach-file"
             clear-icon="mdi-delete black--text"
             dense
             filled
@@ -39,7 +39,7 @@
             v-model="model.vitae"
             :append-icon="model.vitae ? false : 'mdi-file-upload slategrey--text'"
             :prepend-icon="false"
-            class="mb-9"
+            class="mb-9 attach-file"
             clear-icon="mdi-delete black--text"
             dense
             filled
@@ -51,7 +51,7 @@
             v-model="model.material"
             :append-icon="model.material ? false : 'mdi-file-upload slategrey--text'"
             :prepend-icon="false"
-            class="mb-9"
+            class="mb-9 attach-file"
             clear-icon="mdi-delete black--text"
             dense
             filled
@@ -84,5 +84,9 @@ export default {
 <style>
 .contact-background {
   background-color: #d9d9d9;
+}
+
+.attach-file .v-file-input__text {
+  cursor: pointer !important;
 }
 </style>
