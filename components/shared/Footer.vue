@@ -1,6 +1,6 @@
 <template>
   <div class="mt-10">
-    <v-sheet v-if="isMobile" class="custom-gradient w-full" height="5" />
+    <v-sheet v-if="isMobile" class="custom-gradient w-full" height="10" />
     <v-footer :class="[isMobile ? 'pt-10' : 'py-16 px-0']" color="slategrey">
       <div :style="`max-width: ${globalMaxWidth}px`" class="mx-auto w-full">
         <v-sheet
@@ -74,7 +74,7 @@
       </div>
     </v-footer>
 
-    <v-sheet v-if="!isMobile" class="custom-gradient w-full" height="5" />
+    <v-sheet v-if="!isMobile" class="custom-gradient w-full" height="15" />
 
     <v-sheet :color="isMobile ? 'slategrey' : 'rgba(76, 109, 128, 1)'" class="white--text text-center">
       <div :style="`max-width: ${globalMaxWidth}px`" class="mx-auto w-full">

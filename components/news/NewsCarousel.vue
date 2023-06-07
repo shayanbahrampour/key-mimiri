@@ -24,7 +24,7 @@
           style="margin-top: -480px"
           width="480"
         >
-          <h4 class="bel mt-16 f-50 text--darken-3 white--text font-weight-regular">13th Episode of Co-Talk Event</h4>
+          <h4 class="bel mt-13 f-50 text--darken-3 white--text font-weight-regular">13th Episode of Co-Talk Event</h4>
           <p class="mt-6 f-20 white--text text--darken-3 mb-0 font-weight-light">
             Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women...
           </p>

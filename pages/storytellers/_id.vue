@@ -47,7 +47,7 @@
         </v-btn>
       </div>
     </div>
-    <v-expansion-panels v-if="isMobile" flat>
+    <v-expansion-panels v-if="isMobile" class="mb-4" flat>
       <v-expansion-panel class="transparent d-flex flex-column justify-center">
         <p
           v-if="!seeMore"
@@ -82,7 +82,10 @@
     </v-expansion-panels>
     <p
       v-else
-      :class="['f-20 mx-16 white--text text--darken-3 font-weight-light', isMobile ? 'text-center mt-8 mb-0' : 'mt-16']"
+      :class="[
+        'f-20 mx-16 white--text text--darken-3 font-weight-light mb-16',
+        isMobile ? 'text-center mt-8 mb-0' : 'mt-16'
+      ]"
       style="line-height: 30px"
     >
       WHO advises that all women in their reproductive ages, whether having Iron deficiency or not, are required to
@@ -98,7 +101,7 @@
       src="/video/temp.mp4"
       style="max-height: 500px"
     />
-    <v-sheet class="custom-gradient w-full" height="5" />
+    <v-sheet class="custom-gradient w-full" :height="isMobile ? 10 : 16" />
     <div :class="['h-full white', isMobile ? 'px-4' : 'px-16']">
       <h4
         :class="['bel text-center text--darken-3 font-weight-regular', isMobile ? 'mt-8 f-34 mx-2' : 'mt-16 f-40']"

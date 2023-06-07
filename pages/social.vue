@@ -9,7 +9,7 @@
     <p :class="['mt-6 white--text text--darken-3 font-weight-light', !isMobile ? 'f-22 mb-16' : 'f-20 mx-6']">
       {{ $t('socialHealth.header_description') }}
     </p>
-    <v-sheet v-if="!isMobile" class="custom-gradient w-full mt-16" height="10" />
+    <v-sheet v-if="!isMobile" class="custom-gradient w-full mt-16" height="15" />
 
     <VideoContents
       :class="['w-full overflow-hidden d-flex align-center', !isMobile ? 'mt-0' : 'mt-10']"
