@@ -13,6 +13,7 @@
           <v-menu offset-y open-on-click>
             <template v-slot:activator="{ on, attrs }">
               <v-text-field
+                v-model="model.date_from[0]"
                 append-icon="mdi-triangle-down 10"
                 append-icon-size="16"
                 class="mb-6 f-20"
@@ -27,7 +28,7 @@
               ></v-text-field>
             </template>
             <v-list>
-              <v-list-item v-for="(item, index) in items" :key="index">
+              <v-list-item v-for="(item, index) in items" :key="index" @click="model.date_from[0] = item.title">
                 <v-list-item-title>{{ item.title }}</v-list-item-title>
               </v-list-item>
             </v-list>
@@ -38,6 +39,7 @@
           <v-menu offset-y open-on-click>
             <template v-slot:activator="{ on, attrs }">
               <v-text-field
+                v-model="model.date_to[0]"
                 append-icon="mdi-triangle-down 10"
                 append-icon-size="16"
                 class="mb-6 f-20"
@@ -52,7 +54,7 @@
               ></v-text-field>
             </template>
             <v-list>
-              <v-list-item v-for="(item, index) in items" :key="index">
+              <v-list-item v-for="(item, index) in items" :key="index" @click="model.date_to[0] = item.title">
                 <v-list-item-title>{{ item.title }}</v-list-item-title>
               </v-list-item>
             </v-list>
@@ -93,6 +95,7 @@
           <v-menu offset-y open-on-click>
             <template v-slot:activator="{ on, attrs }">
               <v-text-field
+                v-model="model.date_from[i]"
                 append-icon="mdi-triangle-down 10"
                 append-icon-size="16"
                 class="mb-6 f-20"
@@ -107,7 +110,7 @@
               ></v-text-field>
             </template>
             <v-list>
-              <v-list-item v-for="(item, index) in items" :key="index">
+              <v-list-item v-for="(item, index) in items" :key="index" @click="model.date_from[i] = item.title">
                 <v-list-item-title>{{ item.title }}</v-list-item-title>
               </v-list-item>
             </v-list>
@@ -118,6 +121,7 @@
           <v-menu offset-y open-on-click>
             <template v-slot:activator="{ on, attrs }">
               <v-text-field
+                v-model="model.date_to[i]"
                 append-icon="mdi-triangle-down 10"
                 append-icon-size="16"
                 class="mb-6 f-20"
@@ -132,7 +136,7 @@
               ></v-text-field>
             </template>
             <v-list>
-              <v-list-item v-for="(item, index) in items" :key="index">
+              <v-list-item v-for="(item, index) in items" :key="index" @click="model.date_to[i] = item.title">
                 <v-list-item-title>{{ item.title }}</v-list-item-title>
               </v-list-item>
             </v-list>
@@ -177,7 +181,11 @@ export default {
     return {
       valid: null,
       counter: 0,
-      items: [{ title: '1390' }, { title: '1391' }, { title: '1392' }]
+      items: [{ title: '1390' }, { title: '1391' }, { title: '1392' }],
+      model: {
+        date_to: [],
+        date_from: []
+      }
     };
   }
 };

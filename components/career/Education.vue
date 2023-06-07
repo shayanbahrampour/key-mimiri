@@ -12,6 +12,7 @@
           <v-menu offset-y open-on-click>
             <template v-slot:activator="{ on, attrs }">
               <v-text-field
+                v-model="model.degree[0]"
                 append-icon="mdi-triangle-down 10"
                 append-icon-size="16"
                 class="mb-8 f-20"
@@ -26,7 +27,7 @@
               ></v-text-field>
             </template>
             <v-list>
-              <v-list-item v-for="(item, index) in items" :key="index">
+              <v-list-item v-for="(item, index) in items" :key="index" @click="model.degree[0] = item.title">
                 <v-list-item-title>{{ item.title }}</v-list-item-title>
               </v-list-item>
             </v-list>
@@ -60,6 +61,7 @@
           <v-menu offset-y open-on-click>
             <template v-slot:activator="{ on, attrs }">
               <v-text-field
+                v-model="model.degree[i]"
                 append-icon="mdi-triangle-down 10"
                 append-icon-size="16"
                 class="mb-8 f-20"
@@ -74,7 +76,7 @@
               ></v-text-field>
             </template>
             <v-list>
-              <v-list-item v-for="(item, index) in items" :key="index">
+              <v-list-item v-for="(item, index) in items" :key="index" @click="model.degree[i] = item.title">
                 <v-list-item-title>{{ item.title }}</v-list-item-title>
               </v-list-item>
             </v-list>
@@ -127,6 +129,9 @@ export default {
     return {
       valid: null,
       counter: 0,
+      model: {
+        degree: []
+      },
       items: [
         { title: 'Graduate' },
         { title: 'Associate' },
