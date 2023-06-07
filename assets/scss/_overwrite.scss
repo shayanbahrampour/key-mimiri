@@ -29,6 +29,14 @@ table {
   max-width: 500px !important;
 }
 
+.v-text-field .v-label {
+  font-size: 18px;
+  overflow: visible !important;
+  white-space: normal !important;
+  line-height: 20px;
+  padding-bottom: 12px;
+}
+
 .bg-transparent {
   &,
   &:hover,

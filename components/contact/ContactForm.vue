@@ -6,7 +6,7 @@
           v-model="model.full_name"
           :label="$t('contact.fields.full_name')"
           :rules="[rule.required]"
-          class="mb-4"
+          class="mb-4 f-20"
           dense
           filled
           hide-details
@@ -16,7 +16,7 @@
           v-model="model.email"
           :label="$t('contact.fields.email')"
           :rules="[rule.required, rule.email]"
-          class="mb-4"
+          class="mb-4 f-20"
           dense
           filled
           hide-details
@@ -26,7 +26,7 @@
           v-model="model.mobile"
           :label="$t('contact.fields.mobile')"
           :rules="[rule.required, rule.mobile]"
-          class="mb-4"
+          class="mb-4 f-20"
           dense
           filled
           hide-details
@@ -34,7 +34,7 @@
         ></v-text-field>
         <v-text-field
           v-model="model.topic"
-          :class="!isMobile ? 'mb-4' : 'mb-0'"
+          :class="!isMobile ? 'mb-4 f-20' : 'mb-0 f-20'"
           :label="$t('contact.fields.topic')"
           :rules="[rule.required]"
           dense
@@ -46,7 +46,7 @@
       <v-col :class="{ 'pt-2': isMobile }" cols="12" md="6">
         <v-textarea
           v-model="model.description"
-          :class="['mb-4', { 'mb-10': isMobile }]"
+          :class="['mb-4 f-20', { 'mb-10': isMobile }]"
           :label="$t('contact.fields.description')"
           :rules="[rule.required]"
           dense

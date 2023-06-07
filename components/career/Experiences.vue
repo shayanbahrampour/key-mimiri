@@ -9,13 +9,13 @@
       </p>
       <v-row class="align-start justify-center">
         <v-col :class="isMobile ? 'pb-0' : undefined" cols="12" md="4">
-          <v-text-field class="mb-8" dense filled hide-details label="Company name" rounded></v-text-field>
+          <v-text-field class="mb-8 f-20" dense filled hide-details label="Company name" rounded></v-text-field>
           <v-menu offset-y open-on-click>
             <template v-slot:activator="{ on, attrs }">
               <v-text-field
                 append-icon="mdi-triangle-down 10"
                 append-icon-size="16"
-                class="mb-6"
+                class="mb-6 f-20"
                 dense
                 filled
                 hide-details
@@ -34,13 +34,13 @@
           </v-menu>
         </v-col>
         <v-col :class="isMobile ? 'py-0' : undefined" cols="12" md="4">
-          <v-text-field class="mb-8" dense filled hide-details label="Position" rounded></v-text-field>
+          <v-text-field class="mb-8 f-20" dense filled hide-details label="Position" rounded></v-text-field>
           <v-menu offset-y open-on-click>
             <template v-slot:activator="{ on, attrs }">
               <v-text-field
                 append-icon="mdi-triangle-down 10"
                 append-icon-size="16"
-                class="mb-6"
+                class="mb-6 f-20"
                 dense
                 filled
                 hide-details
@@ -60,7 +60,7 @@
         </v-col>
         <v-col :class="isMobile ? 'pt-0' : undefined" cols="12" md="4">
           <v-text-field
-            :class="!isMobile ? 'mb-8' : 'mb-0'"
+            :class="!isMobile ? 'mb-8 f-20' : 'mb-0 f-20'"
             dense
             filled
             hide-details
@@ -69,7 +69,7 @@
           ></v-text-field>
           <v-btn
             v-if="!isMobile"
-            class="mt-2 ml-0"
+            class="mt-2 ml-0 f-20"
             style="text-transform: unset !important; color: #0a91df"
             text
             @click="counter++"
@@ -95,7 +95,7 @@
               <v-text-field
                 append-icon="mdi-triangle-down 10"
                 append-icon-size="16"
-                class="mb-6"
+                class="mb-6 f-20"
                 dense
                 filled
                 hide-details
@@ -120,7 +120,7 @@
               <v-text-field
                 append-icon="mdi-triangle-down 10"
                 append-icon-size="16"
-                class="mb-6"
+                class="mb-6 f-20"
                 dense
                 filled
                 hide-details
@@ -140,7 +140,7 @@
         </v-col>
         <v-col :class="isMobile ? 'pt-0' : undefined" cols="12" md="4">
           <v-text-field
-            :class="!isMobile ? 'mb-8' : 'mb-0'"
+            :class="!isMobile ? 'mb-8 f-20' : 'mb-0 f-20'"
             dense
             filled
             hide-details

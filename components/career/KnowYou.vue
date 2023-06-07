@@ -8,7 +8,7 @@
         Let us know you
       </p>
       <v-textarea
-        class="mb-8"
+        class="mb-8 f-20"
         dense
         filled
         height="160"
@@ -17,7 +17,7 @@
         rounded
       ></v-textarea>
       <v-textarea
-        class="mb-8"
+        class="mb-8 f-20"
         dense
         filled
         height="160"
@@ -26,7 +26,7 @@
         rounded
       ></v-textarea>
       <v-textarea
-        class="mb-8"
+        class="mb-8 f-20"
         dense
         filled
         height="160"
