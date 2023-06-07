@@ -26,6 +26,7 @@
       :width="flag.showFullscreen ? '100vw' : 0"
       color="black"
       @click="flag.showFullscreen = false"
+      @touchstart="flag.showFullscreen = false"
     />
     <div
       :class="[isMobile && 'mx-auto', flag.showFullscreen && 'w-screen h-screen position-relative']"
@@ -39,7 +40,7 @@
           muted: true,
           fluid: true,
           autoplay: true,
-          controls: true,
+          controls: flag.showFullscreen,
           aspectRatio: flag.showFullscreen ? '16:9' : '1:1'
         }"
         :width="flag.showFullscreen ? '100vw' : videoSize"

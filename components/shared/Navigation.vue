@@ -1,8 +1,8 @@
 <template>
   <div>
     <v-app-bar
-      :height="isMobile ? 70 : 120"
-      :scroll-threshold="isMobile ? 70 : 120"
+      :height="showDrawer ? 70 : 120"
+      :scroll-threshold="showDrawer ? 70 : 120"
       app
       class="appbar"
       color="white"
@@ -12,12 +12,20 @@
       tile
     >
       <v-sheet
-        :class="['mx-auto d-flex align-center h-full w-full', { 'px-12': !isMobile }]"
+        :class="['mx-auto d-flex align-center h-full w-full', { 'px-12': !showDrawer }]"
         :max-width="globalMaxWidth"
         color="transparent"
       >
         <nuxt-link :to="localePath('/')" exact>
-          <v-img v-if="isMobile" alt="cobel" class="logo" contain height="40" max-width="130" src="/images/logo.png" />
+          <v-img
+            v-if="showDrawer"
+            alt="cobel"
+            class="logo"
+            contain
+            height="40"
+            max-width="130"
+            src="/images/logo.png"
+          />
 
           <div v-else class="logo-container overflow-hidden">
             <div class="position-relative">
@@ -31,7 +39,7 @@
 
         <v-spacer />
 
-        <template v-if="!isMobile">
+        <template v-if="!showDrawer">
           <v-btn
             v-for="(item, index) in items"
             :key="index"
@@ -50,7 +58,7 @@
         </template>
 
         <v-btn
-          :class="isMobile ? 'me-n2' : 'me-n4'"
+          :class="showDrawer ? 'me-n2' : 'me-n4'"
           :ripple="false"
           :to="$i18n.locale === 'en' ? switchLocalePath('fa') : switchLocalePath('en')"
           color="primary"
@@ -61,7 +69,7 @@
         </v-btn>
 
         <v-btn
-          v-if="isMobile"
+          v-if="showDrawer"
           :ripple="false"
           class="pe-0 bg-transparent me-n4"
           color="black"
@@ -78,8 +86,8 @@
 
     <v-expand-transition>
       <v-sheet
-        v-if="isMobile && flag.showDrawer"
-        :style="`top: ${isMobile ? '65px' : '58px'}`"
+        v-if="showDrawer && flag.showDrawer"
+        :style="`top: ${showDrawer ? '65px' : '58px'}`"
         class="position-fixed start-0 end-0 w-screen z-11"
         color="transparent"
       >
@@ -118,6 +126,9 @@ export default {
     }
   },
   computed: {
+    showDrawer() {
+      return this.$vuetify.breakpoint.smAndDown;
+    },
     items() {
       return [
         { value: 'menu.point_of_view', path: '/' },

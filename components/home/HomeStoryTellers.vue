@@ -11,31 +11,7 @@
         <swiper
           :class="['w-full me-0', isMobile ? 'mt-4 px-8' : 'my-5 px-16']"
           :dir="isRTL ? 'rtl' : 'ltr'"
-          :options="{
-            spaceBetween: 28,
-            slidesPerView: 1.1,
-            grabCursor: true,
-            breakpoints: {
-              500: {
-                slidesPerView: 1.8
-              },
-              768: {
-                slidesPerView: 2.5
-              },
-              960: {
-                slidesPerView: 3.2
-              },
-              1264: {
-                slidesPerView: 4.2
-              },
-              1550: {
-                slidesPerView: 5.2
-              },
-              1904: {
-                slidesPerView: 5.7
-              }
-            }
-          }"
+          :options="swiperOptions"
         >
           <swiper-slide v-for="(item, index) in items" :key="index" class="d-flex flex-column align-center">
             <v-card
@@ -83,6 +59,32 @@ export default {
         { id: 4, title: 'Mohamad javid', src: '/images/temp/storytellers/4.png' }
       ]
     };
+  },
+  computed: {
+    swiperOptions() {
+      return {
+        grabCursor: true,
+        spaceBetween: 28,
+        slidesPerView: 1.3,
+        breakpoints: {
+          760: {
+            slidesPerView: 2.5
+          },
+          960: {
+            slidesPerView: 3.2
+          },
+          1264: {
+            slidesPerView: 4.2
+          },
+          1550: {
+            slidesPerView: 5.2
+          },
+          1904: {
+            slidesPerView: 5.7
+          }
+        }
+      };
+    }
   }
 };
 </script>
