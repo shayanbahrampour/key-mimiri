@@ -75,7 +75,7 @@ export default {};
   &.v-app-bar--is-scrolled {
     transform: none !important;
     transition: all ease-in 0.2s !important;
-    box-shadow: 0 17px 13px -13px rgba(0, 0, 0, 0.2) !important;
+    box-shadow: 0 5px 13px 0 rgba(0, 0, 0, 0.2) !important;
 
     &,
     .v-toolbar__content {
