@@ -1,5 +1,5 @@
 <template>
-  <div class="position-relative z-0 h-full">
+  <div class="position-relative z-0">
     <vue-pdf
       :page="page"
       :src="src"

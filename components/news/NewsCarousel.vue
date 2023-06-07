@@ -7,7 +7,7 @@
     </v-carousel>
     <div
       v-if="!isMobile"
-      :class="['position-absolute start-8 end-0 bottom-0 mx-auto z-0 px-16 mr-10']"
+      :class="['position-absolute start-8 end-0 bottom-0 mx-auto z-0 px-16 mr-4']"
       :style="`max-width: ${globalMaxWidth}px; bottom: ${isMobile ? 260 : 40}px`"
     >
       <v-icon v-for="(item, index) in items" :key="index" class="ms-1" color="white" size="25" @click="model = index">
@@ -15,7 +15,7 @@
       </v-icon>
     </div>
 
-    <div class="position-relative z-1">
+    <div :class="['position-relative z-1', { 'pl-10': !isMobile }]">
       <div :class="['mx-auto', !isMobile && 'pe-4']" :style="`max-width: ${globalMaxWidth}px`">
         <v-sheet
           v-if="!isMobile"
@@ -56,11 +56,11 @@
           <h4 class="bel mt-6 f-40 text--darken-3 white--text font-weight-regular text-start" style="max-width: 300px">
             13th Episode of Co-Talk Event
           </h4>
-          <p class="mt-6 f-20 white--text text--darken-3 font-weight-light mb-0">
+          <p class="mt-6 f-24 white--text text--darken-3 font-weight-light mb-0">
             Iron deficiency, leading to Anemia, has negative health effects on all individuals, especially women...
           </p>
           <v-btn
-            class="pa-0 ma-0 justify-start f-18 font-weight-bold"
+            class="pa-0 ma-0 mt-1 justify-start f-24 font-weight-bold"
             color="white"
             depressed
             rounded

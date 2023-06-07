@@ -138,10 +138,8 @@
         style="margin-top: -175px"
       >
         <h4
-          :class="[
-            'bel text-center text--darken-3 font-weight-regular slategrey--text',
-            isMobile ? 'f-30 mb-6' : 'f-50 mb-2'
-          ]"
+          :class="['bel text-center text--darken-3 font-weight-regular', isMobile ? 'f-30 mb-6' : 'f-50 mb-2']"
+          style="color: #66869a"
         >
           {{ $t('career.card_title') }}
         </h4>
@@ -188,7 +186,7 @@
         </div>
       </div>
     </div>
-    <div v-if="isMobile" class="white px-6">
+    <div v-if="isMobile" class="white px-6" style="margin-top: -2px">
       <h4 class="bel f-40 mt-10 text--darken-3 font-weight-regular" style="color: #59595b">Job positions</h4>
       <JobsGrid class="mt-10" />
     </div>

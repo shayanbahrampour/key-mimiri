@@ -1,7 +1,9 @@
 <template>
   <div class="d-flex flex-column">
-    <div :class="['d-flex flex-column mt-16', isMobile ? 'px-4' : 'px-14']">
-      <h4 class="bel f-50 font-weight-regular slategrey--text">Sample main titles for test education part</h4>
+    <div :class="['d-flex flex-column mt-16', isMobile ? 'px-4' : 'px-16 mr-4']">
+      <h4 :class="['bel font-weight-regular slategrey--text', isMobile ? 'f-40' : 'f-60']">
+        Sample main titles for test education part
+      </h4>
       <p class="font-weight-light mt-10 f-20" style="max-width: 500px; color: #939393; line-height: 30px">
         In Cobel Group, acknowledge importance of woman empowerment and inspiration to all.
       </p>
@@ -39,7 +41,10 @@
       <v-row>
         <v-col cols="12" md="6">
           <h4 :class="['font-weight-regular bel slategrey--text', isMobile ? 'f-40' : 'f-50']">Main sample titles</h4>
-          <p class="font-weight-regular mt-10 f-20 pb-16" style="max-width: 380px; color: #59595b; line-height: 30px">
+          <p
+            :class="['font-weight-regular f-20', isMobile ? 'mt-10' : 'mt-2']"
+            style="max-width: 380px; color: #59595b; line-height: 30px"
+          >
             In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society
             and are committed to
           </p>
@@ -55,6 +60,7 @@
           <client-only>
             <PdfLoader />
           </client-only>
+          <FeatureSelection v-if="isMobile" class="mt-10 mb-6" />
         </v-col>
       </v-row>
 
@@ -66,8 +72,12 @@
       </p>
     </div>
     <EducationDetail />
-    <h1 class="bel f-50 grey--text text--darken-2 font-weight-regular ml-16 mt-10">More Articles</h1>
-    <NewsCard :class="['mt-10', !isMobile ? 'mx-14' : undefined]" :path="localePath('/education/1')" />
+    <h1 v-if="!isMobile" class="bel f-50 grey--text text--darken-2 font-weight-regular ml-16 mt-10">More Articles</h1>
+    <NewsCard
+      :class="['mt-10', !isMobile ? 'mx-14' : undefined]"
+      :path="localePath('/education/1')"
+      title="More Articles"
+    />
   </div>
 </template>
 
