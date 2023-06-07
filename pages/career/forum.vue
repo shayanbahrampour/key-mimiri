@@ -45,6 +45,7 @@
         :class="[!isMobile ? 'mt-16' : 'mt-4 mb-6']"
         :model="counter"
         :tabs="$route.query.job ? certainJob : apply"
+        @select="counter = $event"
       />
       <Component :is="steps[counter].component" :class="{ 'pr-0': !isMobile }"></Component>
       <div

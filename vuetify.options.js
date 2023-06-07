@@ -22,7 +22,9 @@ export default {
         blue: '#0A91DF',
         slategrey: '#66869A',
         cobelgrey: '#59595b',
-        lightgrey: '#D9D9D9'
+        lightgrey: '#D9D9D9',
+        darkGreen: '#4C6D80',
+        teaGreen: 'B0BEC5'
       }
     }
   }

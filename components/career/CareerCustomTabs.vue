@@ -5,10 +5,13 @@
     <v-tab
       v-for="(item, index) in items"
       :key="index"
-      :class="['bel f-24 bg-transparent text-capitalize tab-news text-no-wrap', !isMobile ? 'px-0' : 'px-8 mt-2']"
+      :class="[
+        'bel f-24 bg-transparent text-capitalize tab-news text-no-wrap',
+        !isMobile ? 'px-0' : 'px-8 mt-2',
+        index <= model ? 'darkGreen--text' : 'teaGreen--text'
+      ]"
       :ripple="false"
-      active-class="black--text"
-      disabled
+      @click="$emit('select', index)"
     >
       {{ item.title }}
     </v-tab>
@@ -58,7 +61,7 @@ export default {
 
 .tab-news {
   &:hover {
-    color: black !important;
+    color: #4c6d80 !important;
   }
 }
 </style>
