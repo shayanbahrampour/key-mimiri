@@ -10,55 +10,35 @@
       <v-row class="align-start justify-center">
         <v-col :class="isMobile ? 'pb-0' : undefined" cols="12" md="4">
           <v-text-field class="mb-8 f-20" dense filled hide-details label="Company name" rounded></v-text-field>
-          <v-menu offset-y open-on-click>
-            <template v-slot:activator="{ on, attrs }">
-              <v-text-field
-                v-model="model.date_from[0]"
-                append-icon="mdi-triangle-down 10"
-                append-icon-size="16"
-                class="mb-6 f-20"
-                dense
-                filled
-                hide-details
-                label="Date (from)"
-                readonly
-                rounded
-                v-bind="attrs"
-                v-on="on"
-              ></v-text-field>
-            </template>
-            <v-list>
-              <v-list-item v-for="(item, index) in items" :key="index" @click="model.date_from[0] = item.title">
-                <v-list-item-title>{{ item.title }}</v-list-item-title>
-              </v-list-item>
-            </v-list>
-          </v-menu>
+          <v-select
+            v-model="model.date_from[0]"
+            :items="items"
+            class="mb-8"
+            menu-props="auto"
+            append-icon="mdi-triangle-down 10"
+            append-icon-size="16"
+            label="Date (from)"
+            filled
+            rounded
+            hide-details
+            dense
+          ></v-select>
         </v-col>
         <v-col :class="isMobile ? 'py-0' : undefined" cols="12" md="4">
           <v-text-field class="mb-8 f-20" dense filled hide-details label="Position" rounded></v-text-field>
-          <v-menu offset-y open-on-click>
-            <template v-slot:activator="{ on, attrs }">
-              <v-text-field
-                v-model="model.date_to[0]"
-                append-icon="mdi-triangle-down 10"
-                append-icon-size="16"
-                class="mb-6 f-20"
-                dense
-                filled
-                hide-details
-                label="Date (to)"
-                readonly
-                rounded
-                v-bind="attrs"
-                v-on="on"
-              ></v-text-field>
-            </template>
-            <v-list>
-              <v-list-item v-for="(item, index) in items" :key="index" @click="model.date_to[0] = item.title">
-                <v-list-item-title>{{ item.title }}</v-list-item-title>
-              </v-list-item>
-            </v-list>
-          </v-menu>
+          <v-select
+            v-model="model.date_to[0]"
+            :items="items"
+            class="mb-8"
+            menu-props="auto"
+            append-icon="mdi-triangle-down 10"
+            append-icon-size="16"
+            label="Date (to)"
+            filled
+            rounded
+            hide-details
+            dense
+          ></v-select>
         </v-col>
         <v-col :class="isMobile ? 'pt-0' : undefined" cols="12" md="4">
           <v-text-field
@@ -92,55 +72,35 @@
       <v-row v-for="i in counter" :key="i" class="align-start justify-center">
         <v-col :class="isMobile ? 'pb-0' : undefined" cols="12" md="4">
           <v-text-field class="mb-8" dense filled hide-details label="Company name" rounded></v-text-field>
-          <v-menu offset-y open-on-click>
-            <template v-slot:activator="{ on, attrs }">
-              <v-text-field
-                v-model="model.date_from[i]"
-                append-icon="mdi-triangle-down 10"
-                append-icon-size="16"
-                class="mb-6 f-20"
-                dense
-                filled
-                hide-details
-                label="Date (from)"
-                readonly
-                rounded
-                v-bind="attrs"
-                v-on="on"
-              ></v-text-field>
-            </template>
-            <v-list>
-              <v-list-item v-for="(item, index) in items" :key="index" @click="model.date_from[i] = item.title">
-                <v-list-item-title>{{ item.title }}</v-list-item-title>
-              </v-list-item>
-            </v-list>
-          </v-menu>
+          <v-select
+            v-model="model.date_from[i]"
+            :items="items"
+            class="mb-8"
+            menu-props="auto"
+            append-icon="mdi-triangle-down 10"
+            append-icon-size="16"
+            label="Date (From)"
+            filled
+            rounded
+            hide-details
+            dense
+          ></v-select>
         </v-col>
         <v-col :class="isMobile ? 'py-0' : undefined" cols="12" md="4">
           <v-text-field class="mb-8" dense filled hide-details label="Position" rounded></v-text-field>
-          <v-menu offset-y open-on-click>
-            <template v-slot:activator="{ on, attrs }">
-              <v-text-field
-                v-model="model.date_to[i]"
-                append-icon="mdi-triangle-down 10"
-                append-icon-size="16"
-                class="mb-6 f-20"
-                dense
-                filled
-                hide-details
-                label="Date (to)"
-                readonly
-                rounded
-                v-bind="attrs"
-                v-on="on"
-              ></v-text-field>
-            </template>
-            <v-list>
-              <v-list-item v-for="(item, index) in items" :key="index" @click="model.date_to[i] = item.title">
-                <v-list-item-title>{{ item.title }}</v-list-item-title>
-              </v-list-item>
-            </v-list>
-          </v-menu>
+          <v-select
+            v-model="model.date_to[i]"
+            :items="items"
+            class="mb-8"
+            menu-props="auto"
+            append-icon="mdi-triangle-down 10"
+            append-icon-size="16"
+            label="Date (to)"
+            filled
+            rounded
+            hide-details
+            dense
+          ></v-select>
         </v-col>
         <v-col :class="isMobile ? 'pt-0' : undefined" cols="12" md="4">
           <v-text-field
@@ -181,7 +141,7 @@ export default {
     return {
       valid: null,
       counter: 0,
-      items: [{ title: '1390' }, { title: '1391' }, { title: '1392' }],
+      items: ['1390', '1391', '1392'],
       model: {
         date_to: [],
         date_from: []
