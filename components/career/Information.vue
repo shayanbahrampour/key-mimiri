@@ -9,14 +9,14 @@
       </p>
       <v-row class="align-start justify-center">
         <v-col :class="isMobile ? 'pb-0' : undefined" cols="12" md="6">
-          <v-text-field class="mb-8" dense filled hide-details label="First Name" rounded></v-text-field>
-          <v-text-field class="mb-8" dense filled hide-details label="ID Number" rounded></v-text-field>
-          <v-text-field class="mb-8" dense filled hide-details label="Email" rounded></v-text-field>
+          <v-text-field class="mb-8 f-20" dense filled hide-details label="First Name" rounded></v-text-field>
+          <v-text-field class="mb-8 f-20" dense filled hide-details label="ID Number" rounded></v-text-field>
+          <v-text-field class="mb-8 f-20" dense filled hide-details label="Email" rounded></v-text-field>
         </v-col>
         <v-col :class="isMobile ? 'pt-0' : undefined" cols="12" md="6">
-          <v-text-field class="mb-8" dense filled hide-details label="Last Name" rounded></v-text-field>
-          <v-text-field class="mb-8" dense filled hide-details label="Phone Number" rounded></v-text-field>
-          <v-text-field class="mb-8" dense filled hide-details label="Address" rounded></v-text-field>
+          <v-text-field class="mb-8 f-20" dense filled hide-details label="Last Name" rounded></v-text-field>
+          <v-text-field class="mb-8 f-20" dense filled hide-details label="Phone Number" rounded></v-text-field>
+          <v-text-field class="mb-8 f-20" dense filled hide-details label="Address" rounded></v-text-field>
         </v-col>
       </v-row>
     </div>

@@ -8,24 +8,18 @@
       :max-width="globalMaxWidth"
       color="transparent"
     >
-      <v-row :align="isMobile ? 'start' : 'center'" no-gutters>
-        <v-col cols="12" md="4" sm="5">
-          <h3 :class="['font-weight-regular bel', isMobile ? 'f-35 text-center pt-4' : 'f-50']">
-            {{ $t('homePage.video.title') }}
-          </h3>
-        </v-col>
-
-        <template v-if="!isMobile">
-          <v-col class="d-flex justify-center" cols="12" sm="1">
-            <v-divider class="white mx-auto" style="height: 100px" vertical />
-          </v-col>
-          <v-col cols="12" md="7" sm="6">
-            <div class="f-25 grey--text text--lighten-2 font-weight-light">
-              {{ $t('homePage.video.description') }}
-            </div>
-          </v-col>
-        </template>
-      </v-row>
+      <div class="d-flex align-center w-full">
+        <h3
+          :class="['font-weight-regular bel flex-grow-1', isMobile ? 'f-35 text-center pt-4' : 'f-50']"
+          :style="isMobile ? '' : 'min-width: 412px'"
+        >
+          {{ $t('homePage.video.title') }}
+        </h3>
+        <v-divider v-if="!isMobile" class="white mx-8" style="height: 100px" vertical />
+        <div v-if="!isMobile" class="f-25 grey--text text--lighten-2 font-weight-light">
+          {{ $t('homePage.video.description') }}
+        </div>
+      </div>
     </v-sheet>
 
     <v-sheet :height="isMobile ? 10 : 16" class="custom-gradient my-1" />

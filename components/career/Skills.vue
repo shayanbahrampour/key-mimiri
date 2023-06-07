@@ -9,10 +9,10 @@
       </p>
       <v-row class="align-start justify-center">
         <v-col cols="12" md="4">
-          <v-text-field class="mb-0" dense filled hide-details label="Foreign Languages" rounded></v-text-field>
+          <v-text-field class="mb-0 f-20" dense filled hide-details label="Foreign Languages" rounded></v-text-field>
         </v-col>
         <v-col cols="12" md="4">
-          <v-text-field class="mb-0" dense filled hide-details label="Level" rounded></v-text-field>
+          <v-text-field class="mb-0 f-20" dense filled hide-details label="Level" rounded></v-text-field>
         </v-col>
         <v-col :class="{ 'text-center': isMobile }" cols="12" md="4">
           <v-btn
@@ -28,7 +28,7 @@
       <v-row v-for="i in counter_lang" :key="i" class="align-start justify-start">
         <v-col cols="12" md="4">
           <v-text-field
-            :class="!isMobile ? 'mb-0' : 'mb-0'"
+            :class="!isMobile ? 'mb-0 f-20' : 'mb-0 f-20'"
             dense
             filled
             hide-details
@@ -38,7 +38,7 @@
         </v-col>
         <v-col :class="{ 'text-center': isMobile }" cols="12" md="4">
           <v-text-field
-            :class="!isMobile ? 'mb-0' : 'mb-0'"
+            :class="!isMobile ? 'mb-0 f-20' : 'mb-0 f-20'"
             dense
             filled
             hide-details
@@ -59,10 +59,10 @@
       </v-row>
       <v-row class="align-start justify-center">
         <v-col cols="12" md="4">
-          <v-text-field class="mb-0" dense filled hide-details label="Computer Knowledge" rounded></v-text-field>
+          <v-text-field class="mb-0 f-20" dense filled hide-details label="Computer Knowledge" rounded></v-text-field>
         </v-col>
         <v-col cols="12" md="4">
-          <v-text-field class="mb-0" dense filled hide-details label="Level" rounded></v-text-field>
+          <v-text-field class="mb-0 f-20" dense filled hide-details label="Level" rounded></v-text-field>
         </v-col>
         <v-col :class="{ 'text-center': isMobile }" cols="12" md="4">
           <v-btn class="mt-1 ml-0" style="text-transform: unset !important; color: #0a91df" text @click="counter_com++">
@@ -73,7 +73,7 @@
       <v-row v-for="j in counter_com" :key="j" class="align-start justify-start">
         <v-col cols="12" md="4">
           <v-text-field
-            :class="!isMobile ? 'mb-0' : 'mb-0'"
+            :class="!isMobile ? 'mb-0 f-20' : 'mb-0 f-20'"
             dense
             filled
             hide-details
@@ -83,7 +83,7 @@
         </v-col>
         <v-col cols="12" md="4">
           <v-text-field
-            :class="!isMobile ? 'mb-0' : 'mb-0'"
+            :class="!isMobile ? 'mb-0 f-20' : 'mb-0 f-20'"
             dense
             filled
             hide-details
@@ -97,7 +97,15 @@
           </v-btn>
         </v-col>
       </v-row>
-      <v-textarea class="mb-8 mt-4" dense filled height="140" hide-details label="Soft skills…" rounded></v-textarea>
+      <v-textarea
+        class="mb-8 mt-4 f-20"
+        dense
+        filled
+        height="140"
+        hide-details
+        label="Soft skills…"
+        rounded
+      ></v-textarea>
     </div>
   </v-form>
 </template>

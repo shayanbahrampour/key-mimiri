@@ -9,7 +9,7 @@
     <p :class="['mt-6 white--text text--darken-3 font-weight-light', !isMobile ? 'f-22 mb-16' : 'f-20 mx-6']">
       {{ $t('physical.header_description') }}
     </p>
-    <v-sheet v-if="!isMobile" class="custom-gradient w-full mt-16" height="10" />
+    <v-sheet v-if="!isMobile" class="custom-gradient w-full mt-16" height="15" />
     <VideoContents
       :class="['w-full overflow-hidden d-flex align-center', !isMobile ? 'mt-0' : 'mt-10']"
       poster="/images/temp/cover-6.png"
@@ -180,6 +180,6 @@ export default {
 }
 
 .phy-container {
-  background-image: url('/images/social/line.png');
+  background-image: url('/images/social/triangle.png');
 }
 </style>

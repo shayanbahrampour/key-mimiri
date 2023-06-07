@@ -5,7 +5,7 @@
     <v-tab
       v-for="(item, index) in items"
       :key="index"
-      :class="['bel f-24 bg-transparent text-capitalize tab-news text-no-wrap', !isMobile ? 'px-6' : 'px-8 mt-2']"
+      :class="['bel f-24 bg-transparent text-capitalize tab-news text-no-wrap', !isMobile ? 'px-0' : 'px-8 mt-2']"
       :ripple="false"
       active-class="black--text"
       disabled
@@ -49,6 +49,10 @@ export default {
 
   .v-slide-group__next {
     display: none !important;
+  }
+  .v-slide-group__content {
+    flex-direction: row;
+    justify-content: space-evenly;
   }
 }
 

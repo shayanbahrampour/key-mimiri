@@ -67,7 +67,14 @@ export default {
   methods: {
     onFullscreen(event) {
       this.$emit('toggleFullscreen', event.isFullscreen_);
-      if (!event.isFullscreen_) this.pause();
+      if (!event.isFullscreen_) {
+        this.player.currentTime(0);
+        this.pause();
+
+        this.player.hasStarted(false);
+        return;
+      }
+
       this.play();
     },
     pause() {

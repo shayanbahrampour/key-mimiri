@@ -43,6 +43,7 @@
             depressed
             exact
             tile
+            min-height="50"
           >
             <span class="text-capitalize f-14">{{ $t(item.value) }}</span>
           </v-btn>
@@ -53,8 +54,16 @@
           <template v-else>mdi-menu</template>
         </v-icon>
 
-        <v-btn v-if="$i18n.locale === 'en'" :to="switchLocalePath('fa')" class="mx-1" color="primary" icon> Fa</v-btn>
-        <v-btn v-else :to="switchLocalePath('en')" class="mx-1" color="primary" icon>En</v-btn>
+        <v-btn
+          :to="$i18n.locale === 'en' ? switchLocalePath('fa') : switchLocalePath('en')"
+          class="ms-1 pe-0 bg-transparent me-n4"
+          color="primary"
+          icon
+          :ripple="false"
+        >
+          <template v-if="$i18n.locale === 'en'">Fa</template>
+          <template v-else>En</template>
+        </v-btn>
       </v-sheet>
     </v-app-bar>
 

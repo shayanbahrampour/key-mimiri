@@ -31,7 +31,7 @@
           </div>
           <v-btn
             :to="`/career/forum?job=${true}`"
-            class="rounded-xl d-flex justify-center white--text font-weight-regular f-14 mt-10 mb-6"
+            class="rounded-xl d-flex justify-center white--text font-weight-regular f-18 mt-10 mb-6"
             color="#A01E64"
             elevation="0"
             height="50"

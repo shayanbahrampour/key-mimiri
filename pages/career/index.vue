@@ -100,7 +100,7 @@
         class="w-full overflow-hidden d-flex align-center"
         poster="/images/temp/cover-6.png"
         src="/video/temp.mp4"
-        style="max-height: calc(100vh - 200px)"
+        style="max-height: calc(100vh - 150px); min-height: 500px"
       />
     </div>
 
@@ -114,7 +114,7 @@
             {{ $t('career.divider_title') }}
           </h4>
           <v-divider class="mx-8" color="white" style="min-height: 100px" vertical />
-          <p class="f-20 white--text mb-0 text--darken-3 font-weight-light" style="max-width: 40%">
+          <p class="f-20 white--text mb-0 text--darken-3 font-weight-light" style="max-width: 30%">
             {{ $t('career.divider_description') }}
           </p>
         </div>
@@ -159,8 +159,8 @@
         </p>
         <v-btn
           :class="[
-            'rounded-xl d-flex justify-center white--text',
-            isMobile ? 'f-20 mt-6 font-weight-regular' : 'f-14 font-weight-bold'
+            'rounded-xl d-flex justify-center white--text f-20 font-weight-regular',
+            isMobile ? 'mt-6' : undefined
           ]"
           :min-width="!isMobile ? '300' : '80%'"
           :to="localePath('/career/forum')"
