@@ -10,13 +10,13 @@
     >
       <div class="d-flex align-center w-full">
         <h3
-          :class="['font-weight-regular bel flex-grow-1', isMobile ? 'f-35 text-center pt-4' : 'f-50']"
+          :class="['font-weight-regular bel', isMobile ? 'f-35 text-center pt-4 flex-grow-1' : 'f-50']"
           :style="isMobile ? '' : 'min-width: 412px'"
         >
           {{ $t('homePage.video.title') }}
         </h3>
         <v-divider v-if="!isMobile" class="white mx-8" style="height: 100px" vertical />
-        <div v-if="!isMobile" class="f-25 grey--text text--lighten-2 font-weight-light">
+        <div v-if="!isMobile" class="f-25 grey--text text--lighten-2 font-weight-light flex-grow-1">
           {{ $t('homePage.video.description') }}
         </div>
       </div>
