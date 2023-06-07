@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="['d-flex flex-column align-center text-center', !isMobile ? 'pt-10 phy-container' : undefined]"
+    :class="['d-flex flex-column align-center text-center phy-container', !isMobile ? 'pt-10' : undefined]"
     style="background-color: #00a59b; margin-bottom: -40px"
   >
     <h1 :class="['bel white--text text--darken-3 font-weight-regular', isMobile ? 'f-36 mt-12' : 'f-80 mt-16']">
@@ -30,8 +30,8 @@
       <v-divider :class="[isMobile ? 'my-6' : 'my-10']" style="background-color: #a01e64"></v-divider>
       <h4
         :class="[
-          'bel text--darken-3 font-weight-regular mb-16',
-          isMobile ? 'text-center black--text f-30 mt-4 black--text' : 'f-50 white--text'
+          'bel text--darken-3 font-weight-regular mb-16 white--text',
+          isMobile ? 'text-center f-30 mt-4' : 'f-50'
         ]"
       >
         {{ $t('physical.responsibility') }}
