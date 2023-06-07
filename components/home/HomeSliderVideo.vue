@@ -26,6 +26,7 @@
       :width="flag.showFullscreen ? '100vw' : 0"
       color="black"
       @click="flag.showFullscreen = false"
+      @touchstart="flag.showFullscreen = false"
     />
     <div
       :class="[isMobile && 'mx-auto', flag.showFullscreen && 'w-screen h-screen position-relative']"

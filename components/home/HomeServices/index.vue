@@ -92,7 +92,7 @@
         isMobile ? 'px-4 align-end' : 'px-lg-16 px-4 align-center'
       ]"
       :max-width="globalMaxWidth"
-      :min-height="isMobile ? 400 : 430"
+      :min-height="isMobile ? 430 : 430"
       color="transparent"
     >
       <div
@@ -155,9 +155,9 @@ export default {
     shapes() {
       const coordinates = this.isMobile
         ? {
-            top: ['70%', '5%'],
+            top: ['calc(100% - 110px)', '5%'],
             side: ['65%', '75%'],
-            bottom: ['1%', '50%']
+            bottom: ['10px', '50%']
           }
         : {
             top: ['20px', '220px'],
