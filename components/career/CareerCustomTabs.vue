@@ -1,7 +1,7 @@
 <template>
   <v-tabs v-model="model" center-active class="custom-career-tabs" hide-slider>
     <v-spacer v-if="model === 0 && !$route.query.job && isMobile" style="width: 6%"></v-spacer>
-    <v-spacer v-else-if="model === 0 && $route.query.job && isMobile" style="width: 9%"></v-spacer>
+    <v-spacer v-else-if="model === 0 && $route.query.job && isMobile" style="width: 11%"></v-spacer>
     <v-tab
       v-for="(item, index) in items"
       :key="index"
@@ -11,6 +11,7 @@
         index <= model || isLast ? 'darkGreen--text' : 'teaGreen--text'
       ]"
       :ripple="false"
+      :disabled="isMobile"
       @click="$emit('select', index)"
     >
       {{ item.title }}
@@ -43,7 +44,6 @@ export default {
   watch: {
     model() {
       this.$emit('input', this.model);
-      console.log(this.items);
     }
   }
 };
@@ -51,6 +51,9 @@ export default {
 
 <style lang="scss">
 .custom-career-tabs {
+  .v-tab--disabled {
+    opacity: 1 !important;
+  }
   .v-slide-group__prev {
     display: none !important;
   }
