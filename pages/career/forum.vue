@@ -38,15 +38,15 @@
       </div>
     </div>
     <div
-      :class="['d-flex flex-column align-start white', isMobile ? 'px-4 f-16' : 'pl-12 pr-16 pb-16']"
+      :class="['d-flex flex-column align-start white', isMobile ? 'px-4 f-16' : 'px-16 pb-16']"
       style="line-height: 2; width: 100%; min-height: 60vh"
     >
       <AppSteps
-        :class="[!isMobile ? 'mt-16 mx-4' : 'mt-4 mb-6']"
+        :class="[!isMobile ? 'mt-16' : 'mt-4 mb-6']"
         :model="counter"
         :tabs="$route.query.job ? certainJob : apply"
       />
-      <Component :is="steps[counter].component" :class="{ 'pr-8': !isMobile }"></Component>
+      <Component :is="steps[counter].component" :class="{ 'pr-0': !isMobile }"></Component>
       <div
         v-if="((counter !== 7 && !$route.query.job) || (counter !== 6 && $route.query.job)) && !isMobile"
         class="d-flex justify-space-between"
