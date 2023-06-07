@@ -43,7 +43,7 @@
           <h4 :class="['font-weight-regular bel slategrey--text', isMobile ? 'f-40' : 'f-50']">Main sample titles</h4>
           <p
             :class="['font-weight-regular f-20', isMobile ? 'mt-10' : 'mt-2']"
-            style="max-width: 380px; color: #59595b; line-height: 30px"
+            style="max-width: 600px; color: #59595b; line-height: 30px"
           >
             In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society
             and are committed to

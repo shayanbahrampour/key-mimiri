@@ -70,7 +70,7 @@
           </div>
         </v-card>
       </v-card>
-      <v-divider :class="[!isMobile ? 'my-8 mr-6' : 'mx-6 my-10']"></v-divider>
+      <v-divider v-if="i !== 4" :class="[!isMobile ? 'my-8 mr-6' : 'mx-6 my-10']"></v-divider>
     </div>
   </div>
 </template>
