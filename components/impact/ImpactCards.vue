@@ -16,14 +16,14 @@
       flat
     >
       <div
-        :class="['bel flex-shrink-0', isMobile ? 'f-25' : 'f-40']"
+        :class="['bel flex-shrink-0', isMobile ? 'f-25' : summary ? 'f-35' : 'f-35']"
         :style="`${summary && !isMobile ? 'width: 50%' : 'width: 100%'}`"
       >
         {{ title | truncate({ length: 50 }) }}
       </div>
-      <div v-if="!isMobile && summary" class="font-weight-light f-21 ps-4">
-        <p class="ma-0" v-html="summary" />
-        <strong class="f-18 font-weight-bold mt-2 d-block">{{ $t('shared.see_more') }}</strong>
+      <div v-if="!isMobile && summary" class="font-weight-light f-19 ps-4">
+        <div class="ma-0" v-html="summary" />
+        <strong class="f-18 font-weight-bold d-block mt-n3">{{ $t('shared.see_more') }}</strong>
       </div>
     </v-card>
   </v-card>
