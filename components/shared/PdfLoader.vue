@@ -3,9 +3,10 @@
     <vue-pdf
       :page="page"
       :src="src"
-      class="w-full position-relative z-0 ltr white"
-      :style="`font-family: inherit; min-height: 300px; height:${$vuetify.breakpoint.xl ? 300 : 250}px`"
+      class="w-full position-relative z-0 ltr white h-auto"
+      :style="`font-family: inherit; height: ${flag.showContent ? 'auto' : '400px'}`"
       @num-pages="pageCount = $event"
+      @error="onError"
     />
 
     <v-btn
@@ -51,12 +52,23 @@
 export default {
   data() {
     return {
+      flag: {
+        showContent: false
+      },
       page: 1,
       pageCount: 1,
       src: '/pdf/temp.pdf'
     };
   },
+  mounted() {
+    setTimeout(() => {
+      this.flag.showContent = true;
+    }, 2000);
+  },
   methods: {
+    onError(error) {
+      console.log(error);
+    },
     next() {
       this.page++;
     },
@@ -70,5 +82,9 @@ export default {
 <style lang="scss" scoped>
 .shadow {
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25) !important;
+}
+
+.h-auto {
+  min-height: auto !important;
 }
 </style>
