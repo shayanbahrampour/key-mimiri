@@ -28,8 +28,9 @@
       @click="flag.showFullscreen = false"
     />
     <div
-      :class="['mx-auto z-1', flag.showFullscreen && 'w-screen h-screen position-relative']"
+      :class="[isMobile && 'mx-auto', flag.showFullscreen && 'w-screen h-screen position-relative']"
       @click="flag.showFullscreen = true"
+      @touchstart="flag.showFullscreen = true"
     >
       <VideoContents
         :height="flag.showFullscreen ? '100vh' : videoSize"
