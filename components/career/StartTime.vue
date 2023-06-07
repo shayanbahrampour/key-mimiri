@@ -11,9 +11,10 @@
         <v-menu offset-y open-on-click>
           <template v-slot:activator="{ on, attrs }">
             <v-text-field
+              v-model="file"
               append-icon="mdi-triangle-down 10"
               append-icon-size="16"
-              class="mb-6"
+              class="mb-6 f-20"
               dense
               filled
               hide-details
@@ -26,7 +27,7 @@
             ></v-text-field>
           </template>
           <v-list>
-            <v-list-item v-for="(item, index) in items" :key="index">
+            <v-list-item v-for="(item, index) in items" :key="index" @click="file = item.title">
               <v-list-item-title>{{ item.title }}</v-list-item-title>
             </v-list-item>
           </v-list>
@@ -67,6 +68,7 @@ export default {
   data() {
     return {
       valid: null,
+      file: null,
       items: [{ title: 'Option 1' }, { title: 'Option 2' }, { title: 'Option 3' }]
     };
   }
