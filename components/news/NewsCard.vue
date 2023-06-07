@@ -15,9 +15,9 @@
         style="transition: all ease-in 0.4s"
       >
         <div class="d-flex">
-          <v-img height="100%" src="/images/temp/cover-2.png" width="250" />
+          <v-img height="200" src="/images/temp/cover-2.png" width="250" />
         </div>
-        <div class="d-flex flex-column py-6 ml-16 align-start">
+        <div class="d-flex flex-column py-2 ml-16 align-start">
           <h4 class="bel f-40 text--darken-3 font-weight-regular mb-auto cobelgrey--text custom-card-title">
             Rise from the society return to the society
           </h4>
