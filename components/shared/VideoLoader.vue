@@ -5,7 +5,7 @@
     :events="['fullscreenchange']"
     :options="{
       fluid: true,
-      muted: true,
+      muted: false,
       fullscreen: true,
       responsive: true,
       controls: true,
