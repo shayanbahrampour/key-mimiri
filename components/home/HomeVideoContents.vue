@@ -10,7 +10,7 @@
     >
       <div class="d-flex align-center w-full">
         <h3
-          :class="['font-weight-regular bel flex-grow-1', isMobile ? 'f-35 text-center pt-4' : 'f-50']"
+          :class="['font-weight-regular bel', isMobile ? 'f-35 text-center pt-4' : 'f-50']"
           :style="isMobile ? '' : 'min-width: 412px'"
         >
           {{ $t('homePage.video.title') }}
