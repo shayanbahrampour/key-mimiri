@@ -192,5 +192,6 @@ export default {
 
 .psy-container {
   background-image: url('/images/social/sqaure.png');
+  background-size: cover;
 }
 </style>
