@@ -31,7 +31,7 @@
         'position-absolute start-0 end-0 mx-auto z-0',
         isMobile ? 'px-6' : $vuetify.breakpoint.xl ? 'px-12' : 'px-16'
       ]"
-      :style="`max-width: ${globalMaxWidth}px; top: ${isMobile ? 230 : 335}px`"
+      :style="`max-width: ${globalMaxWidth}px; top: ${isMobile ? 230 : 290}px`"
     >
       <h4 :class="['bel white--text font-weight-regular text-uppercase', isMobile ? 'f-50' : 'f-70']">
         {{ title }}
@@ -48,7 +48,7 @@
           ]"
           :max-width="globalMaxWidth * 0.9"
           :min-height="$vuetify.breakpoint.mdAndUp ? 240 : 100"
-          :style="`${!isMobile && `margin-top: -78px`}`"
+          :style="`${!isMobile && `margin-top: -120px`}`"
           color="slategrey"
         >
           <v-row v-if="activeSlide" :no-gutters="!isMobile" class="position-relative z-1" justify="center">
