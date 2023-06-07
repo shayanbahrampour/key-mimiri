@@ -18,8 +18,8 @@
           </p>
           <p
             v-if="isMobile"
-            class="font-weight-light mt-10 f-20 mb-6 text-center white--text"
-            style="max-width: 500px; line-height: 2"
+            class="font-weight-light mt-6 mb-12 f-24 mb-6 text-center white--text"
+            style="max-width: 500px"
           >
             If you are willing to cooperate with us, please fill this form and share with us your resume. We will reach
             you when the right opportunity comes up.
@@ -46,6 +46,7 @@
         :model="counter"
         :tabs="$route.query.job ? certainJob : apply"
         @select="counter = $event"
+        :isLast="($route.query.job && counter === 6) || (!$route.query.job && counter === 7) ? true : false"
       />
       <Component :is="steps[counter].component" :class="{ 'pe-0': !isMobile }"></Component>
       <div

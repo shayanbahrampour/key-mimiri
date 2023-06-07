@@ -1,6 +1,6 @@
 <template>
   <div class="w-full">
-    <CareerCustomTabs :items="tabs" :model="model" @select="$emit('select', $event)" />
+    <CareerCustomTabs :items="tabs" :model="model" @select="$emit('select', $event)" :isLast="isLast" />
     <v-progress-linear
       v-if="!isMobile"
       :value="calculateWidth()"
@@ -33,6 +33,10 @@ export default {
     model: {
       type: Number,
       default: 0
+    },
+    isLast: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {

@@ -8,7 +8,7 @@
       :class="[
         'bel f-24 bg-transparent text-capitalize tab-news text-no-wrap',
         !isMobile ? 'px-0' : 'px-8 mt-2',
-        index <= model ? 'darkGreen--text' : 'teaGreen--text'
+        index <= model || isLast ? 'darkGreen--text' : 'teaGreen--text'
       ]"
       :ripple="false"
       @click="$emit('select', index)"
@@ -29,6 +29,10 @@ export default {
     model: {
       type: Number,
       default: 0
+    },
+    isLast: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -39,6 +43,7 @@ export default {
   watch: {
     model() {
       this.$emit('input', this.model);
+      console.log(this.items);
     }
   }
 };
