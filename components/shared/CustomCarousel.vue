@@ -58,7 +58,7 @@
               </h2>
             </v-col>
             <v-col v-else-if="activeSlide.title && !activeSlide.description" cols="12">
-              <h2 :class="['white--text font-weight-regular', isMobile ? 'f-25' : 'f-35']">
+              <h2 :class="['white--text font-weight-regular', isMobile ? 'f-23' : 'f-35']">
                 {{ activeSlide.title }}
               </h2>
             </v-col>
