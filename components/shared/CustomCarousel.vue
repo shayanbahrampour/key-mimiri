@@ -28,7 +28,7 @@
         >
           <div
             v-if="items.length > 1 && !hideDelimiters"
-            :class="['position-absolute start-0 end-0', isMobile ? 'd-flex justify-center align-center' : '']"
+            :class="['position-absolute', isMobile ? 'd-flex justify-center align-center start-0 end-0' : '']"
             :style="isMobile ? 'top: -40px' : 'top: -50px'"
           >
             <v-icon
