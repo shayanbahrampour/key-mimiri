@@ -54,16 +54,13 @@
           color="primary"
           icon
           :ripple="false"
+          :class="{ 'me-n4': !isMobile }"
         >
           <template v-if="$i18n.locale === 'en'">Fa</template>
           <template v-else>En</template>
         </v-btn>
 
-        <v-icon
-          :class="['ms-1 pe-0 bg-transparent', { 'me-n4': !isMobile }]"
-          v-if="isMobile"
-          @click="flag.showDrawer = !flag.showDrawer"
-        >
+        <v-icon class="ms-1 pe-0 bg-transparent" v-if="isMobile" @click="flag.showDrawer = !flag.showDrawer">
           <template v-if="flag.showDrawer">mdi-close</template>
           <template v-else>mdi-menu</template>
         </v-icon>

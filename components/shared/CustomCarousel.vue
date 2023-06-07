@@ -13,31 +13,6 @@
         <v-img :height="isMobile ? '30vh' : '65vh'" :src="item.src" class="position-relative z-0" />
       </v-carousel-item>
     </v-carousel>
-    <div
-      v-if="items.length > 1 && !hideDelimiters"
-      :class="[
-        'position-absolute start-0 end-0 mx-auto z-0',
-        isMobile ? 'd-flex justify-center align-center px-6' : 'px-16'
-      ]"
-      :style="`max-width: ${globalMaxWidth}px; top: ${isMobile ? 260 : 330}px`"
-    >
-      <v-icon v-for="(item, index) in items" :key="index" class="ms-1" color="white" size="25" @click="model = index">
-        {{ index === model ? 'mdi-radiobox-marked' : 'mdi-radiobox-blank' }}
-      </v-icon>
-    </div>
-    <div
-      v-if="title"
-      :class="[
-        'position-absolute start-0 end-0 mx-auto z-0',
-        isMobile ? 'px-6' : $vuetify.breakpoint.xl ? 'px-12' : 'px-16'
-      ]"
-      :style="`max-width: ${globalMaxWidth}px; top: ${isMobile ? 230 : 320}px`"
-    >
-      <h4 :class="['bel white--text font-weight-regular text-uppercase', isMobile ? 'f-50' : 'f-70']">
-        {{ title }}
-      </h4>
-    </div>
-
     <div class="position-relative z-1">
       <div :class="['mx-auto', !isMobile && 'pe-16']" :style="`max-width: ${globalMaxWidth}px`">
         <v-sheet
@@ -51,6 +26,30 @@
           :style="`${!isMobile && `margin-top: -120px`}`"
           color="slategrey"
         >
+          <div
+            v-if="items.length > 1 && !hideDelimiters"
+            :class="['position-absolute start-0 end-0', isMobile ? 'd-flex justify-center align-center' : '']"
+            :style="isMobile ? 'top: -40px' : 'top: -50px'"
+          >
+            <v-icon
+              v-for="(item, index) in items"
+              :key="index"
+              class="ms-1"
+              color="white"
+              size="25"
+              @click="model = index"
+            >
+              {{ index === model ? 'mdi-radiobox-marked' : 'mdi-radiobox-blank' }}
+            </v-icon>
+          </div>
+
+          <h1
+            v-if="title"
+            :class="['bel white--text font-weight-regular text-uppercase', isMobile ? 'f-50' : 'f-70']"
+            :style="isMobile ? 'margin: -100px 0 40px' : 'margin: -140px 0 80px'"
+          >
+            {{ title }}
+          </h1>
           <v-row v-if="activeSlide" :no-gutters="!isMobile" class="position-relative z-1" justify="center">
             <v-col v-if="activeSlide.title && activeSlide.description" :lg="activeSlide.description ? 5 : 12" cols="12">
               <h2 :class="['bel white--text font-weight-regular', isMobile ? 'f-35 text-center' : 'f-50']">
