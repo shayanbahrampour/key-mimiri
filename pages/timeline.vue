@@ -16,7 +16,7 @@
       :class="['mx-auto grey--text text--darken-2', !isMobile && ($vuetify.breakpoint.xl ? 'px-12' : 'px-16')]"
       :max-width="globalMaxWidth"
     >
-      <div :class="['d-flex align-center pt-16 pb-10', { 'flex-column text-center px-6': isMobile }]">
+      <div :class="['d-flex align-center pt-16', !isMobile ? 'pb-10' : 'flex-column text-center px-6 pb-2']">
         <h3
           :class="[
             'font-weight-regular bel grey--text text--darken-2 flex-shrink-0',
