@@ -1,6 +1,6 @@
 <template>
   <div class="w-full">
-    <CareerCustomTabs :items="tabs" :model="model" />
+    <CareerCustomTabs :items="tabs" :model="model" @select="$emit('select', $event)" />
     <v-progress-linear
       v-if="!isMobile"
       :value="calculateWidth()"
