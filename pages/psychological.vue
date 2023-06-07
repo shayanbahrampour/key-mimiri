@@ -21,7 +21,7 @@
     <div :class="[isMobile ? 'text-start px-6 h-full psy-screen d-flex flex-column' : 'text-center ma-16 px-16']">
       <div class="d-flex relative-container-social">
         <p
-          :class="['white--text text--darken-3 font-weight-regular', isMobile ? 'text-center f-20 mt-10' : 'f-22 mt-6']"
+          :class="['white--text text--darken-3 font-weight-light', isMobile ? 'text-center f-20 mt-10' : 'f-22 mt-6']"
           style="line-height: 40px"
         >
           {{ $t('psychological.description') }}
@@ -31,8 +31,10 @@
       </div>
       <v-divider :class="[isMobile ? 'my-6' : 'my-10']" style="background-color: #f3911f"></v-divider>
       <h4
-        :class="['bel text--darken-3 font-weight-regular', isMobile ? 'text-center f-30' : 'f-50']"
-        style="color: #a01e64"
+        :class="[
+          'bel text--darken-3 font-weight-regular',
+          isMobile ? 'text-center f-30 black--text' : 'f-50 white--text'
+        ]"
       >
         {{ $t('psychological.responsibility') }}
       </h4>
@@ -41,7 +43,7 @@
       <v-divider :class="[isMobile ? 'my-6' : 'my-10']" style="background-color: #f3911f"></v-divider>
       <p
         :class="[
-          'f-22 white--text text--darken-3 font-weight-regular',
+          'f-22 white--text text--darken-3 font-weight-light',
           isMobile ? 'text-center mb-16' : 'mx-4 mb-16 mt-6'
         ]"
         style="line-height: 40px"

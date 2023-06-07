@@ -20,7 +20,7 @@
     <div :class="[isMobile ? 'text-start px-6 h-full psy-screen d-flex flex-column' : 'text-center ma-16 px-16']">
       <div class="d-flex relative-container-social">
         <p
-          :class="['white--text text--darken-3 font-weight-regular', isMobile ? 'text-center f-20 mt-10' : 'f-22 mt-6']"
+          :class="['white--text text--darken-3 font-weight-light', isMobile ? 'text-center f-20 mt-10' : 'f-22 mt-6']"
           style="line-height: 40px"
         >
           {{ $t('physical.description') }}
@@ -32,9 +32,8 @@
       <h4
         :class="[
           'bel text--darken-3 font-weight-regular mb-16',
-          isMobile ? 'text-center black--text f-30 mt-4' : 'f-50'
+          isMobile ? 'text-center black--text f-30 mt-4 black--text' : 'f-50 white--text'
         ]"
-        style="color: #a01e64"
       >
         {{ $t('physical.responsibility') }}
       </h4>
