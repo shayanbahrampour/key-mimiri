@@ -1,7 +1,7 @@
 <template>
   <div :class="['my-16', { 'pt-3': !isMobile }]">
     <v-sheet :class="['mx-auto grey--text text--darken-2', { 'px-16': !isMobile }]" :max-width="globalMaxWidth">
-      <div :class="['d-flex align-center mb-14', { 'flex-column text-center px-6': isMobile }]">
+      <div :class="['d-flex align-center', isMobile ? 'flex-column text-center px-6 mb-8' : 'mb-14']">
         <h3
           :class="[
             'font-weight-regular bel grey--text text--darken-2 flex-shrink-0',
@@ -10,6 +10,8 @@
         >
           {{ $t('homePage.impact.title') }}
         </h3>
+
+        <v-divider v-if="isMobile" class="w-full" />
 
         <p
           :class="['mb-0 font-weight-light py-4', isMobile ? 'f-16' : 'f-20 ms-8 ps-8']"
