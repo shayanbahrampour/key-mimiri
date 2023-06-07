@@ -48,26 +48,39 @@
           </v-btn>
         </template>
 
-        <v-icon v-if="$vuetify.breakpoint.smAndDown" @click="flag.showDrawer = !flag.showDrawer">mdi-menu</v-icon>
+        <v-icon v-if="$vuetify.breakpoint.smAndDown" @click="flag.showDrawer = !flag.showDrawer">
+          <template v-if="flag.showDrawer">mdi-close</template>
+          <template v-else>mdi-menu</template>
+        </v-icon>
 
         <v-btn v-if="$i18n.locale === 'en'" :to="switchLocalePath('fa')" class="mx-1" color="primary" icon> Fa</v-btn>
         <v-btn v-else :to="switchLocalePath('en')" class="mx-1" color="primary" icon>En</v-btn>
       </v-sheet>
     </v-app-bar>
 
-    <v-navigation-drawer v-if="$vuetify.breakpoint.smAndDown" v-model="flag.showDrawer" :right="isRTL" app fixed>
-      <v-list class="my-4" nav>
-        <template v-for="(item, index) in items">
-          <v-list-item :key="index" :to="item.path ? item.path : undefined" color="primary" exact link>
-            <v-list-item-content class="px-2">
-              <v-list-item-title class="overflow-visible">
-                <span class="text-capitalize">{{ $t(item.value) }}</span>
-              </v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </template>
-      </v-list>
-    </v-navigation-drawer>
+    <v-expand-transition>
+      <v-sheet
+        v-if="$vuetify.breakpoint.smAndDown && flag.showDrawer"
+        class="position-fixed start-0 end-0 w-screen z-11"
+        color="transparent"
+        style="top: 65px"
+      >
+        <v-card
+          flat
+          tile
+          v-for="(item, index) in items"
+          :key="index"
+          :to="item.path ? item.path : undefined"
+          color="#66869A"
+          exact
+          link
+          style="opacity: 0.95; margin-bottom: 2px"
+          class="text-center white--text py-4 f-18"
+        >
+          {{ $t(item.value) }}
+        </v-card>
+      </v-sheet>
+    </v-expand-transition>
   </div>
 </template>
 
@@ -79,6 +92,11 @@ export default {
         showDrawer: false
       }
     };
+  },
+  watch: {
+    $route() {
+      this.flag.showDrawer = false;
+    }
   },
   computed: {
     items() {
