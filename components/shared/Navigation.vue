@@ -59,7 +59,11 @@
           <template v-else>En</template>
         </v-btn>
 
-        <v-icon class="bg-transparent" v-if="$vuetify.breakpoint.smAndDown" @click="flag.showDrawer = !flag.showDrawer">
+        <v-icon
+          :class="['ms-1 pe-0 bg-transparent', { 'me-n4': !isMobile }]"
+          v-if="$vuetify.breakpoint.smAndDown"
+          @click="flag.showDrawer = !flag.showDrawer"
+        >
           <template v-if="flag.showDrawer">mdi-close</template>
           <template v-else>mdi-menu</template>
         </v-icon>
@@ -84,6 +88,7 @@
           link
           style="opacity: 0.95; margin-bottom: 2px"
           class="text-center white--text py-4 f-18"
+          @click="flag.showDrawer = false"
         >
           {{ $t(item.value) }}
         </v-card>
