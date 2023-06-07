@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="['d-flex flex-column align-center text-center', !isMobile ? 'pt-10' : undefined]"
+    :class="['d-flex flex-column align-center text-center', !isMobile ? 'pt-10 psy-container' : undefined]"
     style="background-color: #f3911f; margin-bottom: -40px"
   >
     <h1 :class="['bel white--text text--darken-3 font-weight-regular', isMobile ? 'f-36 mt-12' : 'f-80 mt-16']">
@@ -188,5 +188,9 @@ export default {
   left: -140px;
   top: var(--circleLeftMobilePosition);
   transform: translate(50%, -50%);
+}
+
+.psy-container {
+  background-image: url('/images/social/sqaure.png');
 }
 </style>
