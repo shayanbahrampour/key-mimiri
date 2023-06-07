@@ -1,11 +1,13 @@
 <template>
   <div class="position-relative z-0">
-    <div ref="pdfContainer">
+    <fullscreen v-model="flag.fullscreen">
       <vue-pdf
         :page="page"
         :src="src"
-        :style="`font-family: inherit; height: ${flag.showContent ? 'auto' : '400px'}`"
-        class="w-full position-relative z-0 ltr white h-auto"
+        :style="`max-height:100vh; font-family: inherit; height: ${
+          flag.showContent ? (flag.fullscreen ? '100vh' : 'auto') : '400px'
+        }`"
+        class="w-full position-relative z-0 ltr white d-flex align-center justify-center"
         @error="onError"
         @num-pages="pageCount = $event"
       />
@@ -46,18 +48,20 @@
       >
         {{ pageCount }}
       </v-btn>
+
       <v-btn
         absolute
-        class="shadow white bottom-0 start-0 z-1 ma-3"
+        :class="['shadow white bottom-0 start-0 z-1', isMobile ? 'ma-3' : 'ma-6']"
         fab
-        height="30"
+        :height="isMobile ? 30 : 40"
+        :width="isMobile ? 30 : 40"
         icon
-        width="30"
-        @click="toggleFullscreen()"
+        @click="flag.fullscreen = !flag.fullscreen"
       >
-        <v-icon color="#66869A" size="16">mdi-square-outline</v-icon>
+        <v-icon v-if="flag.fullscreen">mdi-fullscreen-exit</v-icon>
+        <v-icon v-else>mdi-fullscreen</v-icon>
       </v-btn>
-    </div>
+    </fullscreen>
   </div>
 </template>
 
@@ -66,7 +70,8 @@ export default {
   data() {
     return {
       flag: {
-        showContent: false
+        showContent: false,
+        fullscreen: false
       },
       page: 1,
       pageCount: 1,
@@ -76,7 +81,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.flag.showContent = true;
-    }, 2000);
+    }, 2500);
   },
   methods: {
     onError(error) {
@@ -87,19 +92,6 @@ export default {
     },
     prev() {
       this.page--;
-    },
-    toggleFullscreen() {
-      const container = this.$refs.pdfContainer;
-
-      if (container.requestFullscreen) {
-        container.requestFullscreen();
-      } else if (container.mozRequestFullScreen) {
-        container.mozRequestFullScreen();
-      } else if (container.webkitRequestFullscreen) {
-        container.webkitRequestFullscreen();
-      } else if (container.msRequestFullscreen) {
-        container.msRequestFullscreen();
-      }
     }
   }
 };

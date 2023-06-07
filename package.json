@@ -19,6 +19,7 @@
     "nuxt-swiper": "^1.1.0",
     "swiper": "6.6.2",
     "vue-awesome-swiper": "^4.1.1",
+    "vue-fullscreen": "^2.6.2",
     "vue-pdf": "^4.3.0",
     "vue-video-player": "^5.0.2",
     "vuetify": "^2.6.15"
