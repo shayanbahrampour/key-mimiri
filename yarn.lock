@@ -8385,6 +8385,11 @@ schema-utils@^4.0.0:
     ajv-formats "^2.1.1"
     ajv-keywords "^5.1.0"
 
+screenfull@^5.1.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/screenfull/-/screenfull-5.2.0.tgz#6533d524d30621fc1283b9692146f3f13a93d1ba"
+  integrity sha512-9BakfsO2aUQN2K9Fdbj87RJIEZ82Q9IGim7FqM5OsebfoFC6ZHXgDq/KvniuLTPdeM8wY2o6Dj3WQ7KeQCj3cA==
+
 scule@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/scule/-/scule-0.2.1.tgz#0c1dc847b18e07219ae9a3832f2f83224e2079dc"
@@ -9605,6 +9610,13 @@ vue-eslint-parser@^9.0.3, vue-eslint-parser@^9.3.0:
     esquery "^1.4.0"
     lodash "^4.17.21"
     semver "^7.3.6"
+
+vue-fullscreen@^2.6.2:
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/vue-fullscreen/-/vue-fullscreen-2.6.2.tgz#b9441f6118e46168e4793a07d8f9aa734efd754c"
+  integrity sha512-ae/KY0vxU5/n2svgd6olVVrz7fyrlpOCuF7pzTwFEZm+gFExQK9oBd+YEF0AVZcxAZy6pxXJXLPKfSYCjlDoNQ==
+  dependencies:
+    screenfull "^5.1.0"
 
 vue-hot-reload-api@^2.3.0:
   version "2.3.4"

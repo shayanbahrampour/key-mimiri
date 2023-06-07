@@ -1,50 +1,67 @@
 <template>
   <div class="position-relative z-0">
-    <vue-pdf
-      :page="page"
-      :src="src"
-      :style="`font-family: inherit; height: ${flag.showContent ? 'auto' : '400px'}`"
-      class="w-full position-relative z-0 ltr white h-auto"
-      @error="onError"
-      @num-pages="pageCount = $event"
-    />
+    <fullscreen v-model="flag.fullscreen">
+      <vue-pdf
+        :page="page"
+        :src="src"
+        :style="`max-height:100vh; font-family: inherit; height: ${
+          flag.showContent ? (flag.fullscreen ? '100vh' : 'auto') : '400px'
+        }`"
+        class="w-full position-relative z-0 ltr white d-flex align-center justify-center"
+        @error="onError"
+        @num-pages="pageCount = $event"
+      />
 
-    <v-btn
-      v-if="page < pageCount"
-      :class="['shadow white top-0 bottom-0 my-auto z-1 end-0', isMobile ? 'mx-3' : 'mx-6']"
-      :height="isMobile ? 30 : 40"
-      :width="isMobile ? 30 : 40"
-      absolute
-      fab
-      icon
-      @click="next"
-    >
-      <v-icon color="#66869A" size="28">mdi-chevron-{{ isRTL ? 'left' : 'right' }}</v-icon>
-    </v-btn>
-    <v-btn
-      v-if="page > 1"
-      :class="['shadow white top-0 bottom-0 my-auto z-1 mxart-0', isMobile ? 'mx-3' : 'mx-6']"
-      :height="isMobile ? 30 : 40"
-      :width="isMobile ? 30 : 40"
-      absolute
-      fab
-      icon
-      @click="prev"
-    >
-      <v-icon color="#66869A" size="28">mdi-chevron-{{ isRTL ? 'right' : 'left' }}</v-icon>
-    </v-btn>
-    <v-btn
-      v-if="isMobile"
-      absolute
-      class="shadow white bottom-0 end-0 z-1 ma-3"
-      fab
-      height="30"
-      icon
-      width="30"
-      @click="prev"
-    >
-      {{ pageCount }}
-    </v-btn>
+      <v-btn
+        v-if="page < pageCount"
+        :class="['shadow white top-0 bottom-0 my-auto z-1 end-0', isMobile ? 'mx-3' : 'mx-6']"
+        :height="isMobile ? 30 : 40"
+        :width="isMobile ? 30 : 40"
+        absolute
+        fab
+        icon
+        @click="next"
+      >
+        <v-icon color="#66869A" size="28">mdi-chevron-{{ isRTL ? 'left' : 'right' }}</v-icon>
+      </v-btn>
+      <v-btn
+        v-if="page > 1"
+        :class="['shadow white top-0 bottom-0 my-auto z-1 mxart-0', isMobile ? 'mx-3' : 'mx-6']"
+        :height="isMobile ? 30 : 40"
+        :width="isMobile ? 30 : 40"
+        absolute
+        fab
+        icon
+        @click="prev"
+      >
+        <v-icon color="#66869A" size="28">mdi-chevron-{{ isRTL ? 'right' : 'left' }}</v-icon>
+      </v-btn>
+      <v-btn
+        v-if="isMobile"
+        absolute
+        class="shadow white bottom-0 end-0 z-1 ma-3"
+        fab
+        height="30"
+        icon
+        width="30"
+        @click="prev"
+      >
+        {{ pageCount }}
+      </v-btn>
+
+      <v-btn
+        absolute
+        :class="['shadow white bottom-0 start-0 z-1', isMobile ? 'ma-3' : 'ma-6']"
+        fab
+        :height="isMobile ? 30 : 40"
+        :width="isMobile ? 30 : 40"
+        icon
+        @click="flag.fullscreen = !flag.fullscreen"
+      >
+        <v-icon v-if="flag.fullscreen">mdi-fullscreen-exit</v-icon>
+        <v-icon v-else>mdi-fullscreen</v-icon>
+      </v-btn>
+    </fullscreen>
   </div>
 </template>
 
@@ -53,7 +70,8 @@ export default {
   data() {
     return {
       flag: {
-        showContent: false
+        showContent: false,
+        fullscreen: false
       },
       page: 1,
       pageCount: 1,
@@ -63,7 +81,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.flag.showContent = true;
-    }, 2000);
+    }, 2500);
   },
   methods: {
     onError(error) {
