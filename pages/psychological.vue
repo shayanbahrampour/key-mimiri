@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="['d-flex flex-column align-center text-center', !isMobile ? 'pt-10 psy-container' : undefined]"
+    :class="['d-flex flex-column align-center text-center psy-container', !isMobile ? 'pt-10' : undefined]"
     style="background-color: #f3911f; margin-bottom: -40px"
   >
     <h1 :class="['bel white--text text--darken-3 font-weight-regular', isMobile ? 'f-36 mt-12' : 'f-80 mt-16']">
@@ -29,12 +29,7 @@
         <div v-else class="right-circle-mobile"></div>
       </div>
       <v-divider :class="[isMobile ? 'my-6' : 'my-10']" style="background-color: #f3911f"></v-divider>
-      <h4
-        :class="[
-          'bel text--darken-3 font-weight-regular',
-          isMobile ? 'text-center f-30 black--text' : 'f-50 white--text'
-        ]"
-      >
+      <h4 :class="['bel text--darken-3 font-weight-regular white--text', isMobile ? 'text-center f-30' : 'f-50']">
         {{ $t('psychological.responsibility') }}
       </h4>
       <div v-if="!isMobile" class="left-circle"></div>
