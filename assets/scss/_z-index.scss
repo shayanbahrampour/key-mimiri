@@ -1,4 +1,4 @@
-@for $i from 0 through 10 {
+@for $i from 0 through 12 {
   .z-#{$i} {
     z-index: #{$i} !important;
   }
