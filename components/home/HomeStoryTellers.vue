@@ -9,7 +9,7 @@
       </h3>
       <client-only>
         <swiper
-          :class="['w-full mr-0', isMobile ? 'mt-4 px-8' : 'my-5 px-16']"
+          :class="['w-full me-0', isMobile ? 'mt-4 px-8' : 'my-5 px-16']"
           :dir="isRTL ? 'rtl' : 'ltr'"
           :options="{
             spaceBetween: 28,

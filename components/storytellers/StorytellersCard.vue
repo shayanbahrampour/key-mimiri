@@ -6,7 +6,7 @@
 
     <div v-for="i in 4" :key="i" class="d-flex justify-center mb-4">
       <v-card
-        :class="['d-flex rounded-xl overflow-hidden align-center', !isMobile ? 'custom-story-card mr-4' : undefined]"
+        :class="['d-flex rounded-xl overflow-hidden align-center', !isMobile ? 'custom-story-card me-4' : undefined]"
         :to="localePath('/storytellers/1234')"
         elevation="0"
         style="border: 2px solid white"
@@ -16,13 +16,13 @@
         >
           <div :class="['d-flex', isMobile ? 'flex-column align-center justify-center' : undefined]">
             <v-img
-              :class="['mr-4', !isMobile ? 'elevation-3' : undefined]"
+              :class="['me-4', !isMobile ? 'elevation-3' : undefined]"
               :height="isMobile ? '140' : '155'"
               :max-width="isMobile ? '140' : '155'"
               src="/images/face/bahador.png"
               style="border-radius: 50%"
             />
-            <div :class="['d-flex flex-column justify-center', !isMobile ? 'ml-4' : undefined]">
+            <div :class="['d-flex flex-column justify-center', !isMobile ? 'ms-4' : undefined]">
               <p
                 :class="[
                   'bel mb-0 text--darken-3',

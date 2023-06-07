@@ -16,7 +16,7 @@
       color="transparent"
     >
       <div class="d-flex">
-        <div class="d-flex flex-column justify-center align-start ml-4 container-scrolled-des">
+        <div class="d-flex flex-column justify-center align-start ms-4 container-scrolled-des">
           <div>
             <h2 class="bel white--text mb-0 text--darken-3 font-weight-regular f-50 header-des">
               Senior project manager

@@ -8,10 +8,10 @@
       <h4 v-if="!isMobile" class="bel white--text f-70 font-weight-regular" style="margin-bottom: 140px">EDUCATION</h4>
       <h4 v-else class="bel white--text f-36 font-weight-regular mb-4">Education</h4>
     </v-img>
-    <div v-if="!isMobile" class="d-flex flex-column align-start w-full white pr-4">
+    <div v-if="!isMobile" class="d-flex flex-column align-start w-full white pe-4">
       <v-card
         :width="isMobile ? '90%' : undefined"
-        class="rounded-r-xl white--text rounded-l-0 d-flex py-6 px-10 flex-column mr-10 align-center justify-center"
+        class="rounded-r-xl white--text rounded-l-0 d-flex py-6 px-10 flex-column me-10 align-center justify-center"
         color="slategrey"
         elevation="0"
         height="240"
@@ -25,7 +25,7 @@
       </v-card>
       <div
         v-if="!isMobile"
-        :class="['d-flex flex-column align-start mt-16 white w-full', !isMobile ? 'pl-10' : undefined]"
+        :class="['d-flex flex-column align-start mt-16 white w-full', !isMobile ? 'ps-10' : undefined]"
       >
         <NewsCategory :tabs="tabs" class="my-6 mx-6" title="More Articles" />
       </div>

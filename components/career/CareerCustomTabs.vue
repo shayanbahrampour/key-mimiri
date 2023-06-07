@@ -53,6 +53,7 @@ export default {
   .v-slide-group__next {
     display: none !important;
   }
+
   .v-slide-group__content {
     flex-direction: row;
     justify-content: space-evenly;

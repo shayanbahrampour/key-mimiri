@@ -35,7 +35,7 @@
           <v-btn
             v-if="!isMobile"
             :block="isMobile"
-            :class="['f-18 text-capitalize grey--text', { 'ml-n4': !isMobile }]"
+            :class="['f-18 text-capitalize grey--text', { 'ms-n4': !isMobile }]"
             depressed
             exact
             large

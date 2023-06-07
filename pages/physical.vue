@@ -45,6 +45,7 @@
 
 <script>
 import VideoContents from '~/components/shared/VideoContents';
+
 export default {
   head() {
     return {

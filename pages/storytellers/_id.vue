@@ -5,7 +5,7 @@
     >
       <div :class="['d-flex', isMobile ? 'flex-column align-center' : undefined]">
         <v-img height="155" max-width="155" src="/images/face/masoume.png" style="border-radius: 50%" />
-        <div class="d-flex flex-column justify-center ml-4">
+        <div class="d-flex flex-column justify-center ms-4">
           <p
             :class="[
               'bel white--text mb-0 text--darken-3 font-weight-regular',
@@ -26,7 +26,7 @@
           <v-img height="20" max-width="20" src="/images/icons/linkedin.png" />
         </v-btn>
         <v-btn
-          class="ml-4"
+          class="ms-4"
           height="50"
           min-width="50"
           outlined
@@ -36,7 +36,7 @@
           <v-img height="20" max-width="20" src="/images/icons/whatsapp.png" />
         </v-btn>
         <v-btn
-          class="ml-4"
+          class="ms-4"
           height="50"
           min-width="50"
           outlined
@@ -102,7 +102,7 @@
       style="max-height: 500px"
     />
     <div :class="['h-full white']">
-      <v-sheet class="custom-gradient w-full mt-1" :height="isMobile ? 10 : 16" />
+      <v-sheet :height="isMobile ? 10 : 16" class="custom-gradient w-full mt-1" />
       <div :class="[isMobile ? 'px-4' : 'px-16']">
         <h4
           :class="['bel text-center text--darken-3 font-weight-regular', isMobile ? 'mt-8 f-34 mx-2' : 'mt-16 f-40']"
@@ -135,7 +135,7 @@
               src="/images/face/bahador.png"
               style="border-radius: 50%"
             />
-            <div class="d-flex flex-column justify-center ml-4">
+            <div class="d-flex flex-column justify-center ms-4">
               <p
                 :class="[
                   'bel cobelgrey--text mb-0 text--darken-3',
@@ -198,7 +198,7 @@
               src="/images/face/mohammad.png"
               style="border-radius: 50%"
             />
-            <div class="d-flex flex-column justify-center ml-4">
+            <div class="d-flex flex-column justify-center ms-4">
               <p
                 :class="[
                   'bel cobelgrey--text mb-0 text--darken-3',
@@ -260,6 +260,7 @@
 
 <script>
 import VideoContents from '~/components/shared/VideoContents';
+
 export default {
   head() {
     return {

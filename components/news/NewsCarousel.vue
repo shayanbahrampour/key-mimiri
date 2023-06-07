@@ -7,7 +7,7 @@
     </v-carousel>
     <div
       v-if="!isMobile"
-      :class="['position-absolute start-8 end-0 bottom-0 mx-auto z-0 px-16 mr-4']"
+      :class="['position-absolute start-8 end-0 bottom-0 mx-auto z-0 px-16 me-4']"
       :style="`max-width: ${globalMaxWidth}px; bottom: ${isMobile ? 260 : 40}px`"
     >
       <v-icon v-for="(item, index) in items" :key="index" class="ms-1" color="white" size="25" @click="model = index">
@@ -15,11 +15,11 @@
       </v-icon>
     </div>
 
-    <div :class="['position-relative z-1', { 'pl-10': !isMobile }]">
+    <div :class="['position-relative z-1', { 'ps-10': !isMobile }]">
       <div :class="['mx-auto', !isMobile && 'pe-4']" :style="`max-width: ${globalMaxWidth}px`">
         <v-sheet
           v-if="!isMobile"
-          class="ml-6 rounded-t-xl py-6 px-12 slategrey"
+          class="ms-6 rounded-t-xl py-6 px-12 slategrey"
           height="480"
           style="margin-top: -480px"
           width="480"

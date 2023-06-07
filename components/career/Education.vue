@@ -40,7 +40,7 @@
           <v-text-field class="mb-8 f-20" dense filled hide-details label="State" rounded></v-text-field>
           <v-btn
             v-if="!isMobile"
-            class="mt-2 ml-0"
+            class="mt-2 ms-0"
             style="text-transform: unset !important; color: #0a91df"
             text
             @click="counter++"
@@ -89,7 +89,7 @@
           <v-text-field class="mb-8 f-20" dense filled hide-details label="State" rounded></v-text-field>
           <v-btn
             v-if="!isMobile"
-            class="mt-2 ml-0"
+            class="mt-2 ms-0"
             style="text-transform: unset !important; color: #fc2642"
             text
             @click="counter--"

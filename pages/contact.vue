@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div :class="['slategrey', !isMobile ? 'pr-4' : undefined]">
+    <div :class="['slategrey', !isMobile ? 'pe-4' : undefined]">
       <v-sheet :class="['mx-auto', isMobile ? 'px-8 py-8' : 'pa-16']" :max-width="globalMaxWidth" color="transparent">
         <div class="d-flex justify-space-between">
           <div class="d-flex">
@@ -33,7 +33,7 @@
               outlined
             >
               <span class="bel mt-1 f-20 text-capitalize">Follow us</span>
-              <v-divider class="mr-4 ml-6 white" vertical></v-divider>
+              <v-divider class="me-4 ms-6 white" vertical></v-divider>
               <v-img class="ma-0" height="20" max-width="20" src="/images/icons/linkedin.png" />
             </v-btn>
           </div>
@@ -41,7 +41,7 @@
         <div v-if="isMobile" class="mt-8 d-flex justify-center">
           <v-btn class="rounded d-flex align-center" color="white" height="40" min-width="160" outlined>
             <span class="bel mt-1 f-20 text-capitalize">Follow us</span>
-            <v-divider class="mr-4 ml-6 white" vertical></v-divider>
+            <v-divider class="me-4 ms-6 white" vertical></v-divider>
             <v-img class="ma-0" height="20" max-width="20" src="/images/icons/linkedin.png" />
           </v-btn>
         </div>
@@ -67,7 +67,7 @@
       >
         Contact form
       </h4>
-      <ContactForm :class="!isMobile ? 'mr-4 pb-16' : undefined" />
+      <ContactForm :class="!isMobile ? 'me-4 pb-16' : undefined" />
     </v-sheet>
   </div>
 </template>

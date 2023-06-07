@@ -1,6 +1,6 @@
 <template>
   <div :class="[isMobile ? 'mt-2' : 'd-flex align-center']">
-    <span :class="['f-16 slategrey--text', isMobile ? undefined : 'mr-4']">share it:</span>
+    <span :class="['f-16 slategrey--text', isMobile ? undefined : 'me-4']">share it:</span>
     <div :class="[isMobile ? 'mt-2' : undefined]">
       <v-btn
         color="slategrey"
@@ -13,7 +13,7 @@
         <v-img height="18" max-width="18" src="/images/icons/linkedin-primary.png" />
       </v-btn>
       <v-btn
-        class="ml-4"
+        class="ms-4"
         height="50"
         min-width="50"
         outlined
@@ -23,7 +23,7 @@
         <v-img height="18" max-width="18" src="/images/icons/whatsapp-primary.png" />
       </v-btn>
       <v-btn
-        class="ml-4"
+        class="ms-4"
         height="50"
         min-width="50"
         outlined

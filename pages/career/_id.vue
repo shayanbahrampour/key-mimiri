@@ -25,7 +25,7 @@
         Project responsibilities may include:
       </h4>
       <div v-for="(item, i) in items" :key="i" :class="['d-flex justify-center mb-8', isMobile ? 'px-2' : 'px-6']">
-        <v-icon class="ml-4 mr-6 mt-4 align-self-start" size="6">mdi-circle</v-icon>
+        <v-icon class="ms-4 me-6 mt-4 align-self-start" size="6">mdi-circle</v-icon>
         <p class="mb-0 f-18 align-self-start" style="color: #818181">
           <span class="font-weight-regular" style="line-height: 40px">{{ item.title }}:</span>
           <span class="font-weight-light" style="line-height: 40px">{{ item.subtitle }}</span>

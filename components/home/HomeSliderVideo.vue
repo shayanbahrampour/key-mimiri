@@ -12,8 +12,8 @@
       <v-btn
         v-if="flag.showFullscreen"
         class="position-fixed top-0 start-0 ma-2 z-2"
-        fab
         color="black"
+        fab
         @click="flag.showFullscreen = false"
       >
         <v-icon color="white">mdi-close</v-icon>
@@ -33,7 +33,6 @@
       @click="flag.showFullscreen = true"
     >
       <VideoContents
-        class="my-auto"
         :height="flag.showFullscreen ? undefined : videoSize"
         :options="{
           fill: true,
@@ -45,6 +44,7 @@
           aspectRatio: flag.showFullscreen ? '16:9' : '1:1'
         }"
         :width="flag.showFullscreen ? '100vw' : videoSize"
+        class="my-auto"
         src="/video/temp-2.mp4"
       />
     </v-sheet>

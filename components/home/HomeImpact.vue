@@ -81,7 +81,7 @@ export default {
         grabCursor: true,
         centeredSlides: this.isMobile,
         spaceBetween: 28,
-        slidesPerView: 1.2,
+        slidesPerView: 1.3,
         breakpoints: {
           1904: {
             slidesPerView: 2.5
