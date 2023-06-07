@@ -157,7 +157,10 @@ table {
 
   .end-0 {
     left: 0;
-    right: auto;
+
+    &:not(.start-0) {
+      right: auto;
+    }
   }
 
   .text-start {

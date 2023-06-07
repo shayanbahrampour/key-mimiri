@@ -105,7 +105,7 @@
     <div :style="`max-width:${globalMaxWidth}px`" class="mx-auto">
       <div :class="!isMobile && ($vuetify.breakpoint.xl ? 'px-12' : 'px-16')">
         <VideoContents
-          class="w-full overflow-hidden"
+          class="w-full overflow-hidden d-flex align-center"
           poster="/images/temp/cover-4.png"
           src="/video/temp.mp4"
           style="max-height: calc(100vh - 150px); min-height: 500px"
