@@ -22,6 +22,10 @@
   font-family: 'proxima', 'bel', sans-serif;
 }
 
+.font-weight-600 {
+  font-weight: 600 !important;
+}
+
 .v-application--is-rtl {
   @include min-md {
     .extra-space {

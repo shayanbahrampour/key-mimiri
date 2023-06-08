@@ -7,11 +7,11 @@
   >
     <v-sheet
       :class="[
-        'my-auto end-0 top-0 d-flex align-center position-absolute',
+        'my-auto right-0 top-0 d-flex align-center position-absolute',
         isMobile ? 'start-0 mx-auto justify-center' : 'h-screen bottom-0',
         flag.showFullscreen ? 'z-10' : 'z-2'
       ]"
-      :style="`${isMobile ? 'top:-220px;' : `top:-120px; ${isRTL ? 'left' : 'right'}:-450px;`}`"
+      :style="`${isMobile ? 'top:-220px;' : `top:-120px;right:-450px;`}`"
       color="white"
     >
       <HomeSliderVideo @showFullscreen="flag.showFullscreen = $event" />
@@ -24,10 +24,14 @@
       color="transparent"
       height="100%"
     >
-      <v-row>
+      <v-row :class="isRTL && 'ltr'">
         <v-col cols="12" lg="8" sm="9">
           <h1
-            :class="['bel grey--text text--darken-2 font-weight-regular mb-8', isMobile ? 'f-38 pt-16 mt-12' : 'f-70']"
+            :class="[
+              'grey--text text--darken-2 font-weight-regular mb-8',
+              isMobile ? 'f-38 pt-16 mt-12' : 'f-70',
+              isRTL ? 'ravi' : 'bel'
+            ]"
           >
             {{ $t('homePage.slider.title') }}
           </h1>
@@ -35,12 +39,13 @@
           <v-btn
             v-if="!isMobile"
             :block="isMobile"
-            :class="['f-18 text-capitalize grey--text', { 'ms-n4': !isMobile }]"
+            :class="['f-18 text-capitalize', { 'ms-n4': !isMobile }, { 'font-weight-bold anjoman': isRTL }]"
             depressed
             exact
             large
             rounded
             text
+            color="#59595B"
           >
             {{ $t('homePage.slider.more_about') }}
           </v-btn>
