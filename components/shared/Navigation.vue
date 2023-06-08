@@ -4,7 +4,7 @@
       :height="showDrawer ? 70 : 120"
       :scroll-threshold="showDrawer ? 70 : 120"
       app
-      class="appbar"
+      :class="['appbar', { ltr: isRTL }]"
       color="white"
       elevate-on-scroll
       fixed
@@ -39,7 +39,7 @@
 
         <v-spacer />
 
-        <template v-if="!showDrawer">
+        <div v-if="!showDrawer" :class="{ rtl: isRTL }">
           <v-btn
             v-for="(item, index) in items"
             :key="index"
@@ -53,12 +53,12 @@
             min-height="50"
             tile
           >
-            <span class="text-capitalize f-14">{{ $t(item.value) }}</span>
+            <span :class="['text-capitalize', isRTL ? 'font-weight-600 f-16' : 'f-14']">{{ $t(item.value) }}</span>
           </v-btn>
-        </template>
+        </div>
 
         <v-btn
-          :class="showDrawer ? 'me-n2' : 'me-n4'"
+          :class="showDrawer ? 'mr-n2' : 'mr-n4'"
           :ripple="false"
           :to="$i18n.locale === 'en' ? switchLocalePath('fa') : switchLocalePath('en')"
           color="primary"
@@ -71,7 +71,7 @@
         <v-btn
           v-if="showDrawer"
           :ripple="false"
-          class="pe-0 bg-transparent me-n4"
+          class="pr-0 bg-transparent mr-n4"
           color="black"
           icon
           @click="flag.showDrawer = !flag.showDrawer"

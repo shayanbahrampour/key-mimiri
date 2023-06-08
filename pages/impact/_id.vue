@@ -292,6 +292,8 @@ export default {
               {
                 id: 230305135,
                 en_title: 'Woman empowerment future enrichment',
+                fa_title: 'توانمندسازی زن اندوخته ای برای آینده',
+                fa_summary: 'کمبود آهن که منجر به کم خونی می شود، اثرات منفی بر سلامتی همه افراد به ویژه زنان دارد...',
                 en_summary:
                   '<p>Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women<\/p>',
                 files: [
@@ -314,6 +316,8 @@ export default {
               },
               {
                 id: 507360168,
+                fa_title: 'برخاستن از جامعه بازگشت به جامعه',
+                fa_summary: 'کمبود آهن که منجر به کم خونی می شود، اثرات منفی بر سلامتی همه افراد به ویژه زنان دارد...',
                 en_title: 'Rise from the society\u2028return to the society',
                 en_summary:
                   '<p>Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women<\/p>',
@@ -338,6 +342,8 @@ export default {
               },
               {
                 id: 47161516,
+                fa_title: 'برخاستن از جامعه بازگشت به جامعه',
+                fa_summary: 'کمبود آهن که منجر به کم خونی می شود، اثرات منفی بر سلامتی همه افراد به ویژه زنان دارد...',
                 en_title: 'Rise from the society\u2028return to the society',
                 en_summary:
                   '<p>Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women<\/p>',
@@ -361,6 +367,8 @@ export default {
               },
               {
                 id: 47161516,
+                fa_title: 'برخاستن از جامعه بازگشت به جامعه',
+                fa_summary: 'کمبود آهن که منجر به کم خونی می شود، اثرات منفی بر سلامتی همه افراد به ویژه زنان دارد...',
                 en_title: 'Rise from the society\u2028return to the society',
                 en_summary:
                   '<p>Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women<\/p>',
