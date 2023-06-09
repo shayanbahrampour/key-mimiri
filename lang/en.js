@@ -72,7 +72,12 @@ export default {
     job_position: 'Senior project manager',
     job_description:
       'Who advises that all women in their reproductive ages, whether having Iron deficiency or not, are required to supplements per week.',
-    job_action: 'APPLY NOW'
+    job_action: 'APPLY NOW',
+    panel_text: {
+      full: 'In Cobel Group, we intend to provide a dynamic and professional atmosphere for our employees by using below strategies: Equity, as equal progress opportunity and equal work-specific pay, despite of age, gender, nationality and disabilities. Diversity, in educational background, profession, gender, age and believes. Inclusion and Talent Empowerment, by designing individual development plans (IDP), on-the-job efficient trainings, and implementing regular surveys to discover employee experiences and acting upon Promoting a Knowledge-Centered Environment',
+      compact:
+        'In Cobel Group, we intend to provide a dynamic and professional atmosphere for our employees by using below strategies:'
+    }
   },
   socialHealth: {
     header_description:
@@ -164,5 +169,9 @@ export default {
   error: {
     home: 'Back Home',
     reload: 'Reload'
+  },
+  button: {
+    see_more: 'see more',
+    see_less: 'see less'
   }
 };
