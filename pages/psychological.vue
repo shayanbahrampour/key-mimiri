@@ -3,10 +3,22 @@
     :class="['d-flex flex-column align-center text-center psy-container', !isMobile ? 'pt-10' : undefined]"
     style="background-color: #f3911f; margin-bottom: -40px"
   >
-    <h1 :class="['bel white--text text--darken-3 font-weight-regular', isMobile ? 'f-36 mt-12' : 'f-80 mt-16']">
+    <h1
+      :class="[
+        'white--text text--darken-3 font-weight-regular',
+        isMobile ? 'f-36 mt-12' : 'f-80 mt-16',
+        isRTL ? 'ravi' : 'bel'
+      ]"
+    >
       {{ $t('pageTitles.psychological') }}
     </h1>
-    <p :class="['mt-6 white--text text--darken-3 font-weight-light', !isMobile ? 'f-22 mb-16' : 'f-20 mx-6']">
+    <p
+      :class="[
+        'mt-6 white--text text--darken-3',
+        !isMobile ? 'f-22 mb-16' : 'f-20 mx-6',
+        isRTL ? 'font-weight-bold' : 'font-weight-light'
+      ]"
+    >
       {{ $t('psychological.header_description') }}
     </p>
     <v-sheet v-if="!isMobile" class="custom-gradient w-full mt-16" height="15" />
@@ -20,8 +32,11 @@
     <div :class="[isMobile ? 'text-start px-6 h-full psy-screen d-flex flex-column' : 'text-center ma-16 px-16']">
       <div class="d-flex relative-container-social">
         <p
-          :class="['white--text text--darken-3 font-weight-light', isMobile ? 'text-center f-20 mt-10' : 'f-22 mt-6']"
-          style="line-height: 40px"
+          :class="[
+            'white--text text--darken-3 mobile-paragraph',
+            isMobile ? 'text-center f-20 mt-10' : 'f-22 mt-6',
+            isRTL ? 'font-weight-bold' : 'font-weight-light'
+          ]"
         >
           {{ $t('psychological.description') }}
         </p>
@@ -29,7 +44,19 @@
         <div v-else class="right-circle-mobile"></div>
       </div>
       <v-divider :class="[isMobile ? 'my-6' : 'my-10']" style="background-color: #f3911f"></v-divider>
-      <h4 :class="['bel text--darken-3 font-weight-regular white--text', isMobile ? 'text-center f-30' : 'f-50']">
+      <h4
+        :class="[
+          'text--darken-3 font-weight-regular white--text',
+          isMobile ? 'text-center' : undefined,
+          isRTL
+            ? isMobile
+              ? 'ravi f-24 mobile-paragraph'
+              : 'ravi f-40 desktop-paragraph'
+            : isMobile
+            ? ' bel text-center f-30'
+            : ' bel f-50'
+        ]"
+      >
         {{ $t('psychological.responsibility') }}
       </h4>
       <div v-if="!isMobile" class="left-circle"></div>
@@ -37,10 +64,10 @@
       <v-divider :class="[isMobile ? 'my-6' : 'my-10']" style="background-color: #f3911f"></v-divider>
       <p
         :class="[
-          'f-22 white--text text--darken-3 font-weight-light',
-          isMobile ? 'text-center mb-16' : 'mx-4 mb-16 mt-6'
+          'white--text text--darken-3 mobile-paragraph',
+          isMobile ? 'text-center mb-16 f-20' : 'mx-4 mb-16 mt-6 f-22',
+          isRTL ? 'font-weight-bold' : 'font-weight-light'
         ]"
-        style="line-height: 40px"
       >
         {{ $t('psychological.individual') }}
       </p>
@@ -138,6 +165,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.desktop-paragraph {
+  line-height: 60px;
+}
+.mobile-paragraph {
+  line-height: 40px;
+}
 .right-circle {
   width: 100px;
   height: 100px;
