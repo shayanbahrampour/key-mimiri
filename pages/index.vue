@@ -4,7 +4,7 @@
     <HomeServices />
     <HomeVideo />
     <HomeImpact />
-    <HomeStoryTellers class="mt-16" />
+    <HomeStoryTellers />
     <HomeTellUsStory />
   </div>
 </template>

@@ -8,10 +8,13 @@
       :max-width="globalMaxWidth"
       color="transparent"
     >
-      <div class="d-flex align-center w-full">
+      <div :class="['d-flex w-full', $vuetify.breakpoint.smAndDown ? 'flex-column' : 'flex-row align-center']">
         <h3
-          :class="['font-weight-regular bel', isMobile ? 'f-35 text-center pt-4 flex-grow-1' : 'f-50']"
-          :style="isMobile ? '' : 'min-width: 412px'"
+          :class="[
+            'font-weight-regular bel',
+            isMobile ? 'f-35 text-center pt-4 flex-grow-1' : lgAndUp ? 'f-60' : 'f-50'
+          ]"
+          :style="isMobile ? '' : `min-width: ${lgAndUp ? '500px' : '415px'}`"
         >
           {{ $t('homePage.video.title') }}
         </h3>
@@ -36,7 +39,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    lgAndUp() {
+      return this.$vuetify.breakpoint.lgAndUp;
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped></style>
