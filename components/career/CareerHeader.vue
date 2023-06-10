@@ -16,28 +16,40 @@
       color="transparent"
     >
       <div class="d-flex">
-        <div class="d-flex flex-column justify-center align-start ms-4 container-scrolled-des">
+        <div
+          :class="[
+            'd-flex flex-column justify-center align-start ms-4',
+            isRTL ? 'container-scrolled-rtl-des' : 'container-scrolled-des'
+          ]"
+        >
           <div>
-            <h2 class="bel white--text mb-0 text--darken-3 font-weight-regular f-50 header-des">
-              Senior project manager
+            <h2
+              :class="['white--text mb-0 text--darken-3 font-weight-regular f-50 header-des', isRTL ? 'ravi' : 'bel']"
+            >
+              {{ $t('career.job_position') }}
             </h2>
             <p
-              class="white--text text--darken-3 font-weight-light description-des f-20 mt-0 mb-10"
+              :class="[
+                'white--text text--darken-3 font-weight-light description-des f-20 mt-0 mb-10',
+                isRTL ? 'ravi mt-4' : undefined
+              ]"
               style="max-width: 70%"
             >
-              Who advises that all women in their reproductive ages, whether having Iron deficiency or not, are required
-              to consume 60 mg of iron supplements per week.
+              {{ $t('career.job_description') }}
             </p>
           </div>
           <v-btn
             :to="`/career/forum?job=${true}`"
-            class="rounded-xl d-flex justify-center white--text font-weight-regular f-18 mt-10 mb-6"
+            :class="[
+              'rounded-xl d-flex justify-center white--text font-weight-regular f-18 mt-10 mb-6',
+              isRTL ? 'ravi' : undefined
+            ]"
             color="#A01E64"
             elevation="0"
             height="50"
             min-width="250"
           >
-            APPLY NOW
+            {{ $t('career.job_action') }}
           </v-btn>
         </div>
       </div>
@@ -46,20 +58,29 @@
   <div v-else class="d-flex py-6 px-4 justify-center slategrey">
     <div class="d-flex">
       <div class="d-flex flex-column justify-center align-center mobile-contact">
-        <p class="bel white--text mb-0 text--darken-3 font-weight-regular text-center f-36">Senior project manager</p>
-        <p class="font-weight-light my-6 mx-4 f-20 text-center white--text" style="max-width: 500px; line-height: 2">
-          Who advises that all women in their reproductive ages, whether having Iron deficiency or not, are required to
-          consume 60 mg of iron supplements per week.
+        <p
+          :class="['white--text mb-0 text--darken-3 font-weight-regular text-center f-36', isRTL ? 'ravi mt-4' : 'bel']"
+        >
+          {{ $t('career.job_position') }}
+        </p>
+        <p
+          :class="['font-weight-light my-6 mx-4 f-20 text-center white--text', isRTL ? 'ravi' : undefined]"
+          style="max-width: 500px; line-height: 2"
+        >
+          {{ $t('career.job_description') }}
         </p>
         <v-btn
           :to="`/career/forum?job=${true}`"
-          class="rounded-xl d-flex justify-center white--text font-weight-regular f-20 mb-2 mt-2"
+          :class="[
+            'rounded-xl d-flex justify-center white--text font-weight-regular f-20 mb-2 mt-2',
+            isRTL ? 'ravi' : undefined
+          ]"
           color="#A01E64"
           elevation="0"
           height="50"
           min-width="100%"
         >
-          APPLY NOW
+          {{ $t('career.job_action') }}
         </v-btn>
       </div>
     </div>
@@ -103,6 +124,17 @@ export default {};
         margin-top: 0 !important;
         position: absolute;
         right: 82px !important;
+      }
+    }
+    .container-scrolled-rtl-des {
+      margin-top: -110px !important;
+      flex-direction: row !important;
+      align-items: center !important;
+
+      .v-btn {
+        margin-top: 0 !important;
+        position: absolute;
+        left: 82px !important;
       }
     }
 

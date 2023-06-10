@@ -77,6 +77,84 @@ export default {
       full: 'In Cobel Group, we intend to provide a dynamic and professional atmosphere for our employees by using below strategies: Equity, as equal progress opportunity and equal work-specific pay, despite of age, gender, nationality and disabilities. Diversity, in educational background, profession, gender, age and believes. Inclusion and Talent Empowerment, by designing individual development plans (IDP), on-the-job efficient trainings, and implementing regular surveys to discover employee experiences and acting upon Promoting a Knowledge-Centered Environment',
       compact:
         'In Cobel Group, we intend to provide a dynamic and professional atmosphere for our employees by using below strategies:'
+    },
+    job_detail: {
+      job_description:
+        'A senior project manager is often thought of as a more experienced project manager. They are entrusted with larger and more complex projects and may be put in charge of several projects at once. The exact job description and requirements will vary from company to company. A senior project manager may have additional responsibilities relating to the management of projects, project managers, and the organization as a whole.',
+      job_responsibility_title: 'Project responsibilities may include:',
+      job_duty_first:
+        'The Senior Project Manager is responsible for leading teams to deliver project(s) that span across one or more business units. Manage resources, schedules, financials and adhere to stage gate quality and SDLC control guidelines throughout the full systems development life cycle. This also includes management of issues, risks and project change requests to ensure successful and on-time project delivery.',
+      job_duty_second:
+        'Contribute to process improvement initiatives as it relates to improving project delivery. The Senior Project Manager has the authority to run the project on a day-to-day basis. Verify that the project produces the required deliverables of quality, within the specified constraints of time and cost and to achieve the potential benefits defined in the business case.'
+    },
+    forum: {
+      forum_title: 'Join the Cobel Group®',
+      forum_description:
+        'If you are willing to cooperate with us, please fill this form and share with us your resume. We will reach you when the right opportunity comes up.'
+    },
+    steps: {
+      let_us_know: {
+        title: 'Let us know you',
+        placeholder_one: 'Why do you consider yourself as a talent?',
+        placeholder_two: 'Why do you like to work with Cobel Group?',
+        placeholder_three: 'What department/function do you think is suitable for you?'
+      },
+      information: {
+        title: 'Information',
+        first_name: 'First name',
+        last_name: 'Last name',
+        id: 'ID number',
+        mobile: 'Phone number',
+        email: 'Email',
+        address: 'Address'
+      },
+      education: {
+        title: 'Education',
+        degree: 'Degree',
+        major: 'Major',
+        uni: 'University name',
+        country: 'Country',
+        state: 'State',
+        city: 'City',
+        grad_year: 'Graduation Year',
+        placeholder_one: 'Other training, certifications or licenses held...'
+      },
+      experiences: {
+        title: 'Experiences',
+        name: 'Company name',
+        position: 'Position',
+        leaving: 'Reason for living',
+        date_from: 'Date (from)',
+        date_to: 'Date (to)',
+        add_new: 'Add new experiences',
+        remove: 'Remove experience'
+      },
+      skills: {
+        title: 'Skills',
+        foreign: 'Foreign Languages',
+        level: 'Level',
+        computer: 'Computer Knowledge',
+        placeholder_one: 'Soft skills…',
+        add_new: 'Add new Skills',
+        remove: 'Remove Skill'
+      },
+      file: {
+        title: 'Attach files',
+        letter: 'Cover letter',
+        vitae: 'Curriculum Vitae',
+        address: 'Letter addressing key selection criteria',
+        material: 'Supplementary material (optional)'
+      },
+      start_time: {
+        title: 'Preferred Start Time',
+        placeholder_one: 'Will be available for work',
+        radio: 'Hereby I conform that all the information provided are correct and valid.',
+        upload_file: 'Print your application'
+      },
+      finish: {
+        text: 'We appreciate your interest in our company and the time you took to apply for this position',
+        action: 'Go to home page'
+      }
     }
   },
   socialHealth: {
@@ -172,6 +250,9 @@ export default {
   },
   button: {
     see_more: 'see more',
-    see_less: 'see less'
+    see_less: 'see less',
+    next: 'NEXT',
+    back: 'BACK',
+    send_form: 'Send Form'
   }
 };
