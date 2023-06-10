@@ -1,8 +1,8 @@
 <template>
   <div class="mb-16">
     <HomeSlider />
-    <HomeServices class="mb-16" />
-    <HomeVideo class="my-16" />
+    <HomeServices />
+    <HomeVideo />
     <HomeImpact />
     <HomeStoryTellers class="mt-16" />
     <HomeTellUsStory />

@@ -1,5 +1,5 @@
 <template>
-  <div :class="['home-services position-relative z-0', { 'mt-16': isMobile }]">
+  <div :class="['home-services position-relative z-0', isMobile ? 'mt-16 pb-12' : 'pb-3']">
     <div class="slategrey position-relative">
       <v-sheet
         v-if="activeItem"
@@ -33,15 +33,13 @@
       <div
         :class="[
           'h-full w-full d-flex justify-center mx-auto z-4 white--text position-absolute top-0 start-0 end-0 align-end',
-          isMobile ? 'pb-6 px-5 align-end' : $vuetify.breakpoint.smAndDown ? 'px-16' : 'px-16 pb-10'
+          isMobile ? 'pb-6 px-5 align-end' : mdAndDown ? 'px-16' : 'px-16 pb-10'
         ]"
-        :style="`max-width: ${globalMaxWidth}px; ${
-          $vuetify.breakpoint.smAndDown && !isMobile && 'padding-bottom: 140px'
-        }`"
+        :style="`max-width:${globalMaxWidth}px;${mdAndDown && !isMobile && 'padding-bottom: 140px'}`"
       >
         <div class="w-full">
           <h3
-            :class="`bel font-weight-regular mb-3 ${isMobile ? 'f-30 text-center' : 'f-70'}`"
+            :class="`bel font-weight-regular mb-3 ${isMobile ? 'f-33 text-center' : lgAndUp ? 'f-70' : 'f-65'}`"
             :style="`${!isMobile && 'max-width: 900px'};`"
           >
             {{ $t('homePage.services.slider.title') }}
@@ -50,9 +48,7 @@
             :class="['font-weight-light ms-auto', isMobile ? 'text-center f-18' : 'f-25']"
             :style="`${
               !isMobile &&
-              `line-height: 30px;max-width: ${
-                $vuetify.breakpoint.lgAndUp ? '550px' : $vuetify.breakpoint.smAndDown ? '100%' : `${nuclearSize}px`
-              };`
+              `line-height: 30px;max-width: ${lgAndUp ? '550px' : mdAndDown ? '100%' : `${nuclearSize}px`};`
             }`"
           >
             {{ $t('homePage.services.slider.description') }}
@@ -87,7 +83,7 @@
         isMobile ? 'px-4 align-end' : 'px-lg-16 px-4 align-center'
       ]"
       :max-width="globalMaxWidth"
-      :min-height="isMobile ? 430 : 470"
+      :min-height="isMobile ? 430 : 540"
       color="transparent"
     >
       <div
@@ -99,10 +95,8 @@
         }: ${isMobile ? 'auto' : '30%'}`"
       >
         <div
-          :class="['font-weight-regular bel flex-shrink-0 f-65', isMobile ? 'mb-4 text-center pr-8' : 'text-start']"
-          :style="`color: #59595B; width: ${
-            isMobile ? '100%' : $vuetify.breakpoint.lgAndUp ? `${nuclearSize}px` : '230px'
-          }`"
+          :class="['font-weight-regular bel flex-shrink-0 f-55', isMobile ? 'mb-4 text-center pr-8' : 'text-start']"
+          :style="`color: #59595B; width: ${isMobile ? '100%' : lgAndUp ? `${nuclearSize}px` : '230px'}`"
         >
           HRQoL
         </div>
@@ -148,6 +142,12 @@ export default {
       if (this.isMobile) return 100;
       return 200;
     },
+    lgAndUp() {
+      return this.$vuetify.breakpoint.lgAndUp;
+    },
+    mdAndDown() {
+      return this.$vuetify.breakpoint.mdAndDown;
+    },
     shapes() {
       const coordinates = this.isMobile
         ? {
@@ -156,9 +156,9 @@ export default {
             bottom: ['10px', '50%']
           }
         : {
-            top: ['90px', '220px'],
-            side: ['500px', '70px'],
-            bottom: ['130px', '-170px']
+            top: ['95px', '255px'],
+            side: ['480px', '70px'],
+            bottom: ['130px', '-160px']
           };
 
       const data = [
