@@ -16,7 +16,7 @@
     />
 
     <v-sheet
-      :class="['mx-auto my-16 pb-16', isMobile ? 'px-2' : $vuetify.breakpoint.xl ? 'px-12' : 'px-16']"
+      :class="['mx-auto mt-16', isMobile ? 'px-2' : $vuetify.breakpoint.xl ? 'px-12' : 'px-16']"
       :max-width="globalMaxWidth"
     >
       <h1 :class="['bel f-50 grey--text text--darken-2 font-weight-regular', { 'text-center': isMobile }]">
@@ -32,8 +32,12 @@
           $fetch();
         "
       />
-
-      <v-row v-if="items.length" align="stretch" class="my-8">
+    </v-sheet>
+    <v-sheet
+      :class="['mx-auto mb-16 mt-6 pb-16', isMobile ? 'px-4' : $vuetify.breakpoint.xl ? 'px-12' : 'px-16']"
+      :max-width="globalMaxWidth"
+    >
+      <v-row v-if="items.length" align="stretch">
         <v-col v-for="(item, index) in items" :key="index" cols="12" md="6" xl="4">
           <ImpactCards :item="item" :style="`border-radius: 80px`" class="h-full" />
         </v-col>

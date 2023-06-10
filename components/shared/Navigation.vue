@@ -16,7 +16,7 @@
         :max-width="globalMaxWidth"
         color="transparent"
       >
-        <nuxt-link :to="localePath('/')" exact>
+        <nuxt-link :to="localePath('/')" exact class="pointer">
           <v-img
             v-if="showDrawer"
             alt="cobel"
@@ -29,7 +29,7 @@
 
           <div v-else class="logo-container overflow-hidden">
             <div class="position-relative">
-              <v-img alt="cobel" contain height="60" max-width="190" src="/images/logo-text.svg" />
+              <v-img alt="cobel" contain height="56" max-width="190" src="/images/logo-text.svg" />
             </div>
             <div class="position-relative">
               <v-img alt="cobel" contain height="60" max-width="190" src="/images/logo.png" />

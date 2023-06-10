@@ -40,8 +40,11 @@
         >
           {{ $t('socialHealth.description') }}
         </p>
-        <div v-if="!isMobile" class="right-circle"></div>
-        <div v-else class="right-circle-mobile"></div>
+
+        <nuxt-link to="/psychological">
+          <div v-if="!isMobile" class="right-circle"></div>
+          <div v-else class="right-circle-mobile"></div>
+        </nuxt-link>
       </div>
       <v-divider :class="[isMobile ? 'my-6' : 'my-10']" style="background-color: #f3911f"></v-divider>
       <h4
@@ -59,8 +62,12 @@
       >
         {{ $t('socialHealth.responsibility') }}
       </h4>
-      <div v-if="!isMobile" class="left-circle"></div>
-      <div v-else class="left-circle-mobile"></div>
+
+      <nuxt-link to="/physical">
+        <div v-if="!isMobile" class="left-circle"></div>
+        <div v-else class="left-circle-mobile"></div>
+      </nuxt-link>
+
       <v-divider :class="[isMobile ? 'my-6' : 'my-10']" style="background-color: #f3911f"></v-divider>
       <p
         :class="[
