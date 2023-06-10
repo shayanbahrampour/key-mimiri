@@ -40,8 +40,11 @@
         >
           {{ $t('psychological.description') }}
         </p>
-        <div v-if="!isMobile" class="right-circle"></div>
-        <div v-else class="right-circle-mobile"></div>
+
+        <nuxt-link to="/social">
+          <div v-if="!isMobile" class="right-circle"></div>
+          <div v-else class="right-circle-mobile"></div>
+        </nuxt-link>
       </div>
       <v-divider :class="[isMobile ? 'my-6' : 'my-10']" style="background-color: #f3911f"></v-divider>
       <h4
@@ -59,8 +62,12 @@
       >
         {{ $t('psychological.responsibility') }}
       </h4>
-      <div v-if="!isMobile" class="left-circle"></div>
-      <div v-else class="left-circle-mobile"></div>
+
+      <nuxt-link to="/physical">
+        <div v-if="!isMobile" class="left-circle"></div>
+        <div v-else class="left-circle-mobile"></div>
+      </nuxt-link>
+
       <v-divider :class="[isMobile ? 'my-6' : 'my-10']" style="background-color: #f3911f"></v-divider>
       <p
         :class="[
@@ -168,9 +175,11 @@ export default {
 .desktop-paragraph {
   line-height: 60px;
 }
+
 .mobile-paragraph {
   line-height: 40px;
 }
+
 .right-circle {
   width: 100px;
   height: 100px;

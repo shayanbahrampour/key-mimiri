@@ -39,8 +39,11 @@
         >
           {{ $t('physical.description') }}
         </p>
-        <div v-if="!isMobile" class="right-circle"></div>
-        <div v-else class="right-circle-mobile"></div>
+
+        <nuxt-link to="/social">
+          <div v-if="!isMobile" class="right-circle"></div>
+          <div v-else class="right-circle-mobile"></div>
+        </nuxt-link>
       </div>
       <v-divider :class="[isMobile ? 'my-6' : 'my-10']" style="background-color: #a01e64"></v-divider>
       <h4
@@ -58,8 +61,12 @@
       >
         {{ $t('physical.responsibility') }}
       </h4>
-      <div v-if="!isMobile" class="left-circle"></div>
-      <div v-else class="left-circle-mobile"></div>
+
+      <nuxt-link to="/psychological">
+        <div v-if="!isMobile" class="left-circle"></div>
+        <div v-else class="left-circle-mobile"></div>
+      </nuxt-link>
+
       <v-spacer></v-spacer>
     </div>
   </div>
