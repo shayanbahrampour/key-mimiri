@@ -14,33 +14,49 @@
         src="/images/company/medarman.png"
       />
       <v-divider v-if="isMobile" style="width: 100% !important" />
-      <p :class="['mx-2', isMobile ? 'text-center my-2 f-20' : 'mt-6 f-18']" style="color: #939393; line-height: 40px">
-        A senior project manager is often thought of as a more experienced project manager. They are entrusted with
-        larger and more complex projects and may be put in charge of several projects at once. The exact job description
-        and requirements will vary from company to company. A senior project manager may have additional
-        responsibilities relating to the management of projects, project managers, and the organization as a whole.
+      <p
+        :class="[isMobile ? 'text-center my-2 f-20' : 'mt-6 f-18', isRTL ? 'ravi' : undefined]"
+        style="color: #939393; line-height: 40px"
+      >
+        {{ $t('career.job_detail.job_description') }}
       </p>
       <v-divider v-if="isMobile" style="width: 100% !important" />
-      <h4 :class="['bel mb-6 mt-16 f-30 font-weight-regular slategrey--text', isMobile ? 'mx-2' : 'mx-6']">
-        Project responsibilities may include:
+      <h4
+        :class="[
+          'mb-6 mt-16 f-30 font-weight-regular slategrey--text',
+          isMobile ? 'mx-2' : undefined,
+          isRTL ? 'ravi' : 'bel'
+        ]"
+      >
+        {{ $t('career.job_detail.job_responsibility_title') }}
       </h4>
-      <div v-for="(item, i) in items" :key="i" :class="['d-flex justify-center mb-8', isMobile ? 'px-2' : 'px-6']">
+      <div
+        v-if="!isRTL"
+        v-for="(item, i) in items"
+        :key="i"
+        :class="['d-flex justify-center mb-8', isMobile ? 'px-2' : 'px-6']"
+      >
         <v-icon class="ms-4 me-6 mt-4 align-self-start" size="6">mdi-circle</v-icon>
         <p class="mb-0 f-18 align-self-start" style="color: #818181">
           <span class="font-weight-regular" style="line-height: 40px">{{ item.title }}:</span>
           <span class="font-weight-light" style="line-height: 40px">{{ item.subtitle }}</span>
         </p>
       </div>
+      <div v-if="isRTL">
+        <span
+          :class="['d-flex ravi justify-center mb-8', isMobile ? 'px-2' : 'f-18']"
+          style="color: #939393; line-height: 40px"
+          >{{ ResponsibleRTL }}</span
+        >
+      </div>
 
-      <p v-if="!isMobile" class="font-weight-light mt-10 mx-8 f-18" style="color: #939393; line-height: 40px">
-        The Senior Project Manager is responsible for leading teams to deliver project(s) that span across one or more
-        business units. Manage resources, schedules, financials and adhere to stage gate quality and SDLC control
-        guidelines throughout the full systems development life cycle. This also includes management of issues, risks
-        and project change requests to ensure successful and on-time project delivery. <br /><br /><br />
-        Contribute to process improvement initiatives as it relates to improving project delivery. The Senior Project
-        Manager has the authority to run the project on a day-to-day basis. Verify that the project produces the
-        required deliverables of quality, within the specified constraints of time and cost and to achieve the potential
-        benefits defined in the business case.
+      <p
+        v-if="!isMobile"
+        :class="['font-weight-light mt-10 f-18', isRTL ? 'ravi' : undefined]"
+        style="color: #939393; line-height: 40px"
+      >
+        {{ $t('career.job_detail.job_duty_first') }}
+        <br /><br /><br />{{ $t('career.job_detail.job_duty_second') }}
       </p>
     </div>
     <div class="d-flex flex-column align-center w-full white">
@@ -51,8 +67,8 @@
           !isMobile ? 'px-16' : undefined
         ]"
       >
-        <h4 class="bel f-40 text-center text--darken-3 font-weight-regular mb-auto" style="color: #59595b">
-          Job positions
+        <h4 :class="['text--darken-3 font-weight-regular', isRTL ? 'ravi f-30' : 'bel f-40']" style="color: #59595b">
+          {{ $t('career.job_title') }}
         </h4>
         <div class="d-flex align-center justify-center">
           <JobsGrid />
@@ -110,7 +126,9 @@ export default {
           subtitle:
             'Senior project managers may act as champions of learning, process improvement, and project management within the company.'
         }
-      ]
+      ],
+      ResponsibleRTL:
+        'به عنوان نقطه تشدید: مدیران ارشد پروژه ممکن است یک نقطه تماس کلیدی برای ذینفعان در پروژه هایی باشند که متعلق به کارکنان جوان هستند. این یک مسیر تشدید را برای مسائلی فراهم می کند که مدیر پروژه نمی تواند به تنهایی حل کند. صرفه جویی در پروژه های در حال مشکل: زمانی که یک پروژه خیلی از مسیر دور می شود، یک مدیر ارشد پروژه ممکن است از مدیر پروژه حمایت کند یا پروژه را به عهده بگیرد. مصاحبه و استخدام: مدیران ارشد پروژه ممکن است در مصاحبه و استخدام کارکنان جدید پروژه کمک کنند.آموزش و مدیریت: در برخی از سازمان ها، مدیران پروژه مستقیماً به مدیران ارشد پروژه گزارش می دهند. مربیگری و مربیگری: معمولاً از مدیران ارشد پروژه انتظار می رود که کارکنان خردسال را مربی و راهنمایی کنند. ایفای نقش به عنوان یک الگو: از افرادی که در این نقش حضور دارند انتظار می رود که الگویی برای اعضای خردسال تیم باشند. پشتیبانی از تصویر بزرگ: ممکن است از یک مدیر ارشد پروژه انتظار می رود که در مدیریت برنامه و سایر وظایف PMO کمک کند. پیشرفت قهرمانی: مدیران ارشد پروژه ممکن است به عنوان قهرمانان یادگیری، بهبود فرآیند و مدیریت پروژه در شرکت عمل کنند.'
     };
   },
   components: { VideoLoader, JobsGrid, CareerHeader }

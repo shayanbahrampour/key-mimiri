@@ -6,8 +6,9 @@
       v-for="(item, index) in items"
       :key="index"
       :class="[
-        'bel f-24 bg-transparent text-capitalize tab-news text-no-wrap',
+        'f-24 bg-transparent text-capitalize tab-news text-no-wrap',
         !isMobile ? 'px-0' : 'px-8 mt-2',
+        isRTL ? 'ravi' : 'bel',
         index <= model || isLast ? 'darkGreen--text' : 'teaGreen--text'
       ]"
       :ripple="false"

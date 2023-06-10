@@ -11,8 +11,9 @@
           <div :class="[!isMobile ? 'd-flex justify-space-between w-full' : undefined]">
             <p
               :class="[
-                'bel white--text mb-0 text--darken-3 font-weight-regular',
-                isMobile ? 'text-center f-40' : 'f-60 '
+                'white--text mb-0 text--darken-3 font-weight-regular',
+                isMobile ? 'text-center mt-4' : undefined,
+                isRTL ? (isMobile ? 'ravi f-30' : 'ravi f-50') : isMobile ? 'bel f-34' : 'bel f-60 '
               ]"
             >
               {{ $t('career.title') }}
@@ -34,31 +35,36 @@
               <p
                 v-if="!seeMore"
                 :class="[
-                  'f-20 white--text text--darken-3 font-weight-light',
-                  isMobile ? 'text-center mt-8 mb-0 mx-0' : 'mt-16 mx-16'
+                  'f-20 white--text text--darken-3',
+                  isMobile ? 'text-center mt-4 mb-0 mx-0' : 'mt-16 mx-16',
+                  isRTL ? 'font-weight-bold' : 'font-weight-light'
                 ]"
                 style="line-height: 30px"
               >
-                {{ text.compact }}
+                {{ $t('career.panel_text.compact') }}
               </p>
               <v-expansion-panel-content class="text-center">
                 <p
                   v-if="seeMore"
                   :class="[
-                    'f-20 white--text text--darken-3 font-weight-light',
-                    isMobile ? 'text-center mt-8 mb-0 mx-0' : 'mt-16 mx-16'
+                    'f-20 white--text text--darken-3',
+                    isMobile ? 'text-center mt-8 mb-0 mx-0' : 'mt-16 mx-16',
+                    isRTL ? 'font-weight-bold' : 'font-weight-light'
                   ]"
                   style="line-height: 30px"
                 >
-                  {{ text.full }}
+                  {{ $t('career.panel_text.full') }}
                 </p>
               </v-expansion-panel-content>
               <v-expansion-panel-header
-                class="pa-0 ma-0 white--text justify-center f-20 font-weight-bold bg-transparent"
+                :class="[
+                  'pa-0 ma-0 white--text justify-center font-weight-bold bg-transparent',
+                  isRTL ? 'ravi f-18' : 'f-20'
+                ]"
                 hide-actions
                 style="height: 20px; margin-top: -12px !important"
                 @click="seeMore = !seeMore"
-                >{{ seeMore ? 'see less' : 'see more' }}
+                >{{ seeMore ? $t('button.see_less') : $t('button.see_more') }}
               </v-expansion-panel-header>
             </v-expansion-panel>
           </v-expansion-panels>
@@ -66,7 +72,8 @@
             v-if="!isMobile"
             :class="[
               'white--text mb-0 text--darken-3 font-weight-light',
-              isMobile ? 'mt-4 text-center  f-18' : 'f-20 mt-16'
+              isMobile ? 'mt-4 text-center f-18' : 'f-20 mt-16',
+              isRTL ? 'ravi rtl-text-career' : undefined
             ]"
             style="line-height: 30px"
           >
@@ -114,15 +121,26 @@
             {{ $t('career.divider_title') }}
           </h4>
           <v-divider class="mx-8" color="white" style="min-height: 100px" vertical />
-          <p class="f-20 white--text mb-0 text--darken-3 font-weight-light" style="max-width: 30%">
+          <p
+            :class="[
+              'f-20 white--text mb-0 text--darken-3 font-weight-light',
+              isRTL ? 'ravi rtl-text-career' : undefined
+            ]"
+            style="max-width: 30%"
+          >
             {{ $t('career.divider_description') }}
           </p>
         </div>
       </div>
       <div v-else class="d-flex flex-column justify-center ma-0 px-6">
         <div class="d-flex flex-column align-start justify-center">
-          <h4 class="bel f-36 white--text text--darken-3 font-weight-regular">{{ $t('career.divider_title') }}</h4>
-          <p class="f-20 white--text mb-0 text--darken-3 font-weight-light mt-6" style="line-height: 30px">
+          <h4 :class="['f-36 white--text text--darken-3 font-weight-regular', isRTL ? 'ravi' : 'bel']">
+            {{ $t('career.divider_title') }}
+          </h4>
+          <p
+            :class="['f-20 white--text mb-0 text--darken-3 mt-6', isRTL ? 'font-weight-bold' : 'font-weight-light']"
+            style="line-height: 30px"
+          >
             {{ $t('career.divider_description') }}
           </p>
         </div>
@@ -138,21 +156,25 @@
         style="margin-top: -175px"
       >
         <h4
-          :class="['bel text-center text--darken-3 font-weight-regular', isMobile ? 'f-30 mb-6' : 'f-50 mb-2']"
+          :class="[
+            'text-center text--darken-3 font-weight-regular',
+            isMobile ? 'f-30 mb-2' : 'f-50 mb-auto',
+            isRTL ? 'ravi' : 'bel'
+          ]"
           style="color: #66869a"
         >
           {{ $t('career.card_title') }}
         </h4>
         <p
           v-if="!isMobile"
-          class="f-18 text-center mb-0 text--darken-3 font-weight-light mb-auto"
+          :class="['f-18 text-center text--darken-3 mb-auto', !isRTL ? 'font-weight-light' : 'ravi rtl-text-career']"
           style="max-width: 60%; color: #59595b; line-height: 30px"
         >
           {{ $t('career.card_description') }}
         </p>
         <p
           v-else
-          class="f-20 text-center mb-0 text--darken-3 px-10 font-weight-light mb-auto"
+          :class="['f-20 text-center mb-0 text--darken-3 px-10 mb-8', isRTL ? 'font-weight-bold' : 'font-weight-light']"
           style="color: #59595b; line-height: 30px"
         >
           {{ $t('career.card_description') }}
@@ -160,7 +182,8 @@
         <v-btn
           :class="[
             'rounded-xl d-flex justify-center white--text f-20 font-weight-regular',
-            isMobile ? 'mt-6' : undefined
+            isMobile ? 'mt-6' : 'mt-6',
+            isRTL ? 'ravi' : undefined
           ]"
           :min-width="!isMobile ? '300' : '80%'"
           :to="localePath('/career/forum')"
@@ -178,7 +201,10 @@
           !isMobile ? 'px-16' : undefined
         ]"
       >
-        <h4 class="bel f-40 text-center text--darken-3 font-weight-regular mb-auto" style="color: #59595b">
+        <h4
+          :class="['f-40 text-center text--darken-3 font-weight-regular mb-auto', isRTL ? 'ravi' : 'bel']"
+          style="color: #59595b"
+        >
           {{ $t('career.job_title') }}
         </h4>
         <div class="d-flex align-center justify-center">
@@ -187,7 +213,12 @@
       </div>
     </div>
     <div v-if="isMobile" class="white px-6" style="margin-top: -2px">
-      <h4 class="bel f-40 mt-10 text--darken-3 font-weight-regular" style="color: #59595b">Job positions</h4>
+      <h4
+        :class="['mt-10 text--darken-3 font-weight-regular', isRTL ? 'ravi f-30' : 'bel f-40']"
+        style="color: #59595b"
+      >
+        {{ $t('career.job_title') }}
+      </h4>
       <JobsGrid class="mt-10" />
     </div>
   </div>
@@ -218,6 +249,9 @@ export default {
 </script>
 
 <style lang="scss">
+.rtl-text-career {
+  opacity: 0.8;
+}
 .desktop-screen-career {
   max-width: 90vw;
 }

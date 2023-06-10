@@ -2,36 +2,45 @@
   <v-form v-model="valid" :class="['mt-4', !isMobile ? 'mb-16' : undefined]" style="width: 100%">
     <div class="d-flex flex-column">
       <p
-        :class="['bel mb-4 text--darken-3 font-weight-regular', isMobile ? 'text-center f-36' : 'f-50 mt-10']"
+        :class="[
+          'mb-4 text--darken-3 font-weight-regular',
+          isRTL
+            ? isMobile
+              ? 'text-center f-36 ravi mb-10'
+              : 'ravi f-36 mt-10 mb-8'
+            : isMobile
+            ? 'text-center f-36 bel'
+            : 'f-50 mt-10 bel'
+        ]"
         style="color: #59595b"
       >
-        Let us know you
+        {{ $t('career.steps.let_us_know.title') }}
       </p>
       <v-textarea
-        class="mb-8 f-20"
+        :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
         dense
         filled
         height="160"
         hide-details
-        label="Why do you consider yourself as a talent?"
+        :label="$t('career.steps.let_us_know.placeholder_one')"
         rounded
       ></v-textarea>
       <v-textarea
-        class="mb-8 f-20"
+        :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
         dense
         filled
         height="160"
         hide-details
-        label="Why do you like to work with Cobel Group?"
+        :label="$t('career.steps.let_us_know.placeholder_two')"
         rounded
       ></v-textarea>
       <v-textarea
-        class="mb-8 f-20"
+        :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
         dense
         filled
         height="160"
         hide-details
-        label="What department/function do you think is suitable for you?"
+        :label="$t('career.steps.let_us_know.placeholder_three')"
         rounded
       ></v-textarea>
     </div>

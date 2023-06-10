@@ -10,29 +10,32 @@
         >
           <p
             :class="[
-              'bel white--text mb-0 text--darken-3 font-weight-regular',
-              isMobile ? 'text-center f-36' : 'f-60 '
+              'white--text mb-0 text--darken-3',
+              isMobile ? 'text-center f-36' : 'f-60',
+              isRTL ? 'ravi font-weight-bold' : 'bel font-weight-regular'
             ]"
           >
-            Join the Cobel Group®
+            {{ $t('career.forum.forum_title') }}
           </p>
           <p
             v-if="isMobile"
-            class="font-weight-light mt-6 mb-12 f-24 mb-6 text-center white--text"
+            :class="[
+              'font-weight-light mt-6 mb-12 mb-6 text-center white--text',
+              isRTL ? 'ravi f-20 mobile-rtl-forum' : 'f-24'
+            ]"
             style="max-width: 500px"
           >
-            If you are willing to cooperate with us, please fill this form and share with us your resume. We will reach
-            you when the right opportunity comes up.
+            {{ $t('career.forum.forum_description') }}
           </p>
           <p
             v-if="!isMobile"
             :class="[
               'white--text mb-0 text--darken-3 font-weight-light',
-              isMobile ? 'mt-4 text-center  f-18' : 'f-18 mt-0 mb-10'
+              isMobile ? 'mt-4 text-center  f-18' : 'f-18 mt-0 mb-10',
+              isRTL ? 'ravi mt-4' : undefined
             ]"
           >
-            If you are willing to cooperate with us, please fill this form and share with us your resume. We will reach
-            you when the right opportunity comes up.
+            {{ $t('career.forum.forum_description') }}
           </p>
         </div>
       </div>
@@ -59,7 +62,8 @@
           v-if="counter !== 0"
           :class="[
             'rounded-xl d-flex justify-center slategrey--text font-weight-bold',
-            isMobile ? 'f-20' : 'f-14 mb-16 ms-4'
+            isMobile ? 'f-20' : 'f-14 mb-16 ms-4',
+            isRTL ? 'ravi' : undefined
           ]"
           :min-width="!isMobile ? '300' : '80%'"
           color="slategrey"
@@ -67,12 +71,13 @@
           outlined
           @click="counter--"
         >
-          Back
+          {{ $t('button.back') }}
         </v-btn>
         <v-btn
           :class="[
             'rounded-xl d-flex justify-center white--text font-weight-bold',
-            isMobile ? 'f-20' : 'f-14 mb-16 me-4'
+            isMobile ? 'f-20' : 'f-14 mb-16 me-4',
+            isRTL ? 'ravi' : undefined
           ]"
           :min-width="!isMobile ? '300' : '80%'"
           color="slategrey"
@@ -80,7 +85,11 @@
           height="40"
           @click="counter++"
         >
-          {{ (counter === 6 && !$route.query.job) || (counter === 5 && $route.query.job) ? 'Send Form' : 'NEXT' }}
+          {{
+            (counter === 6 && !$route.query.job) || (counter === 5 && $route.query.job)
+              ? $t('button.send_form')
+              : $t('button.next')
+          }}
         </v-btn>
       </div>
       <div
@@ -90,19 +99,27 @@
       >
         <v-btn
           :min-width="!isMobile ? '300' : '80%'"
-          class="rounded-xl d-flex justify-center white--text font-weight-bold f-20 mb-6"
+          :class="[
+            'rounded-xl d-flex justify-center white--text font-weight-bold f-20 mb-6',
+            isRTL ? 'ravi' : undefined
+          ]"
           color="slategrey"
           elevation="0"
           height="40"
           @click="counter++"
         >
-          {{ (counter === 6 && !$route.query.job) || (counter === 5 && $route.query.job) ? 'Send Form' : 'NEXT' }}
+          {{
+            (counter === 6 && !$route.query.job) || (counter === 5 && $route.query.job)
+              ? $t('button.send_form')
+              : $t('button.next')
+          }}
         </v-btn>
         <v-btn
           v-if="counter !== 0"
           :class="[
             'rounded-xl d-flex justify-center slategrey--text font-weight-bold',
-            isMobile ? 'f-20 mb-16' : 'f-14 mb-16 ms-4'
+            isMobile ? 'f-20 mb-16' : 'f-14 mb-16 ms-4',
+            isRTL ? 'ravi' : undefined
           ]"
           :min-width="!isMobile ? '300' : '80%'"
           color="slategrey"
@@ -110,7 +127,7 @@
           outlined
           @click="counter--"
         >
-          Back
+          {{ $t('button.back') }}
         </v-btn>
       </div>
     </div>
@@ -144,21 +161,21 @@ export default {
     return {
       counter: 0,
       certainJob: [
-        { title: 'Information', value: '' },
-        { title: 'Education', value: '' },
-        { title: 'Experiences', value: '' },
-        { title: 'Skills', value: '' },
-        { title: 'Attach files', value: '' },
-        { title: 'Print your application', value: '' }
+        { title: this.$t('career.steps.information.title'), value: '' },
+        { title: this.$t('career.steps.education.title'), value: '' },
+        { title: this.$t('career.steps.experiences.title'), value: '' },
+        { title: this.$t('career.steps.skills.title'), value: '' },
+        { title: this.$t('career.steps.file.title'), value: '' },
+        { title: this.$t('career.steps.start_time.title'), value: '' }
       ],
       apply: [
-        { title: 'Let us know you', value: '' },
-        { title: 'Information', value: '' },
-        { title: 'Education', value: '' },
-        { title: 'Experiences', value: '' },
-        { title: 'Skills', value: '' },
-        { title: 'Attach files', value: '' },
-        { title: 'Print your application', value: '' }
+        { title: this.$t('career.steps.let_us_know.title'), value: '' },
+        { title: this.$t('career.steps.information.title'), value: '' },
+        { title: this.$t('career.steps.education.title'), value: '' },
+        { title: this.$t('career.steps.experiences.title'), value: '' },
+        { title: this.$t('career.steps.skills.title'), value: '' },
+        { title: this.$t('career.steps.file.title'), value: '' },
+        { title: this.$t('career.steps.start_time.title'), value: '' }
       ]
     };
   },
@@ -186,5 +203,9 @@ export default {
 
 .desktop-contact {
   max-width: 70vw !important;
+}
+
+.mobile-rtl-forum {
+  line-height: 40px;
 }
 </style>
