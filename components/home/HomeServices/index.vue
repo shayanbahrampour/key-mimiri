@@ -1,5 +1,5 @@
 <template>
-  <div :class="['home-services position-relative z-0', { 'mt-16': isMobile }]" style="min-height: 800px">
+  <div :class="['home-services position-relative z-0', isMobile ? 'mt-16 pb-12' : 'pb-3']">
     <div class="slategrey position-relative">
       <v-sheet
         v-if="activeItem"
@@ -12,20 +12,13 @@
       <v-carousel
         v-model="active"
         :height="isMobile ? 400 : 600"
-        :interval="5000"
         :show-arrows="false"
         class="position-relative z-0"
         cycle
         hide-delimiters
         mandatory
       >
-        <v-carousel-item
-          v-for="(item, i) in shapes"
-          :key="i"
-          :src="item.src"
-          reverse-transition="fade-transition"
-          transition="fade-transition"
-        >
+        <v-carousel-item v-for="(item, i) in shapes" :key="i" :src="item.src">
           <v-sheet
             class="w-full h-full position-absolute top-0 start-0 z-1"
             color="#4d6e81"
@@ -40,15 +33,13 @@
       <div
         :class="[
           'h-full w-full d-flex justify-center mx-auto z-4 white--text position-absolute top-0 start-0 end-0 align-end',
-          isMobile ? 'pb-6 px-5 align-end' : $vuetify.breakpoint.smAndDown ? 'px-16' : 'px-16 pb-10'
+          isMobile ? 'pb-6 px-5 align-end' : mdAndDown ? 'px-16' : 'px-16 pb-10'
         ]"
-        :style="`max-width: ${globalMaxWidth}px; ${
-          $vuetify.breakpoint.smAndDown && !isMobile && 'padding-bottom: 140px'
-        }`"
+        :style="`max-width:${globalMaxWidth}px;${mdAndDown && !isMobile && 'padding-bottom: 140px'}`"
       >
         <div class="w-full">
           <h3
-            :class="`bel font-weight-regular mb-3 ${isMobile ? 'f-30 text-center' : 'f-70'}`"
+            :class="`bel font-weight-regular mb-3 ${isMobile ? 'f-33 text-center' : lgAndUp ? 'f-70' : 'f-65'}`"
             :style="`${!isMobile && 'max-width: 900px'};`"
           >
             {{ $t('homePage.services.slider.title') }}
@@ -57,9 +48,7 @@
             :class="['font-weight-light ms-auto', isMobile ? 'text-center f-18' : 'f-25']"
             :style="`${
               !isMobile &&
-              `line-height: 30px;max-width: ${
-                $vuetify.breakpoint.lgAndUp ? '550px' : $vuetify.breakpoint.smAndDown ? '100%' : '400px'
-              };`
+              `line-height: 30px;max-width: ${lgAndUp ? '550px' : mdAndDown ? '100%' : `${nuclearSize}px`};`
             }`"
           >
             {{ $t('homePage.services.slider.description') }}
@@ -73,7 +62,7 @@
         color="transparent"
       >
         <svg
-          :style="`width: 388px; bottom: -1px; margin-${isRTL ? 'right' : 'left'}: 25%`"
+          :style="`width: 388px; bottom: -1px; margin-${isRTL ? 'right' : 'left'}: 30%`"
           class="position-absolute end-0 start-0 me-auto"
           fill="none"
           viewBox="0 0 388 128"
@@ -94,24 +83,20 @@
         isMobile ? 'px-4 align-end' : 'px-lg-16 px-4 align-center'
       ]"
       :max-width="globalMaxWidth"
-      :min-height="isMobile ? 430 : 430"
+      :min-height="isMobile ? 430 : 540"
       color="transparent"
     >
       <div
         :class="`nuclear z-0 start-0 top-0 end-0 bottom-0 position-absolute rounded-circle my-auto d-flex m${
           isRTL ? 'l' : 'r'
         }-auto ${isMobile ? 'flex-column align-start justify-center' : 'align-center justify-start'}`"
-        :style="`width: ${isMobile ? '100%' : '300px'}; height: ${isMobile ? '100%' : '200px'}; margin-${
+        :style="`width: ${isMobile ? '100%' : `${nuclearSize}px`}; height: ${isMobile ? '100%' : '200px'}; margin-${
           isRTL ? 'right' : 'left'
-        }: ${isMobile ? 'auto' : '25%'}`"
+        }: ${isMobile ? 'auto' : '30%'}`"
       >
         <div
-          :class="[
-            'font-weight-regular bel grey--text text--darken-3 text-center flex-shrink-0 f-55',
-            isMobile && 'mb-4 text-center',
-            $vuetify.breakpoint.lgAndUp ? 'text-center' : !isMobile && 'text-end'
-          ]"
-          :style="`width: ${isMobile ? '100%' : $vuetify.breakpoint.lgAndUp ? '400px' : '230px'}`"
+          :class="['font-weight-regular bel flex-shrink-0 f-55', isMobile ? 'mb-4 text-center pr-8' : 'text-start']"
+          :style="`color: #59595B; width: ${isMobile ? '100%' : lgAndUp ? `${nuclearSize}px` : '230px'}`"
         >
           HRQoL
         </div>
@@ -146,13 +131,22 @@ export default {
     };
   },
   computed: {
+    nuclearSize() {
+      return 388;
+    },
     ballSize() {
       if (this.isMobile) return 80;
       return 140;
     },
     ballActiveSize() {
       if (this.isMobile) return 100;
-      return 180;
+      return 200;
+    },
+    lgAndUp() {
+      return this.$vuetify.breakpoint.lgAndUp;
+    },
+    mdAndDown() {
+      return this.$vuetify.breakpoint.mdAndDown;
     },
     shapes() {
       const coordinates = this.isMobile
@@ -162,9 +156,9 @@ export default {
             bottom: ['10px', '50%']
           }
         : {
-            top: ['20px', '220px'],
-            side: ['330px', '90px'],
-            bottom: ['100px', '-170px']
+            top: ['95px', '255px'],
+            side: ['480px', '70px'],
+            bottom: ['130px', '-160px']
           };
 
       const data = [
@@ -222,12 +216,37 @@ export default {
 };
 </script>
 
+<style lang="scss">
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.home-services {
+  .v-window-item {
+    transform: none !important;
+
+    &,
+    &.v-window-x-transition-enter-to,
+    &.v-window-x-transition-leave-to {
+      transition: none !important;
+      animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.2s backwards !important;
+    }
+  }
+}
+</style>
+
 <style lang="scss" scoped>
 .home-services {
   .nuclear {
     .shapes {
       position: absolute;
-      transition: all ease-out 0.6s;
+      transition: all ease-out 0.4s;
     }
   }
 

@@ -1,8 +1,8 @@
 <template>
   <div class="mb-16">
     <HomeSlider />
-    <HomeServices class="mb-16" />
-    <HomeVideo :class="['my-16', { 'pt-12': !isMobile }]" />
+    <HomeServices />
+    <HomeVideo />
     <HomeImpact />
     <HomeStoryTellers class="mt-16" />
     <HomeTellUsStory />
