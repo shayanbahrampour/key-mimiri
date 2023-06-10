@@ -1,5 +1,5 @@
 <template>
-  <div class="grey--text text--darken-2">
+  <div class="grey--text text--darken-2 home-story-tellers mt-16 pt-6">
     <v-sheet :max-width="globalMaxWidth" class="mx-auto">
       <h3
         :class="['font-weight-regular bel', isMobile ? 'px-4 f-45 text-center d-block' : 'px-16 f-50']"
@@ -9,29 +9,36 @@
       </h3>
       <client-only>
         <swiper
+          ref="home-storytellers"
           :class="['w-full me-0', isMobile ? 'mt-4 px-8' : 'my-5 px-16']"
           :dir="isRTL ? 'rtl' : 'ltr'"
           :options="swiperOptions"
         >
-          <swiper-slide v-for="(item, index) in items" :key="index" class="d-flex flex-column align-center">
-            <v-card
-              :to="localePath(`/storytellers/${item.id}`)"
-              class="overflow-hidden mt-2"
-              flat
-              style="border-radius: 75px; border: 1px solid #ececec; overflow: hidden"
-            >
-              <v-img :height="small ? 300 : 350" :src="item.src" :width="small ? '250' : '100%'" eager />
-            </v-card>
-            <nuxt-link
-              :class="[
-                'grey--text text--darken-3 text-decoration-none text-center bel py-4',
-                isMobile ? 'f-24' : 'f-28'
-              ]"
-              :to="localePath(`/storytellers/${item.id}`)"
-            >
-              {{ item.title }}
-            </nuxt-link>
+          <swiper-slide
+            v-for="(item, index) in items"
+            :key="index"
+            :class="['d-flex flex-column align-center', { 'active-slide': index === active }]"
+          >
+            <HomeStoryTellerCard
+              :width="310"
+              :item="item"
+              :active="index === active"
+              @select="$event ? (active = null) : (active = index)"
+            />
+            <div class="d-flex justify-start w-full">
+              <nuxt-link
+                style="width: 310px"
+                :class="[
+                  'grey--text text--darken-3 text-decoration-none text-center bel py-4',
+                  isMobile ? 'f-24' : 'f-28'
+                ]"
+                :to="localePath(`/storytellers/${item.id}`)"
+              >
+                {{ item.title }}
+              </nuxt-link>
+            </div>
           </swiper-slide>
+          <swiper-slide v-if="!isMobile" />
         </swiper>
       </client-only>
     </v-sheet>
@@ -39,15 +46,13 @@
 </template>
 
 <script>
+import HomeStoryTellerCard from '~/components/home/HomeStoryTellerCard.vue';
+
 export default {
-  props: {
-    small: {
-      type: Boolean,
-      default: false
-    }
-  },
+  components: { HomeStoryTellerCard },
   data() {
     return {
+      active: null,
       items: [
         { id: 1, title: 'Masoumeh Seyedi', src: '/images/storytellers/masoumeh.png' },
         { id: 2, title: 'Khosro Aghajanian', src: '/images/storytellers/khosro.png' },
@@ -58,12 +63,24 @@ export default {
       ]
     };
   },
+  watch: {
+    isMobile() {
+      if (this.isMobile) this.active = null;
+    }
+  },
   computed: {
     swiperOptions() {
       return {
         grabCursor: true,
         spaceBetween: 28,
-        slidesPerView: 1.3,
+        slidesPerView: 1.2,
+        on: {
+          click() {
+            if (typeof this.clickedIndex !== 'undefined') {
+              this.slideTo(this.clickedIndex);
+            }
+          }
+        },
         breakpoints: {
           760: {
             slidesPerView: 2.5
@@ -87,4 +104,11 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+.home-story-tellers {
+  .active-slide {
+    width: 600px !important;
+    transition: width ease-in 0.3s;
+  }
+}
+</style>
