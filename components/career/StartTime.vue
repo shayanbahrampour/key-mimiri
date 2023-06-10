@@ -2,20 +2,29 @@
   <v-form v-model="valid" :class="['mt-4', !isMobile ? 'mx-4 mb-16' : undefined]" style="width: 100%">
     <div class="d-flex flex-column">
       <p
-        :class="['bel mb-4 text--darken-3 font-weight-regular', isMobile ? 'text-center f-36' : 'f-50 mt-10']"
+        :class="[
+          'mb-4 text--darken-3 font-weight-regular',
+          isRTL
+            ? isMobile
+              ? 'text-center f-36 ravi mb-10'
+              : 'ravi f-36 mt-10 mb-8'
+            : isMobile
+            ? 'text-center f-36 bel'
+            : 'f-50 mt-10 bel'
+        ]"
         style="color: #59595b"
       >
-        Preferred Start Time
+        {{ $t('career.steps.start_time.title') }}
       </p>
       <div class="d-flex flex-column">
         <v-select
           v-model="model.date"
           :items="items"
-          class="mb-6"
+          :class="['mb-6', isRTL ? 'ravi' : undefined]"
           menu-props="auto"
           append-icon="mdi-triangle-down 10"
           append-icon-size="16"
-          label="Will be available for work"
+          :label="$t('career.steps.start_time.placeholder_one')"
           filled
           rounded
           hide-details
@@ -23,10 +32,7 @@
           style="max-width: 400px"
         ></v-select>
         <v-radio-group v-model="radioGroup" class="mt-6 pt-0">
-          <v-radio
-            color="#4C6D80"
-            label="Hereby I conform that all the information provided are correct and valid."
-          ></v-radio>
+          <v-radio color="#4C6D80" :label="$t('career.steps.start_time.radio')"></v-radio>
         </v-radio-group>
         <div class="d-flex mt-6 align-center">
           <v-btn
@@ -45,7 +51,7 @@
             style="text-transform: unset !important; color: #00a59b"
             text
           >
-            <p class="mb-0 f-16">Print your application</p>
+            <p :class="['mb-0 f-16', isRTL ? 'ravi' : undefined]">{{ $t('career.steps.start_time.upload_file') }}</p>
           </v-btn>
         </div>
       </div>

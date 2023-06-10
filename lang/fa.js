@@ -106,7 +106,9 @@ export default {
         state: 'استان',
         city: 'شهر',
         grad_year: 'سال فارغ‌التحصیلی',
-        placeholder_one: 'Other training, certifications or licenses held...'
+        placeholder_one: 'Other training, certifications or licenses held...',
+        add_new: 'تحصیلات جدید',
+        remove: 'حذف تحصیلات'
       },
       experiences: {
         title: 'تجربیات',
@@ -136,9 +138,9 @@ export default {
       },
       start_time: {
         title: 'زمان شروع ترجیحی',
-        placeholder_one: 'Will be available for work',
+        placeholder_one: 'در این زمان آماده به کار هستم',
         radio: 'Hereby I conform that all the information provided are correct and valid.',
-        upload_file: 'Print your application'
+        upload_file: 'پرینت فورم'
       },
       finish: {
         text: 'We appreciate your interest in our company and the time you took to apply for this position',

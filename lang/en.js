@@ -117,7 +117,9 @@ export default {
         state: 'State',
         city: 'City',
         grad_year: 'Graduation Year',
-        placeholder_one: 'Other training, certifications or licenses held...'
+        placeholder_one: 'Other training, certifications or licenses held...',
+        add_new: 'Add new education',
+        remove: 'Remove education'
       },
       experiences: {
         title: 'Experiences',

@@ -4,8 +4,13 @@
       <p
         :class="[
           'mb-4 text--darken-3 font-weight-regular',
-          isMobile ? 'text-center f-36' : 'f-50 mt-10',
-          isRTL ? 'ravi' : 'bel'
+          isRTL
+            ? isMobile
+              ? 'text-center f-36 ravi mb-10'
+              : 'ravi f-36 mt-10 mb-8'
+            : isMobile
+            ? 'text-center f-36 bel'
+            : 'f-50 mt-10 bel'
         ]"
         style="color: #59595b"
       >
