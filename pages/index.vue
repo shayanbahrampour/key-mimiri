@@ -2,7 +2,7 @@
   <div class="mb-16">
     <HomeSlider />
     <HomeServices class="mb-16" />
-    <HomeVideo :class="['my-16', { 'pt-12': !isMobile }]" />
+    <HomeVideo class="my-16" />
     <HomeImpact />
     <HomeStoryTellers class="mt-16" />
     <HomeTellUsStory />

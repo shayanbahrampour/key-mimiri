@@ -1,5 +1,5 @@
 <template>
-  <div :class="['my-16', { 'pt-3': !isMobile }]">
+  <div :class="['my-16 home-impact', isMobile ? 'coverflow' : 'pt-3']">
     <v-sheet :class="['mx-auto grey--text text--darken-2', { 'px-16': !isMobile }]" :max-width="globalMaxWidth">
       <div :class="['d-flex align-center', isMobile ? 'flex-column text-center px-6 mb-8' : 'mb-14']">
         <h3
@@ -80,7 +80,7 @@ export default {
       return {
         grabCursor: true,
         centeredSlides: this.isMobile,
-        spaceBetween: 28,
+        spaceBetween: this.isMobile ? 14 : 28,
         slidesPerView: 1.3,
         breakpoints: {
           1904: {
@@ -90,7 +90,7 @@ export default {
             slidesPerView: 1.8
           },
           960: {
-            slidesPerView: 1.8
+            slidesPerView: 1.4
           },
           760: {
             slidesPerView: 1.4
@@ -199,4 +199,18 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+.home-impact {
+  &.coverflow {
+    .swiper-slide.swiper-slide-active {
+      transition: transform ease-in 0.2s;
+    }
+
+    .swiper-slide.swiper-slide-next,
+    .swiper-slide.swiper-slide-prev {
+      transform: scale(0.9);
+      transition: transform ease-out 0.1s;
+    }
+  }
+}
+</style>
