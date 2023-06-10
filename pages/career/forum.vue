@@ -161,12 +161,12 @@ export default {
     return {
       counter: 0,
       certainJob: [
-        { title: 'Information', value: '' },
-        { title: 'Education', value: '' },
-        { title: 'Experiences', value: '' },
-        { title: 'Skills', value: '' },
-        { title: 'Attach files', value: '' },
-        { title: 'Print your application', value: '' }
+        { title: this.$t('career.steps.information.title'), value: '' },
+        { title: this.$t('career.steps.education.title'), value: '' },
+        { title: this.$t('career.steps.experiences.title'), value: '' },
+        { title: this.$t('career.steps.skills.title'), value: '' },
+        { title: this.$t('career.steps.file.title'), value: '' },
+        { title: this.$t('career.steps.start_time.title'), value: '' }
       ],
       apply: [
         { title: this.$t('career.steps.let_us_know.title'), value: '' },
