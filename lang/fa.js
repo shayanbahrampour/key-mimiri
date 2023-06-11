@@ -209,7 +209,7 @@ export default {
       title: 'راه گشای توسعه‌ی سلامت',
       more_about: 'اطلاعات بیشتر',
       cobel_group: 'Cobel Group®',
-      about_cobel_group: 'About Cobel Group®'
+      about_cobel_group: 'Cobel Group® درباره'
     },
     services: {
       slider: {
@@ -230,7 +230,7 @@ export default {
       }
     },
     video: {
-      title: 'زندگی در گروه کوبل®',
+      title: 'زندگی در گروه کوبل',
       description: 'برخورداری از تعاملات اجتماعی، به اشتراک گذاری تجربیات، احساس تعلق به یک گروه، مشارکت اجتماعی'
     },
     impact: {

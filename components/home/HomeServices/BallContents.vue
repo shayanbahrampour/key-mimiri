@@ -1,19 +1,26 @@
 <template>
   <div
     :class="['position-relative flex-shrink-0 z-0 ball-contents']"
-    :style="`width: ${width}; ${!isMobile && `border-${isRTL ? 'right' : 'left'}: 1px solid #59595B`}`"
+    :style="`width: ${width}; ${!isMobile && `border-left: 1px solid #59595B`}`"
   >
     <v-slide-y-reverse-transition>
-      <div v-if="content" :class="!isMobile && (lgAndUp ? 'ps-8 py-3' : 'py-1 ps-8')">
+      <div v-if="content" :class="!isMobile && (lgAndUp ? 'pl-8 py-3' : 'py-1 pl-8')">
         <h3
-          :class="['bel font-weight-regular mb-1', isMobile ? 'f-35' : lgAndUp ? 'f-55' : 'f-45']"
+          :class="['font-weight-regular mb-1', isRTL ? 'ravi' : 'bel', isMobile ? 'f-35' : lgAndUp ? 'f-55' : 'f-45']"
           :style="`color:${content.color};`"
         >
           <nuxt-link :to="content.path" class="text-decoration-none" style="color: inherit">{{
             $t(content.title)
           }}</nuxt-link>
         </h3>
-        <p :class="['font-weight-light ma-0 grey--text text--darken-2', isMobile ? 'f-16' : lgAndUp ? 'f-24' : 'f-20']">
+        <p
+          :class="[
+            'ma-0 grey--text text--darken-2',
+            isMobile ? 'f-16' : lgAndUp ? 'f-24' : 'f-20',
+            isRTL ? 'font-weight-bold anjoman' : 'font-weight-light'
+          ]"
+          :style="isRTL && !isMobile ? 'line-height:35px' : ''"
+        >
           {{ $t(content.description) }}
         </p>
       </div>

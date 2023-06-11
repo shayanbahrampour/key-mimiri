@@ -8,7 +8,7 @@
     <v-sheet
       :class="[
         'my-auto right-0 top-0 d-flex align-center position-absolute',
-        isMobile ? 'start-0 mx-auto justify-center' : 'h-screen bottom-0',
+        isMobile ? 'start-0 mx-auto justify-center w-screen' : 'h-screen bottom-0',
         flag.showFullscreen ? 'z-10' : 'z-2'
       ]"
       :style="`${isMobile ? 'top:-220px;' : `top:-120px;right:-380px;`}`"
@@ -28,9 +28,11 @@
         <v-col cols="12" lg="8" sm="9">
           <h1
             :class="[
-              'grey--text text--darken-2 font-weight-regular mb-8',
-              isMobile ? 'f-38 pt-16 mt-12' : 'f-70',
-              isRTL ? 'ravi' : 'bel'
+              'grey--text text--darken-2 mb-8 font-weight-regular',
+              { 'pt-16 mt-12': isMobile },
+              isMobile ? (isRTL ? 'f-33' : 'f-38') : 'f-70',
+              isRTL ? 'ravi' : 'bel',
+              isRTL && isMobile && 'text-center'
             ]"
           >
             {{ $t('homePage.slider.title') }}

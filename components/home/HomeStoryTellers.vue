@@ -4,8 +4,9 @@
       <h3
         :class="[
           'font-weight-regular',
-          isMobile ? 'px-4 f-45 text-center d-block' : 'px-16 f-50',
-          isRTL ? 'ravi' : 'bel'
+          isMobile ? 'px-4 text-center d-block' : 'px-16',
+          isRTL ? 'ravi' : 'bel',
+          isMobile ? (isRTL ? 'f-33 pb-2' : 'f-45') : isRTL ? 'f-45 pb-2' : 'f-50'
         ]"
         style="color: #59595b"
       >
