@@ -35,7 +35,7 @@
         rounded
       ></v-textarea>
       <v-textarea
-        :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
+        :class="['mb-8 f-20', isRTL ? 'ravi text-end' : undefined]"
         dense
         filled
         height="160"
