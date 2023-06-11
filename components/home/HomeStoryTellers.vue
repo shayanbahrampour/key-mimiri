@@ -108,7 +108,7 @@ export default {
 .home-story-tellers {
   .active-slide {
     width: 600px !important;
-    transition: width ease-in 0.3s;
+    transition: width ease-in 0.6s;
   }
 }
 </style>
