@@ -1,7 +1,9 @@
 <template>
   <div class="mb-10">
     <div v-if="isMobile" class="d-flex justify-center">
-      <h4 class="bel f-36 text--darken-3 font-weight-regular mb-6" style="color: #59595b">{{ title }}</h4>
+      <h4 :class="['text--darken-3 font-weight-regular mb-6', isRTL ? 'ravi f-30' : 'bel f-36']" style="color: #59595b">
+        {{ title }}
+      </h4>
     </div>
 
     <div v-for="i in 4" :key="i" class="d-flex flex-column justify-center mb-0">
@@ -9,7 +11,7 @@
         v-if="!isMobile"
         :ripple="false"
         :to="path"
-        class="d-flex rounded-0 overflow-hidden me-4 custom-news-card bg-transparent"
+        :class="['d-flex rounded-0 overflow-hidden me-4 custom-news-card bg-transparent', isRTL && 'ltr']"
         color="transparent"
         elevation="0"
         style="transition: all ease-in 0.4s"
@@ -17,22 +19,30 @@
         <div class="d-flex">
           <v-img height="200" src="/images/temp/cover-2.png" width="250" />
         </div>
-        <div class="d-flex flex-column py-2 ms-16 align-start">
-          <h4 class="bel f-40 text--darken-3 font-weight-regular mb-auto cobelgrey--text custom-card-title">
-            Rise from the society return to the society
+        <div :class="[`d-flex flex-column py-2 ms-${isRTL ? '0' : '16'} align-${isRTL ? 'end' : 'start'}`]">
+          <h4
+            :class="[
+              'text--darken-3 font-weight-regular mb-auto cobelgrey--text custom-card-title',
+              isRTL ? 'ravi f-34' : 'bel f-40'
+            ]"
+          >
+            {{ isRTL ? itemsRTL.title : itemsLTR.title }}
           </h4>
           <p
-            class="f-18 text--darken-3 mb-auto font-weight-light"
+            :class="['text--darken-3 mb-auto', isRTL ? 'ravi text-end f-16' : 'font-weight-light f-18']"
             style="max-width: 90%; color: #59595b; line-height: 26px"
           >
-            In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society
-            and are committed to enhance their physical, psychological and social quality of life through high quality
-            and innovative solutions.
+            {{ isRTL ? itemsRTL.description : itemsLTR.description }}
           </p>
-          <div class="d-flex justify-space-between mt-4" style="width: 60%">
+          <div v-if="!isRTL" class="d-flex justify-space-between mt-4" style="width: 60%">
             <p class="f-16 mb-0" style="color: #59595b">Read time: 13min</p>
             <p class="f-16 mb-0" style="color: #59595b">Writed by: mehrab mohammadi</p>
             <p class="f-16 mb-0" style="color: #59595b">Published 3 month ago</p>
+          </div>
+          <div v-else="!isRTL" class="d-flex justify-space-between mt-4 ravi" style="width: 60%">
+            <p class="f-14 mb-0" style="color: #59595b">زمان مطالعه: 13 دقیقه</p>
+            <p class="f-14 mb-0" style="color: #59595b">نویسنده: مهراب محمدی</p>
+            <p class="f-14 mb-0" style="color: #59595b">منتشر شده: 3 ماه پیش</p>
           </div>
         </div>
       </v-card>
@@ -47,13 +57,16 @@
         <v-card :class="['d-flex flex-column rounded-0 align-start mx-6']" elevation="0" style="overflow: hidden">
           <v-img height="200" src="/images/temp/cover-2.png" />
           <div class="d-flex flex-column pt-2 mx-0 flex">
-            <h4 class="bel f-28 text--darken-3 font-weight-regular my-4 custom-card-title" style="color: #59595b">
-              Rise from the society return to the society
+            <h4
+              :class="['text--darken-3 font-weight-regular my-4 custom-card-title', isRTL ? 'ravi f-25' : 'bel f-28']"
+              style="color: #59595b"
+            >
+              {{ isRTL ? itemsRTL.title : itemsLTR.title }}
             </h4>
-            <p class="f-20 text--darken-3 font-weight-light mb-6" style="color: #59595b">
-              In Cobel Group, acknowledge importance of woman empowerment and inspir....
+            <p :class="['text--darken-0 f-20 font-weight-light mb-6', { ' ravi': isRTL }]" style="color: #59595b">
+              {{ isRTL ? itemsRTL.short_description : itemsLTR.short_description }}
             </p>
-            <div class="d-flex flex-column font-weight-light" style="width: 90%">
+            <div v-if="!isRTL" class="d-flex flex-column font-weight-light" style="width: 90%">
               <p class="f-14 mb-2 d-flex align-center" style="color: #59595b">
                 <v-icon class="me-1" size="12">mdi-clock-outline</v-icon>
                 13min
@@ -65,6 +78,20 @@
               <p class="f-14 mb-0 d-flex align-center" style="color: #59595b">
                 <v-icon class="me-1" size="12">mdi-bullhorn-variant-outline</v-icon>
                 3 months ago
+              </p>
+            </div>
+            <div v-else class="d-flex flex-column font-weight-bold" style="width: 90%">
+              <p class="f-16 mb-2 d-flex align-center" style="color: #59595b">
+                <v-icon class="me-1" size="12">mdi-clock-outline</v-icon>
+                ۱۳ دقیقه
+              </p>
+              <p class="f-16 mb-2 d-flex align-center" style="color: #59595b">
+                <v-icon class="me-1" size="12">mdi-pencil-outline</v-icon>
+                معصومه سیدی
+              </p>
+              <p class="f-16 mb-0 d-flex align-center" style="color: #59595b">
+                <v-icon class="me-1" size="12">mdi-bullhorn-variant-outline</v-icon>
+                زمان انتشار ۳ ماه قبل
               </p>
             </div>
           </div>
@@ -86,6 +113,22 @@ export default {
       type: String,
       default: ''
     }
+  },
+  data() {
+    return {
+      itemsLTR: {
+        title: 'Rise from the society return to the society',
+        description:
+          'In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society and are committed to enhance their physical, psychological and social quality of life through high quality and innovative solutions.',
+        short_description: 'In Cobel Group, acknowledge importance of woman empowerment and inspir....'
+      },
+      itemsRTL: {
+        title: 'توانمندسازی زن اندوخته ای برای آینده',
+        description:
+          'هنگامي كه مشتري تصميم بر خريد محصولي ميگيرد، ارزش برآورده شده را در مقابل هزينهاي كه به فروشنده پرداخت ميكند، مي سنجد. در بازار آزاد، با وجود بازيگران متعدد، اطلاعات مساوي در هر دو طرف خريدار و فروشنده، امكان ورود و خروج آزادانه از بازار و قيمت گذاري آزاد، قيمت تعادلي بر اساس عرضه و تقاضا تعيين مي شود.',
+        short_description: 'هنگامي كه مشتري تصميم بر خريد محصولي ميگيرد، ارزش برآورده شده را در مقابل هزينهاي كه به...'
+      }
+    };
   }
 };
 </script>

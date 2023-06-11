@@ -2,7 +2,11 @@
   <div class="grey--text text--darken-2 home-story-tellers mt-16 pt-6">
     <v-sheet :max-width="globalMaxWidth" class="mx-auto">
       <h3
-        :class="['font-weight-regular bel', isMobile ? 'px-4 f-45 text-center d-block' : 'px-16 f-50']"
+        :class="[
+          'font-weight-regular',
+          isMobile ? 'px-4 f-45 text-center d-block' : 'px-16 f-50',
+          isRTL ? 'ravi' : 'bel'
+        ]"
         style="color: #59595b"
       >
         {{ $t('homePage.storytellers.title') }}
@@ -15,7 +19,7 @@
           :options="swiperOptions"
         >
           <swiper-slide
-            v-for="(item, index) in items"
+            v-for="(item, index) in isRTL ? itemsRTL : items"
             :key="index"
             :class="['d-flex flex-column align-center', { 'active-slide': index === active }]"
           >
@@ -29,8 +33,9 @@
               <nuxt-link
                 style="width: 310px"
                 :class="[
-                  'grey--text text--darken-3 text-decoration-none text-center bel py-4',
-                  isMobile ? 'f-24' : 'f-28'
+                  'grey--text text--darken-3 text-decoration-none text-center py-4',
+                  isMobile ? 'f-24' : 'f-28',
+                  isRTL ? 'ravi' : 'bel'
                 ]"
                 :to="localePath(`/storytellers/${item.id}`)"
               >
@@ -59,6 +64,14 @@ export default {
         { id: 2, title: 'Mohsen Dastjerdi', src: '/images/storytellers/mohsen.png' },
         { id: 4, title: 'Mohamad javid', src: '/images/storytellers/mohamad.png' },
         { id: 3, title: 'Bahador Nayebi', src: '/images/storytellers/bahador.png' }
+        // { id: 2, title: 'Nima Brardjanian', src: '/images/storytellers/nima.png' }
+      ],
+      itemsRTL: [
+        { id: 1, title: 'معصومه سیدی', src: '/images/storytellers/masoumeh.png' },
+        { id: 2, title: 'خسرو آقاجانیان', src: '/images/storytellers/khosro.png' },
+        { id: 2, title: 'محسن دستجردی', src: '/images/storytellers/mohsen.png' },
+        { id: 4, title: 'محمد جاوید', src: '/images/storytellers/mohamad.png' },
+        { id: 3, title: 'بهادر نایبی', src: '/images/storytellers/bahador.png' }
         // { id: 2, title: 'Nima Brardjanian', src: '/images/storytellers/nima.png' }
       ]
     };
