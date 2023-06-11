@@ -250,6 +250,7 @@ export default {
     see_less: 'مخفی کردن',
     next: 'بعدی',
     back: 'بازگشت',
-    send_form: 'ارسال مدارک'
+    send_form: 'ارسال مدارک',
+    register: 'هم اکنون ثبت نام کنید...'
   }
 };

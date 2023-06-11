@@ -255,6 +255,7 @@ export default {
     see_less: 'see less',
     next: 'NEXT',
     back: 'BACK',
-    send_form: 'Send Form'
+    send_form: 'Send Form',
+    register: 'register now'
   }
 };
