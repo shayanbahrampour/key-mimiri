@@ -32,7 +32,7 @@
               min-width="160"
               outlined
             >
-              <span class="bel mt-1 f-20 text-capitalize">Follow us</span>
+              <span class="f-18 text-capitalize">Follow us</span>
               <v-divider class="me-4 ms-6 white" vertical></v-divider>
               <v-img class="ma-0" height="20" max-width="20" src="/images/icons/linkedin.png" />
             </v-btn>
