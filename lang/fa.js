@@ -149,6 +149,17 @@ export default {
     }
   },
   contact: {
+    header: {
+      title: 'دفتر مرکزی',
+      address: 'آدرس: تهران، میدان آرژانتین، خیابان الوند، پلاک 39 / ایران',
+      postal: 'کد پستی: 1516673115'
+    },
+    form_title: 'فرم تماس',
+    button: {
+      follow: 'ما را دنبال کنید',
+      send: 'ارسال فرم',
+      clear: 'پاک کردن'
+    },
     fields: {
       full_name: 'نام و نام خوانوادگی',
       email: 'ایمیل',

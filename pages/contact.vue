@@ -7,19 +7,31 @@
             <div class="d-flex flex-column justify-center" style="max-width: 500px">
               <p
                 :class="[
-                  'bel white--text mb-0 text--darken-3 font-weight-regular',
-                  isMobile ? 'text-center f-40' : 'f-60 '
+                  'white--text mb-0 text--darken-3 font-weight-regular',
+                  isRTL
+                    ? isMobile
+                      ? 'text-center f-40 ravi'
+                      : 'f-50 ravi mb-6'
+                    : isMobile
+                    ? 'text-center f-40 bel'
+                    : 'f-60 bel'
                 ]"
               >
-                Central office
+                {{ $t('contact.header.title') }}
               </p>
               <p
                 :class="[
-                  'white--text mb-0 text--darken-3',
-                  isMobile ? 'mt-4 text-center font-weight-light f-16 contact-address' : 'f-20 font-weight-light'
+                  'white--text mb-0 text--darken-3 text-no-wrap',
+                  isRTL
+                    ? isMobile
+                      ? 'ravi mt-4 text-center f-16 contact-address'
+                      : 'ravi f-18 font-weight-light'
+                    : isMobile
+                    ? 'mt-4 text-center font-weight-light f-16 contact-address'
+                    : 'f-20 font-weight-light'
                 ]"
               >
-                Address: No. 39, Alvand St., Argentine Square, Tehran / IRAN ZIP Code: 1516673115
+                {{ $t('contact.header.address') }}<br />{{ $t('contact.header.postal') }}
               </p>
             </div>
           </div>
@@ -32,7 +44,9 @@
               min-width="160"
               outlined
             >
-              <span class="f-18 text-capitalize">Follow us</span>
+              <span :class="['f-18 text-capitalize', isRTL ? 'ravi mt-2' : undefined]">{{
+                $t('contact.button.follow')
+              }}</span>
               <v-divider class="me-4 ms-6 white" vertical></v-divider>
               <v-img class="ma-0" height="20" max-width="20" src="/images/icons/linkedin.png" />
             </v-btn>
@@ -40,7 +54,7 @@
         </div>
         <div v-if="isMobile" class="mt-8 d-flex justify-center">
           <v-btn class="rounded d-flex align-center" color="white" height="40" min-width="160" outlined>
-            <span class="bel mt-1 f-20 text-capitalize">Follow us</span>
+            <span :class="['f-20 text-capitalize', { ' ravi mt-2': isRTL }]">{{ $t('contact.button.follow') }}</span>
             <v-divider class="me-4 ms-6 white" vertical></v-divider>
             <v-img class="ma-0" height="20" max-width="20" src="/images/icons/linkedin.png" />
           </v-btn>
@@ -61,11 +75,12 @@
     <v-sheet :class="['mx-auto', isMobile ? 'px-4' : 'px-16']" :max-width="globalMaxWidth">
       <h4
         :class="[
-          'bel f-40 text--darken-3 font-weight-regular',
-          isMobile ? 'text-center contact-title-mobile my-10' : 'contact-title-des mt-10'
+          'f-40 text--darken-3 font-weight-regular',
+          isMobile ? 'text-center contact-title-mobile my-10' : 'contact-title-des mt-10',
+          isRTL ? 'ravi' : 'bel'
         ]"
       >
-        Contact form
+        {{ $t('contact.form_title') }}
       </h4>
       <ContactForm :class="!isMobile ? 'me-4 pb-16' : undefined" />
     </v-sheet>

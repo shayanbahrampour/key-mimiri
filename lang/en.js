@@ -47,6 +47,17 @@ export default {
     copyright: '©2023 Cobel Group. All Rights Reserved.'
   },
   contact: {
+    header: {
+      title: 'Central office',
+      address: 'Address: No. 39, Alvand St., Argentine Square, Tehran / IRAN',
+      postal: 'ZIP Code: 1516673115'
+    },
+    form_title: 'Contact form',
+    button: {
+      follow: 'Follow us',
+      send: 'SEND FROM',
+      clear: 'CLEAR'
+    },
     fields: {
       full_name: 'Full Name',
       email: 'Email Address',
