@@ -7,7 +7,7 @@
     </v-carousel>
     <div
       v-if="!isMobile"
-      :class="['position-absolute start-8 end-0 bottom-0 mx-auto z-0 px-16 me-4']"
+      :class="['position-absolute  bottom-0 mx-auto z-0 px-16 me-4', isRTL ? 'end-8 start-0' : 'start-8 end-0']"
       :style="`max-width: ${globalMaxWidth}px; bottom: ${isMobile ? 260 : 40}px`"
     >
       <v-icon v-for="(item, index) in items" :key="index" class="ms-1" color="white" size="25" @click="model = index">
@@ -15,21 +15,30 @@
       </v-icon>
     </div>
 
-    <div :class="['position-relative z-1', { 'ps-10': !isMobile }]">
+    <div :class="['position-relative z-1', { 'ps-10': !isMobile }, isRTL && 'ltr']">
       <div :class="['mx-auto', !isMobile && 'pe-4']" :style="`max-width: ${globalMaxWidth}px`">
         <v-sheet
           v-if="!isMobile"
-          class="ms-6 rounded-t-xl py-6 px-12 slategrey"
+          :class="['rounded-t-xl py-6 px-12 slategrey', isRTL ? 'ml-12 d-flex flex-column align-end' : 'ms-6']"
           height="480"
           style="margin-top: -480px"
           width="480"
         >
-          <h4 class="bel mt-13 f-50 text--darken-3 white--text font-weight-regular">13th Episode of Co-Talk Event</h4>
-          <p class="mt-6 f-20 white--text text--darken-3 mb-0 font-weight-light">
-            Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women...
+          <h4
+            :class="['mt-13 text--darken-3 white--text font-weight-regular', isRTL ? 'text-end ravi f-40' : 'bel f-50']"
+          >
+            {{ isRTL ? news.title_rtl : news.title }}
+          </h4>
+          <p
+            :class="[
+              'mt-6 f-20 white--text text--darken-3 mb-0 font-weight-light',
+              isRTL ? 'text-end ravi' : undefined
+            ]"
+          >
+            {{ isRTL ? news.description_rtl : news.description }}
           </p>
           <v-btn
-            class="bel pa-0 ma-0 mt-2 justify-start f-18 font-weight-bold"
+            :class="['pa-0 ma-0 mt-2 justify-end f-18 font-weight-bold', isRTL ? 'ravi' : bel]"
             color="white"
             depressed
             rounded
@@ -39,13 +48,13 @@
           >
 
           <v-btn
-            class="rounded-xl d-flex mt-10 justify-center f-14 font-weight-regular"
+            :class="['rounded-xl d-flex justify-center f-14 font-weight-regular', isRTL ? 'ravi mt-16' : ' mt-10']"
             color="white"
             height="40"
             min-width="60%"
             outlined
           >
-            register now...
+            {{ $t('button.register') }}
           </v-btn>
         </v-sheet>
         <v-sheet
@@ -84,6 +93,8 @@
 </template>
 
 <script>
+import { title } from 'process';
+
 export default {
   props: {
     items: {
@@ -93,7 +104,14 @@ export default {
   },
   data() {
     return {
-      model: 0
+      model: 0,
+      news: {
+        title: '13th Episode of Co-Talk Event',
+        description:
+          'Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women...',
+        title_rtl: 'قسمت سیزدهم از رویداد Co-Talk',
+        description_rtl: 'کمبود آهن که منجر به کم خونی می شود، اثرات منفی بر سلامتی همه افراد به ویژه زنان دارد'
+      }
     };
   },
   computed: {
@@ -104,27 +122,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.carousel-sheet {
-  transition: all ease-in 0.4s;
-
-  &:after {
-    z-index: 0;
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    height: 100%;
-    width: 50vw;
-    background-color: var(--v-slategrey-base);
-  }
-}
-
-.v-application--is-rtl {
-  .carousel-sheet:after {
-    right: 0;
-    left: auto !important;
-  }
-}
-</style>
+<style lang="scss"></style>

@@ -45,7 +45,7 @@
         }"
         :width="flag.showFullscreen ? '100vw' : videoSize"
         class="my-auto d-flex align-center"
-        src="/video/temp-2.mp4"
+        :src="flag.showFullscreen ? 'video/temp-2-detail.mp4' : '/video/temp-2.mp4'"
       />
     </div>
   </div>
