@@ -106,7 +106,7 @@ export default {
         state: 'استان',
         city: 'شهر',
         grad_year: 'سال فارغ‌التحصیلی',
-        placeholder_one: 'Other training, certifications or licenses held...',
+        placeholder_one: 'سایر آموزش ها، گواهینامه ها یا مجوزهای برگزار شده...',
         add_new: 'تحصیلات جدید',
         remove: 'حذف تحصیلات'
       },
@@ -131,24 +131,35 @@ export default {
       },
       file: {
         title: 'پیوست فایل',
-        letter: 'Cover letter',
-        vitae: 'Curriculum Vitae',
-        address: 'Letter addressing key selection criteria',
-        material: 'Supplementary material (optional)'
+        letter: 'معرفی نامه',
+        vitae: 'رزومه',
+        address: 'نامه ای که به معیارهای انتخاب کلیدی می پردازد',
+        material: 'موارد تکمیلی (اختیاری)'
       },
       start_time: {
         title: 'زمان شروع ترجیحی',
         placeholder_one: 'در این زمان آماده به کار هستم',
-        radio: 'Hereby I conform that all the information provided are correct and valid.',
+        radio: 'بدینوسیله تأیید می‌کنم که کلیه اطلاعات ارائه شده صحیح و معتبر است.',
         upload_file: 'پرینت فورم'
       },
       finish: {
-        text: 'We appreciate your interest in our company and the time you took to apply for this position',
-        action: 'Go to home page'
+        text: 'ما از علاقه شما به شرکت ما و زمانی که برای درخواست این موقعیت صرف کردید قدردانی می کنیم',
+        action: 'صفحه‌ی اصلی'
       }
     }
   },
   contact: {
+    header: {
+      title: 'دفتر مرکزی',
+      address: 'آدرس: تهران، میدان آرژانتین، خیابان الوند، پلاک 39 / ایران',
+      postal: 'کد پستی: 1516673115'
+    },
+    form_title: 'فرم تماس',
+    button: {
+      follow: 'ما را دنبال کنید',
+      send: 'ارسال فرم',
+      clear: 'پاک کردن'
+    },
     fields: {
       full_name: 'نام و نام خوانوادگی',
       email: 'ایمیل',

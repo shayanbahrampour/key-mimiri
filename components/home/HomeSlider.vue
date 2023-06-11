@@ -51,7 +51,7 @@
           </v-btn>
           <v-btn
             :block="isMobile"
-            :class="['f-18 px-14 text-capitalize', isMobile ? 'mt-16' : 'mx-4']"
+            :class="['f-18 px-14 text-capitalize', isMobile ? 'mt-16' : undefined]"
             color="primary"
             depressed
             exact

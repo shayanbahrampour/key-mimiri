@@ -188,12 +188,12 @@
         </p>
       </v-btn>
       <v-textarea
-        :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
+        :class="['mb-8 f-20', isRTL ? 'ravi text-end' : undefined]"
         dense
         filled
         height="140"
         hide-details
-        label="Other training, certifications or licenses held..."
+        :label="$t('career.steps.education.placeholder_one')"
         rounded
       />
     </div>

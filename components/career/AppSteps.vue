@@ -15,7 +15,7 @@
       class="me-0 mt-4"
       color="#4C6D80"
       height="2"
-      style="width: 100vw; margin-left: -16px"
+      :style="`${`margin-${isRTL ? 'right' : 'left'}: -16px`}; width: 100vw`"
     />
   </div>
 </template>

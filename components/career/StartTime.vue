@@ -32,7 +32,11 @@
           style="max-width: 400px"
         ></v-select>
         <v-radio-group v-model="radioGroup" class="mt-6 pt-0">
-          <v-radio color="#4C6D80" :label="$t('career.steps.start_time.radio')"></v-radio>
+          <v-radio
+            color="#4C6D80"
+            :class="isRTL ? 'ravi text-end' : undefined"
+            :label="$t('career.steps.start_time.radio')"
+          ></v-radio>
         </v-radio-group>
         <div class="d-flex mt-6 align-center">
           <v-btn
@@ -51,7 +55,9 @@
             style="text-transform: unset !important; color: #00a59b"
             text
           >
-            <p :class="['mb-0 f-16', isRTL ? 'ravi' : undefined]">{{ $t('career.steps.start_time.upload_file') }}</p>
+            <p :class="['mb-0 f-16', isRTL ? 'ravi text-center' : undefined]">
+              {{ $t('career.steps.start_time.upload_file') }}
+            </p>
           </v-btn>
         </div>
       </div>

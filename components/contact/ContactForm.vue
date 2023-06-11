@@ -1,12 +1,12 @@
 <template>
   <v-form v-model="flag.isValid" class="mt-6 mb-16">
-    <v-row class="align-start justify-center">
+    <v-row :class="isRTL && 'ltr'">
       <v-col cols="12" md="6">
         <v-text-field
           v-model="model.full_name"
           :label="$t('contact.fields.full_name')"
           :rules="[rule.required]"
-          class="mb-4 f-20"
+          :class="['mb-4 f-20', { ' ravi': isRTL }]"
           dense
           filled
           hide-details
@@ -16,7 +16,7 @@
           v-model="model.email"
           :label="$t('contact.fields.email')"
           :rules="[rule.required, rule.email]"
-          class="mb-4 f-20"
+          :class="['mb-4 f-20', { ' ravi': isRTL }]"
           dense
           filled
           hide-details
@@ -26,7 +26,7 @@
           v-model="model.mobile"
           :label="$t('contact.fields.mobile')"
           :rules="[rule.required, rule.mobile]"
-          class="mb-4 f-20"
+          :class="['mb-4 f-20', { ' ravi': isRTL }]"
           dense
           filled
           hide-details
@@ -34,7 +34,7 @@
         ></v-text-field>
         <v-text-field
           v-model="model.topic"
-          :class="!isMobile ? 'mb-4 f-20' : 'mb-0 f-20'"
+          :class="[!isMobile ? 'mb-4 f-20' : 'mb-0 f-20', { ' ravi': isRTL }]"
           :label="$t('contact.fields.topic')"
           :rules="[rule.required]"
           dense
@@ -46,7 +46,7 @@
       <v-col :class="{ 'pt-2': isMobile }" cols="12" md="6">
         <v-textarea
           v-model="model.description"
-          :class="['mb-4 f-20', { 'mb-10': isMobile }]"
+          :class="['mb-4 f-20', { 'mb-10': isMobile }, { ' ravi': isRTL }]"
           :label="$t('contact.fields.description')"
           :rules="[rule.required]"
           dense
@@ -57,11 +57,12 @@
         ></v-textarea>
       </v-col>
     </v-row>
-    <div :class="['d-flex', isMobile ? 'flex-column align-center' : undefined]">
+    <div :class="['d-flex', isMobile ? 'flex-column align-center' : undefined, isRTL && 'ltr']">
       <v-btn
         :class="[
           'rounded-xl white--text d-flex justify-center',
-          isMobile ? 'f-20 font-weight-light' : 'me-4 f-14 font-weight-bold'
+          isMobile ? 'f-20 font-weight-light' : 'mr-4 f-14 font-weight-bold',
+          isRTL ? 'ravi' : undefined
         ]"
         :disabled="flag.loading"
         :loading="flag.loading"
@@ -72,12 +73,13 @@
         min-width="250"
         @click="onSubmit()"
       >
-        Send Form
+        {{ $t('contact.button.send') }}
       </v-btn>
       <v-btn
         :class="[
           'rounded-xl d-flex justify-center ',
-          isMobile ? 'mt-4 f-20 font-weight-light' : 'f-14 font-weight-bold'
+          isMobile ? 'mt-4 f-20 font-weight-light' : 'f-14 font-weight-bold',
+          isRTL ? 'ravi' : undefined
         ]"
         :width="isMobile ? '100' : undefined"
         color="#4C6D80"
@@ -86,7 +88,7 @@
         outlined
         @click="clearData()"
       >
-        Clear
+        {{ $t('contact.button.clear') }}
       </v-btn>
     </div>
   </v-form>
