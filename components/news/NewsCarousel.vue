@@ -32,13 +32,13 @@
           <p
             :class="[
               'mt-6 f-20 white--text text--darken-3 mb-0 font-weight-light',
-              isRTL ? 'text-end ravi' : undefined
+              isRTL ? 'text-end font-weight-bold' : undefined
             ]"
           >
             {{ isRTL ? news.description_rtl : news.description }}
           </p>
           <v-btn
-            :class="['pa-0 ma-0 mt-2 justify-end f-18 font-weight-bold', isRTL ? 'ravi' : bel]"
+            :class="['pa-0 ma-0 mt-1 justify-end f-18 font-weight-bold', isRTL ? 'ravi' : 'bel']"
             color="white"
             depressed
             rounded
@@ -48,7 +48,7 @@
           >
 
           <v-btn
-            :class="['rounded-xl d-flex justify-center f-14 font-weight-regular', isRTL ? 'ravi mt-16' : ' mt-10']"
+            :class="['rounded-xl d-flex justify-center f-14 font-weight-regular', isRTL ? 'ravi mt-16 rtl' : ' mt-10']"
             color="white"
             height="40"
             min-width="60%"
@@ -59,17 +59,25 @@
         </v-sheet>
         <v-sheet
           v-else
-          class="ma-0 rounded-t-xl py-10 px-8 d-flex flex-column align-start slategrey"
+          :class="[`ma-0 rounded-t-xl py-10 px-8 d-flex flex-column align-${isRTL ? 'end' : 'start'} slategrey`]"
           style="position: relative; z-index: 2; margin-top: -72px !important"
         >
-          <h4 class="bel mt-6 f-40 text--darken-3 white--text font-weight-regular text-start" style="max-width: 300px">
-            13th Episode of Co-Talk Event
+          <h4
+            :class="['mt-6 f-40 text--darken-3 white--text text-start', isRTL ? 'ravi' : 'bel font-weight-regular']"
+            style="max-width: 300px"
+          >
+            {{ isRTL ? news.title_rtl : news.title }}
           </h4>
-          <p class="mt-6 f-24 white--text text--darken-3 font-weight-light mb-0">
-            Iron deficiency, leading to Anemia, has negative health effects on all individuals, especially women...
+          <p
+            :class="[
+              'mt-6 f-24 white--text text--darken-0 mb-0',
+              isRTL ? 'text-end font-weight-bold' : 'font-weight-light'
+            ]"
+          >
+            {{ isRTL ? news.description_rtl : news.description }}
           </p>
           <v-btn
-            class="pa-0 ma-0 mt-1 justify-start f-24 font-weight-bold"
+            :class="['pa-0 ma-0 mt-1 justify-start font-weight-bold', isRTL ? 'ravi f-20 mt-2' : 'f-24']"
             color="white"
             depressed
             rounded
@@ -78,13 +86,13 @@
             ><p>{{ $t('shared.see_more') }}</p></v-btn
           >
           <v-btn
-            class="rounded-xl d-flex justify-center f-20 my-6 font-weight-light"
+            :class="['rounded-xl d-flex justify-center f-20 my-6 font-weight-light', { ' ravi rtl pt-1': isRTL }]"
             color="white"
             height="40"
             min-width="100%"
             outlined
           >
-            register now
+            {{ $t('button.register') }}
           </v-btn>
         </v-sheet>
       </div>
