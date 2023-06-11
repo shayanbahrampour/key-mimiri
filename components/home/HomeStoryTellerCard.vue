@@ -1,24 +1,26 @@
 <template>
   <v-card
     :ripple="false"
-    style="border-radius: 75px !important; border: 1px solid #ececec"
+    style="border-radius: 75px !important"
     class="d-flex align-stretch bg-transparent"
     flat
     @click.prevent.stop="open"
   >
     <v-img
-      style="border-radius: 75px !important; overflow: hidden"
-      class="rounded"
+      :style="`border: 1px solid ${flag.isOpen ? 'transparent' : '#ececec'};border-radius: ${
+        flag.showContent ? (isRTL ? '0 75px 75px 0' : '75px 0 0 75px') : '75px'
+      } !important; overflow: hidden`"
       :height="350"
       :max-width="width"
       :width="width"
       :src="item.src"
       width="100%"
       eager
+      class="transition-ease-in-out"
     />
 
     <v-sheet
-      height="350"
+      height="349"
       :width="width"
       :color="flag.isOpen ? 'darkGreen' : 'white'"
       :class="[
@@ -27,7 +29,9 @@
       ]"
       :style="
         flag.isOpen
-          ? `padding-${isRTL ? 'right' : 'left'}: 110px !important;margin-${isRTL ? 'right' : 'left'}: -75px;`
+          ? `margin-top:1px;padding-${isRTL ? 'right' : 'left'}: 110px !important;margin-${
+              isRTL ? 'right' : 'left'
+            }: -75px;`
           : ''
       "
     >

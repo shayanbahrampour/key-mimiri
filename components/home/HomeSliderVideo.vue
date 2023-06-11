@@ -36,7 +36,9 @@
       @touchend="openFullscreen"
     >
       <VideoContents
-        :height="flag.showFullscreen ? '' : videoSize"
+        maxSize="600px"
+        minSize="500px"
+        :height="!flag.showFullscreen && isMobile ? '370px' : 'calc(100vh - 240px)'"
         :options="{
           loop: true,
           muted: true,
@@ -47,7 +49,7 @@
           aspectRatio: flag.showFullscreen ? '16:9' : '1:1'
         }"
         :src="flag.showFullscreen ? 'video/home-slider-detail.mp4' : '/video/home-slider.mp4'"
-        :width="flag.showFullscreen ? '100vw' : videoSize"
+        :width="flag.showFullscreen ? '100vw' : isMobile ? '370px' : 'calc(100vh - 240px)'"
         class="my-auto d-flex align-center"
       />
     </div>
@@ -66,11 +68,6 @@ export default {
         showFullscreen: false
       }
     };
-  },
-  computed: {
-    videoSize() {
-      return this.isMobile ? '370px' : '600px';
-    }
   },
   watch: {
     'flag.showFullscreen': {

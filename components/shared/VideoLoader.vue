@@ -13,7 +13,9 @@
       ...options
     }"
     :playsinline="true"
-    :style="`${height && `height:${height};max-height:${height};`}${width && `;width:${width};max-width:${width};`}`"
+    :style="`${height && `height:${height};max-height:${maxSize || height};`}${
+      width && `;width:${width};max-width:${maxSize || width};`
+    };${minSize && `min-height:${minSize};min-width:${minSize}`}`"
     preload="none"
     @ended="
       flag.isPlaying = false;
@@ -37,6 +39,14 @@ export default {
       default: null
     },
     width: {
+      type: Number | String,
+      default: null
+    },
+    maxSize: {
+      type: Number | String,
+      default: null
+    },
+    minSize: {
       type: Number | String,
       default: null
     },

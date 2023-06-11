@@ -84,7 +84,12 @@ export default {
   computed: {
     swiperOptions() {
       return {
+        longSwipes: false,
         grabCursor: false,
+        preventClicks: false,
+        preventClicksPropagation: false,
+        edgeSwipeDetection: 'prevent',
+        centerInsufficientSlides: true,
         spaceBetween: 28,
         slidesPerView: 1.2,
         on: {
