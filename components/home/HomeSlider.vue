@@ -11,7 +11,7 @@
         isMobile ? 'start-0 mx-auto justify-center' : 'h-screen bottom-0',
         flag.showFullscreen ? 'z-10' : 'z-2'
       ]"
-      :style="`${isMobile ? 'top:-220px;' : `top:-120px;right:-400px;`}`"
+      :style="`${isMobile ? 'top:-220px;' : `top:-120px;right:-380px;`}`"
       color="white"
     >
       <HomeSliderVideo @showFullscreen="flag.showFullscreen = $event" />
@@ -40,18 +40,18 @@
             v-if="!isMobile"
             :block="isMobile"
             :class="['f-18 text-capitalize', { 'ms-n4': !isMobile }, { 'font-weight-bold anjoman': isRTL }]"
+            color="#59595B"
             depressed
             exact
             large
             rounded
             text
-            color="#59595B"
           >
             {{ $t('homePage.slider.more_about') }}
           </v-btn>
           <v-btn
             :block="isMobile"
-            :class="['f-18 px-14 text-capitalize', isMobile ? 'mt-16' : undefined]"
+            :class="['f-20 px-14 text-capitalize bel', { 'mt-16': isMobile }]"
             color="primary"
             depressed
             exact
@@ -87,6 +87,14 @@ export default {
 .home-slider {
   video {
     object-fit: cover;
+  }
+
+  .vjs-fullscreen-control {
+    cursor: default !important;
+    margin: 0 !important;
+    opacity: 0 !important;
+    visibility: hidden;
+    z-index: -1;
   }
 }
 </style>

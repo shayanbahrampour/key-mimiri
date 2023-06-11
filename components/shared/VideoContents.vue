@@ -14,6 +14,8 @@
         ]
       }"
       :width="width"
+      :maxSize="maxSize"
+      :minSize="minSize"
       class="vjs-theme-sea"
       @ready="$emit('ready', $event)"
       @toggleFullscreen="$emit('toggleFullscreen', $event)"
@@ -34,6 +36,14 @@ export default {
     src: {
       type: String,
       default: ''
+    },
+    maxSize: {
+      type: Number | String,
+      default: null
+    },
+    minSize: {
+      type: Number | String,
+      default: null
     },
     height: {
       type: Number | String,
