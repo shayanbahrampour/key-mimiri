@@ -198,6 +198,11 @@ export default {
     individual:
       'Moreover, when individuals are psychologically healthy, they possess high levels of self‐ awareness, self‐esteem, and confidence, which means they are empowered to set and achieve goals that support their overall well‐being. Psychological health is therefore critical to a high quality of life and should be prioritized in any individuals overall health and wellness regime.'
   },
+  educationPage: {
+    title: 'Education',
+    description:
+      'Empowers to achieve, Inspires to create the greatest Cobel Group promise is to empower, inspire and trigger ideas that make a significant impact in how we deliver solutions. Therefore, we invest on education; not only to our personnel, but to our stakeholders. Our education material are available to all.'
+  },
   homePage: {
     slider: {
       title: 'Unleashing the next level health solutions',

@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex align-center">
-    <h1 class="bel f-40 grey--text text--darken-2 font-weight-regular">{{ title }}</h1>
+    <h1 :class="['grey--text text--darken-2 font-weight-regular', isRTL ? 'ravi f-34' : 'bel f-40']">{{ title }}</h1>
 
     <v-divider class="mx-8" color="#00a59b" style="min-height: 25px" vertical />
 

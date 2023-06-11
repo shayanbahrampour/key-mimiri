@@ -3,7 +3,7 @@
     <v-tab
       v-for="(item, index) in items"
       :key="index"
-      :class="['bel f-22 bg-transparent text-capitalize tab-news', { 'px-4': !isMobile }]"
+      :class="['bg-transparent text-capitalize tab-news', { 'px-4': !isMobile }, isRTL ? 'ravi f-18' : 'bel f-22']"
       :ripple="false"
       active-class="black--text"
       @click="$emit('select', item.id)"
