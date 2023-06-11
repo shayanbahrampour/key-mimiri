@@ -12,10 +12,15 @@
     />
 
     <v-sheet v-if="!isMobile" :max-width="globalMaxWidth" class="mx-auto px-10 mt-16">
-      <NewsCategory v-if="!isMobile" :tabs="tabs" class="mb-16 mx-6" title="More important" />
+      <NewsCategory
+        v-if="!isMobile"
+        :tabs="isRTL ? tabsRTL : tabs"
+        class="mb-16 mx-6"
+        :title="isRTL ? 'مهمترین ها' : 'More important'"
+      />
       <NewsCard :path="localePath('/news/1')" class="mx-6" />
     </v-sheet>
-    <NewsCard v-else :path="localePath('/news/1')" class="mt-10" title="More important" />
+    <NewsCard v-else :path="localePath('/news/1')" class="mt-10" :title="isRTL ? 'مهمترین ها' : 'More important'" />
   </div>
 </template>
 
@@ -39,6 +44,13 @@ export default {
         { title: 'Long-term value creation', value: '' },
         { title: 'Social responsibility', value: '' },
         { title: 'Localized know-how', value: '' }
+      ],
+      tabsRTL: [
+        { title: 'همه', value: '' },
+        { title: 'بهترین استعداد', value: '' },
+        { title: 'خلق ارزش بلند مدت', value: '' },
+        { title: 'مسئولیت اجتماعی', value: '' },
+        { title: 'دانش بومی سازی شده', value: '' }
       ]
     };
   }
