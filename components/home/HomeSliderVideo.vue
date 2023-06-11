@@ -36,8 +36,8 @@
       @touchend="openFullscreen"
     >
       <VideoContents
-        :maxSize="flag.showFullscreen ? null : '600px'"
-        :minSize="flag.showFullscreen ? null : '500px'"
+        :maxSize="flag.showFullscreen || isMobile ? null : '600px'"
+        :minSize="flag.showFullscreen || isMobile ? null : '500px'"
         :height="!flag.showFullscreen && isMobile ? '370px' : 'calc(100vh - 240px)'"
         :options="{
           loop: true,

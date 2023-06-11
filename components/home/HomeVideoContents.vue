@@ -11,7 +11,8 @@
       <div :class="['d-flex w-full', $vuetify.breakpoint.smAndDown ? 'flex-column' : 'flex-row align-center']">
         <h3
           :class="[
-            'font-weight-regular bel',
+            'font-weight-regular',
+            isRTL ? 'ravi' : 'bel',
             isMobile ? 'f-35 text-center pt-4 flex-grow-1' : lgAndUp ? 'f-60' : 'f-50'
           ]"
           :style="isMobile ? '' : `min-width: ${lgAndUp ? '500px' : '415px'}`"
@@ -19,7 +20,14 @@
           {{ $t('homePage.video.title') }}
         </h3>
         <v-divider v-if="!isMobile" class="white mx-8" style="height: 100px" vertical />
-        <div v-if="!isMobile" class="f-25 grey--text text--lighten-2 font-weight-light flex-grow-1">
+        <div
+          v-if="!isMobile"
+          :class="[
+            'f-25 grey--text text--lighten-2 flex-grow-1',
+            isRTL ? 'font-weight-bold anjoman' : 'font-weight-light'
+          ]"
+          :style="isRTL && !isMobile ? 'line-height:35px' : ''"
+        >
           {{ $t('homePage.video.description') }}
         </div>
       </div>
@@ -30,10 +38,13 @@
     <v-sheet
       v-if="isMobile"
       :max-width="globalMaxWidth"
-      class="px-6 mx-auto f-17 my-4 grey--text text--darken-2 font-weight-light text-center"
+      :class="[
+        'px-6 mx-auto f-17 my-4 grey--text text--darken-2 text-center',
+        isRTL ? 'font-weight-bold anjoman' : 'font-weight-light'
+      ]"
       color="transparent"
     >
-      Enjoyment of social interaction, sharing experience sense of belonging to a group, promoting participation
+      {{ $t('homePage.video.description') }}
     </v-sheet>
   </div>
 </template>

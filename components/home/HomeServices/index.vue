@@ -39,16 +39,25 @@
       >
         <div class="w-full">
           <h3
-            :class="`bel font-weight-regular mb-3 ${isMobile ? 'f-33 text-center' : lgAndUp ? 'f-70' : 'f-65'}`"
-            :style="`${!isMobile && 'max-width: 900px'};`"
+            :class="`${isMobile ? 'f-33 text-center' : lgAndUp ? 'f-70' : 'f-65'} ${
+              isRTL ? 'ravi font-weight-regular' : 'bel font-weight-regular mb-3'
+            }`"
+            :style="`${isRTL ? 'line-height:90px' : ''}; ${!isMobile && `max-width: ${isRTL ? '750px' : '900px'}`};`"
           >
             {{ $t('homePage.services.slider.title') }}
           </h3>
           <div
-            :class="['font-weight-light ms-auto', isMobile ? 'text-center f-18' : 'f-25']"
+            :class="[
+              'ms-auto',
+              isMobile ? 'text-center f-18' : 'f-25',
+              isRTL ? 'font-weight-bold' : 'font-weight-light',
+              !lgAndUp && isRTL && 'mb-4'
+            ]"
             :style="`${
               !isMobile &&
-              `line-height: 30px;max-width: ${lgAndUp ? '550px' : mdAndDown ? '100%' : `${nuclearSize}px`};`
+              `line-height: ${isRTL ? '38px' : '30px'};max-width: ${
+                lgAndUp ? (isRTL ? '400px' : '550px') : mdAndDown ? '100%' : `${nuclearSize}px`
+              };`
             }`"
           >
             {{ $t('homePage.services.slider.description') }}
@@ -57,13 +66,13 @@
       </div>
       <v-sheet
         v-if="!isMobile"
-        :class="['mx-auto position-relative z-2', isMobile ? 'px-6' : 'px-16']"
+        :class="['mx-auto position-relative z-2 ltr', isMobile ? 'px-6' : 'px-16']"
         :max-width="globalMaxWidth"
         color="transparent"
       >
         <svg
-          :style="`width: 388px; height: 128px; bottom: 0; margin-${isRTL ? 'right' : 'left'}: 30%`"
-          class="position-absolute end-0 start-0 me-auto"
+          style="width: 388px; height: 128px; bottom: 0; margin-left: 30%"
+          class="position-absolute end-0 start-0 mr-auto"
           fill="none"
           viewBox="0 0 388 128"
           xmlns="http://www.w3.org/2000/svg"
@@ -79,7 +88,7 @@
     </div>
     <v-sheet
       :class="[
-        'mx-auto position-relative z-3 d-flex justify-end',
+        'mx-auto position-relative z-3 d-flex justify-end ltr',
         isMobile ? 'px-4 align-end' : 'px-lg-16 px-4 align-center'
       ]"
       :max-width="globalMaxWidth"
@@ -87,15 +96,15 @@
       color="transparent"
     >
       <div
-        :class="`nuclear z-0 start-0 top-0 end-0 bottom-0 position-absolute rounded-circle my-auto d-flex m${
-          isRTL ? 'l' : 'r'
-        }-auto ${isMobile ? 'flex-column align-start justify-center' : 'align-center justify-start'}`"
-        :style="`width: ${isMobile ? '100%' : `${nuclearSize}px`}; height: ${isMobile ? '100%' : '200px'}; margin-${
-          isRTL ? 'right' : 'left'
-        }: ${isMobile ? 'auto' : '30%'}`"
+        :class="`nuclear z-0 start-0 top-0 end-0 bottom-0 position-absolute rounded-circle my-auto d-flex mr-auto ${
+          isMobile ? 'flex-column align-start justify-center' : 'align-center justify-start'
+        }`"
+        :style="`width: ${isMobile ? '100%' : `${nuclearSize}px`}; height: ${
+          isMobile ? '100%' : '200px'
+        }; margin-left: ${isMobile ? 'auto' : '30%'}`"
       >
         <div
-          :class="['font-weight-regular bel flex-shrink-0 f-55', isMobile ? 'mb-4 text-center pr-8' : 'text-start']"
+          :class="['font-weight-regular bel flex-shrink-0 f-55', isMobile ? 'mb-4 text-center pr-8' : 'text-left']"
           :style="`color: #59595B; width: ${isMobile ? '100%' : lgAndUp ? `${nuclearSize}px` : '230px'}`"
         >
           HRQoL
@@ -108,7 +117,7 @@
           :key="index"
           :color="item.color"
           :height="active === index ? ballActiveSize : ballSize"
-          :style="`${isRTL ? 'left' : 'right'}:${item.position[0]};bottom:${item.position[1]};`"
+          :style="`right:${item.position[0]};bottom:${item.position[1]};`"
           :width="active === index ? ballActiveSize : ballSize"
           class="shapes rounded-circle"
           @click="active = index"

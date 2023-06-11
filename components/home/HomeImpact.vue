@@ -4,18 +4,26 @@
       <div :class="['d-flex align-center', isMobile ? 'flex-column text-center px-6 mb-8' : 'mb-14']">
         <h3
           :class="[
-            'font-weight-regular bel grey--text text--darken-2 flex-shrink-0',
-            isMobile ? 'f-45 text-center d-block' : 'f-50'
+            'font-weight-regular grey--text text--darken-2 flex-shrink-0',
+            isRTL ? 'ravi' : 'bel',
+            { 'text-center d-block': isMobile },
+            isMobile ? (isRTL ? 'f-33' : 'f-45') : isRTL ? 'f-45' : 'f-50'
           ]"
         >
           {{ $t('homePage.impact.title') }}
         </h3>
 
-        <v-divider v-if="isMobile" class="w-full" />
+        <v-divider v-if="isMobile" :class="['w-full', { 'mt-3': isRTL }]" />
 
         <p
-          :class="['mb-0 font-weight-light py-4', isMobile ? 'f-16' : 'f-20 ms-8 ps-8']"
-          :style="`${!isMobile && `border-${isRTL ? 'right' : 'left'}: 1px solid #59595B`}; color: #59595B`"
+          :class="[
+            'mb-0 py-4',
+            isMobile ? 'f-16' : 'f-20 ms-8 ps-8',
+            isRTL ? 'font-weight-bold anjoman' : 'font-weight-light'
+          ]"
+          :style="`${!isMobile && `border-${isRTL ? 'right' : 'left'}: 1px solid #59595B`}; color: #59595B;${
+            isRTL && !isMobile && 'line-height:35px'
+          }`"
         >
           {{ $t('homePage.impact.description') }}
         </p>
@@ -165,6 +173,8 @@ export default {
             },
             {
               id: 47161516,
+              fa_title: 'برخاستن از جامعه بازگشت به جامعه',
+              fa_summary: 'کمبود آهن که منجر به کم خونی می شود، اثرات منفی بر سلامتی همه افراد به ویژه زنان دارد...',
               en_title: 'Rise from the society\u2028return to the society',
               en_summary:
                 '<p>Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women<\/p>',

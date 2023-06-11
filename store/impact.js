@@ -45,7 +45,7 @@ export const actions = {
           {
             id: 140945966,
             en_name: 'Social responsibility',
-            fa_name: '\u0645\u0633\u0648\u0644\u06cc\u062a \u0627\u062c\u062a\u0645\u0627\u0639\u06cc'
+            fa_name: 'مسئولیت اجتماعی'
           },
           {
             id: 324089577,
