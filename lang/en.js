@@ -203,6 +203,11 @@ export default {
     description:
       'Empowers to achieve, Inspires to create the greatest Cobel Group promise is to empower, inspire and trigger ideas that make a significant impact in how we deliver solutions. Therefore, we invest on education; not only to our personnel, but to our stakeholders. Our education material are available to all.'
   },
+  storytellersPage: {
+    title: 'STORYTELLERS',
+    description:
+      'Empowers to achieve, Inspires to create the greatest Cobel Group promise is to empower, inspire and trigger ideas that make a significant impact in how we deliver solutions. Therefore, we invest on education; not only to our personnel, but to our stakeholders. Our education material are available to all.'
+  },
   homePage: {
     slider: {
       title: 'Unleashing the next level health solutions',

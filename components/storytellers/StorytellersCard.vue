@@ -1,7 +1,9 @@
 <template>
   <div class="mb-10">
     <div v-if="isMobile" class="d-flex justify-center">
-      <h4 class="bel f-36 text--darken-3 font-weight-regular" style="color: #59595b">{{ title }}</h4>
+      <h4 :class="['text--darken-3 font-weight-regular', isRTL ? 'ravi f-30' : 'bel f-36']" style="color: #59595b">
+        {{ title }}
+      </h4>
     </div>
 
     <div v-for="i in 4" :key="i" class="d-flex justify-center mb-4">
@@ -25,32 +27,45 @@
             <div :class="['d-flex flex-column justify-center', !isMobile ? 'ms-4' : undefined]">
               <p
                 :class="[
-                  'bel mb-0 text--darken-3',
-                  isMobile ? 'text-center mt-4 f-32 font-weight-regular' : 'f-42 font-weight-regular story-name'
+                  'mb-0 text--darken-3',
+                  isMobile ? 'text-center mt-4 f-32 font-weight-regular' : 'f-42 font-weight-regular story-name',
+                  isRTL ? 'ravi' : 'bel'
                 ]"
                 style="color: #59595b"
               >
-                Bahador Nayebi
+                {{ isRTL ? itemsRTL.title : items.title }}
               </p>
               <p
-                :class="['bel  mb-0 text--darken-3', isMobile ? 'mt-2 f-24 cobelgrey--text' : 'f-20 font-weight-light']"
+                :class="[
+                  'mb-0 text--darken-0',
+                  isMobile ? 'mt-2 f-24 cobelgrey--text' : 'f-20 font-weight-light',
+                  isRTL ? 'ravi' : 'bel'
+                ]"
                 style="color: #939393"
               >
-                Project Manager at Cobel® Group
+                {{ isRTL ? itemsRTL.role : items.role }}
               </p>
               <v-divider v-if="isMobile" class="mt-2 mb-6" style="background-color: #00a59b"></v-divider>
             </div>
           </div>
           <v-divider class="mx-4" color="#00a59b" vertical></v-divider>
-          <p v-if="!isMobile" class="f-22 mb-0 text--darken-3 justify-center" style="max-width: 58%; color: #939393">
-            In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society
-            and are committed to enhance their physical, psychological and social quality of life through high quality
-            and innovative solutions.
+          <p
+            v-if="!isMobile"
+            :class="['f-22 mb-0 text--darken-3 justify-center', { ravi: isRTL }]"
+            style="max-width: 58%; color: #939393"
+          >
+            {{ isRTL ? itemsRTL.description : items.description }}
           </p>
-          <p v-else class="f-24 text-center mx-6 mb-0 text--darken-3 font-weight-light cobelgrey--text">
-            In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the
+          <p
+            v-else
+            :class="[
+              'f-24 text-center mx-6 mb-0 text--darken-0 cobelgrey--text font-weight-light',
+              { 'ravi mobile-story-description': isRTL }
+            ]"
+          >
+            {{ isRTL ? itemsRTL.description : items.description }}
             <br />
-            <span class="cobelgrey--text font-weight-bold">see more</span>
+            <span :class="['cobelgrey--text font-weight-bold', { 'ravi ': isRTL }]">{{ $t('shared.see_more') }}</span>
           </p>
         </div>
       </v-card>
@@ -65,6 +80,26 @@ export default {
       type: String,
       default: ''
     }
+  },
+  data() {
+    return {
+      items: {
+        title: 'Bahador Nayebi',
+        role: 'Project Manager at Cobel® Group',
+        description:
+          'In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society and are committed to enhance their physical, psychological and social quality of life through high quality and innovative solutions.',
+        short_description:
+          'In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the'
+      },
+      itemsRTL: {
+        title: 'بهادر نايبی',
+        role: 'مدیر پروژه در گروه Cobel®',
+        description:
+          'فرايند منصفانه، به عنوان يك ارزش به مقام انسانها، به يك نياز پايهاي در آنان پاسخ ميدهد. سه اصل عدالت در فرايندها عبارتند از: تعامل، شفافيت و وضوح انتظارات.',
+        short_description:
+          'فرايند منصفانه، به عنوان يك ارزش به مقام انسانها، به يك نياز پايهاي در آنان پاسخ ميدهد. سه اصل عدالت در فرايندها عبارتند از: تعامل، شفافيت'
+      }
+    };
   }
 };
 </script>
@@ -76,5 +111,8 @@ export default {
       color: slategrey !important;
     }
   }
+}
+.mobile-story-description {
+  line-height: 30px;
 }
 </style>

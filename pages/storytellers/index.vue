@@ -5,41 +5,54 @@
       :height="isMobile ? '30vh' : '65vh'"
       src="/images/storytellers/header.png"
     >
-      <h4 v-if="!isMobile" class="bel white--text f-70 font-weight-regular" style="margin-bottom: 140px">
-        STORYTELLERS
+      <h4
+        v-if="!isMobile"
+        :class="['white--text f-70 font-weight-regular text-capitalize', isRTL ? 'ravi mr-16' : 'bel']"
+        style="margin-bottom: 140px"
+      >
+        {{ $t('educationPage.title') }}
       </h4>
-      <h4 v-else class="bel white--text f-36 font-weight-regular mb-4">STORYTELLERS</h4>
+      <h4 v-else :class="['white--text f-36 font-weight-regular mb-4', isRTL ? 'ravi' : 'bel']">
+        {{ $t('educationPage.title') }}
+      </h4>
     </v-img>
-    <div v-if="!isMobile" class="d-flex flex-column align-start w-full white pe-4">
+    <div v-if="!isMobile" :class="[`d-flex flex-column align-start w-full white p${isRTL ? 's' : 'e'}-4`]">
       <v-card
         :width="isMobile ? '90%' : undefined"
-        class="rounded-r-xl white--text rounded-l-0 d-flex py-6 px-10 flex-column me-10 align-center justify-center"
+        :class="[
+          `rounded-r-xl white--text rounded-l-0 d-flex py-6 px-10 flex-column m${
+            isRTL ? 's' : 'e'
+          }-10 align-center justify-center`
+        ]"
         color="slategrey"
         elevation="0"
         height="240"
         style="margin-top: -120px"
       >
-        <p class="f-30 mb-0 mx-6">
-          Empowers to achieve, Inspires to create the greatest Cobel Group promise is to empower, inspire and trigger
-          ideas that make a significant impact in how we deliver solutions. Therefore, we invest on education; not only
-          to our
+        <p :class="['mb-0 mx-6', isRTL ? 'ravi f-25 desktop-story-description' : 'f-30']">
+          {{ $t('educationPage.description') }}
         </p>
       </v-card>
       <div
         v-if="!isMobile"
         :class="['d-flex flex-column align-start mt-16 white w-full', !isMobile ? 'ps-10' : undefined]"
       >
-        <NewsCategory :tabs="tabs" class="my-6 mx-6" title="More Storytellers" />
+        <NewsCategory
+          :tabs="isRTL ? tabsRTL : tabs"
+          :class="`my-6 mx-${isRTL ? '0' : '6'}`"
+          :title="isRTL ? 'داستان نویسان بیشتر' : 'More Storytellers'"
+        />
       </div>
     </div>
     <div v-else class="pa-6 slategrey">
-      <p class="f-24 white--text mb-0" style="line-height: 30px">
-        Empowers to achieve, Inspires to create the greatest Cobel Group promise is to empower, inspire and trigger
-        ideas that make a significant impact in how we deliver solutions. Therefore, we invest on education; not only to
-        our personnel, but to our stakeholders. Our education material are available to all.
+      <p :class="['white--text mb-0', isRTL ? 'ravi f-20' : 'f-24']" style="line-height: 30px">
+        {{ $t('educationPage.description') }}
       </p>
     </div>
-    <StorytellersCard :class="['mt-10', !isMobile ? 'mx-16' : undefined]" title="More Storytellers" />
+    <StorytellersCard
+      :class="['mt-10', !isMobile ? 'mx-16' : undefined]"
+      :title="isRTL ? 'داستان نویسان بیشتر' : 'More Storytellers'"
+    />
   </div>
 </template>
 
@@ -63,10 +76,21 @@ export default {
         { title: 'Long-term value creation', value: '' },
         { title: 'Social responsibility', value: '' },
         { title: 'Localized know-how', value: '' }
+      ],
+      tabsRTL: [
+        { title: 'همه', value: '' },
+        { title: 'بهترین استعداد', value: '' },
+        { title: 'خلق ارزش بلند مدت', value: '' },
+        { title: 'مسئولیت اجتماعی', value: '' },
+        { title: 'دانش بومی سازی شده', value: '' }
       ]
     };
   }
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.desktop-story-description {
+  line-height: 40px;
+}
+</style>
