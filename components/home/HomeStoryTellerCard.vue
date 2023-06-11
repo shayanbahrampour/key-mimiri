@@ -1,13 +1,13 @@
 <template>
   <v-card
     :ripple="false"
-    style="border-radius: 75px !important"
+    style="border-radius: 75px !important; border: 1px solid #ececec"
     class="d-flex align-stretch bg-transparent"
     flat
-    @click="open"
+    @click.prevent.stop="open"
   >
     <v-img
-      style="border-radius: 75px !important; border: 1px solid #ececec; overflow: hidden"
+      style="border-radius: 75px !important; overflow: hidden"
       class="rounded"
       :height="350"
       :max-width="width"

@@ -84,7 +84,7 @@ export default {
   computed: {
     swiperOptions() {
       return {
-        grabCursor: true,
+        grabCursor: false,
         spaceBetween: 28,
         slidesPerView: 1.2,
         on: {
