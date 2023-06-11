@@ -21,7 +21,7 @@
           <swiper-slide
             v-for="(item, index) in isRTL ? itemsRTL : items"
             :key="index"
-            :class="['d-flex flex-column align-center', { 'active-slide': index === active }]"
+            :class="['d-flex flex-column align-center transition-ease-in-out', { 'active-slide': index === active }]"
           >
             <HomeStoryTellerCard
               :active="index === active"
@@ -84,15 +84,18 @@ export default {
   computed: {
     swiperOptions() {
       return {
+        grabCursor: true,
         longSwipes: false,
-        grabCursor: false,
         preventClicks: false,
-        preventClicksPropagation: false,
-        edgeSwipeDetection: 'prevent',
+        slideToClickedSlide: true,
         centerInsufficientSlides: true,
+        edgeSwipeDetection: 'prevent',
         spaceBetween: 28,
         slidesPerView: 1.2,
         on: {
+          // activeIndexChange: () => {
+          //   this.active = null;
+          // }
           click() {
             if (typeof this.clickedIndex !== 'undefined') {
               this.slideTo(this.clickedIndex);

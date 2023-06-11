@@ -8,7 +8,7 @@
   >
     <v-img
       :style="`border: 1px solid ${flag.isOpen ? 'transparent' : '#ececec'};border-radius: ${
-        flag.showContent ? (isRTL ? '0 75px 75px 0' : '75px 0 0 75px') : '75px'
+        flag.isOpen ? (isRTL ? '0 75px 75px 0' : '75px 0 0 75px') : '75px'
       } !important; overflow: hidden`"
       :height="350"
       :max-width="width"
@@ -24,32 +24,21 @@
       :width="width"
       :color="flag.isOpen ? 'darkGreen' : 'white'"
       :class="[
-        'overflow-hidden d-flex align-center justify-center',
+        'overflow-hidden transition-ease-in-out d-flex align-center justify-center',
         `rounded-${isRTL ? 'r' : 'l'}-0 rounded-${isRTL ? 'l' : 'r'}-xl`
       ]"
-      :style="
-        flag.isOpen
-          ? `margin-top:1px;padding-${isRTL ? 'right' : 'left'}: 110px !important;margin-${
-              isRTL ? 'right' : 'left'
-            }: -75px;`
-          : ''
-      "
+      :style="`margin-${isRTL ? 'right' : 'left'}: -75px;${
+        flag.isOpen && `margin-top:1px;padding-${isRTL ? 'right' : 'left'}: 110px !important;`
+      }`"
     >
-      <v-expand-x-transition>
-        <div v-if="flag.isOpen">
-          <v-scroll-x-transition>
-            <div v-if="flag.showContent" class="white--text pe-10 bel f-20">
-              Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women
-              <nuxt-link
-                class="white--text text-decoration-none mt-5 d-block"
-                :to="localePath(`/storytellers/${item.id}`)"
-              >
-                click for more
-              </nuxt-link>
-            </div>
-          </v-scroll-x-transition>
+      <v-scroll-x-transition hide-on-leave>
+        <div v-if="flag.showContent" class="white--text pe-10 bel f-20">
+          Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women
+          <nuxt-link class="white--text text-decoration-none mt-5 d-block" :to="localePath(`/storytellers/${item.id}`)">
+            click for more
+          </nuxt-link>
         </div>
-      </v-expand-x-transition>
+      </v-scroll-x-transition>
     </v-sheet>
   </v-card>
 </template>
@@ -82,16 +71,21 @@ export default {
     active: {
       immediate: true,
       handler() {
-        this.flag.isOpen = this.active;
+        if (!this.active) {
+          this.flag.showContent = false;
+        }
+
+        setTimeout(() => {
+          this.flag.isOpen = this.active;
+        }, 300);
       }
     },
     'flag.isOpen'() {
-      this.flag.showContent = false;
       if (!this.flag.isOpen) return;
 
       setTimeout(() => {
         this.flag.showContent = true;
-      }, 500);
+      }, 600);
     }
   },
   methods: {
@@ -101,9 +95,11 @@ export default {
         return;
       }
 
+      if (this.flag.isOpen) this.flag.showContent = false;
+
       setTimeout(() => {
         this.$emit('select', this.flag.isOpen);
-      }, 500);
+      }, 300);
     }
   }
 };
