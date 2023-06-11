@@ -24,20 +24,20 @@
             :class="['d-flex flex-column align-center', { 'active-slide': index === active }]"
           >
             <HomeStoryTellerCard
-              :width="310"
-              :item="item"
               :active="index === active"
+              :item="item"
+              :width="310"
               @select="$event ? (active = null) : (active = index)"
             />
             <div class="d-flex justify-start w-full">
               <nuxt-link
-                style="width: 310px"
                 :class="[
                   'grey--text text--darken-3 text-decoration-none text-center py-4',
                   isMobile ? 'f-24' : 'f-28',
                   isRTL ? 'ravi' : 'bel'
                 ]"
                 :to="localePath(`/storytellers/${item.id}`)"
+                style="width: 310px"
               >
                 {{ item.title }}
               </nuxt-link>
@@ -105,10 +105,7 @@ export default {
             slidesPerView: 4.2
           },
           1550: {
-            slidesPerView: 5.2
-          },
-          1904: {
-            slidesPerView: 5.7
+            slidesPerView: 4.4
           }
         }
       };

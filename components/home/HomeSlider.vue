@@ -40,12 +40,12 @@
             v-if="!isMobile"
             :block="isMobile"
             :class="['f-18 text-capitalize', { 'ms-n4': !isMobile }, { 'font-weight-bold anjoman': isRTL }]"
+            color="#59595B"
             depressed
             exact
             large
             rounded
             text
-            color="#59595B"
           >
             {{ $t('homePage.slider.more_about') }}
           </v-btn>
@@ -87,6 +87,14 @@ export default {
 .home-slider {
   video {
     object-fit: cover;
+  }
+
+  .vjs-fullscreen-control {
+    cursor: default !important;
+    margin: 0 !important;
+    opacity: 0 !important;
+    visibility: hidden;
+    z-index: -1;
   }
 }
 </style>

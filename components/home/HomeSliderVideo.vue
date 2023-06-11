@@ -23,29 +23,32 @@
     <v-sheet
       :class="['position-absolute top-0 start-0 z-0']"
       :height="flag.showFullscreen ? '100vh' : 0"
+      :style="`transition: all ease-in 0.4s; opacity:${flag.showFullscreen ? 1 : 0}`"
       :width="flag.showFullscreen ? '100vw' : 0"
       color="black"
-      @click="flag.showFullscreen = false"
-      @touchstart="flag.showFullscreen = false"
+      @touchend="closeFullscreen"
+      @click.prevent="closeFullscreen"
     />
+
     <div
-      :class="[isMobile && 'mx-auto', flag.showFullscreen && 'w-screen h-screen position-relative']"
-      @click="flag.showFullscreen = true"
-      @touchstart="flag.showFullscreen = true"
+      :class="['position-relative z-1', isMobile && 'mx-auto', flag.showFullscreen && 'vjs-fullscreen w-screen h-auto']"
+      @click="openFullscreen"
+      @touchend="openFullscreen"
     >
       <VideoContents
-        :height="flag.showFullscreen ? '100vh' : videoSize"
+        :height="flag.showFullscreen ? '' : videoSize"
         :options="{
           loop: true,
           muted: true,
           fluid: true,
           autoplay: true,
+          fullscreen: false,
           controls: flag.showFullscreen,
           aspectRatio: flag.showFullscreen ? '16:9' : '1:1'
         }"
+        :src="flag.showFullscreen ? 'video/home-slider-detail.mp4' : '/video/home-slider.mp4'"
         :width="flag.showFullscreen ? '100vw' : videoSize"
         class="my-auto d-flex align-center"
-        :src="flag.showFullscreen ? 'video/temp-2-detail.mp4' : '/video/temp-2.mp4'"
       />
     </div>
   </div>
@@ -75,6 +78,31 @@ export default {
       handler() {
         this.$emit('showFullscreen', this.flag.showFullscreen);
       }
+    }
+  },
+  methods: {
+    closeFullscreen() {
+      if (!this.flag.showFullscreen) return;
+      if (this.isMobile) {
+        setTimeout(() => {
+          this.flag.showFullscreen = false;
+        }, 300);
+
+        return;
+      }
+      this.flag.showFullscreen = false;
+    },
+    openFullscreen() {
+      if (this.flag.showFullscreen) return;
+      if (this.isMobile) {
+        setTimeout(() => {
+          this.flag.showFullscreen = true;
+        }, 300);
+
+        return;
+      }
+
+      this.flag.showFullscreen = true;
     }
   }
 };

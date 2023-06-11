@@ -54,6 +54,14 @@ export default {
       }
     };
   },
+  watch: {
+    options: {
+      deep: true,
+      handler() {
+        if (this.options.autoplay) this.play();
+      }
+    }
+  },
   created() {
     this.ref = this.generateId();
   },
