@@ -62,7 +62,7 @@
         color="transparent"
       >
         <svg
-          :style="`width: 388px; bottom: 0; margin-${isRTL ? 'right' : 'left'}: 30%`"
+          :style="`width: 388px; height: 128px; bottom: 0; margin-${isRTL ? 'right' : 'left'}: 30%`"
           class="position-absolute end-0 start-0 me-auto"
           fill="none"
           viewBox="0 0 388 128"
