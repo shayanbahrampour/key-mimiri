@@ -64,7 +64,6 @@ export default {
         { id: 2, title: 'Mohsen Dastjerdi', src: '/images/storytellers/mohsen.png' },
         { id: 4, title: 'Mohamad javid', src: '/images/storytellers/mohamad.png' },
         { id: 3, title: 'Bahador Nayebi', src: '/images/storytellers/bahador.png' }
-        // { id: 2, title: 'Nima Brardjanian', src: '/images/storytellers/nima.png' }
       ],
       itemsRTL: [
         { id: 1, title: 'معصومه سیدی', src: '/images/storytellers/masoumeh.png' },
@@ -72,7 +71,6 @@ export default {
         { id: 2, title: 'محسن دستجردی', src: '/images/storytellers/mohsen.png' },
         { id: 4, title: 'محمد جاوید', src: '/images/storytellers/mohamad.png' },
         { id: 3, title: 'بهادر نایبی', src: '/images/storytellers/bahador.png' }
-        // { id: 2, title: 'Nima Brardjanian', src: '/images/storytellers/nima.png' }
       ]
     };
   },
@@ -86,22 +84,16 @@ export default {
       return {
         grabCursor: true,
         longSwipes: false,
-        preventClicks: false,
-        slideToClickedSlide: true,
+        preventClicks: true,
+        touchMoveStopPropagation: true,
+        touchStartForcePreventDefault: true,
+        preventClicksPropagation: true,
+        preventInteractionOnTransition: true,
+        slideToClickedSlide: false,
         centerInsufficientSlides: true,
         edgeSwipeDetection: 'prevent',
         spaceBetween: 28,
         slidesPerView: 1.2,
-        on: {
-          // activeIndexChange: () => {
-          //   this.active = null;
-          // }
-          click() {
-            if (typeof this.clickedIndex !== 'undefined') {
-              this.slideTo(this.clickedIndex);
-            }
-          }
-        },
         breakpoints: {
           760: {
             slidesPerView: 2.5
@@ -113,7 +105,10 @@ export default {
             slidesPerView: 4.2
           },
           1550: {
-            slidesPerView: 4.4
+            slidesPerView: 5.2
+          },
+          1904: {
+            slidesPerView: 5.7
           }
         }
       };

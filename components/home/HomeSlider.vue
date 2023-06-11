@@ -58,7 +58,9 @@
             large
             rounded
           >
-            {{ isMobile ? $t('homePage.slider.about_cobel_group') : $t('homePage.slider.cobel_group') }}
+            <span class="position-relative" style="top: 1px">{{
+              isMobile ? $t('homePage.slider.about_cobel_group') : $t('homePage.slider.cobel_group')
+            }}</span>
           </v-btn>
         </v-col>
       </v-row>
