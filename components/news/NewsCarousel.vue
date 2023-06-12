@@ -35,7 +35,7 @@
           <p
             :class="[
               'mt-6 f-20 white--text text--darken-3 mb-0 font-weight-light',
-              isRTL ? 'text-end font-weight-bold mb-2' : undefined
+              isRTL ? 'text-end font-weight-bold mb-2 rtl' : undefined
             ]"
             :style="`line-height: ${isRTL ? '30' : undefined}px`"
           >
@@ -78,7 +78,7 @@
           <p
             :class="[
               'mt-6 f-24 white--text text--darken-0 mb-0',
-              isRTL ? 'text-end font-weight-bold' : 'font-weight-light'
+              isRTL ? 'text-end font-weight-bold rtl mb-1' : 'font-weight-light'
             ]"
             :style="`line-height: ${isRTL ? '30' : undefined}px`"
           >
@@ -124,7 +124,7 @@ export default {
         description:
           'Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women...',
         title_rtl: 'قسمت سیزدهم از رویداد Co-Talk',
-        description_rtl: 'کمبود آهن که منجر به کم خونی می شود، اثرات منفی بر سلامتی همه افراد به ویژه زنان دارد'
+        description_rtl: 'کمبود آهن که منجر به کم خونی می شود، اثرات منفی بر سلامتی همه افراد به ویژه زنان دارد...'
       }
     };
   },
