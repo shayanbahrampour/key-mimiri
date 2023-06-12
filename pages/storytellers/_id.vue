@@ -181,15 +181,15 @@
               </p>
               <p
                 :class="[
-                  'mb-0 text--darken-3',
-                  isMobile ? 'mt-2 f-24' : 'f-20 font-weight-light',
-                  isRTL ? 'ravi mr-2' : 'bel'
+                  'mb-0 text--darken-0',
+                  isMobile ? 'mt-2 f-24 cobelgrey--text text-center' : 'f-20 font-weight-light',
+                  isRTL ? 'ravi' : undefined
                 ]"
                 style="color: #939393"
               >
                 {{ isRTL ? faces[0].roleRTL : faces[0].role }}
               </p>
-              <v-divider v-if="isMobile" class="my-4" style="background-color: #00a59b"></v-divider>
+              <v-divider v-if="isMobile" class="my-4" style="background-color: #00a59b; width: 350px"></v-divider>
             </div>
           </div>
           <v-divider class="mx-4" color="#00a59b" vertical></v-divider>
@@ -207,7 +207,7 @@
                 :class="[
                   'f-20 text--darken-3',
                   isMobile ? 'text-center mt-0 mb-0 mx-8' : 'mt-16 mx-16',
-                  isRTL ? 'font-weight-bold mb-1' : 'font-weight-light'
+                  isRTL ? 'ravi mb-1' : 'font-weight-light'
                 ]"
                 style="line-height: 30px; color: #939393"
               >
@@ -219,7 +219,7 @@
                   :class="[
                     'f-20 text--darken-3',
                     isMobile ? 'text-center' : 'mt-16 mx-16',
-                    isRTL ? 'font-weight-bold' : 'font-weight-light'
+                    isRTL ? 'ravi' : 'font-weight-light'
                   ]"
                   style="line-height: 30px; color: #939393"
                 >
@@ -259,15 +259,15 @@
               </p>
               <p
                 :class="[
-                  'mb-0 text--darken-3',
-                  isMobile ? 'mt-2 f-24' : 'f-20 font-weight-light',
-                  isRTL ? 'ravi mr-2' : 'bel'
+                  'mb-0 text--darken-0',
+                  isMobile ? 'mt-2 f-24 cobelgrey--text text-center' : 'f-20 font-weight-light',
+                  isRTL ? 'ravi' : undefined
                 ]"
                 style="color: #939393"
               >
                 {{ isRTL ? faces[1].roleRTL : faces[1].role }}
               </p>
-              <v-divider v-if="isMobile" class="my-4" style="background-color: #00a59b"></v-divider>
+              <v-divider v-if="isMobile" class="my-4" style="background-color: #00a59b; width: 350px"></v-divider>
             </div>
           </div>
           <v-divider class="mx-4" color="#00a59b" vertical></v-divider>
@@ -285,7 +285,7 @@
                 :class="[
                   'f-20 text--darken-3',
                   isMobile ? 'text-center mt-0 mb-0 mx-8' : 'mt-16 mx-16',
-                  isRTL ? 'font-weight-bold mb-1' : 'font-weight-light'
+                  isRTL ? 'ravi mb-1' : 'font-weight-light'
                 ]"
                 style="line-height: 30px; color: #939393"
               >
@@ -297,7 +297,7 @@
                   :class="[
                     'f-20 text--darken-3',
                     isMobile ? 'text-center' : 'mt-16 mx-16',
-                    isRTL ? 'font-weight-bold' : 'font-weight-light'
+                    isRTL ? 'ravi' : 'font-weight-light'
                   ]"
                   style="line-height: 30px; color: #939393"
                 >
