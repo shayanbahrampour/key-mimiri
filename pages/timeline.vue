@@ -4,12 +4,13 @@
       :items="[
         {
           src: '/images/temp/cover-7.png',
-          title:
-            'Empowers to achieve, Inspires to create the greatest Cobel Group promise is to empower, inspire and trigger ideas that make a significant impact in how we deliver solutions. Therefore, we invest on education; not only to our '
+          title: isRTL
+            ? 'ايجاد توانايی برای دستيابی به اهداف و الهام بخش برای خلق برترينها وعده برند گروه كوبل، توانمندسازی، الهامبخشی و برانگيختن ايدههايی است كه در راه پيشرفت و رسيدن به راهكارهای سلامت، تأثيرگذار است. بنابراين، ما در جهت آگاهسازی و آموزش سرمايهگذاری ميكنيم، نه تنها به نيروی انسانی خود، بلكه به تمامی ذينفعانمان. منابع آموزشی ما برای همگان در دسترس است.'
+            : 'Empowers to achieve, Inspires to create the greatest Cobel Group promise is to empower, inspire and trigger ideas that make a significant impact in how we deliver solutions. Therefore, we invest on education; not only to our '
         }
       ]"
       hide-delimiters
-      title="Heritage"
+      :title="isRTL ? 'میراث' : 'Heritage'"
     />
 
     <v-sheet
@@ -19,19 +20,28 @@
       <div :class="['d-flex align-center pt-16', !isMobile ? 'pb-10' : 'flex-column text-center px-6 pb-2']">
         <h3
           :class="[
-            'font-weight-regular bel grey--text text--darken-2 flex-shrink-0',
-            isMobile ? 'f-45 text-center d-block' : 'f-50'
+            'font-weight-regular grey--text text--darken-2 flex-shrink-0',
+            isRTL ? 'ravi' : 'bel',
+            { 'text-center d-block': isMobile },
+            isMobile ? (isRTL ? 'f-33' : 'f-45') : isRTL ? 'f-45' : 'f-50'
           ]"
         >
-          Timelines
+          {{ $t('timelinePage.title') }}
         </h3>
 
+        <v-divider v-if="isMobile" :class="['w-full', { 'mt-3': isRTL }]" />
+
         <p
-          :class="['mb-0 font-weight-light py-4', isMobile ? 'f-17' : 'f-20 ms-8 ps-8']"
-          :style="`${!isMobile && `border-${isRTL ? 'right' : 'left'}: 1px solid #59595B`}; color: #59595B`"
+          :class="[
+            'mb-0 py-4',
+            isMobile ? 'f-16' : 'f-20 ms-8 ps-8',
+            isRTL ? 'font-weight-bold anjoman' : 'font-weight-light'
+          ]"
+          :style="`${!isMobile && `border-${isRTL ? 'right' : 'left'}: 1px solid #59595B`}; color: #59595B;${
+            isRTL && (isMobile ? 'line-height:25px' : 'line-height:30px')
+          }`"
         >
-          Patients are the center of all projects being conducted in the Cobel Group. Stories of hope, innovation,
-          collaboration, inspiration and empowerment helps us measure our impact and inspire us to create more.
+          {{ $t('timelinePage.description') }}
         </p>
       </div>
 
@@ -63,7 +73,7 @@
             />
 
             <v-expansion-panel-header
-              :class="['pt-8 pb-0', isMobile ? 'f-30' : 'f-40']"
+              :class="['pt-8 pb-0', isMobile ? 'f-30' : isRTL ? 'f-30' : 'f-40']"
               :style="`color: ${item.color}`"
               hide-actions
             >
@@ -76,7 +86,9 @@
                 />
 
                 <div :class="['flex-grow-1 d-flex', isMobile ? 'flex-column pt-2' : 'align-center']">
-                  <span :style="`color: ${expanded === i ? '#4c6d80' : '#66869A'}`" class="bel">{{ item.title }}</span>
+                  <span :style="`color: ${expanded === i ? '#4c6d80' : '#66869A'}`" :class="[isRTL ? 'ravi' : 'bel']">
+                    {{ item[`${$i18n.locale}_title`] }}
+                  </span>
 
                   <v-spacer />
 
@@ -84,7 +96,7 @@
                     :class="[
                       'f-18 px-4 py-3 text-center d-flex align-center justify-center',
                       { 'white--text': expanded === i },
-                      { 'mt-1': isMobile }
+                      isMobile && (isRTL ? 'mt-3' : 'mt-1')
                     ]"
                     :color="expanded === i ? '#66869a' : '#ECECEC'"
                     :style="`border-radius: 14px; color: #66869A`"
@@ -95,12 +107,19 @@
                 </div>
               </div>
             </v-expansion-panel-header>
-            <v-expansion-panel-content>
+            <v-expansion-panel-content :class="isRTL ? 'anjoman font-weight-bold' : ''">
               <v-timeline :style="`color: ${item.color}`" align-top class="ms-n2 pt-0" dense>
                 <v-timeline-item hide-dot>
-                  <p :class="['font-weight-light ps-2 f-22', isMobile && 'mt-6']" style="color: #59595b">
-                    Cobel Darou is a leading private pharmaceutical company founded in 2002. Cobel Darou main activities
-                    are registration, importation, manufacturing, distribution and sales & marketing.
+                  <p
+                    :class="[
+                      'ps-2',
+                      isRTL ? 'font-weight-bold' : 'font-weight-light',
+                      isMobile && 'mt-6',
+                      isMobile ? (isRTL ? 'f-16' : 'f-22') : 'f-22'
+                    ]"
+                    :style="`color: #59595b;${isRTL && (isMobile ? 'line-height:25px' : 'line-height:30px')}`"
+                  >
+                    {{ item[`${$i18n.locale}_description`] }}
                   </p>
                 </v-timeline-item>
                 <v-timeline-item
@@ -119,7 +138,10 @@
                     min-height="70"
                     style="line-height: 30px"
                   >
-                    <strong class="f-20 text-pre-line timeline-title" v-html="child.title"></strong>
+                    <span
+                      :class="['f-20 text-pre-line timeline-title font-weight-bold', isRTL && 'anjoman']"
+                      v-html="child[`${$i18n.locale}_title`]"
+                    />
                   </v-sheet>
                 </v-timeline-item>
               </v-timeline>
@@ -151,149 +173,203 @@ export default {
       expanded: undefined,
       items: [
         {
-          title: 'Cobel Darou',
+          en_title: 'Cobel Darou',
+          fa_title: 'کوبل دارو',
           color: '#f3b393',
           active: '#e86726',
           date: '2001',
-          description:
+          en_description:
             'Cobel Darou is a leading private pharmaceutical company founded in 2002. Cobel Darou main activities are registration, importation, manufacturing, distribution and sales & marketing.',
+          fa_description:
+            'کوبل دارو یک شرکت دارویی خصوصی پیشرو است که در سال ۲۰۰۲ تاسیس شد. فعالیت های اصلی کوبل دارو شامل ثبت، واردات، تولید، توزیع و فروش و بازاریابی است.',
           children: [
-            { date: '2001', title: 'Establishment of Cobel Darou' },
-            { date: '2002', title: 'Business Collaboration with Guerbet' },
-            { date: '2003', title: 'Business Collaboration with Piere Fabre' },
+            { date: '2001', fa_title: 'تأسیس کوبل دارو', en_title: 'Establishment of Cobel Darou' },
+            { date: '2002', fa_title: 'همکاری تجاری با Guerbet', en_title: 'Business Collaboration with Guerbet' },
+            {
+              date: '2003',
+              fa_title: 'همکاری تجاری با Piere Fabre',
+              en_title: 'Business Collaboration with Piere Fabre'
+            },
             {
               date: '2004',
-              title:
+              fa_title: `              همکاری تجاری با Ebewe (خاتمه یافت)
+همکاری تجاری با MSD
+همکاری تجاری با سانوفی`,
+              en_title:
                 'Business Collaboration with Ebewe (terminated)\n Business Collaboration with MSD\n Business Collaboration with Sanofi'
             },
             {
               date: '2005',
-              title: 'Business Collaboration with UCB (terminated)'
+              fa_title: 'همکاری تجاری با UCB (خاتمه یافت)',
+              en_title: 'Business Collaboration with UCB (terminated)'
             },
             {
               date: '2006',
-              title: 'Business Collaboration with Actelion\n Business Collaboration with TEA (Terminated)'
+              fa_title: `همکاری تجاری با Actelion
+همکاری تجاری با TEA (خاتمه یافت)`,
+              en_title: 'Business Collaboration with Actelion\n Business Collaboration with TEA (Terminated)'
             },
             {
               date: '2007',
-              title: 'Business Collaboration with Uni Pharma\n Business Collaboration with LFB'
+              fa_title: `همکاری تجاری با Uni Pharma
+همکاری تجاری با LFB`,
+              en_title: 'Business Collaboration with Uni Pharma\n Business Collaboration with LFB'
             },
             {
               date: '2008',
-              title: 'Moved to Local Production by acquiring 10% share of Abidi Lab'
+              fa_title: 'با تصاحب 10 درصد از سهام آزمایشگاه عابدی به تولید داخلی منتقل شد',
+              en_title: 'Moved to Local Production by acquiring 10% share of Abidi Lab'
             },
             {
               date: '2009',
-              title:
+              fa_title: `تولید محصولات Sanofi-Aventis تحت مجوز
+شروع برنامه ریزی برای تولید محصول کوبل دارو
+همکاری تجاری با AstraZeneca`,
+              en_title:
                 'Under-License production of Sanofi-Aventis products\n Started planning for production of Cobel Darou product\n Business Collaboration with AstraZeneca'
             },
             {
               date: '2012',
-              title:
+              fa_title: `کسب و کار لوازم آرایشی و بهداشتی با همکاری L’oreal
+همکاری تجاری با Biologix
+همکاری تجاری با Roche Pharma`,
+              en_title:
                 'Dermocosmetic business with collabotration with L’oreal\n Business collaboration with Biologix\n Business collaboration with Roche Pharma'
             },
             {
               date: '2017',
-              title: 'Business collaboration with Novartis\n Business collaboration with GSK'
+              fa_title: `همکاری تجاری با Novartis
+همکاری تجاری با GSK`,
+              en_title: 'Business collaboration with Novartis\n Business collaboration with GSK'
             },
             {
               date: '2018',
-              title: 'Business collaboration with Roche Diabetes Care'
+              fa_title: 'همکاری تجاری با Roche Diabetes Care',
+              en_title: 'Business collaboration with Roche Diabetes Care'
             },
             {
               date: '2021',
-              title:
+              fa_title: `همکاری تجاری با Roche Diagnostics
+تامین واکسن کووید AstraZeneca (اولین محموله)`,
+              en_title:
                 'Business collaboration with Roche Diagnostics\n Supplying AstraZeneca COVID Vaccine (first shipment)'
             },
             {
               date: '2022',
-              title: 'Supplying the first treatment option for SMA patients (first shipment)'
+              fa_title: 'ارائه اولین گزینه درمانی برای بیماران SMA (محموله اول)',
+              en_title: 'Supplying the first treatment option for SMA patients (first shipment)'
             }
           ]
         },
         {
-          title: 'Dr. Abidi Pharmaceuticals',
-          description:
-            'Dr. Abidi Pharmaceuticals is the first and the oldest Iranian pharmaceutical company in the private sector with more than 75 years of experience in manufacturing high quality products.',
+          en_title: 'Dr. Abidi Pharmaceuticals',
+          fa_title: 'داروسازی دکتر عابدی',
+          en_description:
+            'Cobel Darou is a leading private pharmaceutical company founded in 2002. Cobel Darou main activities are registration, importation, manufacturing, distribution and sales & marketing.',
+          fa_description:
+            'کوبل دارو یک شرکت دارویی خصوصی پیشرو است که در سال ۲۰۰۲ تاسیس شد. فعالیت های اصلی کوبل دارو شامل ثبت، واردات، تولید، توزیع و فروش و بازاریابی است.',
           color: '#85bedf',
           active: '#0d7dbf',
           date: '2008',
           children: [
-            { date: '1946', title: 'Establishment of Abidi Pharmaceutical Co.' },
-            { date: '1958', title: 'Acquisition of the first Pharma production license' },
-            { date: '2006', title: 'Acquisition of Iran FDA GDP' },
-            { date: '2008', title: 'Cobel Darou Entrance' },
-            { date: '2009', title: 'Under-licensed manufacturing of Sanofi products in Iran' },
-            { date: '2011', title: 'New management and development plan' },
-            { date: '2015', title: 'Special disease manufacturing site (Collaboration with Synthon)' },
+            { date: '1946', fa_title: 'کوبل دارو', en_title: 'Establishment of Abidi Pharmaceutical Co.' },
+            { date: '1958', fa_title: 'کوبل دارو', en_title: 'Acquisition of the first Pharma production license' },
+            { date: '2006', fa_title: 'کوبل دارو', en_title: 'Acquisition of Iran FDA GDP' },
+            { date: '2008', fa_title: 'کوبل دارو', en_title: 'Cobel Darou Entrance' },
+            {
+              date: '2009',
+              fa_title: 'کوبل دارو',
+              en_title: 'Under-licensed manufacturing of Sanofi products in Iran'
+            },
+            { date: '2011', fa_title: 'کوبل دارو', en_title: 'New management and development plan' },
+            {
+              date: '2015',
+              fa_title: 'کوبل دارو',
+              en_title: 'Special disease manufacturing site (Collaboration with Synthon)'
+            },
             {
               date: '2017',
-              title: 'Acquiring AstraZeneca and Novartis approval for under-licensed manufacturing in Iran'
+              fa_title: 'کوبل دارو',
+              en_title: 'Acquiring AstraZeneca and Novartis approval for under-licensed manufacturing in Iran'
             },
-            { date: '2018', title: 'Production lines revamp' },
-            { date: '2020', title: 'New packaging line establishment' },
-            { date: '2021', title: '75 years birthday' },
-            { date: '2022', title: 'Abidi-2 production site' }
+            { date: '2018', fa_title: 'کوبل دارو', en_title: 'Production lines revamp' },
+            { date: '2020', fa_title: 'کوبل دارو', en_title: 'New packaging line establishment' },
+            { date: '2021', fa_title: 'کوبل دارو', en_title: '75 years birthday' },
+            { date: '2022', fa_title: 'کوبل دارو', en_title: 'Abidi-2 production site' }
           ]
         },
         {
-          title: 'Adorateb',
+          en_title: 'Adorateb',
+          fa_title: 'شرکت پخش دارو آدوراطب',
           color: '#80cbb8',
           active: '#069f99',
           date: '2009',
-          description:
-            'Dr. Abidi Pharmaceuticals is the first and the oldest Iranian pharmaceutical company in the private sector with more than 75 years of experience in manufacturing high quality products.',
+          en_description:
+            'Cobel Darou is a leading private pharmaceutical company founded in 2002. Cobel Darou main activities are registration, importation, manufacturing, distribution and sales & marketing.',
+          fa_description:
+            'کوبل دارو یک شرکت دارویی خصوصی پیشرو است که در سال ۲۰۰۲ تاسیس شد. فعالیت های اصلی کوبل دارو شامل ثبت، واردات، تولید، توزیع و فروش و بازاریابی است.',
           children: [
-            { date: '2001', title: 'Establishment of Cobel Darou' },
-            { date: '2002', title: 'Business Collaboration with Guerbet' },
-            { date: '2003', title: 'Business Collaboration with Piere Fabre' },
+            { date: '2001', fa_title: 'کوبل دارو', en_title: 'Establishment of Cobel Darou' },
+            { date: '2002', fa_title: 'کوبل دارو', en_title: 'Business Collaboration with Guerbet' },
+            { date: '2003', fa_title: 'کوبل دارو', en_title: 'Business Collaboration with Piere Fabre' },
             {
               date: '2004',
-              title:
+              fa_title: 'کوبل دارو',
+              en_title:
                 'Business Collaboration with Ebewe (terminated)\n Business Collaboration with MSD\n Business Collaboration with Sanofi'
             },
             {
               date: '2005',
-              title: 'Business Collaboration with UCB (terminated)'
+              fa_title: 'کوبل دارو',
+              en_title: 'Business Collaboration with UCB (terminated)'
             },
             {
               date: '2006',
-              title: 'Business Collaboration with Actelion\n Business Collaboration with TEA (Terminated)'
+              fa_title: 'کوبل دارو',
+              en_title: 'Business Collaboration with Actelion\n Business Collaboration with TEA (Terminated)'
             },
             {
               date: '2007',
-              title: 'Business Collaboration with Uni Pharma\n Business Collaboration with LFB'
+              fa_title: 'کوبل دارو',
+              en_title: 'Business Collaboration with Uni Pharma\n Business Collaboration with LFB'
             },
             {
               date: '2008',
-              title: 'Moved to Local Production by acquiring 10% share of Abidi Lab'
+              fa_title: 'کوبل دارو',
+              en_title: 'Moved to Local Production by acquiring 10% share of Abidi Lab'
             },
             {
               date: '2009',
-              title:
+              fa_title: 'کوبل دارو',
+              en_title:
                 'Under-License production of Sanofi-Aventis products\n Started planning for production of Cobel Darou product\n Business Collaboration with AstraZeneca'
             },
             {
               date: '2012',
-              title:
+              fa_title: 'کوبل دارو',
+              en_title:
                 'Dermocosmetic business with collabotration with L’oreal\n Business collaboration with Biologix\n Business collaboration with Roche Pharma'
             },
             {
               date: '2017',
-              title: 'Business collaboration with Novartis\n Business collaboration with GSK'
+              fa_title: 'کوبل دارو',
+              en_title: 'Business collaboration with Novartis\n Business collaboration with GSK'
             },
             {
               date: '2018',
-              title: 'Business collaboration with Roche Diabetes Care'
+              fa_title: 'کوبل دارو',
+              en_title: 'Business collaboration with Roche Diabetes Care'
             },
             {
               date: '2021',
-              title:
+              fa_title: 'کوبل دارو',
+              en_title:
                 'Business collaboration with Roche Diagnostics\n Supplying AstraZeneca COVID Vaccine (first shipment)'
             },
             {
               date: '2022',
-              title: 'Supplying the first treatment option for SMA patients (first shipment)'
+              fa_title: 'کوبل دارو',
+              en_title: 'Supplying the first treatment option for SMA patients (first shipment)'
             }
           ]
         }
@@ -311,6 +387,17 @@ export default {
 </script>
 
 <style lang="scss">
+.v-application--is-rtl {
+  .timeline-page {
+    .custom-border {
+      &:after {
+        right: -3px;
+        left: auto;
+      }
+    }
+  }
+}
+
 .timeline-page {
   .v-expansion-panel-header:before {
     display: none;

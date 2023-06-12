@@ -263,6 +263,11 @@ export default {
     other_links: 'You may also like these',
     see_all: 'See All'
   },
+  timelinePage: {
+    title: 'Timelines',
+    description:
+      'Patients are the center of all projects being conducted in the Cobel Group. Stories of hope, innovation, collaboration, inspiration and empowerment helps us measure our impact and inspire us to create more.'
+  },
   shared: {
     see_more: 'see more',
     see_less: 'see less'
