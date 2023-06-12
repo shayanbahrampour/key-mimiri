@@ -18,29 +18,29 @@
       </p>
       <v-textarea
         :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
+        :label="$t('career.steps.let_us_know.placeholder_one')"
         dense
         filled
         height="160"
         hide-details
-        :label="$t('career.steps.let_us_know.placeholder_one')"
         rounded
       ></v-textarea>
       <v-textarea
         :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
+        :label="$t('career.steps.let_us_know.placeholder_two')"
         dense
         filled
         height="160"
         hide-details
-        :label="$t('career.steps.let_us_know.placeholder_two')"
         rounded
       ></v-textarea>
       <v-textarea
         :class="['mb-8 f-20', isRTL ? 'ravi text-end' : undefined]"
+        :label="$t('career.steps.let_us_know.placeholder_three')"
         dense
         filled
         height="160"
         hide-details
-        :label="$t('career.steps.let_us_know.placeholder_three')"
         rounded
       ></v-textarea>
     </div>

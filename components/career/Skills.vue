@@ -20,20 +20,20 @@
         <v-col cols="12" md="4">
           <v-text-field
             :class="['mb-0 f-20', isRTL ? 'ravi' : undefined]"
+            :label="$t('career.steps.skills.foreign')"
             dense
             filled
             hide-details
-            :label="$t('career.steps.skills.foreign')"
             rounded
           ></v-text-field>
         </v-col>
         <v-col cols="12" md="4">
           <v-text-field
             :class="['mb-0 f-20', isRTL ? 'ravi' : undefined]"
+            :label="$t('career.steps.skills.level')"
             dense
             filled
             hide-details
-            :label="$t('career.steps.skills.level')"
             rounded
           ></v-text-field>
         </v-col>
@@ -52,20 +52,20 @@
         <v-col cols="12" md="4">
           <v-text-field
             :class="(!isMobile ? 'mb-0 f-20' : 'mb-0 f-20', isRTL ? 'ravi' : undefined)"
+            :label="$t('career.steps.skills.foreign')"
             dense
             filled
             hide-details
-            :label="$t('career.steps.skills.foreign')"
             rounded
           ></v-text-field>
         </v-col>
         <v-col :class="{ 'text-center': isMobile }" cols="12" md="4">
           <v-text-field
             :class="(!isMobile ? 'mb-0 f-20' : 'mb-0 f-20', isRTL ? 'ravi' : undefined)"
+            :label="$t('career.steps.skills.level')"
             dense
             filled
             hide-details
-            :label="$t('career.steps.skills.level')"
             rounded
           ></v-text-field>
         </v-col>
@@ -84,20 +84,20 @@
         <v-col cols="12" md="4">
           <v-text-field
             :class="['mb-0 f-20', isRTL ? 'ravi' : undefined]"
+            :label="$t('career.steps.skills.computer')"
             dense
             filled
             hide-details
-            :label="$t('career.steps.skills.computer')"
             rounded
           ></v-text-field>
         </v-col>
         <v-col cols="12" md="4">
           <v-text-field
             :class="['mb-0 f-20', isRTL ? 'ravi' : undefined]"
+            :label="$t('career.steps.skills.level')"
             dense
             filled
             hide-details
-            :label="$t('career.steps.skills.level')"
             rounded
           ></v-text-field>
         </v-col>
@@ -111,20 +111,20 @@
         <v-col cols="12" md="4">
           <v-text-field
             :class="(!isMobile ? 'mb-0 f-20' : 'mb-0 f-20', isRTL ? 'ravi' : undefined)"
+            :label="$t('career.steps.skills.computer')"
             dense
             filled
             hide-details
-            :label="$t('career.steps.skills.computer')"
             rounded
           ></v-text-field>
         </v-col>
         <v-col cols="12" md="4">
           <v-text-field
             :class="(!isMobile ? 'mb-0 f-20' : 'mb-0 f-20', isRTL ? 'ravi' : undefined)"
+            :label="$t('career.steps.skills.level')"
             dense
             filled
             hide-details
-            :label="$t('career.steps.skills.level')"
             rounded
           ></v-text-field>
         </v-col>
@@ -136,11 +136,11 @@
       </v-row>
       <v-textarea
         :class="['mb-8 mt-4 f-20', isRTL ? 'ravi' : undefined]"
+        :label="$t('career.steps.skills.placeholder_one')"
         dense
         filled
         height="140"
         hide-details
-        :label="$t('career.steps.skills.placeholder_one')"
         rounded
       ></v-textarea>
     </div>

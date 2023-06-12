@@ -46,10 +46,10 @@
     >
       <AppSteps
         :class="[!isMobile ? 'mt-16' : 'mt-4 mb-6']"
+        :isLast="($route.query.job && counter === 6) || (!$route.query.job && counter === 7) ? true : false"
         :model="counter"
         :tabs="$route.query.job ? certainJob : apply"
         @select="counter = $event"
-        :isLast="($route.query.job && counter === 6) || (!$route.query.job && counter === 7) ? true : false"
       />
       <Component :is="steps[counter].component" :class="{ 'pe-0': !isMobile }"></Component>
       <div
@@ -98,11 +98,11 @@
         style="width: 100%"
       >
         <v-btn
-          :min-width="!isMobile ? '300' : '80%'"
           :class="[
             'rounded-xl d-flex justify-center white--text font-weight-bold f-20 mb-6',
             isRTL ? 'ravi' : undefined
           ]"
+          :min-width="!isMobile ? '300' : '80%'"
           color="slategrey"
           elevation="0"
           height="40"

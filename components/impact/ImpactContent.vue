@@ -1,5 +1,6 @@
 <template>
   <div>
+    <pre class="ltr">{{ item }}</pre>
     <v-row :class="['position-relative z-1', { 'custom-shadow pb-4': isMobile }]" no-gutters>
       <v-col cols="12" lg="6" md="6">
         <v-sheet :class="[`overflow-hidden ${!isMobile && `rounded-${isRTL ? 'l' : 'r'}-xl`}`]">
@@ -34,17 +35,17 @@
             <div class="d-flex align-center grey--text text--darken-2 py-1 text-no-wrap pe-5">
               <span v-if="!isMobile"> {{ $t('impactPage.read_time') }}: </span>
               <v-img v-else contain height="20" max-width="20" src="/images/icons/timer.svg" />
-              <span :class="`ms-1 d-inline-block`"> 13min </span>
+              <span :class="`ms-1 d-inline-block`"> {{ item.read_time }}min </span>
             </div>
             <div class="d-flex align-center grey--text text--darken-2 py-1 text-no-wrap pe-5">
               <span v-if="!isMobile"> {{ $t('impactPage.written_by') }}: </span>
               <v-img v-else contain height="20" max-width="20" src="/images/icons/written.svg" />
-              <span :class="`ms-1 d-inline-block`"> Mehrab </span>
+              <span :class="`ms-1 d-inline-block`"> {{ item[`${$i18n.locale}_author`] }} </span>
             </div>
             <div class="d-flex align-center grey--text text--darken-2 py-1 text-no-wrap pe-5">
               <span v-if="!isMobile"> {{ $t('impactPage.published') }}: </span>
               <v-img v-else contain height="20" max-width="20" src="/images/icons/published.svg" />
-              <span :class="`ms-1 d-inline-block`"> 3 month ago </span>
+              <span :class="`ms-1 d-inline-block`"> {{ $dayjs(item.published_at) }} month ago </span>
             </div>
           </div>
 
@@ -226,6 +227,10 @@ import VideoContents from '~/components/shared/VideoContents.vue';
 export default {
   components: { VideoContents, HomeTellUsStory, ImpactCards },
   props: {
+    item: {
+      type: Object,
+      default: null
+    },
     relatedContents: {
       type: Array,
       default: () => []
@@ -259,7 +264,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .custom-shadow {
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.3) !important;
 }

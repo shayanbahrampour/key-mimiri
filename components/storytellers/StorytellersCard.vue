@@ -112,6 +112,7 @@ export default {
     }
   }
 }
+
 .mobile-story-description {
   line-height: 30px;
 }

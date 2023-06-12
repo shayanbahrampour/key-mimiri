@@ -20,49 +20,49 @@
         <v-col :class="isMobile ? 'pb-0' : undefined" cols="12" md="4">
           <v-select
             v-model="model.degree[0]"
-            :items="isRTL ? itemsRTL : items"
             :class="['mb-8', isRTL ? 'ravi' : undefined]"
-            menu-props="auto"
+            :items="isRTL ? itemsRTL : items"
+            :label="$t('career.steps.education.degree')"
             append-icon="mdi-triangle-down 10"
             append-icon-size="16"
-            :label="$t('career.steps.education.degree')"
-            filled
-            rounded
-            hide-details
             dense
+            filled
+            hide-details
+            menu-props="auto"
+            rounded
           />
           <v-text-field
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
+            :label="$t('career.steps.education.country')"
             dense
             filled
             hide-details
-            :label="$t('career.steps.education.country')"
             rounded
           ></v-text-field>
           <v-text-field
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
+            :label="$t('career.steps.education.grad_year')"
             dense
             filled
             hide-details
-            :label="$t('career.steps.education.grad_year')"
             rounded
           ></v-text-field>
         </v-col>
         <v-col :class="isMobile ? 'py-0' : undefined" cols="12" md="4">
           <v-text-field
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
+            :label="$t('career.steps.education.major')"
             dense
             filled
             hide-details
-            :label="$t('career.steps.education.major')"
             rounded
           ></v-text-field>
           <v-text-field
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
+            :label="$t('career.steps.education.state')"
             dense
             filled
             hide-details
-            :label="$t('career.steps.education.state')"
             rounded
           ></v-text-field>
           <v-btn
@@ -78,18 +78,18 @@
         <v-col :class="isMobile ? 'pt-0' : undefined" cols="12" md="4">
           <v-text-field
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
+            :label="$t('career.steps.education.uni')"
             dense
             filled
             hide-details
-            :label="$t('career.steps.education.uni')"
             rounded
           ></v-text-field>
           <v-text-field
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
+            :label="$t('career.steps.education.city')"
             dense
             filled
             hide-details
-            :label="$t('career.steps.education.city')"
             rounded
           ></v-text-field>
         </v-col>
@@ -103,49 +103,49 @@
         <v-col :class="isMobile ? 'pb-0' : undefined" cols="12" md="4">
           <v-select
             v-model="model.degree[i]"
-            :items="items"
             :class="['mb-8', isRTL ? 'ravi' : undefined]"
-            menu-props="auto"
+            :items="items"
+            :label="$t('career.steps.education.degree')"
             append-icon="mdi-triangle-down 10"
             append-icon-size="16"
-            :label="$t('career.steps.education.degree')"
-            filled
-            rounded
-            hide-details
             dense
+            filled
+            hide-details
+            menu-props="auto"
+            rounded
           />
           <v-text-field
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
+            :label="$t('career.steps.education.country')"
             dense
             filled
             hide-details
-            :label="$t('career.steps.education.country')"
             rounded
           ></v-text-field>
           <v-text-field
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
+            :label="$t('career.steps.education.grad_year')"
             dense
             filled
             hide-details
-            :label="$t('career.steps.education.grad_year')"
             rounded
           ></v-text-field>
         </v-col>
         <v-col :class="isMobile ? 'py-0' : undefined" cols="12" md="4">
           <v-text-field
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
+            :label="$t('career.steps.education.major')"
             dense
             filled
             hide-details
-            :label="$t('career.steps.education.major')"
             rounded
           ></v-text-field>
           <v-text-field
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
+            :label="$t('career.steps.education.state')"
             dense
             filled
             hide-details
-            :label="$t('career.steps.education.state')"
             rounded
           ></v-text-field>
           <v-btn
@@ -161,18 +161,18 @@
         <v-col :class="isMobile ? 'pt-0' : undefined" cols="12" md="4">
           <v-text-field
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
+            :label="$t('career.steps.education.uni')"
             dense
             filled
             hide-details
-            :label="$t('career.steps.education.uni')"
             rounded
           ></v-text-field>
           <v-text-field
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
+            :label="$t('career.steps.education.city')"
             dense
             filled
             hide-details
-            :label="$t('career.steps.education.city')"
             rounded
           ></v-text-field>
         </v-col>
@@ -189,11 +189,11 @@
       </v-btn>
       <v-textarea
         :class="['mb-8 f-20', isRTL ? 'ravi text-end' : undefined]"
+        :label="$t('career.steps.education.placeholder_one')"
         dense
         filled
         height="140"
         hide-details
-        :label="$t('career.steps.education.placeholder_one')"
         rounded
       />
     </div>

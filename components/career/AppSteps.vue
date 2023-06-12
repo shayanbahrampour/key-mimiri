@@ -1,6 +1,6 @@
 <template>
   <div class="w-full">
-    <CareerCustomTabs :items="tabs" :model="model" @select="$emit('select', $event)" :isLast="isLast" />
+    <CareerCustomTabs :isLast="isLast" :items="tabs" :model="model" @select="$emit('select', $event)" />
     <v-progress-linear
       v-if="!isMobile"
       :value="calculateWidth()"
@@ -11,11 +11,11 @@
     />
     <v-progress-linear
       v-else
+      :style="`${`margin-${isRTL ? 'right' : 'left'}: -16px`}; width: 100vw`"
       :value="model !== tabs.length ? 50 : 100"
       class="me-0 mt-4"
       color="#4C6D80"
       height="2"
-      :style="`${`margin-${isRTL ? 'right' : 'left'}: -16px`}; width: 100vw`"
     />
   </div>
 </template>

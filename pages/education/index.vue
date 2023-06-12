@@ -18,12 +18,12 @@
     </v-img>
     <div v-if="!isMobile" :class="[`d-flex flex-column align-start w-full white p${isRTL ? 's' : 'e'}-4`]">
       <v-card
-        :width="isMobile ? '90%' : undefined"
         :class="[
           `rounded-r-xl white--text rounded-l-0 d-flex py-6 px-10 flex-column m${
             isRTL ? 's' : 'e'
           }-10 align-center justify-center`
         ]"
+        :width="isMobile ? '90%' : undefined"
         color="slategrey"
         elevation="0"
         height="240"
@@ -38,8 +38,8 @@
         :class="['d-flex flex-column align-start mt-16 white w-full', !isMobile ? 'ps-10' : undefined]"
       >
         <NewsCategory
-          :tabs="isRTL ? tabsRTL : tabs"
           :class="`my-6 mx-${isRTL ? '0' : '6'}`"
+          :tabs="isRTL ? tabsRTL : tabs"
           :title="isRTL ? 'مقالات بیشتر' : 'More Articles'"
         />
       </div>

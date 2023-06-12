@@ -9,9 +9,9 @@
     <div v-for="i in 4" :key="i" class="d-flex flex-column justify-center mb-0">
       <v-card
         v-if="!isMobile"
+        :class="['d-flex rounded-0 overflow-hidden me-4 custom-news-card bg-transparent', isRTL && 'ltr']"
         :ripple="false"
         :to="path"
-        :class="['d-flex rounded-0 overflow-hidden me-4 custom-news-card bg-transparent', isRTL && 'ltr']"
         color="transparent"
         elevation="0"
         style="transition: all ease-in 0.4s"

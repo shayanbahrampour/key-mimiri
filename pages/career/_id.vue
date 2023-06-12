@@ -31,8 +31,8 @@
         {{ $t('career.job_detail.job_responsibility_title') }}
       </h4>
       <div
-        v-if="!isRTL"
         v-for="(item, i) in items"
+        v-if="!isRTL"
         :key="i"
         :class="['d-flex justify-center mb-8', isMobile ? 'px-2' : 'px-6']"
       >

@@ -1,5 +1,5 @@
 <template>
-  <ImpactContent :relatedContents="items" />
+  <ImpactContent :item="detail" :relatedContents="items" />
 </template>
 
 <script>
@@ -9,6 +9,7 @@ export default {
   components: { ImpactContent },
   data() {
     return {
+      detail: null,
       items: []
     };
   },
@@ -18,11 +19,70 @@ export default {
     };
   },
   async fetch() {
-    // try {
-    //   const { data } = await this.$store.dispatch('impact/getList', { id: this.$route.params.id });
-    // } catch (e) {
-    //   console.log(e);
-    // }
+    try {
+      // const { data } = await this.$store.dispatch('impact/getList', { id: this.$route.params.id });
+      // this.details = data;
+      this.detail = {
+        id: 230305135,
+        read_time: 1,
+        fa_author:
+          '\u0641\u0627\u0626\u0632\u0647 \u0627\u06cc\u0646\u062c\u0627 \u0628\u0631\u0627\u06cc \u0639\u0646\u0648\u0627\u0646 \u0627\u0635\u0644\u06cc \u0627\u0633\u062a',
+        status: 'published',
+        published_at: '2023-05-27 12:19:14',
+        short_link:
+          '\u0641\u0627\u0626\u0632\u0647 \u0627\u06cc\u0646\u062c\u0627 \u0628\u0631\u0627\u06cc \u0639\u0646\u0648\u0627\u0646 \u0627\u0635\u0644\u06cc \u0627\u0633\u062a',
+        fa_title:
+          '\u0641\u0627\u0626\u0632\u0647 \u0627\u06cc\u0646\u062c\u0627 \u0628\u0631\u0627\u06cc \u0639\u0646\u0648\u0627\u0646 \u0627\u0635\u0644\u06cc \u0627\u0633\u062a',
+        fa_body_subtitle:
+          '\u0641\u0627\u0626\u0632\u0647 \u0627\u06cc\u0646\u062c\u0627 \u0628\u0631\u0627\u06cc \u0639\u0646\u0648\u0627\u0646 \u0627\u0635\u0644\u06cc \u0627\u0633\u062a',
+        fa_body:
+          '\u0641\u0627\u0626\u0632\u0647 \u0627\u06cc\u0646\u062c\u0627 \u0628\u0631\u0627\u06cc \u0639\u0646\u0648\u0627\u0646 \u0627\u0635\u0644\u06cc \u0627\u0633\u062a',
+        fa_subtitle:
+          '\u0641\u0627\u0626\u0632\u0647 \u0627\u06cc\u0646\u062c\u0627 \u0628\u0631\u0627\u06cc \u0639\u0646\u0648\u0627\u0646 \u0627\u0635\u0644\u06cc \u0627\u0633\u062a',
+        fa_column_section:
+          '\u0641\u0627\u0626\u0632\u0647 \u0627\u06cc\u0646\u062c\u0627 \u0628\u0631\u0627\u06cc \u0639\u0646\u0648\u0627\u0646 \u0627\u0635\u0644\u06cc \u0627\u0633\u062a',
+        fa_summary:
+          '\u0641\u0627\u0626\u0632\u0647 \u0627\u06cc\u0646\u062c\u0627 \u0628\u0631\u0627\u06cc \u0639\u0646\u0648\u0627\u0646 \u0627\u0635\u0644\u06cc \u0627\u0633\u062a',
+        files: [
+          {
+            url: '5ba10f1a-ecb7-11ed-92d8-1e8a2de1a255.jpg',
+            type: 'column_section_file'
+          },
+          {
+            url: 'a9c2d7d2-ecb7-11ed-87cc-1e8a2de1a255.jpg',
+            type: 'subtitle_file'
+          },
+          {
+            url: 'baf30de2-ecb7-11ed-bed4-1e8a2de1a255.jpg',
+            type: 'body_file'
+          }
+        ],
+        tags: [
+          {
+            fa_name: 'faeture 1',
+            en_name: 'sample_tag_1'
+          },
+          {
+            fa_name: 'faeture 2',
+            en_name: 'sample_tag_2'
+          }
+        ],
+        impact_story_categories: [
+          {
+            id: 47161516,
+            en_name: 'Best talent',
+            fa_name: '\u0627\u0633\u062a\u0639\u062f\u0627\u062f\u0647\u0627\u06cc \u0628\u0631\u062a\u0631'
+          },
+          {
+            id: 140945966,
+            en_name: 'Social responsibility',
+            fa_name: '\u0645\u0633\u0648\u0644\u06cc\u062a \u0627\u062c\u062a\u0645\u0627\u0639\u06cc'
+          }
+        ]
+      };
+    } catch (e) {
+      console.log(e);
+    }
   },
   created() {
     this.getRelated();

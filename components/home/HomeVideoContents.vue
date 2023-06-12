@@ -38,11 +38,11 @@
 
     <v-sheet
       v-if="isMobile"
-      :max-width="globalMaxWidth"
       :class="[
         'px-6 mx-auto f-17 my-4 grey--text text--darken-2 text-center',
         isRTL ? 'font-weight-bold anjoman' : 'font-weight-light'
       ]"
+      :max-width="globalMaxWidth"
       color="transparent"
     >
       {{ $t('homePage.video.description') }}

@@ -71,17 +71,17 @@
         color="transparent"
       >
         <svg
-          style="width: 388px; height: 128px; bottom: 0; margin-left: 30%"
           class="position-absolute end-0 start-0 mr-auto"
           fill="none"
+          style="width: 388px; height: 128px; bottom: 0; margin-left: 30%"
           viewBox="0 0 388 128"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            fill-rule="evenodd"
             clip-rule="evenodd"
             d="M0.0976562 128C23.4473 125.222 44.2344 110.136 56.2402 87.458C83.8223 35.3389 135.117 0.34082 193.88 0.34082C252.606 0.34082 303.912 35.3662 331.521 87.458C343.525 110.136 364.313 125.222 387.663 128H0.0976562Z"
             fill="white"
+            fill-rule="evenodd"
           />
         </svg>
       </v-sheet>

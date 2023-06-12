@@ -1,40 +1,40 @@
 <template>
   <v-card
     :ripple="false"
-    style="border-radius: 75px !important"
     class="d-flex align-stretch bg-transparent"
     flat
+    style="border-radius: 75px !important"
     @click.prevent.stop="open"
   >
     <v-img
+      :height="350"
+      :max-width="width"
+      :src="item.src"
       :style="`border: 1px solid ${flag.isOpen ? 'transparent' : '#ececec'};border-radius: ${
         flag.isOpen ? (isRTL ? '0 75px 75px 0' : '75px 0 0 75px') : '75px'
       } !important; overflow: hidden`"
-      :height="350"
-      :max-width="width"
       :width="width"
-      :src="item.src"
-      width="100%"
-      eager
       class="transition-ease-in-out"
+      eager
+      width="100%"
     />
 
     <v-sheet
-      height="349"
-      :width="width"
-      :color="flag.isOpen ? 'darkGreen' : 'white'"
       :class="[
         'overflow-hidden transition-ease-in-out d-flex align-center justify-center',
         `rounded-${isRTL ? 'r' : 'l'}-0 rounded-${isRTL ? 'l' : 'r'}-xl`
       ]"
+      :color="flag.isOpen ? 'darkGreen' : 'white'"
       :style="`margin-${isRTL ? 'right' : 'left'}: -75px;${
         flag.isOpen && `margin-top:1px;padding-${isRTL ? 'right' : 'left'}: 110px !important;`
       }`"
+      :width="width"
+      height="349"
     >
       <v-scroll-x-transition hide-on-leave>
         <div v-if="flag.showContent" class="white--text pe-10 bel f-20">
           Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women
-          <nuxt-link class="white--text text-decoration-none mt-5 d-block" :to="localePath(`/storytellers/${item.id}`)">
+          <nuxt-link :to="localePath(`/storytellers/${item.id}`)" class="white--text text-decoration-none mt-5 d-block">
             click for more
           </nuxt-link>
         </div>

@@ -11,8 +11,8 @@
         isRTL ? 'ravi' : 'bel',
         index <= model || isLast ? 'darkGreen--text' : 'teaGreen--text'
       ]"
-      :ripple="false"
       :disabled="isMobile"
+      :ripple="false"
       @click="$emit('select', index)"
     >
       {{ item.title }}
@@ -55,6 +55,7 @@ export default {
   .v-tab--disabled {
     opacity: 1 !important;
   }
+
   .v-slide-group__prev {
     display: none !important;
   }

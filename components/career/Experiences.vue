@@ -20,56 +20,56 @@
         <v-col :class="isMobile ? 'pb-0' : undefined" cols="12" md="4">
           <v-text-field
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
+            :label="$t('career.steps.experiences.name')"
             dense
             filled
             hide-details
-            :label="$t('career.steps.experiences.name')"
             rounded
           ></v-text-field>
           <v-select
             v-model="model.date_from[0]"
-            :items="items"
             :class="['mb-8', isRTL ? 'ravi' : undefined]"
-            menu-props="auto"
+            :items="items"
+            :label="$t('career.steps.experiences.date_from')"
             append-icon="mdi-triangle-down 10"
             append-icon-size="16"
-            :label="$t('career.steps.experiences.date_from')"
-            filled
-            rounded
-            hide-details
             dense
+            filled
+            hide-details
+            menu-props="auto"
+            rounded
           ></v-select>
         </v-col>
         <v-col :class="isMobile ? 'py-0' : undefined" cols="12" md="4">
           <v-text-field
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
+            :label="$t('career.steps.experiences.position')"
             dense
             filled
             hide-details
-            :label="$t('career.steps.experiences.position')"
             rounded
           ></v-text-field>
           <v-select
             v-model="model.date_to[0]"
-            :items="items"
             :class="['mb-8', isRTL ? 'ravi' : undefined]"
-            menu-props="auto"
+            :items="items"
+            :label="$t('career.steps.experiences.date_to')"
             append-icon="mdi-triangle-down 10"
             append-icon-size="16"
-            :label="$t('career.steps.experiences.date_to')"
-            filled
-            rounded
-            hide-details
             dense
+            filled
+            hide-details
+            menu-props="auto"
+            rounded
           ></v-select>
         </v-col>
         <v-col :class="isMobile ? 'pt-0' : undefined" cols="12" md="4">
           <v-text-field
             :class="(!isMobile ? 'mb-8 f-20' : 'mb-0 f-20', isRTL ? 'ravi' : undefined)"
+            :label="$t('career.steps.experiences.leaving')"
             dense
             filled
             hide-details
-            :label="$t('career.steps.experiences.leaving')"
             rounded
           ></v-text-field>
           <v-btn
@@ -98,56 +98,56 @@
         <v-col :class="isMobile ? 'pb-0' : undefined" cols="12" md="4">
           <v-text-field
             :class="['mb-8', isRTL ? 'ravi' : undefined]"
+            :label="$t('career.steps.experiences.name')"
             dense
             filled
             hide-details
-            :label="$t('career.steps.experiences.name')"
             rounded
           ></v-text-field>
           <v-select
             v-model="model.date_from[i]"
-            :items="items"
             :class="['mb-8', isRTL ? 'ravi' : undefined]"
-            menu-props="auto"
+            :items="items"
+            :label="$t('career.steps.experiences.date_from')"
             append-icon="mdi-triangle-down 10"
             append-icon-size="16"
-            :label="$t('career.steps.experiences.date_from')"
-            filled
-            rounded
-            hide-details
             dense
+            filled
+            hide-details
+            menu-props="auto"
+            rounded
           ></v-select>
         </v-col>
         <v-col :class="isMobile ? 'py-0' : undefined" cols="12" md="4">
           <v-text-field
             :class="['mb-8', isRTL ? 'ravi' : undefined]"
+            :label="$t('career.steps.experiences.position')"
             dense
             filled
             hide-details
-            :label="$t('career.steps.experiences.position')"
             rounded
           ></v-text-field>
           <v-select
             v-model="model.date_to[i]"
-            :items="items"
             :class="['mb-8', isRTL ? 'ravi' : undefined]"
-            menu-props="auto"
+            :items="items"
+            :label="$t('career.steps.experiences.date_to')"
             append-icon="mdi-triangle-down 10"
             append-icon-size="16"
-            :label="$t('career.steps.experiences.date_to')"
-            filled
-            rounded
-            hide-details
             dense
+            filled
+            hide-details
+            menu-props="auto"
+            rounded
           ></v-select>
         </v-col>
         <v-col :class="isMobile ? 'pt-0' : undefined" cols="12" md="4">
           <v-text-field
             :class="(!isMobile ? 'mb-8 f-20' : 'mb-0 f-20', isRTL ? 'ravi' : undefined)"
+            :label="$t('career.steps.experiences.leaving')"
             dense
             filled
             hide-details
-            :label="$t('career.steps.experiences.leaving')"
             rounded
           ></v-text-field>
           <v-btn
