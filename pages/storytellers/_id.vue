@@ -8,16 +8,26 @@
         <div class="d-flex flex-column justify-center ms-4">
           <p
             :class="[
-              'bel white--text mb-0 text--darken-3 font-weight-regular',
-              isMobile ? 'text-center mt-2 f-36' : 'f-42'
+              'white--text mb-0 text--darken-3 font-weight-regular',
+              isRTL
+                ? isMobile
+                  ? 'text-center mt-2 f-30 ravi'
+                  : 'f-40 ravi'
+                : isMobile
+                ? 'text-center mt-2 f-36 bel'
+                : 'f-42 bel'
             ]"
           >
-            Masoumeh Seyedi
+            {{ isRTL ? item.nameRTL : item.name }}
           </p>
           <p
-            :class="['white--text mb-0 text--darken-3 font-weight-light', isMobile ? 'text-center mt-1 f-20 ' : 'f-22']"
+            :class="[
+              'white--text mb-0 text--darken-3 font-weight-light',
+              isMobile ? 'text-center mt-1 f-20 ' : 'f-22',
+              { 'ravi mt-1': isRTL }
+            ]"
           >
-            Project Manager at Cobel® Group
+            {{ isRTL ? item.roleRTL : item.role }}
           </p>
         </div>
       </div>
@@ -52,19 +62,21 @@
         <p
           v-if="!seeMore.header"
           :class="[
-            'f-20 white--text text--darken-3 font-weight-light',
-            isMobile ? 'text-center mt-8 mb-0 mx-8' : 'mt-16 mx-16'
+            'f-20 white--text text--darken-3',
+            isMobile ? 'text-center mt-8 mb-0 mx-8' : 'mt-16 mx-16',
+            isRTL ? 'font-weight-bold mb-1' : 'font-weight-light'
           ]"
           style="line-height: 30px"
         >
-          {{ textHeader.compact }}
+          {{ isRTL ? textHeader.compactRTL : textHeader.compact }}
         </p>
         <v-expansion-panel-content class="text-center">
           <p
             v-if="seeMore.header"
             :class="[
-              'f-20 white--text text--darken-3 font-weight-light',
-              isMobile ? 'text-center mt-8 mb-0 mx-8' : 'mt-16 mx-16'
+              'f-20 white--text text--darken-3',
+              isMobile ? 'text-center mt-8 mb-0 mx-8' : 'mt-16 mx-16',
+              isRTL ? 'font-weight-bold' : 'font-weight-light'
             ]"
             style="line-height: 30px"
           >
@@ -72,11 +84,11 @@
           </p>
         </v-expansion-panel-content>
         <v-expansion-panel-header
-          class="pa-0 ma-0 white--text justify-center f-20 font-weight-bold bg-transparent"
+          :class="['pa-0 ma-0 white--text justify-center f-20 font-weight-bold bg-transparent', { 'ravi ': isRTL }]"
           hide-actions
           style="height: 20px; margin-top: -12px !important"
           @click="seeMore.header = !seeMore.header"
-          >{{ seeMore.header ? 'see less' : 'see more' }}
+          >{{ seeMore.header ? $t('button.see_less') : $t('button.see_more') }}
         </v-expansion-panel-header>
       </v-expansion-panel>
     </v-expansion-panels>
@@ -84,15 +96,12 @@
       v-else
       :class="[
         'f-20 mx-16 white--text text--darken-3 font-weight-light mb-16',
-        isMobile ? 'text-center mt-8 mb-0' : 'mt-16'
+        isMobile ? 'text-center mt-8 mb-0' : 'mt-16',
+        { 'ravi desktop-story-single-description': isRTL }
       ]"
       style="line-height: 30px"
     >
-      WHO advises that all women in their reproductive ages, whether having Iron deficiency or not, are required to
-      consume 60 mg of iron supplements per week. This amount should be higher in pregnant women and any deficiencies
-      will not only affect themselves, but it also affects their fetus. In addition, Iranian men and menopaused women
-      have a 2 prevalence of Anemia and are also require to manage the disease accordingly (3). Studies conducted by
-      Cobel Group medico-marketing teams indicated
+      {{ $t('storytellersPage.single_description') }}
     </p>
 
     <VideoContents
@@ -105,25 +114,50 @@
       <v-sheet :height="isMobile ? 10 : 16" class="custom-gradient w-full mt-1" />
       <div :class="[isMobile ? 'px-4' : 'px-16']">
         <h4
-          :class="['bel text-center text--darken-3 font-weight-regular', isMobile ? 'mt-8 f-34 mx-2' : 'mt-16 f-40']"
+          :class="[
+            'text-center text--darken-3 font-weight-regular',
+            isRTL
+              ? isMobile
+                ? 'mt-8 f-26 mx-2 ravi desktop-story-single-description'
+                : 'mt-16 f-34 ravi mx-16 desktop-story-single-title'
+              : isMobile
+              ? 'mt-8 f-34 mx-2 bel'
+              : 'mt-16 f-40 bel'
+          ]"
           style="color: #00a59b"
         >
-          32 Million people in need of 2 Billion doses of iron supplement; less than 800 Million doses is consumed
+          {{ $t('storytellersPage.single_detail_title') }}
         </h4>
         <v-divider :class="isMobile ? 'mt-10 mx-2' : 'mt-16'"></v-divider>
-        <p :class="['text-center text--darken-3', isMobile ? 'f-22 my-6' : 'f-20 my-4 ']" style="color: #939393">
-          In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society and
-          are committed to enhance their physical, psychological and social quality of life through high quality and
-          innovative solutions.
+        <p
+          :class="[
+            'text--darken-3',
+            isRTL
+              ? isMobile
+                ? 'f-22 my-6 ravi text-center desktop-story-single-description'
+                : 'f-20 my-4 ravi text-end desktop-story-single-description'
+              : isMobile
+              ? 'f-22 my-6 text-center'
+              : 'f-20 my-4 text-start'
+          ]"
+          style="color: #939393"
+        >
+          {{ $t('storytellersPage.single_detail_description') }}
         </p>
         <v-divider :class="!isMobile ? 'pb-16' : 'mx-2'"></v-divider>
         <h4
           :class="[
-            'bel text--darken-3 cobelgrey--text font-weight-regular',
-            isMobile ? 'f-40 text-center mt-10' : 'f-50 mt-16'
+            'text--darken-3 cobelgrey--text font-weight-regular',
+            isRTL
+              ? isMobile
+                ? 'f-30 text-center mt-10 ravi'
+                : 'f-40 mt-16 ravi'
+              : isMobile
+              ? 'f-40 text-center mt-10 bel'
+              : 'f-50 mt-16 bel'
           ]"
         >
-          You may also like listening more stories
+          {{ isRTL ? 'دوست دارید داستان های بیشتری گوش دهید' : 'You may also like listening more stories' }}
         </h4>
         <div
           :class="['d-flex', isMobile ? 'flex-column align-center mt-10' : 'justify-space-between align-center mt-16']"
@@ -138,54 +172,69 @@
             <div class="d-flex flex-column justify-center ms-4">
               <p
                 :class="[
-                  'bel cobelgrey--text mb-0 text--darken-3',
-                  isMobile ? 'text-center mt-4 f-32 font-weight-regular' : 'f-42 font-weight-regular'
+                  'cobelgrey--text mb-0 text--darken-3',
+                  isMobile ? 'text-center mt-4 f-32 font-weight-regular' : 'f-42 font-weight-regular',
+                  isRTL ? 'ravi mb-2 mr-2' : 'bel'
                 ]"
               >
-                Bahador Nayebi
+                {{ isRTL ? faces[0].titleRTL : faces[0].title }}
               </p>
               <p
-                :class="['bel  mb-0 text--darken-3', isMobile ? 'mt-2 f-24' : 'f-20 font-weight-light']"
+                :class="[
+                  'mb-0 text--darken-3',
+                  isMobile ? 'mt-2 f-24' : 'f-20 font-weight-light',
+                  isRTL ? 'ravi mr-2' : 'bel'
+                ]"
                 style="color: #939393"
               >
-                Project Manager at Cobel® Group
+                {{ isRTL ? faces[0].roleRTL : faces[0].role }}
               </p>
               <v-divider v-if="isMobile" class="my-4" style="background-color: #00a59b"></v-divider>
             </div>
           </div>
           <v-divider class="mx-4" color="#00a59b" vertical></v-divider>
-          <p v-if="!isMobile" class="f-22 mb-0 text--darken-3 justify-center" style="max-width: 60%; color: #939393">
-            In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society
-            and are committed to enhance their physical, psychological and social quality of life through high quality
-            and innovative solutions.
+          <p
+            v-if="!isMobile"
+            :class="['f-22 mb-0 text--darken-3 justify-center', { 'ravi desktop-story-single-description': isRTL }]"
+            style="max-width: 60%; color: #939393"
+          >
+            {{ isRTL ? faces[0].descriptionRTL : faces[0].description }}
           </p>
           <v-expansion-panels v-if="isMobile" flat>
             <v-expansion-panel class="transparent d-flex flex-column justify-center">
               <p
                 v-if="!seeMore.first"
                 :class="[
-                  'f-20 text--darken-3 font-weight-light',
-                  isMobile ? 'text-center mt-0 mb-0 mx-8' : 'mt-16 mx-16'
+                  'f-20 text--darken-3',
+                  isMobile ? 'text-center mt-0 mb-0 mx-8' : 'mt-16 mx-16',
+                  isRTL ? 'font-weight-bold mb-1' : 'font-weight-light'
                 ]"
                 style="line-height: 30px; color: #939393"
               >
-                {{ textStory.compact }}
+                {{ isRTL ? textStory.compactRTL : textStory.compact }}
               </p>
               <v-expansion-panel-content class="text-center">
                 <p
                   v-if="seeMore.first"
-                  :class="['f-20 text--darken-3 font-weight-light', isMobile ? 'text-center' : 'mt-16 mx-16']"
+                  :class="[
+                    'f-20 text--darken-3',
+                    isMobile ? 'text-center' : 'mt-16 mx-16',
+                    isRTL ? 'font-weight-bold' : 'font-weight-light'
+                  ]"
                   style="line-height: 30px; color: #939393"
                 >
                   {{ textStory.full }}
                 </p>
               </v-expansion-panel-content>
               <v-expansion-panel-header
-                class="pa-0 ma-0 cobelgrey--text justify-center f-20 font-weight-bold bg-transparent"
+                :class="[
+                  'pa-0 ma-0 cobelgrey--text justify-center f-20 font-weight-bold bg-transparent',
+                  { 'ravi ': isRTL }
+                ]"
                 hide-actions
                 style="margin-top: -12px !important"
                 @click="seeMore.first = !seeMore.first"
-                >{{ seeMore.first ? 'see less' : 'see more' }}
+                >{{ seeMore.first ? $t('button.see_less') : $t('button.see_more') }}
               </v-expansion-panel-header>
             </v-expansion-panel>
           </v-expansion-panels>
@@ -201,54 +250,69 @@
             <div class="d-flex flex-column justify-center ms-4">
               <p
                 :class="[
-                  'bel cobelgrey--text mb-0 text--darken-3',
-                  isMobile ? 'text-center mt-4 f-32 font-weight-regular' : 'f-42 font-weight-regular'
+                  'cobelgrey--text mb-0 text--darken-3',
+                  isMobile ? 'text-center mt-4 f-32 font-weight-regular' : 'f-42 font-weight-regular',
+                  isRTL ? 'ravi mb-2 mr-2' : 'bel'
                 ]"
               >
-                Mohamad javid
+                {{ isRTL ? faces[1].titleRTL : faces[1].title }}
               </p>
               <p
-                :class="['bel mb-0 text--darken-3', isMobile ? 'mt-2 f-24' : 'f-20 font-weight-light']"
+                :class="[
+                  'mb-0 text--darken-3',
+                  isMobile ? 'mt-2 f-24' : 'f-20 font-weight-light',
+                  isRTL ? 'ravi mr-2' : 'bel'
+                ]"
                 style="color: #939393"
               >
-                Project Manager at Cobel® Group
+                {{ isRTL ? faces[1].roleRTL : faces[1].role }}
               </p>
               <v-divider v-if="isMobile" class="my-4" style="background-color: #00a59b"></v-divider>
             </div>
           </div>
           <v-divider class="mx-4" color="#00a59b" vertical></v-divider>
-          <p v-if="!isMobile" class="f-22 mb-0 text--darken-3" style="max-width: 60%; color: #939393">
-            In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society
-            and are committed to enhance their physical, psychological and social quality of life through high quality
-            and innovative solutions.
+          <p
+            v-if="!isMobile"
+            :class="['f-22 mb-0 text--darken-3 justify-center', { 'ravi desktop-story-single-description': isRTL }]"
+            style="max-width: 60%; color: #939393"
+          >
+            {{ isRTL ? faces[1].descriptionRTL : faces[1].description }}
           </p>
           <v-expansion-panels v-if="isMobile" flat>
             <v-expansion-panel class="transparent d-flex flex-column justify-center">
               <p
                 v-if="!seeMore.second"
                 :class="[
-                  'f-20 text--darken-3 font-weight-light',
-                  isMobile ? 'text-center mt-0 mb-0 mx-8' : 'mt-16 mx-16'
+                  'f-20 text--darken-3',
+                  isMobile ? 'text-center mt-0 mb-0 mx-8' : 'mt-16 mx-16',
+                  isRTL ? 'font-weight-bold mb-1' : 'font-weight-light'
                 ]"
                 style="line-height: 30px; color: #939393"
               >
-                {{ textStory.compact }}
+                {{ isRTL ? textStory.compactRTL : textStory.compact }}
               </p>
               <v-expansion-panel-content class="text-center">
                 <p
                   v-if="seeMore.second"
-                  :class="['f-20 text--darken-3 font-weight-light', isMobile ? 'text-center' : 'mt-16 mx-16']"
+                  :class="[
+                    'f-20 text--darken-3',
+                    isMobile ? 'text-center' : 'mt-16 mx-16',
+                    isRTL ? 'font-weight-bold' : 'font-weight-light'
+                  ]"
                   style="line-height: 30px; color: #939393"
                 >
                   {{ textStory.full }}
                 </p>
               </v-expansion-panel-content>
               <v-expansion-panel-header
-                class="pa-0 ma-0 cobelgrey--text justify-center f-20 font-weight-bold bg-transparent"
+                :class="[
+                  'pa-0 ma-0 cobelgrey--text justify-center f-20 font-weight-bold bg-transparent',
+                  { 'ravi ': isRTL }
+                ]"
                 hide-actions
                 style="margin-top: -12px !important"
                 @click="seeMore.second = !seeMore.second"
-                >{{ seeMore.second ? 'see less' : 'see more' }}
+                >{{ seeMore.second ? $t('button.see_less') : $t('button.see_more') }}
               </v-expansion-panel-header>
             </v-expansion-panel>
           </v-expansion-panels>
@@ -275,18 +339,57 @@ export default {
         first: false,
         second: false
       },
+      item: {
+        name: 'Masoumeh Seyedi',
+        role: 'Project Manager at Cobel® Group',
+        nameRTL: 'معصومه سیدی',
+        roleRTL: 'مدیر پروژه در گروه Cobel®'
+      },
+      faces: [
+        {
+          title: 'Bahador Nayebi',
+          titleRTL: 'بهادر نايبی',
+          roleRTL: 'مدیر پروژه در گروه Cobel®',
+          role: 'Project Manager at Cobel® Group',
+          description:
+            'In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society and are committed to enhance their physical, psychological and social quality of life through high quality and innovative solutions.',
+          descriptionRTL:
+            'فرايند منصفانه، به عنوان يك ارزش به مقام انسانها، به يك نياز پايهاي در آنان پاسخ ميدهد. سه اصل عدالت در فرايندها عبارتند از: تعامل، شفافيت و وضوح انتظارات.'
+        },
+        {
+          title: 'Mohamad javid',
+          titleRTL: 'محمد جاويد',
+          roleRTL: 'مدیر پروژه در گروه Cobel®',
+          role: 'Project Manager at Cobel® Group',
+          description:
+            'In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society and are committed to enhance their physical, psychological and social quality of life through high quality and innovative solutions.',
+          descriptionRTL:
+            'فرايند منصفانه، به عنوان يك ارزش به مقام انسانها، به يك نياز پايهاي در آنان پاسخ ميدهد. سه اصل عدالت در فرايندها عبارتند از: تعامل، شفافيت و وضوح انتظارات.'
+        }
+      ],
       textHeader: {
         compact:
           'Who advises that all women in their reproductive ages, whether having Iron deficiency or not, are required to consume 60 mg of iron',
-        full: 'WHO advises that all women in their reproductive ages, whether having Iron deficiency or not, are required to consume 60 mg of iron supplements per week. This amount should be higher in pregnant women and any deficiencies will not only affect themselves, but it also affects their fetus. In addition, Iranian men and menopaused women have a 2 prevalence of Anemia and are also require to manage the disease accordingly (3). Studies conducted by Cobel Group medico-marketing teams indicated'
+        compactRTL:
+          'با اين حال، بازار مراقبت هاي بهداشتي با بازار آزاد در تمامي اين معيارها متفاوت است كه مي تواند منجر به ايجاد شكست بازار شود.',
+        full: `${this.$t('storytellersPage.single_description')}`
       },
       textStory: {
-        full: 'In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society and are committed to enhance their physical, psychological and social quality of life through high quality and innovative solutions.',
-        compact: 'In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the'
+        compact: 'In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the',
+        compactRTL:
+          'فرايند منصفانه، به عنوان يك ارزش به مقام انسانها، به يك نياز پايهاي در آنان پاسخ ميدهد. سه اصل عدالت در فرايندها عبارتند از: تعامل، شفافيت',
+        full: `${this.$t('storytellersPage.single_detail_description')}`
       }
     };
   }
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+.desktop-story-single-title {
+  line-height: 60px !important;
+}
+.desktop-story-single-description {
+  line-height: 40px !important;
+}
+</style>
