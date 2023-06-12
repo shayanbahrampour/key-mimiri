@@ -111,7 +111,7 @@
       style="max-height: 500px"
     />
     <div :class="['h-full white']">
-      <v-sheet :height="isMobile ? 10 : 16" class="custom-gradient w-full mt-1" />
+      <v-sheet :height="isMobile ? 10 : 20" class="custom-gradient w-full mt-1" />
       <div :class="[isMobile ? 'px-4' : 'px-16']">
         <h4
           :class="[

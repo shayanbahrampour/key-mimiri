@@ -38,14 +38,14 @@
               <p
                 :class="[
                   'mb-0 text--darken-0',
-                  isMobile ? 'mt-2 f-24 cobelgrey--text' : 'f-20 font-weight-light',
+                  isMobile ? 'mt-2 f-24 cobelgrey--text text-center' : 'f-20 font-weight-light',
                   isRTL ? 'ravi' : 'bel'
                 ]"
                 style="color: #939393"
               >
                 {{ isRTL ? itemsRTL.role : items.role }}
               </p>
-              <v-divider v-if="isMobile" class="mt-2 mb-6" style="background-color: #00a59b"></v-divider>
+              <v-divider v-if="isMobile" class="mt-2 mb-6" style="background-color: #00a59b; width: 350px"></v-divider>
             </div>
           </div>
           <v-divider class="mx-4" color="#00a59b" vertical></v-divider>
@@ -59,13 +59,15 @@
           <p
             v-else
             :class="[
-              'f-24 text-center mx-6 mb-0 text--darken-0 cobelgrey--text font-weight-light',
-              { 'ravi mobile-story-description': isRTL }
+              'text-center mx-6 mb-0 text--darken-0 cobelgrey--text font-weight-light',
+              isRTL ? 'ravi mobile-story-description f-20' : 'f24'
             ]"
           >
             {{ isRTL ? itemsRTL.description : items.description }}
             <br />
-            <span :class="['cobelgrey--text font-weight-bold', { 'ravi ': isRTL }]">{{ $t('shared.see_more') }}</span>
+            <span :class="['cobelgrey--text font-weight-bold', { 'ravi ': isRTL }]">{{
+              isRTL ? 'بیشتر ببینید' : 'see more'
+            }}</span>
           </p>
         </div>
       </v-card>

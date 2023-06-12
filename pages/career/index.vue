@@ -19,13 +19,13 @@
               {{ $t('career.title') }}
             </p>
             <div v-if="!isMobile" class="d-flex justify-space-between" style="width: 180px">
-              <v-btn height="50" min-width="50" outlined style="border-radius: 35%; border: 3px solid white" width="50">
+              <v-btn height="50" min-width="50" outlined style="border-radius: 35%; border: 2px solid white" width="50">
                 <v-img height="20" max-width="20" src="/images/icons/linkedin.png" />
               </v-btn>
-              <v-btn height="50" min-width="50" outlined style="border-radius: 35%; border: 3px solid white" width="50">
+              <v-btn height="50" min-width="50" outlined style="border-radius: 35%; border: 2px solid white" width="50">
                 <v-img height="20" max-width="20" src="/images/icons/whatsapp.png" />
               </v-btn>
-              <v-btn height="50" min-width="50" outlined style="border-radius: 35%; border: 3px solid white" width="50">
+              <v-btn height="50" min-width="50" outlined style="border-radius: 35%; border: 2px solid white" width="50">
                 <v-img height="20" max-width="20" src="/images/icons/telegram.png" />
               </v-btn>
             </div>
@@ -81,7 +81,7 @@
             {{ $t('career.description') }}
           </p>
           <div v-if="isMobile" :class="[isMobile ? 'mt-4 mb-6' : undefined]">
-            <v-btn height="50" min-width="50" outlined style="border-radius: 35%; border: 3px solid white" width="50">
+            <v-btn height="50" min-width="50" outlined style="border-radius: 35%; border: 2px solid white" width="50">
               <v-img height="20" max-width="20" src="/images/icons/linkedin.png" />
             </v-btn>
             <v-btn
@@ -89,12 +89,12 @@
               height="50"
               min-width="50"
               outlined
-              style="border-radius: 35%; border: 3px solid white"
+              style="border-radius: 35%; border: 2px solid white"
               width="50"
             >
               <v-img height="20" max-width="20" src="/images/icons/whatsapp.png" />
             </v-btn>
-            <v-btn height="50" min-width="50" outlined style="border-radius: 35%; border: 3px solid white" width="50">
+            <v-btn height="50" min-width="50" outlined style="border-radius: 35%; border: 2px solid white" width="50">
               <v-img height="20" max-width="20" src="/images/icons/telegram.png" />
             </v-btn>
           </div>

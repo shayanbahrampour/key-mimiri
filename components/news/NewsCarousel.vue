@@ -48,7 +48,7 @@
             rounded
             style="text-transform: unset !important"
             text
-            ><p>{{ $t('shared.see_more') }}</p></v-btn
+            ><p>{{ isRTL ? 'بیشتر ببینید' : 'see more' }}</p></v-btn
           >
 
           <v-btn
@@ -91,7 +91,7 @@
             rounded
             style="text-transform: unset !important"
             text
-            ><p>{{ $t('shared.see_more') }}</p></v-btn
+            ><p>{{ isRTL ? 'بیشتر ببینید' : 'see more' }}</p></v-btn
           >
           <v-btn
             :class="['rounded-xl d-flex justify-center f-20 my-6 font-weight-light', { ' ravi rtl pt-1': isRTL }]"
