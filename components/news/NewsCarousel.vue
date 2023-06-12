@@ -25,15 +25,19 @@
           width="480"
         >
           <h4
-            :class="['mt-13 text--darken-3 white--text font-weight-regular', isRTL ? 'text-end ravi f-40' : 'bel f-50']"
+            :class="[
+              'mt-13 text--darken-3 white--text',
+              isRTL ? 'text-end rtl ravi f-40 font-weight-bold mb-6' : 'bel f-50 font-weight-regular'
+            ]"
           >
             {{ isRTL ? news.title_rtl : news.title }}
           </h4>
           <p
             :class="[
               'mt-6 f-20 white--text text--darken-3 mb-0 font-weight-light',
-              isRTL ? 'text-end font-weight-bold' : undefined
+              isRTL ? 'text-end font-weight-bold mb-2' : undefined
             ]"
+            :style="`line-height: ${isRTL ? '30' : undefined}px`"
           >
             {{ isRTL ? news.description_rtl : news.description }}
           </p>
@@ -63,7 +67,10 @@
           style="position: relative; z-index: 2; margin-top: -72px !important"
         >
           <h4
-            :class="['mt-6 f-40 text--darken-3 white--text text-start', isRTL ? 'ravi' : 'bel font-weight-regular']"
+            :class="[
+              'mt-6 text--darken-3 white--text text-start',
+              isRTL ? 'ravi rtl f-30' : 'bel font-weight-regular f-40'
+            ]"
             style="max-width: 300px"
           >
             {{ isRTL ? news.title_rtl : news.title }}
@@ -73,6 +80,7 @@
               'mt-6 f-24 white--text text--darken-0 mb-0',
               isRTL ? 'text-end font-weight-bold' : 'font-weight-light'
             ]"
+            :style="`line-height: ${isRTL ? '30' : undefined}px`"
           >
             {{ isRTL ? news.description_rtl : news.description }}
           </p>
