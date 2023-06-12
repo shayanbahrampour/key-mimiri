@@ -13,8 +13,8 @@
         </p>
         <div class="d-flex align-center mt-6">
           <v-btn
-            :to="localePath('/career/123')"
             :class="['rounded-xl d-flex justify-center white--text f-18', isRTL ? 'font-weight-bold' : undefined]"
+            :to="localePath('/career/123')"
             color="slategrey"
             elevation="0"
             height="36"
@@ -22,7 +22,7 @@
           >
             {{ $t('career.job_action') }}
           </v-btn>
-          <v-img class="me-16" contain max-height="30" :max-width="isRTL ? '140' : undefined" src="/images/logo.png" />
+          <v-img :max-width="isRTL ? '140' : undefined" class="me-16" contain max-height="30" src="/images/logo.png" />
         </div>
       </v-col>
       <v-col style="max-width: 100px">
@@ -40,8 +40,8 @@
         </p>
         <div class="d-flex align-center mt-6">
           <v-btn
-            :to="localePath('/career/123')"
             :class="['rounded-xl d-flex justify-center white--text f-18', isRTL ? 'font-weight-bold' : undefined]"
+            :to="localePath('/career/123')"
             color="slategrey"
             elevation="0"
             height="36"
@@ -49,7 +49,7 @@
           >
             {{ $t('career.job_action') }}
           </v-btn>
-          <v-img class="me-16" contain max-height="30" :max-width="isRTL ? '140' : undefined" src="/images/logo.png" />
+          <v-img :max-width="isRTL ? '140' : undefined" class="me-16" contain max-height="30" src="/images/logo.png" />
         </div>
       </v-col>
     </v-row>
@@ -69,8 +69,8 @@
         </p>
         <div class="d-flex align-center mt-6">
           <v-btn
-            :to="localePath('/career/123')"
             :class="['rounded-xl d-flex justify-center white--text f-18', isRTL ? 'font-weight-bold' : undefined]"
+            :to="localePath('/career/123')"
             color="slategrey"
             elevation="0"
             height="36"
@@ -78,7 +78,7 @@
           >
             {{ $t('career.job_action') }}
           </v-btn>
-          <v-img class="me-16" contain max-height="30" :max-width="isRTL ? '140' : undefined" src="/images/logo.png" />
+          <v-img :max-width="isRTL ? '140' : undefined" class="me-16" contain max-height="30" src="/images/logo.png" />
         </div>
       </v-col>
       <v-col style="max-width: 100px">
@@ -96,8 +96,8 @@
         </p>
         <div class="d-flex align-start mt-6">
           <v-btn
-            :to="localePath('/career/123')"
             :class="['rounded-xl d-flex justify-center white--text f-18', isRTL ? 'font-weight-bold' : undefined]"
+            :to="localePath('/career/123')"
             color="slategrey"
             elevation="0"
             height="36"
@@ -105,7 +105,7 @@
           >
             {{ $t('career.job_action') }}
           </v-btn>
-          <v-img class="me-16" contain max-height="30" :max-width="isRTL ? '140' : undefined" src="/images/logo.png" />
+          <v-img :max-width="isRTL ? '140' : undefined" class="me-16" contain max-height="30" src="/images/logo.png" />
         </div>
       </v-col>
     </v-row>
@@ -124,8 +124,8 @@
       <div class="d-flex flex-column align-start mt-6">
         <v-img max-height="60" src="/images/logo.png" width="120" />
         <v-btn
-          :to="localePath('/career/123')"
           :class="['rounded-xl d-flex justify-center white--text f-20 mt-6', isRTL ? 'font-weight-bold' : undefined]"
+          :to="localePath('/career/123')"
           color="slategrey"
           elevation="0"
           height="50"

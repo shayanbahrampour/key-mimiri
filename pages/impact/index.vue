@@ -19,7 +19,14 @@
       :class="['mx-auto mt-16', isMobile ? 'px-2' : $vuetify.breakpoint.xl ? 'px-12' : 'px-16']"
       :max-width="globalMaxWidth"
     >
-      <h1 :class="['bel f-50 grey--text text--darken-2 font-weight-regular', { 'text-center': isMobile }]">
+      <h1
+        :class="[
+          'grey--text text--darken-2 font-weight-regular',
+          isRTL ? 'ravi' : 'bel',
+          isMobile ? (isRTL ? 'f-30' : 'f-50') : isRTL ? 'f-40' : 'f-50',
+          { 'text-center': isMobile }
+        ]"
+      >
         {{ $t('impactPage.title') }}
       </h1>
 

@@ -107,7 +107,7 @@
               <span :class="{ 'font-weight-bold': isRTL }">{{ $t('footer.contact') }}</span>
             </v-btn>
           </div>
-          <div :class="['d-flex', !isMobile ? 'justify-space-between align-center' : 'justify-center']">
+          <div :class="['d-flex ltr', !isMobile ? 'justify-space-between align-center' : 'justify-center']">
             <template v-if="!isMobile">
               <v-img alt="cobel" contain height="65" max-width="200" src="/images/logo-text-white.svg" />
               <div v-if="!isMobile" class="ltr f-13" style="margin-right: 120px">

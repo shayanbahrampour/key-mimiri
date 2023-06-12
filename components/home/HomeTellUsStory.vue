@@ -17,11 +17,11 @@
         :block="isMobile"
         :class="['f-18 px-16 text-capitalize', isRTL ? 'mt-4' : 'mt-2']"
         color="primary"
-        to="/contact"
         depressed
         exact
         large
         rounded
+        to="/contact"
       >
         <span :class="['px-15', isRTL ? 'font-weight-bold anjoman' : 'font-weight-light']">{{
           $t('homePage.click_here')

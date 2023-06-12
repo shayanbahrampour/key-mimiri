@@ -3,6 +3,8 @@
     <VideoLoader
       v-if="src"
       :height="height"
+      :maxSize="maxSize"
+      :minSize="minSize"
       :options="{
         ...options,
         poster,
@@ -14,8 +16,6 @@
         ]
       }"
       :width="width"
-      :maxSize="maxSize"
-      :minSize="minSize"
       class="vjs-theme-sea"
       @ready="$emit('ready', $event)"
       @toggleFullscreen="$emit('toggleFullscreen', $event)"

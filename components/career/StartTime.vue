@@ -19,23 +19,23 @@
       <div class="d-flex flex-column">
         <v-select
           v-model="model.date"
-          :items="items"
           :class="['mb-6', isRTL ? 'ravi' : undefined]"
-          menu-props="auto"
+          :items="items"
+          :label="$t('career.steps.start_time.placeholder_one')"
           append-icon="mdi-triangle-down 10"
           append-icon-size="16"
-          :label="$t('career.steps.start_time.placeholder_one')"
-          filled
-          rounded
-          hide-details
           dense
+          filled
+          hide-details
+          menu-props="auto"
+          rounded
           style="max-width: 400px"
         ></v-select>
         <v-radio-group v-model="radioGroup" class="mt-6 pt-0">
           <v-radio
-            color="#4C6D80"
             :class="isRTL ? 'ravi text-end' : undefined"
             :label="$t('career.steps.start_time.radio')"
+            color="#4C6D80"
           ></v-radio>
         </v-radio-group>
         <div class="d-flex mt-6 align-center">

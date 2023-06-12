@@ -101,8 +101,6 @@
 </template>
 
 <script>
-import { title } from 'process';
-
 export default {
   props: {
     items: {

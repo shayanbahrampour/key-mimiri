@@ -13,7 +13,8 @@
           :class="[
             'font-weight-regular',
             isRTL ? 'ravi' : 'bel',
-            isMobile ? 'f-35 text-center pt-4 flex-grow-1' : lgAndUp ? 'f-60' : 'f-50'
+            { 'text-center pt-4 flex-grow-1': isMobile },
+            isMobile ? (isRTL ? 'f-30 mt-1' : 'f-35') : lgAndUp ? 'f-60' : 'f-50'
           ]"
           :style="isMobile ? '' : `min-width: ${lgAndUp ? '500px' : '415px'}`"
         >
@@ -37,11 +38,11 @@
 
     <v-sheet
       v-if="isMobile"
-      :max-width="globalMaxWidth"
       :class="[
         'px-6 mx-auto f-17 my-4 grey--text text--darken-2 text-center',
         isRTL ? 'font-weight-bold anjoman' : 'font-weight-light'
       ]"
+      :max-width="globalMaxWidth"
       color="transparent"
     >
       {{ $t('homePage.video.description') }}

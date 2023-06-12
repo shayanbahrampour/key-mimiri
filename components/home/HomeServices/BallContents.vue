@@ -9,9 +9,9 @@
           :class="['font-weight-regular mb-1', isRTL ? 'ravi' : 'bel', isMobile ? 'f-35' : lgAndUp ? 'f-55' : 'f-45']"
           :style="`color:${content.color};`"
         >
-          <nuxt-link :to="content.path" class="text-decoration-none" style="color: inherit">{{
-            $t(content.title)
-          }}</nuxt-link>
+          <nuxt-link :to="content.path" class="text-decoration-none" style="color: inherit"
+            >{{ $t(content.title) }}
+          </nuxt-link>
         </h3>
         <p
           :class="[

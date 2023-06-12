@@ -39,11 +39,11 @@
             </p>
           </div>
           <v-btn
-            :to="`/career/forum?job=${true}`"
             :class="[
               'rounded-xl d-flex justify-center white--text font-weight-regular f-18 mt-10 mb-6',
               isRTL ? 'ravi' : undefined
             ]"
+            :to="localePath(`/career/forum?job=${true}`)"
             color="#A01E64"
             elevation="0"
             height="50"
@@ -70,11 +70,11 @@
           {{ $t('career.job_description') }}
         </p>
         <v-btn
-          :to="`/career/forum?job=${true}`"
           :class="[
             'rounded-xl d-flex justify-center white--text font-weight-regular f-20 mb-2 mt-2',
             isRTL ? 'ravi' : undefined
           ]"
+          :to="localePath(`/career/forum?job=${true}`)"
           color="#A01E64"
           elevation="0"
           height="50"
@@ -126,6 +126,7 @@ export default {};
         right: 82px !important;
       }
     }
+
     .container-scrolled-rtl-des {
       margin-top: -110px !important;
       flex-direction: row !important;

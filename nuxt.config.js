@@ -72,6 +72,7 @@ export default {
     '@/plugins/axios',
     '@/plugins/filters',
     '@/plugins/device',
+    '@/plugins/dayjs',
     '@/plugins/video.client',
     '@/plugins/swiper.client',
     '@/plugins/vue-pdf.client',
@@ -82,7 +83,21 @@ export default {
   buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/vuetify'],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/axios', '@nuxtjs/i18n', ['@nuxtjs/robots', { UserAgent: '*', Disallow: '/' }]],
+  modules: ['@nuxtjs/axios', '@nuxtjs/i18n', '@nuxtjs/dayjs', ['@nuxtjs/robots', { UserAgent: '*', Disallow: '/' }]],
+
+  // Optional
+  dayjs: {
+    locales: ['en', 'fa'],
+    defaultLocale: 'fa',
+    defaultTimeZone: 'Asia/Tehran',
+    plugins: [
+      'utc', // import 'dayjs/plugin/utc'
+      'weekday',
+      'timezone',
+      'relativeTime',
+      'advancedFormat'
+    ]
+  },
 
   i18n: {
     locales: ['en', 'fa'],

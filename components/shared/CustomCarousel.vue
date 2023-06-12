@@ -14,11 +14,11 @@
       </v-carousel-item>
     </v-carousel>
     <div class="position-relative z-1">
-      <div :class="['mx-auto', !isMobile && 'pe-16']" :style="`max-width: ${globalMaxWidth}px`">
+      <div :class="['mx-auto', !isMobile && 'pr-16']" :style="`max-width: ${globalMaxWidth}px`">
         <v-sheet
           :class="[
-            'me-auto carousel-sheet',
-            isMobile ? 'py-8' : `rounded-${isRTL ? 'l' : 'r'}-xl py-16`,
+            'mr-auto carousel-sheet position-relative',
+            isMobile ? 'py-8' : `rounded-r-xl py-16`,
             $vuetify.breakpoint.xl ? 'px-12' : isMobile ? 'px-6' : 'px-16'
           ]"
           :max-width="globalMaxWidth * 0.9"
@@ -28,13 +28,16 @@
         >
           <div
             v-if="items.length > 1 && !hideDelimiters"
-            :class="['position-absolute', isMobile ? 'd-flex justify-center align-center start-0 end-0' : '']"
-            :style="isMobile ? 'top: -40px' : 'top: -50px'"
+            :class="[
+              'position-absolute left-0 px-16',
+              isMobile ? 'd-flex justify-center align-center start-0 end-0' : ''
+            ]"
+            :style="`${isMobile ? 'top: -40px' : 'top: -50px'}`"
           >
             <v-icon
               v-for="(item, index) in items"
               :key="index"
-              class="ms-1"
+              class="mr-1"
               color="white"
               size="25"
               @click="model = index"
@@ -45,14 +48,25 @@
 
           <h1
             v-if="title"
-            :class="['bel white--text font-weight-regular text-uppercase', isMobile ? 'f-50' : 'f-70']"
+            :class="[
+              'white--text font-weight-regular text-uppercase',
+              isMobile ? (isRTL ? 'f-40' : 'f-50') : isRTL ? 'f-50' : 'f-70',
+              isRTL ? 'ravi' : 'bel'
+            ]"
             :style="isMobile ? 'margin: -100px 0 40px' : 'margin: -150px 0 90px'"
           >
             {{ title }}
           </h1>
           <v-row v-if="activeSlide" :no-gutters="!isMobile" class="position-relative z-1" justify="center">
             <v-col v-if="activeSlide.title && activeSlide.description" :lg="activeSlide.description ? 5 : 12" cols="12">
-              <h2 :class="['bel white--text font-weight-regular', isMobile ? 'f-35 text-center' : 'f-50']">
+              <h2
+                :class="[
+                  'white--text font-weight-regular',
+                  { 'text-center': isMobile },
+                  isMobile ? (isRTL ? 'f-30' : 'f-35') : isRTL ? 'f-40' : 'f-50',
+                  isRTL ? 'ravi' : 'bel'
+                ]"
+              >
                 {{ activeSlide.title }}
               </h2>
             </v-col>
@@ -71,14 +85,19 @@
               :offset-lg="activeSlide.title ? 1 : 0"
               cols="12"
             >
-              <p class="f-22 white--text font-weight-light mt-lg-0 mb-0">
+              <p
+                :class="[
+                  'f-22 white--text mt-lg-0',
+                  isRTL ? 'font-weight-bold anjoman mb-2' : 'font-weight-light mb-0'
+                ]"
+              >
                 {{
                   activeSlide.description | truncate({ length: flag.showMore ? activeSlide.description.length : 100 })
                 }}
               </p>
               <v-btn
                 :ripple="false"
-                class="font-weight-bold f-18 ms-n4 text-lowercase bg-transparent"
+                class="font-weight-bold f-18 ms-n4 mt-2 text-lowercase bg-transparent"
                 color="white"
                 exact
                 link
@@ -141,13 +160,6 @@ export default {
     height: 100%;
     width: 50vw;
     background-color: var(--v-slategrey-base);
-  }
-}
-
-.v-application--is-rtl {
-  .carousel-sheet:after {
-    right: 0;
-    left: auto !important;
   }
 }
 </style>

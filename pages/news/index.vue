@@ -15,12 +15,12 @@
       <NewsCategory
         v-if="!isMobile"
         :tabs="isRTL ? tabsRTL : tabs"
-        class="mb-16 mx-6"
         :title="isRTL ? 'مهمترین ها' : 'More important'"
+        class="mb-16 mx-6"
       />
       <NewsCard :path="localePath('/news/1')" class="mx-6" />
     </v-sheet>
-    <NewsCard v-else :path="localePath('/news/1')" class="mt-10" :title="isRTL ? 'مهمترین ها' : 'More important'" />
+    <NewsCard v-else :path="localePath('/news/1')" :title="isRTL ? 'مهمترین ها' : 'More important'" class="mt-10" />
   </div>
 </template>
 

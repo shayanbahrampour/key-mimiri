@@ -1,10 +1,10 @@
 <template>
   <div>
     <v-app-bar
+      :class="['appbar', { ltr: isRTL }]"
       :height="showDrawer ? 70 : 120"
       :scroll-threshold="showDrawer ? 70 : 120"
       app
-      :class="['appbar', { ltr: isRTL }]"
       color="white"
       elevate-on-scroll
       fixed
@@ -16,7 +16,7 @@
         :max-width="globalMaxWidth"
         color="transparent"
       >
-        <nuxt-link :to="localePath('/')" exact class="pointer">
+        <nuxt-link :to="localePath('/')" class="pointer" exact>
           <v-img
             v-if="showDrawer"
             alt="cobel"

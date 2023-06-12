@@ -164,9 +164,11 @@ export default {
 .desktop-paragraph {
   line-height: 60px;
 }
+
 .mobile-paragraph {
   line-height: 30px;
 }
+
 .right-circle {
   width: 100px;
   height: 100px;

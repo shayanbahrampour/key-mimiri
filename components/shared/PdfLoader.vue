@@ -50,11 +50,11 @@
       </v-btn>
 
       <v-btn
-        absolute
         :class="['shadow white bottom-0 start-0 z-1', isMobile ? 'ma-3' : 'ma-6']"
-        fab
         :height="isMobile ? 30 : 40"
         :width="isMobile ? 30 : 40"
+        absolute
+        fab
         icon
         @click="flag.fullscreen = !flag.fullscreen"
       >

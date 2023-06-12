@@ -252,6 +252,7 @@ export default {
 .rtl-text-career {
   opacity: 0.8;
 }
+
 .desktop-screen-career {
   max-width: 90vw;
 }

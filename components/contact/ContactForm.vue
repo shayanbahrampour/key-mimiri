@@ -4,9 +4,9 @@
       <v-col cols="12" md="6">
         <v-text-field
           v-model="model.full_name"
+          :class="['mb-4 f-20', { ' ravi': isRTL }]"
           :label="$t('contact.fields.full_name')"
           :rules="[rule.required]"
-          :class="['mb-4 f-20', { ' ravi': isRTL }]"
           dense
           filled
           hide-details
@@ -14,9 +14,9 @@
         ></v-text-field>
         <v-text-field
           v-model="model.email"
+          :class="['mb-4 f-20', { ' ravi': isRTL }]"
           :label="$t('contact.fields.email')"
           :rules="[rule.required, rule.email]"
-          :class="['mb-4 f-20', { ' ravi': isRTL }]"
           dense
           filled
           hide-details
@@ -24,9 +24,9 @@
         ></v-text-field>
         <v-text-field
           v-model="model.mobile"
+          :class="['mb-4 f-20', { ' ravi': isRTL }]"
           :label="$t('contact.fields.mobile')"
           :rules="[rule.required, rule.mobile]"
-          :class="['mb-4 f-20', { ' ravi': isRTL }]"
           dense
           filled
           hide-details
