@@ -18,7 +18,7 @@
         >
           <div :class="['d-flex', isMobile ? 'flex-column align-center justify-center' : undefined]">
             <v-img
-              :class="['me-4', !isMobile ? 'elevation-3' : undefined]"
+              class="me-4"
               :height="isMobile ? '140' : '155'"
               :max-width="isMobile ? '140' : '155'"
               src="/images/face/bahador.png"
