@@ -53,7 +53,7 @@
               isRTL ? 'font-weight-bold' : 'font-weight-light',
               !lgAndUp && isRTL && 'mb-4'
             ]"
-            :style="`${
+            :style="`${isMobile && isRTL && 'line-height:30px'};${
               !isMobile &&
               `line-height: ${isRTL ? '38px' : '30px'};max-width: ${
                 lgAndUp ? (isRTL ? '400px' : '550px') : mdAndDown ? '100%' : `${nuclearSize}px`

@@ -13,7 +13,8 @@
           :class="[
             'font-weight-regular',
             isRTL ? 'ravi' : 'bel',
-            isMobile ? 'f-35 text-center pt-4 flex-grow-1' : lgAndUp ? 'f-60' : 'f-50'
+            { 'text-center pt-4 flex-grow-1': isMobile },
+            isMobile ? (isRTL ? 'f-30 mt-1' : 'f-35') : lgAndUp ? 'f-60' : 'f-50'
           ]"
           :style="isMobile ? '' : `min-width: ${lgAndUp ? '500px' : '415px'}`"
         >
