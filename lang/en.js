@@ -206,7 +206,13 @@ export default {
   storytellersPage: {
     title: 'STORYTELLERS',
     description:
-      'Empowers to achieve, Inspires to create the greatest Cobel Group promise is to empower, inspire and trigger ideas that make a significant impact in how we deliver solutions. Therefore, we invest on education; not only to our personnel, but to our stakeholders. Our education material are available to all.'
+      'Empowers to achieve, Inspires to create the greatest Cobel Group promise is to empower, inspire and trigger ideas that make a significant impact in how we deliver solutions. Therefore, we invest on education; not only to our personnel, but to our stakeholders. Our education material are available to all.',
+    single_description:
+      'WHO advises that all women in their reproductive ages, whether having Iron deficiency or not, are required to consume 60 mg of iron supplements per week. This amount should be higher in pregnant women and any deficiencies will not only affect themselves, but it also affects their fetus. In addition, Iranian men and menopaused women have a 2 prevalence of Anemia and are also require to manage the disease accordingly (3). Studies conducted by Cobel Group medico-marketing teams indicated',
+    single_detail_title:
+      '32 Million people in need of 2 Billion doses of iron supplement; less than 800 Million doses is consumed',
+    single_detail_description:
+      'In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society and are committed to enhance their physical, psychological and social quality of life through high quality and innovative solutions.'
   },
   homePage: {
     slider: {
