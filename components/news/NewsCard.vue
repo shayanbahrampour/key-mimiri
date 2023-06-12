@@ -39,7 +39,7 @@
             <p class="f-16 mb-0" style="color: #59595b">Writed by: mehrab mohammadi</p>
             <p class="f-16 mb-0" style="color: #59595b">Published 3 month ago</p>
           </div>
-          <div v-else="!isRTL" class="d-flex justify-space-between mt-4 ravi" style="width: 60%">
+          <div v-else class="d-flex justify-space-between mt-4 ravi" style="width: 50%">
             <p class="f-14 mb-0" style="color: #59595b">زمان مطالعه: 13 دقیقه</p>
             <p class="f-14 mb-0" style="color: #59595b">نویسنده: مهراب محمدی</p>
             <p class="f-14 mb-0" style="color: #59595b">منتشر شده: 3 ماه پیش</p>
