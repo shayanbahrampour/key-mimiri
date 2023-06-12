@@ -9,8 +9,8 @@
             : 'Empowers to achieve, Inspires to create the greatest Cobel Group promise is to empower, inspire and trigger ideas that make a significant impact in how we deliver solutions. Therefore, we invest on education; not only to our '
         }
       ]"
-      hide-delimiters
       :title="isRTL ? 'میراث' : 'Heritage'"
+      hide-delimiters
     />
 
     <v-sheet
@@ -86,7 +86,7 @@
                 />
 
                 <div :class="['flex-grow-1 d-flex', isMobile ? 'flex-column pt-2' : 'align-center']">
-                  <span :style="`color: ${expanded === i ? '#4c6d80' : '#66869A'}`" :class="[isRTL ? 'ravi' : 'bel']">
+                  <span :class="[isRTL ? 'ravi' : 'bel']" :style="`color: ${expanded === i ? '#4c6d80' : '#66869A'}`">
                     {{ item[`${$i18n.locale}_title`] }}
                   </span>
 
