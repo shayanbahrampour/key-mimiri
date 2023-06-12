@@ -90,11 +90,18 @@ export default {
         touchStartForcePreventDefault: true,
         preventClicksPropagation: true,
         preventInteractionOnTransition: true,
-        slideToClickedSlide: false,
+        slideToClickedSlide: true,
         centerInsufficientSlides: true,
         edgeSwipeDetection: 'prevent',
         spaceBetween: 28,
         slidesPerView: 1.2,
+        on: {
+          click() {
+            if (typeof this.clickedIndex !== 'undefined') {
+              this.slideTo(this.clickedIndex);
+            }
+          }
+        },
         breakpoints: {
           760: {
             slidesPerView: 2.5
