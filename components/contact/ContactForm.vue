@@ -3,6 +3,26 @@
     <v-row :class="isRTL && 'ltr'">
       <v-col cols="12" md="6">
         <v-text-field
+          v-model="model.mobile"
+          :class="['mb-4 f-20', { ' ravi': isRTL }]"
+          :label="$t('contact.fields.management')"
+          :rules="[rule.required, rule.mobile]"
+          dense
+          filled
+          hide-details
+          rounded
+        ></v-text-field>
+        <v-text-field
+          v-model="model.topic"
+          :class="[!isMobile ? 'mb-4 f-20' : 'mb-0 f-20', { ' ravi': isRTL }]"
+          :label="$t('contact.fields.topic')"
+          :rules="[rule.required]"
+          dense
+          filled
+          hide-details
+          rounded
+        ></v-text-field>
+        <v-text-field
           v-model="model.full_name"
           :class="['mb-4 f-20', { ' ravi': isRTL }]"
           :label="$t('contact.fields.full_name')"
@@ -17,26 +37,6 @@
           :class="['mb-4 f-20', { ' ravi': isRTL }]"
           :label="$t('contact.fields.email')"
           :rules="[rule.required, rule.email]"
-          dense
-          filled
-          hide-details
-          rounded
-        ></v-text-field>
-        <v-text-field
-          v-model="model.mobile"
-          :class="['mb-4 f-20', { ' ravi': isRTL }]"
-          :label="$t('contact.fields.mobile')"
-          :rules="[rule.required, rule.mobile]"
-          dense
-          filled
-          hide-details
-          rounded
-        ></v-text-field>
-        <v-text-field
-          v-model="model.topic"
-          :class="[!isMobile ? 'mb-4 f-20' : 'mb-0 f-20', { ' ravi': isRTL }]"
-          :label="$t('contact.fields.topic')"
-          :rules="[rule.required]"
           dense
           filled
           hide-details

@@ -163,7 +163,7 @@ export default {
     fields: {
       full_name: 'نام و نام خوانوادگی',
       email: 'ایمیل',
-      mobile: 'شماره تماس',
+      management: 'مدیریت',
       topic: 'موضوع',
       description: 'توضیحات'
     }
