@@ -1,6 +1,8 @@
 <template>
   <div :class="[isMobile ? 'mt-2' : 'd-flex align-center']">
-    <span :class="['f-16 slategrey--text', isMobile ? undefined : 'me-4']">share it:</span>
+    <span :class="['f-16 slategrey--text', isMobile ? undefined : 'me-4', { 'ravi mt-1': isRTL }]"
+      >{{ isRTL ? 'به اشتراک بگذارید' : 'share it' }}:</span
+    >
     <div :class="[isMobile ? 'mt-2' : undefined]">
       <v-btn
         color="slategrey"
