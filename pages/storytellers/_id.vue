@@ -32,7 +32,7 @@
         </div>
       </div>
       <div :class="[isMobile ? 'mt-6' : undefined]">
-        <v-btn height="50" min-width="50" outlined style="border-radius: 35%; border: 3px solid white" width="50">
+        <v-btn height="50" min-width="50" outlined style="border-radius: 35%; border: 2px solid white" width="50">
           <v-img height="20" max-width="20" src="/images/icons/linkedin.png" />
         </v-btn>
         <v-btn
@@ -40,7 +40,7 @@
           height="50"
           min-width="50"
           outlined
-          style="border-radius: 35%; border: 3px solid white"
+          style="border-radius: 35%; border: 2px solid white"
           width="50"
         >
           <v-img height="20" max-width="20" src="/images/icons/whatsapp.png" />
@@ -50,7 +50,7 @@
           height="50"
           min-width="50"
           outlined
-          style="border-radius: 35%; border: 3px solid white"
+          style="border-radius: 35%; border: 2px solid white"
           width="50"
         >
           <v-img height="20" max-width="20" src="/images/icons/telegram.png" />
