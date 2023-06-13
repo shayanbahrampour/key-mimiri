@@ -60,18 +60,73 @@ export default {
     return {
       active: null,
       items: [
-        { id: 1, title: 'Masoumeh Seyedi', src: '/images/storytellers/masoumeh.png' },
-        { id: 2, title: 'Khosro Aghajanian', src: '/images/storytellers/khosro.png' },
-        { id: 2, title: 'Mohsen Dastjerdi', src: '/images/storytellers/mohsen.png' },
-        { id: 4, title: 'Mohamad javid', src: '/images/storytellers/mohamad.png' },
-        { id: 3, title: 'Bahador Nayebi', src: '/images/storytellers/bahador.png' }
+        {
+          id: 1,
+          title: 'Masoumeh Seyedi',
+          description:
+            'Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women',
+          src: '/images/storytellers/masoumeh.png'
+        },
+        {
+          id: 2,
+          title: 'Khosro Aghajanian',
+          description:
+            'Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women',
+          src: '/images/storytellers/khosro.png'
+        },
+        {
+          id: 2,
+          title: 'Mohsen Dastjerdi',
+          description:
+            'Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women',
+          src: '/images/storytellers/mohsen.png'
+        },
+        {
+          id: 4,
+          title: 'Mohamad javid',
+          description:
+            'Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women',
+          src: '/images/storytellers/mohamad.png'
+        },
+        {
+          id: 3,
+          title: 'Bahador Nayebi',
+          description:
+            'Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women',
+          src: '/images/storytellers/bahador.png'
+        }
       ],
       itemsRTL: [
-        { id: 1, title: 'معصومه سیدی', src: '/images/storytellers/masoumeh.png' },
-        { id: 2, title: 'خسرو آقاجانیان', src: '/images/storytellers/khosro.png' },
-        { id: 2, title: 'محسن دستجردی', src: '/images/storytellers/mohsen.png' },
-        { id: 4, title: 'محمد جاوید', src: '/images/storytellers/mohamad.png' },
-        { id: 3, title: 'بهادر نایبی', src: '/images/storytellers/bahador.png' }
+        {
+          id: 1,
+          title: 'معصومه سیدی',
+          description: 'کمبود آهن که منجر به کم خونی می شود، اثرات منفی بر سلامتی همه افراد به ویژه زنان دارد',
+          src: '/images/storytellers/masoumeh.png'
+        },
+        {
+          id: 2,
+          title: 'خسرو آقاجانیان',
+          description: 'کمبود آهن که منجر به کم خونی می شود، اثرات منفی بر سلامتی همه افراد به ویژه زنان دارد',
+          src: '/images/storytellers/khosro.png'
+        },
+        {
+          id: 2,
+          title: 'محسن دستجردی',
+          description: 'کمبود آهن که منجر به کم خونی می شود، اثرات منفی بر سلامتی همه افراد به ویژه زنان دارد',
+          src: '/images/storytellers/mohsen.png'
+        },
+        {
+          id: 4,
+          title: 'محمد جاوید',
+          description: 'کمبود آهن که منجر به کم خونی می شود، اثرات منفی بر سلامتی همه افراد به ویژه زنان دارد',
+          src: '/images/storytellers/mohamad.png'
+        },
+        {
+          id: 3,
+          title: 'بهادر نایبی',
+          description: 'کمبود آهن که منجر به کم خونی می شود، اثرات منفی بر سلامتی همه افراد به ویژه زنان دارد',
+          src: '/images/storytellers/bahador.png'
+        }
       ]
     };
   },

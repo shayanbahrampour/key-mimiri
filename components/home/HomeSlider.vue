@@ -30,7 +30,7 @@
             :class="[
               'grey--text text--darken-2 mb-8 font-weight-regular',
               { 'pt-16 mt-12': isMobile },
-              isMobile ? (isRTL ? 'f-33' : 'f-38') : 'f-70',
+              isMobile ? (isRTL ? 'f-33' : 'f-38') : isRTL ? 'f-60' : 'f-70',
               isRTL ? 'ravi' : 'bel',
               isRTL && isMobile && 'text-center'
             ]"
@@ -38,32 +38,34 @@
             {{ $t('homePage.slider.title') }}
           </h1>
 
-          <v-btn
-            v-if="!isMobile"
-            :block="isMobile"
-            :class="['f-18 text-capitalize', { 'ms-n4': !isMobile }, { 'font-weight-bold anjoman': isRTL }]"
-            color="#59595B"
-            depressed
-            exact
-            large
-            rounded
-            text
-          >
-            {{ $t('homePage.slider.more_about') }}
-          </v-btn>
-          <v-btn
-            :block="isMobile"
-            :class="['f-20 px-14 text-capitalize bel', { 'mt-16': isMobile }]"
-            color="primary"
-            depressed
-            exact
-            large
-            rounded
-          >
-            <span class="position-relative" style="top: 1px">{{
-              isMobile ? $t('homePage.slider.about_cobel_group') : $t('homePage.slider.cobel_group')
-            }}</span>
-          </v-btn>
+          <div :class="isRTL && 'rtl d-flex justify-end'">
+            <v-btn
+              v-if="!isMobile"
+              :block="isMobile"
+              :class="['f-18 text-capitalize', { 'ml-n4': !isMobile && !isRTL }, { 'font-weight-bold anjoman': isRTL }]"
+              color="#59595B"
+              depressed
+              exact
+              large
+              rounded
+              text
+            >
+              {{ $t('homePage.slider.more_about') }}
+            </v-btn>
+            <v-btn
+              :block="isMobile"
+              :class="['f-20 px-14 text-capitalize bel', { 'mt-16': isMobile }]"
+              color="primary"
+              depressed
+              exact
+              large
+              rounded
+            >
+              <span class="position-relative" style="top: 1px">
+                {{ isMobile ? $t('homePage.slider.about_cobel_group') : $t('homePage.slider.cobel_group') }}
+              </span>
+            </v-btn>
+          </div>
         </v-col>
       </v-row>
     </v-sheet>

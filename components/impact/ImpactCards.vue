@@ -27,9 +27,9 @@
           :style="isRTL ? 'line-height:30px' : ''"
           v-html="summary"
         />
-        <strong :class="['f-18 font-weight-bold d-block', isRTL ? 'mt-1' : 'mt-n3']">{{
-          $t('shared.see_more')
-        }}</strong>
+        <strong :class="['f-18 font-weight-bold d-block', isRTL ? 'mt-1' : 'mt-n3']">
+          {{ $t('shared.see_more') }}
+        </strong>
       </div>
     </v-card>
   </v-card>

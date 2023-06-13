@@ -1,16 +1,20 @@
 <template>
   <div
-    :class="['position-relative flex-shrink-0 z-0 ball-contents']"
+    class="position-relative flex-shrink-0 z-0 ball-contents text-start"
     :style="`width: ${width}; ${!isMobile && `border-left: 1px solid #59595B`}`"
   >
     <v-slide-y-reverse-transition>
       <div v-if="content" :class="!isMobile && (lgAndUp ? 'pl-8 py-3' : 'py-1 pl-8')">
         <h3
-          :class="['font-weight-regular mb-1', isRTL ? 'ravi' : 'bel', isMobile ? 'f-35' : lgAndUp ? 'f-55' : 'f-45']"
+          :class="[
+            'font-weight-regular mb-1',
+            isRTL ? 'ravi' : 'bel',
+            isMobile ? 'f-35' : lgAndUp ? (isRTL ? 'f-45' : 'f-55') : 'f-45'
+          ]"
           :style="`color:${content.color};`"
         >
-          <nuxt-link :to="content.path" class="text-decoration-none" style="color: inherit"
-            >{{ $t(content.title) }}
+          <nuxt-link :to="content.path" class="text-decoration-none" style="color: inherit">
+            {{ $t(content.title) }}
           </nuxt-link>
         </h3>
         <p

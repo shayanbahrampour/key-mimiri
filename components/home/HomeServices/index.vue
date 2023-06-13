@@ -39,10 +39,10 @@
       >
         <div class="w-full">
           <h3
-            :class="`${isMobile ? 'f-33 text-center' : lgAndUp ? 'f-70' : 'f-65'} ${
+            :class="`${isMobile ? 'f-33 text-center' : lgAndUp ? (isRTL ? 'f-65' : 'f-70') : 'f-65'} ${
               isRTL ? 'ravi font-weight-regular' : 'bel font-weight-regular mb-3'
             }`"
-            :style="`${isRTL ? 'line-height:90px' : ''}; ${!isMobile && `max-width: ${isRTL ? '750px' : '900px'}`};`"
+            :style="`${isRTL ? 'line-height: 80px' : ''}; ${lgAndUp && `max-width: ${isRTL ? '700px' : '900px'}`};`"
           >
             {{ $t('homePage.services.slider.title') }}
           </h3>
