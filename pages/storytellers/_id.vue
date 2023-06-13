@@ -108,10 +108,10 @@
       class="w-full overflow-hidden d-flex align-center"
       poster="/images/temp/cover-6.png"
       src="/video/temp.mp4"
-      style="max-height: 500px"
+      style="max-height: 560px"
     />
     <div :class="['h-full white']">
-      <v-sheet :height="isMobile ? 10 : 20" class="custom-gradient w-full mt-1" />
+      <v-sheet :height="isMobile ? 10 : 16" class="custom-gradient w-full mt-1" />
       <div :class="[isMobile ? 'px-4' : 'px-16']">
         <h4
           :class="[
