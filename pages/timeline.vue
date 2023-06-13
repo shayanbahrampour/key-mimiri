@@ -55,7 +55,7 @@
             @click="scroll(`#item-${i}`)"
           >
             <v-sheet
-              :style="`margin: 50px -10px 0; background-color: ${
+              :style="`margin: ${isMobile ? '43px' : '50px'} -10px 0; background-color: ${
                 expanded === i ? '#4c6d80' : expanded !== undefined ? '#B0BEC5' : '#66869A'
               }; color: ${
                 expanded === i ? '#4c6d80' : expanded !== undefined ? '#B0BEC5' : '#66869A'
@@ -91,7 +91,7 @@
                     isMobile ? 'flex-column' : 'align-center',
                     isMobile && !isRTL && 'pt-4'
                   ]"
-                  :style="isRTL && isMobile && `padding-top: 20px`"
+                  :style="isRTL && isMobile && `padding-top: 17px`"
                 >
                   <span
                     :class="[isRTL ? 'ravi f-26' : 'bel']"
@@ -120,7 +120,12 @@
               </div>
             </v-expansion-panel-header>
             <v-expansion-panel-content :class="isRTL ? 'anjoman font-weight-bold' : ''">
-              <v-timeline :style="`color: ${item.color}`" align-top class="ms-n2 pt-0" dense>
+              <v-timeline
+                :style="`color: ${item.color}`"
+                align-top
+                :class="['pt-0', isMobile ? 'ms-n2' : 'ms-n3']"
+                dense
+              >
                 <v-timeline-item hide-dot>
                   <p
                     :class="[
@@ -478,8 +483,9 @@ export default {
     }
 
     &::before {
-      top: -40px;
+      top: -70px;
       z-index: 0;
+      height: calc(100% + 30px);
     }
   }
 
