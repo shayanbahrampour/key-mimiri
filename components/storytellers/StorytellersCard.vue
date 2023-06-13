@@ -57,7 +57,7 @@
           <p
             v-if="!isMobile"
             :class="['f-22 mb-0 text--darken-3 justify-center', { ravi: isRTL }]"
-            style="max-width: 58%; color: #939393"
+            :style="`max-width: ${isRTL ? '65' : '58'}%; color: #939393`"
           >
             {{ isRTL ? itemsRTL.description : items.description }}
           </p>

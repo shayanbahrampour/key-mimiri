@@ -53,7 +53,7 @@
             min-height="50"
             tile
           >
-            <span :class="['text-capitalize', isRTL ? 'font-weight-600 f-16' : 'f-14']">{{ $t(item.value) }}</span>
+            <span :class="['text-capitalize', isRTL ? 'font-weight-bold f-16' : 'f-14']">{{ $t(item.value) }}</span>
           </v-btn>
         </div>
 
@@ -95,7 +95,7 @@
           v-for="(item, index) in items"
           :key="index"
           :to="item.path ? item.path : undefined"
-          class="text-center white--text py-4 f-18"
+          :class="['text-center white--text py-4 f-18', isRTL && 'font-weight-bold']"
           color="#66869A"
           exact
           flat

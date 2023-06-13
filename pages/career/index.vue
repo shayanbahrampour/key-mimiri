@@ -30,14 +30,15 @@
               </v-btn>
             </div>
           </div>
-          <v-expansion-panels v-if="isMobile" flat>
+
+          <v-expansion-panels v-if="isMobile" class="mb-4" flat>
             <v-expansion-panel class="transparent d-flex flex-column justify-center">
               <p
                 v-if="!seeMore"
                 :class="[
                   'f-20 white--text text--darken-3',
-                  isMobile ? 'text-center mt-4 mb-0 mx-0' : 'mt-16 mx-16',
-                  isRTL ? 'font-weight-bold' : 'font-weight-light'
+                  isMobile ? 'text-center mt-8 mb-0 mx-8' : 'mt-16 mx-16',
+                  isRTL ? 'font-weight-bold mb-1' : 'font-weight-light'
                 ]"
                 style="line-height: 30px"
               >
@@ -48,7 +49,7 @@
                   v-if="seeMore"
                   :class="[
                     'f-20 white--text text--darken-3',
-                    isMobile ? 'text-center mt-8 mb-0 mx-0' : 'mt-16 mx-16',
+                    isMobile ? 'text-center mt-8 mb-1' : 'mt-16 mx-16',
                     isRTL ? 'font-weight-bold' : 'font-weight-light'
                   ]"
                   style="line-height: 30px"
@@ -58,11 +59,11 @@
               </v-expansion-panel-content>
               <v-expansion-panel-header
                 :class="[
-                  'pa-0 ma-0 white--text justify-center font-weight-bold bg-transparent',
-                  isRTL ? 'ravi f-18' : 'f-20'
+                  'pa-0 ma-0 white--text justify-center f-20 font-weight-bold bg-transparent',
+                  { 'ravi ': isRTL }
                 ]"
                 hide-actions
-                style="height: 20px; margin-top: -12px !important"
+                style="height: 20px !important; margin-top: -12px !important"
                 @click="seeMore = !seeMore"
                 >{{ seeMore ? $t('button.see_less') : $t('button.see_more') }}
               </v-expansion-panel-header>

@@ -55,7 +55,7 @@
             @click="scroll(`#item-${i}`)"
           >
             <v-sheet
-              :style="`margin: 50px -10px 0; background-color: ${
+              :style="`margin: ${isMobile ? '43px' : '50px'} -10px 0; background-color: ${
                 expanded === i ? '#4c6d80' : expanded !== undefined ? '#B0BEC5' : '#66869A'
               }; color: ${
                 expanded === i ? '#4c6d80' : expanded !== undefined ? '#B0BEC5' : '#66869A'
@@ -85,7 +85,14 @@
                   class="rounded-circle me-5 flex-shrink-0 position-relative z-1 transition-ease-in-out"
                 />
 
-                <div :class="['flex-grow-1 d-flex', isMobile ? 'flex-column pt-5' : 'align-center']">
+                <div
+                  :class="[
+                    'flex-grow-1 d-flex',
+                    isMobile ? 'flex-column' : 'align-center',
+                    isMobile && !isRTL && 'pt-4'
+                  ]"
+                  :style="isRTL && isMobile && `padding-top: 17px`"
+                >
                   <span
                     :class="[isRTL ? 'ravi f-26' : 'bel']"
                     :style="`color: ${expanded === i ? '#4c6d80' : '#66869A'}`"
@@ -113,7 +120,7 @@
               </div>
             </v-expansion-panel-header>
             <v-expansion-panel-content :class="isRTL ? 'anjoman font-weight-bold' : ''">
-              <v-timeline :style="`color: ${item.color}`" align-top class="ms-n2 pt-0" dense>
+              <v-timeline :style="`color: ${item.color}`" align-top :class="['pt-0 ms-n3']" dense>
                 <v-timeline-item hide-dot>
                   <p
                     :class="[
@@ -471,8 +478,9 @@ export default {
     }
 
     &::before {
-      top: -40px;
+      top: -70px;
       z-index: 0;
+      height: calc(100% + 30px);
     }
   }
 
@@ -486,7 +494,11 @@ export default {
 .v-application--is-ltr {
   @media (max-width: 768px) {
     .v-timeline--dense:not(.v-timeline--reverse)::before {
-      left: 36px;
+      left: 40px;
+    }
+
+    .v-timeline-item__inner-dot {
+      margin-left: 3px;
     }
   }
 }
@@ -502,7 +514,11 @@ export default {
 
     @media (max-width: 768px) {
       .v-timeline--dense:not(.v-timeline--reverse)::before {
-        right: 36px;
+        right: 40px;
+      }
+
+      .v-timeline-item__inner-dot {
+        margin-right: 3px;
       }
     }
   }

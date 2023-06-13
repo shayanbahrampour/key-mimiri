@@ -4,13 +4,10 @@
       <v-col cols="12" md="6">
         <v-select
           v-model="model.mobile"
-          :append-icon="!isRTL ? 'mdi-triangle-down 10 slategrey--text' : null"
-          :append-inner-icon="false"
+          append-icon="mdi-triangle-down 10 slategrey--text"
           :class="['mb-4 f-20 management-select', { 'rtl ravi': isRTL }]"
           :items="isRTL ? itemsRTL : items"
           :label="$t('contact.fields.management')"
-          :prepend-inner-icon="isRTL ? 'mdi-triangle-down 10 slategrey--text' : undefined"
-          :rules="[rule.required, rule.mobile]"
           dense
           filled
           hide-details
@@ -21,7 +18,6 @@
           v-model="model.topic"
           :class="['mb-4 f-20', { ' ravi': isRTL }]"
           :label="$t('contact.fields.topic')"
-          :rules="[rule.required]"
           dense
           filled
           hide-details
@@ -31,7 +27,6 @@
           v-model="model.full_name"
           :class="['mb-4 f-20', { ' ravi': isRTL }]"
           :label="$t('contact.fields.full_name')"
-          :rules="[rule.required]"
           dense
           filled
           hide-details
@@ -41,7 +36,6 @@
           v-model="model.email"
           :class="[!isMobile ? 'mb-4 f-20' : 'mb-0 f-20', { ' ravi': isRTL }]"
           :label="$t('contact.fields.email')"
-          :rules="[rule.required, rule.email]"
           dense
           filled
           hide-details
@@ -53,7 +47,6 @@
           v-model="model.description"
           :class="['mb-4 f-20', { 'mb-10': isMobile }, { ' ravi': isRTL }]"
           :label="$t('contact.fields.description')"
-          :rules="[rule.required]"
           dense
           filled
           height="260"
