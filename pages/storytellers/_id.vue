@@ -169,7 +169,7 @@
               src="/images/face/bahador.png"
               style="border-radius: 50%"
             />
-            <div class="d-flex flex-column justify-center ms-4">
+            <div :class="['d-flex flex-column justify-center', { 'ms-4': !isMobile }]">
               <p
                 :class="[
                   'cobelgrey--text mb-0 text--darken-3',
@@ -201,7 +201,7 @@
           <p
             v-if="!isMobile"
             :class="['f-22 mb-0 text--darken-3 justify-center', { 'ravi desktop-story-single-description': isRTL }]"
-            style="max-width: 60%; color: #939393"
+            :style="`max-width: ${isRTL ? '65' : '58'}%; color: #939393`"
           >
             {{ isRTL ? faces[0].descriptionRTL : faces[0].description }}
           </p>
@@ -244,7 +244,7 @@
               src="/images/face/mohammad.png"
               style="border-radius: 50%"
             />
-            <div class="d-flex flex-column justify-center ms-4">
+            <div :class="['d-flex flex-column justify-center', { 'ms-4': !isMobile }]">
               <p
                 :class="[
                   'cobelgrey--text mb-0 text--darken-3',
@@ -276,7 +276,7 @@
           <p
             v-if="!isMobile"
             :class="['f-22 mb-0 text--darken-3 justify-center', { 'ravi desktop-story-single-description': isRTL }]"
-            style="max-width: 60%; color: #939393"
+            :style="`max-width: ${isRTL ? '65' : '58'}%; color: #939393`"
           >
             {{ isRTL ? faces[1].descriptionRTL : faces[1].description }}
           </p>
