@@ -34,7 +34,7 @@
         <p
           :class="[
             'mb-0 py-4',
-            isMobile ? 'f-16' : 'f-20 ms-8 ps-8',
+            isMobile ? (isRTL ? 'f-18' : 'f-16') : 'f-20 ms-8 ps-8',
             isRTL ? 'font-weight-bold anjoman' : 'font-weight-light'
           ]"
           :style="`${!isMobile && `border-${isRTL ? 'right' : 'left'}: 1px solid #59595B`}; color: #59595B;${
@@ -80,12 +80,12 @@
               <div :class="['d-flex', isMobile ? 'align-start' : 'align-center']">
                 <v-sheet
                   :color="expanded === i ? item.active : item.color"
-                  class="rounded-circle me-5 flex-shrink-0 position-relative z-1"
-                  height="76"
-                  width="76"
+                  class="rounded-circle me-5 flex-shrink-0 position-relative z-1 transition-ease-in-out"
+                  :height="isMobile ? 60 : 76"
+                  :width="isMobile ? 60 : 76"
                 />
 
-                <div :class="['flex-grow-1 d-flex', isMobile ? 'flex-column pt-6' : 'align-center']">
+                <div :class="['flex-grow-1 d-flex', isMobile ? 'flex-column pt-5' : 'align-center']">
                   <span
                     :class="[isRTL ? 'ravi f-26' : 'bel']"
                     :style="`color: ${expanded === i ? '#4c6d80' : '#66869A'}`"
@@ -117,9 +117,8 @@
                 <v-timeline-item hide-dot>
                   <p
                     :class="[
-                      'ps-2',
                       isRTL ? 'font-weight-bold' : 'font-weight-light',
-                      isMobile && 'mt-6',
+                      isMobile ? 'mt-4 ps-5' : 'ps-2',
                       isMobile ? (isRTL ? 'f-16' : 'f-22') : 'f-22'
                     ]"
                     :style="`color: #59595b;${isRTL && (isMobile ? 'line-height:25px' : 'line-height:30px')}`"
@@ -143,11 +142,7 @@
                     </strong>
                   </template>
 
-                  <v-sheet
-                    :class="['ps-2', isMobile ? 'd-flex align-center' : 'pt-5']"
-                    min-height="70"
-                    style="line-height: 30px"
-                  >
+                  <v-sheet :class="[isMobile ? 'ps-5 pt-3' : 'ps-2 pt-5']" style="line-height: 30px">
                     <span
                       :class="['f-20 text-pre-line timeline-title font-weight-bold', isRTL && 'anjoman']"
                       v-html="child[`${$i18n.locale}_title`]"
@@ -397,17 +392,6 @@ export default {
 </script>
 
 <style lang="scss">
-.v-application--is-rtl {
-  .timeline-page {
-    .custom-border {
-      &:after {
-        right: -3px;
-        left: auto;
-      }
-    }
-  }
-}
-
 .timeline-page {
   .v-expansion-panel-header:before {
     display: none;
@@ -447,10 +431,21 @@ export default {
       background: currentColor !important;
     }
 
+    @media (max-width: 768px) {
+      .v-timeline-item__divider {
+        min-width: 56px;
+      }
+    }
+
     .v-timeline-item__dot {
       width: 70px;
       height: 70px;
       box-shadow: none !important;
+
+      @media (max-width: 768px) {
+        width: 56px;
+        height: 56px;
+      }
     }
 
     .v-timeline-item__inner-dot {
@@ -461,7 +456,7 @@ export default {
     .v-timeline-item {
       .timeline-title {
         color: #59595b;
-        transition: all ease 0.4s;
+        transition: 0.3s cubic-bezier(0.4, 0, 0.6, 1) !important;
       }
 
       &:hover {
@@ -476,8 +471,39 @@ export default {
     }
 
     &::before {
-      top: -30px;
+      top: -40px;
       z-index: 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .v-timeline--dense .v-timeline-item__body {
+      max-width: calc(100% - 66px);
+    }
+  }
+}
+
+.v-application--is-ltr {
+  @media (max-width: 768px) {
+    .v-timeline--dense:not(.v-timeline--reverse)::before {
+      left: 36px;
+    }
+  }
+}
+
+.v-application--is-rtl {
+  .timeline-page {
+    .custom-border {
+      &:after {
+        right: -3px;
+        left: auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .v-timeline--dense:not(.v-timeline--reverse)::before {
+        right: 36px;
+      }
     }
   }
 }
