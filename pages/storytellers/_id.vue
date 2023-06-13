@@ -75,7 +75,7 @@
             v-if="seeMore.header"
             :class="[
               'f-20 white--text text--darken-3',
-              isMobile ? 'text-center mt-8 mb-0 mx-8' : 'mt-16 mx-16',
+              isMobile ? 'text-center mt-8 mb-1' : 'mt-16 mx-16',
               isRTL ? 'font-weight-bold' : 'font-weight-light'
             ]"
             style="line-height: 30px"
@@ -86,7 +86,7 @@
         <v-expansion-panel-header
           :class="['pa-0 ma-0 white--text justify-center f-20 font-weight-bold bg-transparent', { 'ravi ': isRTL }]"
           hide-actions
-          style="height: 20px; margin-top: -12px !important"
+          style="height: 20px !important; margin-top: -12px !important"
           @click="seeMore.header = !seeMore.header"
           >{{ seeMore.header ? $t('button.see_less') : $t('button.see_more') }}
         </v-expansion-panel-header>
@@ -111,7 +111,7 @@
       style="max-height: 500px"
     />
     <div :class="['h-full white']">
-      <v-sheet :height="isMobile ? 10 : 16" class="custom-gradient w-full mt-1" />
+      <v-sheet :height="isMobile ? 10 : 20" class="custom-gradient w-full mt-1" />
       <div :class="[isMobile ? 'px-4' : 'px-16']">
         <h4
           :class="[
@@ -181,15 +181,20 @@
               </p>
               <p
                 :class="[
-                  'mb-0 text--darken-3',
-                  isMobile ? 'mt-2 f-24' : 'f-20 font-weight-light',
-                  isRTL ? 'ravi mr-2' : 'bel'
+                  'mb-0 text--darken-0',
+                  isRTL
+                    ? isMobile
+                      ? 'mt-2 f-24 cobelgrey--text text-center ravi'
+                      : 'f-20 font-weight-light ravi'
+                    : isMobile
+                    ? 'mt-2 f-20 cobelgrey--text text-center font-weight-light'
+                    : 'f-20 font-weight-light'
                 ]"
                 style="color: #939393"
               >
                 {{ isRTL ? faces[0].roleRTL : faces[0].role }}
               </p>
-              <v-divider v-if="isMobile" class="my-4" style="background-color: #00a59b"></v-divider>
+              <v-divider v-if="isMobile" class="my-4" style="background-color: #00a59b; width: 350px"></v-divider>
             </div>
           </div>
           <v-divider class="mx-4" color="#00a59b" vertical></v-divider>
@@ -204,26 +209,18 @@
             <v-expansion-panel class="transparent d-flex flex-column justify-center">
               <p
                 v-if="!seeMore.first"
-                :class="[
-                  'f-20 text--darken-3',
-                  isMobile ? 'text-center mt-0 mb-0 mx-8' : 'mt-16 mx-16',
-                  isRTL ? 'font-weight-bold mb-1' : 'font-weight-light'
-                ]"
-                style="line-height: 30px; color: #939393"
+                :class="['f-22 text-center mt-0 mb-0 mx-8', isRTL ? 'font-weight-bold mb-2' : ' font-weight-light']"
+                style="line-height: 30px"
               >
                 {{ isRTL ? textStory.compactRTL : textStory.compact }}
               </p>
               <v-expansion-panel-content class="text-center">
                 <p
                   v-if="seeMore.first"
-                  :class="[
-                    'f-20 text--darken-3',
-                    isMobile ? 'text-center' : 'mt-16 mx-16',
-                    isRTL ? 'font-weight-bold' : 'font-weight-light'
-                  ]"
-                  style="line-height: 30px; color: #939393"
+                  :class="['f-22 text-center mt-0 mb-0 mx-8', isRTL ? 'font-weight-bold mb-2' : ' font-weight-light']"
+                  style="line-height: 30px"
                 >
-                  {{ textStory.full }}
+                  {{ isRTL ? textStory.fullRTL : textStory.full }}
                 </p>
               </v-expansion-panel-content>
               <v-expansion-panel-header
@@ -259,15 +256,20 @@
               </p>
               <p
                 :class="[
-                  'mb-0 text--darken-3',
-                  isMobile ? 'mt-2 f-24' : 'f-20 font-weight-light',
-                  isRTL ? 'ravi mr-2' : 'bel'
+                  'mb-0 text--darken-0',
+                  isRTL
+                    ? isMobile
+                      ? 'mt-2 f-24 cobelgrey--text text-center ravi'
+                      : 'f-20 font-weight-light ravi'
+                    : isMobile
+                    ? 'mt-2 f-20 cobelgrey--text text-center font-weight-light'
+                    : 'f-20 font-weight-light'
                 ]"
                 style="color: #939393"
               >
                 {{ isRTL ? faces[1].roleRTL : faces[1].role }}
               </p>
-              <v-divider v-if="isMobile" class="my-4" style="background-color: #00a59b"></v-divider>
+              <v-divider v-if="isMobile" class="my-4" style="background-color: #00a59b; width: 350px"></v-divider>
             </div>
           </div>
           <v-divider class="mx-4" color="#00a59b" vertical></v-divider>
@@ -282,26 +284,18 @@
             <v-expansion-panel class="transparent d-flex flex-column justify-center">
               <p
                 v-if="!seeMore.second"
-                :class="[
-                  'f-20 text--darken-3',
-                  isMobile ? 'text-center mt-0 mb-0 mx-8' : 'mt-16 mx-16',
-                  isRTL ? 'font-weight-bold mb-1' : 'font-weight-light'
-                ]"
-                style="line-height: 30px; color: #939393"
+                :class="['f-22 text-center mt-0 mb-0 mx-8', isRTL ? 'font-weight-bold mb-2' : ' font-weight-light']"
+                style="line-height: 30px"
               >
                 {{ isRTL ? textStory.compactRTL : textStory.compact }}
               </p>
               <v-expansion-panel-content class="text-center">
                 <p
                   v-if="seeMore.second"
-                  :class="[
-                    'f-20 text--darken-3',
-                    isMobile ? 'text-center' : 'mt-16 mx-16',
-                    isRTL ? 'font-weight-bold' : 'font-weight-light'
-                  ]"
-                  style="line-height: 30px; color: #939393"
+                  :class="['f-22 text-center mt-0 mb-0 mx-8', isRTL ? 'font-weight-bold mb-2' : ' font-weight-light']"
+                  style="line-height: 30px"
                 >
-                  {{ textStory.full }}
+                  {{ isRTL ? textStory.fullRTL : textStory.full }}
                 </p>
               </v-expansion-panel-content>
               <v-expansion-panel-header
@@ -378,7 +372,9 @@ export default {
         compact: 'In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the',
         compactRTL:
           'فرايند منصفانه، به عنوان يك ارزش به مقام انسانها، به يك نياز پايهاي در آنان پاسخ ميدهد. سه اصل عدالت در فرايندها عبارتند از: تعامل، شفافيت',
-        full: `${this.$t('storytellersPage.single_detail_description')}`
+        full: 'In Cobel Group, acknowledge importance of woman empowerment and inspiration to all sectors of the society and are committed to enhance their physical, psychological and social quality of life through high quality and innovative solutions.',
+        fullRTL:
+          'فرايند منصفانه، به عنوان يك ارزش به مقام انسانها، به يك نياز پايهاي در آنان پاسخ ميدهد. سه اصل عدالت در فرايندها عبارتند از: تعامل، شفافيت و وضوح انتظارات.'
       }
     };
   }
@@ -391,5 +387,9 @@ export default {
 }
 .desktop-story-single-description {
   line-height: 40px !important;
+}
+.v-expansion-panel--active > .v-expansion-panel-header {
+  min-height: 20px;
+  margin-bottom: 20px !important;
 }
 </style>

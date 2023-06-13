@@ -61,7 +61,7 @@ export default {
     fields: {
       full_name: 'Full Name',
       email: 'Email Address',
-      mobile: 'Mobile',
+      management: 'Management',
       topic: 'Topic',
       description: 'Description'
     }

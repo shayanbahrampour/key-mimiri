@@ -39,7 +39,7 @@
             <p class="f-16 mb-0" style="color: #59595b">Writed by: mehrab mohammadi</p>
             <p class="f-16 mb-0" style="color: #59595b">Published 3 month ago</p>
           </div>
-          <div v-else="!isRTL" class="d-flex justify-space-between mt-4 ravi" style="width: 60%">
+          <div v-else class="d-flex justify-space-between mt-4 ravi" style="width: 50%">
             <p class="f-14 mb-0" style="color: #59595b">زمان مطالعه: 13 دقیقه</p>
             <p class="f-14 mb-0" style="color: #59595b">نویسنده: مهراب محمدی</p>
             <p class="f-14 mb-0" style="color: #59595b">منتشر شده: 3 ماه پیش</p>
@@ -58,7 +58,10 @@
           <v-img height="200" src="/images/temp/cover-2.png" />
           <div class="d-flex flex-column pt-2 mx-0 flex">
             <h4
-              :class="['text--darken-3 font-weight-regular my-4 custom-card-title', isRTL ? 'ravi f-25' : 'bel f-28']"
+              :class="[
+                'text--darken-3 my-4 custom-card-title',
+                isRTL ? 'ravi f-25 font-weight-bold' : 'bel f-28 font-weight-regular'
+              ]"
               style="color: #59595b"
             >
               {{ isRTL ? itemsRTL.title : itemsLTR.title }}
@@ -68,29 +71,29 @@
             </p>
             <div v-if="!isRTL" class="d-flex flex-column font-weight-light" style="width: 90%">
               <p class="f-14 mb-2 d-flex align-center" style="color: #59595b">
-                <v-icon class="me-1" size="12">mdi-clock-outline</v-icon>
+                <v-img class="me-1" contain height="12" max-width="12" src="/images/news/timer.svg" />
                 13min
               </p>
               <p class="f-14 mb-2 d-flex align-center" style="color: #59595b">
-                <v-icon class="me-1" size="12">mdi-pencil-outline</v-icon>
+                <v-img class="me-1" contain height="12" max-width="12" src="/images/news/pen-nib.svg" />
                 mehrab mohammadi
               </p>
               <p class="f-14 mb-0 d-flex align-center" style="color: #59595b">
-                <v-icon class="me-1" size="12">mdi-bullhorn-variant-outline</v-icon>
+                <v-img class="me-1" contain height="12" max-width="12" src="/images/news/bullhorn.svg" />
                 3 months ago
               </p>
             </div>
             <div v-else class="d-flex flex-column font-weight-bold" style="width: 90%">
               <p class="f-16 mb-2 d-flex align-center" style="color: #59595b">
-                <v-icon class="me-1" size="12">mdi-clock-outline</v-icon>
+                <v-img class="me-1" contain height="12" max-width="12" src="/images/news/timer.svg" />
                 ۱۳ دقیقه
               </p>
               <p class="f-16 mb-2 d-flex align-center" style="color: #59595b">
-                <v-icon class="me-1" size="12">mdi-pencil-outline</v-icon>
+                <v-img class="me-1" contain height="12" max-width="12" src="/images/news/pen-nib.svg" />
                 معصومه سیدی
               </p>
               <p class="f-16 mb-0 d-flex align-center" style="color: #59595b">
-                <v-icon class="me-1" size="12">mdi-bullhorn-variant-outline</v-icon>
+                <v-img class="me-1" contain height="12" max-width="12" src="/images/news/bullhorn.svg" />
                 زمان انتشار ۳ ماه قبل
               </p>
             </div>

@@ -31,7 +31,7 @@
             <p
               :class="[
                 'white--text text--darken-3 font-weight-light description-des f-20 mt-0 mb-10',
-                isRTL ? 'ravi mt-4' : undefined
+                isRTL ? 'ravi mt-2' : undefined
               ]"
               style="max-width: 70%"
             >
@@ -40,7 +40,7 @@
           </div>
           <v-btn
             :class="[
-              'rounded-xl d-flex justify-center white--text font-weight-regular f-18 mt-10 mb-6',
+              'rounded-xl d-flex justify-center white--text font-weight-regular f-18 mt-10 mb-8',
               isRTL ? 'ravi' : undefined
             ]"
             :to="localePath(`/career/forum?job=${true}`)"
@@ -128,7 +128,7 @@ export default {};
     }
 
     .container-scrolled-rtl-des {
-      margin-top: -110px !important;
+      margin-top: -100px !important;
       flex-direction: row !important;
       align-items: center !important;
 

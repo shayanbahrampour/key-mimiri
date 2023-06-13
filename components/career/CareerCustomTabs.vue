@@ -11,7 +11,6 @@
         isRTL ? 'ravi' : 'bel',
         index <= model || isLast ? 'darkGreen--text' : 'teaGreen--text'
       ]"
-      :disabled="isMobile"
       :ripple="false"
       @click="$emit('select', index)"
     >
@@ -52,6 +51,9 @@ export default {
 
 <style lang="scss">
 .custom-career-tabs {
+  .tab-news:hover {
+    color: #4c6d80 !important;
+  }
   .v-tab--disabled {
     opacity: 1 !important;
   }
@@ -67,12 +69,6 @@ export default {
   .v-slide-group__content {
     flex-direction: row;
     justify-content: space-evenly;
-  }
-}
-
-.tab-news {
-  &:hover {
-    color: #4c6d80 !important;
   }
 }
 </style>

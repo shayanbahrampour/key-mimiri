@@ -73,7 +73,7 @@
               'slategrey--text',
               isRTL
                 ? isMobile
-                  ? 'f-40 text-end ravi'
+                  ? 'f-30 text-end ravi'
                   : 'f-32 text-end ravi font-weight-bold my-4'
                 : isMobile
                 ? 'f-40 text-start bel font-weight-regular'

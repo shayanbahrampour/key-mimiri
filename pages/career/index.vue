@@ -19,13 +19,13 @@
               {{ $t('career.title') }}
             </p>
             <div v-if="!isMobile" class="d-flex justify-space-between" style="width: 180px">
-              <v-btn height="50" min-width="50" outlined style="border-radius: 35%; border: 3px solid white" width="50">
+              <v-btn height="50" min-width="50" outlined style="border-radius: 35%; border: 2px solid white" width="50">
                 <v-img height="20" max-width="20" src="/images/icons/linkedin.png" />
               </v-btn>
-              <v-btn height="50" min-width="50" outlined style="border-radius: 35%; border: 3px solid white" width="50">
+              <v-btn height="50" min-width="50" outlined style="border-radius: 35%; border: 2px solid white" width="50">
                 <v-img height="20" max-width="20" src="/images/icons/whatsapp.png" />
               </v-btn>
-              <v-btn height="50" min-width="50" outlined style="border-radius: 35%; border: 3px solid white" width="50">
+              <v-btn height="50" min-width="50" outlined style="border-radius: 35%; border: 2px solid white" width="50">
                 <v-img height="20" max-width="20" src="/images/icons/telegram.png" />
               </v-btn>
             </div>
@@ -81,7 +81,7 @@
             {{ $t('career.description') }}
           </p>
           <div v-if="isMobile" :class="[isMobile ? 'mt-4 mb-6' : undefined]">
-            <v-btn height="50" min-width="50" outlined style="border-radius: 35%; border: 3px solid white" width="50">
+            <v-btn height="50" min-width="50" outlined style="border-radius: 35%; border: 2px solid white" width="50">
               <v-img height="20" max-width="20" src="/images/icons/linkedin.png" />
             </v-btn>
             <v-btn
@@ -89,12 +89,12 @@
               height="50"
               min-width="50"
               outlined
-              style="border-radius: 35%; border: 3px solid white"
+              style="border-radius: 35%; border: 2px solid white"
               width="50"
             >
               <v-img height="20" max-width="20" src="/images/icons/whatsapp.png" />
             </v-btn>
-            <v-btn height="50" min-width="50" outlined style="border-radius: 35%; border: 3px solid white" width="50">
+            <v-btn height="50" min-width="50" outlined style="border-radius: 35%; border: 2px solid white" width="50">
               <v-img height="20" max-width="20" src="/images/icons/telegram.png" />
             </v-btn>
           </div>
@@ -115,7 +115,7 @@
       <div v-if="!isMobile" class="d-flex justify-center mt-6 px-16">
         <div class="d-flex align-center justify-center">
           <h4
-            :class="['bel f-40 white--text text--darken-3 font-weight-regular', `text-${isRTL ? 'start' : 'end'}`]"
+            :class="['f-40 white--text text--darken-3 font-weight-regular', `text-${isRTL ? 'start ravi' : 'end bel'}`]"
             style="width: 30%"
           >
             {{ $t('career.divider_title') }}
@@ -191,7 +191,7 @@
           elevation="0"
           height="40"
         >
-          {{ $t('career.card_action') }}
+          <p :class="isRTL ? 'mt-5' : 'mt-4'">{{ $t('career.card_action') }}</p>
         </v-btn>
       </v-card>
       <div
@@ -255,5 +255,9 @@ export default {
 
 .desktop-screen-career {
   max-width: 90vw;
+}
+.v-expansion-panel--active > .v-expansion-panel-header {
+  min-height: 20px;
+  margin-bottom: 20px !important;
 }
 </style>

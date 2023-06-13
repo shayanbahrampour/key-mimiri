@@ -37,8 +37,9 @@
             :label="$t('career.steps.file.address')"
             :prepend-icon="false"
             clear-icon="mdi-delete black--text"
-            dense
+            :height="isMobile && isRTL ? '60' : undefined"
             filled
+            :dense="!isMobile || !isRTL"
             hide-details
             rounded
           ></v-file-input>

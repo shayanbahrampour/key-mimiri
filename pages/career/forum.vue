@@ -11,11 +11,16 @@
           <p
             :class="[
               'white--text mb-0 text--darken-3',
-              isMobile ? 'text-center f-36' : 'f-60',
-              isRTL ? 'ravi font-weight-bold' : 'bel font-weight-regular'
+              isRTL
+                ? isMobile
+                  ? 'text-center f-36 ravi font-weight-bold'
+                  : 'f-50 ravi font-weight-bold'
+                : isMobile
+                ? 'text-center f-36 bel font-weight-regular'
+                : 'f-60 bel font-weight-regular'
             ]"
           >
-            {{ $t('career.forum.forum_title') }}
+            {{ $t('career.card_title') }}
           </p>
           <p
             v-if="isMobile"
@@ -50,6 +55,7 @@
         :model="counter"
         :tabs="$route.query.job ? certainJob : apply"
         @select="counter = $event"
+        id="top"
       />
       <Component :is="steps[counter].component" :class="{ 'pe-0': !isMobile }"></Component>
       <div
@@ -62,28 +68,26 @@
           v-if="counter !== 0"
           :class="[
             'rounded-xl d-flex justify-center slategrey--text font-weight-bold',
-            isMobile ? 'f-20' : 'f-14 mb-16 ms-4',
-            isRTL ? 'ravi' : undefined
+            isRTL ? (isMobile ? 'f-20' : 'f-20 mb-16 ms-4') : isMobile ? 'f-20' : 'f-14 mb-16 ms-4'
           ]"
-          :min-width="!isMobile ? '300' : '80%'"
+          :min-width="!isMobile ? '250' : '80%'"
           color="slategrey"
           height="40"
           outlined
-          @click="counter--"
+          @click="counter-- && $vuetify.goTo('#top')"
         >
           {{ $t('button.back') }}
         </v-btn>
         <v-btn
           :class="[
             'rounded-xl d-flex justify-center white--text font-weight-bold',
-            isMobile ? 'f-20' : 'f-14 mb-16 me-4',
-            isRTL ? 'ravi' : undefined
+            isRTL ? (isMobile ? 'f-20' : 'f-20 mb-16 me-4') : isMobile ? 'f-20' : 'f-14 mb-16 me-4'
           ]"
-          :min-width="!isMobile ? '300' : '80%'"
+          :min-width="!isMobile ? '250' : '80%'"
           color="slategrey"
           elevation="0"
           height="40"
-          @click="counter++"
+          @click="counter++ && $vuetify.goTo('#top')"
         >
           {{
             (counter === 6 && !$route.query.job) || (counter === 5 && $route.query.job)
@@ -106,7 +110,7 @@
           color="slategrey"
           elevation="0"
           height="40"
-          @click="counter++"
+          @click="counter++ && $vuetify.goTo('#top')"
         >
           {{
             (counter === 6 && !$route.query.job) || (counter === 5 && $route.query.job)
@@ -119,13 +123,13 @@
           :class="[
             'rounded-xl d-flex justify-center slategrey--text font-weight-bold',
             isMobile ? 'f-20 mb-16' : 'f-14 mb-16 ms-4',
-            isRTL ? 'ravi' : undefined
+            isRTL ? 'ravi pt-2' : undefined
           ]"
           :min-width="!isMobile ? '300' : '80%'"
           color="slategrey"
           height="40"
           outlined
-          @click="counter--"
+          @click="counter-- && $vuetify.goTo('#top')"
         >
           {{ $t('button.back') }}
         </v-btn>

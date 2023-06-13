@@ -9,7 +9,7 @@
         height="50"
         min-width="50"
         outlined
-        style="border-radius: 35%; border: 3px solid slategrey"
+        style="border-radius: 35%; border: 2px solid slategrey"
         width="50"
       >
         <v-img height="18" max-width="18" src="/images/icons/linkedin-primary.png" />
@@ -19,7 +19,7 @@
         height="50"
         min-width="50"
         outlined
-        style="border-radius: 35%; border: 3px solid slategrey"
+        style="border-radius: 35%; border: 2px solid slategrey"
         width="50"
       >
         <v-img height="18" max-width="18" src="/images/icons/whatsapp-primary.png" />
@@ -29,7 +29,7 @@
         height="50"
         min-width="50"
         outlined
-        style="border-radius: 35%; border: 3px solid slategrey"
+        style="border-radius: 35%; border: 2px solid slategrey"
         width="50"
       >
         <v-img height="18" max-width="18" src="/images/icons/telegram-primary.png" />

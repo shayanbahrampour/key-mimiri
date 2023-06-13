@@ -18,7 +18,7 @@
         >
           <div :class="['d-flex', isMobile ? 'flex-column align-center justify-center' : undefined]">
             <v-img
-              :class="['me-4', !isMobile ? 'elevation-3' : undefined]"
+              class="me-4"
               :height="isMobile ? '140' : '155'"
               :max-width="isMobile ? '140' : '155'"
               src="/images/face/bahador.png"
@@ -38,14 +38,19 @@
               <p
                 :class="[
                   'mb-0 text--darken-0',
-                  isMobile ? 'mt-2 f-24 cobelgrey--text' : 'f-20 font-weight-light',
-                  isRTL ? 'ravi' : 'bel'
+                  isRTL
+                    ? isMobile
+                      ? 'mt-2 f-24 cobelgrey--text text-center ravi'
+                      : 'f-20 font-weight-light ravi'
+                    : isMobile
+                    ? 'mt-2 f-20 cobelgrey--text text-center font-weight-light'
+                    : 'f-20 font-weight-light'
                 ]"
                 style="color: #939393"
               >
                 {{ isRTL ? itemsRTL.role : items.role }}
               </p>
-              <v-divider v-if="isMobile" class="mt-2 mb-6" style="background-color: #00a59b"></v-divider>
+              <v-divider v-if="isMobile" class="mt-2 mb-6" style="background-color: #00a59b; width: 350px"></v-divider>
             </div>
           </div>
           <v-divider class="mx-4" color="#00a59b" vertical></v-divider>
@@ -59,13 +64,15 @@
           <p
             v-else
             :class="[
-              'f-24 text-center mx-6 mb-0 text--darken-0 cobelgrey--text font-weight-light',
-              { 'ravi mobile-story-description': isRTL }
+              'text-center mx-6 mb-0 text--darken-0 cobelgrey--text f-22',
+              isRTL ? 'mobile-story-description font-weight-bold' : 'font-weight-light'
             ]"
           >
             {{ isRTL ? itemsRTL.description : items.description }}
             <br />
-            <span :class="['cobelgrey--text font-weight-bold', { 'ravi ': isRTL }]">{{ $t('shared.see_more') }}</span>
+            <span :class="['cobelgrey--text font-weight-bold', { 'ravi ': isRTL }]">{{
+              isRTL ? 'بیشتر ببینید' : 'see more'
+            }}</span>
           </p>
         </div>
       </v-card>
