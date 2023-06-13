@@ -85,7 +85,14 @@
                   class="rounded-circle me-5 flex-shrink-0 position-relative z-1 transition-ease-in-out"
                 />
 
-                <div :class="['flex-grow-1 d-flex', isMobile ? 'flex-column pt-5' : 'align-center']">
+                <div
+                  :class="[
+                    'flex-grow-1 d-flex',
+                    isMobile ? 'flex-column' : 'align-center',
+                    isMobile && !isRTL && 'pt-4'
+                  ]"
+                  :style="isRTL && isMobile && `padding-top: 20px`"
+                >
                   <span
                     :class="[isRTL ? 'ravi f-26' : 'bel']"
                     :style="`color: ${expanded === i ? '#4c6d80' : '#66869A'}`"
