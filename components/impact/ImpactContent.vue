@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-row :class="['position-relative z-1 ltr', { 'custom-shadow pb-4': isMobile }]" no-gutters>
-      <v-col cols="12" lg="6" md="6" :class="isRTL && 'rtl'">
+      <v-col :class="isRTL && 'rtl'" cols="12" lg="6" md="6">
         <v-sheet :class="[`overflow-hidden ${!isMobile && 'rounded-r-xl'}`]">
           <v-img max-height="calc(100vh - 150px)" src="/images/temp/cover-5-vertical.png" />
           <v-sheet v-if="!isMobile" class="extra-space white--text ps-16 pe-10 py-8" color="slategrey">
@@ -14,7 +14,7 @@
           </v-sheet>
         </v-sheet>
       </v-col>
-      <v-col cols="12" lg="6" md="6" :class="isRTL && 'rtl'">
+      <v-col :class="isRTL && 'rtl'" cols="12" lg="6" md="6">
         <div :class="[isMobile ? 'pa-5 py-10' : `py-16 px-16 mt-12`]">
           <h1
             :class="[
@@ -140,7 +140,7 @@
       </div>
       <v-sheet :class="[isMobile ? 'px-6' : 'px-16']" style="color: #59595b">
         <v-row :class="[isMobile ? 'pt-6' : 'mt-lg-6 py-16', isRTL && 'ltr']">
-          <v-col lg="7" md="6" xl="8" :class="isRTL && 'rtl'">
+          <v-col :class="isRTL && 'rtl'" lg="7" md="6" xl="8">
             <h3
               :class="[
                 'font-weight-regular success--text mb-4 text-center text-sm-start',
@@ -221,8 +221,8 @@
           <template v-if="!isMobile">
             <v-spacer />
             <nuxt-link
-              :to="localePath('/impact')"
               :class="['text-decoration-none f-18', isRTL && 'anjoman font-weight-bold']"
+              :to="localePath('/impact')"
               style="color: #939393 !important"
             >
               {{ $t('impactPage.see_all') }}

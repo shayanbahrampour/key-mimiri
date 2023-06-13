@@ -80,9 +80,9 @@
               <div :class="['d-flex', isMobile ? 'align-start' : 'align-center']">
                 <v-sheet
                   :color="expanded === i ? item.active : item.color"
-                  class="rounded-circle me-5 flex-shrink-0 position-relative z-1 transition-ease-in-out"
                   :height="isMobile ? 60 : 76"
                   :width="isMobile ? 60 : 76"
+                  class="rounded-circle me-5 flex-shrink-0 position-relative z-1 transition-ease-in-out"
                 />
 
                 <div :class="['flex-grow-1 d-flex', isMobile ? 'flex-column pt-5' : 'align-center']">
