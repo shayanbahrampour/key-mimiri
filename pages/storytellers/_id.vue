@@ -169,7 +169,7 @@
               src="/images/face/bahador.png"
               style="border-radius: 50%"
             />
-            <div class="d-flex flex-column justify-center ms-4">
+            <div :class="['d-flex flex-column justify-center', { 'ms-4': !isMobile }]">
               <p
                 :class="[
                   'cobelgrey--text mb-0 text--darken-3',
@@ -244,7 +244,7 @@
               src="/images/face/mohammad.png"
               style="border-radius: 50%"
             />
-            <div class="d-flex flex-column justify-center ms-4">
+            <div :class="['d-flex flex-column justify-center', { 'ms-4': !isMobile }]">
               <p
                 :class="[
                   'cobelgrey--text mb-0 text--darken-3',
