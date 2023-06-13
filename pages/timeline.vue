@@ -120,12 +120,7 @@
               </div>
             </v-expansion-panel-header>
             <v-expansion-panel-content :class="isRTL ? 'anjoman font-weight-bold' : ''">
-              <v-timeline
-                :style="`color: ${item.color}`"
-                align-top
-                :class="['pt-0', isMobile ? 'ms-n2' : 'ms-n3']"
-                dense
-              >
+              <v-timeline :style="`color: ${item.color}`" align-top :class="['pt-0 ms-n3']" dense>
                 <v-timeline-item hide-dot>
                   <p
                     :class="[
@@ -499,7 +494,11 @@ export default {
 .v-application--is-ltr {
   @media (max-width: 768px) {
     .v-timeline--dense:not(.v-timeline--reverse)::before {
-      left: 36px;
+      left: 40px;
+    }
+
+    .v-timeline-item__inner-dot {
+      margin-left: 3px;
     }
   }
 }
@@ -515,7 +514,11 @@ export default {
 
     @media (max-width: 768px) {
       .v-timeline--dense:not(.v-timeline--reverse)::before {
-        right: 36px;
+        right: 40px;
+      }
+
+      .v-timeline-item__inner-dot {
+        margin-right: 3px;
       }
     }
   }
