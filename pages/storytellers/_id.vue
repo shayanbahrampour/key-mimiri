@@ -182,8 +182,13 @@
               <p
                 :class="[
                   'mb-0 text--darken-0',
-                  isMobile ? 'mt-2 f-24 cobelgrey--text text-center' : 'f-20 font-weight-light',
-                  isRTL ? 'ravi' : undefined
+                  isRTL
+                    ? isMobile
+                      ? 'mt-2 f-24 cobelgrey--text text-center ravi'
+                      : 'f-20 font-weight-light ravi'
+                    : isMobile
+                    ? 'mt-2 f-20 cobelgrey--text text-center font-weight-light'
+                    : 'f-20 font-weight-light'
                 ]"
                 style="color: #939393"
               >
@@ -204,24 +209,16 @@
             <v-expansion-panel class="transparent d-flex flex-column justify-center">
               <p
                 v-if="!seeMore.first"
-                :class="[
-                  'f-20 text--darken-3',
-                  isMobile ? 'text-center mt-0 mb-0 mx-8' : 'mt-16 mx-16',
-                  isRTL ? 'ravi mb-1' : 'font-weight-light'
-                ]"
-                style="line-height: 30px; color: #939393"
+                :class="['f-22 text-center mt-0 mb-0 mx-8', isRTL ? 'font-weight-bold mb-2' : ' font-weight-light']"
+                style="line-height: 30px"
               >
                 {{ isRTL ? textStory.compactRTL : textStory.compact }}
               </p>
               <v-expansion-panel-content class="text-center">
                 <p
                   v-if="seeMore.first"
-                  :class="[
-                    'f-20 text--darken-3',
-                    isMobile ? 'text-center mb-0 mx-8' : 'mt-16 mx-16',
-                    isRTL ? 'ravi' : 'font-weight-light'
-                  ]"
-                  style="line-height: 30px; color: #939393"
+                  :class="['f-22 text-center mt-0 mb-0 mx-8', isRTL ? 'font-weight-bold mb-2' : ' font-weight-light']"
+                  style="line-height: 30px"
                 >
                   {{ isRTL ? textStory.fullRTL : textStory.full }}
                 </p>
@@ -260,8 +257,13 @@
               <p
                 :class="[
                   'mb-0 text--darken-0',
-                  isMobile ? 'mt-2 f-24 cobelgrey--text text-center' : 'f-20 font-weight-light',
-                  isRTL ? 'ravi' : undefined
+                  isRTL
+                    ? isMobile
+                      ? 'mt-2 f-24 cobelgrey--text text-center ravi'
+                      : 'f-20 font-weight-light ravi'
+                    : isMobile
+                    ? 'mt-2 f-20 cobelgrey--text text-center font-weight-light'
+                    : 'f-20 font-weight-light'
                 ]"
                 style="color: #939393"
               >
@@ -282,24 +284,16 @@
             <v-expansion-panel class="transparent d-flex flex-column justify-center">
               <p
                 v-if="!seeMore.second"
-                :class="[
-                  'f-20 text--darken-3',
-                  isMobile ? 'text-center mt-0 mb-0 mx-8' : 'mt-16 mx-16',
-                  isRTL ? 'ravi mb-1' : 'font-weight-light'
-                ]"
-                style="line-height: 30px; color: #939393"
+                :class="['f-22 text-center mt-0 mb-0 mx-8', isRTL ? 'font-weight-bold mb-2' : ' font-weight-light']"
+                style="line-height: 30px"
               >
                 {{ isRTL ? textStory.compactRTL : textStory.compact }}
               </p>
               <v-expansion-panel-content class="text-center">
                 <p
                   v-if="seeMore.second"
-                  :class="[
-                    'f-20 text--darken-3',
-                    isMobile ? 'text-center mx-8 mb-0' : 'mt-16 mx-16',
-                    isRTL ? 'ravi' : 'font-weight-light'
-                  ]"
-                  style="line-height: 30px; color: #939393"
+                  :class="['f-22 text-center mt-0 mb-0 mx-8', isRTL ? 'font-weight-bold mb-2' : ' font-weight-light']"
+                  style="line-height: 30px"
                 >
                   {{ isRTL ? textStory.fullRTL : textStory.full }}
                 </p>

@@ -2,19 +2,24 @@
   <v-form v-model="flag.isValid" class="mt-6 mb-16">
     <v-row :class="isRTL && 'ltr'">
       <v-col cols="12" md="6">
-        <v-text-field
+        <v-select
           v-model="model.mobile"
-          :class="['mb-4 f-20', { ' ravi': isRTL }]"
+          :class="['mb-4 f-20 management-select', { 'rtl ravi': isRTL }]"
+          :items="isRTL ? itemsRTL : items"
           :label="$t('contact.fields.management')"
+          :append-icon="!isRTL ? 'mdi-triangle-down 10 slategrey--text' : null"
+          :prepend-inner-icon="isRTL ? 'mdi-triangle-down 10 slategrey--text' : undefined"
+          :append-inner-icon="false"
           :rules="[rule.required, rule.mobile]"
           dense
           filled
           hide-details
+          menu-props="auto"
           rounded
-        ></v-text-field>
+        ></v-select>
         <v-text-field
           v-model="model.topic"
-          :class="[!isMobile ? 'mb-4 f-20' : 'mb-0 f-20', { ' ravi': isRTL }]"
+          :class="['mb-4 f-20', { ' ravi': isRTL }]"
           :label="$t('contact.fields.topic')"
           :rules="[rule.required]"
           dense
@@ -34,7 +39,7 @@
         ></v-text-field>
         <v-text-field
           v-model="model.email"
-          :class="['mb-4 f-20', { ' ravi': isRTL }]"
+          :class="[!isMobile ? 'mb-4 f-20' : 'mb-0 f-20', { ' ravi': isRTL }]"
           :label="$t('contact.fields.email')"
           :rules="[rule.required, rule.email]"
           dense
@@ -111,7 +116,9 @@ export default {
         mobile: null,
         topic: null,
         description: null
-      }
+      },
+      items: ['option 1', 'option 2', 'option 3'],
+      itemsRTL: ['مالی', 'حسابداری', 'منابع انسانی']
     };
   },
   methods: {

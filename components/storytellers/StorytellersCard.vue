@@ -38,8 +38,13 @@
               <p
                 :class="[
                   'mb-0 text--darken-0',
-                  isMobile ? 'mt-2 f-24 cobelgrey--text text-center' : 'f-20 font-weight-light',
-                  isRTL ? 'ravi' : 'bel'
+                  isRTL
+                    ? isMobile
+                      ? 'mt-2 f-24 cobelgrey--text text-center ravi'
+                      : 'f-20 font-weight-light ravi'
+                    : isMobile
+                    ? 'mt-2 f-20 cobelgrey--text text-center font-weight-light'
+                    : 'f-20 font-weight-light'
                 ]"
                 style="color: #939393"
               >
@@ -59,8 +64,8 @@
           <p
             v-else
             :class="[
-              'text-center mx-6 mb-0 text--darken-0 cobelgrey--text font-weight-light',
-              isRTL ? 'ravi mobile-story-description f-20' : 'f24'
+              'text-center mx-6 mb-0 text--darken-0 cobelgrey--text f-22',
+              isRTL ? 'mobile-story-description font-weight-bold' : 'font-weight-light'
             ]"
           >
             {{ isRTL ? itemsRTL.description : items.description }}
