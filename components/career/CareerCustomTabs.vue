@@ -54,6 +54,7 @@ export default {
   .tab-news:hover {
     color: #4c6d80 !important;
   }
+
   .v-tab--disabled {
     opacity: 1 !important;
   }

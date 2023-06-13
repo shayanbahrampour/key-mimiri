@@ -250,7 +250,8 @@ export default {
         'Patients are the center of all projects being conducted in the Cobel Group. Stories of hope, innovation, collaboration, inspiration and empowerment helps us measure our impact and inspire us to create more.'
     },
     storytellers: {
-      title: 'storytellers'
+      title: 'storytellers',
+      click_for_more: 'click for more'
     },
     tell_us_your_story: 'Tell Us Your Story',
     click_here: 'Click Here'
@@ -262,6 +263,7 @@ export default {
       description:
         'Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women.'
     },
+    share_it: 'Share it',
     not_found: 'Not Found',
     read_time: 'Read time',
     written_by: 'Written by',

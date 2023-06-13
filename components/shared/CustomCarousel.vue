@@ -50,10 +50,10 @@
             v-if="title"
             :class="[
               'white--text font-weight-regular text-uppercase',
-              isMobile ? (isRTL ? 'f-40' : 'f-50') : isRTL ? 'f-50' : 'f-70',
+              isMobile ? (isRTL ? 'f-40' : 'f-50') : isRTL ? 'f-70' : 'f-70',
               isRTL ? 'ravi' : 'bel'
             ]"
-            :style="isMobile ? 'margin: -100px 0 40px' : 'margin: -150px 0 90px'"
+            :style="isMobile ? 'margin: -100px 0 40px' : `margin: -150px 0 ${isRTL ? '70px' : '90px'}`"
           >
             {{ title }}
           </h1>
@@ -75,7 +75,7 @@
                 :class="[
                   'white--text',
                   isMobile ? 'f-24' : isRTL ? 'f-26' : 'f-30',
-                  isRTL ? 'font-weight-bold anjoman' : 'font-weight-regular'
+                  isRTL ? 'ravi font-weight-regular' : 'font-weight-regular'
                 ]"
                 :style="`line-height: ${isMobile ? '30px' : isRTL && '35px'}`"
               >

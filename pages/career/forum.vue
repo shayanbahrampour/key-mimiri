@@ -50,12 +50,12 @@
       style="line-height: 2; width: 100%; min-height: 60vh"
     >
       <AppSteps
+        id="top"
         :class="[!isMobile ? 'mt-16' : 'mt-4 mb-6']"
         :isLast="($route.query.job && counter === 6) || (!$route.query.job && counter === 7) ? true : false"
         :model="counter"
         :tabs="$route.query.job ? certainJob : apply"
         @select="counter = $event"
-        id="top"
       />
       <Component :is="steps[counter].component" :class="{ 'pe-0': !isMobile }"></Component>
       <div

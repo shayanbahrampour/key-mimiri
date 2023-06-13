@@ -4,8 +4,8 @@
       <v-sheet
         v-if="activeItem"
         :color="activeItem.color"
-        :height="isMobile ? 270 : 450"
-        :width="isMobile ? 270 : 450"
+        :height="isMobile ? 270 : lgAndUp ? 450 : 360"
+        :width="isMobile ? 270 : lgAndUp ? 450 : 360"
         class="position-absolute z-1 top-0 end-0 start-0 mx-auto rounded-circle transition-ease-in-out"
         style="mix-blend-mode: color; margin-top: -70px; opacity: 0.69"
       />
@@ -39,10 +39,12 @@
       >
         <div class="w-full">
           <h3
-            :class="`${isMobile ? 'f-33 text-center' : lgAndUp ? 'f-70' : 'f-65'} ${
+            :class="`${isMobile ? 'f-33 text-center' : lgAndUp ? (isRTL ? 'f-65' : 'f-70') : isRTL ? 'f-55' : 'f-65'} ${
               isRTL ? 'ravi font-weight-regular' : 'bel font-weight-regular mb-3'
             }`"
-            :style="`${isRTL ? 'line-height:90px' : ''}; ${!isMobile && `max-width: ${isRTL ? '750px' : '900px'}`};`"
+            :style="`${isRTL && !isMobile && 'line-height: 80px'}; ${
+              lgAndUp && `max-width: ${isRTL ? '700px' : '900px'}`
+            };`"
           >
             {{ $t('homePage.services.slider.title') }}
           </h3>
@@ -51,7 +53,7 @@
               'ms-auto',
               isMobile ? 'text-center f-18' : 'f-25',
               isRTL ? 'font-weight-bold' : 'font-weight-light',
-              !lgAndUp && isRTL && 'mb-4'
+              !lgAndUp && !isMobile && isRTL && 'mb-4'
             ]"
             :style="`${isMobile && isRTL && 'line-height:30px'};${
               !isMobile &&

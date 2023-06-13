@@ -385,9 +385,11 @@ export default {
 .desktop-story-single-title {
   line-height: 60px !important;
 }
+
 .desktop-story-single-description {
   line-height: 40px !important;
 }
+
 .v-expansion-panel--active > .v-expansion-panel-header {
   min-height: 20px;
   margin-bottom: 20px !important;

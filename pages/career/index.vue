@@ -256,6 +256,7 @@ export default {
 .desktop-screen-career {
   max-width: 90vw;
 }
+
 .v-expansion-panel--active > .v-expansion-panel-header {
   min-height: 20px;
   margin-bottom: 20px !important;

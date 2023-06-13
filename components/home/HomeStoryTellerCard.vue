@@ -32,10 +32,11 @@
       height="349"
     >
       <v-scroll-x-transition hide-on-leave>
-        <div v-if="flag.showContent" class="white--text pe-10 bel f-20">
-          Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women
+        <div v-if="flag.showContent" :class="['white--text pe-10 f-20', isRTL ? 'ravi' : 'bel']">
+          {{ item.description }}
+
           <nuxt-link :to="localePath(`/storytellers/${item.id}`)" class="white--text text-decoration-none mt-5 d-block">
-            click for more
+            {{ $t('homePage.storytellers.click_for_more') }}
           </nuxt-link>
         </div>
       </v-scroll-x-transition>
