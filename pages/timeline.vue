@@ -120,7 +120,12 @@
               </div>
             </v-expansion-panel-header>
             <v-expansion-panel-content :class="isRTL ? 'anjoman font-weight-bold' : ''">
-              <v-timeline :style="`color: ${item.color}`" align-top class="ms-n2 pt-0" dense>
+              <v-timeline
+                :style="`color: ${item.color}`"
+                align-top
+                :class="['pt-0', isMobile ? 'ms-n2' : 'ms-n3']"
+                dense
+              >
                 <v-timeline-item hide-dot>
                   <p
                     :class="[
@@ -478,8 +483,9 @@ export default {
     }
 
     &::before {
-      top: -40px;
+      top: -70px;
       z-index: 0;
+      height: calc(100% + 30px);
     }
   }
 
