@@ -85,8 +85,11 @@
                   width="76"
                 />
 
-                <div :class="['flex-grow-1 d-flex', isMobile ? 'flex-column pt-2' : 'align-center']">
-                  <span :class="[isRTL ? 'ravi' : 'bel']" :style="`color: ${expanded === i ? '#4c6d80' : '#66869A'}`">
+                <div :class="['flex-grow-1 d-flex', isMobile ? 'flex-column pt-6' : 'align-center']">
+                  <span
+                    :class="[isRTL ? 'ravi f-26' : 'bel']"
+                    :style="`color: ${expanded === i ? '#4c6d80' : '#66869A'}`"
+                  >
                     {{ item[`${$i18n.locale}_title`] }}
                   </span>
 
@@ -94,15 +97,17 @@
 
                   <v-sheet
                     :class="[
-                      'f-18 px-4 py-3 text-center d-flex align-center justify-center',
+                      'f-18 text-center d-flex align-center justify-center px-4',
                       { 'white--text': expanded === i },
-                      isMobile && (isRTL ? 'mt-3' : 'mt-1')
+                      isMobile ? (isRTL ? 'mt-3 py-1' : 'mt-1 py-2') : isRTL ? 'py-1' : 'py-2'
                     ]"
                     :color="expanded === i ? '#66869a' : '#ECECEC'"
                     :style="`border-radius: 14px; color: #66869A`"
-                    width="80"
+                    :width="isMobile ? 70 : 80"
                   >
-                    <span>{{ item.date }}</span>
+                    <span :class="isRTL && 'font-weight-bold anjoman'" :style="isRTL && 'letter-spacing: 1px;'">
+                      {{ isRTL ? toPersianDigit(item.date) : item.date }}
+                    </span>
                   </v-sheet>
                 </div>
               </div>
@@ -130,7 +135,12 @@
                   fill-dot
                 >
                   <template v-slot:icon>
-                    <strong class="white--text">{{ child.date }}</strong>
+                    <strong
+                      :class="['white--text', isRTL && 'font-weight-bold anjoman']"
+                      :style="isRTL && 'letter-spacing: 1px;'"
+                    >
+                      {{ isRTL ? toPersianDigit(child.date) : child.date }}
+                    </strong>
                   </template>
 
                   <v-sheet

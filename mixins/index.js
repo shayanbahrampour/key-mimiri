@@ -25,6 +25,10 @@ Vue.mixin({
     }
   },
   methods: {
+    toPersianDigit(input) {
+      if (!input) return;
+      return input.replace(/\d/g, (d) => '۰۱۲۳۴۵۶۷۸۹'[d]);
+    },
     generateId() {
       const idGenerator = () => {
         return Math.floor((1 + Math.random()) * 0x10000)
