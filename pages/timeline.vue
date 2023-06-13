@@ -55,7 +55,7 @@
             @click="scroll(`#item-${i}`)"
           >
             <v-sheet
-              :style="`margin: 50px -10px 0; background-color: ${
+              :style="`margin: ${isMobile ? '45px' : '50px'} -10px 0; background-color: ${
                 expanded === i ? '#4c6d80' : expanded !== undefined ? '#B0BEC5' : '#66869A'
               }; color: ${
                 expanded === i ? '#4c6d80' : expanded !== undefined ? '#B0BEC5' : '#66869A'
@@ -91,7 +91,7 @@
                     isMobile ? 'flex-column' : 'align-center',
                     isMobile && !isRTL && 'pt-4'
                   ]"
-                  :style="isRTL && isMobile && `padding-top: 20px`"
+                  :style="isRTL && isMobile && `padding-top: 17px`"
                 >
                   <span
                     :class="[isRTL ? 'ravi f-26' : 'bel']"
