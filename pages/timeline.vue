@@ -55,7 +55,7 @@
             @click="scroll(`#item-${i}`)"
           >
             <v-sheet
-              :style="`margin: ${isMobile ? '45px' : '50px'} -10px 0; background-color: ${
+              :style="`margin: ${isMobile ? '43px' : '50px'} -10px 0; background-color: ${
                 expanded === i ? '#4c6d80' : expanded !== undefined ? '#B0BEC5' : '#66869A'
               }; color: ${
                 expanded === i ? '#4c6d80' : expanded !== undefined ? '#B0BEC5' : '#66869A'
