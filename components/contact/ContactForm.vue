@@ -4,12 +4,12 @@
       <v-col cols="12" md="6">
         <v-select
           v-model="model.mobile"
+          :append-icon="!isRTL ? 'mdi-triangle-down 10 slategrey--text' : null"
+          :append-inner-icon="false"
           :class="['mb-4 f-20 management-select', { 'rtl ravi': isRTL }]"
           :items="isRTL ? itemsRTL : items"
           :label="$t('contact.fields.management')"
-          :append-icon="!isRTL ? 'mdi-triangle-down 10 slategrey--text' : null"
           :prepend-inner-icon="isRTL ? 'mdi-triangle-down 10 slategrey--text' : undefined"
-          :append-inner-icon="false"
           :rules="[rule.required, rule.mobile]"
           dense
           filled

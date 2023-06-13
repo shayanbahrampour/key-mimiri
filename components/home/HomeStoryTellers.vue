@@ -139,7 +139,7 @@ export default {
     swiperOptions() {
       return {
         grabCursor: true,
-        longSwipes: false,
+        // longSwipes: false,
         preventClicks: true,
         touchMoveStopPropagation: true,
         touchStartForcePreventDefault: true,

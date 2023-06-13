@@ -1,7 +1,7 @@
 <template>
   <div
-    class="position-relative flex-shrink-0 z-0 ball-contents text-start"
     :style="`width: ${width}; ${!isMobile && `border-left: 1px solid #59595B`}`"
+    class="position-relative flex-shrink-0 z-0 ball-contents text-start"
   >
     <v-slide-y-reverse-transition>
       <div v-if="content" :class="!isMobile && (lgAndUp ? 'pl-8 py-3' : 'py-1 pl-8')">

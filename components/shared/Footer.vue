@@ -4,7 +4,7 @@
     <v-footer :class="[isMobile ? 'pt-10' : 'py-16 px-0']" color="slategrey">
       <div :style="`max-width: ${globalMaxWidth}px`" class="mx-auto w-full">
         <v-sheet :class="['white--text', isMobile ? 'px-6' : 'px-16']" color="transparent">
-          <div v-if="isMobile" class="d-flex justify-center align-center flex-sm-row flex-column my-4">
+          <div v-if="isMobile" class="d-flex justify-center align-center flex-sm-row flex-column">
             <v-img
               alt="cobel"
               class="w-full mb-4"
@@ -41,18 +41,19 @@
               <div class="d-flex flex-lg-column align-lg-end align-center justify-center mb-lg-0 mb-12">
                 <v-btn
                   :to="localePath('/storytellers')"
+                  :width="isMobile ? 240 : 200"
                   class="f-18 mb-lg-4 mx-lg-0 mx-3"
                   color="white"
                   depressed
                   exact
                   large
                   rounded
-                  width="200"
                 >
                   <span :class="{ 'font-weight-bold': isRTL }">{{ $t('footer.about') }}</span>
                 </v-btn>
                 <v-btn
                   :to="localePath('/contact')"
+                  :width="isMobile ? 240 : 200"
                   class="f-18 mx-lg-0 mx-3"
                   color="white"
                   depressed
@@ -60,7 +61,6 @@
                   large
                   outlined
                   rounded
-                  width="200"
                 >
                   <span :class="{ 'font-weight-bold': isRTL }">{{ $t('footer.contact') }}</span>
                 </v-btn>
@@ -83,18 +83,19 @@
           <div v-if="isMobile" class="d-flex flex-column align-center mb-6">
             <v-btn
               :to="localePath('/storytellers')"
+              :width="isMobile ? 240 : 200"
               class="f-18 mb-4"
               color="white"
               depressed
               exact
               large
               rounded
-              width="200"
             >
               <span :class="{ 'font-weight-bold': isRTL }">{{ $t('footer.about') }}</span>
             </v-btn>
             <v-btn
               :to="localePath('/contact')"
+              :width="isMobile ? 240 : 200"
               class="f-18"
               color="white"
               depressed
@@ -102,7 +103,6 @@
               large
               outlined
               rounded
-              width="200"
             >
               <span :class="{ 'font-weight-bold': isRTL }">{{ $t('footer.contact') }}</span>
             </v-btn>

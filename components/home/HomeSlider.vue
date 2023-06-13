@@ -54,7 +54,7 @@
             </v-btn>
             <v-btn
               :block="isMobile"
-              :class="['f-20 px-14 text-capitalize bel', { 'mt-16': isMobile }]"
+              :class="['f-20 px-14 text-capitalize bel', { 'mt-16': isMobile }, { ltr: isRTL }]"
               color="primary"
               depressed
               exact

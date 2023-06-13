@@ -34,12 +34,12 @@
             v-model="model.address"
             :append-icon="model.address ? false : 'mdi-file-upload slategrey--text'"
             :class="['mb-9 attach-file', isRTL ? 'ravi text-end' : undefined]"
+            :dense="!isMobile || !isRTL"
+            :height="isMobile && isRTL ? '60' : undefined"
             :label="$t('career.steps.file.address')"
             :prepend-icon="false"
             clear-icon="mdi-delete black--text"
-            :height="isMobile && isRTL ? '60' : undefined"
             filled
-            :dense="!isMobile || !isRTL"
             hide-details
             rounded
           ></v-file-input>

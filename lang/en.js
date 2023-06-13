@@ -263,6 +263,7 @@ export default {
       description:
         'Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women.'
     },
+    share_it: 'Share it',
     not_found: 'Not Found',
     read_time: 'Read time',
     written_by: 'Written by',
