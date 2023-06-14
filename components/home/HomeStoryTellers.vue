@@ -22,7 +22,7 @@
           <swiper-slide
             v-for="(item, index) in isRTL ? itemsRTL : items"
             :key="index"
-            :class="['d-flex flex-column align-center transition-ease-in-out', { 'active-slide': index === active }]"
+            :class="['d-flex flex-column transition-ease-in-out', { 'active-slide': index === active }]"
           >
             <HomeStoryTellerCard
               :active="index === active"

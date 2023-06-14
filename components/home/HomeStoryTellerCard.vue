@@ -1,7 +1,7 @@
 <template>
   <v-card
     :ripple="false"
-    class="d-flex align-stretch bg-transparent"
+    class="d-flex justify-start align-stretch bg-transparent"
     flat
     style="border-radius: 75px !important"
     @click.prevent.stop="open"
@@ -11,12 +11,11 @@
       :max-width="width"
       :src="item.src"
       :style="`border: 1px solid ${flag.isOpen ? 'transparent' : '#ececec'};border-radius: ${
-        flag.isOpen ? (isRTL ? '0 75px 75px 0' : '75px 0 0 75px') : '75px'
+        flag.showContent ? (isRTL ? '0 75px 75px 0' : '75px 0 0 75px') : '75px'
       } !important; overflow: hidden`"
       :width="width"
       class="transition-ease-in-out"
       eager
-      width="100%"
     />
 
     <v-sheet
@@ -25,14 +24,18 @@
         `rounded-${isRTL ? 'r' : 'l'}-0 rounded-${isRTL ? 'l' : 'r'}-xl`
       ]"
       :color="flag.isOpen ? 'darkGreen' : 'white'"
-      :style="`margin-${isRTL ? 'right' : 'left'}: -75px;${
-        flag.isOpen && `margin-top:1px;padding-${isRTL ? 'right' : 'left'}: 110px !important;`
-      }`"
+      :style="`margin-${isRTL ? 'right' : 'left'}: ${flag.showContent ? '-75px' : '-110px'};margin-top:1px; padding-${
+        isRTL ? 'right' : 'left'
+      }: 110px !important;`"
       :width="width"
       height="349"
     >
       <v-scroll-x-transition hide-on-leave>
-        <div v-if="flag.showContent" :class="['white--text pe-10 f-20', isRTL ? 'ravi' : 'bel']">
+        <div
+          v-if="flag.showContent"
+          style="min-width: 240px"
+          :class="['white--text pe-6 f-20', isRTL ? 'ravi' : 'bel']"
+        >
           {{ item.description }}
 
           <nuxt-link :to="localePath(`/storytellers/${item.id}`)" class="white--text text-decoration-none mt-5 d-block">
@@ -86,7 +89,7 @@ export default {
 
       setTimeout(() => {
         this.flag.showContent = true;
-      }, 600);
+      }, 300);
     }
   },
   methods: {
