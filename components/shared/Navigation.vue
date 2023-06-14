@@ -94,8 +94,8 @@
         <v-card
           v-for="(item, index) in items"
           :key="index"
-          :to="item.path ? item.path : undefined"
           :class="['text-center white--text py-4 f-18', isRTL && 'font-weight-bold']"
+          :to="item.path ? item.path : undefined"
           color="#66869A"
           exact
           flat

@@ -33,8 +33,8 @@
       <v-scroll-x-transition hide-on-leave>
         <div
           v-if="flag.showContent"
-          style="min-width: 240px"
           :class="['white--text pe-6 f-20', isRTL ? 'ravi' : 'bel']"
+          style="min-width: 240px"
         >
           {{ item.description }}
 

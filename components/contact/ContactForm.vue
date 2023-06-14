@@ -4,10 +4,10 @@
       <v-col cols="12" md="6">
         <v-select
           v-model="model.mobile"
-          append-icon="mdi-triangle-down 10 slategrey--text"
           :class="['mb-4 f-20 management-select', { 'rtl ravi': isRTL }]"
           :items="isRTL ? itemsRTL : items"
           :label="$t('contact.fields.management')"
+          append-icon="mdi-triangle-down 10 slategrey--text"
           dense
           filled
           hide-details
