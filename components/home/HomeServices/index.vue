@@ -39,11 +39,11 @@
       >
         <div class="w-full">
           <h3
-            :class="`${isMobile ? 'f-33 text-center' : lgAndUp ? (isRTL ? 'f-65' : 'f-70') : isRTL ? 'f-55' : 'f-65'} ${
+            :class="`${isMobile ? 'f-33 text-center' : lgAndUp ? (isRTL ? 'f-60' : 'f-70') : isRTL ? 'f-55' : 'f-65'} ${
               isRTL ? 'ravi font-weight-regular' : 'bel font-weight-regular mb-3'
             }`"
             :style="`${isRTL && !isMobile && 'line-height: 80px'}; ${
-              lgAndUp && `max-width: ${isRTL ? '700px' : '900px'}`
+              lgAndUp && `max-width: ${isRTL ? '600px' : '900px'}`
             };`"
           >
             {{ $t('homePage.services.slider.title') }}
@@ -51,14 +51,14 @@
           <div
             :class="[
               'ms-auto',
-              isMobile ? 'text-center f-18' : 'f-25',
+              isMobile ? 'text-center f-18' : isRTL ? 'f-23' : 'f-25',
               isRTL ? 'font-weight-bold' : 'font-weight-light',
               !lgAndUp && !isMobile && isRTL && 'mb-4'
             ]"
             :style="`${isMobile && isRTL && 'line-height:30px'};${
               !isMobile &&
               `line-height: ${isRTL ? '38px' : '30px'};max-width: ${
-                lgAndUp ? (isRTL ? '400px' : '550px') : mdAndDown ? '100%' : `${nuclearSize}px`
+                lgAndUp ? (isRTL ? '360px' : '470px') : mdAndDown ? '100%' : `${nuclearSize}px`
               };`
             }`"
           >

@@ -120,7 +120,7 @@
               </div>
             </v-expansion-panel-header>
             <v-expansion-panel-content :class="isRTL ? 'anjoman font-weight-bold' : ''">
-              <v-timeline :style="`color: ${item.color}`" align-top :class="['pt-0 ms-n3']" dense>
+              <v-timeline :class="['pt-0 ms-n3']" :style="`color: ${item.color}`" align-top dense>
                 <v-timeline-item hide-dot>
                   <p
                     :class="[

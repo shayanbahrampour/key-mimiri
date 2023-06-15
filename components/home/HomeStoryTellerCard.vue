@@ -13,7 +13,7 @@
       :style="`border: 1px solid ${flag.isOpen ? 'transparent' : '#ececec'};border-radius: ${
         flag.showContent ? (isRTL ? '0 75px 75px 0' : '75px 0 0 75px') : '75px'
       } !important; overflow: hidden`"
-      :width="width"
+      :width="isMobile ? '100%' : width"
       class="transition-ease-in-out"
       eager
     />
@@ -27,14 +27,14 @@
       :style="`margin-${isRTL ? 'right' : 'left'}: ${flag.showContent ? '-75px' : '-110px'};margin-top:1px; padding-${
         isRTL ? 'right' : 'left'
       }: 110px !important;`"
-      :width="width"
+      :width="600 - width"
       height="349"
     >
       <v-scroll-x-transition hide-on-leave>
         <div
           v-if="flag.showContent"
-          style="min-width: 240px"
           :class="['white--text pe-6 f-20', isRTL ? 'ravi' : 'bel']"
+          style="min-width: 240px"
         >
           {{ item.description }}
 
