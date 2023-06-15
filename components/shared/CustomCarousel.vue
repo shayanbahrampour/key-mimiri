@@ -17,7 +17,7 @@
       <div :class="['mx-auto', !isMobile && 'pr-16']" :style="`max-width: ${globalMaxWidth}px`">
         <v-sheet
           :class="[
-            'mr-auto carousel-sheet position-relative',
+            'mr-auto carousel-sheet position-relative d-flex align-center',
             isMobile ? 'py-8' : `rounded-r-xl py-16`,
             $vuetify.breakpoint.xl ? 'px-12' : isMobile ? 'px-6' : 'px-16'
           ]"
@@ -26,6 +26,18 @@
           :style="`${!isMobile && `margin-top: -120px`}`"
           color="slategrey"
         >
+          <h1
+            v-if="title"
+            :class="[
+              'white--text font-weight-regular text-uppercase position-absolute start-0',
+              isMobile ? (isRTL ? 'f-40' : 'f-50') : isRTL ? 'f-70' : 'f-70',
+              $vuetify.breakpoint.xl ? 'px-12' : isMobile ? 'px-6' : 'px-16',
+              isRTL ? 'ravi' : 'bel'
+            ]"
+            :style="`top: -${isMobile ? 70 : 90}px`"
+          >
+            {{ title }}
+          </h1>
           <div
             v-if="items.length > 1 && !hideDelimiters"
             :class="[
@@ -46,17 +58,6 @@
             </v-icon>
           </div>
 
-          <h1
-            v-if="title"
-            :class="[
-              'white--text font-weight-regular text-uppercase',
-              isMobile ? (isRTL ? 'f-40' : 'f-50') : isRTL ? 'f-70' : 'f-70',
-              isRTL ? 'ravi' : 'bel'
-            ]"
-            :style="isMobile ? 'margin: -100px 0 40px' : `margin: -150px 0 ${isRTL ? '70px' : '90px'}`"
-          >
-            {{ title }}
-          </h1>
           <v-row v-if="activeSlide" :no-gutters="!isMobile" class="position-relative z-1" justify="center">
             <v-col v-if="activeSlide.title && activeSlide.description" :lg="activeSlide.description ? 5 : 12" cols="12">
               <h2

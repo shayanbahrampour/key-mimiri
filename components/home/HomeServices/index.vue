@@ -58,7 +58,7 @@
             :style="`${isMobile && isRTL && 'line-height:30px'};${
               !isMobile &&
               `line-height: ${isRTL ? '38px' : '30px'};max-width: ${
-                lgAndUp ? (isRTL ? '400px' : '550px') : mdAndDown ? '100%' : `${nuclearSize}px`
+                lgAndUp ? (isRTL ? '400px' : '500px') : mdAndDown ? '100%' : `${nuclearSize}px`
               };`
             }`"
           >
