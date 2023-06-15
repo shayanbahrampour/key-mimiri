@@ -12,16 +12,11 @@ Vue.mixin({
       return this.$vuetify.rtl;
     },
     isMobile() {
-      if (this.$store.getters.getDevice) return this.$store.getters.getDevice.isMobile;
+      if (this.$store.getters.getDevice)
+        return this.$store.getters.getDevice.isMobile || this.$store.getters.getDevice.isTablet;
 
       if (!process.browser) return false;
       return this.$vuetify.breakpoint.smAndDown;
-    },
-    isTablet() {
-      if (this.$store.getters.getDevice) return this.$store.getters.getDevice.isTablet;
-
-      if (!process.browser) return false;
-      return this.$vuetify.breakpoint.mdAndDown;
     }
   },
   methods: {

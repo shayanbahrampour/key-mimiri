@@ -95,7 +95,7 @@
           v-for="(item, index) in items"
           :key="index"
           :class="['text-center white--text py-4 f-18', isRTL && 'font-weight-bold']"
-          :to="item.path ? item.path : undefined"
+          :to="item.path ? localePath(item.path) : undefined"
           color="#66869A"
           exact
           flat

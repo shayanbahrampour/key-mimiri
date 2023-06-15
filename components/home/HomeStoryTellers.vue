@@ -22,7 +22,11 @@
           <swiper-slide
             v-for="(item, index) in isRTL ? itemsRTL : items"
             :key="index"
-            :class="['d-flex flex-column transition-ease-in-out', { 'active-slide': index === active }]"
+            :class="[
+              'd-flex flex-column transition-ease-in-out',
+              { 'active-slide': index === active },
+              { 'desktop-view': !isMobile }
+            ]"
           >
             <HomeStoryTellerCard
               :active="index === active"
@@ -44,7 +48,10 @@
               </nuxt-link>
             </div>
           </swiper-slide>
-          <swiper-slide v-if="!isMobile" />
+          <template v-if="!isMobile">
+            <swiper-slide />
+            <swiper-slide />
+          </template>
         </swiper>
       </client-only>
     </v-sheet>
@@ -139,6 +146,7 @@ export default {
     swiperOptions() {
       return {
         grabCursor: true,
+        setWrapperSize: true,
         // longSwipes: false,
         preventClicks: true,
         touchMoveStopPropagation: true,
@@ -182,9 +190,15 @@ export default {
 
 <style lang="scss">
 .home-story-tellers {
-  .active-slide {
-    width: 600px !important;
-    transition: width ease-in 0.6s;
+  .swiper-slide {
+    &.desktop-view {
+      min-width: 310px;
+    }
+
+    &.active-slide {
+      width: 600px !important;
+      transition: width ease-in 0.6s;
+    }
   }
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <v-sheet
     :height="isMobile ? 'calc(100vh - 130px)' : 'calc(100vh - 120px)'"
-    class="position-relative mx-auto home-slider"
+    class="position-relative mx-auto home-slider overflow-hidden"
     color="transparent"
     min-height="550"
   >
@@ -11,7 +11,7 @@
         isMobile ? 'start-0 mx-auto justify-center w-screen' : 'h-screen bottom-0',
         flag.showFullscreen ? 'z-10' : 'z-2'
       ]"
-      :style="`${isMobile ? 'top:-220px;' : `top:-120px;right:-380px;`}`"
+      :style="`${isMobile ? 'top:-220px;' : `top:-90px;right:-350px;`}`"
       color="white"
     >
       <HomeSliderVideo @showFullscreen="flag.showFullscreen = $event" />

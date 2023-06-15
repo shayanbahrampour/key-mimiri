@@ -1,6 +1,6 @@
 <template>
   <div
-    :style="`width: ${width}; ${!isMobile && `border-left: 1px solid #59595B`}`"
+    :style="`width: ${width}; ${!isMobile && `border-left: 1px solid #59595B`}; min-height: ${isRTL ? 80 : 90}px`"
     class="position-relative flex-shrink-0 z-0 ball-contents text-start"
   >
     <v-slide-y-reverse-transition>
@@ -9,7 +9,7 @@
           :class="[
             'font-weight-regular mb-1',
             isRTL ? 'ravi' : 'bel',
-            isMobile ? 'f-35' : lgAndUp ? (isRTL ? 'f-45' : 'f-55') : 'f-45'
+            isMobile ? (isRTL ? 'f-30' : 'f-35') : lgAndUp ? (isRTL ? 'f-40' : 'f-50') : 'f-45'
           ]"
           :style="`color:${content.color};`"
         >
@@ -23,7 +23,7 @@
             isMobile ? 'f-16' : lgAndUp ? 'f-24' : 'f-20',
             isRTL ? 'font-weight-bold anjoman' : 'font-weight-light'
           ]"
-          :style="isRTL && !isMobile ? 'line-height:35px' : ''"
+          :style="isRTL && (isMobile ? 'line-height:23px' : 'line-height:35px')"
         >
           {{ $t(content.description) }}
         </p>
@@ -60,9 +60,9 @@ export default {
       return this.$vuetify.breakpoint.lgAndUp;
     },
     width() {
-      if (this.$vuetify.breakpoint.lgAndUp) return '530px';
+      if (this.$vuetify.breakpoint.lgAndUp) return '490px';
       if (this.$vuetify.breakpoint.mdAndUp) return '450px';
-      if (this.$vuetify.breakpoint.smAndUp) return '310px';
+      if (this.$vuetify.breakpoint.smAndUp) return 'calc(100vw - 150px)';
       return '300px';
     }
   },

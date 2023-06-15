@@ -90,7 +90,7 @@ export default {
         centeredSlidesBounds: true,
         centeredSlides: this.isMobile,
         spaceBetween: this.isMobile ? 14 : 28,
-        slidesPerView: 1.3,
+        slidesPerView: 1.2,
         breakpoints: {
           1904: {
             slidesPerView: 2.5
@@ -101,8 +101,8 @@ export default {
           960: {
             slidesPerView: 1.4
           },
-          760: {
-            slidesPerView: 1.4
+          768: {
+            slidesPerView: 1.1
           }
         }
       };

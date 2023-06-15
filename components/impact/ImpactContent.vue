@@ -43,7 +43,7 @@
           <div
             :class="[
               'd-flex flex-wrap',
-              !isTablet && !isMobile && 'mt-12 pt-5',
+              !isMobile && 'mt-12 pt-5',
               isRTL && 'anjoman font-weight-bold',
               isRTL ? 'f-14' : 'f-13'
             ]"
