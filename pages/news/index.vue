@@ -1,20 +1,11 @@
 <template>
-  <div class="d-flex flex-column pb-16">
-    <NewsCarousel
-      :items="[
-        {
-          src: '/images/temp/cover-2.png'
-        },
-        {
-          src: '/images/temp/cover-2.png'
-        }
-      ]"
-    />
+  <div class="pb-16">
+    <NewsCarousel :items="[{ src: '/images/temp/cover-2.png' }]" />
 
     <v-sheet v-if="!isMobile" :max-width="globalMaxWidth" class="mx-auto px-10 mt-16">
       <NewsCategory
         v-if="!isMobile"
-        :tabs="isRTL ? tabsRTL : tabs"
+        :items="categories.map((item) => ({ ...item, title: item[`${$i18n.locale}_name`] }))"
         :title="isRTL ? 'مهمترین ها' : 'More important'"
         class="mb-16 mx-6"
       />
@@ -25,34 +16,47 @@
 </template>
 
 <script>
-import NewsCategory from '~/components/news/NewsCategory.vue';
+import { mapGetters } from 'vuex';
 import NewsCard from '~/components/news/NewsCard.vue';
 import NewsCarousel from '~/components/news/NewsCarousel.vue';
+import NewsCategory from '~/components/news/NewsCategory.vue';
 
 export default {
   components: { NewsCategory, NewsCard, NewsCarousel },
+  data() {
+    return {
+      pagination: {
+        current_page: 1
+      },
+      items: []
+    };
+  },
   head() {
     return {
       title: this.$t('pageTitles.press')
     };
   },
-  data() {
-    return {
-      tabs: [
-        { title: 'All', value: '' },
-        { title: 'Best talent', value: '' },
-        { title: 'Long-term value creation', value: '' },
-        { title: 'Social responsibility', value: '' },
-        { title: 'Localized know-how', value: '' }
-      ],
-      tabsRTL: [
-        { title: 'همه', value: '' },
-        { title: 'بهترین استعداد', value: '' },
-        { title: 'خلق ارزش بلند مدت', value: '' },
-        { title: 'مسئولیت اجتماعی', value: '' },
-        { title: 'دانش بومی سازی شده', value: '' }
-      ]
-    };
+  computed: {
+    ...mapGetters({
+      categories: 'news/categories'
+    })
+  },
+  async fetch() {
+    try {
+      const { data } = await this.$store.dispatch('news/getList', {
+        params: {
+          page: this.pagination.current_page
+        }
+      });
+
+      this.items = data.results;
+      this.pagination = data.pagination;
+    } catch (e) {
+      console.log(e);
+    }
+  },
+  created() {
+    if (this.categories && this.categories.length === 0) this.$store.dispatch('news/getCategories');
   }
 };
 </script>
