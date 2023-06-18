@@ -1,17 +1,10 @@
 export default {
   data() {
     return {
-      scrollPosition: 0
+      ballSize: 100,
+      topScrollPosition: 0,
+      bottomScrollPosition: 0
     };
-  },
-  computed: {
-    topScrollPosition() {
-      if (!process.browser) return '120px';
-      return Math.max(120, this.scrollPosition) + 'px';
-    },
-    bottomScrollPosition() {
-      return '0px';
-    }
   },
   mounted() {
     this.handleScroll();
@@ -23,8 +16,12 @@ export default {
   },
   methods: {
     handleScroll() {
-      const navigation = document.getElementById('navigation').offsetHeight;
+      const navigationHeight = 56;
+      const expandedNavigationHeight = 120;
+
+      const scrollY = window.scrollY;
       const footer = document.getElementById('footer').offsetHeight;
+      const clientHeight = document.documentElement.clientHeight - 70;
       const scrollHeight =
         Math.max(
           document.body.scrollHeight,
@@ -34,12 +31,23 @@ export default {
           document.body.clientHeight,
           document.documentElement.clientHeight
         ) -
-        navigation -
-        footer;
+        footer -
+        clientHeight;
 
-      console.log(window.scrollY);
-      console.log('total Height', scrollHeight);
-      // console.log('window height', document.documentElement.clientHeight);
+      const desireTopScrollPosition = (scrollY / scrollHeight) * scrollHeight + clientHeight * (scrollY / scrollHeight);
+      this.topScrollPosition =
+        scrollY < navigationHeight
+          ? expandedNavigationHeight
+          : Math.min(
+              Math.max(desireTopScrollPosition, this.ballSize + navigationHeight / 2),
+              scrollHeight + clientHeight - this.ballSize
+            );
+
+      const desireBottomScrollPosition = scrollY + clientHeight - (scrollY / scrollHeight) * clientHeight - 30;
+      this.bottomScrollPosition =
+        desireBottomScrollPosition > scrollHeight - this.ballSize - navigationHeight / 2
+          ? Math.min(scrollY + navigationHeight, scrollHeight + clientHeight - this.ballSize)
+          : desireBottomScrollPosition;
     }
   }
 };

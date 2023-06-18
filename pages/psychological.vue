@@ -75,20 +75,20 @@
 
       <nuxt-link to="/physical">
         <v-sheet
-          :style="`top: ${topScrollPosition}; right: -50px`"
+          :style="`top: ${topScrollPosition}px; right: -${ballSize / 2}px`"
           class="rounded-circle z-4 position-absolute"
           color="#00a59b"
-          height="100"
-          width="100"
+          :height="ballSize"
+          :width="ballSize"
         />
       </nuxt-link>
       <nuxt-link to="/social">
         <v-sheet
-          :style="`bottom: ${bottomScrollPosition}; left: -50px`"
+          :style="`top: ${bottomScrollPosition}px; left: -${ballSize / 2}px`"
           class="rounded-circle z-4 position-absolute"
           color="#a01e64"
-          height="100"
-          width="100"
+          :height="ballSize"
+          :width="ballSize"
         />
       </nuxt-link>
 

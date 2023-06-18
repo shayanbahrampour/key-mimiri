@@ -64,20 +64,20 @@
 
       <nuxt-link to="/social">
         <v-sheet
-          :style="`top: ${topScrollPosition}; right: -50px`"
+          :style="`top: ${topScrollPosition}px; right: -${ballSize / 2}px`"
           class="rounded-circle z-4 position-absolute"
           color="#a01e64"
-          height="100"
-          width="100"
+          :height="ballSize"
+          :width="ballSize"
         />
       </nuxt-link>
       <nuxt-link to="/psychological">
         <v-sheet
-          :style="`bottom: ${bottomScrollPosition}; left: -50px`"
+          :style="`top: ${bottomScrollPosition}px; left: -${ballSize / 2}px`"
           class="rounded-circle z-4 position-absolute"
           color="#f3911f"
-          height="100"
-          width="100"
+          :height="ballSize"
+          :width="ballSize"
         />
       </nuxt-link>
 
