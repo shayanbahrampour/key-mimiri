@@ -1,6 +1,9 @@
 <template>
   <div
-    :class="['d-flex flex-column align-center text-center psy-container', !isMobile ? 'pt-10' : undefined]"
+    :class="[
+      'position-relative d-flex flex-column align-center text-center custom-wrapper',
+      { 'custom-padding': !isMobile }
+    ]"
     style="background-color: #f3911f; margin-bottom: -40px"
   >
     <h1
@@ -30,7 +33,7 @@
       style="max-height: 80vh; z-index: 2 !important"
     />
     <div :class="[isMobile ? 'text-start px-6 h-full psy-screen d-flex flex-column' : 'text-center ma-16 px-16']">
-      <div class="d-flex relative-container-social">
+      <div class="d-flex position-relative">
         <p
           :class="[
             'white--text text--darken-3 mobile-paragraph',
@@ -40,11 +43,6 @@
         >
           {{ $t('psychological.description') }}
         </p>
-
-        <nuxt-link to="/social">
-          <div v-if="!isMobile" class="right-circle"></div>
-          <div v-else class="right-circle-mobile"></div>
-        </nuxt-link>
       </div>
       <v-divider :class="[isMobile ? 'my-6' : 'my-10']" style="background-color: #f3911f"></v-divider>
       <h4
@@ -63,12 +61,8 @@
         {{ $t('psychological.responsibility') }}
       </h4>
 
-      <nuxt-link to="/physical">
-        <div v-if="!isMobile" class="left-circle"></div>
-        <div v-else class="left-circle-mobile"></div>
-      </nuxt-link>
+      <v-divider :class="[isMobile ? 'my-6' : 'my-10']" style="background-color: #f3911f" />
 
-      <v-divider :class="[isMobile ? 'my-6' : 'my-10']" style="background-color: #f3911f"></v-divider>
       <p
         :class="[
           'white--text text--darken-3 mobile-paragraph',
@@ -78,96 +72,43 @@
       >
         {{ $t('psychological.individual') }}
       </p>
-      <v-spacer></v-spacer>
+
+      <nuxt-link to="/physical">
+        <v-sheet
+          :style="`top: ${topScrollPosition}; right: -50px`"
+          class="rounded-circle z-4 position-absolute"
+          color="#00a59b"
+          height="100"
+          width="100"
+        />
+      </nuxt-link>
+      <nuxt-link to="/social">
+        <v-sheet
+          :style="`bottom: ${bottomScrollPosition}; left: -50px`"
+          class="rounded-circle z-4 position-absolute"
+          color="#a01e64"
+          height="100"
+          width="100"
+        />
+      </nuxt-link>
+
+      <v-spacer />
     </div>
   </div>
 </template>
 
 <script>
+import MixinScroller from '~/mixins/mixin.scroller';
 import VideoContents from '~/components/shared/VideoContents';
 
 export default {
+  mixins: [MixinScroller],
   head() {
     return {
       title: this.$t('pageTitles.psychological')
     };
   },
-  components: { VideoContents },
-  data() {
-    return {
-      scrollPosition: 0,
-      circleRightDesktopPosition: 0,
-      circleRightMobilePosition: 0,
-      circleLeftDesktopPosition: 0,
-      circleLeftMobilePosition: 0
-    };
-  },
-  mounted() {
-    window.addEventListener('scroll', this.handleScroll);
-  },
-  destroyed() {
-    window.removeEventListener('scroll', this.handleScroll);
-  },
-  methods: {
-    handleScroll() {
-      this.scrollPosition = window.scrollY;
-
-      this.circleRightDesktopPosition = this.scrollPosition;
-      this.circleLeftDesktopPosition = this.scrollPosition;
-      this.circleRightMobilePosition = this.scrollPosition;
-      this.circleLeftMobilePosition = this.scrollPosition;
-
-      if (this.scrollPosition < 1150) {
-        document.documentElement.style.setProperty(
-          '--circleRightDesktopPosition',
-          `${1400 - this.circleRightDesktopPosition}px`
-        );
-      } else {
-        document.documentElement.style.setProperty(
-          '--circleRightDesktopPosition',
-          `${this.circleRightDesktopPosition - 900}px`
-        );
-      }
-
-      if (this.scrollPosition < 1150) {
-        document.documentElement.style.setProperty(
-          '--circleRightMobilePosition',
-          `${2000 - this.circleRightMobilePosition}px`
-        );
-      } else {
-        document.documentElement.style.setProperty(
-          '--circleRightMobilePosition',
-          `${this.circleRightMobilePosition - 320}px`
-        );
-      }
-
-      if (this.scrollPosition > 300) {
-        document.documentElement.style.setProperty(
-          '--circleLeftMobilePosition',
-          `${190 + this.circleLeftMobilePosition}px`
-        );
-      } else {
-        document.documentElement.style.setProperty(
-          '--circleLeftMobilePosition',
-          `${1000 + this.circleLeftMobilePosition}px`
-        );
-      }
-
-      if (this.scrollPosition > 300) {
-        if (this.scrollPosition < 1450) {
-          document.documentElement.style.setProperty(
-            '--circleLeftDesktopPosition',
-            `${400 + this.circleLeftDesktopPosition * 1.1}px`
-          );
-        }
-      } else {
-        document.documentElement.style.setProperty(
-          '--circleLeftDesktopPosition',
-          `${1100 + this.circleLeftDesktopPosition}px`
-        );
-      }
-    }
-  }
+  components: { VideoContents }
 };
 </script>
 
@@ -180,56 +121,13 @@ export default {
   line-height: 40px;
 }
 
-.right-circle {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-color: #a01e64;
-  position: absolute;
-  right: -130px;
-  top: var(--circleRightDesktopPosition);
-  transform: translate(50%, -50%);
-}
-
-.relative-container-social {
-  position: relative;
-}
-
-.left-circle {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-color: #00a59b;
-  position: absolute;
-  left: -100px;
-  top: var(--circleLeftDesktopPosition);
-  transform: translate(50%, -50%);
-}
-
-.right-circle-mobile {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-color: #a01e64;
-  position: absolute;
-  right: -60px;
-  top: var(--circleRightMobilePosition);
-  transform: translate(50%, -50%);
-}
-
-.left-circle-mobile {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-color: #00a59b;
-  position: absolute;
-  left: -140px;
-  top: var(--circleLeftMobilePosition);
-  transform: translate(50%, -50%);
-}
-
-.psy-container {
+.custom-wrapper {
   background-image: url('/images/social/sqaure.png');
   background-size: cover;
+
+  &.custom-padding {
+    margin-top: -120px;
+    padding-top: 160px;
+  }
 }
 </style>
