@@ -1,15 +1,15 @@
 <template>
-  <div>
+  <div v-if="item">
     <v-row :class="['position-relative z-1 ltr', { 'custom-shadow pb-4': isMobile }]" no-gutters>
       <v-col :class="isRTL && 'rtl'" cols="12" lg="6" md="6">
         <v-sheet :class="[`overflow-hidden ${!isMobile && 'rounded-r-xl'}`]">
-          <v-img max-height="calc(100vh - 150px)" src="/images/temp/cover-5-vertical.png" />
+          <v-img max-height="calc(100vh - 150px)" :src="`${$imageUrl}/${item.column_section_file}`" />
           <v-sheet v-if="!isMobile" class="extra-space white--text ps-16 pe-10 py-8" color="slategrey">
             <h2 :class="['f-22 mb-4 white--text', { ravi: isRTL }]">{{ item[`${$i18n.locale}_title`] }}</h2>
             <div
               :class="['f-18 text-pre-line', isRTL ? 'font-weight-bold anjoman' : 'font-weight-light']"
               :style="`line-height: ${isRTL ? '30px' : '35px'}`"
-              v-html="item[`${$i18n.locale}_summary`]"
+              v-html="item[`${$i18n.locale}_column_section`]"
             />
           </v-sheet>
         </v-sheet>
@@ -29,15 +29,15 @@
           </h1>
 
           <div :class="['blue--text mb-8 f-19', isRTL ? 'anjoman font-weight-bold' : 'font-weight-light']">
-            <span v-for="(cat, index) in item.impact_story_categories" :key="index" class="me-2 d-inline-block">{{
-              cat[`${$i18n.locale}_name`]
-            }}</span>
+            <span v-for="(cat, index) in item.impact_story_categories" :key="index" class="me-2 d-inline-block">
+              {{ cat[`${$i18n.locale}_name`] }}
+            </span>
           </div>
 
           <div
             v-if="isMobile"
             :class="['grey--text text--darken-2 mb-8', isRTL && 'anjoman font-weight-bold']"
-            v-html="item[`${$i18n.locale}_subtitle`]"
+            v-html="item[`${$i18n.locale}_summary`]"
           />
 
           <div
@@ -76,21 +76,21 @@
             {{ $t('impactPage.share_it') }}:
           </h4>
           <div :class="['d-flex', isMobile ? 'mt-2' : 'mt-10 pb-16']">
-            <nuxt-link :to="localePath('/')" class="me-4">
+            <a rel="noopener noreferrer" target="_blank" :href="item.short_link" class="me-4">
               <v-img contain height="50" src="/images/social/icon-linkedin.svg" width="50" />
-            </nuxt-link>
-            <nuxt-link :to="localePath('/')" class="me-4">
+            </a>
+            <a rel="noopener noreferrer" target="_blank" :href="item.short_link" class="me-4">
               <v-img contain height="50" src="/images/social/icon-whatsapp.svg" width="50" />
-            </nuxt-link>
-            <nuxt-link :to="localePath('/')" class="me-4">
+            </a>
+            <a rel="noopener noreferrer" target="_blank" :href="item.short_link" class="me-4">
               <v-img contain height="50" src="/images/social/icon-telegram.svg" width="50" />
-            </nuxt-link>
+            </a>
           </div>
 
           <template v-if="!isMobile">
             <v-divider class="mb-4 mt-8" />
             <p :class="['ma-0 f-18', isRTL && 'anjoman font-weight-bold']" style="color: #939393; line-height: 30px">
-              {{ item[`${$i18n.locale}_subtitle`] }}
+              {{ item[`${$i18n.locale}_summary`] }}
             </p>
             <v-divider class="mt-4" />
           </template>
@@ -109,7 +109,7 @@
       <div
         :class="['f-19', isRTL ? 'font-weight-bold anjoman' : 'font-weight-light']"
         :style="`line-height: ${isRTL ? '30px' : '35px'}`"
-        v-html="item[`${$i18n.locale}_summary`]"
+        v-html="item[`${$i18n.locale}_column_section`]"
       />
     </v-sheet>
     <div :style="`max-width:${globalMaxWidth}px`" class="mx-auto">
@@ -122,7 +122,7 @@
             isRTL ? 'ravi' : 'bel'
           ]"
         >
-          {{ item[`${$i18n.locale}_body_subtitle`] }}
+          {{ item[`${$i18n.locale}_subtitle`] }}
         </h2>
       </v-sheet>
     </div>
@@ -133,7 +133,7 @@
           :style="`max-height: calc(100vh - 150px); min-height: ${isMobile ? '' : '500px'}`"
           class="w-full overflow-hidden d-flex align-center"
           poster="/images/temp/cover-4.png"
-          src="/video/temp.mp4"
+          :src="`${$imageUrl}/${item.subtitle_file}`"
         />
 
         <v-sheet v-if="isMobile" class="custom-gradient my-1" height="16" />
@@ -148,7 +148,7 @@
                 isMobile ? (isRTL ? 'f-30' : 'f-30') : isRTL ? 'f-35' : 'f-45'
               ]"
             >
-              {{ item[`${$i18n.locale}_body_title_1`] }}
+              {{ item[`${$i18n.locale}_body_subtitle`] }}
             </h3>
             <div
               :class="[
@@ -158,47 +158,45 @@
                 isRTL ? 'anjoman font-weight-bold' : 'font-weight-light'
               ]"
               :style="`line-height: ${isRTL ? '40px' : '35px'}`"
-              v-html="item[`${$i18n.locale}_body_description_1`]"
+              v-html="item[`${$i18n.locale}_body`]"
             />
           </v-col>
           <v-col v-if="!isMobile" class="pl-md-8 mb-md-8" lg="5" md="6" xl="4">
-            <v-img min-height="600" src="/images/temp/impact_detail.png" />
+            <v-img min-height="600" :src="`${$imageUrl}/${item.body_file}`" />
           </v-col>
         </v-row>
       </v-sheet>
 
-      <v-img v-if="isMobile" min-height="600" src="/images/temp/impact_detail.png" />
+      <v-img v-if="isMobile" min-height="600" :src="`${$imageUrl}/${item.body_file}`" />
 
       <v-sheet :class="[isMobile ? 'px-6' : 'px-16']" style="color: #59595b">
-        <div
-          :class="[
-            'mb-6 text-pre-line',
-            isMobile ? 'f-20 mt-4' : 'f-25',
-            isRTL ? 'anjoman font-weight-bold' : 'font-weight-light'
-          ]"
-          :style="`line-height: ${isRTL ? '40px' : '35px'}`"
-          v-html="item[`${$i18n.locale}_body_description_2`]"
-        />
-
-        <h4
-          :class="[
-            'font-weight-regular success--text text-center text-sm-start',
-            isMobile ? (isRTL ? 'f-30' : 'f-30') : isRTL ? 'f-35' : 'f-45',
-            isRTL ? 'ravi mt-8 mb-6' : 'bel mb-4'
-          ]"
-        >
-          {{ item[`${$i18n.locale}_body_title_2`] }}
-        </h4>
-
-        <div
-          :class="[
-            'mb-6 text-pre-line',
-            isMobile ? 'f-20' : 'f-25',
-            isRTL ? 'anjoman font-weight-bold' : 'font-weight-light'
-          ]"
-          :style="`line-height: ${isRTL ? '40px' : '35px'}`"
-          v-html="item[`${$i18n.locale}_body_description_3`]"
-        />
+        <!--<div-->
+        <!--  :class="[-->
+        <!--    'mb-6 text-pre-line',-->
+        <!--    isMobile ? 'f-20 mt-4' : 'f-25',-->
+        <!--    isRTL ? 'anjoman font-weight-bold' : 'font-weight-light'-->
+        <!--  ]"-->
+        <!--  :style="`line-height: ${isRTL ? '40px' : '35px'}`"-->
+        <!--  v-html="item[`${$i18n.locale}_body_description_2`]"-->
+        <!--/>-->
+        <!--<h4-->
+        <!--  :class="[-->
+        <!--    'font-weight-regular success&#45;&#45;text text-center text-sm-start',-->
+        <!--    isMobile ? (isRTL ? 'f-30' : 'f-30') : isRTL ? 'f-35' : 'f-45',-->
+        <!--    isRTL ? 'ravi mt-8 mb-6' : 'bel mb-4'-->
+        <!--  ]"-->
+        <!-- >-->
+        <!--  {{ item[`${$i18n.locale}_body_title_2`] }}-->
+        <!--</h4>-->
+        <!--<div-->
+        <!--  :class="[-->
+        <!--    'mb-6 text-pre-line',-->
+        <!--    isMobile ? 'f-20' : 'f-25',-->
+        <!--    isRTL ? 'anjoman font-weight-bold' : 'font-weight-light'-->
+        <!--  ]"-->
+        <!--  :style="`line-height: ${isRTL ? '40px' : '35px'}`"-->
+        <!--  v-html="item[`${$i18n.locale}_body_description_3`]"-->
+        <!--/>-->
 
         <div
           :class="[
