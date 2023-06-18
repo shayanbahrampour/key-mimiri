@@ -3,10 +3,11 @@
     <v-row :class="isRTL && 'ltr'">
       <v-col cols="12" md="6">
         <v-select
-          v-model="model.mobile"
+          v-model="model.category"
           :class="['mb-4 f-20 management-select', { 'rtl ravi': isRTL }]"
           :items="isRTL ? itemsRTL : items"
           :label="$t('contact.fields.management')"
+          :rules="[rule.required]"
           append-icon="mdi-triangle-down 10 slategrey--text"
           dense
           filled
@@ -17,6 +18,7 @@
         <v-text-field
           v-model="model.topic"
           :class="['mb-4 f-20', { ' ravi': isRTL }]"
+          :rules="[rule.required]"
           :label="$t('contact.fields.topic')"
           dense
           filled
@@ -26,6 +28,7 @@
         <v-text-field
           v-model="model.full_name"
           :class="['mb-4 f-20', { ' ravi': isRTL }]"
+          :rules="[rule.required]"
           :label="$t('contact.fields.full_name')"
           dense
           filled
@@ -35,6 +38,7 @@
         <v-text-field
           v-model="model.email"
           :class="[!isMobile ? 'mb-4 f-20' : 'mb-0 f-20', { ' ravi': isRTL }]"
+          :rules="[rule.required, rule.email]"
           :label="$t('contact.fields.email')"
           dense
           filled
@@ -46,6 +50,7 @@
         <v-textarea
           v-model="model.description"
           :class="['mb-4 f-20', { 'mb-10': isMobile }, { ' ravi': isRTL }]"
+          :rules="[rule.required]"
           :label="$t('contact.fields.description')"
           dense
           filled
@@ -106,12 +111,12 @@ export default {
       model: {
         full_name: null,
         email: null,
-        mobile: null,
+        category: null,
         topic: null,
         description: null
       },
-      items: ['option 1', 'option 2', 'option 3'],
-      itemsRTL: ['مالی', 'حسابداری', 'منابع انسانی']
+      items: ['management', 'other'],
+      itemsRTL: ['مدیریت', 'بقیه']
     };
   },
   methods: {
