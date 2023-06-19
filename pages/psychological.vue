@@ -1,7 +1,7 @@
 <template>
   <div
     :class="[
-      'position-relative d-flex flex-column align-center text-center custom-wrapper',
+      'position-relative d-flex flex-column align-center text-center custom-wrapper overflow-hidden',
       isMobile ? 'custom-mobile-padding' : 'custom-padding'
     ]"
     style="background-color: #f3911f; margin-bottom: -40px"
