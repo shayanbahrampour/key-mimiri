@@ -1,27 +1,31 @@
 export default {
   data() {
     return {
-      ballSize: 100,
+      ballSize: 112,
       topScrollPosition: 0,
       bottomScrollPosition: 0
     };
   },
   mounted() {
-    this.handleScroll();
-    window.addEventListener('resize', this.handleScroll);
-    window.addEventListener('scroll', this.handleScroll);
+    this.$nextTick(() => {
+      this.handleScroll();
+      window.addEventListener('resize', this.handleScroll);
+      window.addEventListener('scroll', this.handleScroll);
+    });
   },
   beforeDestroy() {
+    window.removeEventListener('resize', this.handleScroll);
     window.removeEventListener('scroll', this.handleScroll);
   },
   methods: {
     handleScroll() {
       const navigationHeight = 56;
-      const expandedNavigationHeight = 120;
+      const expandedNavigationHeight = this.isMobile ? 70 : 120;
+      const footerMargin = 40;
 
       const scrollY = window.scrollY;
       const footer = document.getElementById('footer').offsetHeight;
-      const clientHeight = document.documentElement.clientHeight - 70;
+      const clientHeight = document.documentElement.clientHeight - this.ballSize;
       const scrollHeight =
         Math.max(
           document.body.scrollHeight,
@@ -32,22 +36,24 @@ export default {
           document.documentElement.clientHeight
         ) -
         footer -
-        clientHeight;
+        footerMargin;
 
-      const desireTopScrollPosition = (scrollY / scrollHeight) * scrollHeight + clientHeight * (scrollY / scrollHeight);
-      this.topScrollPosition =
-        scrollY < navigationHeight
+      const desireTopScrollPosition = scrollY + (scrollY / (scrollHeight - clientHeight + footerMargin)) * clientHeight;
+      this.topScrollPosition = parseInt(
+        scrollY <= navigationHeight
           ? expandedNavigationHeight
-          : Math.min(
-              Math.max(desireTopScrollPosition, this.ballSize + navigationHeight / 2),
-              scrollHeight + clientHeight - this.ballSize
-            );
+          : Math.min(desireTopScrollPosition + navigationHeight, scrollHeight - this.ballSize + footerMargin)
+      );
 
-      const desireBottomScrollPosition = scrollY + clientHeight - (scrollY / scrollHeight) * clientHeight - 30;
-      this.bottomScrollPosition =
-        desireBottomScrollPosition > scrollHeight - this.ballSize - navigationHeight / 2
-          ? Math.min(scrollY + navigationHeight, scrollHeight + clientHeight - this.ballSize)
-          : desireBottomScrollPosition;
+      const desireBottomScrollPosition =
+        scrollY + clientHeight - (scrollY / (scrollHeight - clientHeight + navigationHeight)) * clientHeight;
+      this.bottomScrollPosition = Math.min(
+        Math.max(
+          scrollY + navigationHeight,
+          parseInt(Math.min(desireBottomScrollPosition, scrollHeight - clientHeight - (this.isMobile ? 0 : 18)))
+        ),
+        scrollHeight - this.ballSize + footerMargin
+      );
     }
   }
 };

@@ -2,14 +2,14 @@
   <div
     :class="[
       'position-relative d-flex flex-column align-center text-center custom-wrapper',
-      { 'custom-padding': !isMobile }
+      isMobile ? 'custom-mobile-padding' : 'custom-padding'
     ]"
     style="background-color: #f3911f; margin-bottom: -40px"
   >
     <h1
       :class="[
         'white--text text--darken-3 font-weight-regular',
-        isMobile ? 'f-36 mt-12' : 'f-80 mt-16',
+        isMobile ? 'f-36' : 'f-80 mt-16',
         isRTL ? 'ravi' : 'bel'
       ]"
     >
@@ -75,7 +75,7 @@
 
       <nuxt-link to="/physical">
         <v-sheet
-          :style="`top: ${topScrollPosition}px; right: -${ballSize / 2}px`"
+          :style="`top: ${topScrollPosition}px; right: -${ballSize / (isMobile ? 1.3 : 2)}px`"
           class="rounded-circle z-4 position-absolute"
           color="#00a59b"
           :height="ballSize"
@@ -84,7 +84,7 @@
       </nuxt-link>
       <nuxt-link to="/social">
         <v-sheet
-          :style="`top: ${bottomScrollPosition}px; left: -${ballSize / 2}px`"
+          :style="`top: ${bottomScrollPosition}px; left: -${ballSize / (isMobile ? 1.3 : 2)}px`"
           class="rounded-circle z-4 position-absolute"
           color="#a01e64"
           :height="ballSize"
@@ -128,6 +128,11 @@ export default {
   &.custom-padding {
     margin-top: -120px;
     padding-top: 160px;
+  }
+
+  &.custom-mobile-padding {
+    margin-top: -70px;
+    padding-top: 110px;
   }
 }
 </style>
