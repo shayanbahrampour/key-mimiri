@@ -89,9 +89,11 @@
 
           <template v-if="!isMobile">
             <v-divider class="mb-4 mt-8" />
-            <p :class="['ma-0 f-18', isRTL && 'anjoman font-weight-bold']" style="color: #939393; line-height: 30px">
-              {{ item[`${$i18n.locale}_summary`] }}
-            </p>
+            <div
+              :class="['ma-0 f-18', isRTL && 'anjoman font-weight-bold']"
+              style="color: #939393; line-height: 30px"
+              v-html="item[`${locale}_summary`]"
+            />
             <v-divider class="mt-4" />
           </template>
         </div>
