@@ -1,6 +1,7 @@
 <template>
   <div>
     <v-app-bar
+      id="navigation"
       :class="['appbar', { ltr: isRTL }]"
       :height="showDrawer ? 70 : 120"
       :scroll-threshold="showDrawer ? 70 : 120"
