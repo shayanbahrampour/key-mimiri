@@ -6,12 +6,12 @@
       </h4>
     </div>
 
-    <div v-for="i in 4" :key="i" class="d-flex flex-column justify-center mb-0">
+    <div v-for="(item, i) in items" :key="i" class="d-flex flex-column justify-center mb-0">
       <v-card
         v-if="!isMobile"
         :class="['d-flex rounded-0 overflow-hidden me-4 custom-news-card bg-transparent', isRTL && 'ltr']"
         :ripple="false"
-        :to="path"
+        :to="localePath(`/news/${item.id}`)"
         color="transparent"
         elevation="0"
         style="transition: all ease-in 0.4s"
@@ -19,21 +19,23 @@
         <div class="d-flex">
           <v-img height="200" src="/images/temp/cover-2.png" width="250" />
         </div>
-        <div :class="[`d-flex flex-column py-2 ms-${isRTL ? '0' : '16'} align-${isRTL ? 'end' : 'start'}`]">
+        <div
+          :class="[`d-flex flex-column py-2 ms-${isRTL ? '0' : '16'} align-${isRTL ? 'end' : 'start'}`]"
+          style="width: 90%"
+        >
           <h4
             :class="[
               'text--darken-3 font-weight-regular mb-auto cobelgrey--text custom-card-title',
               isRTL ? 'ravi f-34' : 'bel f-40'
             ]"
           >
-            {{ isRTL ? itemsRTL.title : itemsLTR.title }}
+            {{ isRTL ? item.fa_title : item.en_title }}
           </h4>
           <p
             :class="['text--darken-3 mb-auto', isRTL ? 'ravi text-end f-16' : 'font-weight-light f-18']"
             style="max-width: 90%; color: #59595b; line-height: 26px"
-          >
-            {{ isRTL ? itemsRTL.description : itemsLTR.description }}
-          </p>
+            v-html="isRTL ? item.fa_title : item.en_title"
+          ></p>
           <div v-if="!isRTL" class="d-flex justify-space-between mt-4" style="width: 60%">
             <p class="f-16 mb-0" style="color: #59595b">Read time: 13min</p>
             <p class="f-16 mb-0" style="color: #59595b">Writed by: mehrab mohammadi</p>
@@ -49,14 +51,14 @@
       <v-card
         v-else
         :ripple="false"
-        :to="path"
+        :to="localePath(`/news/${item.id}`)"
         class="d-flex overflow-hidden bg-transparent custom-news-card"
         color="transparent"
         elevation="0"
       >
         <v-card :class="['d-flex flex-column rounded-0 align-start mx-6']" elevation="0" style="overflow: hidden">
           <v-img height="200" src="/images/temp/cover-2.png" />
-          <div class="d-flex flex-column pt-2 mx-0 flex">
+          <div class="d-flex flex-column pt-2 mx-0 flex" style="width: 90%">
             <h4
               :class="[
                 'text--darken-3 my-4 custom-card-title',
@@ -64,11 +66,13 @@
               ]"
               style="color: #59595b"
             >
-              {{ isRTL ? itemsRTL.title : itemsLTR.title }}
+              {{ isRTL ? item.fa_title : item.en_title }}
             </h4>
-            <p :class="['text--darken-0 f-20 font-weight-light mb-6', { ' ravi': isRTL }]" style="color: #59595b">
-              {{ isRTL ? itemsRTL.short_description : itemsLTR.short_description }}
-            </p>
+            <p
+              :class="['text--darken-0 f-20 font-weight-light mb-6', { ' ravi': isRTL }]"
+              style="color: #59595b"
+              v-html="isRTL ? item.fa_title : item.en_title"
+            ></p>
             <div v-if="!isRTL" class="d-flex flex-column font-weight-light" style="width: 90%">
               <p class="f-14 mb-2 d-flex align-center" style="color: #59595b">
                 <v-img class="me-1" contain height="12" max-width="12" src="/images/news/timer.svg" />
@@ -100,7 +104,7 @@
           </div>
         </v-card>
       </v-card>
-      <v-divider v-if="i !== 4" :class="[!isMobile ? 'my-8 me-6' : 'mx-6 my-10']"></v-divider>
+      <v-divider v-if="i !== items.length" :class="[!isMobile ? 'my-8 me-6' : 'mx-6 my-10']"></v-divider>
     </div>
   </div>
 </template>
@@ -115,6 +119,10 @@ export default {
     path: {
       type: String,
       default: ''
+    },
+    items: {
+      type: Array,
+      default: () => []
     }
   },
   data() {

@@ -9,9 +9,16 @@
         :title="isRTL ? 'مهمترین ها' : 'More important'"
         class="mb-16 mx-6"
       />
-      <NewsCard :path="localePath('/news/1')" class="mx-6" />
+      <NewsCard v-if="!loading" :path="localePath('/news/1')" class="mx-6" :items="news" />
     </v-sheet>
-    <NewsCard v-else :path="localePath('/news/1')" :title="isRTL ? 'مهمترین ها' : 'More important'" class="mt-10" />
+    <NewsCard
+      v-else-if="isMobile && !loading"
+      :path="localePath('/news/1')"
+      :title="isRTL ? 'مهمترین ها' : 'More important'"
+      :items="news"
+      class="mt-10"
+    />
+    <SkeletonLoaderCard v-if="loading" />
   </div>
 </template>
 
@@ -20,15 +27,17 @@ import { mapGetters } from 'vuex';
 import NewsCard from '~/components/news/NewsCard.vue';
 import NewsCarousel from '~/components/news/NewsCarousel.vue';
 import NewsCategory from '~/components/news/NewsCategory.vue';
-
+import SkeletonLoaderCard from '~/components/shared/SkeletonLoaderCard.vue';
 export default {
-  components: { NewsCategory, NewsCard, NewsCarousel },
+  components: { NewsCategory, NewsCard, NewsCarousel, SkeletonLoaderCard },
   data() {
     return {
       pagination: {
         current_page: 1
       },
-      items: []
+      loading: false,
+      items: [],
+      news: []
     };
   },
   head() {
@@ -42,6 +51,7 @@ export default {
     })
   },
   async fetch() {
+    this.loading = true;
     try {
       const { data } = await this.$store.dispatch('news/getList', {
         params: {
@@ -53,6 +63,14 @@ export default {
       this.pagination = data.pagination;
     } catch (e) {
       console.log(e);
+    }
+    try {
+      const { data } = await this.$store.dispatch('news/getNewsList', {});
+      this.news = data.results;
+      this.loading = false;
+    } catch (e) {
+      console.log(e);
+      this.loading = false;
     }
   },
   created() {

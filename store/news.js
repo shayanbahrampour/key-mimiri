@@ -27,6 +27,9 @@ export const actions = {
       console.log(e);
     }
   },
+  getNewsList({ commit }, { params } = {}) {
+    return this.$axios.$get(api.news_list(this.$i18n.locale), { params });
+  },
   getList({ commit }, { params, id } = {}) {
     return this.$axios.$get(api.news(this.$i18n.locale, id), { params });
   }
