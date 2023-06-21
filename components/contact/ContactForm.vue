@@ -6,8 +6,8 @@
           v-model="model.category"
           :class="['mb-4 f-20 management-select', { 'rtl ravi': isRTL }]"
           :items="isRTL ? itemsRTL : items"
-          :label="$t('contact.fields.management')"
           :rules="[rule.required]"
+          :label="$t('contact.fields.management')"
           append-icon="mdi-triangle-down 10 slategrey--text"
           dense
           filled
@@ -18,8 +18,8 @@
         <v-text-field
           v-model="model.topic"
           :class="['mb-4 f-20', { ' ravi': isRTL }]"
-          :rules="[rule.required]"
           :label="$t('contact.fields.topic')"
+          :rules="[rule.required]"
           dense
           filled
           hide-details
@@ -28,8 +28,8 @@
         <v-text-field
           v-model="model.full_name"
           :class="['mb-4 f-20', { ' ravi': isRTL }]"
-          :rules="[rule.required]"
           :label="$t('contact.fields.full_name')"
+          :rules="[rule.required]"
           dense
           filled
           hide-details
@@ -38,8 +38,8 @@
         <v-text-field
           v-model="model.email"
           :class="[!isMobile ? 'mb-4 f-20' : 'mb-0 f-20', { ' ravi': isRTL }]"
-          :rules="[rule.required, rule.email]"
           :label="$t('contact.fields.email')"
+          :rules="[rule.required, rule.email]"
           dense
           filled
           hide-details
@@ -50,8 +50,8 @@
         <v-textarea
           v-model="model.description"
           :class="['mb-4 f-20', { 'mb-10': isMobile }, { ' ravi': isRTL }]"
-          :rules="[rule.required]"
           :label="$t('contact.fields.description')"
+          :rules="[rule.required]"
           dense
           filled
           height="260"
