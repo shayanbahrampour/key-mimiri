@@ -1,24 +1,23 @@
 <template>
-  <div class="d-flex flex-column">
-    <CareerHeader />
+  <div v-if="!$fetchState.pending" class="d-flex flex-column">
+    <CareerHeader :item="item" />
     <div
       :class="['d-flex flex-column align-start white mx-auto', isMobile ? 'px-4 f-16' : 'px-16 scrolled-desktop']"
       :style="`max-width: ${globalMaxWidth}px;`"
       style="line-height: 2"
     >
       <v-img
-        :class="[isMobile ? 'my-12' : 'mx-2 mt-16']"
-        :max-height="isMobile ? '40' : '100'"
-        :width="isMobile ? '100%' : '200'"
-        contain
-        src="/images/company/medarman.png"
+        :class="[isMobile ? 'my-12' : 'mt-16 text-end']"
+        :max-height="isMobile ? '100' : '100'"
+        :width="isMobile ? '100%' : undefined"
+        :src="src()"
       />
       <v-divider v-if="isMobile" style="width: 100% !important" />
       <p
         :class="[isMobile ? 'text-center my-2 f-20' : 'mt-6 f-18', isRTL ? 'ravi' : undefined]"
         style="color: #939393; line-height: 40px"
       >
-        {{ $t('career.job_detail.job_description') }}
+        {{ isRTL ? item.fa_description : item.en_description }}
       </p>
       <v-divider v-if="isMobile" style="width: 100% !important" />
       <h4
@@ -128,10 +127,29 @@ export default {
         }
       ],
       ResponsibleRTL:
-        'به عنوان نقطه تشدید: مدیران ارشد پروژه ممکن است یک نقطه تماس کلیدی برای ذینفعان در پروژه هایی باشند که متعلق به کارکنان جوان هستند. این یک مسیر تشدید را برای مسائلی فراهم می کند که مدیر پروژه نمی تواند به تنهایی حل کند. صرفه جویی در پروژه های در حال مشکل: زمانی که یک پروژه خیلی از مسیر دور می شود، یک مدیر ارشد پروژه ممکن است از مدیر پروژه حمایت کند یا پروژه را به عهده بگیرد. مصاحبه و استخدام: مدیران ارشد پروژه ممکن است در مصاحبه و استخدام کارکنان جدید پروژه کمک کنند.آموزش و مدیریت: در برخی از سازمان ها، مدیران پروژه مستقیماً به مدیران ارشد پروژه گزارش می دهند. مربیگری و مربیگری: معمولاً از مدیران ارشد پروژه انتظار می رود که کارکنان خردسال را مربی و راهنمایی کنند. ایفای نقش به عنوان یک الگو: از افرادی که در این نقش حضور دارند انتظار می رود که الگویی برای اعضای خردسال تیم باشند. پشتیبانی از تصویر بزرگ: ممکن است از یک مدیر ارشد پروژه انتظار می رود که در مدیریت برنامه و سایر وظایف PMO کمک کند. پیشرفت قهرمانی: مدیران ارشد پروژه ممکن است به عنوان قهرمانان یادگیری، بهبود فرآیند و مدیریت پروژه در شرکت عمل کنند.'
+        'به عنوان نقطه تشدید: مدیران ارشد پروژه ممکن است یک نقطه تماس کلیدی برای ذینفعان در پروژه هایی باشند که متعلق به کارکنان جوان هستند. این یک مسیر تشدید را برای مسائلی فراهم می کند که مدیر پروژه نمی تواند به تنهایی حل کند. صرفه جویی در پروژه های در حال مشکل: زمانی که یک پروژه خیلی از مسیر دور می شود، یک مدیر ارشد پروژه ممکن است از مدیر پروژه حمایت کند یا پروژه را به عهده بگیرد. مصاحبه و استخدام: مدیران ارشد پروژه ممکن است در مصاحبه و استخدام کارکنان جدید پروژه کمک کنند.آموزش و مدیریت: در برخی از سازمان ها، مدیران پروژه مستقیماً به مدیران ارشد پروژه گزارش می دهند. مربیگری و مربیگری: معمولاً از مدیران ارشد پروژه انتظار می رود که کارکنان خردسال را مربی و راهنمایی کنند. ایفای نقش به عنوان یک الگو: از افرادی که در این نقش حضور دارند انتظار می رود که الگویی برای اعضای خردسال تیم باشند. پشتیبانی از تصویر بزرگ: ممکن است از یک مدیر ارشد پروژه انتظار می رود که در مدیریت برنامه و سایر وظایف PMO کمک کند. پیشرفت قهرمانی: مدیران ارشد پروژه ممکن است به عنوان قهرمانان یادگیری، بهبود فرآیند و مدیریت پروژه در شرکت عمل کنند.',
+      item: null
     };
   },
-  components: { VideoLoader, JobsGrid, CareerHeader }
+  components: { VideoLoader, JobsGrid, CareerHeader },
+  async fetch() {
+    try {
+      const { data } = await this.$store.dispatch('career/getJobPositions');
+      this.item = data.find((item) => Number(item.id) === Number(this.$route.params.id));
+      console.log(this.item);
+    } catch (e) {
+      console.log(e);
+    }
+  },
+  methods: {
+    src() {
+      if (!this.item || !this.item.files.length) return '';
+      const mainImage = this.item.files.find((item) => item.type === 'company_file');
+      if (!mainImage) return '';
+
+      return `${this.$imageUrl}/${mainImage.url}`;
+    }
+  }
 };
 </script>
 

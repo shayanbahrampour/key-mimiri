@@ -8,3 +8,4 @@ export const impact_story = (lang = '', query = '') => `/shared/${lang}/impact-s
 export const contact = () => '/shared/contact-us';
 
 export const job_applications = () => '/shared/job-applications';
+export const job_positions = (lang = '') => `/shared/${lang}/job-positions`;

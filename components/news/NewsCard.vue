@@ -17,7 +17,7 @@
         style="transition: all ease-in 0.4s"
       >
         <div class="d-flex">
-          <v-img height="200" src="/images/temp/cover-2.png" width="250" />
+          <v-img height="200" :src="src(item)" width="250" />
         </div>
         <div
           :class="[`d-flex flex-column py-2 ms-${isRTL ? '0' : '16'} align-${isRTL ? 'end' : 'start'}`]"
@@ -123,6 +123,15 @@ export default {
     items: {
       type: Array,
       default: () => []
+    }
+  },
+  methods: {
+    src(index) {
+      if (!index && !index.files.length) return '';
+      const mainImage = index.files.find((item) => item.type === 'column_section_file');
+      if (!mainImage) return '';
+
+      return `${this.$imageUrl}/${mainImage.url}`;
     }
   },
   data() {

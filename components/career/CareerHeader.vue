@@ -26,7 +26,7 @@
             <h2
               :class="['white--text mb-0 text--darken-3 font-weight-regular f-50 header-des', isRTL ? 'ravi' : 'bel']"
             >
-              {{ $t('career.job_position') }}
+              {{ isRTL ? item.fa_title : item.en_title }}
             </h2>
             <p
               :class="[
@@ -35,7 +35,7 @@
               ]"
               style="max-width: 70%"
             >
-              {{ $t('career.job_description') }}
+              {{ isRTL ? item.fa_summary : item.en_summary }}
             </p>
           </div>
           <v-btn
@@ -88,7 +88,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    item: {
+      type: Object,
+      default: () => ({})
+    }
+  }
+};
 </script>
 
 <style lang="scss">
