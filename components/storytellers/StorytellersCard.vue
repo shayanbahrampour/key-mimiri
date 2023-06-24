@@ -1,15 +1,15 @@
 <template>
-  <div class="mb-10">
+  <div :class="['mb-10', { 'd-flex flex-column align-start': !isMobile }]">
     <div v-if="isMobile" class="d-flex justify-center">
       <h4 :class="['text--darken-3 font-weight-regular', isRTL ? 'ravi f-30' : 'bel f-36']" style="color: #59595b">
         {{ title }}
       </h4>
     </div>
 
-    <div v-for="i in 4" :key="i" class="d-flex justify-center mb-4">
+    <div v-for="(item, i) in items" :key="i" class="d-flex justify-center mb-4">
       <v-card
         :class="['d-flex rounded-xl overflow-hidden align-center', !isMobile ? 'custom-story-card me-4' : undefined]"
-        :to="localePath('/storytellers/1234')"
+        :to="localePath(`/storytellers/${item.id}`)"
         elevation="0"
         style="border: 2px solid white"
       >
@@ -21,7 +21,7 @@
               :height="isMobile ? '140' : '155'"
               :max-width="isMobile ? '140' : '155'"
               class="me-4"
-              src="/images/face/bahador.png"
+              :src="src(item)"
               style="border-radius: 50%"
             />
             <div :class="['d-flex flex-column justify-center', !isMobile ? 'ms-4' : undefined]">
@@ -31,9 +31,9 @@
                   isMobile ? 'text-center mt-4 f-32 font-weight-regular' : 'f-42 font-weight-regular story-name',
                   isRTL ? 'ravi' : 'bel'
                 ]"
-                style="color: #59595b"
+                :style="`color: #59595b; width: ${isMobile ? '100%' : '600px'}`"
               >
-                {{ isRTL ? itemsRTL.title : items.title }}
+                {{ isRTL ? item.fa_full_name : item.en_full_name }}
               </p>
               <p
                 :class="[
@@ -48,7 +48,7 @@
                 ]"
                 style="color: #939393"
               >
-                {{ isRTL ? itemsRTL.role : items.role }}
+                {{ isRTL ? item.fa_position : item.en_position }}
               </p>
               <v-divider v-if="isMobile" class="mt-2 mb-6" style="background-color: #00a59b; width: 350px"></v-divider>
             </div>
@@ -58,22 +58,20 @@
             v-if="!isMobile"
             :class="['f-22 mb-0 text--darken-3 justify-center', { ravi: isRTL }]"
             :style="`max-width: ${isRTL ? '65' : '58'}%; color: #939393`"
-          >
-            {{ isRTL ? itemsRTL.description : items.description }}
-          </p>
-          <p
+            v-html="isRTL ? item.fa_body : item.en_body"
+          />
+          <div
             v-else
             :class="[
               'text-center mx-6 mb-0 text--darken-0 cobelgrey--text f-22',
               isRTL ? 'mobile-story-description font-weight-bold' : 'font-weight-light'
             ]"
           >
-            {{ isRTL ? itemsRTL.description : items.description }}
-            <br />
+            <p class="pa-0 ma-0" v-html="isRTL ? item.fa_body : item.en_body"></p>
             <span :class="['cobelgrey--text font-weight-bold', { 'ravi ': isRTL }]">{{
               isRTL ? 'بیشتر ببینید' : 'see more'
             }}</span>
-          </p>
+          </div>
         </div>
       </v-card>
     </div>
@@ -86,6 +84,10 @@ export default {
     title: {
       type: String,
       default: ''
+    },
+    items: {
+      type: Array,
+      default: () => []
     }
   },
   data() {
@@ -107,6 +109,14 @@ export default {
           'فرایند منصفانه، به عنوان یك ارزش به مقام انسانها، به یك نیاز پایهای در آنان پاسخ میدهد. سه اصل عدالت در فرایندها عبارتند از: تعامل، شفافیت'
       }
     };
+  },
+  methods: {
+    src(index) {
+      const mainImage = index.files.find((item) => item.type === 'avatar_file');
+      if (!mainImage) return '';
+
+      return `${this.$imageUrl}/${mainImage.url}`;
+    }
   }
 };
 </script>

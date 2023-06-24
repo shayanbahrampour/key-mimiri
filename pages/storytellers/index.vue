@@ -39,7 +39,7 @@
       >
         <NewsCategory
           :class="`my-6 mx-${isRTL ? '0' : '6'}`"
-          :tabs="isRTL ? tabsRTL : tabs"
+          :items="categories.map((item) => ({ ...item, title: item[`${$i18n.locale}_name`] }))"
           :title="isRTL ? 'داستان نویسان بیشتر' : 'More Storytellers'"
         />
       </div>
@@ -52,11 +52,13 @@
     <StorytellersCard
       :class="['mt-10', !isMobile ? 'mx-16' : undefined]"
       :title="isRTL ? 'داستان نویسان بیشتر' : 'More Storytellers'"
+      :items="items"
     />
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import NewsCategory from '~/components/news/NewsCategory';
 import HomeStoryTellers from '~/components/home/HomeStoryTellers';
 import StorytellersCard from '~/components/storytellers/StorytellersCard';
@@ -68,23 +70,28 @@ export default {
     };
   },
   components: { StorytellersCard, NewsCategory, HomeStoryTellers },
+  computed: {
+    ...mapGetters({
+      categories: 'storyteller/categories'
+    })
+  },
   data() {
-    return {
-      tabs: [
-        { title: 'All', value: '' },
-        { title: 'Best talent', value: '' },
-        { title: 'Long-term value creation', value: '' },
-        { title: 'Social responsibility', value: '' },
-        { title: 'Localized know-how', value: '' }
-      ],
-      tabsRTL: [
-        { title: 'همه', value: '' },
-        { title: 'بهترین استعداد', value: '' },
-        { title: 'خلق ارزش بلند مدت', value: '' },
-        { title: 'مسئولیت اجتماعی', value: '' },
-        { title: 'دانش بومی سازی شده', value: '' }
-      ]
-    };
+    return { loading: false, items: [] };
+  },
+  async fetch() {
+    this.loading = true;
+    try {
+      const { data } = await this.$store.dispatch('storyteller/getStorytellersList', {});
+      this.items = data.results;
+      console.log(this.items);
+      this.loading = false;
+    } catch (e) {
+      console.log(e);
+      this.loading = false;
+    }
+  },
+  created() {
+    if (this.categories && this.categories.length === 0) this.$store.dispatch('storyteller/getCategories');
   }
 };
 </script>
