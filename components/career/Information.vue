@@ -22,6 +22,7 @@
             v-model="model.first_name"
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
             :label="$t('career.steps.information.first_name')"
+            :rules="[rule.required]"
             dense
             filled
             hide-details
@@ -31,6 +32,7 @@
             v-model="model.id_number"
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
             :label="$t('career.steps.information.id')"
+            :rules="[rule.required, rule.number]"
             dense
             filled
             hide-details
@@ -40,6 +42,7 @@
             v-model="model.email"
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
             :label="$t('career.steps.information.email')"
+            :rules="[rule.required, rule.email]"
             dense
             filled
             hide-details
@@ -51,6 +54,7 @@
             v-model="model.last_name"
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
             :label="$t('career.steps.information.last_name')"
+            :rules="[rule.required]"
             dense
             filled
             hide-details
@@ -60,6 +64,7 @@
             v-model="model.mobile"
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
             :label="$t('career.steps.information.mobile')"
+            :rules="[rule.required, rule.mobile]"
             dense
             filled
             hide-details
@@ -69,6 +74,7 @@
             v-model="model.address"
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
             :label="$t('career.steps.information.address')"
+            :rules="[rule.required]"
             dense
             filled
             hide-details
@@ -83,8 +89,10 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import mixinRules from '~/mixins/mixin.rules';
 import CareerButtons from './CareerButtons';
 export default {
+  mixins: [mixinRules],
   components: { CareerButtons },
   props: {
     step: {
@@ -120,15 +128,10 @@ export default {
   },
   methods: {
     goNext() {
-      if (
-        !this.model.first_name ||
-        !this.model.last_name ||
-        !this.model.email ||
-        !this.model.address ||
-        !this.model.mobile ||
-        !this.model.id_number
-      ) {
-        this.$toast.error('All Fields Required!');
+      if (!this.valid) {
+        this.$toast.clear();
+        this.$toast.error('All Fields Required');
+        return;
       } else {
         this.$store.commit('career/SET', {
           answers: {

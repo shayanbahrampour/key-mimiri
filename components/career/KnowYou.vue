@@ -21,6 +21,7 @@
         :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
         :label="$t('career.steps.let_us_know.placeholder_one')"
         dense
+        :rules="[rule.required]"
         filled
         height="160"
         hide-details
@@ -32,6 +33,7 @@
         :label="$t('career.steps.let_us_know.placeholder_two')"
         dense
         filled
+        :rules="[rule.required]"
         height="160"
         hide-details
         rounded
@@ -42,6 +44,7 @@
         :label="$t('career.steps.let_us_know.placeholder_three')"
         dense
         filled
+        :rules="[rule.required]"
         height="160"
         hide-details
         rounded
@@ -53,8 +56,10 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import mixinRules from '~/mixins/mixin.rules';
 import CareerButtons from './CareerButtons';
 export default {
+  mixins: [mixinRules],
   components: { CareerButtons },
   props: {
     step: {
@@ -82,8 +87,10 @@ export default {
   },
   methods: {
     goNext() {
-      if (!this.what_department || !this.why_cobel || !this.why_talent) {
-        this.$toast.error('All Fields Required!');
+      if (!this.valid) {
+        this.$toast.clear();
+        this.$toast.error('All Fields Required');
+        return;
       } else {
         this.$store.commit('career/SET', {
           answers: {

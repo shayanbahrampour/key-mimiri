@@ -19,10 +19,11 @@
       <v-row class="align-start justify-center">
         <v-col :class="isMobile ? 'pb-0' : undefined" cols="12" md="4">
           <v-select
-            v-model="model.degree[0]"
+            v-model="model[0].degree"
             :class="['mb-8', isRTL ? 'ravi' : undefined]"
             :items="isRTL ? itemsRTL : items"
             :label="$t('career.steps.education.degree')"
+            :rules="[rule.required]"
             append-icon="mdi-triangle-down 10"
             append-icon-size="16"
             dense
@@ -34,6 +35,7 @@
           <v-text-field
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
             :label="$t('career.steps.education.country')"
+            :rules="[rule.required]"
             dense
             filled
             hide-details
@@ -42,6 +44,7 @@
           <v-text-field
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
             :label="$t('career.steps.education.grad_year')"
+            :rules="[rule.required]"
             dense
             filled
             hide-details
@@ -52,6 +55,7 @@
           <v-text-field
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
             :label="$t('career.steps.education.major')"
+            :rules="[rule.required]"
             dense
             filled
             hide-details
@@ -60,6 +64,7 @@
           <v-text-field
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
             :label="$t('career.steps.education.state')"
+            :rules="[rule.required]"
             dense
             filled
             hide-details
@@ -79,6 +84,7 @@
           <v-text-field
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
             :label="$t('career.steps.education.uni')"
+            :rules="[rule.required]"
             dense
             filled
             hide-details
@@ -87,6 +93,7 @@
           <v-text-field
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
             :label="$t('career.steps.education.city')"
+            :rules="[rule.required]"
             dense
             filled
             hide-details
@@ -102,7 +109,7 @@
       <v-row v-for="i in counter" :key="i" class="align-start justify-center">
         <v-col :class="isMobile ? 'pb-0' : undefined" cols="12" md="4">
           <v-select
-            v-model="model.degree[i]"
+            v-model="model[i].degree"
             :class="['mb-8', isRTL ? 'ravi' : undefined]"
             :items="items"
             :label="$t('career.steps.education.degree')"
@@ -202,8 +209,11 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+import mixinRules from '~/mixins/mixin.rules';
 import CareerButtons from './CareerButtons';
 export default {
+  mixins: [mixinRules],
   components: { CareerButtons },
   props: {
     step: {
@@ -215,9 +225,11 @@ export default {
     return {
       valid: null,
       counter: 0,
-      model: {
-        degree: []
-      },
+      model: [
+        {
+          degree: null
+        }
+      ],
       items: ['Graduate', 'Associate', 'Bachelor', 'Master', 'Doctorate', 'Professional'],
       itemsRTL: ['فارغ التحصیل', 'وابسته', 'لیسانس', 'فوق لیسانس', 'دکتری', 'پروفسوری']
     };
