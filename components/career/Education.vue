@@ -19,7 +19,7 @@
       <v-row class="align-start justify-center">
         <v-col :class="isMobile ? 'pb-0' : undefined" cols="12" md="4">
           <v-select
-            v-model="model[0].degree"
+            v-model="model.degree"
             :class="['mb-8', isRTL ? 'ravi' : undefined]"
             :items="isRTL ? itemsRTL : items"
             :label="$t('career.steps.education.degree')"
@@ -33,6 +33,7 @@
             rounded
           />
           <v-text-field
+            v-model="model.country"
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
             :label="$t('career.steps.education.country')"
             :rules="[rule.required]"
@@ -42,9 +43,10 @@
             rounded
           ></v-text-field>
           <v-text-field
+            v-model="model.grad_year"
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
             :label="$t('career.steps.education.grad_year')"
-            :rules="[rule.required]"
+            :rules="[rule.required, rule.number]"
             dense
             filled
             hide-details
@@ -53,6 +55,7 @@
         </v-col>
         <v-col :class="isMobile ? 'py-0' : undefined" cols="12" md="4">
           <v-text-field
+            v-model="model.major"
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
             :label="$t('career.steps.education.major')"
             :rules="[rule.required]"
@@ -62,6 +65,7 @@
             rounded
           ></v-text-field>
           <v-text-field
+            v-model="model.state"
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
             :label="$t('career.steps.education.state')"
             :rules="[rule.required]"
@@ -82,6 +86,7 @@
         </v-col>
         <v-col :class="isMobile ? 'pt-0' : undefined" cols="12" md="4">
           <v-text-field
+            v-model="model.uni_name"
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
             :label="$t('career.steps.education.uni')"
             :rules="[rule.required]"
@@ -91,6 +96,7 @@
             rounded
           ></v-text-field>
           <v-text-field
+            v-model="model.city"
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
             :label="$t('career.steps.education.city')"
             :rules="[rule.required]"
@@ -195,6 +201,7 @@
         </p>
       </v-btn>
       <v-textarea
+        v-model="education_description"
         :class="['mb-8 f-20', isRTL ? 'ravi text-end' : undefined]"
         :label="$t('career.steps.education.placeholder_one')"
         dense
@@ -225,11 +232,16 @@ export default {
     return {
       valid: null,
       counter: 0,
-      model: [
-        {
-          degree: null
-        }
-      ],
+      model: {
+        degree: null,
+        major: null,
+        uni_name: null,
+        country: null,
+        state: null,
+        city: null,
+        grad_year: null
+      },
+      education_description: null,
       items: ['Graduate', 'Associate', 'Bachelor', 'Master', 'Doctorate', 'Professional'],
       itemsRTL: ['فارغ التحصیل', 'وابسته', 'لیسانس', 'فوق لیسانس', 'دکتری', 'پروفسوری']
     };
