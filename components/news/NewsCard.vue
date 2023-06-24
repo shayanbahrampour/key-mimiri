@@ -11,7 +11,7 @@
         v-if="!isMobile"
         :class="['d-flex rounded-0 overflow-hidden me-4 custom-news-card bg-transparent', isRTL && 'ltr']"
         :ripple="false"
-        :to="localePath(`/news/${item.id}`)"
+        :to="localePath(`/${path}/${item.id}`)"
         color="transparent"
         elevation="0"
         style="transition: all ease-in 0.4s"
@@ -51,7 +51,7 @@
       <v-card
         v-else
         :ripple="false"
-        :to="localePath(`/news/${item.id}`)"
+        :to="localePath(`/${path}/${item.id}`)"
         class="d-flex overflow-hidden bg-transparent custom-news-card"
         color="transparent"
         elevation="0"
@@ -128,10 +128,15 @@ export default {
   methods: {
     src(index) {
       if (!index && !index.files.length) return '';
-      const mainImage = index.files.find((item) => item.type === 'column_section_file');
-      if (!mainImage) return '';
-
-      return `${this.$imageUrl}/${mainImage.url}`;
+      if (this.path === 'news') {
+        const mainImage = index.files.find((item) => item.type === 'column_section_file');
+        if (!mainImage) return '';
+        return `${this.$imageUrl}/${mainImage.url}`;
+      } else if (this.path === 'education') {
+        const mainImage = index.files.find((item) => item.type === 'main_file');
+        if (!mainImage) return '';
+        return `${this.$imageUrl}/${mainImage.url}`;
+      }
     }
   },
   data() {

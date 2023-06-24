@@ -61,6 +61,11 @@ export default {
     color: '#97245B',
     name: 'cube-grid'
   },
+  toast: {
+    duration: 1000,
+    position: 'top-center',
+    iconPack: 'custom-class'
+  },
   router: {
     middleware: 'scroll'
   },
@@ -83,7 +88,13 @@ export default {
   buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/vuetify'],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/axios', '@nuxtjs/i18n', '@nuxtjs/dayjs', ['@nuxtjs/robots', { UserAgent: '*', Disallow: '/' }]],
+  modules: [
+    '@nuxtjs/axios',
+    '@nuxtjs/i18n',
+    '@nuxtjs/dayjs',
+    '@nuxtjs/toast',
+    ['@nuxtjs/robots', { UserAgent: '*', Disallow: '/' }]
+  ],
 
   // Optional
   dayjs: {

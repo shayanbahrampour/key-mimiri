@@ -9,11 +9,11 @@
         :title="isRTL ? 'مهمترین ها' : 'More important'"
         class="mb-16 mx-6"
       />
-      <NewsCard v-if="!loading" :path="localePath('/news/1')" class="mx-6" :items="news" />
+      <NewsCard v-if="!loading" path="news" class="mx-6" :items="news" />
     </v-sheet>
     <NewsCard
       v-else-if="isMobile && !loading"
-      :path="localePath('/news/1')"
+      path="news"
       :title="isRTL ? 'مهمترین ها' : 'More important'"
       :items="news"
       class="mt-10"

@@ -17,6 +17,7 @@
         {{ $t('career.steps.let_us_know.title') }}
       </p>
       <v-textarea
+        v-model="why_talent"
         :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
         :label="$t('career.steps.let_us_know.placeholder_one')"
         dense
@@ -26,6 +27,7 @@
         rounded
       ></v-textarea>
       <v-textarea
+        v-model="why_cobel"
         :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
         :label="$t('career.steps.let_us_know.placeholder_two')"
         dense
@@ -35,6 +37,7 @@
         rounded
       ></v-textarea>
       <v-textarea
+        v-model="what_department"
         :class="['mb-8 f-20', isRTL ? 'ravi text-end' : undefined]"
         :label="$t('career.steps.let_us_know.placeholder_three')"
         dense
@@ -44,15 +47,55 @@
         rounded
       ></v-textarea>
     </div>
+    <CareerButtons :class="{ 'mt-10': !isRTL }" @next="goNext()" @back="$emit('back')" :step="step" />
   </v-form>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+import CareerButtons from './CareerButtons';
 export default {
+  components: { CareerButtons },
+  props: {
+    step: {
+      type: Number,
+      default: undefined
+    }
+  },
   data() {
     return {
-      valid: null
+      valid: null,
+      why_talent: null,
+      why_cobel: null,
+      what_department: null
     };
+  },
+  computed: {
+    ...mapGetters({
+      answers: 'career/getAnswers'
+    })
+  },
+  created() {
+    if (this.answers && this.answers.what_department) this.what_department = this.answers.what_department;
+    if (this.answers && this.answers.why_cobel) this.why_cobel = this.answers.why_cobel;
+    if (this.answers && this.answers.why_talent) this.why_talent = this.answers.why_talent;
+  },
+  methods: {
+    goNext() {
+      if (!this.what_department || !this.why_cobel || !this.why_talent) {
+        this.$toast.error('All Fields Required!');
+      } else {
+        this.$store.commit('career/SET', {
+          answers: {
+            ...(this.answers || {}),
+            why_talent: this.why_talent,
+            why_cobel: this.why_cobel,
+            what_department: this.what_department
+          }
+        });
+        this.$emit('next');
+      }
+    }
   }
 };
 </script>

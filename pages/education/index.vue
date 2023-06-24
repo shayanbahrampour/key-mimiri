@@ -39,7 +39,7 @@
       >
         <NewsCategory
           :class="`my-6 mx-${isRTL ? '0' : '6'}`"
-          :tabs="isRTL ? tabsRTL : tabs"
+          :items="categories.map((item) => ({ ...item, title: item[`${$i18n.locale}_name`] }))"
           :title="isRTL ? 'مقالات بیشتر' : 'More Articles'"
         />
       </div>
@@ -50,15 +50,20 @@
       </p>
     </div>
     <NewsCard
+      v-if="!loading"
       :class="['mt-10', !isMobile ? 'mx-16' : undefined]"
-      :path="localePath('/education/1')"
+      path="education"
+      :items="news"
       :title="isRTL ? 'مقالات بیشتر' : 'More Articles'"
     />
+    <SkeletonLoaderCard v-if="loading" />
     <HomeStoryTellers :class="[isMobile ? 'mt-0' : 'mt-6']" />
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+import SkeletonLoaderCard from '~/components/shared/SkeletonLoaderCard';
 import NewsCard from '~/components/news/NewsCard';
 import NewsCategory from '~/components/news/NewsCategory';
 import HomeStoryTellers from '~/components/home/HomeStoryTellers';
@@ -69,24 +74,31 @@ export default {
       title: this.$t('pageTitles.education')
     };
   },
-  components: { NewsCard, NewsCategory, HomeStoryTellers },
+  components: { NewsCard, NewsCategory, HomeStoryTellers, SkeletonLoaderCard },
   data() {
     return {
-      tabs: [
-        { title: 'All', value: '' },
-        { title: 'Best talent', value: '' },
-        { title: 'Long-term value creation', value: '' },
-        { title: 'Social responsibility', value: '' },
-        { title: 'Localized know-how', value: '' }
-      ],
-      tabsRTL: [
-        { title: 'همه', value: '' },
-        { title: 'بهترین استعداد', value: '' },
-        { title: 'خلق ارزش بلند مدت', value: '' },
-        { title: 'مسئولیت اجتماعی', value: '' },
-        { title: 'دانش بومی سازی شده', value: '' }
-      ]
+      loading: false,
+      news: []
     };
+  },
+  computed: {
+    ...mapGetters({
+      categories: 'education/categories'
+    })
+  },
+  async fetch() {
+    this.loading = true;
+    try {
+      const { data } = await this.$store.dispatch('education/getEducationList', {});
+      this.news = data.results;
+      this.loading = false;
+    } catch (e) {
+      console.log(e);
+      this.loading = false;
+    }
+  },
+  created() {
+    if (this.categories && this.categories.length === 0) this.$store.dispatch('education/getCategories');
   }
 };
 </script>

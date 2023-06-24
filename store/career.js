@@ -5,7 +5,7 @@ export const state = () => ({
 });
 
 export const getters = {
-  answers: (state) => state.answers
+  getAnswers: (state) => state.answers
 };
 
 export const mutations = {
@@ -13,6 +13,9 @@ export const mutations = {
     for (const [key, value] of Object.entries(payload)) {
       state[key] = value;
     }
+  },
+  RESET: (state) => {
+    state.answers = [];
   }
 };
 

@@ -123,7 +123,7 @@ export default {
     async onSubmit() {
       if (!this.flag.isValid) {
         this.$toast.clear();
-        this.$toast.error('لطفا همه فیلدهای قرمز را تکمیل کنید');
+        this.$toast.error('All Fields Required');
         return;
       }
       try {
@@ -132,7 +132,7 @@ export default {
         for (let item in this.model) formData.append(item, this.model[item] || '');
 
         await this.$store.dispatch('contact/sendContact', { body: formData });
-        this.$toast.success('یادداشت با موفقیت ذخیره شد!');
+        this.$toast.success('Done!');
         this.$emit('submit');
       } catch (e) {
         this.errorHandler(e);

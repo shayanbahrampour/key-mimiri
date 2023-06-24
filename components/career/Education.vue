@@ -197,11 +197,20 @@
         rounded
       />
     </div>
+    <CareerButtons :class="{ 'mt-10': !isRTL }" @next="$emit('next')" @back="$emit('back')" :step="step" />
   </v-form>
 </template>
 
 <script>
+import CareerButtons from './CareerButtons';
 export default {
+  components: { CareerButtons },
+  props: {
+    step: {
+      type: Number,
+      default: undefined
+    }
+  },
   data() {
     return {
       valid: null,

@@ -1,18 +1,27 @@
 <template>
   <div :class="['d-flex align-center', isMobile ? 'flex-column px-4 mt-10' : 'px-16 my-16', isRTL && 'ltr']">
-    <v-img :max-height="isMobile ? '220' : '420'" :width="isMobile ? '350' : '520'" src="/images/news/education.png" />
+    <v-img :max-height="isMobile ? '220' : '420'" :width="isMobile ? '350' : '520'" :src="file" />
 
     <p
       :class="['font-weight-light  mx-4', isMobile ? 'mt-6 f-20' : 'f-24', { 'text-end ravi rtl': isRTL }]"
       style="color: #939393; line-height: 2"
-    >
-      {{ isRTL ? item.rtl : item.ltr }}
-    </p>
+      v-html="conclusion"
+    />
   </div>
 </template>
 
 <script>
 export default {
+  props: {
+    conclusion: {
+      type: String,
+      default: ''
+    },
+    file: {
+      type: String,
+      default: ''
+    }
+  },
   data() {
     return {
       item: {
