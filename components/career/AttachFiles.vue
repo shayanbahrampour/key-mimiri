@@ -23,6 +23,7 @@
             :append-icon="model.coverLetter ? false : 'mdi-file-upload slategrey--text'"
             :class="['mb-9 attach-file', isRTL ? 'ravi text-end' : undefined]"
             :label="$t('career.steps.file.letter')"
+            :rules="[rule.required]"
             :prepend-icon="false"
             clear-icon="mdi-delete black--text"
             dense
@@ -34,6 +35,7 @@
             v-model="model.address"
             :append-icon="model.address ? false : 'mdi-file-upload slategrey--text'"
             :class="['mb-9 attach-file', isRTL ? 'ravi text-end' : undefined]"
+            :rules="[rule.required]"
             :dense="!isMobile || !isRTL"
             :height="isMobile && isRTL ? '60' : undefined"
             :label="$t('career.steps.file.address')"
@@ -50,6 +52,7 @@
             :append-icon="model.vitae ? false : 'mdi-file-upload slategrey--text'"
             :class="['mb-9 attach-file', isRTL ? 'ravi text-end' : undefined]"
             :label="$t('career.steps.file.vitae')"
+            :rules="[rule.required]"
             :prepend-icon="false"
             clear-icon="mdi-delete black--text"
             dense
@@ -72,20 +75,23 @@
         </v-col>
       </v-row>
     </div>
-    <CareerButtons :class="{ 'mt-10': !isRTL }" @next="$emit('next')" @back="$emit('back')" :step="step" />
+    <CareerButtons :class="{ 'mt-10': !isRTL }" @next="goNext()" @back="$emit('back')" :step="step" />
   </v-form>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+import mixinRules from '~/mixins/mixin.rules';
 import CareerButtons from './CareerButtons';
 export default {
+  mixins: [mixinRules],
+  components: { CareerButtons },
   props: {
     step: {
       type: Number,
       default: undefined
     }
   },
-  components: { CareerButtons },
   data() {
     return {
       valid: null,
@@ -96,6 +102,31 @@ export default {
         vitae: null
       }
     };
+  },
+  computed: {
+    ...mapGetters({
+      answers: 'career/getAnswers'
+    })
+  },
+  methods: {
+    goNext() {
+      if (!this.valid) {
+        this.$toast.clear();
+        this.$toast.error('All Fields Required');
+        return;
+      } else {
+        this.$store.commit('career/SET', {
+          answers: {
+            ...(this.answers || {}),
+            cover_letter_file: this.model.coverLetter,
+            cv_file: this.model.vitae,
+            letter_addressing_file: this.model.address,
+            supplementary_material_file: this.model.material
+          }
+        });
+        this.$emit('next');
+      }
+    }
   }
 };
 </script>

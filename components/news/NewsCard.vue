@@ -57,7 +57,7 @@
         elevation="0"
       >
         <v-card :class="['d-flex flex-column rounded-0 align-start mx-6']" elevation="0" style="overflow: hidden">
-          <v-img height="200" src="/images/temp/cover-2.png" />
+          <v-img height="200" :src="src(item)" width="100%" />
           <div class="d-flex flex-column pt-2 mx-0 flex" style="width: 90%">
             <h4
               :class="[

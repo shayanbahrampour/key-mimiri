@@ -19,8 +19,10 @@
       <v-row class="align-start justify-center">
         <v-col cols="12" md="4">
           <v-text-field
+            v-model="model.title_lang[0]"
             :class="['mb-0 f-20', isRTL ? 'ravi' : undefined]"
             :label="$t('career.steps.skills.foreign')"
+            :rules="[rule.required]"
             dense
             filled
             hide-details
@@ -29,8 +31,10 @@
         </v-col>
         <v-col cols="12" md="4">
           <v-text-field
+            v-model="model.level_lang[0]"
             :class="['mb-0 f-20', isRTL ? 'ravi' : undefined]"
             :label="$t('career.steps.skills.level')"
+            :rules="[rule.required]"
             dense
             filled
             hide-details
@@ -51,8 +55,10 @@
       <v-row v-for="i in counter_lang" :key="i" class="align-start justify-start">
         <v-col cols="12" md="4">
           <v-text-field
+            v-model="model.title_lang[i]"
             :class="(!isMobile ? 'mb-0 f-20' : 'mb-0 f-20', isRTL ? 'ravi' : undefined)"
             :label="$t('career.steps.skills.foreign')"
+            :rules="[rule.required]"
             dense
             filled
             hide-details
@@ -61,8 +67,10 @@
         </v-col>
         <v-col :class="{ 'text-center': isMobile }" cols="12" md="4">
           <v-text-field
+            v-model="model.level_lang[i]"
             :class="(!isMobile ? 'mb-0 f-20' : 'mb-0 f-20', isRTL ? 'ravi' : undefined)"
             :label="$t('career.steps.skills.level')"
+            :rules="[rule.required]"
             dense
             filled
             hide-details
@@ -83,8 +91,10 @@
       <v-row class="align-start justify-center">
         <v-col cols="12" md="4">
           <v-text-field
+            v-model="model.title_com[0]"
             :class="['mb-0 f-20', isRTL ? 'ravi' : undefined]"
             :label="$t('career.steps.skills.computer')"
+            :rules="[rule.required]"
             dense
             filled
             hide-details
@@ -93,8 +103,10 @@
         </v-col>
         <v-col cols="12" md="4">
           <v-text-field
+            v-model="model.level_com[0]"
             :class="['mb-0 f-20', isRTL ? 'ravi' : undefined]"
             :label="$t('career.steps.skills.level')"
+            :rules="[rule.required]"
             dense
             filled
             hide-details
@@ -110,8 +122,10 @@
       <v-row v-for="j in counter_com" :key="j" class="align-start justify-start">
         <v-col cols="12" md="4">
           <v-text-field
+            v-model="model.title_com[j]"
             :class="(!isMobile ? 'mb-0 f-20' : 'mb-0 f-20', isRTL ? 'ravi' : undefined)"
             :label="$t('career.steps.skills.computer')"
+            :rules="[rule.required]"
             dense
             filled
             hide-details
@@ -120,8 +134,10 @@
         </v-col>
         <v-col cols="12" md="4">
           <v-text-field
+            v-model="model.level_com[j]"
             :class="(!isMobile ? 'mb-0 f-20' : 'mb-0 f-20', isRTL ? 'ravi' : undefined)"
             :label="$t('career.steps.skills.level')"
+            :rules="[rule.required]"
             dense
             filled
             hide-details
@@ -135,6 +151,7 @@
         </v-col>
       </v-row>
       <v-textarea
+        v-model="soft_skills"
         :class="['mb-8 mt-4 f-20', isRTL ? 'ravi' : undefined]"
         :label="$t('career.steps.skills.placeholder_one')"
         dense
@@ -144,26 +161,86 @@
         rounded
       ></v-textarea>
     </div>
-    <CareerButtons :class="{ 'mt-10': !isRTL }" @next="$emit('next')" @back="$emit('back')" :step="step" />
+    <CareerButtons :class="{ 'mt-10': !isRTL }" @next="goNext()" @back="$emit('back')" :step="step" />
   </v-form>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+import mixinRules from '~/mixins/mixin.rules';
 import CareerButtons from './CareerButtons';
 export default {
+  mixins: [mixinRules],
+  components: { CareerButtons },
   props: {
     step: {
       type: Number,
       default: undefined
     }
   },
-  components: { CareerButtons },
   data() {
     return {
       valid: null,
+      soft_skills: null,
       counter_lang: 0,
-      counter_com: 0
+      counter_com: 0,
+      model: {
+        title_lang: [],
+        level_lang: [],
+        title_com: [],
+        level_com: []
+      }
     };
+  },
+  computed: {
+    ...mapGetters({
+      answers: 'career/getAnswers'
+    })
+  },
+  fetch() {
+    if (this.answers && this.answers.soft_skills) {
+      this.soft_skills = this.answers.soft_skills;
+    }
+  },
+  methods: {
+    goNext() {
+      if (!this.valid) {
+        this.$toast.clear();
+        this.$toast.error('All Fields Required');
+        return;
+      } else {
+        let data = [];
+        for (let i = 0; i <= this.counter_lang; i++) {
+          data = [
+            ...data,
+            {
+              title: this.model.title_lang[i],
+              level: this.model.level_lang[i],
+              type: 'foreign_language'
+            }
+          ];
+        }
+        for (let i = 0; i <= this.counter_com; i++) {
+          data = [
+            ...data,
+            {
+              title: this.model.title_com[i],
+              level: this.model.level_com[i],
+              type: 'computer_knowledge'
+            }
+          ];
+        }
+        console.log(data);
+        this.$store.commit('career/SET', {
+          answers: {
+            ...(this.answers || {}),
+            skills: data,
+            soft_skills: this.soft_skills
+          }
+        });
+        this.$emit('next');
+      }
+    }
   }
 };
 </script>

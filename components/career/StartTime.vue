@@ -22,6 +22,7 @@
           :class="['mb-6', isRTL ? 'ravi' : undefined]"
           :items="items"
           :label="$t('career.steps.start_time.placeholder_one')"
+          :rules="[rule.required]"
           append-icon="mdi-triangle-down 10"
           append-icon-size="16"
           dense
@@ -35,6 +36,7 @@
           <v-radio
             :class="isRTL ? 'ravi text-end' : undefined"
             :label="$t('career.steps.start_time.radio')"
+            :rules="[rule.required]"
             color="#4C6D80"
           ></v-radio>
         </v-radio-group>
@@ -62,26 +64,85 @@
         </div>
       </div>
     </div>
-    <CareerButtons :class="{ 'mt-10': !isRTL }" @next="$emit('next')" @back="$emit('back')" :step="step" />
+    <CareerButtons :class="{ 'mt-10': !isRTL }" @next="goNext()" @back="$emit('back')" :step="step" />
   </v-form>
 </template>
 
 <script>
 import CareerButtons from './CareerButtons';
+import mixinRules from '~/mixins/mixin.rules';
+import { mapGetters } from 'vuex';
 export default {
+  mixins: [mixinRules],
+  components: { CareerButtons },
   props: {
     step: {
       type: Number,
       default: undefined
     }
   },
-  components: { CareerButtons },
   data() {
     return {
       valid: null,
-      model: { date: null },
+      flag: {
+        loading: false
+      },
+      model: { date: null, radio: false },
       items: ['option 1', 'option 2', 'option 3']
     };
+  },
+  computed: {
+    ...mapGetters({
+      answers: 'career/getAnswers'
+    })
+  },
+  methods: {
+    async goNext() {
+      if (!this.valid) {
+        this.$toast.clear();
+        this.$toast.error('All Fields Required');
+        return;
+      } else {
+        // this.$store.commit('career/SET', {
+        //   answers: {
+        //     ...(this.answers || {}),
+        //     preferred_start_date: this.model.date
+        //   }
+        // });
+        // console.log(this.answers);
+        try {
+          this.flag.loading = true;
+          await this.$store.dispatch('career/sendApplication', {
+            body: {
+              job_position_id: Number(this.$route.params.id),
+              first_name: this.answers.first_name,
+              last_name: this.answers.last_name,
+              id_number: this.answers.id_number,
+              phone_number: this.answers.phone_number,
+              email: this.answers.email,
+              address: this.answers.address,
+              why_talent: this.answers.why_talent,
+              why_cobel: this.answers.why_cobel,
+              what_department: this.answers.what_department,
+              education_description: this.answers.education_description,
+              soft_skills: this.answers.soft_skills,
+              preferred_start_date: this.model.date,
+              education: this.answers.education,
+              experiences: this.answers.experiences,
+              skills: this.answers.skills,
+              cover_letter_file: this.answers.cover_letter_file,
+              cv_file: this.answers.cv_file,
+              letter_addressing_file: this.answers.letter_addressing_file,
+              supplementary_material_file: this.answers.supplementary_material_file
+            }
+          });
+          this.$toast.success('Done!');
+          this.$emit('next');
+        } catch (e) {
+          this.errorHandler(e);
+        }
+      }
+    }
   }
 };
 </script>

@@ -7,7 +7,7 @@ export const impact_story = (lang = '', query = '') => `/shared/${lang}/impact-s
 
 export const contact = () => '/shared/contact-us';
 
-export const job_applications = () => '/shared/job-applications';
+export const job_applicants = () => '/shared/job-applicants';
 export const job_positions = (lang = '') => `/shared/${lang}/job-positions`;
 
 export const education_categories = (query = '') => `/shared/education-categories/${query}`;

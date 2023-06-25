@@ -21,7 +21,7 @@ export const mutations = {
 
 export const actions = {
   sendApplication(ctx, { body } = {}) {
-    return this.$axios.$post(api.job_applications(), body);
+    return this.$axios.$post(api.job_applicants(), body);
   },
   getJobPositions({ commit }, { params } = {}) {
     return this.$axios.$get(api.job_positions(this.$i18n.locale), { params });

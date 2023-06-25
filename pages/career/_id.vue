@@ -2,60 +2,30 @@
   <div v-if="!$fetchState.pending" class="d-flex flex-column">
     <CareerHeader :item="item" />
     <div
-      :class="['d-flex flex-column align-start white mx-auto', isMobile ? 'px-4 f-16' : 'px-16 scrolled-desktop']"
+      :class="['d-flex flex-column align-start white', isMobile ? 'px-4 f-16' : 'px-16 scrolled-desktop']"
       :style="`max-width: ${globalMaxWidth}px;`"
       style="line-height: 2"
     >
+      <div v-if="isMobile" :class="{ 'd-flex jusitfy-center px-10': isMobile }" style="width: 100%">
+        <v-img
+          :class="[isMobile ? 'my-12' : 'mt-16 text-end']"
+          :max-height="isMobile ? '100' : '100'"
+          :width="isMobile ? '100%' : undefined"
+          :src="src()"
+        />
+      </div>
       <v-img
+        v-else
         :class="[isMobile ? 'my-12' : 'mt-16 text-end']"
         :max-height="isMobile ? '100' : '100'"
         :width="isMobile ? '100%' : undefined"
         :src="src()"
       />
-      <v-divider v-if="isMobile" style="width: 100% !important" />
       <p
         :class="[isMobile ? 'text-center my-2 f-20' : 'mt-6 f-18', isRTL ? 'ravi' : undefined]"
         style="color: #939393; line-height: 40px"
       >
         {{ isRTL ? item.fa_description : item.en_description }}
-      </p>
-      <v-divider v-if="isMobile" style="width: 100% !important" />
-      <h4
-        :class="[
-          'mb-6 mt-16 f-30 font-weight-regular slategrey--text',
-          isMobile ? 'mx-2' : undefined,
-          isRTL ? 'ravi' : 'bel'
-        ]"
-      >
-        {{ $t('career.job_detail.job_responsibility_title') }}
-      </h4>
-      <div
-        v-for="(item, i) in items"
-        v-if="!isRTL"
-        :key="i"
-        :class="['d-flex justify-center mb-8', isMobile ? 'px-2' : 'px-6']"
-      >
-        <v-icon class="ms-4 me-6 mt-4 align-self-start" size="6">mdi-circle</v-icon>
-        <p class="mb-0 f-18 align-self-start" style="color: #818181">
-          <span class="font-weight-regular" style="line-height: 40px">{{ item.title }}:</span>
-          <span class="font-weight-light" style="line-height: 40px">{{ item.subtitle }}</span>
-        </p>
-      </div>
-      <div v-if="isRTL">
-        <span
-          :class="['d-flex ravi justify-center mb-8', isMobile ? 'px-2' : 'f-18']"
-          style="color: #939393; line-height: 40px"
-          >{{ ResponsibleRTL }}</span
-        >
-      </div>
-
-      <p
-        v-if="!isMobile"
-        :class="['font-weight-light mt-10 f-18', isRTL ? 'ravi' : undefined]"
-        style="color: #939393; line-height: 40px"
-      >
-        {{ $t('career.job_detail.job_duty_first') }}
-        <br /><br /><br />{{ $t('career.job_detail.job_duty_second') }}
       </p>
     </div>
     <div class="d-flex flex-column align-center w-full white">
@@ -74,7 +44,7 @@
         </div>
       </div>
     </div>
-    <div v-if="isMobile" class="white px-10">
+    <div v-if="isMobile" class="white px-4">
       <h4 class="bel f-40 mt-10 text--darken-3 font-weight-regular" style="color: #59595b">Job positions</h4>
       <JobsGrid class="mt-10" />
     </div>

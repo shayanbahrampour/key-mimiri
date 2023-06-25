@@ -19,7 +19,7 @@
       <v-row class="align-start justify-center">
         <v-col :class="isMobile ? 'pb-0' : undefined" cols="12" md="4">
           <v-select
-            v-model="model.degree"
+            v-model="model.degree[0]"
             :class="['mb-8', isRTL ? 'ravi' : undefined]"
             :items="isRTL ? itemsRTL : items"
             :label="$t('career.steps.education.degree')"
@@ -33,7 +33,7 @@
             rounded
           />
           <v-text-field
-            v-model="model.country"
+            v-model="model.country[0]"
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
             :label="$t('career.steps.education.country')"
             :rules="[rule.required]"
@@ -43,10 +43,10 @@
             rounded
           ></v-text-field>
           <v-text-field
-            v-model="model.grad_year"
+            v-model="model.grad_year[0]"
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
             :label="$t('career.steps.education.grad_year')"
-            :rules="[rule.required, rule.number]"
+            :rules="[rule.required]"
             dense
             filled
             hide-details
@@ -55,7 +55,7 @@
         </v-col>
         <v-col :class="isMobile ? 'py-0' : undefined" cols="12" md="4">
           <v-text-field
-            v-model="model.major"
+            v-model="model.major[0]"
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
             :label="$t('career.steps.education.major')"
             :rules="[rule.required]"
@@ -65,7 +65,7 @@
             rounded
           ></v-text-field>
           <v-text-field
-            v-model="model.state"
+            v-model="model.state[0]"
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
             :label="$t('career.steps.education.state')"
             :rules="[rule.required]"
@@ -86,7 +86,7 @@
         </v-col>
         <v-col :class="isMobile ? 'pt-0' : undefined" cols="12" md="4">
           <v-text-field
-            v-model="model.uni_name"
+            v-model="model.uni_name[0]"
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
             :label="$t('career.steps.education.uni')"
             :rules="[rule.required]"
@@ -96,7 +96,7 @@
             rounded
           ></v-text-field>
           <v-text-field
-            v-model="model.city"
+            v-model="model.city[0]"
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
             :label="$t('career.steps.education.city')"
             :rules="[rule.required]"
@@ -115,9 +115,10 @@
       <v-row v-for="i in counter" :key="i" class="align-start justify-center">
         <v-col :class="isMobile ? 'pb-0' : undefined" cols="12" md="4">
           <v-select
-            v-model="model[i].degree"
+            v-model="model.degree[i]"
             :class="['mb-8', isRTL ? 'ravi' : undefined]"
             :items="items"
+            :rules="[rule.required]"
             :label="$t('career.steps.education.degree')"
             append-icon="mdi-triangle-down 10"
             append-icon-size="16"
@@ -128,16 +129,20 @@
             rounded
           />
           <v-text-field
+            v-model="model.country[i]"
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
             :label="$t('career.steps.education.country')"
+            :rules="[rule.required]"
             dense
             filled
             hide-details
             rounded
           ></v-text-field>
           <v-text-field
+            v-model="model.grad_year[i]"
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
             :label="$t('career.steps.education.grad_year')"
+            :rules="[rule.required]"
             dense
             filled
             hide-details
@@ -146,16 +151,20 @@
         </v-col>
         <v-col :class="isMobile ? 'py-0' : undefined" cols="12" md="4">
           <v-text-field
+            v-model="model.major[i]"
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
             :label="$t('career.steps.education.major')"
+            :rules="[rule.required]"
             dense
             filled
             hide-details
             rounded
           ></v-text-field>
           <v-text-field
+            v-model="model.state[i]"
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
             :label="$t('career.steps.education.state')"
+            :rules="[rule.required]"
             dense
             filled
             hide-details
@@ -173,16 +182,20 @@
         </v-col>
         <v-col :class="isMobile ? 'pt-0' : undefined" cols="12" md="4">
           <v-text-field
+            v-model="model.uni_name[i]"
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
             :label="$t('career.steps.education.uni')"
+            :rules="[rule.required]"
             dense
             filled
             hide-details
             rounded
           ></v-text-field>
           <v-text-field
+            v-model="model.city[i]"
             :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
             :label="$t('career.steps.education.city')"
+            :rules="[rule.required]"
             dense
             filled
             hide-details
@@ -204,6 +217,7 @@
         v-model="education_description"
         :class="['mb-8 f-20', isRTL ? 'ravi text-end' : undefined]"
         :label="$t('career.steps.education.placeholder_one')"
+        :rules="[rule.required]"
         dense
         filled
         height="140"
@@ -211,7 +225,7 @@
         rounded
       />
     </div>
-    <CareerButtons :class="{ 'mt-10': !isRTL }" @next="$emit('next')" @back="$emit('back')" :step="step" />
+    <CareerButtons :class="{ 'mt-10': !isRTL }" @next="goNext()" @back="$emit('back')" :step="step" />
   </v-form>
 </template>
 
@@ -233,18 +247,73 @@ export default {
       valid: null,
       counter: 0,
       model: {
-        degree: null,
-        major: null,
-        uni_name: null,
-        country: null,
-        state: null,
-        city: null,
-        grad_year: null
+        degree: [],
+        major: [],
+        uni_name: [],
+        country: [],
+        state: [],
+        city: [],
+        grad_year: []
       },
       education_description: null,
       items: ['Graduate', 'Associate', 'Bachelor', 'Master', 'Doctorate', 'Professional'],
       itemsRTL: ['فارغ التحصیل', 'وابسته', 'لیسانس', 'فوق لیسانس', 'دکتری', 'پروفسوری']
     };
+  },
+  computed: {
+    ...mapGetters({
+      answers: 'career/getAnswers'
+    })
+  },
+  fetch() {
+    if (this.answers && this.answers.education_description) {
+      this.model.education_description = this.answers.education_description;
+    }
+    if (this.answers && this.answers.education) {
+      this.counter = this.answers.education.length - 1;
+      for (let i = 0; i <= this.counter; i++) {
+        this.model.degree[i] = this.answers.education[i].degree;
+        this.model.major[i] = this.answers.education[i].major;
+        this.model.uni_name[i] = this.answers.education[i].university_name;
+        this.model.country[i] = this.answers.education[i].country;
+        this.model.state[i] = this.answers.education[i].state;
+        this.model.city[i] = this.answers.education[i].city;
+        this.model.grad_year[i] = this.answers.education[i].graduation_year;
+      }
+    }
+  },
+  methods: {
+    goNext() {
+      if (!this.valid) {
+        this.$toast.clear();
+        this.$toast.error('All Fields Required');
+        return;
+      } else {
+        let data = [];
+        for (let i = 0; i <= this.counter; i++) {
+          data = [
+            ...data,
+            {
+              degree: this.model.degree[i],
+              major: this.model.major[i],
+              university_name: this.model.uni_name[i],
+              state: this.model.state[i],
+              city: this.model.city[i],
+              graduation_year: this.model.grad_year[i],
+              country: this.model.country[i]
+            }
+          ];
+        }
+        this.$store.commit('career/SET', {
+          answers: {
+            ...(this.answers || {}),
+            education: data,
+            education_description: this.education_description
+          }
+        });
+        this.$emit('next');
+      }
+    }
   }
 };
 </script>
