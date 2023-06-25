@@ -16,7 +16,7 @@
               {{ isRTL ? item.fa_title : item.en_title }}
             </h4>
             <p :class="['f-18 mt-4 mb-0 text--darken-3 mb-auto', isRTL ? 'font-weight-bold' : 'font-weight-light']">
-              {{ isRTL ? item.fa_description : item.en_description }}
+              {{ isRTL ? item.fa_summary : item.en_summary }}
             </p>
             <div class="d-flex align-center mt-6">
               <v-btn
@@ -53,7 +53,7 @@
         :class="['f-18 text--darken-3 mb-auto', isRTL ? 'font-weight-bold' : 'font-weight-light']"
         style="max-width: 80%; color: #59595b; line-height: 24px"
       >
-        {{ isRTL ? item.fa_description : item.en_description }}
+        {{ isRTL ? item.fa_summary : item.en_summary }}
       </p>
       <div class="d-flex flex-column align-start mt-6">
         <v-img max-height="60" :src="src(item)" width="120" />

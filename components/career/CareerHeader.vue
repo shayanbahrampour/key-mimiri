@@ -61,13 +61,13 @@
         <p
           :class="['white--text mb-0 text--darken-3 font-weight-regular text-center f-36', isRTL ? 'ravi mt-4' : 'bel']"
         >
-          {{ $t('career.job_position') }}
+          {{ isRTL ? item.fa_title : item.en_title }}
         </p>
         <p
           :class="['font-weight-light my-6 mx-4 f-20 text-center white--text', isRTL ? 'ravi' : undefined]"
           style="max-width: 500px; line-height: 2"
         >
-          {{ $t('career.job_description') }}
+          {{ isRTL ? item.fa_summary : item.en_summary }}
         </p>
         <v-btn
           :class="[
