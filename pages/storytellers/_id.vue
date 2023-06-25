@@ -1,10 +1,10 @@
 <template>
-  <div class="d-flex flex-column slategrey">
+  <div v-if="!$fetchState.pending" class="d-flex flex-column slategrey">
     <div
       :class="['d-flex align-center justify-space-between', isMobile ? 'flex-column align-center mt-6' : 'px-16 mt-16']"
     >
       <div :class="['d-flex', isMobile ? 'flex-column align-center' : undefined]">
-        <v-img height="155" max-width="155" src="/images/storytellers/masoumeh.png" style="border-radius: 50%" />
+        <v-img height="155" max-width="155" :src="src()" style="border-radius: 50%" />
         <div class="d-flex flex-column justify-center ms-4">
           <p
             :class="[
@@ -18,7 +18,7 @@
                 : 'f-42 bel'
             ]"
           >
-            {{ isRTL ? item.nameRTL : item.name }}
+            {{ isRTL ? story.fa_full_name : story.en_full_name }}
           </p>
           <p
             :class="[
@@ -27,7 +27,7 @@
               { 'ravi mt-1': isRTL }
             ]"
           >
-            {{ isRTL ? item.roleRTL : item.role }}
+            {{ isRTL ? story.fa_position : story.en_position }}
           </p>
         </div>
       </div>
@@ -100,10 +100,8 @@
         { 'ravi desktop-story-single-description': isRTL }
       ]"
       style="line-height: 30px"
-    >
-      {{ $t('storytellersPage.single_description') }}
-    </p>
-
+      v-html="isRTL ? story.fa_body : story.en_body"
+    />
     <VideoContents
       class="w-full overflow-hidden d-flex align-center"
       poster="/images/temp/cover-6.png"
@@ -126,7 +124,7 @@
           ]"
           style="color: #00a59b"
         >
-          {{ $t('storytellersPage.single_detail_title') }}
+          {{ isRTL ? story.fa_title : story.en_title }}
         </h4>
         <v-divider :class="isMobile ? 'mt-10 mx-2' : 'mt-16'"></v-divider>
         <p
@@ -141,9 +139,8 @@
               : 'f-20 my-4 text-start'
           ]"
           style="color: #939393"
-        >
-          {{ $t('storytellersPage.single_detail_description') }}
-        </p>
+          v-html="isRTL ? story.fa_summary : story.en_summary"
+        />
         <v-divider :class="!isMobile ? 'pb-16' : 'mx-2'"></v-divider>
         <h4
           :class="[
@@ -333,6 +330,7 @@ export default {
         first: false,
         second: false
       },
+      story: null,
       item: {
         name: 'Masoumeh Seyedi',
         role: 'Project Manager at Cobel® Group',
@@ -377,6 +375,22 @@ export default {
           'فرايند منصفانه، به عنوان يك ارزش به مقام انسانها، به يك نياز پايهاي در آنان پاسخ ميدهد. سه اصل عدالت در فرايندها عبارتند از: تعامل، شفافيت و وضوح انتظارات.'
       }
     };
+  },
+  async fetch() {
+    try {
+      const { data } = await this.$store.dispatch('storyteller/getStorytellersDetail', { id: this.$route.params.id });
+      this.story = data;
+    } catch (e) {
+      console.log(e);
+    }
+  },
+  methods: {
+    src() {
+      const mainImage = this.story.files.find((item) => item.type === 'avatar_file');
+      if (!mainImage) return '';
+
+      return `${this.$imageUrl}/${mainImage.url}`;
+    }
   }
 };
 </script>
