@@ -1,5 +1,5 @@
 <template>
-  <v-container v-if="!isMobile" class="d-flex flex-column justify-center mb-16 pl-0" style="width: 90vw">
+  <v-container v-if="!isMobile" class="d-flex flex-column justify-center mb-16 pl-0 mt-10" style="width: 90vw">
     <v-row no-gutters>
       <template v-for="(item, n) in items">
         <v-col :key="n" cols="6">
@@ -56,7 +56,7 @@
         {{ isRTL ? item.fa_description : item.en_description }}
       </p>
       <div class="d-flex flex-column align-start mt-6">
-        <v-img max-height="60" src="/images/logo.png" width="120" />
+        <v-img max-height="60" :src="src(item)" width="120" />
         <v-btn
           :class="['rounded-xl d-flex justify-center white--text f-20 mt-6', isRTL ? 'font-weight-bold' : undefined]"
           :to="localePath(`/career/${item.id}`)"
@@ -87,7 +87,7 @@ export default {
     this.loading = true;
     try {
       const { data } = await this.$store.dispatch('career/getJobPositions');
-      this.items = data;
+      this.items = data.slice(0, 4);
     } catch (e) {
       console.log(e);
     }
