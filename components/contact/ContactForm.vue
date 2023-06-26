@@ -4,7 +4,7 @@
       <v-col cols="12" md="6">
         <v-select
           v-model="model.category"
-          :class="['mb-4 f-20 management-select', { 'rtl ravi': isRTL }]"
+          :class="['mb-4 f-20 management-select', { 'rtl ravi align-end': isRTL }]"
           :items="isRTL ? itemsRTL : items"
           :rules="[rule.required]"
           :label="$t('contact.fields.management')"
@@ -17,7 +17,7 @@
         ></v-select>
         <v-text-field
           v-model="model.topic"
-          :class="['mb-4 f-20', { ' ravi': isRTL }]"
+          :class="['mb-4 f-20', { 'ravi rtl align-end': isRTL }]"
           :label="$t('contact.fields.topic')"
           :rules="[rule.required]"
           dense
@@ -27,7 +27,7 @@
         ></v-text-field>
         <v-text-field
           v-model="model.full_name"
-          :class="['mb-4 f-20', { ' ravi': isRTL }]"
+          :class="['mb-4 f-20', { 'rtl align-end ravi': isRTL }]"
           :label="$t('contact.fields.full_name')"
           :rules="[rule.required]"
           dense
@@ -37,7 +37,7 @@
         ></v-text-field>
         <v-text-field
           v-model="model.email"
-          :class="[!isMobile ? 'mb-4 f-20' : 'mb-0 f-20', { ' ravi': isRTL }]"
+          :class="[!isMobile ? 'mb-4 f-20' : 'mb-0 f-20', { 'rtl align-end ravi': isRTL }]"
           :label="$t('contact.fields.email')"
           :rules="[rule.required, rule.email]"
           dense
@@ -49,7 +49,7 @@
       <v-col :class="{ 'pt-2': isMobile }" cols="12" md="6">
         <v-textarea
           v-model="model.description"
-          :class="['mb-4 f-20', { 'mb-10': isMobile }, { ' ravi': isRTL }]"
+          :class="['mb-4 f-20', { 'mb-10': isMobile }, { 'rtl align-end ravi': isRTL }]"
           :label="$t('contact.fields.description')"
           :rules="[rule.required]"
           dense
