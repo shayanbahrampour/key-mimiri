@@ -8,6 +8,7 @@
         :items="categories.map((item) => ({ ...item, title: item[`${$i18n.locale}_name`] }))"
         :title="isRTL ? 'مهمترین ها' : 'More important'"
         class="mb-16 mx-6"
+        @select="getData($event)"
       />
       <NewsCard v-if="!loading" path="news" class="mx-6" :items="news" />
     </v-sheet>
@@ -51,26 +52,32 @@ export default {
     })
   },
   async fetch() {
-    this.loading = true;
-    try {
-      const { data } = await this.$store.dispatch('news/getList', {
-        params: {
-          page: this.pagination.current_page
-        }
-      });
+    this.getData();
+  },
+  methods: {
+    async getData(id) {
+      this.loading = true;
+      try {
+        const { data } = await this.$store.dispatch('news/getList', {
+          params: {
+            page: this.pagination.current_page,
+            category_id: id ? id : undefined
+          }
+        });
 
-      this.items = data.results;
-      this.pagination = data.pagination;
-    } catch (e) {
-      console.log(e);
-    }
-    try {
-      const { data } = await this.$store.dispatch('news/getNewsList', {});
-      this.news = data.results;
-      this.loading = false;
-    } catch (e) {
-      console.log(e);
-      this.loading = false;
+        this.items = data.results;
+        this.pagination = data.pagination;
+      } catch (e) {
+        console.log(e);
+      }
+      try {
+        const { data } = await this.$store.dispatch('news/getNewsList', {});
+        this.news = data.results;
+        this.loading = false;
+      } catch (e) {
+        console.log(e);
+        this.loading = false;
+      }
     }
   },
   created() {

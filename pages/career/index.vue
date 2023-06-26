@@ -226,6 +226,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import JobsGrid from '~/components/career/JobsGrid';
 import VideoContents from '~/components/shared/VideoContents.vue';
 import VideoLoader from '~/components/shared/VideoLoader.vue';
@@ -237,6 +238,16 @@ export default {
     };
   },
   components: { VideoLoader, VideoContents, JobsGrid },
+  computed: {
+    ...mapGetters({
+      answers: 'career/getAnswers'
+    })
+  },
+  fetch() {
+    if (this.answers) {
+      this.$store.commit('career/RESET');
+    }
+  },
   data() {
     return {
       seeMore: false,

@@ -230,8 +230,8 @@ export default {
       this.counter = this.answers.experiences.length - 1;
       for (let i = 0; i <= this.counter; i++) {
         this.model.company_name[i] = this.answers.experiences[i].company_name;
-        this.model.end_date[i] = this.answers.experiences[i].end_date;
-        this.model.start_date[i] = this.answers.experiences[i].start_date;
+        this.model.end_date[i] = '1392';
+        this.model.start_date[i] = '1390';
         this.model.position[i] = this.answers.experiences[i].position;
         this.model.reason_for_leaving[i] = this.answers.experiences[i].reason_for_leaving;
       }
@@ -252,8 +252,8 @@ export default {
               company_name: this.model.company_name[i],
               position: this.model.position[i],
               reason_for_leaving: this.model.reason_for_leaving[i],
-              start_date: this.model.start_date[i],
-              end_date: this.model.end_date[i]
+              start_date: '2023-08-12',
+              end_date: '2023-08-12'
             }
           ];
         }

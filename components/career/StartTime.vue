@@ -103,18 +103,11 @@ export default {
         this.$toast.error('All Fields Required');
         return;
       } else {
-        // this.$store.commit('career/SET', {
-        //   answers: {
-        //     ...(this.answers || {}),
-        //     preferred_start_date: this.model.date
-        //   }
-        // });
-        // console.log(this.answers);
         try {
           this.flag.loading = true;
           await this.$store.dispatch('career/sendApplication', {
             body: {
-              job_position_id: Number(this.$route.params.id),
+              job_position_id: this.$route.params.id ? Number(this.$route.params.id) : undefined,
               first_name: this.answers.first_name,
               last_name: this.answers.last_name,
               id_number: this.answers.id_number,
@@ -126,18 +119,21 @@ export default {
               what_department: this.answers.what_department,
               education_description: this.answers.education_description,
               soft_skills: this.answers.soft_skills,
-              preferred_start_date: '2023-05-12',
+              preferred_start_date: '2023-08-12',
               education: this.answers.education,
               experiences: this.answers.experiences,
               skills: this.answers.skills,
-              cover_letter_file: this.answers.cover_letter_file,
-              cv_file: this.answers.cv_file,
-              letter_addressing_file: this.answers.letter_addressing_file,
-              supplementary_material_file: this.answers.supplementary_material_file,
+              cover_letter_file: this.answers.cover_letter_file.name,
+              cv_file: this.answers.cv_file.name,
+              letter_addressing_file: this.answers.letter_addressing_file.name,
+              supplementary_material_file: this.answers.supplementary_material_file
+                ? this.answers.supplementary_material_file.name
+                : undefined,
               country: this.answers.country
             }
           });
-          this.$toast.success('Done!');
+          this.$store.commit('career/RESET');
+          this.$toast.success('Sent!');
           this.$emit('next');
         } catch (e) {
           this.errorHandler(e);

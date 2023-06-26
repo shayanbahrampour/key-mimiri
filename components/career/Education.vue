@@ -267,7 +267,7 @@ export default {
   },
   fetch() {
     if (this.answers && this.answers.education_description) {
-      this.model.education_description = this.answers.education_description;
+      this.education_description = this.answers.education_description;
     }
     if (this.answers && this.answers.education) {
       this.counter = this.answers.education.length - 1;
@@ -299,7 +299,7 @@ export default {
               university_name: this.model.uni_name[i],
               state: this.model.state[i],
               city: this.model.city[i],
-              graduation_year: this.model.grad_year[i],
+              graduation_year: '2000-05-18',
               country: this.model.country[i]
             }
           ];

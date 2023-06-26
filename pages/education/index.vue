@@ -41,6 +41,7 @@
           :class="`my-6 mx-${isRTL ? '0' : '6'}`"
           :items="categories.map((item) => ({ ...item, title: item[`${$i18n.locale}_name`] }))"
           :title="isRTL ? 'مقالات بیشتر' : 'More Articles'"
+          @select="getData($event)"
         />
       </div>
     </div>
@@ -87,14 +88,19 @@ export default {
     })
   },
   async fetch() {
-    this.loading = true;
-    try {
-      const { data } = await this.$store.dispatch('education/getEducationList', {});
-      this.news = data.results;
-      this.loading = false;
-    } catch (e) {
-      console.log(e);
-      this.loading = false;
+    this.getData();
+  },
+  methods: {
+    async getData(id) {
+      this.loading = true;
+      try {
+        const { data } = await this.$store.dispatch('education/getEducationList', {});
+        this.news = data.results;
+        this.loading = false;
+      } catch (e) {
+        console.log(e);
+        this.loading = false;
+      }
     }
   },
   created() {

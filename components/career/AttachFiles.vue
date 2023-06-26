@@ -108,6 +108,16 @@ export default {
       answers: 'career/getAnswers'
     })
   },
+  fetch() {
+    if (this.answers && this.answers.cover_letter_file && this.answers.cv_file && this.answers.letter_addressing_file) {
+      this.model.coverLetter = this.answers.cover_letter_file;
+      this.model.vitae = this.answers.cv_file;
+      this.model.address = this.answers.letter_addressing_file;
+      if (this.answers.supplementary_material_file) {
+        this.model.material = this.answers.supplementary_material_file;
+      }
+    }
+  },
   methods: {
     goNext() {
       if (!this.valid) {
@@ -119,10 +129,10 @@ export default {
         this.$store.commit('career/SET', {
           answers: {
             ...(this.answers || {}),
-            cover_letter_file: this.model.coverLetter.name,
-            cv_file: this.model.vitae.name,
-            letter_addressing_file: this.model.address.name,
-            supplementary_material_file: this.model.material ? this.model.material.name : undefined
+            cover_letter_file: this.model.coverLetter,
+            cv_file: this.model.vitae,
+            letter_addressing_file: this.model.address,
+            supplementary_material_file: this.model.material ? this.model.material : undefined
           }
         });
         this.$emit('next');

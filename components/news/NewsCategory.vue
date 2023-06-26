@@ -5,7 +5,7 @@
     <v-divider class="mx-8" color="#00a59b" style="min-height: 25px" vertical />
 
     <div class="flex-grow-1">
-      <CustomTabs :items="items" />
+      <CustomTabs :items="items" @select="$emit('select', $event)" />
     </div>
   </div>
 </template>

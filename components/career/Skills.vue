@@ -201,6 +201,21 @@ export default {
     if (this.answers && this.answers.soft_skills) {
       this.soft_skills = this.answers.soft_skills;
     }
+    if (this.answers && this.answers.skills) {
+      this.counter_com = 0;
+      this.counter_lang = 0;
+      for (let i = 0; i <= this.answers.skills.length - 1; i++) {
+        if (this.answers.skills[i].type === 'computer_knowledge') {
+          this.counter_com++;
+          this.model.title_com[this.counter_com - 1] = this.answers.skills[i].title;
+          this.model.level_com[this.counter_com - 1] = this.answers.skills[i].level;
+        } else {
+          this.counter_lang++;
+          this.model.title_lang[this.counter_lang - 1] = this.answers.skills[i].title;
+          this.model.level_lang[this.counter_lang - 1] = this.answers.skills[i].level;
+        }
+      }
+    }
   },
   methods: {
     goNext() {
