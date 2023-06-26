@@ -133,7 +133,8 @@ export default {
               cover_letter_file: this.answers.cover_letter_file,
               cv_file: this.answers.cv_file,
               letter_addressing_file: this.answers.letter_addressing_file,
-              supplementary_material_file: this.answers.supplementary_material_file
+              supplementary_material_file: this.answers.supplementary_material_file,
+              country: this.answers.country
             }
           });
           this.$toast.success('Done!');

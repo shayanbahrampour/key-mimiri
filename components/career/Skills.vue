@@ -230,7 +230,6 @@ export default {
             }
           ];
         }
-        console.log(data);
         this.$store.commit('career/SET', {
           answers: {
             ...(this.answers || {}),
