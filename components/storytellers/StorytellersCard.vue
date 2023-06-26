@@ -20,7 +20,7 @@
             <v-img
               :height="isMobile ? '140' : '155'"
               :max-width="isMobile ? '140' : '155'"
-              class="me-4"
+              :class="{ 'me-4': !isMobile }"
               :src="src(item)"
               style="border-radius: 50%"
             />
@@ -31,7 +31,7 @@
                   isMobile ? 'text-center mt-4 f-32 font-weight-regular' : 'f-42 font-weight-regular story-name',
                   isRTL ? 'ravi' : 'bel'
                 ]"
-                :style="`color: #59595b; width: ${isMobile ? '100%' : '600px'}`"
+                :style="`color: #59595b; width: ${isMobile ? '100%' : '300px'}`"
               >
                 {{ isRTL ? item.fa_full_name : item.en_full_name }}
               </p>
