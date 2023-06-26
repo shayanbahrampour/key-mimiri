@@ -37,14 +37,20 @@
             v-html="isRTL ? item.fa_title : item.en_title"
           ></p>
           <div v-if="!isRTL" class="d-flex justify-space-between mt-4" style="width: 60%">
-            <p class="f-16 mb-0" style="color: #59595b">Read time: 13min</p>
-            <p class="f-16 mb-0" style="color: #59595b">Writed by: mehrab mohammadi</p>
-            <p class="f-16 mb-0" style="color: #59595b">Published 3 month ago</p>
+            <p class="f-16 mb-0" style="color: #59595b">Read time: {{ item.read_time ? item.read_time : '0' }} min</p>
+            <p class="f-16 mb-0" style="color: #59595b">Writed by: {{ item.en_author ? item.en_author : undefined }}</p>
+            <p class="f-16 mb-0" style="color: #59595b">
+              Published {{ item.published_at ? $dayjs(item.published_at).format('MMMM YYYY') : '-' }}
+            </p>
           </div>
-          <div v-else class="d-flex justify-space-between mt-4 ravi" style="width: 50%">
-            <p class="f-14 mb-0" style="color: #59595b">زمان مطالعه: 13 دقیقه</p>
-            <p class="f-14 mb-0" style="color: #59595b">نویسنده: مهراب محمدی</p>
-            <p class="f-14 mb-0" style="color: #59595b">منتشر شده: 3 ماه پیش</p>
+          <div v-else class="d-flex justify-space-between mt-4 ravi rtl" style="width: 50%">
+            <p class="f-14 mb-0" style="color: #59595b">
+              زمان مطالعه: {{ item.read_time ? item.read_time : '0' }} دقیقه
+            </p>
+            <p class="f-14 mb-0" style="color: #59595b">نویسنده: {{ item.fa_author ? item.fa_author : undefined }}</p>
+            <p class="f-14 mb-0" style="color: #59595b">
+              منتشر شده: {{ item.published_at ? $dayjs(item.published_at).format('MMMM YYYY') : '-' }}
+            </p>
           </div>
         </div>
       </v-card>
@@ -76,29 +82,29 @@
             <div v-if="!isRTL" class="d-flex flex-column font-weight-light" style="width: 90%">
               <p class="f-14 mb-2 d-flex align-center" style="color: #59595b">
                 <v-img class="me-1" contain height="12" max-width="12" src="/images/news/timer.svg" />
-                13min
+                {{ item.read_time ? item.read_time : '0' }}min
               </p>
               <p class="f-14 mb-2 d-flex align-center" style="color: #59595b">
                 <v-img class="me-1" contain height="12" max-width="12" src="/images/news/pen-nib.svg" />
-                mehrab mohammadi
+                {{ item.en_author ? item.en_author : undefined }}
               </p>
               <p class="f-14 mb-0 d-flex align-center" style="color: #59595b">
                 <v-img class="me-1" contain height="12" max-width="12" src="/images/news/bullhorn.svg" />
-                3 months ago
+                {{ item.published_at ? $dayjs(item.published_at).format('MMMM YYYY') : '-' }}
               </p>
             </div>
             <div v-else class="d-flex flex-column font-weight-bold" style="width: 90%">
               <p class="f-16 mb-2 d-flex align-center" style="color: #59595b">
                 <v-img class="me-1" contain height="12" max-width="12" src="/images/news/timer.svg" />
-                ۱۳ دقیقه
+                {{ item.read_time ? item.read_time : '۰' }} دقیقه
               </p>
               <p class="f-16 mb-2 d-flex align-center" style="color: #59595b">
                 <v-img class="me-1" contain height="12" max-width="12" src="/images/news/pen-nib.svg" />
-                معصومه سیدی
+                {{ item.fa_author ? item.fa_author : undefined }}
               </p>
               <p class="f-16 mb-0 d-flex align-center" style="color: #59595b">
                 <v-img class="me-1" contain height="12" max-width="12" src="/images/news/bullhorn.svg" />
-                زمان انتشار ۳ ماه قبل
+                زمان انتشار {{ item.published_at ? $dayjs(item.published_at).format('MMMM YYYY') : '-' }}
               </p>
             </div>
           </div>

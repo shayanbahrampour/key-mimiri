@@ -126,7 +126,7 @@ export default {
               what_department: this.answers.what_department,
               education_description: this.answers.education_description,
               soft_skills: this.answers.soft_skills,
-              preferred_start_date: this.model.date,
+              preferred_start_date: '2023-05-12',
               education: this.answers.education,
               experiences: this.answers.experiences,
               skills: this.answers.skills,

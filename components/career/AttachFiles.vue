@@ -115,13 +115,14 @@ export default {
         this.$toast.error('All Fields Required');
         return;
       } else {
+        console.log(this.model.coverLetter.name);
         this.$store.commit('career/SET', {
           answers: {
             ...(this.answers || {}),
-            cover_letter_file: this.model.coverLetter,
-            cv_file: this.model.vitae,
-            letter_addressing_file: this.model.address,
-            supplementary_material_file: this.model.material
+            cover_letter_file: this.model.coverLetter.name,
+            cv_file: this.model.vitae.name,
+            letter_addressing_file: this.model.address.name,
+            supplementary_material_file: this.model.material ? this.model.material.name : undefined
           }
         });
         this.$emit('next');

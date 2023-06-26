@@ -27,18 +27,26 @@
         >
           <p :class="['f-16', isMobile ? 'mb-6 me-10' : 'mb-0 me-6']" style="color: #939393">
             <v-icon v-if="isMobile" class="me-1" size="16">mdi-clock-outline</v-icon>
-            {{ isRTL ? (!isMobile ? 'زمان مطالعه: 13 دقیقه' : '۱۳ دقیقه') : !isMobile ? 'Read time: 13min' : '13min' }}
+            {{
+              isRTL
+                ? !isMobile
+                  ? `زمان مطالعه: ${item.read_time ? item.read_time : '۰'} دقیقه`
+                  : `${item.read_time ? item.read_time : '۰'} دقیقه`
+                : !isMobile
+                ? `Read time: ${item.read_time ? item.read_time : '0'}min`
+                : `${item.read_time ? item.read_time : '0'}min`
+            }}
           </p>
           <p :class="['f-16', isMobile ? 'mb-6 me-10' : 'mb-0 me-6']" style="color: #939393">
             <v-icon v-if="isMobile" class="me-1" size="16">mdi-fountain-pen-tip</v-icon>
             {{
               isRTL
                 ? !isMobile
-                  ? 'نویسنده: مهراب محمدی'
-                  : 'معصومه سیدی'
+                  ? `نویسنده: ${item.fa_author ? item.fa_author : '۰'}`
+                  : `${item.fa_author ? item.fa_author : '۰'}`
                 : !isMobile
-                ? 'Writed by: mehrab mohammadi'
-                : 'mehrab mohammadi'
+                ? `Writed by: ${item.en_author ? item.en_author : '0'}`
+                : `${item.en_author ? item.en_author : '0'}`
             }}
           </p>
           <p :class="['f-16', isMobile ? 'mb-6 me-0' : 'mb-0 me-6']" style="color: #939393">
@@ -46,11 +54,11 @@
             {{
               isRTL
                 ? !isMobile
-                  ? 'منتشر شده: 3 ماه پیش'
-                  : '۲ ماه قبل'
+                  ? `منتشر شده: ${item.published_at ? $dayjs(item.published_at).format('MMMM YYYY') : '۰'}`
+                  : `${item.published_at ? $dayjs(item.published_at).format('MMMM YYYY') : '۰'}`
                 : !isMobile
-                ? 'Published 3 moth ago'
-                : 'Published 3 moth ago'
+                ? `Published ${item.published_at ? $dayjs(item.published_at).format('MMMM YYYY') : '0'}`
+                : `Published ${item.published_at ? $dayjs(item.published_at).format('MMMM YYYY') : '0'}`
             }}
           </p>
         </div>
