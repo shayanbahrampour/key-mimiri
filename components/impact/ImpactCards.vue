@@ -23,11 +23,11 @@
       </div>
       <div v-if="!isMobile && summary" class="font-weight-light f-19 ps-4">
         <div
-          :class="['ma-0', isRTL ? 'font-weight-bold anjoman' : 'font-weight-light']"
-          :style="isRTL ? 'line-height:30px' : ''"
+          :class="['ma-0 overflow-hidden', isRTL ? 'font-weight-bold anjoman' : 'font-weight-light']"
+          :style="`${isRTL ? 'line-height:30px' : ''}; height: 68px;`"
           v-html="summary"
         />
-        <strong :class="['f-18 font-weight-bold d-block', isRTL ? 'mt-1' : 'mt-n3']">
+        <strong class="f-18 font-weight-bold d-block mt-1">
           {{ $t('shared.see_more') }}
         </strong>
       </div>

@@ -3,7 +3,11 @@
     <v-row :class="['position-relative z-1 ltr', { 'custom-shadow pb-4': isMobile }]" no-gutters>
       <v-col :class="isRTL && 'rtl'" cols="12" lg="6" md="6">
         <v-sheet :class="[`overflow-hidden ${!isMobile && 'rounded-r-xl'}`]">
-          <v-img max-height="calc(100vh - 150px)" :src="`${$imageUrl}/${item.column_section_file}`" />
+          <v-img
+            v-if="column_section_file"
+            max-height="calc(100vh - 150px)"
+            :src="`${$imageUrl}/${column_section_file}`"
+          />
           <v-sheet v-if="!isMobile" class="extra-space white--text ps-16 pe-10 py-8" color="slategrey">
             <h2 :class="['f-22 mb-4 white--text', { ravi: isRTL }]">{{ item[`${$i18n.locale}_title`] }}</h2>
             <div
@@ -27,13 +31,11 @@
           >
             {{ item[`${$i18n.locale}_title`] }}
           </h1>
-
           <div :class="['blue--text mb-8 f-19', isRTL ? 'anjoman font-weight-bold' : 'font-weight-light']">
             <span v-for="(cat, index) in item.impact_story_categories" :key="index" class="me-2 d-inline-block">
               {{ cat[`${$i18n.locale}_name`] }}
             </span>
           </div>
-
           <div
             v-if="isMobile"
             :class="['grey--text text--darken-2 mb-8', isRTL && 'anjoman font-weight-bold']"
@@ -92,7 +94,7 @@
             <div
               :class="['ma-0 f-18', isRTL && 'anjoman font-weight-bold']"
               style="color: #939393; line-height: 30px"
-              v-html="item[`${locale}_summary`]"
+              v-html="item[`${$i18n.locale}_summary`]"
             />
             <v-divider class="mt-4" />
           </template>
@@ -134,8 +136,7 @@
         <VideoContents
           :style="`max-height: calc(100vh - 150px); min-height: ${isMobile ? '' : '500px'}`"
           class="w-full overflow-hidden d-flex align-center"
-          poster="/images/temp/cover-4.png"
-          :src="`${$imageUrl}/${item.subtitle_file}`"
+          :src="`${$imageUrl}/${subtitle_file}`"
         />
 
         <v-sheet v-if="isMobile" class="custom-gradient my-1" height="16" />
@@ -164,12 +165,12 @@
             />
           </v-col>
           <v-col v-if="!isMobile" class="pl-md-8 mb-md-8" lg="5" md="6" xl="4">
-            <v-img min-height="600" :src="`${$imageUrl}/${item.body_file}`" />
+            <v-img min-height="600" :src="`${$imageUrl}/${body_file}`" />
           </v-col>
         </v-row>
       </v-sheet>
 
-      <v-img v-if="isMobile" min-height="600" :src="`${$imageUrl}/${item.body_file}`" />
+      <v-img v-if="isMobile" min-height="600" :src="`${$imageUrl}/${body_file}`" />
 
       <v-sheet :class="[isMobile ? 'px-6' : 'px-16']" style="color: #59595b">
         <!--<div-->
@@ -293,6 +294,21 @@ export default {
           }
         }
       };
+    },
+    files() {
+      return this.item.files;
+    },
+    column_section_file() {
+      const result = this.files.find((item) => item.type === 'column_section_file');
+      return result ? result.url : '';
+    },
+    subtitle_file() {
+      const result = this.files.find((item) => item.type === 'subtitle_file');
+      return result ? result.url : '';
+    },
+    body_file() {
+      const result = this.files.find((item) => item.type === 'body_file');
+      return result ? result.url : '';
     }
   }
 };
