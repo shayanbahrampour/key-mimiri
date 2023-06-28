@@ -105,7 +105,7 @@ export default {
         preventClicksPropagation: true,
         preventInteractionOnTransition: true,
         slideToClickedSlide: true,
-        centerInsufficientSlides: true,
+        centerInsufficientSlides: false,
         edgeSwipeDetection: 'prevent',
         spaceBetween: 28,
         slidesPerView: 1.2,

@@ -14,7 +14,7 @@
       ]"
       color="transparent"
       flat
-      min-height="90"
+      :min-height="isMobile ? 90 : 0"
     >
       <div
         :class="['flex-shrink-0', isMobile ? 'f-25' : isRTL ? 'f-30' : 'f-35', isRTL ? 'ravi' : 'bel']"

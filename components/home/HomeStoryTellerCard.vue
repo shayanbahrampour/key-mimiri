@@ -27,7 +27,7 @@
         isRTL ? 'right' : 'left'
       }: 110px !important;`"
       :width="600 - width"
-      height="349"
+      height="350"
     >
       <v-scroll-x-transition hide-on-leave>
         <div
@@ -35,7 +35,7 @@
           :class="['white--text pe-6 f-20', isRTL ? 'ravi' : 'bel']"
           style="min-width: 240px"
         >
-          {{ item[`${$i18n.locale}_body`] }}
+          <div v-html="item[`${$i18n.locale}_body`]" />
 
           <nuxt-link :to="localePath(`/storytellers/${item.id}`)" class="white--text text-decoration-none mt-5 d-block">
             {{ $t('homePage.storytellers.click_for_more') }}
