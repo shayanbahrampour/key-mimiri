@@ -2,7 +2,7 @@
   <div id="footer" class="mt-10">
     <v-sheet v-if="isMobile" class="custom-gradient w-full" height="10" />
     <v-footer :class="[isMobile ? 'pt-10' : 'py-16 px-0']" color="slategrey">
-      <div :style="`max-width: ${globalMaxWidth}px`" class="mx-auto w-full">
+      <div class="mx-auto w-full">
         <v-sheet :class="['white--text', isMobile ? 'px-6' : 'px-16']" color="transparent">
           <div v-if="isMobile" class="d-flex justify-center align-center flex-sm-row flex-column">
             <v-img
@@ -74,7 +74,7 @@
     <v-sheet v-if="!isMobile" class="custom-gradient w-full" height="15" />
 
     <v-sheet :color="isMobile ? 'slategrey' : 'rgba(76, 109, 128, 1)'" class="white--text text-center">
-      <div :style="`max-width: ${globalMaxWidth}px`" class="mx-auto w-full">
+      <div class="mx-auto w-full">
         <v-sheet
           :class="['w-full white--text', isMobile ? 'px-6 pt-6 pb-8' : 'px-16 py-8']"
           color="transparent"

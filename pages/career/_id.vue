@@ -3,7 +3,6 @@
     <CareerHeader :item="item" />
     <div
       :class="['d-flex flex-column align-start white', isMobile ? 'px-4 f-16' : 'px-16 scrolled-desktop']"
-      :style="`max-width: ${globalMaxWidth}px;`"
       style="line-height: 2"
     >
       <div v-if="isMobile" :class="{ 'd-flex jusitfy-center px-10': isMobile }" style="width: 100%">

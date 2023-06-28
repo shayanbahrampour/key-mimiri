@@ -2,7 +2,7 @@
   <div class="pb-16">
     <NewsCarousel :items="[{ src: '/images/temp/cover-2.png' }]" />
 
-    <v-sheet v-if="!isMobile" :max-width="globalMaxWidth" class="mx-auto px-10 mt-16">
+    <v-sheet v-if="!isMobile" class="mx-auto px-10 mt-16">
       <NewsCategory
         v-if="!isMobile"
         :items="categories.map((item) => ({ ...item, title: item[`${$i18n.locale}_name`] }))"

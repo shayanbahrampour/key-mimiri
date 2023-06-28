@@ -12,11 +12,7 @@
       flat
       tile
     >
-      <v-sheet
-        :class="['mx-auto d-flex align-center h-full w-full', { 'px-12': !showDrawer }]"
-        :max-width="globalMaxWidth"
-        color="transparent"
-      >
+      <v-sheet :class="['mx-auto d-flex align-center h-full w-full', { 'px-12': !showDrawer }]" color="transparent">
         <nuxt-link :to="localePath('/')" class="pointer" exact>
           <v-img
             v-if="showDrawer"

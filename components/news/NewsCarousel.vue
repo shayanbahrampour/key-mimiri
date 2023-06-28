@@ -8,7 +8,7 @@
     <div
       v-if="!isMobile"
       :class="['position-absolute  bottom-0 mx-auto z-0 px-16 me-4', isRTL ? 'end-8 start-0' : 'start-8 end-0']"
-      :style="`max-width: ${globalMaxWidth}px; bottom: ${isMobile ? 260 : 40}px`"
+      :style="`bottom: ${isMobile ? 260 : 40}px`"
     >
       <v-icon v-for="(item, index) in items" :key="index" class="ms-1" color="white" size="25" @click="model = index">
         {{ index === model ? 'mdi-radiobox-marked' : 'mdi-radiobox-blank' }}
@@ -16,7 +16,7 @@
     </div>
 
     <div :class="['position-relative z-1', { 'ps-10': !isMobile }, isRTL && 'ltr']">
-      <div :class="['mx-auto', !isMobile && 'pe-4']" :style="`max-width: ${globalMaxWidth}px`">
+      <div :class="['mx-auto', !isMobile && 'pe-4']">
         <v-sheet
           v-if="!isMobile"
           :class="['rounded-t-xl py-6 px-12 slategrey', isRTL ? 'ml-12 d-flex flex-column align-end' : 'ms-6']"

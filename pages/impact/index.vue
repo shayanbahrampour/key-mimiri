@@ -10,10 +10,7 @@
       ]"
     />
 
-    <v-sheet
-      :class="['mx-auto mt-16', isMobile ? 'px-2' : $vuetify.breakpoint.xl ? 'px-12' : 'px-16']"
-      :max-width="globalMaxWidth"
-    >
+    <v-sheet :class="['mx-auto mt-16', isMobile ? 'px-2' : $vuetify.breakpoint.xl ? 'px-12' : 'px-16']">
       <h1
         :class="[
           'grey--text text--darken-2 font-weight-regular',
@@ -32,10 +29,7 @@
         @select="updateCategory"
       />
     </v-sheet>
-    <v-sheet
-      :class="['mx-auto mb-16 mt-6 pb-16', isMobile ? 'px-4' : $vuetify.breakpoint.xl ? 'px-12' : 'px-16']"
-      :max-width="globalMaxWidth"
-    >
+    <v-sheet :class="['mx-auto mb-16 mt-6 pb-16', isMobile ? 'px-4' : $vuetify.breakpoint.xl ? 'px-12' : 'px-16']">
       <v-row v-if="items.length" align="stretch">
         <v-col v-for="(item, index) in items" :key="index" cols="12" md="6" xl="4">
           <ImpactCards :item="item" class="h-full" style="border-radius: 80px" />

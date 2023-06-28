@@ -117,7 +117,7 @@
         v-html="item[`${$i18n.locale}_column_section`]"
       />
     </v-sheet>
-    <div :style="`max-width:${globalMaxWidth}px`" class="mx-auto">
+    <div class="mx-auto">
       <v-sheet :class="['pt-16', isMobile ? 'px-6' : 'px-16 mb-4']">
         <h2
           :class="[
@@ -132,7 +132,7 @@
       </v-sheet>
     </div>
 
-    <div :style="`max-width:${globalMaxWidth}px`" class="mx-auto">
+    <div class="mx-auto">
       <div :class="!isMobile && 'px-16'">
         <VideoContents
           :src="`${$imageUrl}/${subtitle_file}`"

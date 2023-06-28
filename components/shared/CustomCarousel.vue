@@ -14,14 +14,13 @@
       </v-carousel-item>
     </v-carousel>
     <div class="position-relative z-1">
-      <div :class="['mx-auto', !isMobile && 'pr-16']" :style="`max-width: ${globalMaxWidth}px`">
+      <div :class="['mx-auto', !isMobile && 'pr-16']">
         <v-sheet
           :class="[
             'mr-auto carousel-sheet position-relative d-flex align-center',
             isMobile ? 'py-8' : `rounded-r-xl py-16`,
             $vuetify.breakpoint.xl ? 'px-12' : isMobile ? 'px-6' : 'px-16'
           ]"
-          :max-width="globalMaxWidth * 0.9"
           :min-height="$vuetify.breakpoint.mdAndUp ? 240 : 100"
           :style="`${!isMobile && `margin-top: -120px`}`"
           color="slategrey"

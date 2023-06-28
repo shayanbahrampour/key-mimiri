@@ -1,6 +1,6 @@
 <template>
   <div class="grey--text text--darken-2 home-story-tellers mt-16 pt-6">
-    <v-sheet :max-width="globalMaxWidth" class="mx-auto">
+    <v-sheet class="mx-auto">
       <h3
         :class="[
           'font-weight-regular',

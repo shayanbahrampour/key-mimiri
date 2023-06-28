@@ -1,7 +1,7 @@
 <template>
   <div>
     <div :class="['slategrey', !isMobile ? 'pe-4' : undefined]">
-      <v-sheet :class="['mx-auto', isMobile ? 'px-8 py-8' : 'pa-16']" :max-width="globalMaxWidth" color="transparent">
+      <v-sheet :class="['mx-auto', isMobile ? 'px-8 py-8' : 'pa-16']" color="transparent">
         <div class="d-flex justify-space-between">
           <div class="d-flex">
             <div class="d-flex flex-column justify-center" style="max-width: 500px">
@@ -72,7 +72,7 @@
       style="border: 0"
     />
 
-    <v-sheet :class="['mx-auto', isMobile ? 'px-4' : 'px-16']" :max-width="globalMaxWidth">
+    <v-sheet :class="['mx-auto', isMobile ? 'px-4' : 'px-16']">
       <h4
         :class="[
           'f-40 text--darken-3 font-weight-regular',

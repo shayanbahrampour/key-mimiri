@@ -1,6 +1,6 @@
 <template>
   <div :class="['my-16 home-impact', isMobile ? 'coverflow' : 'pt-3']">
-    <v-sheet :class="['mx-auto grey--text text--darken-2', { 'px-16': !isMobile }]" :max-width="globalMaxWidth">
+    <v-sheet :class="['mx-auto grey--text text--darken-2', { 'px-16': !isMobile }]">
       <div :class="['d-flex align-center', isMobile ? 'flex-column text-center px-6 mb-8' : 'mb-14']">
         <h3
           :class="[
@@ -36,7 +36,7 @@
       />
     </v-sheet>
 
-    <v-sheet :max-width="globalMaxWidth" class="mx-auto">
+    <v-sheet class="mx-auto">
       <client-only>
         <swiper
           id="impactSwiper"

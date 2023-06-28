@@ -10,11 +10,7 @@
     style="margin-top: 120px"
     tile
   >
-    <v-sheet
-      :max-width="globalMaxWidth"
-      class="d-flex mx-auto mt-16 mb-8 px-8 justify-space-between w-full"
-      color="transparent"
-    >
+    <v-sheet class="d-flex mx-auto mt-16 mb-8 px-8 justify-space-between w-full" color="transparent">
       <div class="d-flex">
         <div
           :class="[
