@@ -38,7 +38,7 @@
     >
       <v-row v-if="items.length" align="stretch">
         <v-col v-for="(item, index) in items" :key="index" cols="12" md="6" xl="4">
-          <ImpactCards :item="item" style="border-radius: 80px" class="h-full" />
+          <ImpactCards :item="item" class="h-full" style="border-radius: 80px" />
         </v-col>
       </v-row>
       <template v-else-if="!$fetchState.pending">{{ $t('impactPage.not_found') }}</template>

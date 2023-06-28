@@ -54,7 +54,7 @@
             min-height="50"
             tile
           >
-            <span :class="['text-capitalize', isRTL ? 'font-weight-bold f-16' : 'f-14']">{{ $t(item.value) }}</span>
+            <span :class="['text-capitalize', isRTL ? 'font-weight-bold f-16' : 'f-14']">{{ $t(item.title) }}</span>
           </v-btn>
         </div>
 
@@ -105,7 +105,7 @@
           tile
           @click="flag.showDrawer = false"
         >
-          {{ $t(item.value) }}
+          {{ $t(item.title) }}
         </v-card>
       </v-sheet>
     </v-expand-transition>
@@ -132,11 +132,11 @@ export default {
     },
     items() {
       return [
-        { value: 'menu.point_of_view', path: '/' },
-        { value: 'menu.impact_stories', path: '/impact' },
-        { value: 'menu.education', path: '/education' },
-        { value: 'menu.people_careers', path: '/career' },
-        { value: 'menu.press_center', path: '/news' }
+        { title: 'menu.point_of_view', path: '/' },
+        { title: 'menu.impact_stories', path: '/impact' },
+        { title: 'menu.education', path: '/education' },
+        { title: 'menu.people_careers', path: '/career' },
+        { title: 'menu.press_center', path: '/news' }
       ];
     }
   }

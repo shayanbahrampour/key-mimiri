@@ -18,9 +18,9 @@
         >
           <div :class="['d-flex', isMobile ? 'flex-column align-center justify-center' : undefined]">
             <v-img
+              :class="{ 'me-4': !isMobile }"
               :height="isMobile ? '140' : '155'"
               :max-width="isMobile ? '140' : '155'"
-              :class="{ 'me-4': !isMobile }"
               :src="src(item)"
               style="border-radius: 50%"
             />

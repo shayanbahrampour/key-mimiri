@@ -87,9 +87,7 @@ export default {
   },
   async fetch() {
     try {
-      const { data } = await this.$store.dispatch('storyteller/getFeaturedStorytellers', {
-        params: { page: 1 }
-      });
+      const { data } = await this.$store.dispatch('storyteller/getFeaturedStorytellers');
       this.items = data.results;
       this.active = null;
     } catch (e) {

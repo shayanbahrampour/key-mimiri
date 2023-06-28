@@ -5,8 +5,8 @@
         <v-sheet :class="[`overflow-hidden ${!isMobile && 'rounded-r-xl'}`]">
           <v-img
             v-if="column_section_file"
-            max-height="calc(100vh - 150px)"
             :src="`${$imageUrl}/${column_section_file}`"
+            max-height="calc(100vh - 150px)"
           />
           <v-sheet v-if="!isMobile" class="extra-space white--text ps-16 pe-10 py-8" color="slategrey">
             <h2 :class="['f-22 mb-4 white--text', { ravi: isRTL }]">{{ item[`${$i18n.locale}_title`] }}</h2>
@@ -79,13 +79,13 @@
             {{ $t('impactPage.share_it') }}:
           </h4>
           <div :class="['d-flex', isMobile ? 'mt-2' : 'mt-10 pb-16']">
-            <a rel="noopener noreferrer" target="_blank" :href="item.short_link" class="me-4">
+            <a :href="item.short_link" class="me-4" rel="noopener noreferrer" target="_blank">
               <v-img contain height="50" src="/images/social/icon-linkedin.svg" width="50" />
             </a>
-            <a rel="noopener noreferrer" target="_blank" :href="item.short_link" class="me-4">
+            <a :href="item.short_link" class="me-4" rel="noopener noreferrer" target="_blank">
               <v-img contain height="50" src="/images/social/icon-whatsapp.svg" width="50" />
             </a>
-            <a rel="noopener noreferrer" target="_blank" :href="item.short_link" class="me-4">
+            <a :href="item.short_link" class="me-4" rel="noopener noreferrer" target="_blank">
               <v-img contain height="50" src="/images/social/icon-telegram.svg" width="50" />
             </a>
           </div>
@@ -135,9 +135,9 @@
     <div :style="`max-width:${globalMaxWidth}px`" class="mx-auto">
       <div :class="!isMobile && 'px-16'">
         <VideoContents
+          :src="`${$imageUrl}/${subtitle_file}`"
           :style="`max-height: calc(100vh - 150px); min-height: ${isMobile ? '' : '500px'}`"
           class="w-full overflow-hidden d-flex align-center"
-          :src="`${$imageUrl}/${subtitle_file}`"
         />
 
         <v-sheet v-if="isMobile" class="custom-gradient my-1" height="16" />
@@ -166,12 +166,12 @@
             />
           </v-col>
           <v-col v-if="!isMobile" class="pl-md-8 mb-md-8" lg="5" md="6" xl="4">
-            <v-img min-height="600" :src="`${$imageUrl}/${body_file}`" />
+            <v-img :src="`${$imageUrl}/${body_file}`" min-height="600" />
           </v-col>
         </v-row>
       </v-sheet>
 
-      <v-img v-if="isMobile" min-height="600" :src="`${$imageUrl}/${body_file}`" />
+      <v-img v-if="isMobile" :src="`${$imageUrl}/${body_file}`" min-height="600" />
 
       <v-sheet :class="[isMobile ? 'px-6' : 'px-16']" style="color: #59595b">
         <!--<div-->

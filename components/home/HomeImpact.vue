@@ -52,11 +52,11 @@
           </template>
           <swiper-slide v-if="$fetchState.pending">
             <v-card
+              :style="`border-radius: ${isMobile ? '30px' : '80px'}`"
               class="overflow-hidden h-full d-flex align-center justify-center"
               color="#eee"
-              height="340"
               flat
-              :style="`border-radius: ${isMobile ? '30px' : '80px'}`"
+              height="340"
             >
               <v-progress-circular indeterminate style="min-height: 400px" />
             </v-card>
@@ -117,7 +117,7 @@ export default {
   async fetch() {
     try {
       const { data } = await this.$store.dispatch('impact/getList', {
-        params: { page: 1, category_id: this.model.category }
+        params: { category_id: this.model.category }
       });
       this.items = data.results;
     } catch (e) {
