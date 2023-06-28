@@ -40,7 +40,6 @@
             </div>
           </v-card>
         </v-col>
-        <v-responsive v-if="n === 2" :key="`width-${n}`" width="100%"></v-responsive>
       </template>
     </v-row>
   </v-container>
