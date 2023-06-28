@@ -14,6 +14,7 @@
       ]"
       color="transparent"
       flat
+      min-height="90"
     >
       <div
         :class="['flex-shrink-0', isMobile ? 'f-25' : isRTL ? 'f-30' : 'f-35', isRTL ? 'ravi' : 'bel']"
@@ -58,10 +59,9 @@ export default {
     },
     src() {
       if (!this.item && this.item.files.length) return '';
-      const mainImage = this.item.files.find((item) => item.type === 'body_file');
-      if (!mainImage) return '';
 
-      return `${this.$imageUrl}/${mainImage.url}`;
+      const result = this.item.files.find((item) => item.type === 'body_file');
+      return result ? `${this.$imageUrl}/${result.url}` : '';
     }
   }
 };

@@ -30,11 +30,9 @@
       </div>
 
       <CustomTabs
+        id="categories"
         :items="categories.map((item) => ({ ...item, title: item[`${$i18n.locale}_name`] }))"
-        @select="
-          model.category = $event;
-          $fetch();
-        "
+        @select="updateCategory"
       />
     </v-sheet>
 
@@ -53,7 +51,15 @@
             </swiper-slide>
           </template>
           <swiper-slide v-if="$fetchState.pending">
-            <v-progress-circular indeterminate style="min-height: 400px" />
+            <v-card
+              class="overflow-hidden h-full d-flex align-center justify-center"
+              color="#eee"
+              height="340"
+              flat
+              :style="`border-radius: ${isMobile ? '30px' : '80px'}`"
+            >
+              <v-progress-circular indeterminate style="min-height: 400px" />
+            </v-card>
           </swiper-slide>
         </swiper>
 
@@ -111,10 +117,7 @@ export default {
   async fetch() {
     try {
       const { data } = await this.$store.dispatch('impact/getList', {
-        params: {
-          page: 1,
-          impact_story_category_id: this.model.category
-        }
+        params: { page: 1, category_id: this.model.category }
       });
       this.items = data.results;
     } catch (e) {
@@ -123,6 +126,14 @@ export default {
   },
   created() {
     if (this.categories && this.categories.length === 0) this.$store.dispatch('impact/getCategories');
+  },
+  methods: {
+    updateCategory(event) {
+      this.model.category = event;
+      this.items = [];
+      this.$fetch();
+      this.$vuetify.goTo('#categories');
+    }
   }
 };
 </script>

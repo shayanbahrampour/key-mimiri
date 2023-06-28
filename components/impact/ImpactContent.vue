@@ -59,8 +59,9 @@
               <span v-if="!isMobile"> {{ $t('impactPage.written_by') }}: </span>
               <v-img v-else contain height="20" max-width="20" src="/images/icons/written.svg" />
               <span :class="`ms-2 d-inline-block`"> {{ item[`${$i18n.locale}_author`] }} </span>
+              {{ `${$i18n.locale}_author` }}
             </div>
-            <div class="d-flex align-center grey--text text--darken-2 py-1 text-no-wrap pe-5">
+            <div v-if="item.published_at" class="d-flex align-center grey--text text--darken-2 py-1 text-no-wrap pe-5">
               <span v-if="!isMobile"> {{ $t('impactPage.published') }}: </span>
               <v-img v-else contain height="20" max-width="20" src="/images/icons/published.svg" />
               <span :class="`ms-2 d-inline-block`">

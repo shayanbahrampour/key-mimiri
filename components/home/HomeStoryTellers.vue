@@ -19,41 +19,57 @@
           :dir="isRTL ? 'rtl' : 'ltr'"
           :options="swiperOptions"
         >
-          <swiper-slide
-            v-for="(item, index) in isRTL ? itemsRTL : items"
-            :key="index"
-            :class="[
-              'd-flex flex-column transition-ease-in-out',
-              { 'active-slide': index === active },
-              { 'desktop-view': !isMobile }
-            ]"
-          >
-            <HomeStoryTellerCard
-              :active="index === active"
-              :item="item"
-              :width="310"
-              @select="$event ? (active = null) : (active = index)"
-            />
-            <div class="d-flex justify-start w-full">
-              <nuxt-link
-                :class="[
-                  'grey--text text--darken-3 text-decoration-none text-center py-4',
-                  isMobile ? 'f-24' : 'f-28',
-                  isRTL ? 'ravi' : 'bel'
-                ]"
-                :to="localePath(`/storytellers/${item.id}`)"
-                style="width: 310px"
-              >
-                {{ item.title }}
-              </nuxt-link>
-            </div>
+          <swiper-slide v-if="$fetchState.pending">
+            <v-card
+              class="overflow-hidden h-full d-flex align-center justify-center"
+              color="#eee"
+              flat
+              style="border-radius: 75px !important"
+            >
+              <v-progress-circular indeterminate style="min-height: 400px" />
+            </v-card>
           </swiper-slide>
-          <template v-if="!isMobile">
-            <swiper-slide />
-            <swiper-slide />
+          <template v-else>
+            <swiper-slide
+              v-for="(item, index) in items"
+              :key="index"
+              :class="[
+                'd-flex flex-column transition-ease-in-out',
+                { 'active-slide': index === active },
+                { 'desktop-view': !isMobile }
+              ]"
+            >
+              <HomeStoryTellerCard
+                :active="index === active"
+                :item="item"
+                :width="310"
+                @select="$event ? (active = null) : (active = index)"
+              />
+              <div class="d-flex justify-start w-full">
+                <nuxt-link
+                  :class="[
+                    'grey--text text--darken-3 text-decoration-none text-center py-4',
+                    isMobile ? 'f-24' : 'f-28',
+                    isRTL ? 'ravi' : 'bel'
+                  ]"
+                  :to="localePath(`/storytellers/${item.id}`)"
+                  style="width: 310px"
+                >
+                  {{ item[`${$i18n.locale}_full_name`] }}
+                </nuxt-link>
+              </div>
+            </swiper-slide>
+            <template v-if="!isMobile">
+              <swiper-slide />
+              <swiper-slide />
+            </template>
           </template>
         </swiper>
       </client-only>
+
+      <div v-if="items.length === 0 && !$fetchState.pending" class="mt-8 text-center">
+        {{ $t('homePage.storytellers.not_found') }}
+      </div>
     </v-sheet>
   </div>
 </template>
@@ -66,80 +82,18 @@ export default {
   data() {
     return {
       active: null,
-      items: [
-        {
-          id: 1,
-          title: 'Masoumeh Seyedi',
-          description:
-            'Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women',
-          src: '/images/storytellers/masoumeh.png'
-        },
-        {
-          id: 2,
-          title: 'Khosro Aghajanian',
-          description:
-            'Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women',
-          src: '/images/storytellers/khosro.png'
-        },
-        {
-          id: 2,
-          title: 'Mohsen Dastjerdi',
-          description:
-            'Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women',
-          src: '/images/storytellers/mohsen.png'
-        },
-        {
-          id: 4,
-          title: 'Mohamad javid',
-          description:
-            'Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women',
-          src: '/images/storytellers/mohamad.png'
-        },
-        {
-          id: 3,
-          title: 'Bahador Nayebi',
-          description:
-            'Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women',
-          src: '/images/storytellers/bahador.png'
-        }
-      ],
-      itemsRTL: [
-        {
-          id: 1,
-          title: 'معصومه سیدی',
-          description: 'کمبود آهن که منجر به کم خونی می شود، اثرات منفی بر سلامتی همه افراد به ویژه زنان دارد',
-          src: '/images/storytellers/masoumeh.png'
-        },
-        {
-          id: 2,
-          title: 'خسرو آقاجانیان',
-          description: 'کمبود آهن که منجر به کم خونی می شود، اثرات منفی بر سلامتی همه افراد به ویژه زنان دارد',
-          src: '/images/storytellers/khosro.png'
-        },
-        {
-          id: 2,
-          title: 'محسن دستجردی',
-          description: 'کمبود آهن که منجر به کم خونی می شود، اثرات منفی بر سلامتی همه افراد به ویژه زنان دارد',
-          src: '/images/storytellers/mohsen.png'
-        },
-        {
-          id: 4,
-          title: 'محمد جاوید',
-          description: 'کمبود آهن که منجر به کم خونی می شود، اثرات منفی بر سلامتی همه افراد به ویژه زنان دارد',
-          src: '/images/storytellers/mohamad.png'
-        },
-        {
-          id: 3,
-          title: 'بهادر نایبی',
-          description: 'کمبود آهن که منجر به کم خونی می شود، اثرات منفی بر سلامتی همه افراد به ویژه زنان دارد',
-          src: '/images/storytellers/bahador.png'
-        }
-      ]
+      items: []
     };
   },
-  watch: {
-    isMobile() {
-      if (this.isMobile) this.active = null;
+  async fetch() {
+    try {
+      const { data } = await this.$store.dispatch('storyteller/getFeaturedStorytellers', {
+        params: { page: 1 }
+      });
+      this.items = data.results;
+      this.active = null;
+    } catch (e) {
+      console.log(e);
     }
   },
   computed: {
@@ -147,7 +101,6 @@ export default {
       return {
         grabCursor: true,
         setWrapperSize: true,
-        // longSwipes: false,
         preventClicks: true,
         touchMoveStopPropagation: true,
         touchStartForcePreventDefault: true,
@@ -183,6 +136,11 @@ export default {
           }
         }
       };
+    }
+  },
+  watch: {
+    isMobile() {
+      if (this.isMobile) this.active = null;
     }
   }
 };

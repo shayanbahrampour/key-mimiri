@@ -246,6 +246,7 @@ export default {
     },
     storytellers: {
       title: 'راویان الهامبخش',
+      not_found: 'داده‌ای یافت نشد',
       click_for_more: 'بیشتر بخوانید'
     },
     tell_us_your_story: 'داستان خود را به ما بگویید',

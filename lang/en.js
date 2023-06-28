@@ -251,6 +251,7 @@ export default {
     },
     storytellers: {
       title: 'storytellers',
+      not_found: 'Not Found',
       click_for_more: 'click for more'
     },
     tell_us_your_story: 'Tell Us Your Story',

@@ -26,13 +26,10 @@
       </h1>
 
       <CustomTabs
-        id="impact"
+        id="categories"
         :items="categories.map((item) => ({ ...item, title: item[`${$i18n.locale}_name`] }))"
         class="mt-4"
-        @select="
-          model.category = $event;
-          $fetch();
-        "
+        @select="updateCategory"
       />
     </v-sheet>
     <v-sheet
@@ -92,7 +89,7 @@ export default {
       const { data } = await this.$store.dispatch('impact/getList', {
         params: {
           page: this.pagination.current_page,
-          impact_story_category_id: this.model.category
+          category_id: this.model.category
         }
       });
 
@@ -104,6 +101,15 @@ export default {
   },
   created() {
     if (this.categories && this.categories.length === 0) this.$store.dispatch('impact/getCategories');
+  },
+  methods: {
+    updateCategory(event) {
+      this.pagination.current_page = 1;
+      this.model.category = event;
+      this.items = [];
+      this.$fetch();
+      this.$vuetify.goTo('#categories');
+    }
   }
 };
 </script>

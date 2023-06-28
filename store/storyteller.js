@@ -30,6 +30,9 @@ export const actions = {
   getStorytellersList({ commit }, { params } = {}) {
     return this.$axios.$get(api.storyteller_list(this.$i18n.locale), { params });
   },
+  getFeaturedStorytellers({ commit }, { params } = {}) {
+    return this.$axios.$get(api.storyteller_featured(this.$i18n.locale), { params });
+  },
   getStorytellersDetail({ commit }, { params, id } = {}) {
     return this.$axios.$get(api.storyteller_detail(this.$i18n.locale, id), { params });
   }

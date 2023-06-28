@@ -24,7 +24,7 @@
       color="transparent"
       height="100%"
     >
-      <v-row :class="isRTL && 'ltr'">
+      <v-row :class="isRTL && 'ltr'" justify-lg="start" justify="center">
         <v-col cols="12" lg="8" sm="9">
           <h1
             :class="[
