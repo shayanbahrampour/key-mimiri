@@ -4,6 +4,7 @@
     class="overflow-hidden custom-card h-full custom-card-container d-flex flex-column"
     color="slategrey"
     flat
+    v-intersect.once="lastCard ? { handler: onIntersect, options: { threshold: [0, 0.5, 1.0] } } : {}"
   >
     <v-img :src="src" class="flex-shrink-0" height="250" max-height="250" width="100%" />
     <v-card
@@ -46,6 +47,10 @@ export default {
     showSummary: {
       type: Boolean,
       default: false
+    },
+    lastCard: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -62,6 +67,11 @@ export default {
 
       const result = this.item.files.find((item) => item.type === 'body_file');
       return result ? `${this.$imageUrl}/${result.url}` : '';
+    }
+  },
+  methods: {
+    onIntersect() {
+      this.$emit('next');
     }
   }
 };

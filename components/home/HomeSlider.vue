@@ -23,7 +23,7 @@
       color="transparent"
       height="100%"
     >
-      <v-row :class="isRTL && 'ltr'" justify="center" justify-lg="start">
+      <v-row :class="isRTL && 'ltr'" justify="center" justify-md="start">
         <v-col cols="12" lg="8" sm="9">
           <h1
             :class="[

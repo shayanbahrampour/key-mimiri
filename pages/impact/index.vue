@@ -32,7 +32,13 @@
     <v-sheet :class="['mx-auto mb-16 mt-6 pb-16', isMobile ? 'px-4' : $vuetify.breakpoint.xl ? 'px-12' : 'px-16']">
       <v-row v-if="items.length" align="stretch">
         <v-col v-for="(item, index) in items" :key="index" cols="12" md="6" xl="4">
-          <ImpactCards :item="item" class="h-full" style="border-radius: 80px" />
+          <ImpactCards
+            :item="item"
+            class="h-full"
+            style="border-radius: 80px"
+            :lastCard="index + 1 === items.length && pagination.last_page !== pagination.current_page"
+            @next="nextPage"
+          />
         </v-col>
       </v-row>
       <template v-else-if="!$fetchState.pending">{{ $t('impactPage.not_found') }}</template>
@@ -58,6 +64,7 @@ export default {
         category: null
       },
       pagination: {
+        last_page: 1,
         current_page: 1
       },
       items: [],
@@ -82,8 +89,8 @@ export default {
     try {
       const { data } = await this.$store.dispatch('impact/getList', {
         params: {
-          page: this.pagination.current_page,
-          category_id: this.model.category
+          category_id: this.model.category,
+          page: this.pagination.current_page
         }
       });
 
@@ -103,6 +110,12 @@ export default {
       this.items = [];
       this.$fetch();
       this.$vuetify.goTo('#categories');
+    },
+    nextPage() {
+      if (this.pagination.last_page > 1 && this.pagination.current_page < this.pagination.last_page) {
+        this.pagination.current_page++;
+        this.$fetch();
+      }
     }
   }
 };

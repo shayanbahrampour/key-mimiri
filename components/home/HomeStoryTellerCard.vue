@@ -73,9 +73,7 @@ export default {
   computed: {
     src() {
       if (!this.item && this.item.files.length) return '';
-
       const result = this.item.files.find((item) => item.type === 'avatar_file');
-      console.log(result);
       return result ? `${this.$imageUrl}/${result.url}` : '';
     }
   },
