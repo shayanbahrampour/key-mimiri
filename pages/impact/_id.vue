@@ -1,6 +1,6 @@
 <template>
   <ImpactContent v-if="detail" :item="detail" :relatedContents="items" />
-  <div v-else-if="$fetchState.pending" class="d-flex align-center justify-center">
+  <div v-else-if="$fetchState.pending" class="d-flex align-center justify-center" style="min-height: 60vh">
     <v-progress-circular class="mx-auto" indeterminate />
   </div>
 </template>

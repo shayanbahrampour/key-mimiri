@@ -42,11 +42,18 @@
         </v-col>
       </v-row>
       <template v-else-if="!$fetchState.pending">{{ $t('impactPage.not_found') }}</template>
-    </v-sheet>
 
-    <div v-if="$fetchState.pending" class="d-flex align-center justify-center">
-      <v-progress-circular class="mx-auto" indeterminate />
-    </div>
+      <v-card
+        v-if="$fetchState.pending"
+        class="overflow-hidden custom-card d-flex align-center justify-center"
+        color="white"
+        flat
+        min-height="250"
+        style="border-radius: 80px"
+      >
+        <v-progress-circular class="mx-auto" indeterminate />
+      </v-card>
+    </v-sheet>
   </div>
 </template>
 
