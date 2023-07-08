@@ -61,8 +61,8 @@
         :is="steps[counter].component"
         :class="{ 'pe-0': !isMobile }"
         :step="counter"
-        @next="counter++"
         @back="counter--"
+        @next="counter++"
       ></Component>
     </div>
   </div>

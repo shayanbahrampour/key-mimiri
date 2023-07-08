@@ -26,9 +26,9 @@
         <v-col v-for="(item, index) in items" :key="index" cols="12" md="6" xl="4">
           <ImpactCards
             :item="item"
+            :lastCard="index + 1 === items.length && pagination.last_page !== pagination.current_page"
             class="h-full"
             style="border-radius: 80px"
-            :lastCard="index + 1 === items.length && pagination.last_page !== pagination.current_page"
             @next="nextPage"
           />
         </v-col>

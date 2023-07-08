@@ -64,7 +64,7 @@
         </div>
       </div>
     </div>
-    <CareerButtons :class="{ 'mt-10': !isRTL }" @next="goNext()" @back="$emit('back')" :step="step" />
+    <CareerButtons :class="{ 'mt-10': !isRTL }" :step="step" @back="$emit('back')" @next="goNext()" />
   </v-form>
 </template>
 
@@ -72,6 +72,7 @@
 import CareerButtons from './CareerButtons';
 import mixinRules from '~/mixins/mixin.rules';
 import { mapGetters } from 'vuex';
+
 export default {
   mixins: [mixinRules],
   components: { CareerButtons },

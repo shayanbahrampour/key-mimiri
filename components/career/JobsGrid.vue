@@ -5,12 +5,12 @@
         <v-col :key="n" cols="6">
           <v-card
             :class="['py-10', n % 2 === 1 ? 'ps-10' : undefined]"
-            tile
-            outline
-            elevation="0"
             :style="`border-bottom: ${n > 1 ? '0' : '0.5'}px solid grey; border-${isRTL ? 'left' : 'right'}: ${
               n % 2 === 1 ? '0' : '0.5'
             }px solid grey`"
+            elevation="0"
+            outline
+            tile
           >
             <h4 :class="['f-30 text--darken-3 font-weight-regular', isRTL ? 'ravi' : 'bel']" style="color: #66869a">
               {{ isRTL ? item.fa_title : item.en_title }}
@@ -32,10 +32,10 @@
               <v-spacer></v-spacer>
               <v-img
                 :max-width="isRTL ? '140' : undefined"
+                :src="src(item)"
                 class="me-16"
                 max-height="30"
                 max-width="100"
-                :src="src(item)"
               />
             </div>
           </v-card>
@@ -55,7 +55,7 @@
         {{ isRTL ? item.fa_summary : item.en_summary }}
       </p>
       <div class="d-flex flex-column align-start mt-6">
-        <v-img max-height="60" :src="src(item)" width="120" />
+        <v-img :src="src(item)" max-height="60" width="120" />
         <v-btn
           :class="['rounded-xl d-flex justify-center white--text f-20 mt-6', isRTL ? 'font-weight-bold' : undefined]"
           :to="localePath(`/career/${item.id}`)"

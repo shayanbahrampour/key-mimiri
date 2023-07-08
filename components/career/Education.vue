@@ -118,8 +118,8 @@
             v-model="model.degree[i]"
             :class="['mb-8', isRTL ? 'ravi' : undefined]"
             :items="items"
-            :rules="[rule.required]"
             :label="$t('career.steps.education.degree')"
+            :rules="[rule.required]"
             append-icon="mdi-triangle-down 10"
             append-icon-size="16"
             dense
@@ -225,7 +225,7 @@
         rounded
       />
     </div>
-    <CareerButtons :class="{ 'mt-10': !isRTL }" @next="goNext()" @back="$emit('back')" :step="step" />
+    <CareerButtons :class="{ 'mt-10': !isRTL }" :step="step" @back="$emit('back')" @next="goNext()" />
   </v-form>
 </template>
 
@@ -233,6 +233,7 @@
 import { mapGetters } from 'vuex';
 import mixinRules from '~/mixins/mixin.rules';
 import CareerButtons from './CareerButtons';
+
 export default {
   mixins: [mixinRules],
   components: { CareerButtons },

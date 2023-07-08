@@ -36,8 +36,8 @@
           style="min-width: 240px"
         >
           <div
-            v-html="item[`${$i18n.locale}_body`]"
             style="max-height: 208px; overflow: hidden; text-overflow: ellipsis"
+            v-html="item[`${$i18n.locale}_body`]"
           />
 
           <nuxt-link :to="localePath(`/storytellers/${item.id}`)" class="white--text text-decoration-none mt-5 d-block">

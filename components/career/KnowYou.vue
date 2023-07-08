@@ -20,8 +20,8 @@
         v-model="why_talent"
         :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
         :label="$t('career.steps.let_us_know.placeholder_one')"
-        dense
         :rules="[rule.required]"
+        dense
         filled
         height="160"
         hide-details
@@ -31,9 +31,9 @@
         v-model="why_cobel"
         :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
         :label="$t('career.steps.let_us_know.placeholder_two')"
+        :rules="[rule.required]"
         dense
         filled
-        :rules="[rule.required]"
         height="160"
         hide-details
         rounded
@@ -42,15 +42,15 @@
         v-model="what_department"
         :class="['mb-8 f-20', isRTL ? 'ravi text-end' : undefined]"
         :label="$t('career.steps.let_us_know.placeholder_three')"
+        :rules="[rule.required]"
         dense
         filled
-        :rules="[rule.required]"
         height="160"
         hide-details
         rounded
       ></v-textarea>
     </div>
-    <CareerButtons :class="{ 'mt-10': !isRTL }" @next="goNext()" @back="$emit('back')" :step="step" />
+    <CareerButtons :class="{ 'mt-10': !isRTL }" :step="step" @back="$emit('back')" @next="goNext()" />
   </v-form>
 </template>
 
@@ -58,6 +58,7 @@
 import { mapGetters } from 'vuex';
 import mixinRules from '~/mixins/mixin.rules';
 import CareerButtons from './CareerButtons';
+
 export default {
   mixins: [mixinRules],
   components: { CareerButtons },

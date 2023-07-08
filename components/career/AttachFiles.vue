@@ -23,8 +23,8 @@
             :append-icon="model.coverLetter ? false : 'mdi-file-upload slategrey--text'"
             :class="['mb-9 attach-file', isRTL ? 'ravi text-end' : undefined]"
             :label="$t('career.steps.file.letter')"
-            :rules="[rule.required]"
             :prepend-icon="false"
+            :rules="[rule.required]"
             clear-icon="mdi-delete black--text"
             dense
             filled
@@ -35,11 +35,11 @@
             v-model="model.address"
             :append-icon="model.address ? false : 'mdi-file-upload slategrey--text'"
             :class="['mb-9 attach-file', isRTL ? 'ravi text-end' : undefined]"
-            :rules="[rule.required]"
             :dense="!isMobile || !isRTL"
             :height="isMobile && isRTL ? '60' : undefined"
             :label="$t('career.steps.file.address')"
             :prepend-icon="false"
+            :rules="[rule.required]"
             clear-icon="mdi-delete black--text"
             filled
             hide-details
@@ -52,8 +52,8 @@
             :append-icon="model.vitae ? false : 'mdi-file-upload slategrey--text'"
             :class="['mb-9 attach-file', isRTL ? 'ravi text-end' : undefined]"
             :label="$t('career.steps.file.vitae')"
-            :rules="[rule.required]"
             :prepend-icon="false"
+            :rules="[rule.required]"
             clear-icon="mdi-delete black--text"
             dense
             filled
@@ -75,7 +75,7 @@
         </v-col>
       </v-row>
     </div>
-    <CareerButtons :class="{ 'mt-10': !isRTL }" @next="goNext()" @back="$emit('back')" :step="step" />
+    <CareerButtons :class="{ 'mt-10': !isRTL }" :step="step" @back="$emit('back')" @next="goNext()" />
   </v-form>
 </template>
 
@@ -83,6 +83,7 @@
 import { mapGetters } from 'vuex';
 import mixinRules from '~/mixins/mixin.rules';
 import CareerButtons from './CareerButtons';
+
 export default {
   mixins: [mixinRules],
   components: { CareerButtons },

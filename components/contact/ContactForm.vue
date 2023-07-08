@@ -6,8 +6,8 @@
           v-model="model.category"
           :class="['mb-4 f-20 management-select', { 'rtl ravi align-end': isRTL }]"
           :items="isRTL ? itemsRTL : items"
-          :rules="[rule.required]"
           :label="$t('contact.fields.management')"
+          :rules="[rule.required]"
           append-icon="mdi-triangle-down 10 slategrey--text"
           dense
           filled

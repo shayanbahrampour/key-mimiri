@@ -139,9 +139,9 @@
     </h1>
     <NewsCard
       :class="['mt-10', !isMobile ? 'mx-14' : undefined]"
-      path="education"
       :items="news"
       :title="isRTL ? 'مقالات بیشتر' : 'More Articles'"
+      path="education"
     />
   </div>
 </template>

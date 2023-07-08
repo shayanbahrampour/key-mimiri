@@ -17,7 +17,7 @@
         style="transition: all ease-in 0.4s"
       >
         <div class="d-flex">
-          <v-img height="200" :src="src(item)" width="250" />
+          <v-img :src="src(item)" height="200" width="250" />
         </div>
         <div
           :class="[`d-flex flex-column py-2 ms-${isRTL ? '0' : '16'} align-${isRTL ? 'end' : 'start'}`]"
@@ -63,7 +63,7 @@
         elevation="0"
       >
         <v-card :class="['d-flex flex-column rounded-0 align-start mx-6']" elevation="0" style="overflow: hidden">
-          <v-img height="200" :src="src(item)" width="100%" />
+          <v-img :src="src(item)" height="200" width="100%" />
           <div class="d-flex flex-column pt-2 mx-0 flex" style="width: 90%">
             <h4
               :class="[

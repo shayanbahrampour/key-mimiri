@@ -53,9 +53,9 @@
     <NewsCard
       v-if="!loading"
       :class="['mt-10', !isMobile ? 'mx-16' : undefined]"
-      path="education"
       :items="news"
       :title="isRTL ? 'مقالات بیشتر' : 'More Articles'"
+      path="education"
     />
     <SkeletonLoaderCard v-if="loading" />
     <HomeStoryTellers :class="[isMobile ? 'mt-0' : 'mt-6']" />

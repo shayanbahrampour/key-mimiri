@@ -10,14 +10,14 @@
         class="mb-16 mx-6"
         @select="getData($event)"
       />
-      <NewsCard v-if="!loading" path="news" class="mx-6" :items="news" />
+      <NewsCard v-if="!loading" :items="news" class="mx-6" path="news" />
     </v-sheet>
     <NewsCard
       v-else-if="isMobile && !loading"
-      path="news"
-      :title="isRTL ? 'مهمترین ها' : 'More important'"
       :items="news"
+      :title="isRTL ? 'مهمترین ها' : 'More important'"
       class="mt-10"
+      path="news"
     />
     <SkeletonLoaderCard v-if="loading" />
   </div>
@@ -29,6 +29,7 @@ import NewsCard from '~/components/news/NewsCard.vue';
 import NewsCarousel from '~/components/news/NewsCarousel.vue';
 import NewsCategory from '~/components/news/NewsCategory.vue';
 import SkeletonLoaderCard from '~/components/shared/SkeletonLoaderCard.vue';
+
 export default {
   components: { NewsCategory, NewsCard, NewsCarousel, SkeletonLoaderCard },
   data() {

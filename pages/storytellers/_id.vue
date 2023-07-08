@@ -4,7 +4,7 @@
       :class="['d-flex align-center justify-space-between', isMobile ? 'flex-column align-center mt-6' : 'px-16 mt-16']"
     >
       <div :class="['d-flex', isMobile ? 'flex-column align-center' : undefined]">
-        <v-img height="155" max-width="155" :src="src(item)" style="border-radius: 50%" />
+        <v-img :src="src(item)" height="155" max-width="155" style="border-radius: 50%" />
         <div class="d-flex flex-column justify-center ms-4">
           <p
             :class="[

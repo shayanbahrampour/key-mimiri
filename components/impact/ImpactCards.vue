@@ -1,10 +1,10 @@
 <template>
   <v-card
+    v-intersect.once="lastCard ? { handler: onIntersect, options: { threshold: [0, 0.5, 1.0] } } : {}"
     :to="localePath(`/impact/${item.id}`)"
     class="overflow-hidden custom-card h-full custom-card-container d-flex flex-column"
     color="slategrey"
     flat
-    v-intersect.once="lastCard ? { handler: onIntersect, options: { threshold: [0, 0.5, 1.0] } } : {}"
   >
     <v-img :src="src" class="flex-shrink-0" height="250" max-height="250" width="100%" />
     <v-card
@@ -13,9 +13,9 @@
         isMobile ? 'text-center' : 'd-flex',
         summary && !isMobile ? 'px-8 pb-8 pt-6' : isMobile ? 'text-center py-8 px-4' : 'text-center px-16 py-8'
       ]"
+      :min-height="isMobile ? 90 : 0"
       color="transparent"
       flat
-      :min-height="isMobile ? 90 : 0"
     >
       <div
         :class="['flex-shrink-0', isMobile ? 'f-25' : isRTL ? 'f-30' : 'f-35', isRTL ? 'ravi' : 'bel']"

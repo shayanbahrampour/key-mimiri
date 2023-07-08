@@ -9,16 +9,16 @@
         <v-img
           :class="[isMobile ? 'my-12' : 'mt-16 text-end']"
           :max-height="isMobile ? '100' : '100'"
-          :width="isMobile ? '100%' : undefined"
           :src="src()"
+          :width="isMobile ? '100%' : undefined"
         />
       </div>
       <v-img
         v-else
         :class="[isMobile ? 'my-12' : 'mt-16 text-end']"
         :max-height="isMobile ? '100' : '100'"
-        :width="isMobile ? '100%' : undefined"
         :src="src()"
+        :width="isMobile ? '100%' : undefined"
       />
       <p
         :class="[isMobile ? 'text-center my-2 f-20' : 'mt-6 f-18', isRTL ? 'ravi' : undefined]"

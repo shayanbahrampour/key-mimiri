@@ -5,7 +5,6 @@
     <v-tab
       v-for="(item, index) in items"
       :key="index"
-      disabled
       :class="[
         'f-24 bg-transparent text-capitalize tab-news text-no-wrap',
         !isMobile ? 'px-0' : 'px-8 mt-2',
@@ -13,6 +12,7 @@
         index <= model || isLast ? 'darkGreen--text' : 'teaGreen--text'
       ]"
       :ripple="false"
+      disabled
     >
       {{ item.title }}
     </v-tab>

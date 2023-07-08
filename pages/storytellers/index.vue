@@ -53,8 +53,8 @@
     <StorytellersCard
       v-if="!loading"
       :class="['mt-10', !isMobile ? 'mx-16' : undefined]"
-      :title="isRTL ? 'داستان نویسان بیشتر' : 'More Storytellers'"
       :items="items"
+      :title="isRTL ? 'داستان نویسان بیشتر' : 'More Storytellers'"
     />
     <SkeletonLoaderCard v-else />
   </div>

@@ -143,9 +143,9 @@
           <v-select
             v-model="model.end_date[i]"
             :class="['mb-8', isRTL ? 'ravi' : undefined]"
-            :rules="[rule.required]"
             :items="items"
             :label="$t('career.steps.experiences.date_to')"
+            :rules="[rule.required]"
             append-icon="mdi-triangle-down 10"
             append-icon-size="16"
             dense
@@ -189,7 +189,7 @@
         </v-btn>
       </v-row>
     </div>
-    <CareerButtons :class="{ 'mt-10': !isRTL }" @next="goNext()" @back="$emit('back')" :step="step" />
+    <CareerButtons :class="{ 'mt-10': !isRTL }" :step="step" @back="$emit('back')" @next="goNext()" />
   </v-form>
 </template>
 
@@ -197,6 +197,7 @@
 import { mapGetters } from 'vuex';
 import mixinRules from '~/mixins/mixin.rules';
 import CareerButtons from './CareerButtons';
+
 export default {
   mixins: [mixinRules],
   components: { CareerButtons },
