@@ -11,7 +11,7 @@ export default {
     social: 'سلامت اجتماعی',
     psychological: 'سلامت روانی',
     careers: 'منابع انسانی و فرصت‌های حرفه‌ای',
-    index: 'صفحه نخست',
+    index: 'خانه',
     press: 'اخبار و رویدادها',
     contact: 'تماس با ما',
     impact_stories: 'داستان‌های الهامبخش',
