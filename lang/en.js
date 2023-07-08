@@ -2,7 +2,7 @@ export default {
   menu: {
     point_of_view: 'Point of view',
     impact_stories: 'Impact Stories',
-    education: 'Insights & Education',
+    education: 'Education & Empowerment',
     people_careers: 'People and Career',
     contact_us: 'Contact Us'
   },
@@ -15,7 +15,7 @@ export default {
     press: 'Press Center',
     contact: 'Contact Us',
     impact_stories: 'Impact Stories',
-    education: 'Education',
+    education: 'Education & Empowerment',
     storytellers: 'Storytellers',
     timeline: 'Timeline'
   },
@@ -23,18 +23,18 @@ export default {
     about: 'About Us',
     contact: 'Contact Us',
     title: {
-      navigation: 'NAVIGATION',
-      life: 'LIFE & CAREERS',
+      navigation: 'Navigation',
+      life: 'Experience and Careers',
       HRQoL: 'HRQoL',
-      talk_to_us: 'TALK TO US'
+      talk_to_us: 'Reach Us'
     },
     links: {
-      point_of_view: 'Point of view',
+      point_of_view: 'Point of View',
       impact_stories: 'Impact Stories',
-      education: 'Education',
-      people_careers: 'People & Careers',
+      education: 'Education & Empowerment',
+      people_careers: 'People and Career',
       press_center: 'Press Center',
-      life_at_cobel_group: 'Life at Cobel Group',
+      life_at_cobel_group: 'Dynamic Experience at Cobel Group',
       careers: 'Careers',
       talent_pool: 'Talent Pool',
       psychological_health: 'Psychological Health',
@@ -42,7 +42,7 @@ export default {
       social_health: 'Social Health',
       contact: 'Contact Us',
       timeline: 'Timeline',
-      storytellers: 'storytellers'
+      storytellers: 'Storytellers'
     },
     copyright: '©2023 Cobel Group. All Rights Reserved.'
   },
@@ -225,35 +225,34 @@ export default {
       slider: {
         title: 'Treatment and prevention paradigm shift',
         description:
-          'Be an enabler to enhance peoples physical, psychological and social quality of life (HRQoL) through high quality and innovative solutions'
+          'Enhancing individuals’ health related quality of life (HRQoL) by improving their physical, psychological and social health through high quality and innovative solutions'
       },
       balls: {
         social_health: 'Social Health',
         social_health_description:
-          'Enjoyment of social interaction, sharing experiences, sense of belonging to a group, promoting participation',
+          'Social wellbeing. The ability to establish and maintain meaningful relationships, engage in positive social interactions, and contribute to the well-being of the community',
         psychological_health: 'Psychological Health',
         psychological_health_description:
-          'Emotional and interpersonal functioning: Increased self efficiency, confidence, learning new skills, raised awareness',
+          'Emotional wellbeing and growth. Cognitive functioning and overall mental resilience and balance',
         physical_health: 'Physical Health',
-        physical_health_description:
-          'Perceived improvement in balance, strength, flexibility, endurance and functional activities'
+        physical_health_description: `Overall wellbeing and proper functioning of the body.
+Absence of disease, improvement in balance, strength, endurance and functional activities`
       }
     },
     video: {
-      title: 'Life at Cobel Group®',
-      description:
-        'Enjoyment of social interaction, sharing experience sense of belonging to a group, promoting participation'
+      title: 'Our dynamic experience at Cobel Group®',
+      description: 'Valuing Talents, Embracing Diversity and Achieving Collective Success'
     },
     impact: {
       title: 'Impact Stories',
       description:
-        'Patients are the center of all projects being conducted in the Cobel Group. Stories of hope, innovation, collaboration, inspiration and empowerment helps us measure our impact and inspire us to create more.'
+        'Experience our inspiring stories of hope, innovation, and impactful initiatives in healthcare, as we strive for long-term value creation'
     },
     storytellers: {
-      title: 'storytellers',
+      title: 'Storytellers',
       click_for_more: 'click for more'
     },
-    tell_us_your_story: 'Tell Us Your Story',
+    tell_us_your_story: 'Share your story',
     click_here: 'Click Here'
   },
   impactPage: {

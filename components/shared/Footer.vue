@@ -23,7 +23,11 @@
                 <v-btn
                   v-for="(link, j) in item.children"
                   :key="j"
-                  :class="['pa-0 f-15 bg-transparent', link.name ? 'ltr text-lowercase' : 'text-capitalize']"
+                  :class="[
+                    'pa-0 f-15 bg-transparent text-wrap py-2',
+                    link.name ? 'ltr text-lowercase' : 'text-transform-normal'
+                  ]"
+                  style="white-space: normal !important"
                   :href="link.href ? link.href : undefined"
                   :ripple="false"
                   :to="link.to ? localePath(link.to) : undefined"
@@ -32,8 +36,12 @@
                   link
                   min-width="0"
                   text
+                  min-height="20"
+                  height="auto"
                 >
-                  <span :class="{ 'font-weight-bold': isRTL }">{{ link.title ? $t(link.title) : link.name }}</span>
+                  <div :class="['text-wrap', { 'font-weight-bold': isRTL }]">
+                    {{ link.title ? $t(link.title) : link.name }}
+                  </div>
                 </v-btn>
               </div>
             </v-col>
@@ -167,8 +175,8 @@ export default {
         {
           title: 'footer.title.HRQoL',
           children: [
-            { title: 'footer.links.psychological_health', to: '/psychological' },
             { title: 'footer.links.physical_health', to: '/physical' },
+            { title: 'footer.links.psychological_health', to: '/psychological' },
             { title: 'footer.links.social_health', to: '/social' }
           ]
         },
