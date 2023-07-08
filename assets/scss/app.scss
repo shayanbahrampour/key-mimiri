@@ -47,6 +47,10 @@
   align-items: stretch;
 }
 
+.text-transform-normal {
+  text-transform: none !important;
+}
+
 .custom-gradient {
   background-image: -webkit-linear-gradient(
     90deg,

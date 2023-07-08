@@ -181,3 +181,10 @@ table {
     }
   }
 }
+
+.text-wrap {
+  .v-btn__content {
+    flex: initial !important;
+    display: block !important;
+  }
+}
