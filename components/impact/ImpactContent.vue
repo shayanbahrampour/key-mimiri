@@ -143,7 +143,7 @@
         <v-sheet v-if="isMobile" class="custom-gradient my-1" height="16" />
       </div>
       <v-sheet :class="[isMobile ? 'px-6' : 'px-16']" style="color: #59595b">
-        <v-row :class="[isMobile ? 'pt-6' : 'mt-lg-6 py-16', isRTL && 'ltr']">
+        <v-row :class="[isMobile ? 'pt-6' : 'mt-lg-6 pt-16', isRTL && 'ltr']">
           <v-col :class="isRTL && 'rtl'" lg="7" md="6" xl="8">
             <h3
               :class="[
@@ -162,11 +162,11 @@
                 isRTL ? 'anjoman font-weight-bold' : 'font-weight-light'
               ]"
               :style="`line-height: ${isRTL ? '40px' : '35px'}`"
-              v-html="item[`${$i18n.locale}_body`]"
+              v-html="firstParagraph"
             />
           </v-col>
           <v-col v-if="!isMobile" class="pl-md-8 mb-md-8" lg="5" md="6" xl="4">
-            <v-img :src="`${$imageUrl}/${body_file}`" min-height="600" />
+            <v-img contain :src="`${$imageUrl}/${body_file}`" position="top center" min-height="600" />
           </v-col>
         </v-row>
       </v-sheet>
@@ -174,33 +174,15 @@
       <v-img v-if="isMobile" :src="`${$imageUrl}/${body_file}`" min-height="600" />
 
       <v-sheet :class="[isMobile ? 'px-6' : 'px-16']" style="color: #59595b">
-        <!--<div-->
-        <!--  :class="[-->
-        <!--    'mb-6 text-pre-line',-->
-        <!--    isMobile ? 'f-20 mt-4' : 'f-25',-->
-        <!--    isRTL ? 'anjoman font-weight-bold' : 'font-weight-light'-->
-        <!--  ]"-->
-        <!--  :style="`line-height: ${isRTL ? '40px' : '35px'}`"-->
-        <!--  v-html="item[`${$i18n.locale}_body_description_2`]"-->
-        <!--/>-->
-        <!--<h4-->
-        <!--  :class="[-->
-        <!--    'font-weight-regular success&#45;&#45;text text-center text-sm-start',-->
-        <!--    isMobile ? (isRTL ? 'f-30' : 'f-30') : isRTL ? 'f-35' : 'f-45',-->
-        <!--    isRTL ? 'ravi mt-8 mb-6' : 'bel mb-4'-->
-        <!--  ]"-->
-        <!-- >-->
-        <!--  {{ item[`${$i18n.locale}_body_title_2`] }}-->
-        <!--</h4>-->
-        <!--<div-->
-        <!--  :class="[-->
-        <!--    'mb-6 text-pre-line',-->
-        <!--    isMobile ? 'f-20' : 'f-25',-->
-        <!--    isRTL ? 'anjoman font-weight-bold' : 'font-weight-light'-->
-        <!--  ]"-->
-        <!--  :style="`line-height: ${isRTL ? '40px' : '35px'}`"-->
-        <!--  v-html="item[`${$i18n.locale}_body_description_3`]"-->
-        <!--/>-->
+        <div
+          :class="[
+            'mb-6 text-pre-line',
+            isMobile ? 'f-20' : 'f-25',
+            isRTL ? 'anjoman font-weight-bold' : 'font-weight-light'
+          ]"
+          :style="`line-height: ${isRTL ? '40px' : '35px'}`"
+          v-html="secondParagraph"
+        />
 
         <div
           :class="[
@@ -272,6 +254,11 @@ export default {
       default: () => []
     }
   },
+  data() {
+    return {
+      counter: 1
+    };
+  },
   computed: {
     swiperOptions() {
       return {
@@ -310,6 +297,26 @@ export default {
     body_file() {
       const result = this.files.find((item) => item.type === 'body_file');
       return result ? result.url : '';
+    },
+    firstParagraph() {
+      const text = this.item[`${this.$i18n.locale}_body`];
+      let extractedText = this.getPosition(text, '</p><p>', 1);
+      while (extractedText < 450) {
+        extractedText = this.getPosition(text, '</p><p>', this.counter);
+        this.counter++;
+      }
+
+      return String(text).substring(0, extractedText);
+    },
+    secondParagraph() {
+      const text = this.item[`${this.$i18n.locale}_body`];
+      return String(text).substring(this.firstParagraph.length, text.length);
+    }
+  },
+  methods: {
+    getPosition(string, subString, index) {
+      if (!string) return '';
+      return String(string).split(subString, index).join(subString).length;
     }
   }
 };
