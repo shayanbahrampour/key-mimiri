@@ -20,7 +20,7 @@
         >
           {{ $t('homePage.video.title') }}
         </h3>
-        <v-divider v-if="!isMobile" class="white mx-8" style="height: 100px" vertical />
+        <v-divider v-if="!isMobile" class="white mx-8 my-auto" style="height: 120px" vertical />
         <div
           v-if="!isMobile"
           :class="[

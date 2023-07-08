@@ -11,7 +11,7 @@ export default {
     social: 'Social Health',
     psychological: 'Psychological Health',
     careers: 'Careers',
-    index: 'Home Page',
+    index: 'Homepage',
     press: 'Press Center',
     contact: 'Contact Us',
     impact_stories: 'Impact Stories',
