@@ -132,7 +132,7 @@ export default {
         { title: 'menu.impact_stories', path: '/impact' },
         { title: 'menu.education', path: '/education' },
         { title: 'menu.people_careers', path: '/career' },
-        { title: 'menu.press_center', path: '/news' }
+        { title: 'menu.contact_us', path: '/contact' }
       ];
     }
   }

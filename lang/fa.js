@@ -1,10 +1,10 @@
 export default {
   menu: {
-    point_of_view: 'دیدگاه‌ها',
-    impact_stories: 'داستان‌های الهامبخش',
-    education: 'آموزش',
-    people_careers: 'منابع انسانی و فرصت‌های حرفه‌ای',
-    press_center: 'مطبوعات'
+    point_of_view: 'رویکرد ما',
+    impact_stories: 'پروژه‌های الهام بخش',
+    education: 'بینش ها و آموزش',
+    people_careers: 'منابع انسانی و فرصت‌های شغلی',
+    contact_us: 'ارتباط با ما'
   },
   pageTitles: {
     physical: 'سلامت فیزیکی',
