@@ -1,5 +1,5 @@
 <template>
-  <div class="position-relative">
+  <div v-if="items && items.length" class="position-relative">
     <v-carousel
       v-model="model"
       :show-arrows="items.length > 1"
@@ -9,7 +9,7 @@
       hide-delimiters
       show-arrows-on-hover
     >
-      <v-carousel-item v-for="(item, index) in items" :key="index">
+      <v-carousel-item v-for="(item, index) in items" :key="index" :to="item.link">
         <v-img :height="isMobile ? '30vh' : '65vh'" :src="item.src" class="position-relative z-0" />
       </v-carousel-item>
     </v-carousel>
@@ -89,16 +89,17 @@
               :offset-lg="activeSlide.title ? 1 : 0"
               cols="12"
             >
-              <p
+              <div
                 :class="[
                   'f-22 white--text mt-lg-0',
                   isRTL ? 'font-weight-bold anjoman mb-2' : 'font-weight-light mb-0'
                 ]"
-              >
-                {{
-                  activeSlide.description | truncate({ length: flag.showMore ? activeSlide.description.length : 100 })
-                }}
-              </p>
+                v-html="
+                  $options.filters.truncate(activeSlide.description, {
+                    length: flag.showMore ? activeSlide.description.length : 100
+                  })
+                "
+              />
               <v-btn
                 :ripple="false"
                 class="font-weight-bold f-18 ms-n4 mt-2 text-lowercase bg-transparent"

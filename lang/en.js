@@ -259,11 +259,7 @@ export default {
   },
   impactPage: {
     title: 'Impact Stories',
-    slider: {
-      title: 'Woman empowerment future enrichment',
-      description:
-        'Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women.'
-    },
+    see_more: 'see more',
     share_it: 'Share it',
     not_found: 'Not Found',
     read_time: 'Read time',

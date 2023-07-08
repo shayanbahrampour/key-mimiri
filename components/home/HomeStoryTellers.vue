@@ -1,5 +1,5 @@
 <template>
-  <div class="grey--text text--darken-2 home-story-tellers mt-16 pt-6">
+  <div v-if="items && items.length" class="grey--text text--darken-2 home-story-tellers mt-16 pt-6">
     <v-sheet class="mx-auto">
       <h3
         :class="[
@@ -19,57 +19,41 @@
           :dir="isRTL ? 'rtl' : 'ltr'"
           :options="swiperOptions"
         >
-          <swiper-slide v-if="$fetchState.pending">
-            <v-card
-              class="overflow-hidden h-full d-flex align-center justify-center"
-              color="#eee"
-              flat
-              style="border-radius: 75px !important"
-            >
-              <v-progress-circular indeterminate style="min-height: 400px" />
-            </v-card>
+          <swiper-slide
+            v-for="(item, index) in items"
+            :key="index"
+            :class="[
+              'd-flex flex-column transition-ease-in-out',
+              { 'active-slide': index === active },
+              { 'desktop-view': !isMobile }
+            ]"
+          >
+            <HomeStoryTellerCard
+              :active="index === active"
+              :item="item"
+              :width="310"
+              @select="$event ? (active = null) : (active = index)"
+            />
+            <div class="d-flex justify-start w-full">
+              <nuxt-link
+                :class="[
+                  'grey--text text--darken-3 text-decoration-none text-center py-4',
+                  isMobile ? 'f-24' : 'f-28',
+                  isRTL ? 'ravi' : 'bel'
+                ]"
+                :to="localePath(`/storytellers/${item.id}`)"
+                style="width: 310px"
+              >
+                {{ item[`${$i18n.locale}_full_name`] }}
+              </nuxt-link>
+            </div>
           </swiper-slide>
-          <template v-else>
-            <swiper-slide
-              v-for="(item, index) in items"
-              :key="index"
-              :class="[
-                'd-flex flex-column transition-ease-in-out',
-                { 'active-slide': index === active },
-                { 'desktop-view': !isMobile }
-              ]"
-            >
-              <HomeStoryTellerCard
-                :active="index === active"
-                :item="item"
-                :width="310"
-                @select="$event ? (active = null) : (active = index)"
-              />
-              <div class="d-flex justify-start w-full">
-                <nuxt-link
-                  :class="[
-                    'grey--text text--darken-3 text-decoration-none text-center py-4',
-                    isMobile ? 'f-24' : 'f-28',
-                    isRTL ? 'ravi' : 'bel'
-                  ]"
-                  :to="localePath(`/storytellers/${item.id}`)"
-                  style="width: 310px"
-                >
-                  {{ item[`${$i18n.locale}_full_name`] }}
-                </nuxt-link>
-              </div>
-            </swiper-slide>
-            <template v-if="!isMobile">
-              <swiper-slide />
-              <swiper-slide />
-            </template>
+          <template v-if="!isMobile">
+            <swiper-slide />
+            <swiper-slide />
           </template>
         </swiper>
       </client-only>
-
-      <div v-if="items.length === 0 && !$fetchState.pending" class="mt-8 text-center">
-        {{ $t('homePage.storytellers.not_found') }}
-      </div>
     </v-sheet>
   </div>
 </template>

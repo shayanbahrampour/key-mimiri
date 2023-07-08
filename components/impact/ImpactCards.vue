@@ -65,7 +65,7 @@ export default {
     src() {
       if (!this.item && this.item.files.length) return '';
 
-      const result = this.item.files.find((item) => item.type === 'body_file');
+      const result = this.item.files.find((item) => item.type === 'column_section_file');
       return result ? `${this.$imageUrl}/${result.url}` : '';
     }
   },

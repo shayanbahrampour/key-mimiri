@@ -68,13 +68,17 @@
       </div>
       <v-sheet
         v-if="!isMobile"
-        :class="['mx-auto position-relative z-2 ltr', isMobile ? 'px-6' : 'px-16']"
+        :class="[
+          'mx-auto position-absolute bottom-0 start-0 w-full z-2 ltr flex-shrink-0',
+          isMobile ? 'px-6' : 'px-16'
+        ]"
         color="transparent"
+        height="128"
       >
         <svg
+          :style="`width: 388px; height: 100%; bottom: 0.5px; margin-left: 30%`"
           class="position-absolute end-0 start-0 mr-auto"
           fill="none"
-          style="width: 388px; height: 128px; bottom: 0; margin-left: 30%"
           viewBox="0 0 388 128"
           xmlns="http://www.w3.org/2000/svg"
         >

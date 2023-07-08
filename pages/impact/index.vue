@@ -1,14 +1,6 @@
 <template>
   <div>
-    <CustomCarousel
-      :items="[
-        {
-          src: '/images/temp/cover-5.png',
-          title: $t('impactPage.slider.title'),
-          description: $t('impactPage.slider.description')
-        }
-      ]"
-    />
+    <CustomCarousel :items="featured" />
 
     <v-sheet :class="['mx-auto mt-16', isMobile ? 'px-2' : $vuetify.breakpoint.xl ? 'px-12' : 'px-16']">
       <h1
@@ -58,15 +50,17 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import CustomTabs from '~/components/shared/CustomTabs.vue';
 import ImpactCards from '~/components/impact/ImpactCards.vue';
 import CustomCarousel from '~/components/shared/CustomCarousel.vue';
-import { mapGetters } from 'vuex';
 
 export default {
   components: { ImpactCards, CustomTabs, CustomCarousel },
   data() {
     return {
+      items: [],
+      featured: [],
       model: {
         category: null
       },
@@ -74,7 +68,6 @@ export default {
         last_page: 1,
         current_page: 1
       },
-      items: [],
       swiperOptions: {
         spaceBetween: 16,
         slidesPerView: 1.1,
@@ -94,6 +87,7 @@ export default {
   },
   async fetch() {
     try {
+      await this.getFeatured();
       const { data } = await this.$store.dispatch('impact/getList', {
         params: {
           category_id: this.model.category,
@@ -111,6 +105,25 @@ export default {
     if (this.categories && this.categories.length === 0) this.$store.dispatch('impact/getCategories');
   },
   methods: {
+    async getFeatured() {
+      if (this.featured.length) return;
+
+      try {
+        const { data } = await this.$store.dispatch('impact/getList', { id: 'featured', params: { page: 1 } });
+        this.featured = data.results.map((item) => {
+          const image = item.files.find((img) => img.type === 'column_section_file');
+
+          return {
+            link: `/impact/${item.id}`,
+            src: `${this.$imageUrl}/${image.url}` || '',
+            title: item[`${this.$i18n.locale}_title`],
+            description: item[`${this.$i18n.locale}_summary`]
+          };
+        });
+      } catch (e) {
+        console.log(e);
+      }
+    },
     updateCategory(event) {
       this.pagination.current_page = 1;
       this.model.category = event;
