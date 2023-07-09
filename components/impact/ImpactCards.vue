@@ -1,5 +1,6 @@
 <template>
   <v-card
+    v-intersect.once="lastCard ? { handler: onIntersect, options: { threshold: [0, 0.5, 1.0] } } : {}"
     :to="localePath(`/impact/${item.id}`)"
     class="overflow-hidden custom-card h-full custom-card-container d-flex flex-column"
     color="slategrey"
@@ -12,6 +13,7 @@
         isMobile ? 'text-center' : 'd-flex',
         summary && !isMobile ? 'px-8 pb-8 pt-6' : isMobile ? 'text-center py-8 px-4' : 'text-center px-16 py-8'
       ]"
+      :min-height="isMobile ? 90 : 0"
       color="transparent"
       flat
     >
@@ -23,11 +25,11 @@
       </div>
       <div v-if="!isMobile && summary" class="font-weight-light f-19 ps-4">
         <div
-          :class="['ma-0', isRTL ? 'font-weight-bold anjoman' : 'font-weight-light']"
-          :style="isRTL ? 'line-height:30px' : ''"
+          :class="['ma-0 overflow-hidden', isRTL ? 'font-weight-bold anjoman' : 'font-weight-light']"
+          :style="`${isRTL ? 'line-height:30px' : ''}; height: 68px;`"
           v-html="summary"
         />
-        <strong :class="['f-18 font-weight-bold d-block', isRTL ? 'mt-1' : 'mt-n3']">
+        <strong class="f-18 font-weight-bold d-block mt-1">
           {{ $t('shared.see_more') }}
         </strong>
       </div>
@@ -45,6 +47,10 @@ export default {
     showSummary: {
       type: Boolean,
       default: false
+    },
+    lastCard: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -58,10 +64,14 @@ export default {
     },
     src() {
       if (!this.item && this.item.files.length) return '';
-      const mainImage = this.item.files.find((item) => item.type === 'body_file');
-      if (!mainImage) return '';
 
-      return `${this.$imageUrl}/${mainImage.url}`;
+      const result = this.item.files.find((item) => item.type === 'column_section_file');
+      return result ? `${this.$imageUrl}/${result.url}` : '';
+    }
+  },
+  methods: {
+    onIntersect() {
+      this.$emit('next');
     }
   }
 };

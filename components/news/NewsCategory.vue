@@ -5,7 +5,7 @@
     <v-divider class="mx-8" color="#00a59b" style="min-height: 25px" vertical />
 
     <div class="flex-grow-1">
-      <CustomTabs :items="tabs" />
+      <CustomTabs :items="items" @select="$emit('select', $event)" />
     </div>
   </div>
 </template>
@@ -16,7 +16,7 @@ import CustomTabs from '~/components/shared/CustomTabs.vue';
 export default {
   components: { CustomTabs },
   props: {
-    tabs: {
+    items: {
       type: Array,
       default: () => []
     },

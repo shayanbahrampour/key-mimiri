@@ -21,13 +21,19 @@ export const mutations = {
 export const actions = {
   async getCategories({ commit }, { params, id } = {}) {
     try {
-      const { data } = await this.$axios.$get(api.impact_story_categories(id), { params });
+      const { data } = await this.$axios.$get(api.storyteller_categories(id), { params });
       commit('SET', { categories: [{ id: null, en_name: 'All', fa_name: 'همه' }, ...data] });
     } catch (e) {
       console.log(e);
     }
   },
-  getList({ commit }, { params, id } = {}) {
-    return this.$axios.$get(api.impact_story(this.$i18n.locale, id), { params });
+  getStorytellersList({ commit }, { params } = {}) {
+    return this.$axios.$get(api.storyteller_list(this.$i18n.locale), { params });
+  },
+  getFeaturedStorytellers({ commit }, { params } = {}) {
+    return this.$axios.$get(api.storyteller_featured(this.$i18n.locale), { params });
+  },
+  getStorytellersDetail({ commit }, { params, id } = {}) {
+    return this.$axios.$get(api.storyteller_detail(this.$i18n.locale, id), { params });
   }
 };

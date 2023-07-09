@@ -5,7 +5,6 @@
         'position-absolute z-1 mx-auto white--text w-full d-flex',
         isMobile ? 'px-6 align-start top-0' : 'px-16 pb-15 align-end bottom-0'
       ]"
-      :max-width="globalMaxWidth"
       color="transparent"
     >
       <div :class="['d-flex w-full', $vuetify.breakpoint.smAndDown ? 'flex-column' : 'flex-row align-center']">
@@ -42,7 +41,6 @@
         'px-6 mx-auto f-17 my-4 grey--text text--darken-2 text-center',
         isRTL ? 'font-weight-bold anjoman' : 'font-weight-light'
       ]"
-      :max-width="globalMaxWidth"
       color="transparent"
     >
       {{ $t('homePage.video.description') }}

@@ -1,6 +1,6 @@
 <template>
-  <div class="grey--text text--darken-2 home-story-tellers mt-16 pt-6">
-    <v-sheet :max-width="globalMaxWidth" class="mx-auto">
+  <div v-if="items && items.length" class="grey--text text--darken-2 home-story-tellers mt-16 pt-6">
+    <v-sheet class="mx-auto">
       <h3
         :class="[
           'font-weight-regular',
@@ -20,7 +20,7 @@
           :options="swiperOptions"
         >
           <swiper-slide
-            v-for="(item, index) in isRTL ? itemsRTL : items"
+            v-for="(item, index) in items"
             :key="index"
             :class="[
               'd-flex flex-column transition-ease-in-out',
@@ -44,7 +44,7 @@
                 :to="localePath(`/storytellers/${item.id}`)"
                 style="width: 310px"
               >
-                {{ item.title }}
+                {{ item[`${$i18n.locale}_full_name`] }}
               </nuxt-link>
             </div>
           </swiper-slide>
@@ -66,80 +66,16 @@ export default {
   data() {
     return {
       active: null,
-      items: [
-        {
-          id: 1,
-          title: 'Masoumeh Seyedi',
-          description:
-            'Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women',
-          src: '/images/storytellers/masoumeh.png'
-        },
-        {
-          id: 2,
-          title: 'Khosro Aghajanian',
-          description:
-            'Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women',
-          src: '/images/storytellers/khosro.png'
-        },
-        {
-          id: 2,
-          title: 'Mohsen Dastjerdi',
-          description:
-            'Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women',
-          src: '/images/storytellers/mohsen.png'
-        },
-        {
-          id: 4,
-          title: 'Mohamad javid',
-          description:
-            'Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women',
-          src: '/images/storytellers/mohamad.png'
-        },
-        {
-          id: 3,
-          title: 'Bahador Nayebi',
-          description:
-            'Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women',
-          src: '/images/storytellers/bahador.png'
-        }
-      ],
-      itemsRTL: [
-        {
-          id: 1,
-          title: 'معصومه سیدی',
-          description: 'کمبود آهن که منجر به کم خونی می شود، اثرات منفی بر سلامتی همه افراد به ویژه زنان دارد',
-          src: '/images/storytellers/masoumeh.png'
-        },
-        {
-          id: 2,
-          title: 'خسرو آقاجانیان',
-          description: 'کمبود آهن که منجر به کم خونی می شود، اثرات منفی بر سلامتی همه افراد به ویژه زنان دارد',
-          src: '/images/storytellers/khosro.png'
-        },
-        {
-          id: 2,
-          title: 'محسن دستجردی',
-          description: 'کمبود آهن که منجر به کم خونی می شود، اثرات منفی بر سلامتی همه افراد به ویژه زنان دارد',
-          src: '/images/storytellers/mohsen.png'
-        },
-        {
-          id: 4,
-          title: 'محمد جاوید',
-          description: 'کمبود آهن که منجر به کم خونی می شود، اثرات منفی بر سلامتی همه افراد به ویژه زنان دارد',
-          src: '/images/storytellers/mohamad.png'
-        },
-        {
-          id: 3,
-          title: 'بهادر نایبی',
-          description: 'کمبود آهن که منجر به کم خونی می شود، اثرات منفی بر سلامتی همه افراد به ویژه زنان دارد',
-          src: '/images/storytellers/bahador.png'
-        }
-      ]
+      items: []
     };
   },
-  watch: {
-    isMobile() {
-      if (this.isMobile) this.active = null;
+  async fetch() {
+    try {
+      const { data } = await this.$store.dispatch('storyteller/getFeaturedStorytellers');
+      this.items = data.results;
+      this.active = null;
+    } catch (e) {
+      console.log(e);
     }
   },
   computed: {
@@ -147,14 +83,13 @@ export default {
       return {
         grabCursor: true,
         setWrapperSize: true,
-        // longSwipes: false,
         preventClicks: true,
         touchMoveStopPropagation: true,
         touchStartForcePreventDefault: true,
         preventClicksPropagation: true,
         preventInteractionOnTransition: true,
         slideToClickedSlide: true,
-        centerInsufficientSlides: true,
+        centerInsufficientSlides: false,
         edgeSwipeDetection: 'prevent',
         spaceBetween: 28,
         slidesPerView: 1.2,
@@ -183,6 +118,11 @@ export default {
           }
         }
       };
+    }
+  },
+  watch: {
+    isMobile() {
+      if (this.isMobile) this.active = null;
     }
   }
 };

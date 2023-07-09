@@ -5,7 +5,7 @@
     <HomeVideo />
     <HomeImpact />
     <HomeStoryTellers />
-    <HomeTellUsStory />
+    <HomeTellUsStory class="mt-8" />
   </div>
 </template>
 

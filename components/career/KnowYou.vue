@@ -17,8 +17,10 @@
         {{ $t('career.steps.let_us_know.title') }}
       </p>
       <v-textarea
+        v-model="why_talent"
         :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
         :label="$t('career.steps.let_us_know.placeholder_one')"
+        :rules="[rule.required]"
         dense
         filled
         height="160"
@@ -26,8 +28,10 @@
         rounded
       ></v-textarea>
       <v-textarea
+        v-model="why_cobel"
         :class="['mb-8 f-20', isRTL ? 'ravi' : undefined]"
         :label="$t('career.steps.let_us_know.placeholder_two')"
+        :rules="[rule.required]"
         dense
         filled
         height="160"
@@ -35,8 +39,10 @@
         rounded
       ></v-textarea>
       <v-textarea
+        v-model="what_department"
         :class="['mb-8 f-20', isRTL ? 'ravi text-end' : undefined]"
         :label="$t('career.steps.let_us_know.placeholder_three')"
+        :rules="[rule.required]"
         dense
         filled
         height="160"
@@ -44,15 +50,60 @@
         rounded
       ></v-textarea>
     </div>
+    <CareerButtons :class="{ 'mt-10': !isRTL }" :step="step" @back="$emit('back')" @next="goNext()" />
   </v-form>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+import mixinRules from '~/mixins/mixin.rules';
+import CareerButtons from './CareerButtons';
+
 export default {
+  mixins: [mixinRules],
+  components: { CareerButtons },
+  props: {
+    step: {
+      type: Number,
+      default: undefined
+    }
+  },
   data() {
     return {
-      valid: null
+      valid: null,
+      why_talent: null,
+      why_cobel: null,
+      what_department: null
     };
+  },
+  computed: {
+    ...mapGetters({
+      answers: 'career/getAnswers'
+    })
+  },
+  created() {
+    if (this.answers && this.answers.what_department) this.what_department = this.answers.what_department;
+    if (this.answers && this.answers.why_cobel) this.why_cobel = this.answers.why_cobel;
+    if (this.answers && this.answers.why_talent) this.why_talent = this.answers.why_talent;
+  },
+  methods: {
+    goNext() {
+      if (!this.valid) {
+        this.$toast.clear();
+        this.$toast.error('All Fields Required');
+        return;
+      } else {
+        this.$store.commit('career/SET', {
+          answers: {
+            ...(this.answers || {}),
+            why_talent: this.why_talent,
+            why_cobel: this.why_cobel,
+            what_department: this.what_department
+          }
+        });
+        this.$emit('next');
+      }
+    }
   }
 };
 </script>

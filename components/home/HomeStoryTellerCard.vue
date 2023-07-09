@@ -1,6 +1,5 @@
 <template>
   <v-card
-    :ripple="false"
     class="d-flex justify-start align-stretch bg-transparent"
     flat
     style="border-radius: 75px !important"
@@ -9,7 +8,7 @@
     <v-img
       :height="350"
       :max-width="width"
-      :src="item.src"
+      :src="src"
       :style="`border: 1px solid ${flag.isOpen ? 'transparent' : '#ececec'};border-radius: ${
         flag.showContent ? (isRTL ? '0 75px 75px 0' : '75px 0 0 75px') : '75px'
       } !important; overflow: hidden`"
@@ -28,7 +27,7 @@
         isRTL ? 'right' : 'left'
       }: 110px !important;`"
       :width="600 - width"
-      height="349"
+      height="350"
     >
       <v-scroll-x-transition hide-on-leave>
         <div
@@ -36,7 +35,10 @@
           :class="['white--text pe-6 f-20', isRTL ? 'ravi' : 'bel']"
           style="min-width: 240px"
         >
-          {{ item.description }}
+          <div
+            style="max-height: 208px; overflow: hidden; text-overflow: ellipsis"
+            v-html="item[`${$i18n.locale}_body`]"
+          />
 
           <nuxt-link :to="localePath(`/storytellers/${item.id}`)" class="white--text text-decoration-none mt-5 d-block">
             {{ $t('homePage.storytellers.click_for_more') }}
@@ -70,6 +72,13 @@ export default {
         showContent: false
       }
     };
+  },
+  computed: {
+    src() {
+      if (!this.item && this.item.files.length) return '';
+      const result = this.item.files.find((item) => item.type === 'avatar_file');
+      return result ? `${this.$imageUrl}/${result.url}` : '';
+    }
   },
   watch: {
     active: {

@@ -19,12 +19,11 @@
 
     <v-sheet
       :class="['position-relative z-1 mx-auto d-flex align-center', isMobile ? 'px-8' : 'px-16']"
-      :max-width="globalMaxWidth"
       :style="isMobile ? '' : 'top:-30px;'"
       color="transparent"
       height="100%"
     >
-      <v-row :class="isRTL && 'ltr'">
+      <v-row :class="isRTL && 'ltr'" justify="center" justify-md="start">
         <v-col cols="12" lg="8" sm="9">
           <h1
             :class="[

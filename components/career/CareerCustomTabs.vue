@@ -12,7 +12,7 @@
         index <= model || isLast ? 'darkGreen--text' : 'teaGreen--text'
       ]"
       :ripple="false"
-      @click="$emit('select', index)"
+      disabled
     >
       {{ item.title }}
     </v-tab>

@@ -256,6 +256,7 @@ Absence of disease, improvement in balance, strength, endurance and functional a
       title: 'Storytellers',
       description:
         'Passionate individuals sharing impactful experiences, insights, and stories that inspire and inform',
+      not_found: 'Not Found',
       click_for_more: 'click for more'
     },
     tell_us_your_story: 'Share your story',
@@ -263,11 +264,7 @@ Absence of disease, improvement in balance, strength, endurance and functional a
   },
   impactPage: {
     title: 'Impact Stories',
-    slider: {
-      title: 'Woman empowerment future enrichment',
-      description:
-        'Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women.'
-    },
+    see_more: 'see more',
     share_it: 'Share it',
     not_found: 'Not Found',
     read_time: 'Read time',

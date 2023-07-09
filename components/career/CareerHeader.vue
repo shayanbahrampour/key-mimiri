@@ -10,11 +10,7 @@
     style="margin-top: 120px"
     tile
   >
-    <v-sheet
-      :max-width="globalMaxWidth"
-      class="d-flex mx-auto mt-16 mb-8 px-8 justify-space-between w-full"
-      color="transparent"
-    >
+    <v-sheet class="d-flex mx-auto mt-16 mb-8 px-8 justify-space-between w-full" color="transparent">
       <div class="d-flex">
         <div
           :class="[
@@ -26,7 +22,7 @@
             <h2
               :class="['white--text mb-0 text--darken-3 font-weight-regular f-50 header-des', isRTL ? 'ravi' : 'bel']"
             >
-              {{ $t('career.job_position') }}
+              {{ isRTL ? item.fa_title : item.en_title }}
             </h2>
             <p
               :class="[
@@ -35,7 +31,7 @@
               ]"
               style="max-width: 70%"
             >
-              {{ $t('career.job_description') }}
+              {{ isRTL ? item.fa_summary : item.en_summary }}
             </p>
           </div>
           <v-btn
@@ -61,13 +57,13 @@
         <p
           :class="['white--text mb-0 text--darken-3 font-weight-regular text-center f-36', isRTL ? 'ravi mt-4' : 'bel']"
         >
-          {{ $t('career.job_position') }}
+          {{ isRTL ? item.fa_title : item.en_title }}
         </p>
         <p
           :class="['font-weight-light my-6 mx-4 f-20 text-center white--text', isRTL ? 'ravi' : undefined]"
           style="max-width: 500px; line-height: 2"
         >
-          {{ $t('career.job_description') }}
+          {{ isRTL ? item.fa_summary : item.en_summary }}
         </p>
         <v-btn
           :class="[
@@ -88,7 +84,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    item: {
+      type: Object,
+      default: () => ({})
+    }
+  }
+};
 </script>
 
 <style lang="scss">

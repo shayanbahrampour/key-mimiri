@@ -1,62 +1,30 @@
 <template>
-  <div class="d-flex flex-column">
-    <CareerHeader />
+  <div v-if="!$fetchState.pending" class="d-flex flex-column">
+    <CareerHeader :item="item" />
     <div
-      :class="['d-flex flex-column align-start white mx-auto', isMobile ? 'px-4 f-16' : 'px-16 scrolled-desktop']"
-      :style="`max-width: ${globalMaxWidth}px;`"
+      :class="['d-flex flex-column align-start white', isMobile ? 'px-4 f-16' : 'px-16 scrolled-desktop']"
       style="line-height: 2"
     >
+      <div v-if="isMobile" :class="{ 'd-flex jusitfy-center px-10': isMobile }" style="width: 100%">
+        <v-img
+          :class="[isMobile ? 'my-12' : 'mt-16 text-end']"
+          :max-height="isMobile ? '100' : '100'"
+          :src="src()"
+          :width="isMobile ? '100%' : undefined"
+        />
+      </div>
       <v-img
-        :class="[isMobile ? 'my-12' : 'mx-2 mt-16']"
-        :max-height="isMobile ? '40' : '100'"
-        :width="isMobile ? '100%' : '200'"
-        contain
-        src="/images/company/medarman.png"
+        v-else
+        :class="[isMobile ? 'my-12' : 'mt-16 text-end']"
+        :max-height="isMobile ? '100' : '100'"
+        :src="src()"
+        :width="isMobile ? '100%' : undefined"
       />
-      <v-divider v-if="isMobile" style="width: 100% !important" />
       <p
         :class="[isMobile ? 'text-center my-2 f-20' : 'mt-6 f-18', isRTL ? 'ravi' : undefined]"
         style="color: #939393; line-height: 40px"
       >
-        {{ $t('career.job_detail.job_description') }}
-      </p>
-      <v-divider v-if="isMobile" style="width: 100% !important" />
-      <h4
-        :class="[
-          'mb-6 mt-16 f-30 font-weight-regular slategrey--text',
-          isMobile ? 'mx-2' : undefined,
-          isRTL ? 'ravi' : 'bel'
-        ]"
-      >
-        {{ $t('career.job_detail.job_responsibility_title') }}
-      </h4>
-      <div
-        v-for="(item, i) in items"
-        v-if="!isRTL"
-        :key="i"
-        :class="['d-flex justify-center mb-8', isMobile ? 'px-2' : 'px-6']"
-      >
-        <v-icon class="ms-4 me-6 mt-4 align-self-start" size="6">mdi-circle</v-icon>
-        <p class="mb-0 f-18 align-self-start" style="color: #818181">
-          <span class="font-weight-regular" style="line-height: 40px">{{ item.title }}:</span>
-          <span class="font-weight-light" style="line-height: 40px">{{ item.subtitle }}</span>
-        </p>
-      </div>
-      <div v-if="isRTL">
-        <span
-          :class="['d-flex ravi justify-center mb-8', isMobile ? 'px-2' : 'f-18']"
-          style="color: #939393; line-height: 40px"
-          >{{ ResponsibleRTL }}</span
-        >
-      </div>
-
-      <p
-        v-if="!isMobile"
-        :class="['font-weight-light mt-10 f-18', isRTL ? 'ravi' : undefined]"
-        style="color: #939393; line-height: 40px"
-      >
-        {{ $t('career.job_detail.job_duty_first') }}
-        <br /><br /><br />{{ $t('career.job_detail.job_duty_second') }}
+        {{ isRTL ? item.fa_description : item.en_description }}
       </p>
     </div>
     <div class="d-flex flex-column align-center w-full white">
@@ -75,7 +43,7 @@
         </div>
       </div>
     </div>
-    <div v-if="isMobile" class="white px-10">
+    <div v-if="isMobile" class="white px-4">
       <h4 class="bel f-40 mt-10 text--darken-3 font-weight-regular" style="color: #59595b">Job positions</h4>
       <JobsGrid class="mt-10" />
     </div>
@@ -128,10 +96,29 @@ export default {
         }
       ],
       ResponsibleRTL:
-        'به عنوان نقطه تشدید: مدیران ارشد پروژه ممکن است یک نقطه تماس کلیدی برای ذینفعان در پروژه هایی باشند که متعلق به کارکنان جوان هستند. این یک مسیر تشدید را برای مسائلی فراهم می کند که مدیر پروژه نمی تواند به تنهایی حل کند. صرفه جویی در پروژه های در حال مشکل: زمانی که یک پروژه خیلی از مسیر دور می شود، یک مدیر ارشد پروژه ممکن است از مدیر پروژه حمایت کند یا پروژه را به عهده بگیرد. مصاحبه و استخدام: مدیران ارشد پروژه ممکن است در مصاحبه و استخدام کارکنان جدید پروژه کمک کنند.آموزش و مدیریت: در برخی از سازمان ها، مدیران پروژه مستقیماً به مدیران ارشد پروژه گزارش می دهند. مربیگری و مربیگری: معمولاً از مدیران ارشد پروژه انتظار می رود که کارکنان خردسال را مربی و راهنمایی کنند. ایفای نقش به عنوان یک الگو: از افرادی که در این نقش حضور دارند انتظار می رود که الگویی برای اعضای خردسال تیم باشند. پشتیبانی از تصویر بزرگ: ممکن است از یک مدیر ارشد پروژه انتظار می رود که در مدیریت برنامه و سایر وظایف PMO کمک کند. پیشرفت قهرمانی: مدیران ارشد پروژه ممکن است به عنوان قهرمانان یادگیری، بهبود فرآیند و مدیریت پروژه در شرکت عمل کنند.'
+        'به عنوان نقطه تشدید: مدیران ارشد پروژه ممکن است یک نقطه تماس کلیدی برای ذینفعان در پروژه هایی باشند که متعلق به کارکنان جوان هستند. این یک مسیر تشدید را برای مسائلی فراهم می کند که مدیر پروژه نمی تواند به تنهایی حل کند. صرفه جویی در پروژه های در حال مشکل: زمانی که یک پروژه خیلی از مسیر دور می شود، یک مدیر ارشد پروژه ممکن است از مدیر پروژه حمایت کند یا پروژه را به عهده بگیرد. مصاحبه و استخدام: مدیران ارشد پروژه ممکن است در مصاحبه و استخدام کارکنان جدید پروژه کمک کنند.آموزش و مدیریت: در برخی از سازمان ها، مدیران پروژه مستقیماً به مدیران ارشد پروژه گزارش می دهند. مربیگری و مربیگری: معمولاً از مدیران ارشد پروژه انتظار می رود که کارکنان خردسال را مربی و راهنمایی کنند. ایفای نقش به عنوان یک الگو: از افرادی که در این نقش حضور دارند انتظار می رود که الگویی برای اعضای خردسال تیم باشند. پشتیبانی از تصویر بزرگ: ممکن است از یک مدیر ارشد پروژه انتظار می رود که در مدیریت برنامه و سایر وظایف PMO کمک کند. پیشرفت قهرمانی: مدیران ارشد پروژه ممکن است به عنوان قهرمانان یادگیری، بهبود فرآیند و مدیریت پروژه در شرکت عمل کنند.',
+      item: null
     };
   },
-  components: { VideoLoader, JobsGrid, CareerHeader }
+  components: { VideoLoader, JobsGrid, CareerHeader },
+  async fetch() {
+    try {
+      const { data } = await this.$store.dispatch('career/getJobPositions');
+      this.item = data.find((item) => Number(item.id) === Number(this.$route.params.id));
+      console.log(this.item);
+    } catch (e) {
+      console.log(e);
+    }
+  },
+  methods: {
+    src() {
+      if (!this.item || !this.item.files.length) return '';
+      const mainImage = this.item.files.find((item) => item.type === 'company_file');
+      if (!mainImage) return '';
+
+      return `${this.$imageUrl}/${mainImage.url}`;
+    }
+  }
 };
 </script>
 

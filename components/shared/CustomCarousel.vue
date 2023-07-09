@@ -1,5 +1,5 @@
 <template>
-  <div class="position-relative">
+  <div v-if="items && items.length" class="position-relative">
     <v-carousel
       v-model="model"
       :show-arrows="items.length > 1"
@@ -9,19 +9,18 @@
       hide-delimiters
       show-arrows-on-hover
     >
-      <v-carousel-item v-for="(item, index) in items" :key="index">
+      <v-carousel-item v-for="(item, index) in items" :key="index" :to="item.link">
         <v-img :height="isMobile ? '30vh' : '65vh'" :src="item.src" class="position-relative z-0" />
       </v-carousel-item>
     </v-carousel>
     <div class="position-relative z-1">
-      <div :class="['mx-auto', !isMobile && 'pr-16']" :style="`max-width: ${globalMaxWidth}px`">
+      <div :class="['mx-auto', !isMobile && 'pr-16']">
         <v-sheet
           :class="[
             'mr-auto carousel-sheet position-relative d-flex align-center',
             isMobile ? 'py-8' : `rounded-r-xl py-16`,
             $vuetify.breakpoint.xl ? 'px-12' : isMobile ? 'px-6' : 'px-16'
           ]"
-          :max-width="globalMaxWidth * 0.9"
           :min-height="$vuetify.breakpoint.mdAndUp ? 240 : 100"
           :style="`${!isMobile && `margin-top: -120px`}`"
           color="slategrey"
@@ -90,16 +89,17 @@
               :offset-lg="activeSlide.title ? 1 : 0"
               cols="12"
             >
-              <p
+              <div
                 :class="[
                   'f-22 white--text mt-lg-0',
                   isRTL ? 'font-weight-bold anjoman mb-2' : 'font-weight-light mb-0'
                 ]"
-              >
-                {{
-                  activeSlide.description | truncate({ length: flag.showMore ? activeSlide.description.length : 100 })
-                }}
-              </p>
+                v-html="
+                  $options.filters.truncate(activeSlide.description, {
+                    length: flag.showMore ? activeSlide.description.length : 100
+                  })
+                "
+              />
               <v-btn
                 :ripple="false"
                 class="font-weight-bold f-18 ms-n4 mt-2 text-lowercase bg-transparent"

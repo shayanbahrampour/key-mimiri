@@ -1,24 +1,8 @@
 <template>
   <div>
-    <CustomCarousel
-      :items="[
-        {
-          src: '/images/temp/cover-5.png',
-          title: $t('impactPage.slider.title'),
-          description: $t('impactPage.slider.description')
-        },
-        {
-          src: '/images/temp/cover-3.png',
-          title: $t('impactPage.slider.title'),
-          description: $t('impactPage.slider.description')
-        }
-      ]"
-    />
+    <CustomCarousel :items="featured" />
 
-    <v-sheet
-      :class="['mx-auto mt-16', isMobile ? 'px-2' : $vuetify.breakpoint.xl ? 'px-12' : 'px-16']"
-      :max-width="globalMaxWidth"
-    >
+    <v-sheet :class="['mx-auto mt-16', isMobile ? 'px-2' : $vuetify.breakpoint.xl ? 'px-12' : 'px-16']">
       <h1
         :class="[
           'grey--text text--darken-2 font-weight-regular',
@@ -31,52 +15,59 @@
       </h1>
 
       <CustomTabs
-        id="impact"
+        id="categories"
         :items="categories.map((item) => ({ ...item, title: item[`${$i18n.locale}_name`] }))"
         class="mt-4"
-        @select="
-          model.category = $event;
-          $fetch();
-        "
+        @select="updateCategory"
       />
     </v-sheet>
-    <v-sheet
-      :class="['mx-auto mb-16 mt-6 pb-16', isMobile ? 'px-4' : $vuetify.breakpoint.xl ? 'px-12' : 'px-16']"
-      :max-width="globalMaxWidth"
-    >
+    <v-sheet :class="['mx-auto mb-16 mt-6 pb-16', isMobile ? 'px-4' : $vuetify.breakpoint.xl ? 'px-12' : 'px-16']">
       <v-row v-if="items.length" align="stretch">
         <v-col v-for="(item, index) in items" :key="index" cols="12" md="6" xl="4">
-          <ImpactCards :item="item" :style="`border-radius: 80px`" class="h-full" />
+          <ImpactCards
+            :item="item"
+            :lastCard="index + 1 === items.length && pagination.last_page !== pagination.current_page"
+            class="h-full"
+            style="border-radius: 80px"
+            @next="nextPage"
+          />
         </v-col>
       </v-row>
-      <div v-else-if="!$fetchState.pending" class="mt-8">
-        {{ $t('impactPage.not_found') }}
-      </div>
-    </v-sheet>
+      <template v-else-if="!$fetchState.pending">{{ $t('impactPage.not_found') }}</template>
 
-    <div v-if="$fetchState.pending" class="d-flex align-center justify-center">
-      <v-progress-circular class="mx-auto" indeterminate />
-    </div>
+      <v-card
+        v-if="$fetchState.pending"
+        class="overflow-hidden custom-card d-flex align-center justify-center"
+        color="white"
+        flat
+        min-height="250"
+        style="border-radius: 80px"
+      >
+        <v-progress-circular class="mx-auto" indeterminate />
+      </v-card>
+    </v-sheet>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import CustomTabs from '~/components/shared/CustomTabs.vue';
 import ImpactCards from '~/components/impact/ImpactCards.vue';
 import CustomCarousel from '~/components/shared/CustomCarousel.vue';
-import { mapGetters } from 'vuex';
 
 export default {
   components: { ImpactCards, CustomTabs, CustomCarousel },
   data() {
     return {
+      items: [],
+      featured: [],
       model: {
         category: null
       },
       pagination: {
+        last_page: 1,
         current_page: 1
       },
-      items: [],
       swiperOptions: {
         spaceBetween: 16,
         slidesPerView: 1.1,
@@ -96,128 +87,56 @@ export default {
   },
   async fetch() {
     try {
-      // const { data } = await this.$store.dispatch('impact/getList', {
-      //   params: {
-      //     page: this.pagination.current_page,
-      //     impact_story_category_id: this.model.category
-      //   }
-      // });
-      const { data } = {
-        data: {
-          results: [
-            {
-              id: 230305135,
-              en_title: 'Woman empowerment future enrichment',
-              fa_title: 'توانمندسازی زن اندوخته ای برای آینده',
-              fa_summary: 'کمبود آهن که منجر به کم خونی می شود، اثرات منفی بر سلامتی همه افراد به ویژه زنان دارد...',
-              en_summary:
-                '<p>Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women<\/p>',
-              files: [
-                { url: 'cover-5.png', type: 'column_section_file' },
-                { url: 'cover-5.png', type: 'subtitle_file' },
-                { url: 'cover-5.png', type: 'body_file' }
-              ],
-              impact_story_categories: [
-                {
-                  id: 47161516,
-                  en_name: 'Best talent',
-                  fa_name: '\u0627\u0633\u062a\u0639\u062f\u0627\u062f\u0647\u0627\u06cc \u0628\u0631\u062a\u0631'
-                },
-                {
-                  id: 140945966,
-                  en_name: 'Social responsibility',
-                  fa_name: '\u0645\u0633\u0648\u0644\u06cc\u062a \u0627\u062c\u062a\u0645\u0627\u0639\u06cc'
-                }
-              ]
-            },
-            {
-              id: 507360168,
-              fa_title: 'برخاستن از جامعه بازگشت به جامعه',
-              fa_summary: 'کمبود آهن که منجر به کم خونی می شود، اثرات منفی بر سلامتی همه افراد به ویژه زنان دارد...',
-              en_title: 'Rise from the society\u2028return to the society',
-              en_summary:
-                '<p>Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women<\/p>',
-              files: [
-                { url: 'cover-3.png', type: 'column_section_file' },
-                { url: 'cover-3.png', type: 'subtitle_file' },
-                { url: 'cover-3.png', type: 'body_file' }
-              ],
-              impact_story_categories: [
-                {
-                  id: 47161516,
-                  en_name: 'Best talent',
-                  fa_name: '\u0627\u0633\u062a\u0639\u062f\u0627\u062f\u0647\u0627\u06cc \u0628\u0631\u062a\u0631'
-                },
-                {
-                  id: 230305135,
-                  en_name: 'Long-term value creation',
-                  fa_name:
-                    '\u062e\u0644\u0642 \u0627\u0631\u0632\u0634 \u0647\u0627 \u062f\u0631 \u0628\u0644\u0646\u062f \u0645\u062f\u062a'
-                }
-              ]
-            },
-            {
-              id: 47161516,
-              fa_title: 'برخاستن از جامعه بازگشت به جامعه',
-              fa_summary: 'کمبود آهن که منجر به کم خونی می شود، اثرات منفی بر سلامتی همه افراد به ویژه زنان دارد...',
-              en_title: 'Rise from the society\u2028return to the society',
-              en_summary:
-                '<p>Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women<\/p>',
-              files: [
-                { url: 'cover-2.png', type: 'column_section_file' },
-                { url: 'cover-2.png', type: 'subtitle_file' },
-                { url: 'cover-2.png', type: 'body_file' }
-              ],
-              impact_story_categories: [
-                {
-                  id: 47161516,
-                  en_name: 'Best talent',
-                  fa_name: '\u0627\u0633\u062a\u0639\u062f\u0627\u062f\u0647\u0627\u06cc \u0628\u0631\u062a\u0631'
-                },
-                {
-                  id: 140945966,
-                  en_name: 'Social responsibility',
-                  fa_name: '\u0645\u0633\u0648\u0644\u06cc\u062a \u0627\u062c\u062a\u0645\u0627\u0639\u06cc'
-                }
-              ]
-            },
-            {
-              id: 47161516,
-              fa_title: 'برخاستن از جامعه بازگشت به جامعه',
-              fa_summary: 'کمبود آهن که منجر به کم خونی می شود، اثرات منفی بر سلامتی همه افراد به ویژه زنان دارد...',
-              en_title: 'Rise from the society\u2028return to the society',
-              en_summary:
-                '<p>Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women<\/p>',
-              files: [
-                { url: 'cover-1.jpg', type: 'column_section_file' },
-                { url: 'cover-1.jpg', type: 'subtitle_file' },
-                { url: 'cover-1.jpg', type: 'body_file' }
-              ],
-              impact_story_categories: [
-                {
-                  id: 47161516,
-                  en_name: 'Best talent',
-                  fa_name: '\u0627\u0633\u062a\u0639\u062f\u0627\u062f\u0647\u0627\u06cc \u0628\u0631\u062a\u0631'
-                },
-                {
-                  id: 140945966,
-                  en_name: 'Social responsibility',
-                  fa_name: '\u0645\u0633\u0648\u0644\u06cc\u062a \u0627\u062c\u062a\u0645\u0627\u0639\u06cc'
-                }
-              ]
-            }
-          ]
+      await this.getFeatured();
+      const { data } = await this.$store.dispatch('impact/getList', {
+        params: {
+          category_id: this.model.category,
+          page: this.pagination.current_page
         }
-      };
+      });
 
       this.items = data.results;
-      // this.pagination = data.pagination;
+      this.pagination = data.pagination;
     } catch (e) {
       console.log(e);
     }
   },
   created() {
     if (this.categories && this.categories.length === 0) this.$store.dispatch('impact/getCategories');
+  },
+  methods: {
+    async getFeatured() {
+      if (this.featured.length) return;
+
+      try {
+        const { data } = await this.$store.dispatch('impact/getList', { id: 'featured', params: { page: 1 } });
+        this.featured = data.results.map((item) => {
+          const image = item.files.find((img) => img.type === 'column_section_file');
+
+          return {
+            link: `/impact/${item.id}`,
+            src: `${this.$imageUrl}/${image.url}` || '',
+            title: item[`${this.$i18n.locale}_title`],
+            description: item[`${this.$i18n.locale}_summary`]
+          };
+        });
+      } catch (e) {
+        console.log(e);
+      }
+    },
+    updateCategory(event) {
+      this.pagination.current_page = 1;
+      this.model.category = event;
+      this.items = [];
+      this.$fetch();
+      this.$vuetify.goTo('#categories');
+    },
+    nextPage() {
+      if (this.pagination.last_page > 1 && this.pagination.current_page < this.pagination.last_page) {
+        this.pagination.current_page++;
+        this.$fetch();
+      }
+    }
   }
 };
 </script>

@@ -1,58 +1,88 @@
 <template>
-  <div class="d-flex flex-column pb-16">
-    <NewsCarousel
-      :items="[
-        {
-          src: '/images/temp/cover-2.png'
-        },
-        {
-          src: '/images/temp/cover-2.png'
-        }
-      ]"
-    />
+  <div class="pb-16">
+    <NewsCarousel :items="[{ src: '/images/temp/cover-2.png' }]" />
 
-    <v-sheet v-if="!isMobile" :max-width="globalMaxWidth" class="mx-auto px-10 mt-16">
+    <v-sheet v-if="!isMobile" class="mx-auto px-10 mt-16">
       <NewsCategory
         v-if="!isMobile"
-        :tabs="isRTL ? tabsRTL : tabs"
+        :items="categories.map((item) => ({ ...item, title: item[`${$i18n.locale}_name`] }))"
         :title="isRTL ? 'مهمترین ها' : 'More important'"
         class="mb-16 mx-6"
+        @select="getData($event)"
       />
-      <NewsCard :path="localePath('/news/1')" class="mx-6" />
+      <NewsCard v-if="!loading" :items="news" class="mx-6" path="news" />
     </v-sheet>
-    <NewsCard v-else :path="localePath('/news/1')" :title="isRTL ? 'مهمترین ها' : 'More important'" class="mt-10" />
+    <NewsCard
+      v-else-if="isMobile && !loading"
+      :items="news"
+      :title="isRTL ? 'مهمترین ها' : 'More important'"
+      class="mt-10"
+      path="news"
+    />
+    <SkeletonLoaderCard v-if="loading" />
   </div>
 </template>
 
 <script>
-import NewsCategory from '~/components/news/NewsCategory.vue';
+import { mapGetters } from 'vuex';
 import NewsCard from '~/components/news/NewsCard.vue';
 import NewsCarousel from '~/components/news/NewsCarousel.vue';
+import NewsCategory from '~/components/news/NewsCategory.vue';
+import SkeletonLoaderCard from '~/components/shared/SkeletonLoaderCard.vue';
 
 export default {
-  components: { NewsCategory, NewsCard, NewsCarousel },
+  components: { NewsCategory, NewsCard, NewsCarousel, SkeletonLoaderCard },
+  data() {
+    return {
+      pagination: {
+        current_page: 1
+      },
+      loading: false,
+      items: [],
+      news: []
+    };
+  },
   head() {
     return {
       title: this.$t('pageTitles.press')
     };
   },
-  data() {
-    return {
-      tabs: [
-        { title: 'All', value: '' },
-        { title: 'Best talent', value: '' },
-        { title: 'Long-term value creation', value: '' },
-        { title: 'Social responsibility', value: '' },
-        { title: 'Localized know-how', value: '' }
-      ],
-      tabsRTL: [
-        { title: 'همه', value: '' },
-        { title: 'بهترین استعداد', value: '' },
-        { title: 'خلق ارزش بلند مدت', value: '' },
-        { title: 'مسئولیت اجتماعی', value: '' },
-        { title: 'دانش بومی سازی شده', value: '' }
-      ]
-    };
+  computed: {
+    ...mapGetters({
+      categories: 'news/categories'
+    })
+  },
+  async fetch() {
+    this.getData();
+  },
+  methods: {
+    async getData(id) {
+      this.loading = true;
+      try {
+        const { data } = await this.$store.dispatch('news/getList', {
+          params: {
+            page: this.pagination.current_page,
+            category_id: id ? id : undefined
+          }
+        });
+
+        this.items = data.results;
+        this.pagination = data.pagination;
+      } catch (e) {
+        console.log(e);
+      }
+      try {
+        const { data } = await this.$store.dispatch('news/getNewsList', {});
+        this.news = data.results;
+        this.loading = false;
+      } catch (e) {
+        console.log(e);
+        this.loading = false;
+      }
+    }
+  },
+  created() {
+    if (this.categories && this.categories.length === 0) this.$store.dispatch('news/getCategories');
   }
 };
 </script>

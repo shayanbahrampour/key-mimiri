@@ -3,10 +3,11 @@
     <v-row :class="isRTL && 'ltr'">
       <v-col cols="12" md="6">
         <v-select
-          v-model="model.mobile"
-          :class="['mb-4 f-20 management-select', { 'rtl ravi': isRTL }]"
+          v-model="model.category"
+          :class="['mb-4 f-20 management-select', { 'rtl ravi align-end': isRTL }]"
           :items="isRTL ? itemsRTL : items"
           :label="$t('contact.fields.management')"
+          :rules="[rule.required]"
           append-icon="mdi-triangle-down 10 slategrey--text"
           dense
           filled
@@ -16,8 +17,9 @@
         ></v-select>
         <v-text-field
           v-model="model.topic"
-          :class="['mb-4 f-20', { ' ravi': isRTL }]"
+          :class="['mb-4 f-20', { 'ravi rtl align-end': isRTL }]"
           :label="$t('contact.fields.topic')"
+          :rules="[rule.required]"
           dense
           filled
           hide-details
@@ -25,8 +27,9 @@
         ></v-text-field>
         <v-text-field
           v-model="model.full_name"
-          :class="['mb-4 f-20', { ' ravi': isRTL }]"
+          :class="['mb-4 f-20', { 'rtl align-end ravi': isRTL }]"
           :label="$t('contact.fields.full_name')"
+          :rules="[rule.required]"
           dense
           filled
           hide-details
@@ -34,8 +37,9 @@
         ></v-text-field>
         <v-text-field
           v-model="model.email"
-          :class="[!isMobile ? 'mb-4 f-20' : 'mb-0 f-20', { ' ravi': isRTL }]"
+          :class="[!isMobile ? 'mb-4 f-20' : 'mb-0 f-20', { 'rtl align-end ravi': isRTL }]"
           :label="$t('contact.fields.email')"
+          :rules="[rule.required, rule.email]"
           dense
           filled
           hide-details
@@ -45,8 +49,9 @@
       <v-col :class="{ 'pt-2': isMobile }" cols="12" md="6">
         <v-textarea
           v-model="model.description"
-          :class="['mb-4 f-20', { 'mb-10': isMobile }, { ' ravi': isRTL }]"
+          :class="['mb-4 f-20', { 'mb-10': isMobile }, { 'rtl align-end ravi': isRTL }]"
           :label="$t('contact.fields.description')"
+          :rules="[rule.required]"
           dense
           filled
           height="260"
@@ -106,19 +111,19 @@ export default {
       model: {
         full_name: null,
         email: null,
-        mobile: null,
+        category: null,
         topic: null,
         description: null
       },
-      items: ['option 1', 'option 2', 'option 3'],
-      itemsRTL: ['مالی', 'حسابداری', 'منابع انسانی']
+      items: ['management', 'other'],
+      itemsRTL: ['مدیریت', 'بقیه']
     };
   },
   methods: {
     async onSubmit() {
       if (!this.flag.isValid) {
         this.$toast.clear();
-        this.$toast.error('لطفا همه فیلدهای قرمز را تکمیل کنید');
+        this.$toast.error('All Fields Required');
         return;
       }
       try {
@@ -127,7 +132,7 @@ export default {
         for (let item in this.model) formData.append(item, this.model[item] || '');
 
         await this.$store.dispatch('contact/sendContact', { body: formData });
-        this.$toast.success('یادداشت با موفقیت ذخیره شد!');
+        this.$toast.success('Done!');
         this.$emit('submit');
       } catch (e) {
         this.errorHandler(e);

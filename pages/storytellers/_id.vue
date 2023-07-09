@@ -1,10 +1,10 @@
 <template>
-  <div class="d-flex flex-column slategrey">
+  <div v-if="!$fetchState.pending" class="d-flex flex-column slategrey">
     <div
       :class="['d-flex align-center justify-space-between', isMobile ? 'flex-column align-center mt-6' : 'px-16 mt-16']"
     >
       <div :class="['d-flex', isMobile ? 'flex-column align-center' : undefined]">
-        <v-img height="155" max-width="155" src="/images/storytellers/masoumeh.png" style="border-radius: 50%" />
+        <v-img :src="src(item)" height="155" max-width="155" style="border-radius: 50%" />
         <div class="d-flex flex-column justify-center ms-4">
           <p
             :class="[
@@ -18,7 +18,7 @@
                 : 'f-42 bel'
             ]"
           >
-            {{ isRTL ? item.nameRTL : item.name }}
+            {{ isRTL ? item.fa_full_name : item.en_full_name }}
           </p>
           <p
             :class="[
@@ -27,7 +27,7 @@
               { 'ravi mt-1': isRTL }
             ]"
           >
-            {{ isRTL ? item.roleRTL : item.role }}
+            {{ isRTL ? item.fa_position : item.en_position }}
           </p>
         </div>
       </div>
@@ -100,10 +100,8 @@
         { 'ravi desktop-story-single-description': isRTL }
       ]"
       style="line-height: 30px"
-    >
-      {{ $t('storytellersPage.single_description') }}
-    </p>
-
+      v-html="isRTL ? item.fa_body : item.en_body"
+    />
     <VideoContents
       class="w-full overflow-hidden d-flex align-center"
       poster="/images/temp/cover-6.png"
@@ -126,7 +124,7 @@
           ]"
           style="color: #00a59b"
         >
-          {{ $t('storytellersPage.single_detail_title') }}
+          {{ isRTL ? item.fa_title : item.en_title }}
         </h4>
         <v-divider :class="isMobile ? 'mt-10 mx-2' : 'mt-16'"></v-divider>
         <p
@@ -141,9 +139,8 @@
               : 'f-20 my-4 text-start'
           ]"
           style="color: #939393"
-        >
-          {{ $t('storytellersPage.single_detail_description') }}
-        </p>
+          v-html="isRTL ? item.fa_summary : item.en_summary"
+        />
         <v-divider :class="!isMobile ? 'pb-16' : 'mx-2'"></v-divider>
         <h4
           :class="[
@@ -162,11 +159,11 @@
         <div
           :class="['d-flex', isMobile ? 'flex-column align-center mt-10' : 'justify-space-between align-center mt-16']"
         >
-          <div :class="['d-flex', isMobile ? 'flex-column align-center' : undefined]">
+          <div v-if="items[0]" :class="['d-flex', isMobile ? 'flex-column align-center' : undefined]">
             <v-img
               :height="isMobile ? '140' : '155'"
               :max-width="isMobile ? '140' : '155'"
-              src="/images/face/bahador.png"
+              :src="src(items[0])"
               style="border-radius: 50%"
             />
             <div :class="['d-flex flex-column justify-center', { 'ms-4': !isMobile }]">
@@ -177,7 +174,7 @@
                   isRTL ? 'ravi mb-2 mr-2' : 'bel'
                 ]"
               >
-                {{ isRTL ? faces[0].titleRTL : faces[0].title }}
+                {{ isRTL ? items[0].fa_full_name : items[0].en_full_name }}
               </p>
               <p
                 :class="[
@@ -192,7 +189,7 @@
                 ]"
                 style="color: #939393"
               >
-                {{ isRTL ? faces[0].roleRTL : faces[0].role }}
+                {{ isRTL ? items[0].fa_position : items[0].en_position }}
               </p>
               <v-divider v-if="isMobile" class="my-4" style="background-color: #00a59b; width: 350px"></v-divider>
             </div>
@@ -205,7 +202,7 @@
           >
             {{ isRTL ? faces[0].descriptionRTL : faces[0].description }}
           </p>
-          <v-expansion-panels v-if="isMobile" flat>
+          <v-expansion-panels v-if="isMobile && items[0]" flat>
             <v-expansion-panel class="transparent d-flex flex-column justify-center">
               <p
                 v-if="!seeMore.first"
@@ -237,11 +234,11 @@
           </v-expansion-panels>
         </div>
         <div :class="['d-flex my-16', isMobile ? 'flex-column' : 'justify-space-between align-center']">
-          <div :class="['d-flex', isMobile ? 'flex-column align-center' : undefined]">
+          <div v-if="items[1]" :class="['d-flex', isMobile ? 'flex-column align-center' : undefined]">
             <v-img
               :height="isMobile ? '140' : '155'"
               :max-width="isMobile ? '140' : '155'"
-              src="/images/face/mohammad.png"
+              :src="src(items[1])"
               style="border-radius: 50%"
             />
             <div :class="['d-flex flex-column justify-center', { 'ms-4': !isMobile }]">
@@ -252,7 +249,7 @@
                   isRTL ? 'ravi mb-2 mr-2' : 'bel'
                 ]"
               >
-                {{ isRTL ? faces[1].titleRTL : faces[1].title }}
+                {{ isRTL ? items[1].fa_full_name : items[1].en_full_name }}
               </p>
               <p
                 :class="[
@@ -267,7 +264,7 @@
                 ]"
                 style="color: #939393"
               >
-                {{ isRTL ? faces[1].roleRTL : faces[1].role }}
+                {{ isRTL ? items[1].fa_position : items[1].en_position }}
               </p>
               <v-divider v-if="isMobile" class="my-4" style="background-color: #00a59b; width: 350px"></v-divider>
             </div>
@@ -280,7 +277,7 @@
           >
             {{ isRTL ? faces[1].descriptionRTL : faces[1].description }}
           </p>
-          <v-expansion-panels v-if="isMobile" flat>
+          <v-expansion-panels v-if="isMobile && items[1]" flat>
             <v-expansion-panel class="transparent d-flex flex-column justify-center">
               <p
                 v-if="!seeMore.second"
@@ -333,12 +330,8 @@ export default {
         first: false,
         second: false
       },
-      item: {
-        name: 'Masoumeh Seyedi',
-        role: 'Project Manager at Cobel® Group',
-        nameRTL: 'معصومه سیدی',
-        roleRTL: 'مدیر پروژه در گروه Cobel®'
-      },
+      item: null,
+      items: [],
       faces: [
         {
           title: 'Bahador Nayebi',
@@ -377,6 +370,31 @@ export default {
           'فرايند منصفانه، به عنوان يك ارزش به مقام انسانها، به يك نياز پايهاي در آنان پاسخ ميدهد. سه اصل عدالت در فرايندها عبارتند از: تعامل، شفافيت و وضوح انتظارات.'
       }
     };
+  },
+  async fetch() {
+    try {
+      const { data } = await this.$store.dispatch('storyteller/getStorytellersDetail', { id: this.$route.params.id });
+      this.item = data;
+    } catch (e) {
+      console.log(e);
+    }
+    try {
+      const { data } = await this.$store.dispatch('storyteller/getStorytellersList', {});
+      this.items = data.results;
+      console.log(this.items);
+      this.loading = false;
+    } catch (e) {
+      console.log(e);
+      this.loading = false;
+    }
+  },
+  methods: {
+    src(index) {
+      const mainImage = index.files.find((item) => item.type === 'avatar_file');
+      if (!mainImage) return '';
+
+      return `${this.$imageUrl}/${mainImage.url}`;
+    }
   }
 };
 </script>

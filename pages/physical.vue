@@ -61,6 +61,17 @@
       >
         {{ $t('physical.responsibility') }}
       </h4>
+      <v-divider :class="[isMobile ? 'my-6' : 'my-10']" style="background-color: #f3911f" />
+
+      <p
+        :class="[
+          'white--text text--darken-3 mobile-paragraph',
+          isMobile ? 'text-center mb-16 f-20' : 'mx-4 mb-16 mt-6 f-22',
+          isRTL ? 'font-weight-bold' : 'font-weight-light'
+        ]"
+      >
+        {{ $t('physical.individual') }}
+      </p>
 
       <v-divider :class="[isMobile ? 'my-6' : 'my-10']" style="background-color: #f3911f" />
 

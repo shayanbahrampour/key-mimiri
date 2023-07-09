@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex flex-column">
+  <div v-if="!$fetchState.pending" class="d-flex flex-column">
     <div :class="['d-flex flex-column mt-16', isMobile ? 'px-4' : 'px-16 me-4']">
       <h4
         :class="[
@@ -7,13 +7,13 @@
           isRTL ? (isMobile ? 'f-34 ravi' : 'f-46 ravi') : isMobile ? 'f-40 bel' : 'f-60 bel'
         ]"
       >
-        {{ isRTL ? news.titleRTL : news.title }}
+        {{ isRTL ? item.fa_title : item.en_title }}
       </h4>
       <p
         :class="['font-weight-light mt-10 f-20', { 'ravi ': isRTL }]"
         style="max-width: 500px; color: #939393; line-height: 30px"
       >
-        {{ isRTL ? news.shortDescriptionRTL : news.shortDescription }}
+        {{ isRTL ? item.fa_subtitle : item.en_subtitle }}
       </p>
       <div
         :class="[
@@ -27,18 +27,26 @@
         >
           <p :class="['f-16', isMobile ? 'mb-6 me-10' : 'mb-0 me-6']" style="color: #939393">
             <v-icon v-if="isMobile" class="me-1" size="16">mdi-clock-outline</v-icon>
-            {{ isRTL ? (!isMobile ? 'زمان مطالعه: 13 دقیقه' : '۱۳ دقیقه') : !isMobile ? 'Read time: 13min' : '13min' }}
+            {{
+              isRTL
+                ? !isMobile
+                  ? `زمان مطالعه: ${item.read_time ? item.read_time : '۰'} دقیقه`
+                  : `${item.read_time ? item.read_time : '۰'} دقیقه`
+                : !isMobile
+                ? `Read time: ${item.read_time ? item.read_time : '0'}min`
+                : `${item.read_time ? item.read_time : '0'}min`
+            }}
           </p>
           <p :class="['f-16', isMobile ? 'mb-6 me-10' : 'mb-0 me-6']" style="color: #939393">
             <v-icon v-if="isMobile" class="me-1" size="16">mdi-fountain-pen-tip</v-icon>
             {{
               isRTL
                 ? !isMobile
-                  ? 'نویسنده: مهراب محمدی'
-                  : 'معصومه سیدی'
+                  ? `نویسنده: ${item.fa_author ? item.fa_author : '۰'}`
+                  : `${item.fa_author ? item.fa_author : '۰'}`
                 : !isMobile
-                ? 'Writed by: mehrab mohammadi'
-                : 'mehrab mohammadi'
+                ? `Writed by: ${item.en_author ? item.en_author : '0'}`
+                : `${item.en_author ? item.en_author : '0'}`
             }}
           </p>
           <p :class="['f-16', isMobile ? 'mb-6 me-0' : 'mb-0 me-6']" style="color: #939393">
@@ -46,11 +54,11 @@
             {{
               isRTL
                 ? !isMobile
-                  ? 'منتشر شده: 3 ماه پیش'
-                  : '۲ ماه قبل'
+                  ? `منتشر شده: ${item.published_at ? $dayjs(item.published_at).format('MMMM YYYY') : '۰'}`
+                  : `${item.published_at ? $dayjs(item.published_at).format('MMMM YYYY') : '۰'}`
                 : !isMobile
-                ? 'Published 3 moth ago'
-                : 'Published 3 moth ago'
+                ? `Published ${item.published_at ? $dayjs(item.published_at).format('MMMM YYYY') : '0'}`
+                : `Published ${item.published_at ? $dayjs(item.published_at).format('MMMM YYYY') : '0'}`
             }}
           </p>
         </div>
@@ -61,9 +69,8 @@
         v-if="!isMobile"
         :class="['font-weight-light f-20 mt-10', { 'ravi ': isRTL }]"
         style="color: #939393; line-height: 2"
-      >
-        {{ isRTL ? news.descriptionRTL : news.description }}
-      </p>
+        v-html="isRTL ? item.fa_summary : item.en_summary"
+      />
     </div>
     <div :class="[isMobile ? 'px-4 pt-10' : 'mt-16 px-16 py-16']" style="background-color: #ececec">
       <v-row :class="isRTL && 'ltr'">
@@ -80,7 +87,7 @@
                 : 'f-50 text-start-bel font-weight-regular'
             ]"
           >
-            {{ isRTL ? sample.titleRTL : sample.title }}
+            {{ isRTL ? item.fa_body_title : item.en_body_title }}
           </h4>
           <p
             :class="[
@@ -90,7 +97,7 @@
             ]"
             :style="`max-width: ${isRTL ? '1000' : '600'}px; color: #59595b; line-height: 30px`"
           >
-            {{ isRTL ? sample.shortDescriptionRTL : sample.shortDescription }}
+            {{ isRTL ? item.fa_body_subtitle : item.en_body_subtitle }}
           </p>
 
           <template v-if="!isMobile">
@@ -120,11 +127,10 @@
         v-if="!isMobile"
         :class="['mt-16 f-20', isRTL ? 'font-weight-bold' : 'font-weight-light']"
         style="color: #59595b; line-height: 2"
-      >
-        {{ isRTL ? sample.descriptionRTL : sample.description }}
-      </p>
+        v-html="isRTL ? item.fa_body : item.en_body"
+      />
     </div>
-    <EducationDetail />
+    <EducationDetail :conclusion="isRTL ? item.fa_conclusion : item.en_conclusion" :file="src(item)" />
     <h1
       v-if="!isMobile"
       :class="['grey--text text--darken-2 font-weight-regular ms-14 mt-10', isRTL ? 'ravi f-46' : 'bel f-50']"
@@ -133,8 +139,9 @@
     </h1>
     <NewsCard
       :class="['mt-10', !isMobile ? 'mx-14' : undefined]"
-      :path="localePath('/education/1')"
+      :items="news"
       :title="isRTL ? 'مقالات بیشتر' : 'More Articles'"
+      path="education"
     />
   </div>
 </template>
@@ -176,8 +183,34 @@ export default {
           'WHO advises that all women in their reproductive ages, whether having Iron deficiency or not, are required to consume 60 mg of iron supplements per week. This amount should be higher in pregnantwomen and any deficiencies will not only affect themselves, but it also affects their fetus. In addition, Iranian men and menopaused women have a 2 prevalence of Anemia and are also require to manage the disease accordingly ',
         descriptionRTL:
           'با اين حال، بازار مراقبت هاي بهداشتي با بازار آزاد در تمامي اين معيارها متفاوت است كه مي تواند منجر به ايجاد شكست بازار شود. ايجاد توازن در حفظ دسترسي بيماران و در كنار آن توسعه صنعت داروسازي، به اهميت نقش سياستگذاران در فرآيند قيمتگذاري اشاره دارد. قيمتگذاري يك داروي جديد ميبايست مبتني بر ويژگيهاي باليني دارو، نظير اثربخشي و ايمني محصول، مطلوبيت درمان و كيفيت خدمات تامينكننده نظير خدمات همراه درمان، ارائه آموزش، تعهد نسبت به مسئوليت اجتماعي و تبعيت نسبت به استانداردهاي اخلاقي باشد.'
-      }
+      },
+      item: null
     };
+  },
+  methods: {
+    src(item) {
+      if (!item && !item.files.length) return '';
+      const mainImage = item.files.find((item) => item.type === 'conclusion_file');
+      if (!mainImage) return '';
+      return `${this.$imageUrl}/${mainImage.url}`;
+    }
+  },
+  async fetch() {
+    try {
+      const { data } = await this.$store.dispatch('education/getEducationDetail', { id: this.$route.params.id });
+      this.item = data;
+    } catch (e) {
+      console.log(e);
+    }
+    this.loading = true;
+    try {
+      const { data } = await this.$store.dispatch('education/getEducationList', {});
+      this.news = data.results;
+      this.loading = false;
+    } catch (e) {
+      console.log(e);
+      this.loading = false;
+    }
   }
 };
 </script>

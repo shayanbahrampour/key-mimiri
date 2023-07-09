@@ -24,6 +24,7 @@
             :class="['mb-9 attach-file', isRTL ? 'ravi text-end' : undefined]"
             :label="$t('career.steps.file.letter')"
             :prepend-icon="false"
+            :rules="[rule.required]"
             clear-icon="mdi-delete black--text"
             dense
             filled
@@ -38,6 +39,7 @@
             :height="isMobile && isRTL ? '60' : undefined"
             :label="$t('career.steps.file.address')"
             :prepend-icon="false"
+            :rules="[rule.required]"
             clear-icon="mdi-delete black--text"
             filled
             hide-details
@@ -51,6 +53,7 @@
             :class="['mb-9 attach-file', isRTL ? 'ravi text-end' : undefined]"
             :label="$t('career.steps.file.vitae')"
             :prepend-icon="false"
+            :rules="[rule.required]"
             clear-icon="mdi-delete black--text"
             dense
             filled
@@ -72,11 +75,24 @@
         </v-col>
       </v-row>
     </div>
+    <CareerButtons :class="{ 'mt-10': !isRTL }" :step="step" @back="$emit('back')" @next="goNext()" />
   </v-form>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+import mixinRules from '~/mixins/mixin.rules';
+import CareerButtons from './CareerButtons';
+
 export default {
+  mixins: [mixinRules],
+  components: { CareerButtons },
+  props: {
+    step: {
+      type: Number,
+      default: undefined
+    }
+  },
   data() {
     return {
       valid: null,
@@ -87,6 +103,42 @@ export default {
         vitae: null
       }
     };
+  },
+  computed: {
+    ...mapGetters({
+      answers: 'career/getAnswers'
+    })
+  },
+  fetch() {
+    if (this.answers && this.answers.cover_letter_file && this.answers.cv_file && this.answers.letter_addressing_file) {
+      this.model.coverLetter = this.answers.cover_letter_file;
+      this.model.vitae = this.answers.cv_file;
+      this.model.address = this.answers.letter_addressing_file;
+      if (this.answers.supplementary_material_file) {
+        this.model.material = this.answers.supplementary_material_file;
+      }
+    }
+  },
+  methods: {
+    goNext() {
+      if (!this.valid) {
+        this.$toast.clear();
+        this.$toast.error('All Fields Required');
+        return;
+      } else {
+        console.log(this.model.coverLetter.name);
+        this.$store.commit('career/SET', {
+          answers: {
+            ...(this.answers || {}),
+            cover_letter_file: this.model.coverLetter,
+            cv_file: this.model.vitae,
+            letter_addressing_file: this.model.address,
+            supplementary_material_file: this.model.material ? this.model.material : undefined
+          }
+        });
+        this.$emit('next');
+      }
+    }
   }
 };
 </script>

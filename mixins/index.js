@@ -2,11 +2,6 @@ import Vue from 'vue';
 import locales from '~/lang';
 
 Vue.mixin({
-  data() {
-    return {
-      globalMaxWidth: 4000
-    };
-  },
   computed: {
     isRTL() {
       return this.$vuetify.rtl;

@@ -39,8 +39,9 @@
       >
         <NewsCategory
           :class="`my-6 mx-${isRTL ? '0' : '6'}`"
-          :tabs="isRTL ? tabsRTL : tabs"
+          :items="categories.map((item) => ({ ...item, title: item[`${$i18n.locale}_name`] }))"
           :title="isRTL ? 'داستان نویسان بیشتر' : 'More Storytellers'"
+          @select="getData($event)"
         />
       </div>
     </div>
@@ -50,13 +51,18 @@
       </p>
     </div>
     <StorytellersCard
+      v-if="!loading"
       :class="['mt-10', !isMobile ? 'mx-16' : undefined]"
+      :items="items"
       :title="isRTL ? 'داستان نویسان بیشتر' : 'More Storytellers'"
     />
+    <SkeletonLoaderCard v-else />
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+import SkeletonLoaderCard from '~/components/shared/SkeletonLoaderCard';
 import NewsCategory from '~/components/news/NewsCategory';
 import HomeStoryTellers from '~/components/home/HomeStoryTellers';
 import StorytellersCard from '~/components/storytellers/StorytellersCard';
@@ -67,24 +73,33 @@ export default {
       title: this.$t('pageTitles.storytellers')
     };
   },
-  components: { StorytellersCard, NewsCategory, HomeStoryTellers },
+  components: { StorytellersCard, NewsCategory, HomeStoryTellers, SkeletonLoaderCard },
+  computed: {
+    ...mapGetters({
+      categories: 'storyteller/categories'
+    })
+  },
   data() {
-    return {
-      tabs: [
-        { title: 'All', value: '' },
-        { title: 'Best talent', value: '' },
-        { title: 'Long-term value creation', value: '' },
-        { title: 'Social responsibility', value: '' },
-        { title: 'Localized know-how', value: '' }
-      ],
-      tabsRTL: [
-        { title: 'همه', value: '' },
-        { title: 'بهترین استعداد', value: '' },
-        { title: 'خلق ارزش بلند مدت', value: '' },
-        { title: 'مسئولیت اجتماعی', value: '' },
-        { title: 'دانش بومی سازی شده', value: '' }
-      ]
-    };
+    return { loading: false, items: [] };
+  },
+  async fetch() {
+    this.getData();
+  },
+  methods: {
+    async getData(id) {
+      this.loading = true;
+      try {
+        const { data } = await this.$store.dispatch('storyteller/getStorytellersList', {});
+        this.items = data.results;
+        this.loading = false;
+      } catch (e) {
+        console.log(e);
+        this.loading = false;
+      }
+    }
+  },
+  created() {
+    if (this.categories && this.categories.length === 0) this.$store.dispatch('storyteller/getCategories');
   }
 };
 </script>
