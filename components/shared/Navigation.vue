@@ -3,8 +3,8 @@
     <v-app-bar
       id="navigation"
       :class="['appbar', { ltr: isRTL }]"
-      :height="showDrawer ? 70 : 120"
-      :scroll-threshold="showDrawer ? 70 : 120"
+      :height="showDrawer ? 70 : screenHeight < 760 ? 80 : 120"
+      :scroll-threshold="showDrawer ? 70 : screenHeight < 760 ? 80 : 120"
       app
       color="white"
       elevate-on-scroll
@@ -12,11 +12,7 @@
       flat
       tile
     >
-      <v-sheet
-        :class="['mx-auto d-flex align-center h-full w-full', { 'px-12': !showDrawer }]"
-        :max-width="globalMaxWidth"
-        color="transparent"
-      >
+      <v-sheet :class="['mx-auto d-flex align-center h-full w-full', { 'px-12': !showDrawer }]" color="transparent">
         <nuxt-link :to="localePath('/')" class="pointer" exact>
           <v-img
             v-if="showDrawer"
@@ -117,6 +113,7 @@
 export default {
   data() {
     return {
+      screenHeight: 1080,
       flag: {
         showDrawer: false
       }
@@ -140,6 +137,15 @@ export default {
         { title: 'menu.companies', path: '/timeline' },
         { title: 'menu.contact_us', path: '/contact' }
       ];
+    }
+  },
+  mounted() {
+    this.calculateHeight();
+    window.addEventListener('resize', this.calculateHeight);
+  },
+  methods: {
+    calculateHeight() {
+      this.screenHeight = window.innerHeight;
     }
   }
 };

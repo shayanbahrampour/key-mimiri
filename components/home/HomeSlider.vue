@@ -1,9 +1,9 @@
 <template>
   <v-sheet
-    :height="isMobile ? 'calc(100vh - 130px)' : 'calc(100vh - 120px)'"
+    :height="isMobile ? 'calc(100vh - 130px)' : `calc(100vh - ${screenHeight < 760 ? 80 : 120})`"
     class="position-relative mx-auto home-slider overflow-hidden"
     color="transparent"
-    min-height="550"
+    min-height="500"
   >
     <v-sheet
       :class="[
@@ -11,7 +11,7 @@
         isMobile ? 'start-0 mx-auto justify-center w-screen' : 'h-screen bottom-0',
         flag.showFullscreen ? 'z-10' : 'z-2'
       ]"
-      :style="`${isMobile ? 'top:-220px;' : `top:-90px;right:-350px;`}`"
+      :style="`${isMobile ? 'top:-220px;' : `top:-${screenHeight < 760 ? 40 : 90}px;right:-350px;`}`"
       color="white"
     >
       <HomeSliderVideo @showFullscreen="flag.showFullscreen = $event" />
@@ -19,18 +19,17 @@
 
     <v-sheet
       :class="['position-relative z-1 mx-auto d-flex align-center', isMobile ? 'px-8' : 'px-16']"
-      :max-width="globalMaxWidth"
       :style="isMobile ? '' : 'top:-30px;'"
       color="transparent"
       height="100%"
     >
-      <v-row :class="isRTL && 'ltr'">
+      <v-row :class="isRTL && 'ltr'" justify="center" justify-md="start">
         <v-col cols="12" lg="8" sm="9">
           <h1
             :class="[
               'grey--text text--darken-2 mb-8 font-weight-regular',
               { 'pt-16 mt-12': isMobile },
-              isMobile ? (isRTL ? 'f-33' : 'f-38') : isRTL ? 'f-60' : 'f-70',
+              isMobile ? (isRTL ? 'f-40' : 'f-40') : isRTL ? 'f-60' : 'f-70',
               isRTL ? 'ravi' : 'bel',
               isRTL && isMobile && 'text-center'
             ]"
@@ -81,10 +80,20 @@ export default {
   components: { HomeSliderVideo, VideoContents, VideoLoader },
   data() {
     return {
+      screenHeight: 1080,
       flag: {
         showFullscreen: false
       }
     };
+  },
+  mounted() {
+    this.calculateHeight();
+    window.addEventListener('resize', this.calculateHeight);
+  },
+  methods: {
+    calculateHeight() {
+      this.screenHeight = window.innerHeight;
+    }
   }
 };
 </script>

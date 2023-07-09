@@ -35,7 +35,7 @@
           'h-full w-full d-flex justify-center mx-auto z-4 white--text position-absolute top-0 start-0 end-0 align-end',
           isMobile ? 'pb-6 px-5 align-end' : mdAndDown ? 'px-16' : 'px-16 pb-10'
         ]"
-        :style="`max-width:${globalMaxWidth}px;${mdAndDown && !isMobile && 'padding-bottom: 140px'}`"
+        :style="`${mdAndDown && !isMobile && 'padding-bottom: 140px'}`"
       >
         <div class="w-full">
           <h3
@@ -68,12 +68,15 @@
       </div>
       <v-sheet
         v-if="!isMobile"
-        :class="['mx-auto position-relative z-2 ltr', isMobile ? 'px-6' : 'px-16']"
-        :max-width="globalMaxWidth"
+        :class="[
+          'mx-auto position-absolute bottom-0 start-0 w-full z-2 ltr flex-shrink-0',
+          isMobile ? 'px-6' : 'px-16'
+        ]"
         color="transparent"
+        height="128"
       >
         <svg
-          :style="`width: 388px; height: 128px; bottom: 0.5px; margin-left: 30%`"
+          :style="`width: 388px; height: 100%; bottom: -0.5px; margin-left: 30%`"
           class="position-absolute end-0 start-0 mr-auto"
           fill="none"
           viewBox="0 0 388 128"
@@ -93,7 +96,6 @@
         'mx-auto position-relative z-3 d-flex justify-end ltr',
         isMobile ? 'px-4 align-end' : 'px-lg-16 px-4 align-center'
       ]"
-      :max-width="globalMaxWidth"
       :min-height="isMobile ? 430 : 540"
       color="transparent"
     >
