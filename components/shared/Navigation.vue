@@ -136,6 +136,7 @@ export default {
         { value: 'menu.impact_stories', path: '/impact' },
         { value: 'menu.education', path: '/education' },
         { value: 'menu.people_careers', path: '/career' },
+        { value: 'menu.companies', path: '/timeline' },
         { value: 'menu.contact_us', path: '/contact' }
       ];
     }

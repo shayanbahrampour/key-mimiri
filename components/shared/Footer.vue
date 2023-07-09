@@ -39,7 +39,7 @@
                   min-height="20"
                   height="auto"
                 >
-                  <div :class="['text-wrap', { 'font-weight-bold': isRTL }]">
+                  <div :class="['text-wrap text-start', { 'font-weight-bold': isRTL }]">
                     {{ link.title ? $t(link.title) : link.name }}
                   </div>
                 </v-btn>
@@ -183,8 +183,8 @@ export default {
         {
           title: 'footer.title.talk_to_us',
           children: [
-            { name: 'support@ercom.com', href: 'mailto:support@ercom.com' },
-            { name: '(+66) 2399 1145', href: 'tel:+6623991145' },
+            { title: 'footer.links.address', to: '/contact' },
+            { name: 'Info@cobelgroup.com', href: 'mailto:info@cobelgroup.com' },
             { title: 'footer.links.contact', to: '/contact' }
           ]
         }
