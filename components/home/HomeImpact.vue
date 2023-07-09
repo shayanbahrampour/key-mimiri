@@ -93,13 +93,16 @@ export default {
         slidesPerView: 1.2,
         breakpoints: {
           1904: {
-            slidesPerView: 2.5
+            slidesPerView: 2.3
+          },
+          1366: {
+            slidesPerView: 1.6
           },
           1264: {
-            slidesPerView: 1.8
+            slidesPerView: 1.4
           },
           960: {
-            slidesPerView: 1.4
+            slidesPerView: 1.2
           },
           768: {
             slidesPerView: 1.1

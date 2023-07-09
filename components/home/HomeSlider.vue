@@ -1,6 +1,6 @@
 <template>
   <v-sheet
-    :height="isMobile ? 'calc(100vh - 130px)' : `calc(100vh - ${screenHeight < 760 ? 80 : 120})`"
+    :height="isMobile ? 'calc(100vh - 130px)' : `calc(100vh - ${screenHeight < 760 ? 80 : 120}px)`"
     class="position-relative mx-auto home-slider overflow-hidden"
     color="transparent"
     min-height="500"
@@ -11,7 +11,7 @@
         isMobile ? 'start-0 mx-auto justify-center w-screen' : 'h-screen bottom-0',
         flag.showFullscreen ? 'z-10' : 'z-2'
       ]"
-      :style="`${isMobile ? 'top:-220px;' : `top:-${screenHeight < 760 ? 40 : 90}px;right:-350px;`}`"
+      :style="`${isMobile ? 'top:-250px;' : `top:-${screenHeight < 760 ? 40 : 90}px;right:-360px;`}`"
       color="white"
     >
       <HomeSliderVideo @showFullscreen="flag.showFullscreen = $event" />
@@ -22,6 +22,7 @@
       :style="isMobile ? '' : 'top:-30px;'"
       color="transparent"
       height="100%"
+      min-height="500"
     >
       <v-row :class="isRTL && 'ltr'" justify="center" justify-md="start">
         <v-col cols="12" lg="8" sm="9">
@@ -85,6 +86,9 @@ export default {
         showFullscreen: false
       }
     };
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.calculateHeight);
   },
   mounted() {
     this.calculateHeight();

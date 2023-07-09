@@ -4,7 +4,6 @@
       id="navigation"
       :class="['appbar', { ltr: isRTL }]"
       :height="showDrawer ? 70 : screenHeight < 760 ? 80 : 120"
-      :scroll-threshold="showDrawer ? 70 : screenHeight < 760 ? 80 : 120"
       app
       color="white"
       elevate-on-scroll
@@ -138,6 +137,9 @@ export default {
         { title: 'menu.contact_us', path: '/contact' }
       ];
     }
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.calculateHeight);
   },
   mounted() {
     this.calculateHeight();
