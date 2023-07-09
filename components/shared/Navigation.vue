@@ -3,8 +3,7 @@
     <v-app-bar
       id="navigation"
       :class="['appbar', { ltr: isRTL }]"
-      :height="showDrawer ? 70 : 120"
-      :scroll-threshold="showDrawer ? 70 : 120"
+      :height="showDrawer ? 70 : screenHeight < 760 ? 80 : 120"
       app
       color="white"
       elevate-on-scroll
@@ -113,6 +112,7 @@
 export default {
   data() {
     return {
+      screenHeight: 1080,
       flag: {
         showDrawer: false
       }
@@ -136,6 +136,18 @@ export default {
         { title: 'menu.companies', path: '/timeline' },
         { title: 'menu.contact_us', path: '/contact' }
       ];
+    }
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.calculateHeight);
+  },
+  mounted() {
+    this.calculateHeight();
+    window.addEventListener('resize', this.calculateHeight);
+  },
+  methods: {
+    calculateHeight() {
+      this.screenHeight = window.innerHeight;
     }
   }
 };

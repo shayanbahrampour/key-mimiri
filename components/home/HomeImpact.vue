@@ -98,14 +98,23 @@ export default {
         spaceBetween: this.isMobile ? 14 : 28,
         slidesPerView: 1.2,
         breakpoints: {
-          1904: {
-            slidesPerView: 2.5
+          2300: {
+            slidesPerView: 3.3
           },
-          1264: {
+          1904: {
+            slidesPerView: 2.3
+          },
+          1500: {
             slidesPerView: 1.8
           },
-          960: {
+          1366: {
+            slidesPerView: 1.6
+          },
+          1264: {
             slidesPerView: 1.4
+          },
+          960: {
+            slidesPerView: 1.2
           },
           768: {
             slidesPerView: 1.1
