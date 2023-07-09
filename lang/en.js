@@ -7,7 +7,7 @@ export default {
     contact_us: 'Contact Us'
   },
   pageTitles: {
-    physical: 'Physical',
+    physical: 'Physical Health',
     social: 'Social Health',
     psychological: 'Psychological Health',
     careers: 'Careers',
@@ -172,31 +172,33 @@ export default {
   },
   socialHealth: {
     header_description:
-      'Enjoyment of social interaction, sharing experiences, sense of belonging to a group, promoting participation',
+      'What does social health entail and how does it impact individuals well-being and quality of life?',
     description:
-      'Social health is an important aspect of overall health‐related quality of life, along with physical and psychological wellness. Social health refers to the ability to maintain positive relationships and interactions with others, including a sense of belonging within a community or group. Humans are social creatures, and social well‐being is critical for happiness and fulfillment. Enjoyment of social interaction, sharing experiences with others, and promoting participation in group activities can bring joy to ones life and promote a sense of connectivity. Social health is evaluated in categories such as social support, social capital, and social networks.',
+      'Social health plays a vital role in the overall well-being of individuals, encompassing the quality of relationships, community engagement, and a sense of belonging. It involves nurturing meaningful connections, fostering inclusivity, and empowering individuals to build strong support networks.',
     responsibility:
-      'Corporate social responsibilities can promote social health by providing supportive work environments, facilitating community service opportunities, and encouraging team‐building activities.',
+      'Strong social connections and support enhance physical and psychological well-being by reducing loneliness, reducing stress, boosting immune function, and building psychological resilience.',
     individual:
-      'When individuals are socially healthy, they are less lonely, less stressed, and committed to their communities, which can have a positive impact on overall health and well‐being. Therefore, it is important to prioritize social health and engage in activities that support positive social interaction in order to enhance health and quality of life.'
+      'Our commitment to social health involves creating a sustainable and positive impact on community well-being. We make it happen through our commitment to environmental sustainability, development of social justice and promoting the culture of social responsibility. By prioritizing these values, we aim to develop innovative solutions that improve health, empower communities, and enhance overall well-being.'
   },
   physical: {
     header_description:
-      'Enjoyment of social interaction, sharing experiences, sense of belonging to a group, promoting participation',
+      'What does physical health entail and how does it impact individuals well-being and quality of life?',
     description:
       'Physical health is one of the three main components of health‐related quality of life, alongside psychological and social health. It is crucial to maintain good physical health to ensure ones overall well‐ being and longevity. Maintaining a physical health, as a perceived improvement in balance, strength, flexibility, endurance and functional activities, requires regular exercise, keeping a balanced diet, getting enough sleep, and avoiding harmful habits such as smoking. Additionally, it is important to manage physical health issues with proper healthcare solutions and high‐quality treatment strategies. With advancements in technology and medicine, innovative healthcare solutions have been developed to help individuals manage their physical health issues.',
     responsibility:
-      'Ensuring good physical health not only improves ones life expectancy but also contributes to a better quality of life, as it allows individuals to be physically active and self‐sufficient, promoting independence and overall happiness.'
+      'Optimal physical health contributes to enhanced psychological and social well-being, fostering positive mental states, improving self-esteem, and enabling meaningful social interactions',
+    individual:
+      'Our commitment to physical health involves delivering innovative solutions, fostering knowledge development, and providing education on new treatments across a wide range of health-related products and solutions. Through a vertically integrated value chain, we ensure the availability of high-quality products, facilitate access to the best medicines, offer product education and support, and accelerate the time to market for emerging innovations.'
   },
   psychological: {
     header_description:
-      'Enjoyment of social interaction, sharing experiences, sense of belonging to a group, promoting participation',
+      'What does psychological health entail and how does it impact individuals well-being and quality of life?',
     description:
-      'Psychological health is an important component of health‐related quality of life, alongside physical and social health. It refers to emotional well‐being, mental states, and ability to manage stress, maintain interpersonal relationships, and make sound decisions. Psychological health is essential for leading a happy and fulfilling life, as it enables individuals to handle lifes challenges with confidence and resilience.',
+      'Psychological health Refers to emotional well-being, cognitive functioning, and the ability to cope with lifes challenges. Psychological health involves maintaining a positive mindset, managing stress effectively, fostering resilience, and cultivating healthy relationships.',
     responsibility:
-      'High levels of psychological health enable individuals to be more efficient and productive in their personal and professional lives, as they are able to think clearly, communicate effectively, and learn new skills.',
+      'Psychological health enhances social and physical well-being through positive relationships, resilience, and healthy lifestyle choices',
     individual:
-      'Moreover, when individuals are psychologically healthy, they possess high levels of self‐ awareness, self‐esteem, and confidence, which means they are empowered to set and achieve goals that support their overall well‐being. Psychological health is therefore critical to a high quality of life and should be prioritized in any individuals overall health and wellness regime.'
+      'Our commitment to promote mental health includes education, awareness campaigns, empowerment and research in this field. Our educational programs are designed to increase understanding, reduce stigma and provide coping strategies for psychological issues. By promoting awareness and building support networks for better disease prevention and treatment, we help people prioritize psychological health and live healthier lives.'
   },
   educationPage: {
     title: 'Education',
