@@ -92,8 +92,14 @@ export default {
         spaceBetween: this.isMobile ? 14 : 28,
         slidesPerView: 1.2,
         breakpoints: {
+          2300: {
+            slidesPerView: 3.3
+          },
           1904: {
             slidesPerView: 2.3
+          },
+          1500: {
+            slidesPerView: 1.8
           },
           1366: {
             slidesPerView: 1.6
@@ -125,7 +131,7 @@ export default {
           results: [
             {
               id: 230305135,
-              en_title: 'Woman empowerment future enrichment',
+              en_title: 'Empowering women for future enrichment',
               fa_title: 'توانمندسازی زن اندوخته ای برای آینده',
               fa_summary: 'کمبود آهن که منجر به کم خونی می شود، اثرات منفی بر سلامتی همه افراد به ویژه زنان دارد...',
               en_summary:
@@ -152,7 +158,7 @@ export default {
               id: 507360168,
               fa_title: 'برخاستن از جامعه بازگشت به جامعه',
               fa_summary: 'کمبود آهن که منجر به کم خونی می شود، اثرات منفی بر سلامتی همه افراد به ویژه زنان دارد...',
-              en_title: 'Rise from the society\u2028return to the society',
+              en_title: 'Rising from society, returning to society',
               en_summary:
                 '<p>Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women<\/p>',
               files: [
@@ -178,7 +184,7 @@ export default {
               id: 47161516,
               fa_title: 'برخاستن از جامعه بازگشت به جامعه',
               fa_summary: 'کمبود آهن که منجر به کم خونی می شود، اثرات منفی بر سلامتی همه افراد به ویژه زنان دارد...',
-              en_title: 'Rise from the society\u2028return to the society',
+              en_title: 'Elevate from society, contribute to society',
               en_summary:
                 '<p>Iron deficiency, leading to Anemia, has negative health effects on all individuals, specially women<\/p>',
               files: [
