@@ -4,7 +4,7 @@ export default {
     impact_stories: 'پروژه‌های الهام بخش',
     education: 'بینش ها و آموزش',
     people_careers: 'منابع انسانی و فرصت‌های شغلی',
-    company: 'شرکت‌های ما',
+    companies: 'شرکت‌های ما',
     contact_us: 'ارتباط با ما'
   },
   pageTitles: {

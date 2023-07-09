@@ -4,7 +4,7 @@ export default {
     impact_stories: 'Impact Stories',
     education: 'Education & Empowerment',
     people_careers: 'People and Career',
-    company: 'Our Companies',
+    companies: 'Our Companies',
     contact_us: 'Contact Us'
   },
   pageTitles: {
