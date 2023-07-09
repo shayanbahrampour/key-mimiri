@@ -4,6 +4,7 @@ export default {
     impact_stories: 'Impact Stories',
     education: 'Education & Empowerment',
     people_careers: 'People and Career',
+    company: 'Our Companies',
     contact_us: 'Contact Us'
   },
   pageTitles: {
@@ -41,15 +42,16 @@ export default {
       physical_health: 'Physical Health',
       social_health: 'Social Health',
       contact: 'Contact Us',
-      timeline: 'Timeline',
-      storytellers: 'Storytellers'
+      timeline: 'Our Companies',
+      storytellers: 'Storytellers',
+      address: 'No. 5, 13th Alley, Ahmad Ghasir Ave. (Bokharest), Tehran, Iran'
     },
     copyright: '©2023 Cobel Group. All Rights Reserved.'
   },
   contact: {
     header: {
       title: 'Central office',
-      address: 'Address: No. 39, Alvand St., Argentine Square, Tehran / IRAN',
+      address: 'Address: No. 5, 13th Alley, Ahmad Ghasir Ave. (Bokharest), Tehran, Iran',
       postal: 'ZIP Code: 1516673115'
     },
     form_title: 'Contact form',
@@ -252,6 +254,8 @@ Absence of disease, improvement in balance, strength, endurance and functional a
     },
     storytellers: {
       title: 'Storytellers',
+      description:
+        'Passionate individuals sharing impactful experiences, insights, and stories that inspire and inform',
       not_found: 'Not Found',
       click_for_more: 'click for more'
     },
