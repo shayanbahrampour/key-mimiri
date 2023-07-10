@@ -41,7 +41,7 @@
           :class="`my-6 mx-${isRTL ? '0' : '6'}`"
           :items="categories.map((item) => ({ ...item, title: item[`${$i18n.locale}_name`] }))"
           :title="isRTL ? 'مقالات بیشتر' : 'More Articles'"
-          @select="getData($event)"
+          @select="updateCategory"
         />
       </div>
     </div>
@@ -79,7 +79,10 @@ export default {
   data() {
     return {
       loading: false,
-      news: []
+      news: [],
+      model: {
+        category: null
+      }
     };
   },
   computed: {
@@ -94,13 +97,20 @@ export default {
     async getData(id) {
       this.loading = true;
       try {
-        const { data } = await this.$store.dispatch('education/getEducationList', {});
+        const { data } = await this.$store.dispatch('education/getEducationList', {
+          params: { category_id: this.model.category }
+        });
         this.news = data.results;
         this.loading = false;
       } catch (e) {
         console.log(e);
         this.loading = false;
       }
+    },
+    updateCategory(event) {
+      this.model.category = event;
+      this.items = [];
+      this.getData();
     }
   },
   created() {
