@@ -10,10 +10,10 @@
         :class="['white--text f-70 font-weight-regular text-capitalize', isRTL ? 'ravi mr-16' : 'bel']"
         style="margin-bottom: 140px"
       >
-        {{ $t('educationPage.title') }}
+        {{ $t('pageTitles.storytellers') }}
       </h4>
       <h4 v-else :class="['white--text f-36 font-weight-regular mb-4', isRTL ? 'ravi' : 'bel']">
-        {{ $t('educationPage.title') }}
+        {{ $t('pageTitles.storytellers') }}
       </h4>
     </v-img>
     <div v-if="!isMobile" :class="[`d-flex flex-column align-start w-full white p${isRTL ? 's' : 'e'}-4`]">
@@ -21,16 +21,16 @@
         :class="[
           `rounded-r-xl white--text rounded-l-0 d-flex py-6 px-10 flex-column m${
             isRTL ? 's' : 'e'
-          }-10 align-center justify-center`
+          }-10 align-start justify-center`
         ]"
-        :width="isMobile ? '90%' : undefined"
+        :width="isMobile ? '90%' : '100%'"
         color="slategrey"
         elevation="0"
         height="240"
         style="margin-top: -120px"
       >
-        <p :class="['mb-0 mx-6', isRTL ? 'ravi f-25 desktop-story-description' : 'f-30']">
-          {{ $t('educationPage.description') }}
+        <p :class="['mb-0 mx-6', isRTL ? 'ravi f-25 desktop-story-description mr-10' : 'f-30']">
+          {{ $t('storytellersPage.description') }}
         </p>
       </v-card>
       <div
@@ -47,7 +47,7 @@
     </div>
     <div v-else class="pa-6 slategrey">
       <p :class="['white--text mb-0', isRTL ? 'ravi f-20' : 'f-24']" style="line-height: 30px">
-        {{ $t('educationPage.description') }}
+        {{ $t('storytellersPage.description') }}
       </p>
     </div>
     <StorytellersCard
