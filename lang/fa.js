@@ -4,6 +4,7 @@ export default {
     impact_stories: 'پروژه‌های الهام بخش',
     education: 'بینش ها و آموزش',
     people_careers: 'منابع انسانی و فرصت‌های شغلی',
+    companies: 'شرکت‌های ما',
     contact_us: 'ارتباط با ما'
   },
   pageTitles: {
@@ -37,14 +38,35 @@ export default {
       life_at_cobel_group: 'تجربه پویا در گروه کوبل',
       careers: 'فرصت‌های شغلی',
       talent_pool: 'استعدادها',
-      social_health: 'سلامت اجتماعی',
       psychological_health: 'سلامت روانی',
       physical_health: 'سلامت جسمی',
+      social_health: 'سلامت اجتماعی',
       contact: 'با ما تماس بگیرید',
-      timeline: 'جدول زمانی',
-      storytellers: 'راویان الهام بخش'
+      timeline: 'شرکت‌های ما',
+      storytellers: 'راویان الهام بخش',
+      address: 'میدان آرژانتین، خیابان بخارست، کوچه ۱۳، پلاک ۵'
     },
     copyright: '© ۱۴۰۲ گروه کوبل، تمامی حقوق محفوظ است'
+  },
+  contact: {
+    header: {
+      title: 'دفتر مرکزی',
+      address: 'آدرس: میدان آرژانتین، خیابان بخارست، کوچه ۱۳، پلاک ۵',
+      postal: 'کد پستی: 1516673115'
+    },
+    form_title: 'فرم تماس',
+    button: {
+      follow: 'ما را دنبال کنید',
+      send: 'ارسال فرم',
+      clear: 'پاک کردن'
+    },
+    fields: {
+      full_name: 'نام و نام خوانوادگی',
+      email: 'ایمیل',
+      management: 'مدیریت',
+      topic: 'موضوع',
+      description: 'توضیحات'
+    }
   },
   career: {
     title: 'منابع انسانی و فرصت‌های حرفه‌ای',
@@ -148,26 +170,6 @@ export default {
       }
     }
   },
-  contact: {
-    header: {
-      title: 'دفتر مرکزی',
-      address: 'آدرس: تهران، میدان آرژانتین، خیابان الوند، پلاک 39 / ایران',
-      postal: 'کد پستی: 1516673115'
-    },
-    form_title: 'فرم تماس',
-    button: {
-      follow: 'ما را دنبال کنید',
-      send: 'ارسال فرم',
-      clear: 'پاک کردن'
-    },
-    fields: {
-      full_name: 'نام و نام خوانوادگی',
-      email: 'ایمیل',
-      management: 'مدیریت',
-      topic: 'موضوع',
-      description: 'توضیحات'
-    }
-  },
   socialHealth: {
     header_description: 'سلامت اجتماعی چیست و چگونه بر روی آرامش و کیفیت زندگی افراد تأثیر می‌گذارد؟',
     description:
@@ -247,10 +249,11 @@ export default {
     },
     storytellers: {
       title: 'راویان الهام بخش',
+      description: 'افرادی پرشور که تجربیات، بینش‌ها و داستان‌هایی الهام‌بخش و آگاهی‌بخش را با ما به اشتراک می‌گذارند',
       not_found: 'داده‌ای یافت نشد',
       click_for_more: 'بیشتر بخوانید'
     },
-    tell_us_your_story: 'داستان هایتان را با ما به اشتراک بگذارید',
+    tell_us_your_story: 'داستان‌هایتان را با ما به اشتراک بگذارید',
     click_here: 'اینجا کلیک کنید'
   },
   impactPage: {

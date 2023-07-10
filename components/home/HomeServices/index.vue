@@ -76,7 +76,7 @@
         height="128"
       >
         <svg
-          :style="`width: 388px; height: 100%; bottom: 0.5px; margin-left: 30%`"
+          :style="`width: 388px; height: 100%; bottom: -0.5px; margin-left: 30%`"
           class="position-absolute end-0 start-0 mr-auto"
           fill="none"
           viewBox="0 0 388 128"

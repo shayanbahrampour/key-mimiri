@@ -3,8 +3,7 @@
     <v-app-bar
       id="navigation"
       :class="['appbar', { ltr: isRTL }]"
-      :height="showDrawer ? 70 : 120"
-      :scroll-threshold="showDrawer ? 70 : 120"
+      :height="showDrawer ? 70 : screenHeight < 760 ? 80 : 120"
       app
       color="white"
       elevate-on-scroll
@@ -26,24 +25,24 @@
 
           <div v-else class="logo-container overflow-hidden">
             <div class="position-relative">
-              <v-img alt="cobel" contain height="56" max-width="190" src="/images/logo-text.svg" />
+              <v-img alt="cobel" contain height="56" max-width="160" src="/images/logo-text.svg" />
             </div>
             <div class="position-relative">
-              <v-img alt="cobel" contain height="60" max-width="190" src="/images/logo.png" />
+              <v-img alt="cobel" contain height="60" max-width="160" src="/images/logo.png" />
             </div>
           </div>
         </nuxt-link>
 
         <v-spacer />
 
-        <div v-if="!showDrawer" :class="{ rtl: isRTL }">
+        <div v-if="!showDrawer" :class="{ rtl: isRTL }" class="d-flex overflow-hidden">
           <v-btn
             v-for="(item, index) in items"
             :key="index"
             :ripple="false"
             :to="item.path ? localePath(item.path) : undefined"
             active-class="primary--text"
-            class="bg-transparent px-3"
+            class="bg-transparent px-2"
             color="transparent"
             depressed
             exact
@@ -60,6 +59,7 @@
           :to="$i18n.locale === 'en' ? switchLocalePath('fa') : switchLocalePath('en')"
           color="primary"
           icon
+          small
         >
           <template v-if="$i18n.locale === 'en'">Fa</template>
           <template v-else>En</template>
@@ -112,6 +112,7 @@
 export default {
   data() {
     return {
+      screenHeight: 1080,
       flag: {
         showDrawer: false
       }
@@ -132,8 +133,21 @@ export default {
         { title: 'menu.impact_stories', path: '/impact' },
         { title: 'menu.education', path: '/education' },
         { title: 'menu.people_careers', path: '/career' },
+        { title: 'menu.companies', path: '/timeline' },
         { title: 'menu.contact_us', path: '/contact' }
       ];
+    }
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.calculateHeight);
+  },
+  mounted() {
+    this.calculateHeight();
+    window.addEventListener('resize', this.calculateHeight);
+  },
+  methods: {
+    calculateHeight() {
+      this.screenHeight = window.innerHeight;
     }
   }
 };
