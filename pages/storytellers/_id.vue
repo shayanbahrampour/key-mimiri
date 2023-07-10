@@ -381,7 +381,6 @@ export default {
     try {
       const { data } = await this.$store.dispatch('storyteller/getStorytellersList', {});
       this.items = data.results;
-      console.log(this.items);
       this.loading = false;
     } catch (e) {
       console.log(e);

@@ -117,7 +117,7 @@
         </v-col>
         <v-col :class="[{ 'mb-6': isMobile }]" cols="12" md="6">
           <client-only>
-            <PdfLoader />
+            <PdfLoader :pdf="pdf(item)" />
           </client-only>
           <FeatureSelection v-if="isMobile" class="mt-10 mb-6" />
         </v-col>
@@ -193,12 +193,19 @@ export default {
       const mainImage = item.files.find((item) => item.type === 'conclusion_file');
       if (!mainImage) return '';
       return `${this.$imageUrl}/${mainImage.url}`;
+    },
+    pdf(item) {
+      if (!item && !item.files.length) return '';
+      const mainPdf = item.files.find((item) => item.type === 'body_file');
+      if (!mainPdf) return '';
+      return `${this.$imageUrl}/${mainPdf.url}`;
     }
   },
   async fetch() {
     try {
       const { data } = await this.$store.dispatch('education/getEducationDetail', { id: this.$route.params.id });
       this.item = data;
+      console.log(this.item);
     } catch (e) {
       console.log(e);
     }

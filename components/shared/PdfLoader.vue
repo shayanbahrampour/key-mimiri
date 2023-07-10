@@ -3,7 +3,7 @@
     <fullscreen v-model="flag.fullscreen">
       <vue-pdf
         :page="page"
-        :src="src"
+        :src="pdf"
         :style="`max-height:100vh; font-family: inherit; height: ${
           flag.showContent ? (flag.fullscreen ? '100vh' : 'auto') : '400px'
         }`"
@@ -67,6 +67,12 @@
 
 <script>
 export default {
+  props: {
+    pdf: {
+      type: String,
+      default: ''
+    }
+  },
   data() {
     return {
       flag: {
