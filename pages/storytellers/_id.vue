@@ -105,7 +105,7 @@
     <VideoContents
       class="w-full overflow-hidden d-flex align-center"
       poster="/images/temp/cover-6.png"
-      src="/video/temp.mp4"
+      :src="video(item)"
       style="max-height: 560px"
     />
     <div :class="['h-full white']">
@@ -390,6 +390,12 @@ export default {
   methods: {
     src(index) {
       const mainImage = index.files.find((item) => item.type === 'avatar_file');
+      if (!mainImage) return '';
+
+      return `${this.$imageUrl}/${mainImage.url}`;
+    },
+    video(index) {
+      const mainImage = index.files.find((item) => item.type === 'main_file');
       if (!mainImage) return '';
 
       return `${this.$imageUrl}/${mainImage.url}`;
