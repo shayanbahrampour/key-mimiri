@@ -1,10 +1,28 @@
 <template>
-  <div :class="['d-flex align-center', isMobile ? 'flex-column px-4 mt-10' : 'px-16 my-16', isRTL && 'ltr']">
+  <div
+    v-if="isMobile"
+    :class="['d-flex align-center', isMobile ? 'flex-column px-4 mt-10' : 'px-16 my-16', isRTL && 'ltr']"
+  >
     <v-img :max-height="isMobile ? '220' : '420'" :src="file" :width="isMobile ? '350' : '520'" />
 
     <p
       :class="['font-weight-light  mx-4', isMobile ? 'mt-6 f-20' : 'f-24', { 'text-end ravi rtl': isRTL }]"
       style="color: #939393; line-height: 2"
+      v-html="conclusion"
+    />
+  </div>
+  <div v-else :class="['align-start', isMobile ? 'flex-column px-4 mt-10' : 'px-16 my-16', isRTL && 'ltr']">
+    <v-img
+      class="mr-4"
+      :max-height="isMobile ? '220' : '420'"
+      :src="file"
+      :width="isMobile ? '350' : '520'"
+      style="float: left !important"
+    />
+
+    <p
+      :class="['font-weight-light mx-4', isMobile ? 'mt-6 f-20' : 'f-24', { 'text-end ravi rtl': isRTL }]"
+      style="color: #939393; line-height: 2; text-align: justify !important"
       v-html="conclusion"
     />
   </div>
