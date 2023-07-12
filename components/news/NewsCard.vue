@@ -38,7 +38,9 @@
           ></p>
           <div v-if="!isRTL" class="d-flex justify-space-between mt-4" style="width: 60%">
             <p class="f-16 mb-0" style="color: #59595b">Read time: {{ item.read_time ? item.read_time : '0' }} min</p>
-            <p class="f-16 mb-0" style="color: #59595b">Writed by: {{ item.en_author ? item.en_author : undefined }}</p>
+            <p class="f-16 mb-0" style="color: #59595b">
+              written by: {{ item.en_author ? item.en_author : undefined }}
+            </p>
             <p class="f-16 mb-0" style="color: #59595b">
               Published {{ item.published_at ? $dayjs(item.published_at).format('MMMM YYYY') : '-' }}
             </p>

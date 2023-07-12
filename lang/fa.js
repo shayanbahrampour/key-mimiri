@@ -3,7 +3,7 @@ export default {
     point_of_view: 'رویکرد ما',
     impact_stories: 'پروژه‌های الهام بخش',
     education: 'بینش ها و آموزش',
-    people_careers: 'منابع انسانی و فرصت‌های شغلی',
+    people_careers: 'فرصت‌های شغلی',
     companies: 'شرکت‌های ما',
     contact_us: 'ارتباط با ما'
   },
@@ -11,7 +11,7 @@ export default {
     physical: 'سلامت جسمی',
     social: 'سلامت اجتماعی',
     psychological: 'سلامت روانی',
-    careers: 'منابع انسانی و فرصت‌های حرفه‌ای',
+    careers: 'فرصت‌های شغلی',
     index: 'خانه',
     press: 'اخبار و رویدادها',
     contact: 'تماس با ما',
@@ -33,7 +33,7 @@ export default {
       point_of_view: 'رویکرد ما',
       impact_stories: 'پروژه‌های الهام بخش',
       education: 'بینش‌ها و آموزش',
-      people_careers: 'منابع انسانی و فرصت‌های شغلی',
+      people_careers: 'فرصت‌های شغلی',
       press_center: 'اخبار و رویدادها',
       life_at_cobel_group: 'تجربه پویا در گروه کوبل',
       careers: 'فرصت‌های شغلی',
@@ -69,7 +69,7 @@ export default {
     }
   },
   career: {
-    title: 'منابع انسانی و فرصت‌های حرفه‌ای',
+    title: 'فرصت‌های شغلی',
     description_short:
       'ما در گروه كوبل با استفاده از راهبردهای زیر فضایی پویا و حرفهای برای كارمندانمان فراهم مینماییم:',
     description:

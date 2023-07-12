@@ -45,7 +45,7 @@
                   ? `نویسنده: ${item.fa_author ? item.fa_author : '۰'}`
                   : `${item.fa_author ? item.fa_author : '۰'}`
                 : !isMobile
-                ? `Writed by: ${item.en_author ? item.en_author : '0'}`
+                ? `written by: ${item.en_author ? item.en_author : '0'}`
                 : `${item.en_author ? item.en_author : '0'}`
             }}
           </p>
