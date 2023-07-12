@@ -20,9 +20,13 @@
     @ended="
       flag.isPlaying = false;
       toggleFullscreen();
+      $emit('ended');
     "
     @fullscreenchange="onFullscreen"
-    @pause="flag.isPlaying = false"
+    @pause="
+      flag.isPlaying = false;
+      $emit('ended');
+    "
     @play="
       flag.isPlaying = true;
       toggleFullscreen();
