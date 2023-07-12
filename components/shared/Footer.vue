@@ -157,7 +157,7 @@ export default {
           children: [
             { title: 'footer.links.point_of_view', to: '/' },
             { title: 'footer.links.impact_stories', to: '/impact' },
-            { title: 'footer.links.education', to: '/education' },
+            { title: 'footer.links.education', to: '/EducationAndEmpowerment' },
             { title: 'footer.links.people_careers', to: '/career' },
             { title: 'footer.links.press_center', to: '/news' },
             { title: 'footer.links.storytellers', to: '/storytellers' },

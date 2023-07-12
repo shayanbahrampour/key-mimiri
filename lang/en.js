@@ -50,7 +50,7 @@ export default {
   },
   contact: {
     header: {
-      title: 'Central office',
+      title: 'Headquarter',
       address: 'Address: No. 5, 13th Alley, Ahmad Ghasir Ave. (Bokharest), Tehran, Iran',
       postal: 'ZIP Code: 1516673115'
     },
@@ -228,18 +228,18 @@ export default {
       slider: {
         title: 'Treatment and prevention paradigm shift',
         description:
-          'Enhancing individuals’ health related quality of life (HRQoL) by improving their physical, psychological and social health through high quality and innovative solutions'
+          'Enhancing individuals’ Health Related Quality of Life (HRQoL) by improving their physical, psychological and social health through high quality and innovative solutions'
       },
       balls: {
         social_health: 'Social Health',
         social_health_description:
-          'Social wellbeing. The ability to establish and maintain meaningful relationships, engage in positive social interactions, and contribute to the well-being of the community',
+          'Social wellbeing; The ability to establish and maintain meaningful relationships, engage in positive social interactions, and contribute to the well-being of the community',
         psychological_health: 'Psychological Health',
         psychological_health_description:
-          'Emotional wellbeing and growth. Cognitive functioning and overall mental resilience and balance',
+          'Emotional wellbeing and growth; Cognitive functioning and overall mental resilience and balance',
         physical_health: 'Physical Health',
-        physical_health_description: `Overall wellbeing and proper functioning of the body.
-Absence of disease, improvement in balance, strength, endurance and functional activities`
+        physical_health_description:
+          'Overall wellbeing and proper functioning of the body; Absence of disease, improvement in balance, strength, endurance and functional activities'
       }
     },
     video: {

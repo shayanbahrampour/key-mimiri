@@ -131,7 +131,7 @@ export default {
       return [
         { title: 'menu.point_of_view', path: '/' },
         { title: 'menu.impact_stories', path: '/impact' },
-        { title: 'menu.education', path: '/education' },
+        { title: 'menu.education', path: '/EducationAndEmpowerment' },
         { title: 'menu.people_careers', path: '/career' },
         { title: 'menu.companies', path: '/timeline' },
         { title: 'menu.contact_us', path: '/contact' }

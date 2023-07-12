@@ -40,7 +40,7 @@
         <NewsCategory
           :class="`my-6 mx-${isRTL ? '0' : '6'}`"
           :items="categories.map((item) => ({ ...item, title: item[`${$i18n.locale}_name`] }))"
-          :title="isRTL ? 'مقالات بیشتر' : 'More Articles'"
+          :title="isRTL ? 'مقالات بیشتر' : 'What to read'"
           @select="updateCategory"
         />
       </div>
@@ -54,8 +54,8 @@
       v-if="!loading"
       :class="['mt-10', !isMobile ? 'mx-16' : undefined]"
       :items="news"
-      :title="isRTL ? 'مقالات بیشتر' : 'More Articles'"
-      path="education"
+      :title="isRTL ? 'مقالات بیشتر' : 'What to read'"
+      path="EducationAndEmpowerment"
     />
     <SkeletonLoaderCard v-if="loading" />
     <HomeStoryTellers :class="[isMobile ? 'mt-0' : 'mt-6']" />
