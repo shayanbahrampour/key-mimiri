@@ -60,6 +60,7 @@
               exact
               large
               rounded
+              @click="!isMobile ? (dialog = !dialog) : undefined"
             >
               <span class="position-relative" style="top: 1px">
                 {{ isMobile ? $t('homePage.slider.about_cobel_group') : $t('homePage.slider.cobel_group') }}
@@ -69,6 +70,25 @@
         </v-col>
       </v-row>
     </v-sheet>
+    <v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
+      <client-only>
+        <VideoLoader
+          v-if="src"
+          :options="{
+            autoplay: true,
+            sources: [
+              {
+                type: 'video/mp4',
+                src
+              }
+            ]
+          }"
+          class="vjs-theme-sea"
+          @ready="$emit('ready', $event)"
+          @toggleFullscreen="$emit('toggleFullscreen', $event)"
+          @ended="dialog = false"
+        /> </client-only
+    ></v-dialog>
   </v-sheet>
 </template>
 
@@ -81,6 +101,9 @@ export default {
   components: { HomeSliderVideo, VideoContents, VideoLoader },
   data() {
     return {
+      dialog: false,
+      src: '/video/pov.mp4',
+
       screenHeight: 1080,
       flag: {
         showFullscreen: false
