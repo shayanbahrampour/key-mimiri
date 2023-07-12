@@ -168,7 +168,7 @@ export default {
             { title: 'footer.links.people_careers', to: '/career' },
             { title: 'footer.links.press_center', to: '/news' },
             { title: 'footer.links.storytellers', to: '/storytellers' },
-            { title: 'footer.links.timeline', to: '/timeline' }
+            { title: 'footer.links.timeline', to: '/ourcompany' }
           ]
         },
         {
