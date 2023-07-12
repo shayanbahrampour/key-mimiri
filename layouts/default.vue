@@ -50,6 +50,11 @@ export default {
       immediate: true,
       handler: 'changeDirection'
     }
+  },
+  methods: {
+    showVideo(event) {
+      this.dialog = event;
+    }
   }
 };
 </script>
