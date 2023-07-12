@@ -18,7 +18,7 @@ export default {
     impact_stories: 'Impact Stories',
     education: 'Education & Empowerment',
     storytellers: 'STORYTELLERS',
-    timeline: 'Timeline'
+    timeline: 'Our Company'
   },
   footer: {
     about: 'About Us',
@@ -273,7 +273,7 @@ export default {
     see_all: 'See All'
   },
   timelinePage: {
-    title: 'Timelines',
+    title: 'Our Company',
     description:
       'Patients are the center of all projects being conducted in the Cobel Group. Stories of hope, innovation, collaboration, inspiration and empowerment helps us measure our impact and inspire us to create more.'
   },

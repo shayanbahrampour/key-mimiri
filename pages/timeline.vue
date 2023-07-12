@@ -79,8 +79,9 @@
                   :color="expanded === i ? item.active : item.color"
                   :height="isMobile ? 60 : 76"
                   :width="isMobile ? 60 : 76"
-                  class="rounded-circle me-5 flex-shrink-0 position-relative z-1 transition-ease-in-out"
-                />
+                  class="rounded-circle white me-5 flex-shrink-0 position-relative z-1 transition-ease-in-out d-flex align-center justify-center"
+                  ><v-img height="26" :src="`/images/timeline/${item.logo}`"
+                /></v-sheet>
 
                 <div
                   :class="[
@@ -183,6 +184,7 @@ export default {
       items: [
         {
           en_title: 'Cobel Darou',
+          logo: 'cobel.png',
           fa_title: 'کوبل دارو',
           color: '#f3b393',
           active: '#e86726',
@@ -273,6 +275,7 @@ export default {
         {
           en_title: 'Dr. Abidi Pharmaceuticals',
           fa_title: 'داروسازی دکتر عابدی',
+          logo: 'abidi.png',
           en_description:
             'Cobel Darou is a leading private pharmaceutical company founded in 2002. Cobel Darou main activities are registration, importation, manufacturing, distribution and sales & marketing.',
           fa_description:
@@ -310,6 +313,7 @@ export default {
         {
           en_title: 'Adorateb',
           fa_title: 'شرکت پخش دارو آدوراطب',
+          logo: 'adorateb.png',
           color: '#80cbb8',
           active: '#069f99',
           date: '2009',
