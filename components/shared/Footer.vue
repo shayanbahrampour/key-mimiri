@@ -30,7 +30,7 @@
                   style="white-space: normal !important"
                   :href="link.href ? link.href : undefined"
                   :ripple="false"
-                  :to="link.to ? localePath(link.to) : undefined"
+                  :to="link.to && link.to !== 'video' ? localePath(link.to) : undefined"
                   color="white"
                   exact
                   link
@@ -38,6 +38,7 @@
                   text
                   min-height="20"
                   height="auto"
+                  @click="link.to === 'video' ? showVideo() : undefined"
                 >
                   <div :class="['text-wrap text-start', { 'font-weight-bold': isRTL }]">
                     {{ link.title ? $t(link.title) : link.name }}
@@ -48,7 +49,6 @@
             <v-col cols="12" lg="4" order="1" order-lg="3" xl="4">
               <div class="d-flex flex-lg-column align-lg-end align-center justify-center mb-lg-0 mb-12">
                 <v-btn
-                  :to="localePath('/storytellers')"
                   :width="isMobile ? 240 : 200"
                   class="f-18 mb-lg-4 mx-lg-0 mx-3"
                   color="white"
@@ -56,6 +56,7 @@
                   exact
                   large
                   rounded
+                  @click="showVideo()"
                 >
                   <span :class="{ 'font-weight-bold': isRTL }">{{ $t('footer.about') }}</span>
                 </v-btn>
@@ -155,7 +156,7 @@ export default {
         {
           title: 'footer.title.navigation',
           children: [
-            { title: 'footer.links.point_of_view', to: '/' },
+            { title: 'footer.links.point_of_view', to: 'video' },
             { title: 'footer.links.impact_stories', to: '/impact' },
             { title: 'footer.links.education', to: '/EducationAndEmpowerment' },
             { title: 'footer.links.people_careers', to: '/career' },
@@ -189,6 +190,12 @@ export default {
           ]
         }
       ];
+    }
+  },
+  methods: {
+    showVideo() {
+      this.status = !this.status;
+      this.$emit('changed', this.status);
     }
   }
 };
