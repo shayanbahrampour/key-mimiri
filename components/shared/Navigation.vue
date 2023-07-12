@@ -40,7 +40,7 @@
             v-for="(item, index) in items"
             :key="index"
             :ripple="false"
-            :to="item.path ? localePath(item.path) : undefined"
+            :to="item.path && item.path !== 'video' ? localePath(item.path) : undefined"
             active-class="primary--text"
             class="bg-transparent px-2"
             color="transparent"
@@ -48,6 +48,7 @@
             exact
             min-height="50"
             tile
+            @click="item.path === 'video' ? showVideo() : undefined"
           >
             <span :class="['text-capitalize', isRTL ? 'font-weight-bold f-16' : 'f-14']">{{ $t(item.title) }}</span>
           </v-btn>
@@ -110,11 +111,18 @@
 
 <script>
 export default {
+  props: {
+    status: {
+      type: Boolean,
+      default: false
+    }
+  },
   data() {
     return {
       screenHeight: 1080,
       flag: {
-        showDrawer: false
+        showDrawer: false,
+        video: false
       }
     };
   },
@@ -129,7 +137,7 @@ export default {
     },
     items() {
       return [
-        { title: 'menu.point_of_view', path: '/' },
+        { title: 'menu.point_of_view', path: 'video' },
         { title: 'menu.impact_stories', path: '/impact' },
         { title: 'menu.education', path: '/EducationAndEmpowerment' },
         { title: 'menu.people_careers', path: '/career' },
@@ -148,6 +156,10 @@ export default {
   methods: {
     calculateHeight() {
       this.screenHeight = window.innerHeight;
+    },
+    showVideo() {
+      this.status = !this.status;
+      this.$emit('changed', this.status);
     }
   }
 };
