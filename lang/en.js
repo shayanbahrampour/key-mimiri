@@ -275,7 +275,7 @@ export default {
   timelinePage: {
     title: 'Our Company',
     description:
-      'Patients are the center of all projects being conducted in the Cobel Group. Stories of hope, innovation, collaboration, inspiration and empowerment helps us measure our impact and inspire us to create more.'
+      'Our well-established companies in the Iranian health industry specialize in industrial affairs, importation, distribution, marketing, and sales services. Visit their websites to discover their contributions to healthcare advancement and well-being'
   },
   shared: {
     see_more: 'see more',

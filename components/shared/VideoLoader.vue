@@ -137,4 +137,8 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.vjs-big-play-button {
+  z-index: 2 !important;
+}
+</style>

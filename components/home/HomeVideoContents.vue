@@ -6,6 +6,11 @@
         isMobile ? 'px-6 align-start top-0' : 'px-16 pb-15 align-end bottom-0'
       ]"
       color="transparent"
+      :style="`${
+        !isMobile
+          ? 'background: linear-gradient(to top, black, transparent); margin-bottom: 20px !important; height: 600px'
+          : undefined
+      }`"
     >
       <div :class="['d-flex w-full', $vuetify.breakpoint.smAndDown ? 'flex-column' : 'flex-row align-center']">
         <h3
