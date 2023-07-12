@@ -150,6 +150,12 @@
 
 <script>
 export default {
+  props: {
+    status: {
+      type: Boolean,
+      default: false
+    }
+  },
   computed: {
     items() {
       return [
