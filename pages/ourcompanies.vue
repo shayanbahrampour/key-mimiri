@@ -9,7 +9,7 @@
             : 'Our pioneering and innovative companies are dedicated to enhancing quality of life through innovative healthcare solutions. With a diverse portfolio, we meet the unique needs of individuals, healthcare professionals, and organizations effectively and efficiently.'
         }
       ]"
-      :title="isRTL ? 'میراث' : 'Heritage'"
+      :title="isRTL ? 'میراث' : 'Our Companies'"
       hide-delimiters
     />
 

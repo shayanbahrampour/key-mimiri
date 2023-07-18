@@ -18,7 +18,7 @@ export default {
     impact_stories: 'Impact Stories',
     education: 'Education & Empowerment',
     storytellers: 'STORYTELLERS',
-    timeline: 'Our Company'
+    timeline: 'Our Companies'
   },
   footer: {
     about: 'About Us',
@@ -273,7 +273,7 @@ export default {
     see_all: 'See All'
   },
   timelinePage: {
-    title: 'Our Company',
+    title: 'Our Companies',
     description:
       'Our well-established companies in the Iranian health industry specialize in industrial affairs, importation, distribution, marketing, and sales services. Visit their websites to discover their contributions to healthcare advancement and well-being'
   },
