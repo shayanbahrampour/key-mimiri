@@ -135,12 +135,12 @@
       v-if="!isMobile"
       :class="['grey--text text--darken-2 font-weight-regular ms-14 mt-10', isRTL ? 'ravi f-46' : 'bel f-50']"
     >
-      {{ isRTL ? 'مقالات بیشتر' : 'More Articles' }}
+      {{ isRTL ? 'مقالات بیشتر' : 'What to read' }}
     </h1>
     <NewsCard
       :class="['mt-10', !isMobile ? 'mx-14' : undefined]"
       :items="news"
-      :title="isRTL ? 'مقالات بیشتر' : 'More Articles'"
+      :title="isRTL ? 'مقالات بیشتر' : 'What to read'"
       path="education"
     />
   </div>

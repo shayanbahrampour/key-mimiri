@@ -203,7 +203,7 @@ export default {
       'Our commitment to promote mental health includes education, awareness campaigns, empowerment and research in this field. Our educational programs are designed to increase understanding, reduce stigma and provide coping strategies for psychological issues. By promoting awareness and building support networks for better disease prevention and treatment, we help people prioritize psychological health and live healthier lives.'
   },
   educationPage: {
-    title: 'Education',
+    title: 'Education & Empowerment',
     description:
       'Empowers to achieve, Inspires to create the greatest Cobel Group promise is to empower, inspire and trigger ideas that make a significant impact in how we deliver solutions. Therefore, we invest on education; not only to our personnel, but to our stakeholders. Our education material are available to all.'
   },
