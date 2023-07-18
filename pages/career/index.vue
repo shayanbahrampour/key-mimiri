@@ -70,7 +70,7 @@
             </v-expansion-panel>
           </v-expansion-panels>
           <p
-            v-if="!isMobile"
+            v-if="!isMobile && isRTL"
             :class="[
               'white--text mb-0 text--darken-3 font-weight-light',
               isMobile ? 'mt-4 text-center f-18' : 'f-20 mt-16',
@@ -80,6 +80,24 @@
           >
             {{ $t('career.description_short') }} <br /><br />
             {{ $t('career.description') }}
+          </p>
+          <p
+            v-if="!isMobile && !isRTL"
+            :class="[
+              'white--text mb-0 text--darken-3 font-weight-light',
+              isMobile ? 'mt-4 text-center f-18' : 'f-20 mt-16',
+              isRTL ? 'ravi rtl-text-career' : undefined
+            ]"
+            style="line-height: 30px"
+          >
+            In Cobel Group, we intend to provide a dynamic and professional atmosphere for our employees by using below
+            strategies:<br /><br />
+            <strong>Equity</strong>, as equal progress opportunity and equal work-specific pay, despite of age, gender,
+            nationality and disabilities.<br />
+            <strong>Diversity</strong>, in educational background, profession, gender, age and believes.<br />
+            <strong>Inclusion and Talent Empowerment</strong>, by designing individual development plans (IDP),
+            on-the-job efficient trainings, and implementing regular surveys to discover employee experiences and acting
+            upon Promoting a Knowledge-Centered Environment
           </p>
           <div v-if="isMobile" :class="[isMobile ? 'mt-4 mb-6' : undefined]">
             <v-btn height="50" min-width="50" outlined style="border-radius: 35%; border: 2px solid white" width="50">
