@@ -42,7 +42,14 @@
               written by: {{ item.en_author ? item.en_author : undefined }}
             </p>
             <p class="f-16 mb-0" style="color: #59595b">
-              Published {{ item.published_at ? $dayjs(item.published_at).format('MMMM YYYY') : '-' }}
+              Published
+              {{
+                item.published_at
+                  ? isRTL
+                    ? $dayjs(item.published_at).calendar('jalali').locale('fa').format('MMMM YYYY')
+                    : $dayjs(item.published_at).calendar('gregory').locale('en').format('MMMM YYYY')
+                  : '-'
+              }}
             </p>
           </div>
           <div v-else class="d-flex justify-space-between mt-4 ravi rtl" style="width: 50%">
@@ -51,7 +58,14 @@
             </p>
             <p class="f-14 mb-0" style="color: #59595b">نویسنده: {{ item.fa_author ? item.fa_author : undefined }}</p>
             <p class="f-14 mb-0" style="color: #59595b">
-              منتشر شده: {{ item.published_at ? $dayjs(item.published_at).format('MMMM YYYY') : '-' }}
+              منتشر شده:
+              {{
+                item.published_at
+                  ? isRTL
+                    ? $dayjs(item.published_at).calendar('jalali').locale('fa').format('MMMM YYYY')
+                    : $dayjs(item.published_at).calendar('gregory').locale('en').format('MMMM YYYY')
+                  : '-'
+              }}
             </p>
           </div>
         </div>
@@ -92,7 +106,11 @@
               </p>
               <p class="f-14 mb-0 d-flex align-center" style="color: #59595b">
                 <v-img class="me-1" contain height="12" max-width="12" src="/images/news/bullhorn.svg" />
-                {{ item.published_at ? $dayjs(item.published_at).format('MMMM YYYY') : '-' }}
+                {{
+                  item.published_at
+                    ? $dayjs(item.published_at).calendar('gregory').locale('en').format('MMMM YYYY')
+                    : '-'
+                }}
               </p>
             </div>
             <div v-else class="d-flex flex-column font-weight-bold" style="width: 90%">
@@ -106,7 +124,12 @@
               </p>
               <p class="f-16 mb-0 d-flex align-center" style="color: #59595b">
                 <v-img class="me-1" contain height="12" max-width="12" src="/images/news/bullhorn.svg" />
-                زمان انتشار {{ item.published_at ? $dayjs(item.published_at).format('MMMM YYYY') : '-' }}
+                زمان انتشار
+                {{
+                  item.published_at
+                    ? $dayjs(item.published_at).calendar('jalali').locale('fa').format('MMMM YYYY')
+                    : '-'
+                }}
               </p>
             </div>
           </div>

@@ -57,8 +57,16 @@
                   ? `منتشر شده: ${item.published_at ? $dayjs(item.published_at).format('MMMM YYYY') : '۰'}`
                   : `${item.published_at ? $dayjs(item.published_at).format('MMMM YYYY') : '۰'}`
                 : !isMobile
-                ? `Published ${item.published_at ? $dayjs(item.published_at).format('MMMM YYYY') : '0'}`
-                : `Published ${item.published_at ? $dayjs(item.published_at).format('MMMM YYYY') : '0'}`
+                ? `Published ${
+                    item.published_at
+                      ? $dayjs(item.published_at).calendar('gregory').locale('en').format('MMMM YYYY')
+                      : '0'
+                  }`
+                : `Published ${
+                    item.published_at
+                      ? $dayjs(item.published_at).calendar('jalali').locale('fa').format('MMMM YYYY')
+                      : '0'
+                  }`
             }}
           </p>
         </div>
@@ -141,7 +149,7 @@
       :class="['mt-10', !isMobile ? 'mx-14' : undefined]"
       :items="news"
       :title="isRTL ? 'مقالات بیشتر' : 'What to read'"
-      path="education"
+      path="EducationAndEmpowerment"
     />
   </div>
 </template>
