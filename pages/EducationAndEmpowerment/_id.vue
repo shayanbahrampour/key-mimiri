@@ -119,7 +119,7 @@
             >
               <v-divider class="mt-16" style="width: 400px"></v-divider>
 
-              <FeatureSelection />
+              <FeatureSelection :tags="item.tags" />
             </v-container>
           </template>
         </v-col>
@@ -127,7 +127,7 @@
           <client-only>
             <PdfLoader :pdf="pdf(item)" />
           </client-only>
-          <FeatureSelection v-if="isMobile" class="mt-10 mb-6" />
+          <FeatureSelection v-if="isMobile" class="mt-10 mb-6" :tags="item.tags" />
         </v-col>
       </v-row>
 
