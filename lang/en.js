@@ -1,6 +1,7 @@
 export default {
   menu: {
-    point_of_view: 'Point of view',
+    home: 'Homepage',
+    point_of_view: 'Point of View',
     impact_stories: 'Impact Stories',
     education: 'Education & Empowerment',
     people_careers: 'People and Career',

@@ -15,6 +15,7 @@
       </h1>
 
       <CustomTabs
+        v-if="false"
         id="categories"
         :items="categories.map((item) => ({ ...item, title: item[`${$i18n.locale}_name`] }))"
         class="mt-4"

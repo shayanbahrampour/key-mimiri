@@ -1,5 +1,6 @@
 export default {
   menu: {
+    home: 'خانه',
     point_of_view: 'رویکرد ما',
     impact_stories: 'پروژه‌های الهام بخش',
     education: 'بینش ها و آموزش',

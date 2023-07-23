@@ -50,7 +50,7 @@
             tile
             @click="item.path === 'video' ? showVideo() : undefined"
           >
-            <span :class="['text-capitalize', isRTL ? 'font-weight-bold f-16' : 'f-14']">{{ $t(item.title) }}</span>
+            <span :class="['text-none', isRTL ? 'font-weight-bold f-16' : 'f-14']">{{ $t(item.title) }}</span>
           </v-btn>
         </div>
 
@@ -137,6 +137,7 @@ export default {
     },
     items() {
       return [
+        { title: 'menu.home', path: '/' },
         { title: 'menu.point_of_view', path: 'video' },
         { title: 'menu.impact_stories', path: '/impact' },
         { title: 'menu.education', path: '/EducationAndEmpowerment' },
