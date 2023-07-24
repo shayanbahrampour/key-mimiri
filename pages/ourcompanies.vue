@@ -79,19 +79,14 @@
                   :color="expanded === i ? item.active : item.color"
                   :height="isMobile ? 60 : 76"
                   :width="isMobile ? 160 : 180"
-                  class="white me-5 flex-shrink-0 position-relative z-1 transition-ease-in-out d-flex align-center justify-center"
+                  class="white me-5 flex-shrink-0 position-relative z-1 transition-ease-in-out d-flex align-center justify-center ps-2"
                 >
                   <v-img contain height="75" :src="`/images/timeline/${item.logo}`" />
                 </v-sheet>
 
-                <div
-                  :class="[
-                    'flex-grow-1 d-flex',
-                    isMobile ? 'flex-column' : 'align-center',
-                    isMobile && !isRTL && 'pt-4'
-                  ]"
-                  :style="isRTL && isMobile && `padding-top: 17px`"
-                >
+                <v-spacer />
+
+                <div :class="['d-flex', isMobile ? 'flex-column' : 'align-center', isMobile && !isRTL && 'pt-2']">
                   <v-spacer />
 
                   <v-sheet
@@ -116,6 +111,7 @@
                 <v-timeline-item hide-dot>
                   <p
                     :class="[
+                      'pt-3',
                       isRTL ? 'font-weight-bold' : 'font-weight-light',
                       isMobile ? 'mt-4 ps-5' : 'ps-2',
                       isMobile ? (isRTL ? 'f-16' : 'f-22') : 'f-22'
