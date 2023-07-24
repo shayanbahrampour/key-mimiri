@@ -143,6 +143,7 @@ export default {
         { title: 'menu.education', path: '/EducationAndEmpowerment' },
         { title: 'menu.people_careers', path: '/career' },
         { title: 'menu.companies', path: '/ourcompanies' },
+        { title: 'menu.press', path: '/news' },
         { title: 'menu.contact_us', path: '/contact' }
       ];
     }

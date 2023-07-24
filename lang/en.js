@@ -6,6 +6,7 @@ export default {
     education: 'Education & Empowerment',
     people_careers: 'People and Career',
     companies: 'Our Companies',
+    press: 'Press & News',
     contact_us: 'Contact Us'
   },
   pageTitles: {

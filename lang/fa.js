@@ -6,6 +6,7 @@ export default {
     education: 'بینش ها و آموزش',
     people_careers: 'فرصت‌های شغلی',
     companies: 'شرکت‌های ما',
+    press: 'اخبار',
     contact_us: 'ارتباط با ما'
   },
   pageTitles: {
