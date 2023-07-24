@@ -80,8 +80,9 @@
                   :height="isMobile ? 60 : 76"
                   :width="isMobile ? 160 : 180"
                   class="white me-5 flex-shrink-0 position-relative z-1 transition-ease-in-out d-flex align-center justify-center"
-                  ><v-img height="250" :src="`/images/timeline/${item.logo}`"
-                /></v-sheet>
+                >
+                  <v-img contain height="75" :src="`/images/timeline/${item.logo}`" />
+                </v-sheet>
 
                 <div
                   :class="[
