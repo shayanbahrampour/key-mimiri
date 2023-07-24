@@ -13,7 +13,7 @@
         isMobile ? 'text-center' : 'd-flex',
         summary && !isMobile ? 'px-8 pb-8 pt-6' : isMobile ? 'text-center py-8 px-4' : 'text-center px-16 py-8'
       ]"
-      :min-height="isMobile ? 90 : 0"
+      :min-height="isMobile ? 90 : 100"
       color="transparent"
       flat
     >
