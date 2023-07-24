@@ -78,9 +78,9 @@
                 <v-sheet
                   :color="expanded === i ? item.active : item.color"
                   :height="isMobile ? 60 : 76"
-                  :width="isMobile ? 60 : 76"
-                  class="rounded-circle white me-5 flex-shrink-0 position-relative z-1 transition-ease-in-out d-flex align-center justify-center"
-                  ><v-img height="26" :src="`/images/timeline/${item.logo}`"
+                  :width="isMobile ? 160 : 180"
+                  class="white me-5 flex-shrink-0 position-relative z-1 transition-ease-in-out d-flex align-center justify-center"
+                  ><v-img height="250" :src="`/images/timeline/${item.logo}`"
                 /></v-sheet>
 
                 <div
@@ -91,13 +91,6 @@
                   ]"
                   :style="isRTL && isMobile && `padding-top: 17px`"
                 >
-                  <span
-                    :class="[isRTL ? 'ravi f-26' : 'bel']"
-                    :style="`color: ${expanded === i ? '#4c6d80' : '#66869A'}`"
-                  >
-                    {{ item[`${$i18n.locale}_title`] }}
-                  </span>
-
                   <v-spacer />
 
                   <v-sheet

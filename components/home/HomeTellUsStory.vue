@@ -12,19 +12,6 @@
           >
             {{ $t('homePage.tell_us_your_story') }}
           </h3>
-          <v-btn
-            :block="isMobile"
-            :class="['f-18 px-16 text-capitalize', isRTL ? 'mt-4' : 'mt-2']"
-            color="primary"
-            depressed
-            exact
-            large
-            rounded
-          >
-            <span :class="['px-15', isRTL ? 'font-weight-bold anjoman' : 'font-weight-light']">{{
-              $t('homePage.click_here')
-            }}</span>
-          </v-btn>
         </div>
       </v-col>
     </v-row>
