@@ -20,7 +20,6 @@
             exact
             large
             rounded
-            to="/contact"
           >
             <span :class="['px-15', isRTL ? 'font-weight-bold anjoman' : 'font-weight-light']">{{
               $t('homePage.click_here')

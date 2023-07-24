@@ -137,6 +137,7 @@
         <VideoContents
           :src="`${$imageUrl}/${subtitle_file}`"
           :style="`max-height: calc(100vh - 150px); min-height: ${isMobile ? '' : '500px'}`"
+          :poster="cover(item) ? cover(item) : undefined"
           class="w-full overflow-hidden d-flex align-center"
         />
 
@@ -327,6 +328,12 @@ export default {
     getPosition(string, subString, index) {
       if (!string) return '';
       return String(string).split(subString, index).join(subString).length;
+    },
+    cover(index) {
+      const mainImage = index.files.find((item) => item.type === 'video_cover');
+      if (!mainImage) return '';
+
+      return `${this.$imageUrl}/${mainImage.url}`;
     }
   }
 };

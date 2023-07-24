@@ -104,7 +104,7 @@
     />
     <VideoContents
       class="w-full overflow-hidden d-flex align-center"
-      poster="/images/temp/cover-6.png"
+      :poster="cover(item) ? cover(item) : '/images/temp/cover-6.png'"
       :src="video(item)"
       style="max-height: 560px"
     />
@@ -396,6 +396,12 @@ export default {
     },
     video(index) {
       const mainImage = index.files.find((item) => item.type === 'main_file');
+      if (!mainImage) return '';
+
+      return `${this.$imageUrl}/${mainImage.url}`;
+    },
+    cover(index) {
+      const mainImage = index.files.find((item) => item.type === 'video_cover');
       if (!mainImage) return '';
 
       return `${this.$imageUrl}/${mainImage.url}`;
