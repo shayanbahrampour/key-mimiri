@@ -1,18 +1,34 @@
 <template>
   <div v-if="items && items.length" class="grey--text text--darken-2 home-story-tellers mt-16 pt-6">
     <v-sheet class="mx-auto">
-      <h3
-        :class="[
-          'font-weight-regular',
-          isMobile ? 'px-4 text-center d-block' : 'px-16',
-          isRTL ? 'ravi' : 'bel',
-          isMobile ? (isRTL ? 'f-33 pb-2' : 'f-45') : isRTL ? 'f-45 pb-2' : 'f-50'
-        ]"
-        style="color: #59595b"
-        @click="$router.push('storytellers')"
-      >
-        {{ $t('homePage.storytellers.title') }}
-      </h3>
+      <div :class="['d-flex align-center', isMobile ? 'flex-column text-center px-6 mb-8' : 'mb-12']">
+        <h3
+          :class="[
+            'font-weight-regular',
+            isMobile ? 'px-4 text-center d-block' : 'px-16',
+            isRTL ? 'ravi' : 'bel',
+            isMobile ? (isRTL ? 'f-33 pb-2' : 'f-45') : isRTL ? 'f-45 pb-2' : 'f-50'
+          ]"
+          style="color: #59595b"
+          @click="$router.push('storytellers')"
+        >
+          {{ $t('homePage.storytellers.title') }}
+        </h3>
+        <v-divider v-if="isMobile" :class="['w-full', { 'mt-3': isRTL }]" />
+
+        <p
+          :class="[
+            'mb-0 py-4',
+            isMobile ? 'f-16' : 'f-20 ms-2 ps-8',
+            isRTL ? 'font-weight-bold anjoman' : 'font-weight-light'
+          ]"
+          :style="`${!isMobile && `border-${isRTL ? 'right' : 'left'}: 1px solid #59595B`}; color: #59595B;${
+            isRTL && !isMobile && 'line-height:35px'
+          }`"
+        >
+          {{ $t('storytellersPage.description') }}
+        </p>
+      </div>
       <client-only>
         <swiper
           ref="home-storytellers"
