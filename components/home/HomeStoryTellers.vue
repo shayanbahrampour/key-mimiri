@@ -9,6 +9,7 @@
           isMobile ? (isRTL ? 'f-33 pb-2' : 'f-45') : isRTL ? 'f-45 pb-2' : 'f-50'
         ]"
         style="color: #59595b"
+        @click="$router.push('storytellers')"
       >
         {{ $t('homePage.storytellers.title') }}
       </h3>
