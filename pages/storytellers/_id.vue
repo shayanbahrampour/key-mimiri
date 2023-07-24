@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!$fetchState.pending" class="d-flex flex-column slategrey">
+  <div v-if="!loading" class="d-flex flex-column slategrey">
     <div
       :class="['d-flex align-center justify-space-between', isMobile ? 'flex-column align-center mt-6' : 'px-16 mt-16']"
     >
@@ -331,6 +331,7 @@ export default {
         second: false
       },
       item: null,
+      loading: false,
       items: [],
       faces: [
         {
@@ -371,21 +372,23 @@ export default {
       }
     };
   },
-  async fetch() {
+  async created() {
+    this.loading = true;
     try {
       const { data } = await this.$store.dispatch('storyteller/getStorytellersDetail', { id: this.$route.params.id });
       this.item = data;
     } catch (e) {
       console.log(e);
+      this.loading = false;
     }
     try {
       const { data } = await this.$store.dispatch('storyteller/getStorytellersList', {});
       this.items = data.results;
-      this.loading = false;
     } catch (e) {
       console.log(e);
       this.loading = false;
     }
+    this.loading = false;
   },
   methods: {
     src(index) {
