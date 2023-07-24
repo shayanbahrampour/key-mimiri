@@ -133,7 +133,7 @@
     </div>
 
     <div class="mx-auto">
-      <div :class="!isMobile && 'px-16'">
+      <div v-if="subtitle_file" :class="!isMobile && 'px-16'">
         <VideoContents
           :src="`${$imageUrl}/${subtitle_file}`"
           :style="`max-height: calc(100vh - 150px); min-height: ${isMobile ? '' : '500px'}`"
@@ -148,7 +148,7 @@
         style="color: #59595b"
       >
         <v-img
-          v-if="!isMobile"
+          v-if="!isMobile && body_file"
           :src="`${$imageUrl}/${body_file}`"
           position="center center"
           height="600"
@@ -180,7 +180,7 @@
         </div>
       </v-sheet>
 
-      <v-img v-if="isMobile" :src="`${$imageUrl}/${body_file}`" min-height="600" />
+      <v-img v-if="isMobile && body_file" :src="`${$imageUrl}/${body_file}`" min-height="600" />
 
       <v-sheet :class="[isMobile ? 'px-6' : 'px-16']" style="color: #59595b">
         <div
