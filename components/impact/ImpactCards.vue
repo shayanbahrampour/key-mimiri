@@ -18,15 +18,15 @@
       flat
     >
       <div
-        :class="['flex-shrink-0', isMobile ? 'f-25' : isRTL ? 'f-30' : 'f-35', isRTL ? 'ravi' : 'bel']"
+        :class="['flex-shrink-0', isMobile ? 'f-25' : isRTL ? 'f-30' : 'f-33', isRTL ? 'ravi' : 'bel']"
         :style="`${summary && !isMobile ? 'width: 50%' : 'width: 100%'};${isRTL ? 'line-height:35px' : ''}`"
       >
         {{ title | truncate({ length: 50 }) }}
       </div>
-      <div v-if="!isMobile && summary" class="font-weight-light f-19 ps-4">
+      <div v-if="!isMobile && summary" class="font-weight-light f-18 ps-4">
         <div
           :class="['ma-0 overflow-hidden', isRTL ? 'font-weight-bold anjoman' : 'font-weight-light']"
-          :style="`${isRTL ? 'line-height:30px' : ''}; height: 68px;`"
+          :style="`${isRTL ? 'line-height:30px' : ''}; height: 65px;`"
           v-html="summary"
         />
         <strong class="f-18 font-weight-bold d-block mt-1">

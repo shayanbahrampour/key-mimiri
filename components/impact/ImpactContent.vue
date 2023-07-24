@@ -142,39 +142,48 @@
 
         <v-sheet v-if="isMobile" class="custom-gradient my-1" height="16" />
       </div>
-      <v-sheet :class="[isMobile ? 'px-6' : 'px-16']" style="color: #59595b">
-        <v-row :class="[isMobile ? 'pt-6' : 'mt-lg-6 pt-16', isRTL && 'ltr']">
-          <v-col :class="isRTL && 'rtl'" lg="7" md="6" xl="8">
-            <h3
-              :class="[
-                'font-weight-regular success--text mb-4 text-center text-sm-start',
-                isRTL ? 'ravi' : 'bel',
-                isMobile ? (isRTL ? 'f-30' : 'f-30') : isRTL ? 'f-35' : 'f-45'
-              ]"
-            >
-              {{ item[`${$i18n.locale}_body_subtitle`] }}
-            </h3>
-            <div
-              :class="[
-                'mb-6 text-pre-line',
-                { 'mt-8': !isMobile },
-                isMobile ? 'f-20' : 'f-25',
-                isRTL ? 'anjoman font-weight-bold' : 'font-weight-light'
-              ]"
-              :style="`line-height: ${isRTL ? '40px' : '35px'}`"
-              v-html="firstParagraph"
-            />
-          </v-col>
-          <v-col v-if="!isMobile" class="pl-md-8 mb-md-8" lg="5" md="6" xl="4">
-            <v-img contain :src="`${$imageUrl}/${body_file}`" position="top center" min-height="600" />
-          </v-col>
-        </v-row>
+      <v-sheet
+        :class="[isMobile ? 'px-6' : 'px-16', isMobile ? 'pt-6' : 'mt-lg-6 pt-16', isRTL && 'ltr']"
+        style="color: #59595b"
+      >
+        <v-img
+          v-if="!isMobile"
+          :src="`${$imageUrl}/${body_file}`"
+          position="center center"
+          height="600"
+          max-width="40%"
+          style="float: right"
+          class="mb-md-8 ml-md-8"
+        />
+        <div>
+          <h3
+            v-if="item[`${$i18n.locale}_body_subtitle`]"
+            :class="[
+              'font-weight-regular success--text mb-4 text-center text-sm-start',
+              isRTL ? 'ravi' : 'bel',
+              { 'mb-8': !isMobile },
+              isMobile ? (isRTL ? 'f-30' : 'f-30') : isRTL ? 'f-35' : 'f-45'
+            ]"
+          >
+            {{ item[`${$i18n.locale}_body_subtitle`] }}
+          </h3>
+          <div
+            :class="[
+              'mb-6 text-pre-line',
+              isMobile ? 'f-20' : 'f-25',
+              isRTL ? 'anjoman font-weight-bold' : 'font-weight-light'
+            ]"
+            :style="`line-height: ${isRTL ? '40px' : '35px'}`"
+            v-html="isMobile ? firstParagraph : item[`${$i18n.locale}_body`]"
+          />
+        </div>
       </v-sheet>
 
       <v-img v-if="isMobile" :src="`${$imageUrl}/${body_file}`" min-height="600" />
 
       <v-sheet :class="[isMobile ? 'px-6' : 'px-16']" style="color: #59595b">
         <div
+          v-if="isMobile"
           :class="[
             'mb-6 text-pre-line',
             isMobile ? 'f-20' : 'f-25',
@@ -228,6 +237,7 @@
             <swiper-slide v-for="(item, index) in relatedContents" :key="index">
               <ImpactCards :item="item" :style="`border-radius: ${isMobile ? '30px' : '80px'}`" class="mt-2 mb-3" />
             </swiper-slide>
+            <swiper-slide v-if="relatedContents && relatedContents.length < 3" />
           </swiper>
         </client-only>
       </div>
@@ -269,10 +279,10 @@ export default {
         slidesPerView: 1.3,
         breakpoints: {
           1904: {
-            slidesPerView: 2.5
+            slidesPerView: 2.2
           },
           1264: {
-            slidesPerView: 2.2
+            slidesPerView: 2.05
           },
           960: {
             slidesPerView: 1.4

@@ -29,11 +29,11 @@
         </p>
       </div>
 
-      <CustomTabs
-        id="categories"
-        :items="categories.map((item) => ({ ...item, title: item[`${$i18n.locale}_name`] }))"
-        @select="updateCategory"
-      />
+      <!--      <CustomTabs-->
+      <!--        id="categories"-->
+      <!--        :items="categories.map((item) => ({ ...item, title: item[`${$i18n.locale}_name`] }))"-->
+      <!--        @select="updateCategory"-->
+      <!--      />-->
     </v-sheet>
 
     <v-sheet class="mx-auto">
