@@ -277,7 +277,7 @@ export default {
   timelinePage: {
     title: 'Our Companies',
     description:
-      'Our well-established companies in the Iranian health industry specialize in industrial affairs, importation, distribution, marketing, and sales services. Visit their websites to discover their contributions to healthcare advancement and well-being'
+      'Our reputable Iranian health industry companies specialize in Industrial affairs, Importation, Distribution, Medical marketing, and Sales services. Visit their websites to explore their significant contributions to healthcare advancement and well-being.'
   },
   shared: {
     see_more: 'see more',

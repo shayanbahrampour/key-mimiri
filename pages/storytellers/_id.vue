@@ -156,10 +156,13 @@
         >
           {{ isRTL ? 'دوست دارید داستان های بیشتری گوش دهید' : 'You may also like listening more stories' }}
         </h4>
-        <div
+        <v-card
+          v-if="items[0]"
+          elevation="0"
           :class="['d-flex', isMobile ? 'flex-column align-center mt-10' : 'justify-space-between align-center mt-16']"
+          :to="!isMobile ? `${items[0].id}` : undefined"
         >
-          <div v-if="items[0]" :class="['d-flex', isMobile ? 'flex-column align-center' : undefined]">
+          <div :class="['d-flex', isMobile ? 'flex-column align-center' : undefined]">
             <v-img
               :height="isMobile ? '140' : '155'"
               :max-width="isMobile ? '140' : '155'"
@@ -227,14 +230,19 @@
                 ]"
                 hide-actions
                 style="margin-top: -12px !important"
-                @click="seeMore.first = !seeMore.first"
-                >{{ seeMore.first ? $t('button.see_less') : $t('button.see_more') }}
+                @click="seeMore.first ? $router.push(`${items[0].id}`) : (seeMore.first = true)"
+                >{{ $t('button.see_more') }}
               </v-expansion-panel-header>
             </v-expansion-panel>
           </v-expansion-panels>
-        </div>
-        <div :class="['d-flex my-16', isMobile ? 'flex-column' : 'justify-space-between align-center']">
-          <div v-if="items[1]" :class="['d-flex', isMobile ? 'flex-column align-center' : undefined]">
+        </v-card>
+        <v-card
+          v-if="items[1]"
+          elevation="0"
+          :to="!isMobile ? `${items[1].id}` : undefined"
+          :class="['d-flex my-16', isMobile ? 'flex-column' : 'justify-space-between align-center']"
+        >
+          <div :class="['d-flex', isMobile ? 'flex-column align-center' : undefined]">
             <v-img
               :height="isMobile ? '140' : '155'"
               :max-width="isMobile ? '140' : '155'"
@@ -302,12 +310,12 @@
                 ]"
                 hide-actions
                 style="margin-top: -12px !important"
-                @click="seeMore.second = !seeMore.second"
-                >{{ seeMore.second ? $t('button.see_less') : $t('button.see_more') }}
+                @click="seeMore.second ? $router.push(`${items[1].id}`) : (seeMore.second = true)"
+                >{{ $t('button.see_more') }}
               </v-expansion-panel-header>
             </v-expansion-panel>
           </v-expansion-panels>
-        </div>
+        </v-card>
       </div>
     </div>
   </div>
@@ -383,7 +391,16 @@ export default {
     }
     try {
       const { data } = await this.$store.dispatch('storyteller/getStorytellersList', {});
-      this.items = data.results;
+      let addedCount = 0;
+      for (const result of data.results) {
+        if (Number(result.id) !== Number(this.$route.params.id)) {
+          this.items.push(result);
+          addedCount++;
+          if (addedCount === 2) {
+            break;
+          }
+        }
+      }
     } catch (e) {
       console.log(e);
       this.loading = false;

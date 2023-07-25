@@ -5,8 +5,8 @@
         {
           src: '/images/temp/cover-7.png',
           title: isRTL
-            ? 'ايجاد توانايی برای دستيابی به اهداف و الهام بخش برای خلق برترينها وعده برند گروه كوبل، توانمندسازی، الهامبخشی و برانگيختن ايدههايی است كه در راه پيشرفت و رسيدن به راهكارهای سلامت، تأثيرگذار است. بنابراين، ما در جهت آگاهسازی و آموزش سرمايهگذاری ميكنيم، نه تنها به نيروی انسانی خود، بلكه به تمامی ذينفعانمان. منابع آموزشی ما برای همگان در دسترس است.'
-            : 'Our pioneering and innovative companies are dedicated to enhancing quality of life through innovative healthcare solutions. With a diverse portfolio, we meet the unique needs of individuals, healthcare professionals, and organizations effectively and efficiently.'
+            ? 'شرکت‌های پیشرو ما هر روزه برای بهبود کیفیت زندگی انسان ها از طریق راهکارهای نوآورانه در حوزه‌ی سلامت تلاش می کنند. با داشتن مجموعه ای کامل از محصولات و خدمات در حوزه پیشگیری و درمان  ، تلاش می‌کنیم تا نیازهای منحصربه‌ فرد بیماران و متخصصین سلامت را  برآورده سازیم.'
+            : 'Our pioneering companies are dedicated to improving quality of life with innovative healthcare solutions. With a diverse portfolio of products and services, we strive to meet the unique needs of individuals, healthcare professionals, and organizations.'
         }
       ]"
       :title="isRTL ? 'میراث' : 'Our Companies'"
