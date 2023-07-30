@@ -3,13 +3,13 @@
     <v-sheet
       :class="[
         'position-absolute z-1 mx-auto white--text w-full d-flex',
-        isMobile ? 'px-6 align-start top-0' : 'px-16 pb-15 align-end bottom-0'
+        isMobile ? 'px-6 align-start' : 'px-16 pb-15 align-end bottom-0'
       ]"
       color="transparent"
       :style="`${
         !isMobile
           ? 'background: linear-gradient(to top, black, transparent); margin-bottom: 20px !important; height: 600px'
-          : undefined
+          : 'bottom: 70px !important'
       }`"
     >
       <div :class="['d-flex w-full', $vuetify.breakpoint.smAndDown ? 'flex-column' : 'flex-row align-center']">

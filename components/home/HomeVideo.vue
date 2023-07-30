@@ -2,7 +2,7 @@
   <div class="position-relative">
     <VideoContents
       class="w-full overflow-hidden d-flex align-center"
-      poster="/images/temp/cover-9.jpg"
+      poster="/images/temp/cover-10.jpg"
       src="/video/index-video.mp4"
       style="max-height: calc(100vh - 90px)"
     />
