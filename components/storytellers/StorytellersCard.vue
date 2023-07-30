@@ -57,7 +57,7 @@
           <p
             v-if="!isMobile"
             :class="['f-22 mb-0 text--darken-3 justify-center', { ravi: isRTL }]"
-            :style="`max-width: ${isRTL ? '65' : '58'}%; color: #939393`"
+            :style="`color: #939393`"
             v-html="isRTL ? item.fa_body : item.en_body"
           />
           <div

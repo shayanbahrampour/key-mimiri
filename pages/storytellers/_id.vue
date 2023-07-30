@@ -153,6 +153,7 @@
               ? 'f-40 text-center mt-10 bel'
               : 'f-50 mt-16 bel'
           ]"
+          @click="$router.push('/storytellers')"
         >
           {{ isRTL ? 'دوست دارید داستان های بیشتری گوش دهید' : 'You may also like listening more stories' }}
         </h4>
@@ -176,6 +177,7 @@
                   isMobile ? 'text-center mt-4 f-32 font-weight-regular' : 'f-42 font-weight-regular',
                   isRTL ? 'ravi mb-2 mr-2' : 'bel'
                 ]"
+                :style="`color: #59595b; width: ${isMobile ? '100%' : '300px'}`"
               >
                 {{ isRTL ? items[0].fa_full_name : items[0].en_full_name }}
               </p>
@@ -200,11 +202,10 @@
           <v-divider class="mx-4" color="#00a59b" vertical></v-divider>
           <p
             v-if="!isMobile"
-            :class="['f-22 mb-0 text--darken-3 justify-center', { 'ravi desktop-story-single-description': isRTL }]"
-            :style="`max-width: ${isRTL ? '65' : '58'}%; color: #939393`"
-          >
-            {{ isRTL ? faces[0].descriptionRTL : faces[0].description }}
-          </p>
+            :class="['f-22 mb-0 text--darken-3 justify-center', { ravi: isRTL }]"
+            :style="`color: #939393`"
+            v-html="isRTL ? items[0].fa_body : items[0].en_body"
+          />
           <v-expansion-panels v-if="isMobile && items[0]" flat>
             <v-expansion-panel class="transparent d-flex flex-column justify-center">
               <p
@@ -256,6 +257,7 @@
                   isMobile ? 'text-center mt-4 f-32 font-weight-regular' : 'f-42 font-weight-regular',
                   isRTL ? 'ravi mb-2 mr-2' : 'bel'
                 ]"
+                :style="`color: #59595b; width: ${isMobile ? '100%' : '300px'}`"
               >
                 {{ isRTL ? items[1].fa_full_name : items[1].en_full_name }}
               </p>
@@ -280,11 +282,10 @@
           <v-divider class="mx-4" color="#00a59b" vertical></v-divider>
           <p
             v-if="!isMobile"
-            :class="['f-22 mb-0 text--darken-3 justify-center', { 'ravi desktop-story-single-description': isRTL }]"
-            :style="`max-width: ${isRTL ? '65' : '58'}%; color: #939393`"
-          >
-            {{ isRTL ? faces[1].descriptionRTL : faces[1].description }}
-          </p>
+            :class="['f-22 mb-0 text--darken-3 justify-center', { ravi: isRTL }]"
+            :style="`color: #939393`"
+            v-html="isRTL ? items[1].fa_body : items[1].en_body"
+          />
           <v-expansion-panels v-if="isMobile && items[1]" flat>
             <v-expansion-panel class="transparent d-flex flex-column justify-center">
               <p
