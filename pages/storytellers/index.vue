@@ -37,12 +37,9 @@
         v-if="!isMobile"
         :class="['d-flex flex-column align-start mt-16 white w-full', !isMobile ? 'ps-10' : undefined]"
       >
-        <NewsCategory
-          :class="`my-6 mx-${isRTL ? '0' : '6'}`"
-          :items="categories.map((item) => ({ ...item, title: item[`${$i18n.locale}_name`] }))"
-          :title="isRTL ? 'داستان نویسان بیشتر' : 'More Storytellers'"
-          @select="updateCategory"
-        />
+        <h1 :class="['grey--text text--darken-2 font-weight-regular my-6', isRTL ? 'ravi f-34 mx-0' : 'bel f-40 mx-6']">
+          {{ !isRTL ? 'storytellers' : 'راویان الهامبخش' }}
+        </h1>
       </div>
     </div>
     <div v-else class="pa-6 slategrey">

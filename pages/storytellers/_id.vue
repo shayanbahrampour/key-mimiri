@@ -162,7 +162,7 @@
           :class="['d-flex', isMobile ? 'flex-column align-center mt-10' : 'justify-space-between align-center mt-16']"
           :to="!isMobile ? `${items[0].id}` : undefined"
         >
-          <div :class="['d-flex', isMobile ? 'flex-column align-center' : undefined]">
+          <div :class="['d-flex storyteller-card-index', isMobile ? 'flex-column align-center' : undefined]">
             <v-img
               :height="isMobile ? '140' : '155'"
               :max-width="isMobile ? '140' : '155'"
@@ -172,7 +172,7 @@
             <div :class="['d-flex flex-column justify-center', { 'ms-4': !isMobile }]">
               <p
                 :class="[
-                  'cobelgrey--text mb-0 text--darken-3',
+                  'cobelgrey--text mb-0 text--darken-3 storyteller-name-index',
                   isMobile ? 'text-center mt-4 f-32 font-weight-regular' : 'f-42 font-weight-regular',
                   isRTL ? 'ravi mb-2 mr-2' : 'bel'
                 ]"
@@ -242,7 +242,7 @@
           :to="!isMobile ? `${items[1].id}` : undefined"
           :class="['d-flex my-16', isMobile ? 'flex-column' : 'justify-space-between align-center']"
         >
-          <div :class="['d-flex', isMobile ? 'flex-column align-center' : undefined]">
+          <div :class="['d-flex storyteller-card-index', isMobile ? 'flex-column align-center' : undefined]">
             <v-img
               :height="isMobile ? '140' : '155'"
               :max-width="isMobile ? '140' : '155'"
@@ -252,7 +252,7 @@
             <div :class="['d-flex flex-column justify-center', { 'ms-4': !isMobile }]">
               <p
                 :class="[
-                  'cobelgrey--text mb-0 text--darken-3',
+                  'cobelgrey--text mb-0 text--darken-3 storyteller-name-index',
                   isMobile ? 'text-center mt-4 f-32 font-weight-regular' : 'f-42 font-weight-regular',
                   isRTL ? 'ravi mb-2 mr-2' : 'bel'
                 ]"
@@ -442,5 +442,13 @@ export default {
 .v-expansion-panel--active > .v-expansion-panel-header {
   min-height: 20px;
   margin-bottom: 20px !important;
+}
+
+.storyteller-card-index {
+  &:hover {
+    .storyteller-name-index {
+      color: slategray !important;
+    }
+  }
 }
 </style>
