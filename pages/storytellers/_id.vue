@@ -126,7 +126,10 @@
         >
           {{ isRTL ? item.fa_title : item.en_title }}
         </h4>
-        <v-divider :class="isMobile ? 'mt-10 mx-2' : 'mt-16'"></v-divider>
+        <v-divider
+          v-if="summaryValue(isRTL ? item.fa_summary : item.en_summary)"
+          :class="isMobile ? 'mt-10 mx-2' : 'mt-16'"
+        ></v-divider>
         <p
           :class="[
             'text--darken-3',
@@ -141,7 +144,10 @@
           style="color: #939393"
           v-html="isRTL ? item.fa_summary : item.en_summary"
         />
-        <v-divider :class="!isMobile ? 'pb-16' : 'mx-2'"></v-divider>
+        <v-divider
+          v-if="summaryValue(isRTL ? item.fa_summary : item.en_summary)"
+          :class="!isMobile ? 'pb-16' : 'mx-2'"
+        ></v-divider>
         <div class="story-detail-header">
           <h4
             :class="[
@@ -428,6 +434,11 @@ export default {
       if (!mainImage) return '';
 
       return `${this.$imageUrl}/${mainImage.url}`;
+    },
+    summaryValue(content) {
+      const pTagPattern = /<\/?p[^>]*>/g;
+      const contentWithoutPTags = content.replace(pTagPattern, '');
+      return contentWithoutPTags;
     }
   }
 };
