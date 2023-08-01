@@ -40,7 +40,11 @@
             v-for="(item, index) in items"
             :key="index"
             :ripple="false"
-            :to="item.path && item.path !== 'video' ? localePath(item.path) : undefined"
+            :to="
+              item.path && item.path !== 'video' && item.title !== 'menu.empowerment'
+                ? localePath(item.path)
+                : undefined
+            "
             active-class="primary--text"
             class="bg-transparent px-2"
             color="transparent"
@@ -50,7 +54,46 @@
             tile
             @click="item.path === 'video' ? showVideo() : undefined"
           >
-            <span :class="['text-none', isRTL ? 'font-weight-bold f-16' : 'f-14']">{{ $t(item.title) }}</span>
+            <v-divider></v-divider>
+            <span
+              v-if="item.title !== 'menu.empowerment'"
+              :class="['text-none', isRTL ? 'font-weight-bold f-16' : 'f-14']"
+              >{{ $t(item.title) }}</span
+            >
+            <v-menu v-else offset-y rounded="0" v-model="flag.showDropdown" style="top: 80px !important">
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                  :class="['text-none bg-transparent', isRTL ? 'font-weight-bold f-16' : 'f-14']"
+                  elevation="0"
+                  v-bind="attrs"
+                  v-on="on"
+                >
+                  {{ $t(item.title) }}
+                  <v-icon v-if="!flag.showDropdown">mdi-chevron-down</v-icon>
+                  <v-icon v-else>mdi-chevron-up</v-icon>
+                </v-btn>
+              </template>
+              <v-list class="cobelgrey pa-0">
+                <v-list-item
+                  v-for="(item, index) in dropdown"
+                  :key="index"
+                  @click="$router.push(item.path)"
+                  dense
+                  class="slategrey"
+                  :disabled="!item.path"
+                  :style="`${`margin-bottom:${item.title === 'menu.education' ? '0px' : '1px'}`}`"
+                >
+                  <v-list-item-title
+                    :class="[
+                      'text-none bg-transparent text-center',
+                      isRTL ? 'font-weight-bold f-16' : 'f-14',
+                      item.path ? 'white--text' : 'lightgrey--text'
+                    ]"
+                    >{{ $t(item.title) }}
+                  </v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-menu>
           </v-btn>
         </div>
 
@@ -122,7 +165,8 @@ export default {
       screenHeight: 1080,
       flag: {
         showDrawer: false,
-        video: false
+        video: false,
+        showDropdown: false
       }
     };
   },
@@ -139,12 +183,18 @@ export default {
       return [
         { title: 'menu.home', path: '/' },
         { title: 'menu.point_of_view', path: 'video' },
-        { title: 'menu.impact_stories', path: '/impact' },
-        { title: 'menu.education', path: '/EducationAndEmpowerment' },
+        { title: 'menu.empowerment', path: '' },
         { title: 'menu.people_careers', path: '/career' },
         { title: 'menu.companies', path: '/ourcompanies' },
         { title: 'menu.press', path: '/news' },
         { title: 'menu.contact_us', path: '/contact' }
+      ];
+    },
+    dropdown() {
+      return [
+        { title: 'menu.impact_stories', path: '/impact' },
+        { title: 'menu.innovation', path: undefined },
+        { title: 'menu.education', path: undefined }
       ];
     }
   },
@@ -207,5 +257,8 @@ export default {
   .v-toolbar__content {
     transition: all ease-out 0.2s !important;
   }
+}
+.v-menu__content {
+  top: 70px !important;
 }
 </style>
