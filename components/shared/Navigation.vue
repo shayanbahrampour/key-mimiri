@@ -133,17 +133,21 @@
         color="transparent"
       >
         <v-card
-          v-for="(item, index) in items"
+          v-for="(item, index) in !flag.expandMenu ? items : expanded"
           :key="index"
-          :class="['text-center white--text py-4 f-18', isRTL && 'font-weight-bold']"
-          :to="item.path ? localePath(item.path) : undefined"
-          color="#66869A"
+          :class="['text-center py-4 f-18', isRTL && 'font-weight-bold', item.path ? 'white--text' : 'lightgrey--text']"
+          :to="item.path && item.title !== 'menu.empowerment' ? localePath(item.path) : undefined"
+          color="slategrey"
           exact
           flat
           link
-          style="opacity: 0.95; margin-bottom: 2px"
+          :style="`${`opacity:${
+            item.title === 'menu.education' || item.title === 'menu.impact_stories' || item.title === 'menu.innovation'
+              ? '1'
+              : '0.91'
+          }`}; margin-bottom: 2px`"
           tile
-          @click="flag.showDrawer = false"
+          @click="item.title === 'menu.empowerment' ? (flag.expandMenu = !flag.expandMenu) : (flag.showDrawer = false)"
         >
           {{ $t(item.title) }}
         </v-card>
@@ -166,7 +170,8 @@ export default {
       flag: {
         showDrawer: false,
         video: false,
-        showDropdown: false
+        showDropdown: false,
+        expandMenu: false
       }
     };
   },
@@ -183,7 +188,7 @@ export default {
       return [
         { title: 'menu.home', path: '/' },
         { title: 'menu.point_of_view', path: 'video' },
-        { title: 'menu.empowerment', path: '' },
+        { title: 'menu.empowerment', path: '/' },
         { title: 'menu.people_careers', path: '/career' },
         { title: 'menu.companies', path: '/ourcompanies' },
         { title: 'menu.press', path: '/news' },
@@ -195,6 +200,20 @@ export default {
         { title: 'menu.impact_stories', path: '/impact' },
         { title: 'menu.innovation', path: undefined },
         { title: 'menu.education', path: undefined }
+      ];
+    },
+    expanded() {
+      return [
+        { title: 'menu.home', path: '/' },
+        { title: 'menu.point_of_view', path: 'video' },
+        { title: 'menu.empowerment', path: '/' },
+        { title: 'menu.impact_stories', path: '/impact' },
+        { title: 'menu.innovation', path: undefined },
+        { title: 'menu.education', path: undefined },
+        { title: 'menu.people_careers', path: '/career' },
+        { title: 'menu.companies', path: '/ourcompanies' },
+        { title: 'menu.press', path: '/news' },
+        { title: 'menu.contact_us', path: '/contact' }
       ];
     }
   },
