@@ -1,7 +1,9 @@
 <template>
   <div v-if="items && items.length" class="grey--text text--darken-2 home-story-tellers mt-16 pt-6">
     <v-sheet class="mx-auto">
-      <div :class="['d-flex align-center', isMobile ? 'flex-column text-center px-6 mb-8' : 'mb-12']">
+      <div
+        :class="['d-flex align-center story-index-header', isMobile ? 'flex-column text-center px-6 mb-8' : 'mb-12']"
+      >
         <h3
           :class="[
             'font-weight-regular',
@@ -155,6 +157,14 @@ export default {
     &.active-slide {
       width: 600px !important;
       transition: width ease-in 0.6s;
+    }
+  }
+}
+.story-index-header {
+  &:hover {
+    h3 {
+      color: slategrey !important;
+      cursor: pointer;
     }
   }
 }

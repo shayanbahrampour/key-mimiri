@@ -142,21 +142,23 @@
           v-html="isRTL ? item.fa_summary : item.en_summary"
         />
         <v-divider :class="!isMobile ? 'pb-16' : 'mx-2'"></v-divider>
-        <h4
-          :class="[
-            'text--darken-3 cobelgrey--text font-weight-regular',
-            isRTL
-              ? isMobile
-                ? 'f-30 text-center mt-10 ravi'
-                : 'f-40 mt-16 ravi'
-              : isMobile
-              ? 'f-40 text-center mt-10 bel'
-              : 'f-50 mt-16 bel'
-          ]"
-          @click="$router.push('/storytellers')"
-        >
-          {{ isRTL ? 'دوست دارید داستان های بیشتری گوش دهید' : 'You may also like listening more stories' }}
-        </h4>
+        <div class="story-detail-header">
+          <h4
+            :class="[
+              'text--darken-3 font-weight-regular',
+              isRTL
+                ? isMobile
+                  ? 'f-30 text-center mt-10 ravi'
+                  : 'f-40 mt-16 ravi'
+                : isMobile
+                ? 'f-40 text-center mt-10 bel'
+                : 'f-50 mt-16 bel'
+            ]"
+            @click="$router.push('/storytellers')"
+          >
+            {{ isRTL ? 'دوست دارید داستان های بیشتری گوش دهید' : 'You may also like listening more stories' }}
+          </h4>
+        </div>
         <v-card
           v-if="items[0]"
           elevation="0"
@@ -449,6 +451,15 @@ export default {
   &:hover {
     .storyteller-name-index {
       color: slategray !important;
+    }
+  }
+}
+
+.story-detail-header {
+  &:hover {
+    h4 {
+      color: slategrey !important;
+      cursor: pointer;
     }
   }
 }
