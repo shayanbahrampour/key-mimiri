@@ -18,3 +18,6 @@ export const storyteller_list = (lang = '') => `/shared/${lang}/storytellers`;
 export const storyteller_categories = (query = '') => `/shared/storyteller-categories/${query}`;
 export const storyteller_detail = (lang = '', query = '') => `/shared/${lang}/storytellers/${query}`;
 export const storyteller_featured = (lang = '', query = '') => `/shared/${lang}/storytellers/featured/${query}`;
+
+export const call_to_actions_story = (lang = '') => `/shared/${lang}/storytellers/call-to-actions`;
+export const call_to_actions_impact = (lang = '') => `/shared/${lang}/impact-stories/call-to-actions`;

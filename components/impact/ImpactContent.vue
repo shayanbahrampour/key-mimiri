@@ -245,16 +245,18 @@
     </div>
 
     <HomeTellUsStory />
+    <CTAContent path="impact" />
   </div>
 </template>
 
 <script>
 import ImpactCards from '~/components/impact/ImpactCards.vue';
 import HomeTellUsStory from '~/components/home/HomeTellUsStory.vue';
+import CTAContent from '../shared/CTAContent';
 import VideoContents from '~/components/shared/VideoContents.vue';
 
 export default {
-  components: { VideoContents, HomeTellUsStory, ImpactCards },
+  components: { VideoContents, HomeTellUsStory, ImpactCards, CTAContent },
   props: {
     item: {
       type: Object,

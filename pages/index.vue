@@ -5,6 +5,7 @@
     <HomeVideo />
     <HomeImpact />
     <HomeStoryTellers />
+    <CTAContent path="story" />
   </div>
 </template>
 
@@ -14,10 +15,11 @@ import HomeServices from '~/components/home/HomeServices';
 import HomeImpact from '~/components/home/HomeImpact.vue';
 import HomeSlider from '~/components/home/HomeSlider.vue';
 import HomeStoryTellers from '~/components/home/HomeStoryTellers.vue';
+import CTAContent from '~/components/shared/CTAContent.vue';
 import VideoLoader from '~/components/shared/VideoLoader.vue';
 
 export default {
-  components: { VideoLoader, HomeServices, HomeImpact, HomeStoryTellers, HomeVideo, HomeSlider },
+  components: { VideoLoader, HomeServices, HomeImpact, HomeStoryTellers, HomeVideo, HomeSlider, CTAContent },
   head() {
     return {
       title: this.$t('pageTitles.index')

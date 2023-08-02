@@ -326,12 +326,14 @@
           </v-expansion-panels>
         </v-card>
       </div>
+      <CTAContent path="story" />
     </div>
   </div>
 </template>
 
 <script>
 import VideoContents from '~/components/shared/VideoContents';
+import CTAContent from '~/components/shared/CTAContent';
 
 export default {
   head() {
@@ -339,7 +341,7 @@ export default {
       title: this.$t('pageTitles.storytellers')
     };
   },
-  components: { VideoContents },
+  components: { VideoContents, CTAContent },
   data() {
     return {
       seeMore: {
