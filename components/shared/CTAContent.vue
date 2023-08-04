@@ -49,8 +49,8 @@ export default {
   },
   async fetch() {
     if (this.path !== 'story') {
-      this.fa_text = 'پروژه‌هایتان را با ما به اشتراک بگذارید';
-      this.en_text = 'Share your inspiring impact story';
+      this.model.fa_text = 'پروژه‌هایتان را با ما به اشتراک بگذارید';
+      this.model.en_text = 'Share your inspiring impact story';
     }
     try {
       const { data } = await this.$store.dispatch(
