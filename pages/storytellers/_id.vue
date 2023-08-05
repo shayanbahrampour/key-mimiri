@@ -220,17 +220,16 @@
                 v-if="!seeMore.first"
                 :class="['f-22 text-center mt-0 mb-0 mx-8', isRTL ? 'font-weight-bold mb-2' : ' font-weight-light']"
                 style="line-height: 30px"
-              >
-                {{ isRTL ? textStory.compactRTL : textStory.compact }}
-              </p>
+                v-html="isRTL ? items[0].fa_body.slice(0, 100) + '...' : items[0].en_body.slice(0, 100) + '...'"
+              />
+
               <v-expansion-panel-content class="text-center">
                 <p
                   v-if="seeMore.first"
                   :class="['f-22 text-center mt-0 mb-0 mx-8', isRTL ? 'font-weight-bold mb-2' : ' font-weight-light']"
                   style="line-height: 30px"
-                >
-                  {{ isRTL ? textStory.fullRTL : textStory.full }}
-                </p>
+                  v-html="isRTL ? items[0].fa_body : items[0].en_body"
+                />
               </v-expansion-panel-content>
               <v-expansion-panel-header
                 :class="[
@@ -238,7 +237,7 @@
                   { 'ravi ': isRTL }
                 ]"
                 hide-actions
-                style="margin-top: -12px !important"
+                style="margin-top: -24px !important"
                 @click="seeMore.first ? $router.push(`${items[0].id}`) : (seeMore.first = true)"
                 >{{ $t('button.see_more') }}
               </v-expansion-panel-header>
@@ -300,17 +299,15 @@
                 v-if="!seeMore.second"
                 :class="['f-22 text-center mt-0 mb-0 mx-8', isRTL ? 'font-weight-bold mb-2' : ' font-weight-light']"
                 style="line-height: 30px"
-              >
-                {{ isRTL ? textStory.compactRTL : textStory.compact }}
-              </p>
+                v-html="isRTL ? items[1].fa_body.slice(0, 100) + '...' : items[1].en_body.slice(0, 100) + '...'"
+              />
               <v-expansion-panel-content class="text-center">
                 <p
                   v-if="seeMore.second"
                   :class="['f-22 text-center mt-0 mb-0 mx-8', isRTL ? 'font-weight-bold mb-2' : ' font-weight-light']"
                   style="line-height: 30px"
-                >
-                  {{ isRTL ? textStory.fullRTL : textStory.full }}
-                </p>
+                  v-html="isRTL ? items[1].fa_body : items[1].en_body"
+                />
               </v-expansion-panel-content>
               <v-expansion-panel-header
                 :class="[
@@ -318,7 +315,7 @@
                   { 'ravi ': isRTL }
                 ]"
                 hide-actions
-                style="margin-top: -12px !important"
+                style="margin-top: -24px !important"
                 @click="seeMore.second ? $router.push(`${items[1].id}`) : (seeMore.second = true)"
                 >{{ $t('button.see_more') }}
               </v-expansion-panel-header>
