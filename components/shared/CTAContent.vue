@@ -18,7 +18,7 @@
         exact
         large
         rounded
-        :href="model.address"
+        :href="`${isEmail(model.address) ? 'mailto:' : ''}${model.address}`"
         target="_blank"
       >
         <span :class="['px-15', isRTL ? 'font-weight-bold anjoman' : 'font-weight-light']">{{
@@ -30,7 +30,9 @@
 </template>
 
 <script>
+import mixinRules from '~/mixins/mixin.rules';
 export default {
+  mixins: [mixinRules],
   props: {
     path: {
       type: String,
@@ -60,9 +62,14 @@ export default {
       this.model.fa_text = data.fa_name;
       this.model.en_text = data.en_name;
       this.model.address = data.link;
-      console.log(data);
     } catch (e) {
       console.log(e);
+    }
+  },
+  methods: {
+    isEmail(value) {
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailPattern.test(value);
     }
   }
 };
