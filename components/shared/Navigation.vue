@@ -63,7 +63,7 @@
             <v-menu v-else offset-y rounded="0" v-model="flag.showDropdown" style="top: 80px !important">
               <template v-slot:activator="{ on, attrs }">
                 <v-btn
-                  :class="['text-none bg-transparent', isRTL ? 'font-weight-bold f-16' : 'f-14']"
+                  :class="['text-none bg-transparent ma-0 pe-1', isRTL ? 'font-weight-bold f-16' : 'f-14']"
                   elevation="0"
                   v-bind="attrs"
                   v-on="on"
