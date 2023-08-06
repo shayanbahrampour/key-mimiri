@@ -78,10 +78,10 @@
                 <v-sheet
                   :color="expanded === i ? item.active : item.color"
                   :height="isMobile ? 60 : 76"
-                  :width="isMobile ? 160 : 180"
+                  :width="isMobile ? 190 : 190"
                   class="white me-5 flex-shrink-0 position-relative z-1 transition-ease-in-out d-flex align-center justify-center ps-2"
                 >
-                  <v-img contain height="75" :src="`/images/timeline/${item.logo}`" />
+                  <v-img height="300" :src="`/images/timeline/${item.logo}`" />
                 </v-sheet>
 
                 <v-spacer />
@@ -184,66 +184,40 @@ export default {
           fa_description:
             'کوبل دارو یک شرکت دارویی خصوصی پیشرو است که در سال 2002 تاسیس شد. فعالیت های اصلی کوبل دارو شامل ثبت دارو، تامین و واردات و فروش و بازاریابی برندهای چند ملیتی است.',
           children: [
-            { date: '2001', fa_title: 'تأسیس کمپانی کوبل دارو ', en_title: 'Establishment of Cobel Darou' },
             {
-              date: '2002',
-              fa_title: 'همکاری تجاری با شرکت Guerbet',
-              en_title: 'Business Collaboration with Guerbet'
+              date: '2022',
+              fa_title: 'تامین اولین محموله داروی درمانی برای بیماران SMA ',
+              en_title: 'Supplying the first treatment option for SMA patients (first shipment)'
             },
             {
-              date: '2003',
-              fa_title: 'همکاری تجاری با شرکت Piere Fabre',
-              en_title: 'Business Collaboration with Piere Fabre'
+              date: '2021',
+              fa_title: 'تامین اولین محموله واکسن کووید AstraZeneca',
+              en_title: 'Supplying AstraZeneca COVID Vaccine (first shipment)'
             },
             {
-              date: '2004',
-              fa_title: 'همکاری تجاری با شرکت MSD',
-              en_title: 'Business Collaboration with MSD'
+              date: '2021',
+              fa_title: 'همکاری تجاری با شرکت Roche Diagnostics',
+              en_title: 'Business collaboration with Roche Diagnostics'
             },
             {
-              date: '2004',
-              fa_title: 'همکاری تجاری با شرکت Sanofi',
-              en_title: 'Business Collaboration with Sanofi'
+              date: '2018',
+              fa_title: 'همکاری تجاری با شرکت Roche Diabetes Care',
+              en_title: 'Business collaboration with Roche Diabetes Care'
             },
             {
-              date: '2006',
-              fa_title: 'همکاری تجاری با شرکت Actelion',
-              en_title: 'Business Collaboration with Actelion'
+              date: '2017',
+              fa_title: 'همکاری تجاری با شرکت GSK',
+              en_title: 'Business collaboration with GSK'
             },
             {
-              date: '2007',
-              fa_title: 'همکاری تجاری با شرکت Uni Pharma',
-              en_title: 'Business Collaboration with Uni Pharma'
-            },
-            {
-              date: '2007',
-              fa_title: 'همکاری تجاری با شرکت LFB',
-              en_title: 'Business Collaboration with LFB'
-            },
-            {
-              date: '2008',
-              fa_title: 'شروع تولید محصولات داخلی- خرید 10% از سهام داروسازی دکتر عبیدی',
-              en_title: 'Moved to Local Production by acquiring 10% share of Abidi Lab '
-            },
-            {
-              date: '2009',
-              fa_title: 'تولید محصولات تحت لیسانس  Sanofi-Aventis',
-              en_title: 'Under-License production of Sanofi-Aventis products '
-            },
-            {
-              date: '2009',
-              fa_title: 'شروع برنامه ریزی برای تولید محصولات کوبل دارو',
-              en_title: 'Started planning for production of Cobel Darou products'
-            },
-            {
-              date: '2009',
-              fa_title: 'همکاری تجاری با شرکت       AstraZeneca',
-              en_title: 'Business Collaboration with AstraZeneca'
+              date: '2017',
+              fa_title: 'همکاری تجاری با شرکت Novartis',
+              en_title: 'Business collaboration with Novartis'
             },
             {
               date: '2012',
-              fa_title: 'شروع کسب  و کار آرایشی و بهداشتی با شرکت  L’oreal',
-              en_title: 'Dermocosmetic business with collaboration with L’oreal'
+              fa_title: 'همکاری تجاری با شرکت Roche Pharma',
+              en_title: 'Business collaboration with Roche Pharma'
             },
             {
               date: '2012',
@@ -252,39 +226,65 @@ export default {
             },
             {
               date: '2012',
-              fa_title: 'همکاری تجاری با شرکت Roche Pharma',
-              en_title: 'Business collaboration with Roche Pharma'
+              fa_title: 'شروع کسب  و کار آرایشی و بهداشتی با شرکت  L’oreal',
+              en_title: 'Dermocosmetic business with collaboration with L’oreal'
             },
             {
-              date: '2017',
-              fa_title: 'همکاری تجاری با شرکت Novartis',
-              en_title: 'Business collaboration with Novartis'
+              date: '2009',
+              fa_title: 'همکاری تجاری با شرکت       AstraZeneca',
+              en_title: 'Business Collaboration with AstraZeneca'
             },
             {
-              date: '2017',
-              fa_title: 'همکاری تجاری با شرکت GSK',
-              en_title: 'Business collaboration with GSK'
+              date: '2009',
+              fa_title: 'شروع برنامه ریزی برای تولید محصولات کوبل دارو',
+              en_title: 'Started planning for production of Cobel Darou products'
             },
             {
-              date: '2018',
-              fa_title: 'همکاری تجاری با شرکت Roche Diabetes Care',
-              en_title: 'Business collaboration with Roche Diabetes Care'
+              date: '2009',
+              fa_title: 'تولید محصولات تحت لیسانس  Sanofi-Aventis',
+              en_title: 'Under-License production of Sanofi-Aventis products '
             },
             {
-              date: '2021',
-              fa_title: 'همکاری تجاری با شرکت Roche Diagnostics',
-              en_title: 'Business collaboration with Roche Diagnostics'
+              date: '2008',
+              fa_title: 'شروع تولید محصولات داخلی- خرید 10% از سهام داروسازی دکتر عبیدی',
+              en_title: 'Moved to Local Production by acquiring 10% share of Abidi Lab '
             },
             {
-              date: '2021',
-              fa_title: 'تامین اولین محموله واکسن کووید AstraZeneca',
-              en_title: 'Supplying AstraZeneca COVID Vaccine (first shipment)'
+              date: '2007',
+              fa_title: 'همکاری تجاری با شرکت LFB',
+              en_title: 'Business Collaboration with LFB'
             },
             {
-              date: '2022',
-              fa_title: 'تامین اولین محموله داروی درمانی برای بیماران SMA ',
-              en_title: 'Supplying the first treatment option for SMA patients (first shipment)'
-            }
+              date: '2007',
+              fa_title: 'همکاری تجاری با شرکت Uni Pharma',
+              en_title: 'Business Collaboration with Uni Pharma'
+            },
+            {
+              date: '2006',
+              fa_title: 'همکاری تجاری با شرکت Actelion',
+              en_title: 'Business Collaboration with Actelion'
+            },
+            {
+              date: '2004',
+              fa_title: 'همکاری تجاری با شرکت Sanofi',
+              en_title: 'Business Collaboration with Sanofi'
+            },
+            {
+              date: '2004',
+              fa_title: 'همکاری تجاری با شرکت MSD',
+              en_title: 'Business Collaboration with MSD'
+            },
+            {
+              date: '2003',
+              fa_title: 'همکاری تجاری با شرکت Piere Fabre',
+              en_title: 'Business Collaboration with Piere Fabre'
+            },
+            {
+              date: '2002',
+              fa_title: 'همکاری تجاری با شرکت Guerbet',
+              en_title: 'Business Collaboration with Guerbet'
+            },
+            { date: '2001', fa_title: 'تأسیس کمپانی کوبل دارو ', en_title: 'Establishment of Cobel Darou' }
           ]
         },
         {
@@ -300,40 +300,24 @@ export default {
           date: '2008',
           children: [
             {
-              date: '1946',
-              fa_title: 'تاسیس آزمایشگاه داروسازی دکتر عبیدی',
-              en_title: 'Establishment of Dr. Abidi Pharmaceutical Laboratory'
+              date: '2023',
+              fa_title: 'خرید شرکت داروسازی بهوازان',
+              en_title: 'Acquisition of Behvazan Pharmaceuticals'
             },
             {
-              date: '1958',
-              fa_title: 'اخذ اولین مجوز تولید دارو',
-              en_title: 'Acquisition of the first Pharma production license'
+              date: '2022',
+              fa_title: 'تاسیس سایت صنعتی جدید (سایت 2)',
+              en_title: 'Abidi-2 industrial site establishment'
             },
             {
-              date: '2006',
-              fa_title: 'اخذ مجوز آزمایشگاه آکرودیت',
-              en_title: 'Obtaining the Acrodite Laboratory License'
-            },
-            { date: '2008', fa_title: 'ورود کوبل دارو', en_title: 'Cobel Darou Entrance' },
-            {
-              date: '2009',
-              fa_title: 'تولید تحت نظر محصولات سانوفی در ایران',
-              en_title: 'Under-licensed manufacturing of Sanofi products in Iran'
+              date: '2021',
+              fa_title: 'جشن هفتاد و پنجمین سالگرد تاسیس داروسازی دکتر عبیدی',
+              en_title: 'Celebrating 75th anniversary'
             },
             {
-              date: '2011',
-              fa_title: 'مدیریت جدید و برنامه های توسعه ای',
-              en_title: 'New management and Development Programs'
-            },
-            {
-              date: '2015',
-              fa_title: 'راه اندازی سایت تولید بیماری های خاص (همکاری با سینتون)',
-              en_title: 'Establishment of special disease manufacturing site (Collaboration with Synthon)'
-            },
-            {
-              date: '2017',
-              fa_title: ' اخذ تاییدیه AstraZeneca و Novartis برای ساخت بدون مجوز در ایران',
-              en_title: 'Obtaining AstraZeneca and Novartis approval for under-licensed manufacturing in Iran'
+              date: '2020',
+              fa_title: 'راه اندازی خط بسته بندی جدید',
+              en_title: 'New packaging line establishment'
             },
             {
               date: '2019',
@@ -345,21 +329,45 @@ export default {
               fa_title: 'اخذ گواهینامه شرکت دانش بنیان',
               en_title: 'Obtaining Knowledge-Based Company Certificate'
             },
-            { date: '2020', fa_title: 'راه اندازی خط بسته بندی جدید', en_title: 'New packaging line establishment' },
             {
-              date: '2021',
-              fa_title: 'جشن هفتاد و پنجمین سالگرد تاسیس داروسازی دکتر عبیدی',
-              en_title: 'Celebrating 75th anniversary'
+              date: '2017',
+              fa_title: ' اخذ تاییدیه AstraZeneca و Novartis برای ساخت بدون مجوز در ایران',
+              en_title: 'Obtaining AstraZeneca and Novartis approval for under-licensed manufacturing in Iran'
             },
             {
-              date: '2022',
-              fa_title: 'تاسیس سایت صنعتی جدید (سایت 2)',
-              en_title: 'Abidi-2 industrial site establishment'
+              date: '2015',
+              fa_title: 'راه اندازی سایت تولید بیماری های خاص (همکاری با سینتون)',
+              en_title: 'Establishment of special disease manufacturing site (Collaboration with Synthon)'
             },
             {
-              date: '2023',
-              fa_title: 'خرید شرکت داروسازی بهوازان',
-              en_title: 'Acquisition of Behvazan Pharmaceuticals'
+              date: '2011',
+              fa_title: 'مدیریت جدید و برنامه های توسعه ای',
+              en_title: 'New management and Development Programs'
+            },
+            {
+              date: '2009',
+              fa_title: 'تولید تحت نظر محصولات سانوفی در ایران',
+              en_title: 'Under-licensed manufacturing of Sanofi products in Iran'
+            },
+            {
+              date: '2008',
+              fa_title: 'ورود کوبل دارو',
+              en_title: 'Cobel Darou Entrance'
+            },
+            {
+              date: '2006',
+              fa_title: 'اخذ مجوز آزمایشگاه آکرودیت',
+              en_title: 'Obtaining the Acrodite Laboratory License'
+            },
+            {
+              date: '1958',
+              fa_title: 'اخذ اولین مجوز تولید دارو',
+              en_title: 'Acquisition of the first Pharma production license'
+            },
+            {
+              date: '1946',
+              fa_title: 'تاسیس آزمایشگاه داروسازی دکتر عبیدی',
+              en_title: 'Establishment of Dr. Abidi Pharmaceutical Laboratory'
             }
           ]
         },
@@ -375,21 +383,60 @@ export default {
           fa_description:
             'کوبل دارو یک شرکت دارویی خصوصی پیشرو است که در سال ۲۰۰۲ تاسیس شد. فعالیت های اصلی کوبل دارو شامل ثبت، واردات، تولید، توزیع و فروش و بازاریابی است.',
           children: [
-            { date: '2009', fa_title: 'تأسیس آدوراطب', en_title: 'Establishment of Adorateb' },
             {
-              date: '2011',
-              fa_title: 'راه اندازی 24 شعبه در ایران و ایجاد دسترسی و پوشش وسیع داروخانه ها',
-              en_title: 'Establishment of 24branches in Iran and achieving a wide pharmacies coverage'
+              date: '2023',
+              fa_title: 'توسعه همکاری با نستله برای توزیع کل مجموعه در سراسر کشور',
+              en_title: 'Developing collaboration with Nestle on distributing the whole portfolio nationwide'
             },
             {
-              date: '2014',
-              fa_title: 'دریافت اولین گواهینامه ISO از TUV NORD',
-              en_title: '1ST ISO certification from TUV NORD'
+              date: '2022',
+              fa_title: 'ساخت و افتتاح شعبه اختصاصی اهواز',
+              en_title: 'Construction and opening of Ahvaz proprietary branch'
             },
             {
-              date: '2015',
-              fa_title: 'تبدیل کردن 5 شعبه خارج از آدورا به شعب های داخلی و جزو این شرکت ',
-              en_title: 'Internalizing 5 out sourced branches to Adorateb owned branches'
+              date: '2022',
+              fa_title: 'دریافت جوایز تعالی مدیریت مالی در Nestle MENA',
+              en_title: 'Financial management excellence awards in Nestle MENA '
+            },
+            {
+              date: '2021',
+              fa_title: 'مالکیت ناوگان توسعه توسط 90٪ ناوگان داخلی',
+              en_title: 'Development fleet ownership by 90% inhouse fleet'
+            },
+            {
+              date: '2020',
+              fa_title: 'افتتاح شعبه زاهدان برای حمایت از مناطق محروم',
+              en_title: 'Opening Zahedan branch for supporting deprived area'
+            },
+            {
+              date: '2019',
+              fa_title: 'راه اندازی سیستم ردیابی UID برای اولین بار در صنعت توزیع دارو',
+              en_title: 'Launching UID tracking system for the 1st time in pharma distribution industry '
+            },
+            {
+              date: '2019',
+              fa_title: 'کسب رکورد بالای ۸۸ درصدی سهم فروش محصولات دکتر عبیدی',
+              en_title: 'Achieving a high record on Abidi sales share of 88%'
+            },
+            {
+              date: '2019',
+              fa_title: 'راه اندازی پروژه "آرمان" برای افزایش جریان نقدی گروه کوبل',
+              en_title: 'Launching ARMAN project boosting group’s cash flow'
+            },
+            {
+              date: '2019',
+              fa_title: 'همکاری تجاری با نستله در تهران و برند SMA در سراسر کشور',
+              en_title: 'Business Collaboration with Nestle in Tehran and SMA brand nationwide'
+            },
+            {
+              date: '2018',
+              fa_title: 'ساخت و افتتاح شعبه اختصاصی رشت',
+              en_title: 'Construction and opening of Rasht proprietary branch'
+            },
+            {
+              date: '2017',
+              fa_title: 'راه اندازی یک مدل اعتباری نوآورانه برای مدیریت ریسک های مالی',
+              en_title: 'Launching an innovative credit model for managing financial risks'
             },
             {
               date: '2016',
@@ -399,59 +446,24 @@ export default {
                 'Optimizing Adorateb portfolio by canceling collaboration with out-of-the-group suppliers with the aim of implementing focus strategy'
             },
             {
-              date: '2017',
-              fa_title: 'راه اندازی یک مدل اعتباری نوآورانه برای مدیریت ریسک های مالی',
-              en_title: 'Launching an innovative credit model for managing financial risks'
+              date: '2015',
+              fa_title: 'تبدیل کردن 5 شعبه خارج از آدورا به شعب های داخلی و جزو این شرکت ',
+              en_title: 'Internalizing 5 out sourced branches to Adorateb owned branches'
             },
             {
-              date: '2018',
-              fa_title: 'ساخت و افتتاح شعبه اختصاصی رشت',
-              en_title: 'Construction and opening of Rasht proprietary branch'
+              date: '2014',
+              fa_title: 'دریافت اولین گواهینامه ISO از TUV NORD',
+              en_title: '1ST ISO certification from TUV NORD'
             },
             {
-              date: '2019',
-              fa_title: 'همکاری تجاری با نستله در تهران و برند SMA در سراسر کشور',
-              en_title: 'Business Collaboration with Nestle in Tehran and SMA brand nationwide'
+              date: '2011',
+              fa_title: 'راه اندازی 24 شعبه در ایران و ایجاد دسترسی و پوشش وسیع داروخانه ها',
+              en_title: 'Establishment of 24 branches in Iran and achieving a wide pharmacies coverage'
             },
             {
-              date: '2019',
-              fa_title: 'راه اندازی پروژه "آرمان" برای افزایش جریان نقدی گروه کوبل',
-              en_title: 'Launching ARMAN project boosting group’s cash flow'
-            },
-            {
-              date: '2019',
-              fa_title: 'کسب رکورد بالای ۸۸ درصدی سهم فروش محصولات دکتر عبیدی',
-              en_title: 'Achieving a high record on Abidi sales share of 88%'
-            },
-            {
-              date: '2019',
-              fa_title: 'راه اندازی سیستم ردیابی UID برای اولین بار در صنعت توزیع دارو',
-              en_title: 'Launching UID tracking system for the 1st time in pharma distribution industry '
-            },
-            {
-              date: '2020',
-              fa_title: 'افتتاح شعبه زاهدان برای حمایت از مناطق محروم',
-              en_title: 'Opening Zahedan branch for supporting deprived area'
-            },
-            {
-              date: '2021',
-              fa_title: 'مالکیت ناوگان توسعه توسط 90٪ ناوگان داخلی',
-              en_title: 'Development fleet ownership by 90% inhouse fleet'
-            },
-            {
-              date: '2022',
-              fa_title: 'دریافت جوایز تعالی مدیریت مالی در Nestle MENA',
-              en_title: 'Financial management excellence awards in Nestle MENA '
-            },
-            {
-              date: '2022',
-              fa_title: 'ساخت و افتتاح شعبه اختصاصی اهواز',
-              en_title: 'Construction and opening of Ahvaz proprietary branch'
-            },
-            {
-              date: '2023',
-              fa_title: 'توسعه همکاری با نستله برای توزیع کل مجموعه در سراسر کشور',
-              en_title: 'Developing collaboration with Nestle on distributing the whole portfolio nationwide'
+              date: '2009',
+              fa_title: 'تأسیس آدوراطب',
+              en_title: 'Establishment of Adorateb'
             }
           ]
         }

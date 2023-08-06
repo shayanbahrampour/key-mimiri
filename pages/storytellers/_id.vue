@@ -194,17 +194,16 @@
                   'mb-0 text--darken-0',
                   isRTL
                     ? isMobile
-                      ? 'mt-2 f-24 cobelgrey--text text-center ravi'
+                      ? 'mt-2 mb-8 f-24 cobelgrey--text text-center ravi'
                       : 'f-20 font-weight-light ravi'
                     : isMobile
-                    ? 'mt-2 f-20 cobelgrey--text text-center font-weight-light'
+                    ? 'mt-2 mb-8 f-20 cobelgrey--text text-center font-weight-light'
                     : 'f-20 font-weight-light'
                 ]"
                 style="color: #939393"
               >
                 {{ isRTL ? items[0].fa_position : items[0].en_position }}
               </p>
-              <v-divider v-if="isMobile" class="my-4" style="background-color: #00a59b; width: 350px"></v-divider>
             </div>
           </div>
           <v-divider class="mx-4" color="#00a59b" vertical></v-divider>
@@ -220,7 +219,15 @@
                 v-if="!seeMore.first"
                 :class="['f-22 text-center mt-0 mb-0 mx-8', isRTL ? 'font-weight-bold mb-2' : ' font-weight-light']"
                 style="line-height: 30px"
-                v-html="isRTL ? items[0].fa_body.slice(0, 100) + '...' : items[0].en_body.slice(0, 100) + '...'"
+                v-html="
+                  isRTL
+                    ? items[0].fa_body
+                      ? items[0].fa_body.slice(0, 100) + '...'
+                      : ''
+                    : items[0].en_body
+                    ? items[0].en_body.slice(0, 100) + '...'
+                    : ''
+                "
               />
 
               <v-expansion-panel-content class="text-center">
@@ -243,6 +250,7 @@
               </v-expansion-panel-header>
             </v-expansion-panel>
           </v-expansion-panels>
+          <v-divider v-if="isMobile" class="mt-4" style="background-color: #00a59b; width: 350px"></v-divider>
         </v-card>
         <v-card
           v-if="items[1]"
@@ -273,17 +281,16 @@
                   'mb-0 text--darken-0',
                   isRTL
                     ? isMobile
-                      ? 'mt-2 f-24 cobelgrey--text text-center ravi'
+                      ? 'mt-2 mb-8 f-24 cobelgrey--text text-center ravi'
                       : 'f-20 font-weight-light ravi'
                     : isMobile
-                    ? 'mt-2 f-20 cobelgrey--text text-center font-weight-light'
+                    ? 'mt-2 mb-8 f-20 cobelgrey--text text-center font-weight-light'
                     : 'f-20 font-weight-light'
                 ]"
                 style="color: #939393"
               >
                 {{ isRTL ? items[1].fa_position : items[1].en_position }}
               </p>
-              <v-divider v-if="isMobile" class="my-4" style="background-color: #00a59b; width: 350px"></v-divider>
             </div>
           </div>
           <v-divider class="mx-4" color="#00a59b" vertical></v-divider>
@@ -299,7 +306,15 @@
                 v-if="!seeMore.second"
                 :class="['f-22 text-center mt-0 mb-0 mx-8', isRTL ? 'font-weight-bold mb-2' : ' font-weight-light']"
                 style="line-height: 30px"
-                v-html="isRTL ? items[1].fa_body.slice(0, 100) + '...' : items[1].en_body.slice(0, 100) + '...'"
+                v-html="
+                  isRTL
+                    ? items[1].fa_body
+                      ? items[1].fa_body.slice(0, 100) + '...'
+                      : ''
+                    : items[1].en_body
+                    ? items[1].en_body.slice(0, 100) + '...'
+                    : ''
+                "
               />
               <v-expansion-panel-content class="text-center">
                 <p
@@ -435,6 +450,7 @@ export default {
       return `${this.$imageUrl}/${mainImage.url}`;
     },
     summaryValue(content) {
+      if (!content) return '';
       const pTagPattern = /<\/?p[^>]*>/g;
       const contentWithoutPTags = content.replace(pTagPattern, '');
       return contentWithoutPTags;

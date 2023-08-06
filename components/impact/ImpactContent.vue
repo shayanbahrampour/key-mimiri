@@ -50,12 +50,15 @@
               isRTL ? 'f-14' : 'f-13'
             ]"
           >
-            <div class="d-flex align-center grey--text text--darken-2 py-1 text-no-wrap pe-5">
+            <div v-if="item.read_time" class="d-flex align-center grey--text text--darken-2 py-1 text-no-wrap pe-5">
               <span v-if="!isMobile"> {{ $t('impactPage.read_time') }}: </span>
               <v-img v-else contain height="20" max-width="20" src="/images/icons/timer.svg" />
               <span :class="`ms-2 d-inline-block`"> {{ item.read_time }} {{ isRTL ? 'دقیقه' : 'min' }} </span>
             </div>
-            <div class="d-flex align-center grey--text text--darken-2 py-1 text-no-wrap pe-5">
+            <div
+              v-if="item[`${$i18n.locale}_author`]"
+              class="d-flex align-center grey--text text--darken-2 py-1 text-no-wrap pe-5"
+            >
               <span v-if="!isMobile"> {{ $t('impactPage.written_by') }}: </span>
               <v-img v-else contain height="20" max-width="20" src="/images/icons/written.svg" />
               <span :class="`ms-2 d-inline-block`"> {{ item[`${$i18n.locale}_author`] }} </span>

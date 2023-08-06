@@ -10,10 +10,10 @@
     <v-card
       :class="[
         'white--text pointer align-center flex-grow-1',
-        isMobile ? 'text-center' : 'd-flex',
+        isMobile ? 'text-center' : 'd-flex overflow-hidden',
         summary && !isMobile ? 'px-8 pb-8 pt-6' : isMobile ? 'text-center py-8 px-4' : 'text-center px-16 py-8'
       ]"
-      :min-height="isMobile ? 90 : 80"
+      :height="isMobile ? 90 : 100"
       color="transparent"
       flat
     >

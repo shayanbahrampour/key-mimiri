@@ -50,7 +50,6 @@
               >
                 {{ isRTL ? item.fa_position : item.en_position }}
               </p>
-              <v-divider v-if="isMobile" class="mt-2 mb-6" style="background-color: #00a59b; width: 350px"></v-divider>
             </div>
           </div>
           <v-divider class="mx-4" color="#00a59b" vertical></v-divider>
@@ -72,6 +71,7 @@
               isRTL ? 'بیشتر ببینید' : 'see more'
             }}</span>
           </div>
+          <v-divider v-if="isMobile" class="mt-6" style="background-color: #00a59b; width: 350px"></v-divider>
         </div>
       </v-card>
     </div>
