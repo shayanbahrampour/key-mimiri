@@ -81,7 +81,7 @@
                   :width="isMobile ? 190 : 250"
                   class="white me-5 flex-shrink-0 position-relative z-1 transition-ease-in-out d-flex align-center justify-center ps-2"
                 >
-                  <v-img :height="isMobile ? 300 : 400" :src="`/images/timeline/${item.logo}`" />
+                  <v-img contain :height="item.logoHeight" :src="`/images/timeline/${item.logo}`" />
                 </v-sheet>
 
                 <v-spacer />
@@ -106,12 +106,12 @@
                 </div>
               </div>
             </v-expansion-panel-header>
-            <v-expansion-panel-content :class="isRTL ? 'anjoman font-weight-bold' : ''">
+            <v-expansion-panel-content :class="[isRTL & 'anjoman font-weight-bold', 'mt-8']">
               <v-timeline :class="['pt-0 ms-n3']" :style="`color: ${item.color}`" align-top dense>
                 <v-timeline-item hide-dot>
                   <p
                     :class="[
-                      'pt-3',
+                      item.logoHeight > 75 ? 'pt-5' : 'pt-3',
                       isRTL ? 'font-weight-bold' : 'font-weight-light',
                       isMobile ? 'mt-4 ps-5' : 'ps-2',
                       isMobile ? (isRTL ? 'f-16' : 'f-22') : 'f-22'
@@ -175,12 +175,13 @@ export default {
         {
           en_title: 'Cobel Darou',
           logo: 'cobel.png',
+          logoHeight: 120,
           fa_title: 'کوبل دارو',
           color: '#f3b393',
           active: '#e86726',
           date: '2001',
-          en_description:
-            'Cobel Darou is a leading private pharmaceutical company founded in 2002. Cobel Darous core activities encompass pharmaceutical registration, importation and sales & marketing of multinational brands',
+          en_description: `
+          Cobel Darou is a leading private pharmaceutical company founded in 2002. Cobel Darou's core activities encompass pharmaceutical registration, importation and sales & marketing of multinational brands`,
           fa_description:
             'کوبل دارو یک شرکت دارویی خصوصی پیشرو است که در سال 2002 تاسیس شد. فعالیت های اصلی کوبل دارو شامل ثبت دارو، تامین و واردات و فروش و بازاریابی برندهای چند ملیتی است.',
           children: [
@@ -291,6 +292,7 @@ export default {
           en_title: 'Dr. Abidi Pharmaceuticals',
           fa_title: 'داروسازی دکتر عابدی',
           logo: 'abidi.png',
+          logoHeight: 75,
           en_description:
             'Dr. Abidi Pharmaceutical, is a leading private company founded in 1946. It’s core activities encompass manufacturing 84 local brands, treating 4.5+ non-communicable diseases across 14 areas, with significant industrial development and extensive promotional structure',
           fa_description:
@@ -375,6 +377,7 @@ export default {
           en_title: 'Adorateb',
           fa_title: 'شرکت پخش دارو آدوراطب',
           logo: 'adorateb.png',
+          logoHeight: 75,
           color: '#80cbb8',
           active: '#069f99',
           date: '2009',
@@ -560,9 +563,9 @@ export default {
     }
 
     &::before {
-      top: -70px;
+      top: 0;
       z-index: 0;
-      height: calc(100% + 30px);
+      height: calc(100%);
     }
   }
 
