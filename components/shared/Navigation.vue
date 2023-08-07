@@ -69,8 +69,7 @@
                   v-on="on"
                 >
                   {{ $t(item.title) }}
-                  <v-icon v-if="!flag.showDropdown">mdi-chevron-down</v-icon>
-                  <v-icon v-else>mdi-chevron-up</v-icon>
+                  <v-icon>mdi-chevron-down</v-icon>
                 </v-btn>
               </template>
               <v-list class="cobelgrey pa-0">
@@ -139,13 +138,32 @@
           :to="item.path && item.title !== 'menu.empowerment' ? localePath(item.path) : undefined"
           color="slategrey"
           exact
+          :elevation="item.title === 'menu.empowerment' && flag.expandMenu ? 20 : undefined"
           flat
           link
           :style="`${`opacity:${
-            item.title === 'menu.education' || item.title === 'menu.impact_stories' || item.title === 'menu.innovation'
+            item.title === 'menu.education' ||
+            item.title === 'menu.impact_stories' ||
+            item.title === 'menu.innovation' ||
+            (item.title === 'menu.empowerment' && flag.expandMenu)
               ? '1'
               : '0.91'
-          }`}; margin-bottom: 2px`"
+          }`}; margin-bottom: ${
+            (item.title === 'menu.empowerment' ||
+              item.title === 'menu.impact_stories' ||
+              item.title === 'menu.innovation') &&
+            flag.expandMenu
+              ? '0'
+              : '2'
+          }px;border-bottom: ${
+            item.title === 'menu.impact_stories' || item.title === 'menu.innovation'
+              ? '2px solid grey !important'
+              : undefined
+          }; box-shadow: ${
+            item.title === 'menu.empowerment' && flag.expandMenu
+              ? '0px 4px 10px 0px rgba(0, 0, 0, 0.3) !important'
+              : undefined
+          }; z-index: ${item.title === 'menu.empowerment' && flag.expandMenu ? '1 !important' : undefined}`"
           tile
           @click="item.title === 'menu.empowerment' ? (flag.expandMenu = !flag.expandMenu) : (flag.showDrawer = false)"
         >
@@ -197,7 +215,7 @@ export default {
     },
     dropdown() {
       return [
-        { title: 'menu.impact_stories', path: '/impact' },
+        { title: 'menu.impact_stories', path: '/impact-stories' },
         { title: 'menu.innovation', path: undefined },
         { title: 'menu.education', path: undefined }
       ];
@@ -207,7 +225,7 @@ export default {
         { title: 'menu.home', path: '/' },
         { title: 'menu.point_of_view', path: 'video' },
         { title: 'menu.empowerment', path: '/' },
-        { title: 'menu.impact_stories', path: '/impact' },
+        { title: 'menu.impact_stories', path: '/impact-stories' },
         { title: 'menu.innovation', path: undefined },
         { title: 'menu.education', path: undefined },
         { title: 'menu.people_careers', path: '/PeopleAndCareer' },

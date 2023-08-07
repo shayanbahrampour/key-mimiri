@@ -219,7 +219,7 @@
             <v-spacer />
             <nuxt-link
               :class="['text-decoration-none f-18', isRTL && 'anjoman font-weight-bold']"
-              :to="localePath('/impact')"
+              :to="localePath('/impact-stories')"
               style="color: #939393 !important"
             >
               {{ $t('impactPage.see_all') }}

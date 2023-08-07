@@ -163,7 +163,7 @@ export default {
           title: 'footer.title.navigation',
           children: [
             { title: 'footer.links.point_of_view', to: 'video' },
-            { title: 'footer.links.impact_stories', to: '/impact' },
+            { title: 'footer.links.impact_stories', to: '/impact-stories' },
             { title: 'footer.links.press_center', to: '/PressCenter' },
             { title: 'footer.links.people_careers', to: '/PeopleAndCareer' },
             { title: 'footer.links.storytellers', to: '/storytellers' },

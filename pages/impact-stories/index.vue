@@ -115,7 +115,7 @@ export default {
           const image = item.files.find((img) => img.type === 'column_section_file');
 
           return {
-            link: `/impact/${item.id}`,
+            link: `/impact-stories/${item.id}`,
             src: `${this.$imageUrl}/${image.url}` || '',
             title: item[`${this.$i18n.locale}_title`],
             description: item[`${this.$i18n.locale}_summary`]

@@ -1,7 +1,7 @@
 <template>
   <v-card
     v-intersect.once="lastCard ? { handler: onIntersect, options: { threshold: [0, 0.5, 1.0] } } : {}"
-    :to="localePath(`/impact/${item.id}`)"
+    :to="localePath(`/impact-stories/${item.id}`)"
     class="overflow-hidden custom-card h-full custom-card-container d-flex flex-column"
     color="slategrey"
     flat
