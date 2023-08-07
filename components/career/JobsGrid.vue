@@ -21,7 +21,7 @@
             <div class="d-flex align-center mt-6">
               <v-btn
                 :class="['rounded-xl d-flex justify-center white--text f-18', isRTL ? 'font-weight-bold' : undefined]"
-                :to="localePath(`/career/${item.id}`)"
+                :to="localePath(`/PeopleAndCareer/${item.id}`)"
                 color="slategrey"
                 elevation="0"
                 height="36"
@@ -58,7 +58,7 @@
         <v-img :src="src(item)" max-height="60" width="120" />
         <v-btn
           :class="['rounded-xl d-flex justify-center white--text f-20 mt-6', isRTL ? 'font-weight-bold' : undefined]"
-          :to="localePath(`/career/${item.id}`)"
+          :to="localePath(`/PeopleAndCareer/${item.id}`)"
           color="slategrey"
           elevation="0"
           height="50"

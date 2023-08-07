@@ -13,7 +13,7 @@
           ]"
           :style="`color:${content.color};`"
         >
-          <nuxt-link :to="content.path" class="text-decoration-none" style="color: inherit">
+          <nuxt-link to="" class="text-decoration-none" style="color: inherit">
             {{ $t(content.title) }}
           </nuxt-link>
         </h3>

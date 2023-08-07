@@ -39,7 +39,7 @@
               'rounded-xl d-flex justify-center white--text font-weight-regular f-18 mt-10 mb-8',
               isRTL ? 'ravi' : undefined
             ]"
-            :to="localePath(`/career/forum?job=${true}`)"
+            :to="localePath(`/PeopleAndCareer/forum?job=${true}`)"
             color="#A01E64"
             elevation="0"
             height="50"
@@ -70,7 +70,7 @@
             'rounded-xl d-flex justify-center white--text font-weight-regular f-20 mb-2 mt-2',
             isRTL ? 'ravi' : undefined
           ]"
-          :to="localePath(`/career/forum?job=${true}`)"
+          :to="localePath(`/PeopleAndCareer/forum?job=${true}`)"
           color="#A01E64"
           elevation="0"
           height="50"

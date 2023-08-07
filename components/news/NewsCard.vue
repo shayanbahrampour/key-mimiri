@@ -159,7 +159,7 @@ export default {
   methods: {
     src(index) {
       if (!index && !index.files.length) return '';
-      if (this.path === 'news') {
+      if (this.path === 'PressCenter') {
         const mainImage = index.files.find((item) => item.type === 'column_section_file');
         if (!mainImage) return '';
         return `${this.$imageUrl}/${mainImage.url}`;

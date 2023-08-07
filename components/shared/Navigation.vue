@@ -189,9 +189,9 @@ export default {
         { title: 'menu.home', path: '/' },
         { title: 'menu.point_of_view', path: 'video' },
         { title: 'menu.empowerment', path: '/' },
-        { title: 'menu.people_careers', path: '/career' },
+        { title: 'menu.people_careers', path: '/PeopleAndCareer' },
         { title: 'menu.companies', path: '/ourcompanies' },
-        { title: 'menu.press', path: '/news' },
+        { title: 'menu.press', path: '/PressCenter' },
         { title: 'menu.contact_us', path: '/contact' }
       ];
     },
@@ -210,9 +210,9 @@ export default {
         { title: 'menu.impact_stories', path: '/impact' },
         { title: 'menu.innovation', path: undefined },
         { title: 'menu.education', path: undefined },
-        { title: 'menu.people_careers', path: '/career' },
+        { title: 'menu.people_careers', path: '/PeopleAndCareer' },
         { title: 'menu.companies', path: '/ourcompanies' },
-        { title: 'menu.press', path: '/news' },
+        { title: 'menu.press', path: '/PressCenter' },
         { title: 'menu.contact_us', path: '/contact' }
       ];
     }

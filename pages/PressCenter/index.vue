@@ -10,14 +10,14 @@
         class="mb-16 mx-6"
         @select="getData($event)"
       />
-      <NewsCard v-if="!loading" :items="news" class="mx-6" path="news" />
+      <NewsCard v-if="!loading" :items="news" class="mx-6" path="PressCenter" />
     </v-sheet>
     <NewsCard
       v-else-if="isMobile && !loading"
       :items="news"
       :title="isRTL ? 'مهمترین ها' : 'More important'"
       class="mt-10"
-      path="news"
+      path="PressCenter"
     />
     <SkeletonLoaderCard v-if="loading" />
   </div>

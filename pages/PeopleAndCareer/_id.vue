@@ -105,7 +105,6 @@ export default {
     try {
       const { data } = await this.$store.dispatch('career/getJobPositions');
       this.item = data.find((item) => Number(item.id) === Number(this.$route.params.id));
-      console.log(this.item);
     } catch (e) {
       console.log(e);
     }

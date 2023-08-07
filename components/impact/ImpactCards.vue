@@ -56,11 +56,11 @@ export default {
   computed: {
     title() {
       if (!this.item) return '';
-      return this.item[`${this.$i18n.locale}_title`];
+      return this.item[`${this.$i18n.locale}_brief_title`];
     },
     summary() {
       if (!this.item || !this.showSummary) return '';
-      return this.item[`${this.$i18n.locale}_summary`];
+      return this.item[`${this.$i18n.locale}_brief_desc`];
     },
     src() {
       if (!this.item && this.item.files.length) return '';

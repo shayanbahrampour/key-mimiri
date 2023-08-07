@@ -205,7 +205,7 @@
             isRTL ? 'ravi' : undefined
           ]"
           :min-width="!isMobile ? '300' : '80%'"
-          :to="localePath('/career/forum')"
+          :to="localePath('/PeopleAndCareer/forum')"
           color="#A01E64"
           elevation="0"
           height="40"

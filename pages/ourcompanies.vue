@@ -78,10 +78,10 @@
                 <v-sheet
                   :color="expanded === i ? item.active : item.color"
                   :height="isMobile ? 60 : 76"
-                  :width="isMobile ? 190 : 190"
+                  :width="isMobile ? 190 : 250"
                   class="white me-5 flex-shrink-0 position-relative z-1 transition-ease-in-out d-flex align-center justify-center ps-2"
                 >
-                  <v-img height="300" :src="`/images/timeline/${item.logo}`" />
+                  <v-img :height="isMobile ? 300 : 400" :src="`/images/timeline/${item.logo}`" />
                 </v-sheet>
 
                 <v-spacer />

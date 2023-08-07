@@ -14,7 +14,7 @@
               src="/images/logo-text-white.svg"
             />
           </div>
-          <v-row v-if="!isMobile" class="justify-center">
+          <v-row v-if="!isMobile" class="justify-space-between">
             <v-col v-for="(item, index) in items" :key="index" cols="12" lg="2" order="2" sm="6">
               <h4 class="mb-3 f-15 text-start font-weight-regular pb-2 footer-title">
                 <span :class="{ 'font-weight-bold': isRTL }">{{ $t(item.title) }}</span>
@@ -164,29 +164,24 @@ export default {
           children: [
             { title: 'footer.links.point_of_view', to: 'video' },
             { title: 'footer.links.impact_stories', to: '/impact' },
-            { title: 'footer.links.education', to: '/EducationAndEmpowerment' },
-            { title: 'footer.links.people_careers', to: '/career' },
-            { title: 'footer.links.press_center', to: '/news' },
+            { title: 'footer.links.press_center', to: '/PressCenter' },
+            { title: 'footer.links.people_careers', to: '/PeopleAndCareer' },
             { title: 'footer.links.storytellers', to: '/storytellers' },
             { title: 'footer.links.timeline', to: '/ourcompanies' }
           ]
         },
         {
           title: 'footer.title.life',
-          children: [
-            { title: 'footer.links.life_at_cobel_group', to: '/career' },
-            { title: 'footer.links.careers', to: '/career' },
-            { title: 'footer.links.talent_pool', to: '/career' }
-          ]
+          children: [{ title: 'footer.links.talent_pool', to: '/PeopleAndCareer' }]
         },
-        {
-          title: 'footer.title.HRQoL',
-          children: [
-            { title: 'footer.links.physical_health', to: '/physical' },
-            { title: 'footer.links.psychological_health', to: '/psychological' },
-            { title: 'footer.links.social_health', to: '/social' }
-          ]
-        },
+        // {
+        //   title: 'footer.title.HRQoL',
+        //   children: [
+        //     { title: 'footer.links.physical_health', to: '/physical' },
+        //     { title: 'footer.links.psychological_health', to: '/psychological' },
+        //     { title: 'footer.links.social_health', to: '/social' }
+        //   ]
+        // },
         {
           title: 'footer.title.talk_to_us',
           children: [
