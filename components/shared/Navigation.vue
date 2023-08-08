@@ -254,7 +254,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .appbar.v-app-bar {
   &.v-app-bar--is-scrolled {
     transform: none !important;

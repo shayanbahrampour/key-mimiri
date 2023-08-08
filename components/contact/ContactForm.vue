@@ -114,8 +114,8 @@ export default {
         topic: null,
         description: null
       },
-      items: ['management', 'other'],
-      itemsRTL: ['مدیریت', 'بقیه']
+      items: ['management', 'Health story', 'Comments', 'other'],
+      itemsRTL: ['مدیریت', 'داستان سلامت', 'نظر', 'بقیه']
     };
   },
   methods: {
