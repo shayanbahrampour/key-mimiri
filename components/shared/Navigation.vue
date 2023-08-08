@@ -63,12 +63,14 @@
             <v-menu v-else offset-y rounded="0" v-model="flag.showDropdown" style="top: 80px !important">
               <template v-slot:activator="{ on, attrs }">
                 <v-btn
-                  :class="['text-none bg-transparent ma-0 pe-1', isRTL ? 'font-weight-bold f-16' : 'f-14']"
+                  :class="['text-none bg-transparent ma-0 pa-0', isRTL ? 'font-weight-bold f-16' : 'f-14']"
                   elevation="0"
                   v-bind="attrs"
                   v-on="on"
                 >
-                  {{ $t(item.title) }}
+                  <span :class="['text-none px-0', isRTL ? 'font-weight-bold f-16' : 'f-14']">{{
+                    $t(item.title)
+                  }}</span>
                   <v-icon>mdi-chevron-down</v-icon>
                 </v-btn>
               </template>
