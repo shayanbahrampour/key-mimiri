@@ -47,6 +47,7 @@ export default {
       social_health: 'سلامت اجتماعی',
       contact: 'با ما تماس بگیرید',
       timeline: 'شرکت‌های ما',
+      job_positions: 'فرصت‌‌های شغلی',
       storytellers: 'راویان الهام بخش',
       address: 'میدان آرژانتین، خیابان بخارست، کوچه ۱۳، پلاک ۵'
     },

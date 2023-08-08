@@ -164,15 +164,18 @@ export default {
           children: [
             { title: 'footer.links.point_of_view', to: 'video' },
             { title: 'footer.links.impact_stories', to: '/impact-stories' },
-            { title: 'footer.links.press_center', to: '/PressCenter' },
-            { title: 'footer.links.people_careers', to: '/PeopleAndCareer' },
             { title: 'footer.links.storytellers', to: '/storytellers' },
-            { title: 'footer.links.timeline', to: '/ourcompanies' }
+            { title: 'footer.links.people_careers', to: '/PeopleAndCareer' },
+            { title: 'footer.links.timeline', to: '/ourcompanies' },
+            { title: 'footer.links.press_center', to: '/PressCenter' }
           ]
         },
         {
-          title: 'footer.title.life',
-          children: [{ title: 'footer.links.talent_pool', to: '/PeopleAndCareer' }]
+          title: 'footer.links.people_careers',
+          children: [
+            { title: 'footer.links.talent_pool', to: '/PeopleAndCareer/forum' },
+            { title: 'footer.links.job_positions', to: '/PeopleAndCareer' }
+          ]
         },
         // {
         //   title: 'footer.title.HRQoL',

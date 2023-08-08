@@ -47,6 +47,7 @@ export default {
       social_health: 'Social Health',
       contact: 'Contact Us',
       timeline: 'Our Companies',
+      job_positions: 'Job Positions',
       storytellers: 'Storytellers',
       address: 'No. 5, 13th Alley, Ahmad Ghasir Ave. (Bokharest), Tehran, Iran'
     },
@@ -61,7 +62,7 @@ export default {
     form_title: 'Contact form',
     button: {
       follow: 'Follow us',
-      send: 'SEND FROM',
+      send: 'SEND FORM',
       clear: 'CLEAR'
     },
     fields: {
@@ -73,7 +74,7 @@ export default {
     }
   },
   career: {
-    title: 'People and Careers',
+    title: 'People and Career',
     description_short:
       'In Cobel Group, we intend to provide a dynamic and professional atmosphere for our employees by using below strategies: ',
     description:

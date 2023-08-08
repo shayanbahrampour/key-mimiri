@@ -174,7 +174,7 @@ export default {
       items: [
         {
           en_title: 'Cobel Darou',
-          logo: 'cobel.png',
+          logo: 'cobel.svg',
           logoHeight: 120,
           fa_title: 'کوبل دارو',
           color: '#f3b393',
@@ -291,7 +291,7 @@ export default {
         {
           en_title: 'Dr. Abidi Pharmaceuticals',
           fa_title: 'داروسازی دکتر عابدی',
-          logo: 'abidi.png',
+          logo: 'abidi.svg',
           logoHeight: 75,
           en_description:
             'Dr. Abidi Pharmaceutical, is a leading private company founded in 1946. It’s core activities encompass manufacturing 84 local brands, treating 4.5+ non-communicable diseases across 14 areas, with significant industrial development and extensive promotional structure',
@@ -376,7 +376,7 @@ export default {
         {
           en_title: 'Adorateb',
           fa_title: 'شرکت پخش دارو آدوراطب',
-          logo: 'adorateb.png',
+          logo: 'adorateb.svg',
           logoHeight: 75,
           color: '#80cbb8',
           active: '#069f99',

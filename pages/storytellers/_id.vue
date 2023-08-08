@@ -67,9 +67,16 @@
             isRTL ? 'font-weight-bold mb-1' : 'font-weight-light'
           ]"
           style="line-height: 30px"
-        >
-          {{ isRTL ? textHeader.compactRTL : textHeader.compact }}
-        </p>
+          v-html="
+            isRTL
+              ? item.fa_body
+                ? item.fa_body.slice(0, 100) + '...'
+                : ''
+              : item.en_body
+              ? item.en_body.slice(0, 100) + '...'
+              : ''
+          "
+        />
         <v-expansion-panel-content class="text-center">
           <p
             v-if="seeMore.header"
@@ -79,9 +86,8 @@
               isRTL ? 'font-weight-bold' : 'font-weight-light'
             ]"
             style="line-height: 30px"
-          >
-            {{ textHeader.full }}
-          </p>
+            v-html="isRTL ? item.fa_body : item.en_body"
+          />
         </v-expansion-panel-content>
         <v-expansion-panel-header
           :class="['pa-0 ma-0 white--text justify-center f-20 font-weight-bold bg-transparent', { 'ravi ': isRTL }]"
