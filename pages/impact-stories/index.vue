@@ -117,8 +117,8 @@ export default {
           return {
             link: `/impact-stories/${item.id}`,
             src: `${this.$imageUrl}/${image.url}` || '',
-            title: item[`${this.$i18n.locale}_title`],
-            description: item[`${this.$i18n.locale}_summary`]
+            title: item[`${this.$i18n.locale}_brief_title`],
+            description: item[`${this.$i18n.locale}_brief_desc`]
           };
         });
       } catch (e) {

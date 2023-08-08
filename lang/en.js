@@ -214,7 +214,8 @@ export default {
   },
   storytellersPage: {
     title: 'STORYTELLERS',
-    description: 'Passionate individuals sharing impactful experiences, insights, and stories that inspire and inform',
+    description:
+      'Passionate individuals sharing impactful experiences, insights, and stories about health that inspire and inform',
     single_description:
       'WHO advises that all women in their reproductive ages, whether having Iron deficiency or not, are required to consume 60 mg of iron supplements per week. This amount should be higher in pregnant women and any deficiencies will not only affect themselves, but it also affects their fetus. In addition, Iranian men and menopaused women have a 2 prevalence of Anemia and are also require to manage the disease accordingly (3). Studies conducted by Cobel Group medico-marketing teams indicated',
     single_detail_title:

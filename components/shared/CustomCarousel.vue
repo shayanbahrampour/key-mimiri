@@ -26,7 +26,6 @@
           color="slategrey"
         >
           <h1
-            v-if="title"
             :class="[
               'white--text font-weight-regular text-uppercase position-absolute start-0 text-no-wrap',
               isMobile ? (isRTL ? 'f-40' : 'f-50') : isRTL ? 'f-70' : 'f-70',
