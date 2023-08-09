@@ -97,7 +97,7 @@
                     ]"
                     :color="expanded === i ? '#66869a' : '#ECECEC'"
                     :style="`border-radius: 14px; color: #66869A`"
-                    :width="isMobile ? 70 : 80"
+                    :min-width="isMobile ? 70 : 100"
                   >
                     <span :class="isRTL && 'font-weight-bold anjoman'" :style="isRTL && 'letter-spacing: 1px;'">
                       {{ isRTL ? toPersianDigit(item.date) : item.date }}
@@ -179,7 +179,7 @@ export default {
           fa_title: 'کوبل دارو',
           color: '#f3b393',
           active: '#e86726',
-          date: '2001',
+          date: 'since 2002',
           en_description: `
           Cobel Darou is a leading private pharmaceutical company founded in 2002. Cobel Darou's core activities encompass pharmaceutical registration, importation and sales & marketing of multinational brands`,
           fa_description:
@@ -299,7 +299,7 @@ export default {
             'کوبل دارو یک شرکت دارویی خصوصی پیشرو است که در سال ۲۰۰۲ تاسیس شد. فعالیت های اصلی کوبل دارو شامل ثبت، واردات، تولید، توزیع و فروش و بازاریابی است.',
           color: '#85bedf',
           active: '#0d7dbf',
-          date: '2008',
+          date: 'since 1946',
           children: [
             {
               date: '2023',
@@ -380,7 +380,7 @@ export default {
           logoHeight: 75,
           color: '#80cbb8',
           active: '#069f99',
-          date: '2009',
+          date: 'since 2009',
           en_description:
             'Adorateb is a leading private distribution company founded in 2009. Adorateb is ranked 2nd in private sector and its core activities encompass innovative distributions of medicines and supplements to 15,000+ pharmacies through 26 centers in Iran.',
           fa_description:

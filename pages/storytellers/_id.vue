@@ -187,7 +187,7 @@
             <div :class="['d-flex flex-column justify-center', { 'ms-4': !isMobile }]">
               <p
                 :class="[
-                  'cobelgrey--text mb-0 text--darken-3 storyteller-name-index',
+                  'grey--text text--darken-2 mb-0 storyteller-name-index',
                   isMobile ? 'text-center mt-4 f-32 font-weight-regular' : 'f-42 font-weight-regular',
                   isRTL ? 'ravi mb-2 mr-2' : 'bel'
                 ]"
@@ -274,7 +274,7 @@
             <div :class="['d-flex flex-column justify-center', { 'ms-4': !isMobile }]">
               <p
                 :class="[
-                  'cobelgrey--text mb-0 text--darken-3 storyteller-name-index',
+                  'grey--text text--darken-2 mb-0 storyteller-name-index',
                   isMobile ? 'text-center mt-4 f-32 font-weight-regular' : 'f-42 font-weight-regular',
                   isRTL ? 'ravi mb-2 mr-2' : 'bel'
                 ]"
