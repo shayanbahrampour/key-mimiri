@@ -29,5 +29,8 @@ export const actions = {
   },
   getList({ commit }, { params, id } = {}) {
     return this.$axios.$get(api.impact_story(this.$i18n.locale, id), { params });
+  },
+  getFeatured({ commit }, { params } = {}) {
+    return this.$axios.$get(api.impact_featured(this.$i18n.locale), { params });
   }
 };

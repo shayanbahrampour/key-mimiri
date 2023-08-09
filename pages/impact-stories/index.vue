@@ -110,7 +110,7 @@ export default {
       if (this.featured.length) return;
 
       try {
-        const { data } = await this.$store.dispatch('impact/getList', { id: 'featured', params: { page: 1 } });
+        const { data } = await this.$store.dispatch('impact/getFeatured', { params: { page: 1 } });
         this.featured = data.results.map((item) => {
           const image = item.files.find((img) => img.type === 'column_section_file');
 

@@ -37,11 +37,9 @@
             v-html="isRTL ? item.fa_title : item.en_title"
           ></p>
           <div v-if="!isRTL" class="d-flex justify-space-between mt-4" style="width: 60%">
-            <p class="f-16 mb-0" style="color: #59595b">Read time: {{ item.read_time ? item.read_time : '0' }} min</p>
-            <p class="f-16 mb-0" style="color: #59595b">
-              written by: {{ item.en_author ? item.en_author : undefined }}
-            </p>
-            <p class="f-16 mb-0" style="color: #59595b">
+            <p v-if="item.read_time" class="f-16 mb-0" style="color: #59595b">Read time: {{ item.read_time }} min</p>
+            <p v-if="item.en_author" class="f-16 mb-0" style="color: #59595b">written by: {{ item.en_author }}</p>
+            <p v-if="item.published_at" class="f-16 mb-0" style="color: #59595b">
               Published
               {{
                 item.published_at
@@ -53,11 +51,11 @@
             </p>
           </div>
           <div v-else class="d-flex justify-space-between mt-4 ravi rtl" style="width: 50%">
-            <p class="f-14 mb-0" style="color: #59595b">
-              زمان مطالعه: {{ item.read_time ? item.read_time : '0' }} دقیقه
+            <p v-if="item.read_time" class="f-14 mb-0" style="color: #59595b">
+              زمان مطالعه: {{ item.read_time }} دقیقه
             </p>
-            <p class="f-14 mb-0" style="color: #59595b">نویسنده: {{ item.fa_author ? item.fa_author : undefined }}</p>
-            <p class="f-14 mb-0" style="color: #59595b">
+            <p v-if="item.fa_author" class="f-14 mb-0" style="color: #59595b">نویسنده: {{ item.fa_author }}</p>
+            <p v-if="item.published_at" class="f-14 mb-0" style="color: #59595b">
               منتشر شده:
               {{
                 item.published_at

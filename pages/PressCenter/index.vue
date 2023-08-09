@@ -1,6 +1,6 @@
 <template>
   <div class="pb-16">
-    <NewsCarousel :items="[{ src: '/images/temp/cover-2.png' }]" />
+    <NewsCarousel :items="featured" />
 
     <v-sheet v-if="!isMobile" class="mx-auto px-10 mt-16">
       <NewsCategory
@@ -39,6 +39,7 @@ export default {
       },
       loading: false,
       items: [],
+      featured: [],
       news: []
     };
   },
@@ -53,7 +54,8 @@ export default {
     })
   },
   async fetch() {
-    this.getData();
+    await this.getData();
+    await this.getFeatured();
   },
   methods: {
     async getData(id) {
@@ -78,6 +80,25 @@ export default {
       } catch (e) {
         console.log(e);
         this.loading = false;
+      }
+    },
+    async getFeatured() {
+      if (this.featured.length) return;
+
+      try {
+        const { data } = await this.$store.dispatch('news/getFeatured', { params: { page: 1 } });
+        this.featured = data.results.map((item) => {
+          const image = item.files.find((img) => img.type === 'column_section_file');
+
+          return {
+            link: `/PressCenter/${item.id}`,
+            src: `${this.$imageUrl}/${image.url}` || '',
+            title: item[`${this.$i18n.locale}_title`],
+            description: item[`${this.$i18n.locale}_summary`]
+          };
+        });
+      } catch (e) {
+        console.log(e);
       }
     }
   },
