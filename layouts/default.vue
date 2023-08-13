@@ -10,23 +10,7 @@
       <Footer @changed="showVideo($event)" :status="dialog" />
 
       <v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
-        <client-only>
-          <VideoLoader
-            v-if="src"
-            :options="{
-              autoplay: true,
-              sources: [
-                {
-                  type: 'video/mp4',
-                  src
-                }
-              ]
-            }"
-            class="vjs-theme-sea"
-            @ready="$emit('ready', $event)"
-            @toggleFullscreen="$emit('toggleFullscreen', $event)"
-            @ended="dialog = false"
-          /> </client-only
+        <client-only> <VideoScroll /> </client-only
       ></v-dialog>
     </v-main>
   </v-app>
@@ -36,9 +20,10 @@
 import Footer from '~/components/shared/Footer.vue';
 import Navigation from '~/components/shared/Navigation.vue';
 import VideoLoader from '~/components/shared/VideoLoader';
+import VideoScroll from '~/components/home/VideoScroll.vue';
 
 export default {
-  components: { Footer, Navigation, VideoLoader },
+  components: { Footer, Navigation, VideoLoader, VideoScroll },
   data() {
     return {
       dialog: false,

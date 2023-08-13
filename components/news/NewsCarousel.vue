@@ -42,16 +42,6 @@
                 v-html="activeSlide.description"
               />
               <v-btn
-                :class="['pa-0 ma-0 mt-1 justify-end f-18 font-weight-bold', isRTL ? 'ravi' : 'bel']"
-                color="white"
-                depressed
-                rounded
-                style="text-transform: unset !important"
-                text
-                ><p>{{ isRTL ? 'بیشتر ببینید' : 'see more' }}</p></v-btn
-              >
-
-              <v-btn
                 :class="[
                   'rounded-xl d-flex justify-center f-14 font-weight-regular',
                   isRTL ? 'ravi mt-16 rtl' : ' mt-10'
@@ -62,49 +52,7 @@
                 outlined
                 :to="activeSlide.link"
               >
-                {{ $t('button.register') }}
-              </v-btn>
-            </v-sheet>
-            <v-sheet
-              v-else
-              :class="[`ma-0 rounded-t-xl py-10 px-8 d-flex flex-column align-${isRTL ? 'end' : 'start'} slategrey`]"
-              style="position: relative; z-index: 2; margin-top: -72px !important"
-            >
-              <h4
-                :class="[
-                  'mt-6 text--darken-3 white--text text-start',
-                  isRTL ? 'ravi rtl f-30' : 'bel font-weight-regular f-40'
-                ]"
-                style="max-width: 300px"
-              >
-                {{ activeSlide.title }}
-              </h4>
-              <p
-                :class="[
-                  'mt-6 f-24 white--text text--darken-0 mb-0',
-                  isRTL ? 'text-end font-weight-bold rtl mb-1' : 'font-weight-light'
-                ]"
-                :style="`line-height: ${isRTL ? '30' : undefined}px`"
-              >
-                {{ activeSlide.description }}
-              </p>
-              <v-btn
-                :class="['pa-0 ma-0 mt-1 justify-start font-weight-bold', isRTL ? 'ravi f-20 mt-2' : 'f-24']"
-                color="white"
-                depressed
-                rounded
-                style="text-transform: unset !important"
-                text
-                ><p>{{ isRTL ? 'بیشتر ببینید' : 'see more' }}</p></v-btn
-              >
-              <v-btn
-                :class="['rounded-xl d-flex justify-center f-20 my-6 font-weight-light', { ' ravi rtl pt-1': isRTL }]"
-                color="white"
-                height="40"
-                min-width="100%"
-                outlined
-              >
-                {{ $t('button.register') }}
+                {{ isRTL ? 'بیشتر ببینید' : 'see more' }}
               </v-btn>
             </v-sheet>
           </div>
@@ -153,26 +101,17 @@
             isRTL ? 'text-end font-weight-bold rtl mb-1' : 'font-weight-light'
           ]"
           :style="`line-height: ${isRTL ? '30' : undefined}px`"
-        >
-          {{ activeSlide.description }}
-        </p>
-        <v-btn
-          :class="['pa-0 ma-0 mt-1 justify-start font-weight-bold', isRTL ? 'ravi f-20 mt-2' : 'f-24']"
-          color="white"
-          depressed
-          rounded
-          style="text-transform: unset !important"
-          text
-          ><p>{{ isRTL ? 'بیشتر ببینید' : 'see more' }}</p></v-btn
-        >
+          v-html="activeSlide.description"
+        />
         <v-btn
           :class="['rounded-xl d-flex justify-center f-20 my-6 font-weight-light', { ' ravi rtl pt-1': isRTL }]"
           color="white"
           height="40"
           min-width="100%"
           outlined
+          :to="activeSlide.link"
         >
-          {{ $t('button.register') }}
+          {{ isRTL ? 'بیشتر ببینید' : 'see more' }}
         </v-btn>
       </v-sheet>
     </div>

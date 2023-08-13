@@ -22,15 +22,13 @@ export default {
     };
   },
   async fetch() {
+    this.getRelated();
     try {
       const { data } = await this.$store.dispatch('news/getList', { id: this.$route.params.id });
       this.detail = data;
     } catch (e) {
       console.log(e);
     }
-  },
-  created() {
-    this.getRelated();
   },
   methods: {
     async getRelated() {
