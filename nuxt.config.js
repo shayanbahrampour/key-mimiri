@@ -19,11 +19,14 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' },
-      { name: 'twitter:image', content: '/icon.png' },
       { name: 'format-detection', content: 'telephone=no' },
       { name: 'omsapplication-tap-highlight', content: 'no' },
-      { property: 'HandheldFriendly', content: 'true' },
+      { name: 'og:image', content: '/images/icons/apple-touch-icon.png' },
+      { name: 'twitter:image', content: '/images/icons/apple-touch-icon.png' },
+      { name: 'og:image:secure_url', content: '/images/icons/apple-touch-icon.png' },
+
       { property: 'og:image', content: '/images/icons/apple-touch-icon.png' },
+      { property: 'HandheldFriendly', content: 'true' },
       { property: 'og:type', content: 'website' },
       { property: 'og:name', content: projectName },
       { property: 'og:site_name', content: projectName },
