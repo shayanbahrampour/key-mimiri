@@ -257,10 +257,16 @@ import ImpactCards from '~/components/impact/ImpactCards.vue';
 import HomeTellUsStory from '~/components/home/HomeTellUsStory.vue';
 import CTAContent from '../shared/CTAContent';
 import VideoContents from '~/components/shared/VideoContents.vue';
-import { metaInfo } from 'vue-meta';
-
 export default {
   components: { VideoContents, HomeTellUsStory, ImpactCards, CTAContent },
+  head() {
+    return {
+      meta: [
+        { hid: 'og-title', property: 'og:title', content: 'My Title' },
+        { hid: 'og-desc', property: 'og:description', content: 'This is a sweet post' }
+      ]
+    };
+  },
   props: {
     item: {
       type: Object,
@@ -270,16 +276,6 @@ export default {
       type: Array,
       default: () => []
     }
-  },
-  metaInfo: {
-    title: 'About Us',
-    meta: [
-      {
-        vmid: 'description',
-        name: 'description',
-        content: this.item[`${this.$i18n.locale}_summary`] // Set the description of the content
-      }
-    ]
   },
   data() {
     return {
