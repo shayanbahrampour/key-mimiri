@@ -280,12 +280,27 @@ export default {
       default: () => []
     }
   },
+  head() {
+    return {
+      meta: [...this.meta]
+    };
+  },
   data() {
     return {
       counter: 1
     };
   },
   computed: {
+    meta() {
+      const metaData = {
+        type: 'article',
+        title: this.item[`${this.$i18n.locale}_title`],
+        description: this.item[`${this.$i18n.locale}_summary`],
+        url: `${encodeURIComponent(window.location.href)}`,
+        mainImage: this.cover(this.item)
+      };
+      return getSiteMeta(metaData);
+    },
     swiperOptions() {
       return {
         grabCursor: true,
