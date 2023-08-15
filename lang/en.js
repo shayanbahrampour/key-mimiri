@@ -62,7 +62,7 @@ export default {
     form_title: 'Contact form',
     button: {
       follow: 'Follow us',
-      send: 'SEND FORM',
+      send: 'SEND',
       clear: 'CLEAR'
     },
     fields: {
