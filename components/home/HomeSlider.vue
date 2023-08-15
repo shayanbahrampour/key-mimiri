@@ -9,15 +9,12 @@
       :class="[
         'my-auto right-0 top-0 d-flex align-center position-absolute',
         isMobile ? 'start-0 mx-auto justify-center w-screen' : 'h-screen bottom-0',
-        'z-2'
+        flag.showFullscreen ? 'z-10' : 'z-2'
       ]"
       :style="`${isMobile ? 'top:-250px;' : `top:-${screenHeight < 760 ? 40 : 90}px;right:-360px;`}`"
       color="white"
     >
       <HomeSliderVideo @showFullscreen="flag.showFullscreen = $event" />
-      <v-dialog v-model="flag.showFullscreen" fullscreen hide-overlay transition="dialog-bottom-transition">
-        <client-only> <VideoScroll /> </client-only
-      ></v-dialog>
     </v-sheet>
 
     <v-sheet
@@ -63,7 +60,7 @@
               exact
               large
               rounded
-              @click="!isMobile ? (flag.showFullscreen = !flag.showFullscreen) : undefined"
+              @click="!isMobile ? (dialog = !dialog) : undefined"
             >
               <span class="position-relative" style="top: 1px">
                 {{ isMobile ? $t('homePage.slider.about_cobel_group') : $t('homePage.slider.cobel_group') }}
@@ -97,12 +94,11 @@
 
 <script>
 import VideoLoader from '@/components/shared/VideoLoader';
-import VideoScroll from './VideoScroll';
 import VideoContents from '~/components/shared/VideoContents.vue';
 import HomeSliderVideo from '~/components/home/HomeSliderVideo.vue';
 
 export default {
-  components: { HomeSliderVideo, VideoContents, VideoLoader, VideoScroll },
+  components: { HomeSliderVideo, VideoContents, VideoLoader },
   data() {
     return {
       dialog: false,
