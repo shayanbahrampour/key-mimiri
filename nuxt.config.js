@@ -21,15 +21,26 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' },
       { name: 'format-detection', content: 'telephone=no' },
       { name: 'omsapplication-tap-highlight', content: 'no' },
-      { name: 'og:image', content: '/images/icons/apple-touch-icon.png' },
-      { name: 'twitter:image', content: '/images/icons/apple-touch-icon.png' },
-      { name: 'og:image:secure_url', content: '/images/icons/apple-touch-icon.png' },
 
+      { name: 'twitter:title', content: '' },
+      { name: 'twitter:image', content: '/images/icons/apple-touch-icon.png' },
+      { name: 'twitter:image:alt', content: 'Cobel' },
+      { name: 'twitter:description', content: '' },
+
+      { hid: 'keyword', property: 'keyword', content: '' },
+      { hid: 'description', name: 'description', content: '' },
+      { hid: 'og:title', property: 'og:title', content: '' },
+      { hid: 'og:keyword', property: 'og:keyword', content: '' },
+      { hid: 'og:description', name: 'og:description', content: '' },
+      { name: 'og:image', content: '/images/icons/apple-touch-icon.png' },
+      { name: 'og:image:secure_url', content: '/images/icons/apple-touch-icon.png' },
       { property: 'og:image', content: '/images/icons/apple-touch-icon.png' },
-      { property: 'HandheldFriendly', content: 'true' },
       { property: 'og:type', content: 'website' },
       { property: 'og:name', content: projectName },
       { property: 'og:site_name', content: projectName },
+
+      { property: 'HandheldFriendly', content: 'true' },
+      { property: 'format-detection', content: 'telephone=no' },
 
       // Chrome, Firefox OS and Opera
       { hid: 'themeColor', name: 'theme-color', content: '#000' },
