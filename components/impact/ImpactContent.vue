@@ -261,12 +261,11 @@ export default {
   components: { VideoContents, HomeTellUsStory, ImpactCards, CTAContent },
   head() {
     return {
+      title: this.item[`${this.$i18n.locale}_title`],
       meta: [
-        { hid: 'og-type', property: 'og:type', content: 'website' },
-        { hid: 'og-title', property: 'og:title', content: 'My Title' },
-        { hid: 'og-desc', property: 'og:description', content: 'This is a sweet post' },
-        { hid: 'og-image', property: 'og:image', content: 'https://domain.com/my-image.jpg' },
-        { hid: 'og-url', property: 'og:url', content: `${encodeURIComponent(window.location.href)}` }
+        { hid: 'og:type', property: 'og:type', content: 'article' },
+        { name: 'og:description', content: this.item[`${this.$i18n.locale}_summary`] },
+        { name: 'og:title', content: this.item[`${this.$i18n.locale}_title`] }
       ]
     };
   },
@@ -280,27 +279,12 @@ export default {
       default: () => []
     }
   },
-  head() {
-    return {
-      meta: [...this.meta]
-    };
-  },
   data() {
     return {
       counter: 1
     };
   },
   computed: {
-    meta() {
-      const metaData = {
-        type: 'article',
-        title: this.item[`${this.$i18n.locale}_title`],
-        description: this.item[`${this.$i18n.locale}_summary`],
-        url: `${encodeURIComponent(window.location.href)}`,
-        mainImage: this.cover(this.item)
-      };
-      return getSiteMeta(metaData);
-    },
     swiperOptions() {
       return {
         grabCursor: true,
