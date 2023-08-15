@@ -259,20 +259,16 @@ import CTAContent from '../shared/CTAContent';
 import VideoContents from '~/components/shared/VideoContents.vue';
 export default {
   components: { VideoContents, HomeTellUsStory, ImpactCards, CTAContent },
-  head: {
-    title: 'Home page',
-    meta: [
-      {
-        hid: 'og:title',
-        property: 'og:title',
-        content: 'My Amazing Blog on The Joy of Painting'
-      },
-      {
-        hid: 'og:description',
-        property: 'og:description',
-        content: 'Articles focused on the beautiful art of landscape painting.'
-      }
-    ]
+  head() {
+    return {
+      meta: [
+        { hid: 'og-type', property: 'og:type', content: 'website' },
+        { hid: 'og-title', property: 'og:title', content: 'My Title' },
+        { hid: 'og-desc', property: 'og:description', content: 'This is a sweet post' },
+        { hid: 'og-image', property: 'og:image', content: 'https://domain.com/my-image.jpg' },
+        { hid: 'og-url', property: 'og:url', content: `${encodeURIComponent(window.location.href)}` }
+      ]
+    };
   },
   props: {
     item: {
