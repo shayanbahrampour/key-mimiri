@@ -271,32 +271,17 @@ export default {
       default: () => []
     }
   },
-  metaInfo() {
-    return {
-      title: this.item[`${this.$i18n.locale}_title`],
-      meta: [
-        {
-          vmid: 'description',
-          name: 'description',
-          content: this.item[`${this.$i18n.locale}_summary`]
-        },
-        {
-          vmid: 'og:title',
-          property: 'og:title',
-          content: this.item[`${this.$i18n.locale}_title`]
-        },
-        {
-          vmid: 'og:description',
-          property: 'og:description',
-          content: this.item[`${this.$i18n.locale}_summary`]
-        },
-        {
-          vmid: 'og:image',
-          property: 'og:image',
-          content: this.cover(this.item)
-        }
-      ]
-    };
+  head: {
+    title: 'my website title',
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'my website description'
+      }
+    ]
   },
   data() {
     return {
