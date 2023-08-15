@@ -259,14 +259,6 @@ import CTAContent from '../shared/CTAContent';
 import VideoContents from '~/components/shared/VideoContents.vue';
 export default {
   components: { VideoContents, HomeTellUsStory, ImpactCards, CTAContent },
-  head() {
-    return {
-      meta: [
-        { hid: 'og-title', property: 'og:title', content: 'My Title' },
-        { hid: 'og-desc', property: 'og:description', content: 'This is a sweet post' }
-      ]
-    };
-  },
   props: {
     item: {
       type: Object,

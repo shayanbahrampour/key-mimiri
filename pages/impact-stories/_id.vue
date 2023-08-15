@@ -18,11 +18,7 @@ export default {
   },
   head() {
     return {
-      title: this.$t('pageTitles.impact_stories'),
-      meta: [
-        { hid: 'og-title', property: 'og:title', content: 'My Title' },
-        { hid: 'og-desc', property: 'og:description', content: 'This is a sweet post' }
-      ]
+      title: this.$t('pageTitles.impact_stories')
     };
   },
   async fetch() {
