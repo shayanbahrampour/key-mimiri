@@ -271,7 +271,7 @@ export default {
       height: 56px !important;
     }
     .sheet-container {
-      margin-bottom: 24px !important;
+      margin-bottom: 3vh !important;
     }
 
     .logo-container {

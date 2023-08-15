@@ -32,11 +32,12 @@
       <v-scroll-x-transition hide-on-leave>
         <div
           v-if="flag.showContent"
-          :class="['white--text pe-6 f-20', isRTL ? 'ravi' : 'bel']"
+          :class="['white--text pe-6 f-20', isRTL ? 'ravi' : undefined]"
           style="min-width: 240px"
         >
           <div
             v-if="item[`${$i18n.locale}_body`]"
+            :class="isRTL ? 'ravi' : 'bel'"
             style="max-height: 208px; overflow: hidden; text-overflow: ellipsis"
             v-html="item[`${$i18n.locale}_body`].slice(0, 200) + '...'"
           />
