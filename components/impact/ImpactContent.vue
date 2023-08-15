@@ -259,6 +259,21 @@ import CTAContent from '../shared/CTAContent';
 import VideoContents from '~/components/shared/VideoContents.vue';
 export default {
   components: { VideoContents, HomeTellUsStory, ImpactCards, CTAContent },
+  head: {
+    title: 'Home page',
+    meta: [
+      {
+        hid: 'og:title',
+        property: 'og:title',
+        content: 'My Amazing Blog on The Joy of Painting'
+      },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content: 'Articles focused on the beautiful art of landscape painting.'
+      }
+    ]
+  },
   props: {
     item: {
       type: Object,
