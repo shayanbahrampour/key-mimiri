@@ -164,7 +164,7 @@
             v-if="item[`${$i18n.locale}_body_subtitle`]"
             :class="[
               'font-weight-regular success--text mb-4 text-center text-sm-start',
-              isRTL ? 'ravi' : 'bel',
+              isRTL ? 'ravi rtl' : 'bel',
               { 'mb-8': !isMobile },
               isMobile ? (isRTL ? 'f-30' : 'f-30') : isRTL ? 'f-35' : 'f-45'
             ]"
@@ -175,7 +175,7 @@
             :class="[
               'mb-6 text-pre-line',
               isMobile ? 'f-20' : 'f-25',
-              isRTL ? 'anjoman font-weight-bold' : 'font-weight-light'
+              isRTL ? 'anjoman font-weight-bold text-start rtl' : 'font-weight-light'
             ]"
             :style="`line-height: ${isRTL ? '40px' : '35px'}`"
             v-html="isMobile ? firstParagraph : item[`${$i18n.locale}_body`]"
