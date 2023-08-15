@@ -1,13 +1,5 @@
 <template>
-  <div
-    :class="[
-      'pointer overflow-hidden custom-transition',
-      flag.showFullscreen ? 'z-1' : 'z-10',
-      flag.showFullscreen
-        ? 'black position-fixed h-screen w-screen d-flex align-center justify-center rounded-0 top-0 start-0'
-        : 'z-2 rounded-circle position-relative'
-    ]"
-  >
+  <div :class="['pointer overflow-hidden custom-transition', 'z-10', 'z-2 rounded-circle position-relative']">
     <v-fade-transition>
       <v-btn
         v-if="flag.showFullscreen"
@@ -22,34 +14,28 @@
 
     <v-sheet
       :class="['position-absolute top-0 start-0 z-0']"
-      :height="flag.showFullscreen ? '100vh' : 0"
-      :style="`transition: all ease-in 0.4s; opacity:${flag.showFullscreen ? 1 : 0}`"
-      :width="flag.showFullscreen ? '100vw' : 0"
+      height="0"
+      :style="`transition: all ease-in 0.4s; opacity:0`"
+      :width="0"
       color="black"
-      @touchend="closeFullscreen"
-      @click.prevent="closeFullscreen"
     />
 
-    <div
-      :class="['position-relative z-1', isMobile && 'mx-auto', flag.showFullscreen && 'vjs-fullscreen w-screen h-auto']"
-      @click="openFullscreen"
-      @touchend="openFullscreen"
-    >
+    <div :class="['position-relative z-1', isMobile && 'mx-auto']" @click="openFullscreen" @touchend="openFullscreen">
       <VideoContents
-        :height="!flag.showFullscreen && isMobile ? '370px' : 'calc(100vh - 240px)'"
-        :maxSize="flag.showFullscreen || isMobile ? null : '600px'"
-        :minSize="flag.showFullscreen || isMobile ? null : '500px'"
+        :height="isMobile ? '370px' : 'calc(100vh - 240px)'"
+        :maxSize="isMobile ? null : '600px'"
+        :minSize="isMobile ? null : '500px'"
         :options="{
           loop: true,
           muted: true,
           fluid: true,
+          controls: false,
           autoplay: true,
           fullscreen: false,
-          controls: flag.showFullscreen,
-          aspectRatio: flag.showFullscreen ? '16:9' : '1:1'
+          aspectRatio: '1:1'
         }"
-        :src="flag.showFullscreen ? 'video/home-slider-detail.mp4' : '/video/home-slider.mp4'"
-        :width="flag.showFullscreen ? '100vw' : isMobile ? '370px' : 'calc(100vh - 240px)'"
+        src="/video/home-slider.mp4"
+        :width="isMobile ? '370px' : 'calc(100vh - 240px)'"
         class="my-auto d-flex align-center"
       />
     </div>
@@ -78,19 +64,7 @@ export default {
     }
   },
   methods: {
-    closeFullscreen() {
-      if (!this.flag.showFullscreen) return;
-      if (this.isMobile) {
-        setTimeout(() => {
-          this.flag.showFullscreen = false;
-        }, 300);
-
-        return;
-      }
-      this.flag.showFullscreen = false;
-    },
     openFullscreen() {
-      if (this.flag.showFullscreen) return;
       if (this.isMobile) {
         setTimeout(() => {
           this.flag.showFullscreen = true;
@@ -100,6 +74,7 @@ export default {
       }
 
       this.flag.showFullscreen = true;
+      this.$emit('showFullscreen', true);
     }
   }
 };
