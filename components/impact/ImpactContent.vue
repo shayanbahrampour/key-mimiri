@@ -82,13 +82,13 @@
             {{ $t('impactPage.share_it') }}:
           </h4>
           <div :class="['d-flex', isMobile ? 'mt-2' : 'mt-10 pb-16']">
-            <a :href="item.short_link" class="me-4" rel="noopener noreferrer" target="_blank">
+            <a :href="item.short_link" class="me-4" rel="noopener noreferrer" target="_blank" @click="shareOnLinkedIn">
               <v-img contain height="50" src="/images/social/icon-linkedin.svg" width="50" />
             </a>
-            <a :href="item.short_link" class="me-4" rel="noopener noreferrer" target="_blank">
+            <a :href="item.short_link" class="me-4" rel="noopener noreferrer" target="_blank" @click="shareOnWhatsApp">
               <v-img contain height="50" src="/images/social/icon-whatsapp.svg" width="50" />
             </a>
-            <a :href="item.short_link" class="me-4" rel="noopener noreferrer" target="_blank">
+            <a :href="item.short_link" class="me-4" rel="noopener noreferrer" target="_blank" @click="shareOnTelegram">
               <v-img contain height="50" src="/images/social/icon-telegram.svg" width="50" />
             </a>
           </div>
@@ -339,6 +339,18 @@ export default {
       if (!mainImage) return '';
 
       return `${this.$imageUrl}/${mainImage.url}`;
+    },
+    shareOnWhatsApp() {
+      this.openShareWindow(`https://api.whatsapp.com/send?text=${encodeURIComponent(window.location.href)}`);
+    },
+    shareOnTelegram() {
+      this.openShareWindow(`https://t.me/share/url?url=${encodeURIComponent(window.location.href)}`);
+    },
+    shareOnLinkedIn() {
+      this.openShareWindow(`https://www.linkedin.com/shareArticle?url=${encodeURIComponent(window.location.href)}`);
+    },
+    openShareWindow(url) {
+      window.open(url, '_blank');
     }
   }
 };
