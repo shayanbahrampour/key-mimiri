@@ -9,7 +9,8 @@ export default {
     people_careers: 'People & Career',
     companies: 'Our Companies',
     press: 'Press Center',
-    contact_us: 'Contact Us'
+    contact_us: 'Contact Us',
+    storytellers: 'Storytellers'
   },
   pageTitles: {
     physical: 'Physical Health',
@@ -92,9 +93,8 @@ export default {
       'Who advises that all women in their reproductive ages, whether having Iron deficiency or not, are required to supplements per week.',
     job_action: 'APPLY NOW',
     panel_text: {
-      full: 'In Cobel Group, we intend to provide a dynamic and professional atmosphere for our employees by using below strategies: Equity, as equal progress opportunity and equal work-specific pay, despite of age, gender, nationality and disabilities. Diversity, in educational background, profession, gender, age and believes. Inclusion and Talent Empowerment, by designing individual development plans (IDP), on-the-job efficient trainings, and implementing regular surveys to discover employee experiences and acting upon Promoting a Knowledge-Centered Environment',
-      compact:
-        'In Cobel Group, we intend to provide a dynamic and professional atmosphere for our employees by using below strategies:'
+      full: 'At Cobel Group, our intention is to create a dynamic and professional atmosphere for our colleagues. We prioritize the well-being and growth of each colleague, aiming to provide comprehensive support that aligns with their needs. Our unwavering dedication to colleagues and their development plays a crucial role in fulfilling our purpose. We are committed to fostering an engaging, innovative, inspiring, and secure work environment. Join us to become pioneers and contribute to building a healthy community.',
+      compact: 'At Cobel Group, our intention is to create a dynamic and professional atmosphere for our colleagues.'
     },
     job_detail: {
       job_description:

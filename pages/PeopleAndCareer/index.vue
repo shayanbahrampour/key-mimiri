@@ -99,8 +99,10 @@
             ]"
             style="line-height: 30px"
           >
-            {{ $t('career.description_short') }} <br /><br />
-            {{ $t('career.description') }}
+            در گروه کوبل، هدف ما ایجاد فضایی پویا و حرفه‌ای برای همکارانمان هست.<br />
+            فرصت رشد، سلامت جسم، روان و ساپورت همه جانبه تک تک همکاران در راستای نیازهایشان، اولویت ماست. کمک به توسعه
+            همکاران نقش اساسی در تحقق اهدافمان بازی می‌کند. تعهد ما ایجاد یک بستر خلاقانه، الهام بخش و ایمن با احساس
+            تعلق بالاست. به ما پیوندید تا پیشرو و تاثیرگذار در یک جامعه سلامت باشید.
           </p>
           <p
             v-if="!isMobile && !isRTL"
@@ -111,14 +113,11 @@
             ]"
             style="line-height: 30px"
           >
-            In Cobel Group, we intend to provide a dynamic and professional atmosphere for our employees by using below
-            strategies:<br /><br />
-            <strong>Equity</strong>, as equal progress opportunity and equal work-specific pay, despite of age, gender,
-            nationality and disabilities.<br />
-            <strong>Diversity</strong>, in educational background, profession, gender, age and believes.<br />
-            <strong>Inclusion and Talent Empowerment</strong>, by designing individual development plans (IDP),
-            on-the-job efficient trainings, and implementing regular surveys to discover employee experiences and acting
-            upon Promoting a Knowledge-Centered Environment
+            At Cobel Group, our intention is to create a dynamic and professional atmosphere for our colleagues.<br />
+            We prioritize the well-being and growth of each colleague, aiming to provide comprehensive support that
+            aligns with their needs. Our unwavering dedication to colleagues and their development plays a crucial role
+            in fulfilling our purpose. We are committed to fostering an engaging, innovative, inspiring, and secure work
+            environment. Join us to become pioneers and contribute to building a healthy community.
           </p>
           <div v-if="isMobile" :class="[isMobile ? 'mt-4 mb-6' : undefined]">
             <v-btn height="50" min-width="50" outlined style="border-radius: 35%; border: 2px solid white" width="50">

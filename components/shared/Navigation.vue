@@ -85,11 +85,11 @@
                 <v-list-item
                   v-for="(item, index) in dropdown"
                   :key="index"
-                  @click="$router.push(item.path)"
+                  :to="localePath(item.path)"
                   dense
                   class="slategrey"
                   :disabled="!item.path"
-                  :style="`${`margin-bottom:${item.title === 'menu.education' ? '0px' : '1px'}`}`"
+                  :style="`${`margin-bottom:${item.title === 'menu.storytellers' ? '0px' : '1px'}`}`"
                 >
                   <v-list-item-title
                     :class="[
@@ -151,9 +151,8 @@
           flat
           link
           :style="`${`opacity:${
-            item.title === 'menu.education' ||
             item.title === 'menu.impact_stories' ||
-            item.title === 'menu.innovation' ||
+            item.title === 'menu.storytellers' ||
             (item.title === 'menu.empowerment' && flag.expandMenu)
               ? '1'
               : '0.91'
@@ -225,8 +224,7 @@ export default {
     dropdown() {
       return [
         { title: 'menu.impact_stories', path: '/impact-stories' },
-        { title: 'menu.innovation', path: undefined },
-        { title: 'menu.education', path: undefined }
+        { title: 'menu.storytellers', path: '/storytellers' }
       ];
     },
     expanded() {
@@ -235,8 +233,7 @@ export default {
         { title: 'menu.point_of_view', path: 'video' },
         { title: 'menu.empowerment', path: '/' },
         { title: 'menu.impact_stories', path: '/impact-stories' },
-        { title: 'menu.innovation', path: undefined },
-        { title: 'menu.education', path: undefined },
+        { title: 'menu.storytellers', path: '/storytellers' },
         { title: 'menu.people_careers', path: '/PeopleAndCareer' },
         { title: 'menu.companies', path: '/ourcompanies' },
         { title: 'menu.press', path: '/PressCenter' },
