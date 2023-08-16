@@ -19,13 +19,34 @@
               {{ $t('career.title') }}
             </p>
             <div v-if="!isMobile" class="d-flex justify-space-between" style="width: 180px">
-              <v-btn height="50" min-width="50" outlined style="border-radius: 35%; border: 2px solid white" width="50">
+              <v-btn
+                height="50"
+                min-width="50"
+                outlined
+                style="border-radius: 35%; border: 2px solid white"
+                width="50"
+                @click="shareOnLinkedIn"
+              >
                 <v-img height="20" max-width="20" src="/images/icons/linkedin.png" />
               </v-btn>
-              <v-btn height="50" min-width="50" outlined style="border-radius: 35%; border: 2px solid white" width="50">
+              <v-btn
+                height="50"
+                min-width="50"
+                outlined
+                style="border-radius: 35%; border: 2px solid white"
+                width="50"
+                @click="shareOnWhatsApp"
+              >
                 <v-img height="20" max-width="20" src="/images/icons/whatsapp.png" />
               </v-btn>
-              <v-btn height="50" min-width="50" outlined style="border-radius: 35%; border: 2px solid white" width="50">
+              <v-btn
+                height="50"
+                min-width="50"
+                outlined
+                style="border-radius: 35%; border: 2px solid white"
+                width="50"
+                @click="shareOnTelegram"
+              >
                 <v-img height="20" max-width="20" src="/images/icons/telegram.png" />
               </v-btn>
             </div>
@@ -274,6 +295,20 @@ export default {
         full: 'In Cobel Group, we intend to provide a dynamic and professional atmosphere for our employees by using below strategies: Equity, as equal progress opportunity and equal work-specific pay, despite of age, gender, nationality and disabilities. Diversity, in educational background, profession, gender, age and believes. Inclusion and Talent Empowerment, by designing individual development plans (IDP), on-the-job efficient trainings, and implementing regular surveys to discover employee experiences and acting upon Promoting a Knowledge-Centered Environment'
       }
     };
+  },
+  methods: {
+    shareOnWhatsApp() {
+      this.openShareWindow(`https://api.whatsapp.com/send?text=${encodeURIComponent(window.location.href)}`);
+    },
+    shareOnTelegram() {
+      this.openShareWindow(`https://t.me/share/url?url=${encodeURIComponent(window.location.href)}`);
+    },
+    shareOnLinkedIn() {
+      this.openShareWindow(`https://www.linkedin.com/shareArticle?url=${encodeURIComponent(window.location.href)}`);
+    },
+    openShareWindow(url) {
+      window.open(url, '_blank');
+    }
   }
 };
 </script>
