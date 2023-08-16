@@ -67,21 +67,27 @@
               :class="['text-none', isRTL ? 'font-weight-bold f-16' : 'f-14']"
               >{{ $t(item.title) }}</span
             >
-            <v-menu v-else offset-y rounded="0" v-model="flag.showDropdown" style="top: 80px !important">
+            <v-menu v-else offset-y rounded="0" v-model="flag.showDropdown" style="box-shadow: none !important">
               <template v-slot:activator="{ on, attrs }">
                 <v-btn
-                  :class="['text-none bg-transparent ma-0 pa-0', isRTL ? 'font-weight-bold f-16' : 'f-14']"
+                  :class="['text-none ma-0', isRTL ? 'font-weight-bold f-16' : 'f-14']"
                   elevation="0"
+                  color="#D9D9D9"
+                  width="150"
                   v-bind="attrs"
+                  :style="`${flag.showDropdown ? 'border-radius: 15px 15px 0px 0px' : undefined}`"
                   v-on="on"
+                  style="opacity: 0.8"
                 >
-                  <span :class="['text-none px-0', isRTL ? 'font-weight-bold f-16' : 'f-14']">{{
-                    $t(item.title)
-                  }}</span>
-                  <v-icon>mdi-chevron-down</v-icon>
+                  <span
+                    :class="['text-none', isRTL ? 'font-weight-bold f-16' : 'f-14']"
+                    style="color: #1e1e1e !important"
+                    >{{ $t(item.title) }}</span
+                  >
+                  <v-icon color="grey" style="width: 16px !important">mdi-chevron-down</v-icon>
                 </v-btn>
               </template>
-              <v-list class="cobelgrey pa-0">
+              <v-list class="bg-transparent pa-0">
                 <v-list-item
                   v-for="(item, index) in dropdown"
                   :key="index"
@@ -89,7 +95,9 @@
                   dense
                   class="slategrey"
                   :disabled="!item.path"
-                  :style="`${`margin-bottom:${item.title === 'menu.storytellers' ? '0px' : '1px'}`}`"
+                  :style="`${`margin-bottom:${item.title === 'menu.storytellers' ? '0px' : '1px'}`}; ${
+                    item.title === 'menu.storytellers' ? 'border-radius: 0px 0px 15px 15px' : undefined
+                  }`"
                 >
                   <v-list-item-title
                     :class="[
@@ -278,7 +286,7 @@ hr {
 
     .sheet-container {
       width: 100vw !important;
-      padding-right: 72px !important;
+      padding-right: 80px !important;
     }
     .sheet-container-mobile {
       width: 90vw !important;
@@ -314,6 +322,6 @@ hr {
   }
 }
 .v-menu__content {
-  top: 80px !important;
+  box-shadow: none !important;
 }
 </style>
