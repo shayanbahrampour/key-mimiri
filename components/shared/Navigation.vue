@@ -12,7 +12,11 @@
       tile
     >
       <v-sheet
-        :class="['mx-auto d-flex align-center h-full w-full sheet-container', { 'px-12': !showDrawer }]"
+        :class="[
+          'mx-auto d-flex align-center w-full',
+          { 'px-12': !showDrawer },
+          isMobile ? 'sheet-container-mobile' : 'sheet-container'
+        ]"
         color="transparent"
       >
         <nuxt-link :to="localePath('/')" class="pointer" exact>
@@ -38,7 +42,7 @@
 
         <v-spacer />
 
-        <div v-if="!showDrawer" :class="{ rtl: isRTL }" class="d-flex overflow-hidden">
+        <div v-if="!showDrawer" :class="{ rtl: isRTL }" class="d-flex overflow-hidden justify-center">
           <v-btn
             v-for="(item, index) in items"
             :key="index"
@@ -260,18 +264,27 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+hr {
+  display: none;
+}
 .appbar.v-app-bar {
   &.v-app-bar--is-scrolled {
     transform: none !important;
     transition: all ease-in 0.2s !important;
     box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.05) !important;
-
     &,
     .v-toolbar__content {
       height: 56px !important;
+      display: flex;
+      align-items: center;
     }
+
     .sheet-container {
-      margin-bottom: 3vh !important;
+      width: 100vw !important;
+      padding-right: 72px !important;
+    }
+    .sheet-container-mobile {
+      width: 90vw !important;
     }
 
     .logo-container {
@@ -304,6 +317,6 @@ export default {
   }
 }
 .v-menu__content {
-  top: 70px !important;
+  top: 80px !important;
 }
 </style>
