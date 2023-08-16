@@ -35,7 +35,7 @@
               <v-img alt="cobel" contain height="56" max-width="160" src="/images/logo-text.svg" />
             </div>
             <div class="position-relative">
-              <v-img alt="cobel" contain height="60" max-width="160" src="/images/logo.png" />
+              <v-img alt="cobel" contain height="60" max-width="180" src="/images/logo.png" />
             </div>
           </div>
         </nuxt-link>
@@ -53,7 +53,7 @@
                 : undefined
             "
             active-class="primary--text"
-            class="bg-transparent px-2"
+            :class="['bg-transparent', item.title !== 'menu.empowerment' ? (isRTL ? 'px-6' : 'px-4') : undefined]"
             color="transparent"
             depressed
             exact
@@ -64,30 +64,39 @@
             <v-divider></v-divider>
             <span
               v-if="item.title !== 'menu.empowerment'"
-              :class="['text-none', isRTL ? 'font-weight-bold f-16' : 'f-14']"
+              :class="['text-none', isRTL ? 'font-weight-bold f-16' : 'f-16']"
               >{{ $t(item.title) }}</span
             >
-            <v-menu v-else offset-y rounded="0" v-model="flag.showDropdown" style="box-shadow: none !important">
+            <v-menu
+              v-else
+              offset-y
+              rounded="0"
+              v-model="flag.showDropdown"
+              open-on-hover
+              width="200"
+              style="box-shadow: none !important"
+            >
               <template v-slot:activator="{ on, attrs }">
                 <v-btn
-                  :class="['text-none ma-0', isRTL ? 'font-weight-bold f-16' : 'f-14']"
+                  :class="['text-none ma-0 button-menu', isRTL ? 'font-weight-bold f-16' : 'f-14']"
                   elevation="0"
-                  color="#D9D9D9"
-                  width="150"
+                  :color="flag.showDropdown ? '#D9D9D9' : 'transparent'"
+                  :width="isRTL ? (flag.showDropdown ? '160' : undefined) : '140'"
                   v-bind="attrs"
-                  :style="`${flag.showDropdown ? 'border-radius: 15px 15px 0px 0px' : undefined}`"
+                  :style="`${flag.showDropdown ? 'border-radius: 15px 15px 0px 0px; opacity: 0.8' : undefined}`"
                   v-on="on"
-                  style="opacity: 0.8"
                 >
                   <span
-                    :class="['text-none', isRTL ? 'font-weight-bold f-16' : 'f-14']"
-                    style="color: #1e1e1e !important"
+                    :class="['text-none', isRTL ? 'font-weight-bold f-16' : 'f-16']"
+                    :style="`${flag.showDropdown ? 'color: #1e1e1e !important' : undefined}`"
                     >{{ $t(item.title) }}</span
                   >
-                  <v-icon color="grey" style="width: 16px !important">mdi-chevron-down</v-icon>
+                  <v-icon :color="flag.showDropdown ? 'grey' : undefined" style="width: 16px !important"
+                    >mdi-chevron-down</v-icon
+                  >
                 </v-btn>
               </template>
-              <v-list class="bg-transparent pa-0">
+              <v-list class="bg-transparent pa-0" :width="isRTL ? '160' : '140'">
                 <v-list-item
                   v-for="(item, index) in dropdown"
                   :key="index"
@@ -95,16 +104,19 @@
                   dense
                   class="slategrey"
                   :disabled="!item.path"
-                  :style="`${`margin-bottom:${item.title === 'menu.storytellers' ? '0px' : '1px'}`}; ${
+                  :style="`${`margin-bottom:${
+                    item.title === 'menu.storytellers' ? '0px' : '1px'
+                  }; height: 50px !important`}; ${
                     item.title === 'menu.storytellers' ? 'border-radius: 0px 0px 15px 15px' : undefined
                   }`"
                 >
                   <v-list-item-title
                     :class="[
-                      'text-none bg-transparent text-center',
-                      isRTL ? 'font-weight-bold f-16' : 'f-14',
+                      'text-none bg-transparent text-center z-9',
+                      isRTL ? 'font-weight-bold f-16' : 'f-16',
                       item.path ? 'white--text' : 'lightgrey--text'
                     ]"
+                    style="line-height: 2rem !important"
                     >{{ $t(item.title) }}
                   </v-list-item-title>
                 </v-list-item>
@@ -114,7 +126,7 @@
         </div>
 
         <v-btn
-          :class="showDrawer ? 'mr-n2' : 'mr-n4'"
+          :class="showDrawer ? 'mr-n2' : 'mr-n4 f-16'"
           :ripple="false"
           :to="$i18n.locale === 'en' ? switchLocalePath('fa') : switchLocalePath('en')"
           color="primary"
@@ -323,5 +335,8 @@ hr {
 }
 .v-menu__content {
   box-shadow: none !important;
+}
+.button-menu:hover {
+  padding-block: 24px !important;
 }
 </style>
