@@ -234,13 +234,13 @@ export default {
       },
       balls: {
         social_health: 'سلامت اجتماعی',
-        social_health_description: `عملکرد اجتماعی
+        social_health_description: `عملکرد اجتماعی<br />
 توانایی برقراری و حفظ روابط معنادار، مشارکت در تعاملات اجتماعی مثبت و بهبود رفاه جامعه`,
         psychological_health: 'سلامت روانی',
-        psychological_health_description: `رشد و سلامت هیجانی
+        psychological_health_description: `رشد و سلامت هیجانی<br />
 وضعیت روانی خوب، عملکرد شناختی، توانایی مقاومت روانی و تعادل کلی ذهنی`,
         physical_health: 'سلامت جسمی',
-        physical_health_description: `عملکرد عمومی بدن
+        physical_health_description: `عملکرد عمومی بدن<br />
 عدم وجود بیماری، بهبود ملموس در تعادل، قدرت بدنی، استقامت و فعالیت‌های عمومی بدن`
       }
     },

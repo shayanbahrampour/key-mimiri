@@ -24,9 +24,8 @@
             isRTL ? 'font-weight-bold anjoman' : 'font-weight-light'
           ]"
           :style="isRTL && (isMobile ? 'line-height:23px' : 'line-height:35px')"
-        >
-          {{ $t(content.description) }}
-        </p>
+          v-html="$t(content.description)"
+        />
       </div>
     </v-slide-y-reverse-transition>
   </div>
