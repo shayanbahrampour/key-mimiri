@@ -26,15 +26,15 @@
           <h4
             :class="[
               'text--darken-3 font-weight-regular mb-auto cobelgrey--text custom-card-title',
-              isRTL ? 'ravi f-34' : 'bel f-40'
+              isRTL ? 'ravi f-34 text-start' : 'bel f-40'
             ]"
           >
-            {{ isRTL ? item.fa_title : item.en_title }}
+            {{ isRTL ? item.fa_brief_title : item.en_brief_title }}
           </h4>
           <p
             :class="['text--darken-3 mb-auto', isRTL ? 'ravi text-end f-16' : 'font-weight-light f-18']"
             style="max-width: 90%; color: #59595b; line-height: 26px"
-            v-html="isRTL ? item.fa_title : item.en_title"
+            v-html="isRTL ? item.fa_brief_desc : item.en_brief_desc"
           ></p>
           <div v-if="!isRTL" class="d-flex justify-space-between mt-4" style="width: 60%">
             <p v-if="item.read_time" class="f-16 mb-0" style="color: #59595b">Read time: {{ item.read_time }} min</p>
@@ -86,12 +86,12 @@
               ]"
               style="color: #59595b"
             >
-              {{ isRTL ? item.fa_title : item.en_title }}
+              {{ isRTL ? item.fa_brief_title : item.en_brief_title }}
             </h4>
             <p
               :class="['text--darken-0 f-20 font-weight-light mb-6', { ' ravi': isRTL }]"
               style="color: #59595b"
-              v-html="isRTL ? item.fa_title : item.en_title"
+              v-html="isRTL ? item.fa_brief_desc : item.en_brief_desc"
             ></p>
             <div v-if="!isRTL" class="d-flex flex-column font-weight-light" style="width: 90%">
               <p class="f-14 mb-2 d-flex align-center" style="color: #59595b">

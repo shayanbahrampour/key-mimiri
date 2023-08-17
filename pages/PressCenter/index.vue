@@ -76,6 +76,7 @@ export default {
       try {
         const { data } = await this.$store.dispatch('news/getNewsList', {});
         this.news = data.results;
+        console.log(this.news);
         this.loading = false;
       } catch (e) {
         console.log(e);
@@ -93,8 +94,8 @@ export default {
           return {
             link: `/PressCenter/${item.id}`,
             src: `${this.$imageUrl}/${image.url}` || '',
-            title: item[`${this.$i18n.locale}_title`],
-            description: item[`${this.$i18n.locale}_summary`]
+            title: item[`${this.$i18n.locale}_brief_title`],
+            description: item[`${this.$i18n.locale}_brief_desc`]
           };
         });
       } catch (e) {
