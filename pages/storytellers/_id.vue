@@ -32,7 +32,14 @@
         </div>
       </div>
       <div :class="[isMobile ? 'mt-6' : undefined]">
-        <v-btn height="50" min-width="50" outlined style="border-radius: 35%; border: 2px solid white" width="50">
+        <v-btn
+          height="50"
+          min-width="50"
+          outlined
+          style="border-radius: 35%; border: 2px solid white"
+          width="50"
+          @click="shareOnLinkedIn"
+        >
           <v-img height="20" max-width="20" src="/images/icons/linkedin.png" />
         </v-btn>
         <v-btn
@@ -42,6 +49,7 @@
           outlined
           style="border-radius: 35%; border: 2px solid white"
           width="50"
+          @click="shareOnWhatsApp"
         >
           <v-img height="20" max-width="20" src="/images/icons/whatsapp.png" />
         </v-btn>
@@ -52,6 +60,7 @@
           outlined
           style="border-radius: 35%; border: 2px solid white"
           width="50"
+          @click="shareOnTelegram"
         >
           <v-img height="20" max-width="20" src="/images/icons/telegram.png" />
         </v-btn>
@@ -460,6 +469,18 @@ export default {
       const pTagPattern = /<\/?p[^>]*>/g;
       const contentWithoutPTags = content.replace(pTagPattern, '');
       return contentWithoutPTags;
+    },
+    shareOnWhatsApp() {
+      this.openShareWindow(`https://api.whatsapp.com/send?text=${encodeURIComponent(window.location.href)}`);
+    },
+    shareOnTelegram() {
+      this.openShareWindow(`https://t.me/share/url?url=${encodeURIComponent(window.location.href)}`);
+    },
+    shareOnLinkedIn() {
+      this.openShareWindow(`https://www.linkedin.com/shareArticle?url=${encodeURIComponent(window.location.href)}`);
+    },
+    openShareWindow(url) {
+      window.open(url, '_blank');
     }
   }
 };
