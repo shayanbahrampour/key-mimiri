@@ -126,7 +126,6 @@ export default {
         this.$toast.error('All Fields Required');
         return;
       } else {
-        console.log(this.model.coverLetter.name);
         this.$store.commit('career/SET', {
           answers: {
             ...(this.answers || {}),

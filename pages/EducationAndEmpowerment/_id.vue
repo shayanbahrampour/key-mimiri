@@ -213,7 +213,6 @@ export default {
     try {
       const { data } = await this.$store.dispatch('education/getEducationDetail', { id: this.$route.params.id });
       this.item = data;
-      console.log(this.item);
     } catch (e) {
       console.log(e);
     }
