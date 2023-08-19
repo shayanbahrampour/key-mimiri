@@ -1,8 +1,13 @@
 <template>
   <div class="app">
     <div id="bound-one" class="video-scroll">
-      <div class="content d-flex align-center justify-center">
-        <video width="95%" muted>
+      <div class="content">
+        <div class="scroll-helper" v-if="showIcon">
+          <h1>Scroll To Play</h1>
+          <v-icon color="white" size="36">mdi-chevron-double-down</v-icon>
+        </div>
+        <v-icon class="exit-scroll" color="white" size="36" @click="$emit('close')">mdi-close-box</v-icon>
+        <video width="95%" muted style="width: 100vw !important">
           <source :src="webmVideoSrc" type="video/mp4" />
           <p>Your user agent does not support the HTML5 Video element.</p>
         </video>
@@ -15,7 +20,8 @@
 export default {
   data() {
     return {
-      webmVideoSrc: '/video/pov.mp4'
+      webmVideoSrc: '/video/pov.mp4',
+      showIcon: true
     };
   },
   mounted() {
@@ -33,6 +39,10 @@ export default {
           const percentScrolled = Math.min(Math.max(rawPercentScrolled, 0), 1);
 
           video.currentTime = video.duration * percentScrolled;
+
+          if (percentScrolled > 0) {
+            this.showIcon = false;
+          }
         }
         requestAnimationFrame(scrollVideo);
       };
@@ -61,13 +71,35 @@ body {
 
   .content {
     height: 100vh !important;
-    width: 100%;
+    width: 100vw;
     position: sticky;
     top: 0;
   }
 
   video {
-    width: 100%;
+    width: 100vw !important;
   }
+}
+
+.scroll-helper {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+}
+.exit-scroll {
+  position: fixed;
+  top: 10%;
+  left: 5%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+  font-size: 20px;
+  text-align: center;
+  color: white;
 }
 </style>

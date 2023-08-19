@@ -10,7 +10,7 @@
       <Footer @changed="showVideo($event)" :status="dialog" />
 
       <v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
-        <client-only> <VideoScroll /> </client-only
+        <client-only> <VideoScroll @close="dialog = !dialog" /> </client-only
       ></v-dialog>
     </v-main>
   </v-app>
