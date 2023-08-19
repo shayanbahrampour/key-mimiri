@@ -94,8 +94,8 @@ body {
 }
 .exit-scroll {
   position: fixed;
-  top: 10%;
-  left: 5%;
+  top: 5%;
+  left: 3%;
   transform: translate(-50%, -50%);
   z-index: 99;
   font-size: 20px;
