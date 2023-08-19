@@ -166,8 +166,7 @@ export default {
             { title: 'footer.links.impact_stories', to: '/impact-stories' },
             { title: 'footer.links.storytellers', to: '/storytellers' },
             { title: 'footer.links.people_careers', to: '/PeopleAndCareer' },
-            { title: 'footer.links.timeline', to: '/ourcompanies' },
-            { title: 'footer.links.press_center', to: '/PressCenter' }
+            { title: 'footer.links.timeline', to: '/ourcompanies' }
           ]
         },
         {

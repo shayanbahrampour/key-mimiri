@@ -237,7 +237,6 @@ export default {
         { title: 'menu.empowerment', path: '/' },
         { title: 'menu.people_careers', path: '/PeopleAndCareer' },
         { title: 'menu.companies', path: '/ourcompanies' },
-        { title: 'menu.press', path: '/PressCenter' },
         { title: 'menu.contact_us', path: '/contact' }
       ];
     },
@@ -256,7 +255,6 @@ export default {
         { title: 'menu.storytellers', path: '/storytellers' },
         { title: 'menu.people_careers', path: '/PeopleAndCareer' },
         { title: 'menu.companies', path: '/ourcompanies' },
-        { title: 'menu.press', path: '/PressCenter' },
         { title: 'menu.contact_us', path: '/contact' }
       ];
     }
