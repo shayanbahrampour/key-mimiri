@@ -120,7 +120,7 @@
         v-html="item[`${$i18n.locale}_column_section`]"
       />
     </v-sheet>
-    <div class="mx-auto">
+    <div v-if="item[`${$i18n.locale}_subtitle`]" class="mx-auto">
       <v-sheet :class="['pt-16', isMobile ? 'px-6' : 'px-16 mb-4']">
         <h2
           :class="[
