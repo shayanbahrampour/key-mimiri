@@ -42,7 +42,11 @@
             <v-btn
               v-if="!isMobile"
               :block="isMobile"
-              :class="['f-18 text-capitalize', { 'ml-n4': !isMobile && !isRTL }, { 'font-weight-bold anjoman': isRTL }]"
+              :class="[
+                'f-18 text-capitalize',
+                { 'ml-n4': !isMobile && !isRTL },
+                { 'font-weight-light anjoman': isRTL }
+              ]"
               color="#59595B"
               depressed
               exact

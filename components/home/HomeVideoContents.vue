@@ -29,7 +29,7 @@
           v-if="!isMobile"
           :class="[
             'f-25 grey--text text--lighten-2 flex-grow-1',
-            isRTL ? 'font-weight-bold anjoman' : 'font-weight-light'
+            isRTL ? 'font-weight-light anjoman' : 'font-weight-light'
           ]"
           :style="isRTL && !isMobile ? 'line-height:35px' : ''"
         >
@@ -44,7 +44,7 @@
       v-if="isMobile"
       :class="[
         'px-6 mx-auto f-17 my-4 grey--text text--darken-2 text-center',
-        isRTL ? 'font-weight-bold anjoman' : 'font-weight-light'
+        isRTL ? 'font-weight-light anjoman' : 'font-weight-light'
       ]"
       color="transparent"
     >

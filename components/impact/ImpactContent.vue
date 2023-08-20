@@ -11,7 +11,7 @@
           <v-sheet v-if="!isMobile" class="extra-space white--text ps-16 pe-10 py-8" color="slategrey">
             <h2 :class="['f-22 mb-4 white--text', { ravi: isRTL }]">{{ item[`${$i18n.locale}_title`] }}</h2>
             <div
-              :class="['f-18 text-pre-line', isRTL ? 'font-weight-bold anjoman' : 'font-weight-light']"
+              :class="['f-18 text-pre-line', isRTL ? 'font-weight-light anjoman' : 'font-weight-light']"
               :style="`line-height: ${isRTL ? '30px' : '35px'}`"
               v-html="item[`${$i18n.locale}_column_section`]"
             />
@@ -31,14 +31,14 @@
           >
             {{ item[`${$i18n.locale}_title`] }}
           </h1>
-          <div :class="['blue--text mb-8 f-19', isRTL ? 'anjoman font-weight-bold' : 'font-weight-light']">
+          <div :class="['blue--text mb-8 f-19', isRTL ? 'anjoman font-weight-light' : 'font-weight-light']">
             <span v-for="(cat, index) in item.impact_story_categories" :key="index" class="me-2 d-inline-block">
               {{ cat[`${$i18n.locale}_name`] }}
             </span>
           </div>
           <div
             v-if="isMobile"
-            :class="['grey--text text--darken-2 mb-8', isRTL && 'anjoman font-weight-bold']"
+            :class="['grey--text text--darken-2 mb-8', isRTL && 'anjoman font-weight-light']"
             v-html="item[`${$i18n.locale}_summary`]"
           />
 
@@ -46,7 +46,7 @@
             :class="[
               'd-flex flex-wrap',
               !isMobile && 'mt-12 pt-5',
-              isRTL && 'anjoman font-weight-bold',
+              isRTL && 'anjoman font-weight-light',
               isRTL ? 'f-14' : 'f-13'
             ]"
           >
@@ -96,7 +96,7 @@
           <template v-if="!isMobile">
             <v-divider class="mb-4 mt-8" />
             <div
-              :class="['ma-0 f-18', isRTL && 'anjoman font-weight-bold']"
+              :class="['ma-0 f-18', isRTL && 'anjoman font-weight-light']"
               style="color: #939393; line-height: 30px"
               v-html="item[`${$i18n.locale}_summary`]"
             />
@@ -115,7 +115,7 @@
         {{ item[`${$i18n.locale}_title`] }}
       </h2>
       <div
-        :class="['f-19', isRTL ? 'font-weight-bold anjoman' : 'font-weight-light']"
+        :class="['f-19', isRTL ? 'font-weight-light anjoman' : 'font-weight-light']"
         :style="`line-height: ${isRTL ? '30px' : '35px'}`"
         v-html="item[`${$i18n.locale}_column_section`]"
       />
@@ -175,7 +175,7 @@
             :class="[
               'mb-6 text-pre-line',
               isMobile ? 'f-20' : 'f-25',
-              isRTL ? 'anjoman font-weight-bold text-start rtl' : 'font-weight-light'
+              isRTL ? 'anjoman font-weight-light text-start rtl' : 'font-weight-light'
             ]"
             :style="`line-height: ${isRTL ? '40px' : '35px'}`"
             v-html="isMobile ? firstParagraph : item[`${$i18n.locale}_body`]"
@@ -191,7 +191,7 @@
           :class="[
             'mb-6 text-pre-line',
             isMobile ? 'f-20' : 'f-25',
-            isRTL ? 'anjoman font-weight-bold' : 'font-weight-light'
+            isRTL ? 'anjoman font-weight-light' : 'font-weight-light'
           ]"
           :style="`line-height: ${isRTL ? '40px' : '35px'}`"
           v-html="secondParagraph"
@@ -218,7 +218,7 @@
           <template v-if="!isMobile">
             <v-spacer />
             <nuxt-link
-              :class="['text-decoration-none f-18', isRTL && 'anjoman font-weight-bold']"
+              :class="['text-decoration-none f-18', isRTL && 'anjoman font-weight-light']"
               :to="localePath('/impact-stories')"
               style="color: #939393 !important"
             >

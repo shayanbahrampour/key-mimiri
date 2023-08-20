@@ -41,7 +41,7 @@
                   isRTL
                     ? isMobile
                       ? 'mt-2 f-24 cobelgrey--text text-center ravi'
-                      : 'f-20 font-weight-light ravi'
+                      : 'f-20 font-weight-regular ravi'
                     : isMobile
                     ? 'mt-2 f-20 cobelgrey--text text-center font-weight-light'
                     : 'f-20 font-weight-light'
@@ -63,7 +63,7 @@
             v-else
             :class="[
               'text-center mx-6 mb-0 text--darken-0 cobelgrey--text f-22',
-              isRTL ? 'mobile-story-description font-weight-bold' : 'font-weight-light'
+              isRTL ? 'mobile-story-description font-weight-light' : 'font-weight-light'
             ]"
           >
             <p class="pa-0 ma-0" v-html="isRTL ? item.fa_body : item.en_body"></p>

@@ -21,7 +21,7 @@
         :href="`${isEmail(model.address) ? 'mailto:' : ''}${model.address}`"
         target="_blank"
       >
-        <span :class="['px-15', isRTL ? 'font-weight-bold anjoman' : 'font-weight-light']">{{
+        <span :class="['px-15', isRTL ? 'font-weight-light anjoman' : 'font-weight-light']">{{
           $t('homePage.click_here')
         }}</span>
       </v-btn>

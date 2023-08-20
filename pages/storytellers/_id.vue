@@ -22,7 +22,7 @@
           </p>
           <p
             :class="[
-              'white--text mb-0 text--darken-3 font-weight-light',
+              'white--text mb-0 text--darken-3 font-weight-regular',
               isMobile ? 'text-center mt-1 f-20 ' : 'f-22',
               { 'ravi mt-1': isRTL }
             ]"
@@ -73,7 +73,7 @@
           :class="[
             'f-20 white--text text--darken-3',
             isMobile ? 'text-center mt-8 mb-0 mx-8' : 'mt-16 mx-16',
-            isRTL ? 'font-weight-bold mb-1' : 'font-weight-light'
+            isRTL ? 'font-weight-light mb-1' : 'font-weight-light'
           ]"
           style="line-height: 30px"
           v-html="
@@ -92,7 +92,7 @@
             :class="[
               'f-20 white--text text--darken-3',
               isMobile ? 'text-center mt-8 mb-1' : 'mt-16 mx-16',
-              isRTL ? 'font-weight-bold' : 'font-weight-light'
+              isRTL ? 'font-weight-light' : 'font-weight-light'
             ]"
             style="line-height: 30px"
             v-html="isRTL ? item.fa_body : item.en_body"
@@ -232,7 +232,7 @@
             <v-expansion-panel class="transparent d-flex flex-column justify-center">
               <p
                 v-if="!seeMore.first"
-                :class="['f-22 text-center mt-0 mb-0 mx-8', isRTL ? 'font-weight-bold mb-2' : ' font-weight-light']"
+                :class="['f-22 text-center mt-0 mb-0 mx-8', isRTL ? 'font-weight-light mb-2' : ' font-weight-light']"
                 style="line-height: 30px"
                 v-html="
                   isRTL
@@ -248,7 +248,7 @@
               <v-expansion-panel-content class="text-center">
                 <p
                   v-if="seeMore.first"
-                  :class="['f-22 text-center mt-0 mb-0 mx-8', isRTL ? 'font-weight-bold mb-2' : ' font-weight-light']"
+                  :class="['f-22 text-center mt-0 mb-0 mx-8', isRTL ? 'font-weight-light mb-2' : ' font-weight-light']"
                   style="line-height: 30px"
                   v-html="isRTL ? items[0].fa_body : items[0].en_body"
                 />
@@ -319,7 +319,7 @@
             <v-expansion-panel class="transparent d-flex flex-column justify-center">
               <p
                 v-if="!seeMore.second"
-                :class="['f-22 text-center mt-0 mb-0 mx-8', isRTL ? 'font-weight-bold mb-2' : ' font-weight-light']"
+                :class="['f-22 text-center mt-0 mb-0 mx-8', isRTL ? 'font-weight-light mb-2' : ' font-weight-light']"
                 style="line-height: 30px"
                 v-html="
                   isRTL
@@ -334,7 +334,7 @@
               <v-expansion-panel-content class="text-center">
                 <p
                   v-if="seeMore.second"
-                  :class="['f-22 text-center mt-0 mb-0 mx-8', isRTL ? 'font-weight-bold mb-2' : ' font-weight-light']"
+                  :class="['f-22 text-center mt-0 mb-0 mx-8', isRTL ? 'font-weight-light mb-2' : ' font-weight-light']"
                   style="line-height: 30px"
                   v-html="isRTL ? items[1].fa_body : items[1].en_body"
                 />

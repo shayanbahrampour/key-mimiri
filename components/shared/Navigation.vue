@@ -64,7 +64,7 @@
             <v-divider></v-divider>
             <span
               v-if="item.title !== 'menu.empowerment'"
-              :class="['text-none', isRTL ? 'font-weight-bold f-16' : 'f-16']"
+              :class="['text-none', isRTL ? 'font-weight-regular f-16' : 'f-16']"
               >{{ $t(item.title) }}</span
             >
             <v-menu
@@ -78,7 +78,7 @@
             >
               <template v-slot:activator="{ on, attrs }">
                 <v-btn
-                  :class="['text-none ma-0 button-menu', isRTL ? 'font-weight-bold f-16' : 'f-14']"
+                  :class="['text-none ma-0 button-menu', isRTL ? 'font-weight-regular f-16' : 'f-14']"
                   elevation="0"
                   :color="flag.showDropdown ? '#D9D9D9' : 'transparent'"
                   :width="isRTL ? (flag.showDropdown ? '160' : undefined) : '140'"
@@ -87,7 +87,7 @@
                   v-on="on"
                 >
                   <span
-                    :class="['text-none', isRTL ? 'font-weight-bold f-16' : 'f-16']"
+                    :class="['text-none', isRTL ? 'font-weight-regular f-16' : 'f-16']"
                     :style="`${flag.showDropdown ? 'color: #1e1e1e !important' : undefined}`"
                     >{{ $t(item.title) }}</span
                   >
@@ -113,7 +113,7 @@
                   <v-list-item-title
                     :class="[
                       'text-none bg-transparent text-center z-9',
-                      isRTL ? 'font-weight-bold f-16' : 'f-16',
+                      isRTL ? 'font-weight-regular f-14' : 'f-16',
                       item.path ? 'white--text' : 'lightgrey--text'
                     ]"
                     style="line-height: 2rem !important"
@@ -163,7 +163,11 @@
         <v-card
           v-for="(item, index) in !flag.expandMenu ? items : expanded"
           :key="index"
-          :class="['text-center py-4 f-18', isRTL && 'font-weight-bold', item.path ? 'white--text' : 'lightgrey--text']"
+          :class="[
+            'text-center py-4 f-18',
+            isRTL && 'font-weight-regular',
+            item.path ? 'white--text' : 'lightgrey--text'
+          ]"
           :to="item.path && item.title !== 'menu.empowerment' ? localePath(item.path) : undefined"
           color="slategrey"
           exact

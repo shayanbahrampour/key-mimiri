@@ -32,7 +32,7 @@
           :class="[
             'mb-0 py-4',
             isMobile ? (isRTL ? 'f-18' : 'f-16') : 'f-20 ms-8 ps-8',
-            isRTL ? 'font-weight-bold anjoman' : 'font-weight-light'
+            isRTL ? 'font-weight-light anjoman' : 'font-weight-light'
           ]"
           :style="`${!isMobile && `border-${isRTL ? 'right' : 'left'}: 1px solid #59595B`}; color: #59595B;${
             isRTL && (isMobile ? 'line-height:25px' : 'line-height:30px')
@@ -99,20 +99,20 @@
                     :style="`border-radius: 14px; color: #66869A`"
                     :min-width="isMobile ? 70 : 100"
                   >
-                    <span :class="isRTL && 'font-weight-bold anjoman'" :style="isRTL && 'letter-spacing: 1px;'">
+                    <span :class="isRTL && 'font-weight-light anjoman'" :style="isRTL && 'letter-spacing: 1px;'">
                       {{ isRTL ? toPersianDigit(item.date) : item.date }}
                     </span>
                   </v-sheet>
                 </div>
               </div>
             </v-expansion-panel-header>
-            <v-expansion-panel-content :class="[isRTL & 'anjoman font-weight-bold', 'mt-8']">
+            <v-expansion-panel-content :class="[isRTL & 'anjoman font-weight-light', 'mt-8']">
               <v-timeline :class="['pt-0 ms-n3']" :style="`color: ${item.color}`" align-top dense>
                 <v-timeline-item hide-dot>
                   <p
                     :class="[
                       item.logoHeight > 75 ? 'pt-5' : 'pt-3',
-                      isRTL ? 'font-weight-bold' : 'font-weight-light',
+                      isRTL ? 'font-weight-regular' : 'font-weight-light',
                       isMobile ? 'mt-4 ps-5' : 'ps-2',
                       isMobile ? (isRTL ? 'f-16' : 'f-22') : 'f-22'
                     ]"
@@ -130,7 +130,7 @@
                 >
                   <template v-slot:icon>
                     <strong
-                      :class="['white--text', isRTL && 'font-weight-bold anjoman']"
+                      :class="['white--text', isRTL && 'font-weight-light anjoman']"
                       :style="isRTL && 'letter-spacing: 1px;'"
                     >
                       {{ isRTL ? toPersianDigit(child.date) : child.date }}
@@ -139,7 +139,10 @@
 
                   <v-sheet :class="[isMobile ? 'ps-5 pt-3' : 'ps-2 pt-5']" style="line-height: 30px">
                     <span
-                      :class="['f-20 text-pre-line timeline-title font-weight-bold', isRTL && 'anjoman']"
+                      :class="[
+                        'f-20 text-pre-line timeline-title',
+                        isRTL ? 'anjoman font-weight-light' : 'font-weight-bold'
+                      ]"
                       v-html="child[`${$i18n.locale}_title`]"
                     />
                   </v-sheet>

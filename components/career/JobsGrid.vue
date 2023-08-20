@@ -16,14 +16,14 @@
               {{ isRTL ? item.fa_title : item.en_title }}
             </h4>
             <p
-              :class="['f-18 mt-4 mb-0 text--darken-3 mb-auto', isRTL ? 'font-weight-bold' : 'font-weight-light']"
+              :class="['f-18 mt-4 mb-0 text--darken-3 mb-auto', isRTL ? 'font-weight-light' : 'font-weight-light']"
               style="height: 120px !important"
             >
               {{ isRTL ? item.fa_summary : item.en_summary }}
             </p>
             <div class="d-flex align-center mt-6" style="height: 60px !important">
               <v-btn
-                :class="['rounded-xl d-flex justify-center white--text f-18', isRTL ? 'font-weight-bold' : undefined]"
+                :class="['rounded-xl d-flex justify-center white--text f-18', isRTL ? 'font-weight-light' : undefined]"
                 :href="item.link"
                 target="_blank"
                 color="slategrey"
@@ -47,7 +47,7 @@
         {{ isRTL ? item.fa_title : item.en_title }}
       </h4>
       <p
-        :class="['f-18 text--darken-3 mb-auto', isRTL ? 'font-weight-bold' : 'font-weight-light']"
+        :class="['f-18 text--darken-3 mb-auto', isRTL ? 'font-weight-light' : 'font-weight-light']"
         style="max-width: 80%; color: #59595b; line-height: 24px"
       >
         {{ isRTL ? item.fa_summary : item.en_summary }}
@@ -55,7 +55,7 @@
       <div class="d-flex flex-column align-start mt-6">
         <v-img :src="`/images/timeline/${item.logo}`" :max-width="item.logoWidth" :height="item.logoHeight" />
         <v-btn
-          :class="['rounded-xl d-flex justify-center white--text f-20 mt-6', isRTL ? 'font-weight-bold' : undefined]"
+          :class="['rounded-xl d-flex justify-center white--text f-20 mt-6', isRTL ? 'font-weight-light' : undefined]"
           :href="item.link"
           target="_blank"
           color="slategrey"

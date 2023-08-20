@@ -52,7 +52,7 @@
             :class="[
               'ms-auto',
               isMobile ? 'text-center f-18' : isRTL ? 'f-23' : 'f-25',
-              isRTL ? 'font-weight-bold' : 'font-weight-light',
+              isRTL ? 'font-weight-light' : 'font-weight-light',
               !lgAndUp && !isMobile && isRTL && 'mb-4'
             ]"
             :style="`${isMobile && isRTL && 'line-height:30px'};${

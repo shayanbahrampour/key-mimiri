@@ -21,7 +21,7 @@
           :class="[
             'ma-0 grey--text text--darken-2',
             isMobile ? 'f-16' : lgAndUp ? 'f-24' : 'f-20',
-            isRTL ? 'font-weight-bold anjoman' : 'font-weight-light'
+            isRTL ? 'font-weight-light anjoman' : 'font-weight-light'
           ]"
           :style="isRTL && (isMobile ? 'line-height:23px' : 'line-height:35px')"
           v-html="$t(content.description)"

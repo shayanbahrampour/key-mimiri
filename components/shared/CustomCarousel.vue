@@ -91,7 +91,7 @@
               <div
                 :class="[
                   'f-22 white--text mt-lg-0',
-                  isRTL ? 'font-weight-bold anjoman mb-2' : 'font-weight-light mb-0'
+                  isRTL ? 'font-weight-light anjoman mb-2' : 'font-weight-light mb-0'
                 ]"
                 v-html="
                   $options.filters.truncate(activeSlide.description, {
@@ -101,7 +101,10 @@
               />
               <v-btn
                 :ripple="false"
-                class="font-weight-bold f-18 ms-n4 mt-2 text-lowercase bg-transparent"
+                :class="[
+                  'f-18 ms-n4 mt-2 text-lowercase bg-transparent',
+                  isRTL ? 'font-weight-light' : 'font-weight-bold'
+                ]"
                 color="white"
                 exact
                 link

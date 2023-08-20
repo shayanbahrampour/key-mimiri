@@ -59,7 +59,7 @@
                 :class="[
                   'f-20 white--text text--darken-3',
                   isMobile ? 'text-center mt-8 mb-0 mx-8' : 'mt-16 mx-16',
-                  isRTL ? 'font-weight-bold mb-1' : 'font-weight-light'
+                  isRTL ? 'font-weight-light mb-1' : 'font-weight-light'
                 ]"
                 style="line-height: 30px"
               >
@@ -71,7 +71,7 @@
                   :class="[
                     'f-20 white--text text--darken-3',
                     isMobile ? 'text-center mt-8 mb-1' : 'mt-16 mx-16',
-                    isRTL ? 'font-weight-bold' : 'font-weight-light'
+                    isRTL ? 'font-weight-light' : 'font-weight-light'
                   ]"
                   style="line-height: 30px"
                 >
@@ -80,8 +80,8 @@
               </v-expansion-panel-content>
               <v-expansion-panel-header
                 :class="[
-                  'pa-0 ma-0 white--text justify-center f-20 font-weight-bold bg-transparent',
-                  { 'ravi ': isRTL }
+                  'pa-0 ma-0 white--text justify-center f-20 bg-transparent',
+                  isRTL ? 'ravi font-weight-bold' : 'font-weight-bold'
                 ]"
                 hide-actions
                 style="height: 20px !important; margin-top: -12px !important"
@@ -93,9 +93,9 @@
           <p
             v-if="!isMobile && isRTL"
             :class="[
-              'white--text mb-0 text--darken-3 font-weight-light',
+              'white--text mb-0 text--darken-3',
               isMobile ? 'mt-4 text-center f-18' : 'f-20 mt-16',
-              isRTL ? 'ravi rtl-text-career' : undefined
+              isRTL ? 'ravi rtl-text-career font-weight-regular' : 'font-weight-light'
             ]"
             style="line-height: 30px"
           >
@@ -177,8 +177,8 @@
           <v-divider class="mx-8" color="white" style="min-height: 100px" vertical />
           <p
             :class="[
-              'f-20 white--text mb-0 text--darken-3 font-weight-light',
-              isRTL ? 'ravi rtl-text-career' : undefined
+              'f-20 white--text mb-0 text--darken-3',
+              isRTL ? 'ravi rtl-text-career font-weight-regular' : 'font-weight-light'
             ]"
             style="max-width: 30%"
           >
@@ -192,7 +192,7 @@
             {{ $t('career.divider_title') }}
           </h4>
           <p
-            :class="['f-20 white--text mb-0 text--darken-3 mt-6', isRTL ? 'font-weight-bold' : 'font-weight-light']"
+            :class="['f-20 white--text mb-0 text--darken-3 mt-6', isRTL ? 'font-weight-light' : 'font-weight-light']"
             style="line-height: 30px"
           >
             {{ $t('career.divider_description') }}
@@ -228,7 +228,10 @@
         </p>
         <p
           v-else
-          :class="['f-20 text-center mb-0 text--darken-3 px-10 mb-8', isRTL ? 'font-weight-bold' : 'font-weight-light']"
+          :class="[
+            'f-20 text-center mb-0 text--darken-3 px-10 mb-8',
+            isRTL ? 'font-weight-light' : 'font-weight-light'
+          ]"
           style="color: #59595b; line-height: 30px"
         >
           {{ $t('career.card_description') }}

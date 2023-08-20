@@ -12,11 +12,17 @@ $path: '~assets/fonts';
   }
 }
 
-@include font-face-creator('ravi', '#{$path}/ravi', 'ravi', normal);
 @include font-face-creator('bel', '#{$path}/bel', 'bel', normal);
 
 @include font-face-creator('proxima', '#{$path}/proxima', 'ProximaNova-Light', 300);
 @include font-face-creator('proxima', '#{$path}/proxima', 'ProximaNova-Semibold', 600);
 @include font-face-creator('proxima', '#{$path}/proxima', 'ProximaNova-Regular', normal);
 
-@include font-face-creator('anjoman', '#{$path}/anjoman', 'AnjomanVariableGX', normal);
+@include font-face-creator('ravi', '#{$path}/ravi', 'Ravi-Regular', normal);
+@include font-face-creator('ravi', '#{$path}/ravi', 'Ravi-Light', 300);
+@include font-face-creator('ravi', '#{$path}/ravi', 'Ravi-Bold', 600);
+
+@include font-face-creator('anjoman', '#{$path}/anjoman', 'AnjomanMax-Regular', normal);
+@include font-face-creator('anjoman', '#{$path}/anjoman', 'AnjomanMax-Light', 300);
+@include font-face-creator('anjoman', '#{$path}/anjoman', 'AnjomanMax-Bold', 600);
+

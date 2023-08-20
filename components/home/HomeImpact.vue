@@ -19,7 +19,7 @@
           :class="[
             'mb-0 py-4',
             isMobile ? 'f-16' : 'f-20 ms-8 ps-8',
-            isRTL ? 'font-weight-bold anjoman' : 'font-weight-light'
+            isRTL ? 'font-weight-light anjoman' : 'font-weight-light'
           ]"
           :style="`${!isMobile && `border-${isRTL ? 'right' : 'left'}: 1px solid #59595B`}; color: #59595B;${
             isRTL && !isMobile && 'line-height:35px'

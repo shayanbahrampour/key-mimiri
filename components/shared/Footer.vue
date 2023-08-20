@@ -17,7 +17,7 @@
           <v-row v-if="!isMobile" class="justify-space-between">
             <v-col v-for="(item, index) in items" :key="index" cols="12" lg="2" order="2" sm="6">
               <h4 class="mb-3 f-15 text-start font-weight-regular pb-2 footer-title">
-                <span :class="{ 'font-weight-bold': isRTL }">{{ $t(item.title) }}</span>
+                <span :class="{ 'font-weight-light': isRTL }">{{ $t(item.title) }}</span>
               </h4>
               <div class="d-flex flex-column align-start">
                 <v-btn
@@ -40,7 +40,7 @@
                   height="auto"
                   @click="link.to === 'video' ? showVideo() : undefined"
                 >
-                  <div :class="['text-wrap text-start', { 'font-weight-bold': isRTL }]">
+                  <div :class="['text-wrap text-start', { 'font-weight-light': isRTL }]">
                     {{ link.title ? $t(link.title) : link.name }}
                   </div>
                 </v-btn>
@@ -58,7 +58,7 @@
                   rounded
                   @click="showVideo()"
                 >
-                  <span :class="{ 'font-weight-bold': isRTL }">{{ $t('footer.about') }}</span>
+                  <span :class="{ 'font-weight-light': isRTL }">{{ $t('footer.about') }}</span>
                 </v-btn>
                 <v-btn
                   :to="localePath('/contact')"
@@ -71,7 +71,7 @@
                   outlined
                   rounded
                 >
-                  <span :class="{ 'font-weight-bold': isRTL }">{{ $t('footer.contact') }}</span>
+                  <span :class="{ 'font-weight-light': isRTL }">{{ $t('footer.contact') }}</span>
                 </v-btn>
               </div>
             </v-col>
@@ -100,7 +100,7 @@
               large
               rounded
             >
-              <span :class="{ 'font-weight-bold': isRTL }">{{ $t('footer.about') }}</span>
+              <span :class="{ 'font-weight-light': isRTL }">{{ $t('footer.about') }}</span>
             </v-btn>
             <v-btn
               :to="localePath('/contact')"
@@ -113,14 +113,14 @@
               outlined
               rounded
             >
-              <span :class="{ 'font-weight-bold': isRTL }">{{ $t('footer.contact') }}</span>
+              <span :class="{ 'font-weight-light': isRTL }">{{ $t('footer.contact') }}</span>
             </v-btn>
           </div>
           <div :class="['d-flex ltr', !isMobile ? 'justify-space-between align-center' : 'justify-center']">
             <template v-if="!isMobile">
               <v-img alt="cobel" contain height="65" max-width="200" src="/images/logo-text-white.svg" />
               <div v-if="!isMobile" class="ltr f-13" style="margin-right: 120px">
-                <span :class="{ 'font-weight-bold': isRTL }">{{ $t('footer.copyright') }}</span>
+                <span :class="{ 'font-weight-light': isRTL }">{{ $t('footer.copyright') }}</span>
               </div>
             </template>
 
@@ -140,7 +140,7 @@
           <v-divider v-if="isMobile" class="white my-6 f-13" style="opacity: 0.3" />
 
           <div v-if="isMobile" class="ltr">
-            <span :class="{ 'font-weight-bold': isRTL }">{{ $t('footer.copyright') }}</span>
+            <span :class="{ 'font-weight-light': isRTL }">{{ $t('footer.copyright') }}</span>
           </div>
         </v-sheet>
       </div>

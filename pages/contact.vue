@@ -25,7 +25,7 @@
                   isRTL
                     ? isMobile
                       ? 'ravi mt-4 text-center f-16 contact-address'
-                      : 'ravi f-18 font-weight-light'
+                      : 'ravi f-18 font-weight-regular'
                     : isMobile
                     ? 'mt-4 text-center font-weight-light f-16 contact-address'
                     : 'f-20 font-weight-light'
