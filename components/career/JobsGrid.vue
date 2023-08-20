@@ -1,10 +1,10 @@
 <template>
-  <v-container v-if="!isMobile" class="d-flex flex-column justify-center mb-16 pl-0 mt-10" style="width: 90vw">
+  <v-container v-if="!isMobile" class="d-flex flex-column justify-center mb-16 pl-0" style="width: 90vw">
     <v-row no-gutters>
       <template v-for="(item, n) in items">
         <v-col :key="n" cols="6">
           <v-card
-            :class="['py-10', n % 2 === 1 ? 'ps-10' : undefined]"
+            :class="['py-10', n % 2 === 1 ? 'ps-10' : 'pe-10']"
             :style="`border-bottom: ${n > 1 ? '0' : '0.5'}px solid grey; border-${isRTL ? 'left' : 'right'}: ${
               n % 2 === 1 ? '0' : '0.5'
             }px solid grey`"
@@ -15,13 +15,17 @@
             <h4 :class="['f-30 text--darken-3 font-weight-regular', isRTL ? 'ravi' : 'bel']" style="color: #66869a">
               {{ isRTL ? item.fa_title : item.en_title }}
             </h4>
-            <p :class="['f-18 mt-4 mb-0 text--darken-3 mb-auto', isRTL ? 'font-weight-bold' : 'font-weight-light']">
+            <p
+              :class="['f-18 mt-4 mb-0 text--darken-3 mb-auto', isRTL ? 'font-weight-bold' : 'font-weight-light']"
+              style="height: 120px !important"
+            >
               {{ isRTL ? item.fa_summary : item.en_summary }}
             </p>
-            <div class="d-flex align-center mt-6">
+            <div class="d-flex align-center mt-6" style="height: 60px !important">
               <v-btn
                 :class="['rounded-xl d-flex justify-center white--text f-18', isRTL ? 'font-weight-bold' : undefined]"
-                :to="localePath(`/PeopleAndCareer/${item.id}`)"
+                :href="item.link"
+                target="_blank"
                 color="slategrey"
                 elevation="0"
                 height="36"
@@ -30,13 +34,7 @@
                 {{ $t('career.job_action') }}
               </v-btn>
               <v-spacer></v-spacer>
-              <v-img
-                :max-width="isRTL ? '140' : undefined"
-                :src="src(item)"
-                class="me-16"
-                max-height="30"
-                max-width="100"
-              />
+              <v-img :src="`/images/timeline/${item.logo}`" :max-width="item.logoWidth" :height="item.logoHeight" />
             </div>
           </v-card>
         </v-col>
@@ -55,10 +53,11 @@
         {{ isRTL ? item.fa_summary : item.en_summary }}
       </p>
       <div class="d-flex flex-column align-start mt-6">
-        <v-img :src="src(item)" max-height="60" width="120" />
+        <v-img :src="`/images/timeline/${item.logo}`" :max-width="item.logoWidth" :height="item.logoHeight" />
         <v-btn
           :class="['rounded-xl d-flex justify-center white--text f-20 mt-6', isRTL ? 'font-weight-bold' : undefined]"
-          :to="localePath(`/PeopleAndCareer/${item.id}`)"
+          :href="item.link"
+          target="_blank"
           color="slategrey"
           elevation="0"
           height="50"
@@ -78,26 +77,43 @@ export default {
   data() {
     return {
       loading: false,
-      items: [],
+      items: [
+        {
+          en_title: 'COBEL DAROU',
+          fa_title: '',
+          fa_summary: '',
+          logo: 'cobel.svg',
+          logoWidth: 130,
+          logoHeight: 90,
+          link: 'https://groupcobel.adilar.com/',
+          en_summary:
+            'Cobel Darou is a leading private pharmaceutical company founded in 2002. Cobel Darous core activities encompass pharmaceutical registration, importation, and sales & marketing of multinational brands'
+        },
+        {
+          en_title: 'ABIDI',
+          fa_title: '',
+          fa_summary: '',
+          logoWidth: 170,
+          logoHeight: 60,
+          logo: 'abidi.svg',
+          link: 'https://pharmaoperations.adilar.com/',
+          en_summary:
+            'Dr. Abidi Pharmaceutical, is a leading private company founded in 1946. It’s core activities encompass manufacturing 84 local brands, treating 4.5+ non-communicable diseases across 14 areas, with significant industrial development and extensive promotional structure'
+        },
+        {
+          en_title: 'ADORATEB',
+          fa_summary: '',
+          logoWidth: 170,
+          logoHeight: 60,
+          logo: 'adorateb.svg',
+          fa_title: '',
+          link: 'https://cobeldarou.adilar.com/',
+          en_summary:
+            'Adorateb is a leading private distribution company founded in 2009. Adorateb is ranked 2nd in private sector and its core activities encompass innovative distributions of medicines and supplements to 15,000+ pharmacies through 26 centers in Iran.'
+        }
+      ],
       news: []
     };
-  },
-  async fetch() {
-    this.loading = true;
-    try {
-      const { data } = await this.$store.dispatch('career/getJobPositions');
-      this.items = data.slice(0, 4);
-    } catch (e) {
-      console.log(e);
-    }
-  },
-  methods: {
-    src(index) {
-      const mainImage = index.files.find((item) => item.type === 'company_file');
-      if (!mainImage) return '';
-
-      return `${this.$imageUrl}/${mainImage.url}`;
-    }
   }
 };
 </script>

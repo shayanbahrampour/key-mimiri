@@ -240,7 +240,6 @@
             isRTL ? 'ravi' : undefined
           ]"
           :min-width="!isMobile ? '300' : '80%'"
-          :to="localePath('/PeopleAndCareer/forum')"
           color="#A01E64"
           elevation="0"
           height="40"
@@ -255,12 +254,6 @@
           !isMobile ? 'px-16' : undefined
         ]"
       >
-        <h4
-          :class="['f-40 text-center text--darken-3 font-weight-regular mb-auto', isRTL ? 'ravi' : 'bel']"
-          style="color: #59595b"
-        >
-          {{ $t('career.job_title') }}
-        </h4>
         <div class="d-flex align-center justify-center">
           <JobsGrid />
         </div>
