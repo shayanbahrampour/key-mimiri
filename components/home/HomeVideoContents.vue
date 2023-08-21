@@ -18,7 +18,7 @@
             'font-weight-regular',
             isRTL ? 'ravi' : 'bel',
             { 'text-center pt-4 flex-grow-1': isMobile },
-            isMobile ? (isRTL ? 'f-30 mt-1' : 'f-35') : lgAndUp ? 'f-60' : 'f-50'
+            isMobile ? (isRTL ? 'f-30 mt-1' : 'f-35') : lgAndUp ? 'f-50' : 'f-50'
           ]"
           :style="isMobile ? '' : `min-width: ${lgAndUp ? '500px' : '415px'}`"
         >

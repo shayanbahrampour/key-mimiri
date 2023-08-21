@@ -28,7 +28,7 @@
               <p
                 :class="[
                   'mb-0 text--darken-3',
-                  isMobile ? 'text-center mt-4 f-32 font-weight-regular' : 'f-42 font-weight-regular story-name',
+                  isMobile ? 'text-center mt-4 f-32 font-weight-regular' : 'f-38 font-weight-regular story-name',
                   isRTL ? 'ravi' : 'bel'
                 ]"
                 :style="`color: #59595b; width: ${isMobile ? '100%' : '300px'}`"
