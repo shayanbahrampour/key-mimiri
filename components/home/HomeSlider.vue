@@ -91,8 +91,9 @@
           @ready="$emit('ready', $event)"
           @toggleFullscreen="$emit('toggleFullscreen', $event)"
           @ended="dialog = false"
-        /> </client-only
-    ></v-dialog>
+        />
+      </client-only>
+    </v-dialog>
   </v-sheet>
 </template>
 

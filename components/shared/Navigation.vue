@@ -218,8 +218,8 @@ export default {
     return {
       screenHeight: 1080,
       flag: {
-        showDrawer: false,
         video: false,
+        showDrawer: false,
         showDropdown: false,
         expandMenu: false
       }
@@ -275,8 +275,7 @@ export default {
       this.screenHeight = window.innerHeight;
     },
     showVideo() {
-      this.status = !this.status;
-      this.$emit('changed', this.status);
+      this.$emit('changed', !this.status);
     }
   }
 };

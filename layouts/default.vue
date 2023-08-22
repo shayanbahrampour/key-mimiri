@@ -10,20 +10,22 @@
       <Footer @changed="showVideo($event)" :status="dialog" />
 
       <v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
-        <client-only> <VideoScroll @close="dialog = !dialog" /> </client-only
-      ></v-dialog>
+        <client-only>
+          <VideoScroller @close="dialog = !dialog" />
+        </client-only>
+      </v-dialog>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import Footer from '~/components/shared/Footer.vue';
-import Navigation from '~/components/shared/Navigation.vue';
+import Footer from '~/components/shared/Footer';
+import Navigation from '~/components/shared/Navigation';
 import VideoLoader from '~/components/shared/VideoLoader';
-import VideoScroll from '~/components/home/VideoScroll.vue';
+import VideoScroller from '~/components/shared/VideoScroller';
 
 export default {
-  components: { Footer, Navigation, VideoLoader, VideoScroll },
+  components: { Footer, Navigation, VideoLoader, VideoScroller },
   data() {
     return {
       dialog: false,
