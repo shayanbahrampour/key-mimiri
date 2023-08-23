@@ -39,6 +39,10 @@ export default {
         window.addEventListener('wheel', this.registerVideo);
       });
     },
+    clearInterval() {
+      this.isPlaying = false;
+      if (this.interval) clearInterval(this.interval);
+    },
     registerVideo(event) {
       if (this.isPlaying) return;
 
@@ -48,7 +52,7 @@ export default {
       const video = document.querySelector('#povVideoLoader');
       if (!video) return;
 
-      const ratio = 1; // video scrolling speed
+      const ratio = 1.3; // video scrolling speed
       const delta = event.deltaY;
       const duration = video.duration;
       const currentTime = video.currentTime;
@@ -58,11 +62,9 @@ export default {
       let target = currentTime;
 
       if (delta > 0) {
-        // scroll down
-        target += ratio;
+        target += ratio; // scroll down
       } else {
-        // scroll up
-        target -= ratio;
+        target -= ratio; // scroll up
       }
 
       if (target >= duration) {
@@ -82,26 +84,20 @@ export default {
         console.log(e);
       }
     },
-    clearInterval() {
-      this.isPlaying = false;
-      clearInterval(this.interval);
-    },
     playVideo(video, start, end) {
       let startTime = start;
-      const ratio = 30; // frame ratio
+      const ratio = 24; // frame ratio
 
       this.interval = setInterval(() => {
         if (end > start) {
-          // forward
-          startTime += 1 / ratio;
+          startTime += 1 / ratio; // forward
 
           if (startTime > end) {
             this.clearInterval();
             return;
           }
         } else {
-          // backward
-          startTime -= 1 / ratio;
+          startTime -= 1 / ratio; // backward
 
           if (startTime < end) {
             this.clearInterval();
@@ -109,7 +105,6 @@ export default {
           }
         }
 
-        console.log('interval', startTime);
         video.currentTime = startTime;
       }, 1000 / ratio);
     }

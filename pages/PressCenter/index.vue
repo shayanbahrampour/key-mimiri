@@ -76,7 +76,6 @@ export default {
       try {
         const { data } = await this.$store.dispatch('news/getNewsList', {});
         this.news = data.results;
-        console.log(this.news);
         this.loading = false;
       } catch (e) {
         console.log(e);

@@ -11,7 +11,7 @@
 
       <v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
         <client-only>
-          <VideoScroller @close="dialog = !dialog" />
+          <VideoScroller v-if="dialog" @close="dialog = !dialog" />
         </client-only>
       </v-dialog>
     </v-main>
