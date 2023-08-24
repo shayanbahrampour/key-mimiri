@@ -23,6 +23,9 @@
           :style="isMobile ? '' : `min-width: ${lgAndUp ? '500px' : '415px'}`"
         >
           {{ $t('homePage.video.title') }}
+          <span class="text-no-wrap">
+            {{ $t('homePage.video.name') }}
+          </span>
         </h3>
         <v-divider v-if="!isMobile" class="white mx-8 my-auto" style="height: 120px" vertical />
         <div

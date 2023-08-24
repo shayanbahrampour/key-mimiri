@@ -80,34 +80,36 @@ export default {
       items: [
         {
           en_title: 'COBEL DAROU',
-          fa_title: '',
+          fa_title: 'گروه کوبل',
           fa_summary: '',
           logo: 'cobel.svg',
           logoWidth: 130,
           logoHeight: 90,
-          link: 'https://groupcobel.adilar.com/',
+          link: 'https://cobeldarou.adilar.com/',
           en_summary:
             'Cobel Darou is a leading private pharmaceutical company founded in 2002. Cobel Darous core activities encompass pharmaceutical registration, importation, and sales & marketing of multinational brands'
         },
         {
           en_title: 'ABIDI',
-          fa_title: '',
-          fa_summary: '',
+          fa_title: 'عبیدی',
+          fa_summary:
+            'داروسازی دکتر عبیدی، یک شرکت خصوصی برجسته است که در سال 1946 تأسیس شد. فعالیت‌های اصلی این شرکت شامل تولید 84 برند محلی، درمان بیش از 4.5 میلیون بیماری غیرواگیر در 14 حوزه مختلف و توسعه صنعتی قابل توجه به همراه ساختار اطلاع رسانی گسترده می‌باشد.',
           logoWidth: 170,
           logoHeight: 60,
           logo: 'abidi.svg',
-          link: 'https://pharmaoperations.adilar.com/',
+          link: 'https://abidipharma.com/recruitment',
           en_summary:
-            'Dr. Abidi Pharmaceutical, is a leading private company founded in 1946. It’s core activities encompass manufacturing 84 local brands, treating 4.5+ non-communicable diseases across 14 areas, with significant industrial development and extensive promotional structure'
+            'Dr. Abidi Pharmaceutical, is a leading private company founded in 1946. It’s core activities encompass manufacturing 84 local brands, treating 4.5+ M non-communicable diseases across 14 areas, with significant industrial development and extensive promotional structure'
         },
         {
           en_title: 'ADORATEB',
-          fa_summary: '',
+          fa_summary:
+            'آدوراطب یک شرکت توزیع خصوصی پیشرو در ایران است که در سال 2009 تأسیس شد. آدوراطب رتبه دوم در بخش خصوصی توزیع دارو را به خود اختصاص داده است که فعالیت‌های اصلی آن شامل توزیع دارو و مکمل‌ها به بیش از 15,000 داروخانه از طریق 26 مرکز توزیع در ایران می باشد.',
           logoWidth: 170,
           logoHeight: 60,
           logo: 'adorateb.svg',
-          fa_title: '',
-          link: 'https://cobeldarou.adilar.com/',
+          fa_title: 'آدوراطب',
+          link: 'https://career.hrcando.ir/co/adorateb',
           en_summary:
             'Adorateb is a leading private distribution company founded in 2009. Adorateb is ranked 2nd in private sector and its core activities encompass innovative distributions of medicines and supplements to 15,000+ pharmacies through 26 centers in Iran.'
         }

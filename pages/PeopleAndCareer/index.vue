@@ -169,10 +169,18 @@
       <div v-if="!isMobile" class="d-flex justify-center mt-6 px-16">
         <div class="d-flex align-center justify-center">
           <h4
+            v-if="!isRTL"
             :class="['f-40 white--text text--darken-3 font-weight-regular', `text-${isRTL ? 'start ravi' : 'end bel'}`]"
             style="width: 30%"
           >
-            {{ $t('career.divider_title') }}
+            Life at Cobel Group®
+          </h4>
+          <h4
+            v-else
+            :class="['f-40 white--text text--darken-3 font-weight-regular', `text-${isRTL ? 'start ravi' : 'end bel'}`]"
+            style="width: 30%"
+          >
+            زندگی در گروه کوبل<span class="f-20">®</span>
           </h4>
           <v-divider class="mx-8" color="white" style="min-height: 100px" vertical />
           <p
@@ -210,6 +218,7 @@
         style="margin-top: -175px"
       >
         <h4
+          v-if="!isRTL"
           :class="[
             'text-center text--darken-3 font-weight-regular',
             isMobile ? 'f-30 mb-2' : 'f-50 mb-auto',
@@ -218,6 +227,17 @@
           style="color: #66869a"
         >
           {{ $t('career.card_title') }}
+        </h4>
+        <h4
+          v-else
+          :class="[
+            'text-center text--darken-3 font-weight-regular',
+            isMobile ? 'f-30 mb-2' : 'f-50 mb-auto',
+            isRTL ? 'ravi' : 'bel'
+          ]"
+          style="color: #66869a"
+        >
+          به گروه کوبل<span class="f-20">®</span> بپیوندید
         </h4>
         <p
           v-if="!isMobile"
@@ -244,6 +264,8 @@
           ]"
           :min-width="!isMobile ? '300' : '80%'"
           color="#A01E64"
+          href="https://groupcobel.adilar.com/"
+          target="_blank"
           elevation="0"
           height="40"
         >

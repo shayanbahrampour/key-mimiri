@@ -2,7 +2,7 @@
   <div id="bound-one" class="video-scroll">
     <div class="content">
       <div v-if="showIcon" class="scroll-helper">
-        <h1>Scroll To Play</h1>
+        <h1 class="bel">Scroll To Play</h1>
         <v-icon color="white" size="36">mdi-chevron-double-down</v-icon>
       </div>
       <v-icon class="exit-scroll" color="white" size="36" @click="$emit('close')">mdi-close-box</v-icon>

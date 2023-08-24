@@ -249,7 +249,8 @@ export default {
       }
     },
     video: {
-      title: 'Our dynamic experience at Cobel Group®',
+      title: 'Our dynamic experience at ',
+      name: 'Cobel Group®',
       description: 'Valuing Talents, Embracing Diversity and Achieving Collective Success'
     },
     impact: {
