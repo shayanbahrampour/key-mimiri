@@ -1,5 +1,5 @@
 export default ({ app, req }, inject) => {
-  const baseUrl = 'https://api-cobel.applife.ir';
+  const baseUrl = 'https://api.cobelgroup.com';
   const imageUrl = `${baseUrl}/storage`; // '/images/temp/';
 
   app.$axios.onRequest((config) => {
