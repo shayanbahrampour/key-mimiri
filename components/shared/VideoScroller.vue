@@ -52,19 +52,19 @@ export default {
       const video = document.querySelector('#povVideoLoader');
       if (!video) return;
 
-      const ratio = 1.3; // video scrolling speed
+      this.showIcon = false;
+
+      const scrollSpeed = 5; // video speed per seconds
       const delta = event.deltaY;
       const duration = video.duration;
       const currentTime = video.currentTime;
 
-      this.showIcon = currentTime === 0;
-
       let target = currentTime;
 
       if (delta > 0) {
-        target += ratio; // scroll down
+        target += scrollSpeed; // scroll down
       } else {
-        target -= ratio; // scroll up
+        target -= scrollSpeed; // scroll up
       }
 
       if (target >= duration) {
@@ -86,18 +86,18 @@ export default {
     },
     playVideo(video, start, end) {
       let startTime = start;
-      const ratio = 24; // frame ratio
+      const frameRatio = 24; // frame ratio
 
       this.interval = setInterval(() => {
         if (end > start) {
-          startTime += 1 / ratio; // forward
+          startTime += 1 / frameRatio; // forward
 
           if (startTime > end) {
             this.clearInterval();
             return;
           }
         } else {
-          startTime -= 1 / ratio; // backward
+          startTime -= 1 / frameRatio; // backward
 
           if (startTime < end) {
             this.clearInterval();
@@ -106,7 +106,7 @@ export default {
         }
 
         video.currentTime = startTime;
-      }, 1000 / ratio);
+      }, 1000 / frameRatio);
     }
   }
 };
