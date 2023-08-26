@@ -18,6 +18,7 @@
       :width="width"
       class="vjs-theme-sea"
       @ready="$emit('ready', $event)"
+      @ended="$emit('ended', $event)"
       @toggleFullscreen="$emit('toggleFullscreen', $event)"
     />
   </client-only>

@@ -17,20 +17,12 @@
       width && `;width:${width};max-width:${maxSize || width};`
     };${minSize && `min-height:${minSize};min-width:${minSize}`}`"
     preload="none"
-    @ended="
-      flag.isPlaying = false;
-      toggleFullscreen();
-      $emit('ended');
-    "
+    @timeupdate="timeupdate"
+    @ended="onVideoEnds"
     @fullscreenchange="onFullscreen"
-    @pause="
-      flag.isPlaying = false;
-      $emit('ended');
-    "
-    @play="
-      flag.isPlaying = true;
-      toggleFullscreen();
-    "
+    @error="onVideoErrors"
+    @pause="onVideoPauses"
+    @play="onVideoPlays"
     @ready="onReady"
   />
 </template>
@@ -68,14 +60,6 @@ export default {
       }
     };
   },
-  watch: {
-    options: {
-      deep: true,
-      handler() {
-        if (this.options.autoplay) this.play();
-      }
-    }
-  },
   created() {
     this.ref = this.generateId();
   },
@@ -87,6 +71,27 @@ export default {
     }
   },
   methods: {
+    timeupdate(e) {
+      if (!this.options.loop) return;
+      if (this.options.duration && e.currentTime() >= this.options.duration) {
+        e.currentTime(0);
+      }
+    },
+    onVideoErrors() {
+      console.log('video error');
+    },
+    onVideoPauses() {
+      this.flag.isPlaying = false;
+    },
+    onVideoPlays() {
+      this.flag.isPlaying = true;
+      this.toggleFullscreen();
+    },
+    onVideoEnds() {
+      this.flag.isPlaying = false;
+      this.toggleFullscreen();
+      this.$emit('ended');
+    },
     onFullscreen(event) {
       this.$emit('toggleFullscreen', event.isFullscreen_);
       if (!event.isFullscreen_) {
@@ -133,9 +138,14 @@ export default {
       if (this.player) return;
       this.player = this.$refs[this.ref].player;
 
+      this.player.loop(typeof this.options.loop === 'undefined' ? true : this.options.loop);
       this.player.fluid(typeof this.options.fluid === 'undefined' ? true : this.options.fluid);
       if (this.options.fill) this.player.fill(true);
       this.$emit('ready', this.player);
+
+      this.$nextTick(() => {
+        if (this.options.autoplay) this.play();
+      });
     }
   }
 };

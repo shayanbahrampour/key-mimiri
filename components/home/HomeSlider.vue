@@ -77,13 +77,12 @@
     <v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
       <client-only>
         <VideoLoader
-          v-if="src"
           :options="{
             autoplay: true,
             sources: [
               {
                 type: 'video/mp4',
-                src
+                src: '/video/pov.mp4'
               }
             ]
           }"
@@ -107,8 +106,6 @@ export default {
   data() {
     return {
       dialog: false,
-      src: '/video/pov.mp4',
-
       screenHeight: 1080,
       flag: {
         showFullscreen: false

@@ -36,20 +36,40 @@
       @touchend="openFullscreen"
     >
       <VideoContents
-        :height="!flag.showFullscreen && isMobile ? '370px' : 'calc(100vh - 240px)'"
-        :maxSize="flag.showFullscreen || isMobile ? null : '600px'"
-        :minSize="flag.showFullscreen || isMobile ? null : '500px'"
+        v-if="flag.showFullscreen"
+        ref="HomeSliderVideoFull"
+        height="calc(100vh - 240px)"
+        :maxSize="null"
+        :minSize="null"
         :options="{
+          fluid: true,
+          muted: true,
+          controls: true,
+          fullscreen: true,
+          aspectRatio: '16:9'
+        }"
+        src="/video/pov.mp4"
+        width="100vw"
+        class="my-auto d-flex align-center"
+      />
+      <VideoContents
+        v-else
+        ref="HomeSliderVideo"
+        :height="isMobile ? '370px' : 'calc(100vh - 240px)'"
+        :maxSize="isMobile ? null : '600px'"
+        :minSize="isMobile ? null : '500px'"
+        :options="{
+          duration: 28,
+          fluid: true,
           loop: true,
           muted: true,
-          fluid: true,
+          controls: false,
           autoplay: true,
           fullscreen: false,
-          controls: flag.showFullscreen,
-          aspectRatio: flag.showFullscreen ? '16:9' : '1:1'
+          aspectRatio: '1:1'
         }"
-        :src="flag.showFullscreen ? 'video/pov.mp4' : '/video/home-slider.mp4'"
-        :width="flag.showFullscreen ? '100vw' : isMobile ? '370px' : 'calc(100vh - 240px)'"
+        src="/video/home-slider.mp4"
+        :width="isMobile ? '370px' : 'calc(100vh - 240px)'"
         class="my-auto d-flex align-center"
       />
     </div>
