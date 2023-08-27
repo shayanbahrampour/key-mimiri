@@ -27,7 +27,7 @@
         >
           <h1
             :class="[
-              'white--text font-weight-regular text-uppercase position-absolute start-0 text-no-wrap',
+              'white--text font-weight-regular position-absolute start-0 text-no-wrap',
               isMobile ? (isRTL ? 'f-40' : 'f-50') : isRTL ? 'f-70' : 'f-70',
               $vuetify.breakpoint.xl ? 'px-12' : isMobile ? 'px-6' : 'px-16',
               isRTL ? 'ravi' : 'bel'

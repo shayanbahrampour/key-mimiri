@@ -22,7 +22,7 @@ export default {
     contact: 'Contact Us',
     impact_stories: 'Impact Stories',
     education: 'Education & Empowerment',
-    storytellers: 'STORYTELLERS',
+    storytellers: 'Storytellers',
     timeline: 'Our Companies'
   },
   footer: {

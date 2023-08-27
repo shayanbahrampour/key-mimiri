@@ -7,7 +7,7 @@
     >
       <h4
         v-if="!isMobile"
-        :class="['white--text f-70 font-weight-regular text-capitalize', isRTL ? 'ravi mr-16' : 'bel']"
+        :class="['white--text f-70 font-weight-regular', isRTL ? 'ravi mr-16' : 'bel']"
         style="margin-bottom: 140px"
       >
         {{ $t('pageTitles.storytellers') }}
