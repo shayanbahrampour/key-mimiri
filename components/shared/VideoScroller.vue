@@ -54,7 +54,7 @@ export default {
 
       this.showIcon = false;
 
-      const scrollSpeed = 5; // video speed per seconds
+      const scrollSpeed = 2.5; // video speed per seconds
       const delta = event.deltaY;
       const duration = video.duration;
       const currentTime = video.currentTime;
