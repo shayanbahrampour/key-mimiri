@@ -73,7 +73,8 @@ export default {
         {
           en_title: 'COBEL DAROU',
           fa_title: 'گروه کوبل',
-          fa_summary: '',
+          fa_summary:
+            'کوبل دارو یک شرکت دارویی خصوصی پیشرو است که در سال 2002 تاسیس شد. فعالیت های اصلی کوبل دارو شامل ثبت دارو، تامین و واردات و فروش و بازاریابی برندهای چند ملیتی است.',
           logo: 'cobel.svg',
           logoWidth: 130,
           logoHeight: 90,
