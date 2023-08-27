@@ -81,7 +81,7 @@
           <h4 v-if="isMobile" :class="['slategrey--text mt-4 px-1', isRTL && 'mb-3 font-weight-light']">
             {{ $t('impactPage.share_it') }}:
           </h4>
-          <div :class="['d-flex', isMobile ? 'mt-2' : 'mt-10 pb-16']">
+          <div :class="['d-flex', isMobile ? 'mt-2' : 'mt-10 pb-2']">
             <a :href="item.short_link" class="me-4" rel="noopener noreferrer" target="_blank" @click="shareOnLinkedIn">
               <v-img contain height="50" src="/images/social/icon-linkedin.svg" width="50" />
             </a>
@@ -147,7 +147,7 @@
         <v-sheet v-if="isMobile" class="custom-gradient my-1" height="16" />
       </div>
       <v-sheet
-        :class="[isMobile ? 'px-6' : 'px-16', isMobile ? 'pt-6' : 'mt-lg-6 pt-16', isRTL && 'ltr']"
+        :class="[isMobile ? 'px-6' : 'px-16', isMobile ? 'pt-6' : 'mt-lg-6', isRTL && 'ltr']"
         style="color: #59595b"
       >
         <v-img

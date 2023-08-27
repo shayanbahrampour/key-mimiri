@@ -53,7 +53,7 @@
                 : undefined
             "
             active-class="primary--text"
-            :class="['bg-transparent', item.title !== 'menu.empowerment' ? (isRTL ? 'px-6' : 'px-4') : undefined]"
+            :class="['bg-transparent', item.title !== 'menu.empowerment' ? (isRTL ? 'px-6' : 'px-6') : undefined]"
             color="transparent"
             depressed
             exact

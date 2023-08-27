@@ -72,7 +72,7 @@ export default {
       items: [
         {
           en_title: 'COBEL DAROU',
-          fa_title: 'گروه کوبل',
+          fa_title: 'کوبل دارو',
           fa_summary:
             'کوبل دارو یک شرکت دارویی خصوصی پیشرو است که در سال 2002 تاسیس شد. فعالیت های اصلی کوبل دارو شامل ثبت دارو، تامین و واردات و فروش و بازاریابی برندهای چند ملیتی است.',
           logo: 'cobel.svg',
@@ -113,7 +113,7 @@ export default {
           logoWidth: 160,
           logoHeight: 50,
           logo: 'cobelgroup.png',
-          fa_title: 'کوبل گروپ',
+          fa_title: 'گروه کوبل',
           link: 'https://career.hrcando.ir/co/adorateb',
           en_summary:
             'Adorateb is a leading private distribution company founded in 2009. Adorateb is ranked 2nd in private sector and its core activities encompass innovative distributions of medicines and supplements to 15,000+ pharmacies through 26 centers in Iran.'
