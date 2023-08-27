@@ -1,59 +1,17 @@
 <template>
-  <div
-    :class="[
-      'pointer overflow-hidden custom-transition',
-      flag.showFullscreen ? 'z-1' : 'z-10',
-      flag.showFullscreen
-        ? 'black position-fixed h-screen w-screen d-flex align-center justify-center rounded-0 top-0 start-0'
-        : 'z-2 rounded-circle position-relative'
-    ]"
-  >
-    <v-fade-transition>
-      <v-btn
-        v-if="flag.showFullscreen"
-        class="position-fixed top-0 start-0 ma-2 z-2"
-        color="black"
-        fab
-        @click="flag.showFullscreen = false"
-      >
-        <v-icon color="white">mdi-close</v-icon>
-      </v-btn>
-    </v-fade-transition>
-
+  <div :class="['pointer overflow-hidden custom-transition z-10 z-2 rounded-circle position-relative']">
     <v-sheet
       :class="['position-absolute top-0 start-0 z-0']"
-      :height="flag.showFullscreen ? '100vh' : 0"
-      :style="`transition: all ease-in 0.4s; opacity:${flag.showFullscreen ? 1 : 0}`"
-      :width="flag.showFullscreen ? '100vw' : 0"
+      :height="0"
+      :style="`transition: all ease-in 0.4s; opacity:${0}`"
+      :width="0"
       color="black"
       @touchend="closeFullscreen"
       @click.prevent="closeFullscreen"
     />
 
-    <div
-      :class="['position-relative z-1', isMobile && 'mx-auto', flag.showFullscreen && 'vjs-fullscreen w-screen h-auto']"
-      @click="openFullscreen"
-      @touchend="openFullscreen"
-    >
+    <div :class="['position-relative z-1', isMobile && 'mx-auto']" @click="openFullscreen" @touchend="openFullscreen">
       <VideoContents
-        v-if="flag.showFullscreen"
-        ref="HomeSliderVideoFull"
-        height="calc(100vh - 240px)"
-        :maxSize="null"
-        :minSize="null"
-        :options="{
-          fluid: true,
-          muted: true,
-          controls: true,
-          fullscreen: true,
-          aspectRatio: '16:9'
-        }"
-        src="/video/pov.mp4"
-        width="100vw"
-        class="my-auto d-flex align-center"
-      />
-      <VideoContents
-        v-else
         ref="HomeSliderVideo"
         :height="isMobile ? '370px' : 'calc(100vh - 240px)'"
         :maxSize="isMobile ? null : '600px'"
@@ -82,6 +40,12 @@ import VideoContents from '~/components/shared/VideoContents.vue';
 
 export default {
   components: { VideoContents, VideoLoader },
+  props: {
+    isFullScreen: {
+      type: Boolean,
+      default: false
+    }
+  },
   data() {
     return {
       flag: {
@@ -93,7 +57,13 @@ export default {
     'flag.showFullscreen': {
       immediate: true,
       handler() {
-        this.$emit('showFullscreen', this.flag.showFullscreen);
+        if (!this.isMobile) this.$emit('showFullscreen', this.flag.showFullscreen);
+      }
+    },
+    isFullScreen: {
+      immediate: true,
+      handler() {
+        this.flag.showFullscreen = this.isFullScreen;
       }
     }
   },

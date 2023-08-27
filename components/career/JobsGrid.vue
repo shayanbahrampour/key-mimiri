@@ -3,15 +3,7 @@
     <v-row no-gutters>
       <template v-for="(item, n) in items">
         <v-col :key="n" cols="6">
-          <v-card
-            :class="['py-10', n % 2 === 1 ? 'ps-10' : 'pe-10']"
-            :style="`border-bottom: ${n > 1 ? '0' : '0.5'}px solid grey; border-${isRTL ? 'left' : 'right'}: ${
-              n % 2 === 1 ? '0' : '0.5'
-            }px solid grey`"
-            elevation="0"
-            outline
-            tile
-          >
+          <v-card :class="['py-10', n % 2 === 1 ? 'ps-10' : 'pe-10']" elevation="0" outline tile>
             <h4 :class="['f-30 text--darken-3 font-weight-regular', isRTL ? 'ravi' : 'bel']" style="color: #66869a">
               {{ isRTL ? item.fa_title : item.en_title }}
             </h4>
@@ -109,6 +101,18 @@ export default {
           logoHeight: 60,
           logo: 'adorateb.svg',
           fa_title: 'آدوراطب',
+          link: 'https://career.hrcando.ir/co/adorateb',
+          en_summary:
+            'Adorateb is a leading private distribution company founded in 2009. Adorateb is ranked 2nd in private sector and its core activities encompass innovative distributions of medicines and supplements to 15,000+ pharmacies through 26 centers in Iran.'
+        },
+        {
+          en_title: 'COBEL GROUP',
+          fa_summary:
+            'آدوراطب یک شرکت توزیع خصوصی پیشرو در ایران است که در سال 2009 تأسیس شد. آدوراطب رتبه دوم در بخش خصوصی توزیع دارو را به خود اختصاص داده است که فعالیت‌های اصلی آن شامل توزیع دارو و مکمل‌ها به بیش از 15,000 داروخانه از طریق 26 مرکز توزیع در ایران می باشد.',
+          logoWidth: 160,
+          logoHeight: 50,
+          logo: 'cobelgroup.png',
+          fa_title: 'کوبل گروپ',
           link: 'https://career.hrcando.ir/co/adorateb',
           en_summary:
             'Adorateb is a leading private distribution company founded in 2009. Adorateb is ranked 2nd in private sector and its core activities encompass innovative distributions of medicines and supplements to 15,000+ pharmacies through 26 centers in Iran.'

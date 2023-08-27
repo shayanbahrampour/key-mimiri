@@ -14,7 +14,7 @@
       :style="`${isMobile ? 'top:-250px;' : `top:-${screenHeight < 760 ? 40 : 90}px;right:-360px;`}`"
       color="white"
     >
-      <HomeSliderVideo @showFullscreen="flag.showFullscreen = $event" />
+      <HomeSliderVideo @showFullscreen="flag.video = $event" :isFullScreen="flag.video" />
     </v-sheet>
 
     <v-sheet
@@ -74,23 +74,9 @@
         </v-col>
       </v-row>
     </v-sheet>
-    <v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
+    <v-dialog v-model="flag.video" fullscreen hide-overlay transition="dialog-bottom-transition">
       <client-only>
-        <VideoLoader
-          :options="{
-            autoplay: true,
-            sources: [
-              {
-                type: 'video/mp4',
-                src: '/video/pov.mp4'
-              }
-            ]
-          }"
-          class="vjs-theme-sea"
-          @ready="$emit('ready', $event)"
-          @toggleFullscreen="$emit('toggleFullscreen', $event)"
-          @ended="dialog = false"
-        />
+        <VideoScroller v-if="flag.video" @close="flag.video = !flag.video" />
       </client-only>
     </v-dialog>
   </v-sheet>
@@ -98,17 +84,19 @@
 
 <script>
 import VideoLoader from '@/components/shared/VideoLoader';
+import VideoScroller from '../shared/VideoScroller';
 import VideoContents from '~/components/shared/VideoContents.vue';
 import HomeSliderVideo from '~/components/home/HomeSliderVideo.vue';
 
 export default {
-  components: { HomeSliderVideo, VideoContents, VideoLoader },
+  components: { HomeSliderVideo, VideoContents, VideoLoader, VideoScroller },
   data() {
     return {
       dialog: false,
       screenHeight: 1080,
       flag: {
-        showFullscreen: false
+        showFullscreen: false,
+        video: false
       }
     };
   },

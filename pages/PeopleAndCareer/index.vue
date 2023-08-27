@@ -275,7 +275,7 @@
       <div
         v-if="!isMobile"
         :class="[
-          'd-flex flex-column align-start justify-space-between mt-16 white w-full',
+          'd-flex flex-column align-center justify-space-between mt-16 white w-full',
           !isMobile ? 'px-16' : undefined
         ]"
       >
