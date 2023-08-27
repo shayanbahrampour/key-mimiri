@@ -109,7 +109,7 @@
                 exact
                 link
                 text
-                @click="flag.showMore = !flag.showMore"
+                :to="localePath(`${activeSlide.link}`)"
               >
                 {{ flag.showMore ? $t('shared.see_less') : $t('shared.see_more') }}
               </v-btn>

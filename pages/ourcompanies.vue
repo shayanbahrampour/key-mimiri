@@ -9,7 +9,7 @@
             : 'Our pioneering companies are dedicated to improving quality of life with innovative healthcare solutions. With a diverse portfolio of products and services, we strive to meet the unique needs of individuals, healthcare professionals, and organizations.'
         }
       ]"
-      :title="isRTL ? 'میراث' : 'Our Companies'"
+      :title="isRTL ? 'شرکت‌های ما' : 'Our Companies'"
       hide-delimiters
     />
 

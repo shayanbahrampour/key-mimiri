@@ -115,7 +115,7 @@ export default {
         description: null
       },
       items: ['Management', 'Health story', 'Comments', 'Other'],
-      itemsRTL: ['مدیریت', 'داستان سلامت', 'نظر', 'بقیه']
+      itemsRTL: ['مدیریت', 'داستان سلامت', 'نظر', 'سایر موارد']
     };
   },
   methods: {
