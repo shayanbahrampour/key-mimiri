@@ -43,6 +43,8 @@
               height="40"
               min-width="160"
               outlined
+              target="_blank"
+              href="https://www.linkedin.com/company/cobel-group%C2%AE/"
             >
               <span :class="['f-18 text-capitalize', isRTL ? 'ravi mt-2' : undefined]">{{
                 $t('contact.button.follow')

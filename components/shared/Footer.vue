@@ -132,6 +132,8 @@
               outlined
               style="border-radius: 35%; border: 3px solid white"
               width="55"
+              target="_blank"
+              href="https://www.linkedin.com/company/cobel-group%C2%AE/"
             >
               <v-img contain height="24" src="/images/social/linkedin.svg" width="24" />
             </v-btn>

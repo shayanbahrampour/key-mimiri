@@ -109,14 +109,14 @@ export default {
         {
           en_title: 'COBEL GROUP',
           fa_summary:
-            'آدوراطب یک شرکت توزیع خصوصی پیشرو در ایران است که در سال 2009 تأسیس شد. آدوراطب رتبه دوم در بخش خصوصی توزیع دارو را به خود اختصاص داده است که فعالیت‌های اصلی آن شامل توزیع دارو و مکمل‌ها به بیش از 15,000 داروخانه از طریق 26 مرکز توزیع در ایران می باشد.',
+            'گروه کوبل، یک گروه دارویی خصوصی با بیش از 3000 همکار و 100 برند ملی است که چرخه ی کامل و یکپارچه ی دارویی را در درون خود دارد. این گروه در تلاش است تا با تمرکز بر سلامت انسان، زمینه ساز و پدید آورنده ی دانش و راهکارهای جدید باشد.',
           logoWidth: 160,
           logoHeight: 50,
           logo: 'cobelgroup.png',
           fa_title: 'گروه کوبل',
           link: 'https://groupcobel.adilar.com',
           en_summary:
-            'Adorateb is a leading private distribution company founded in 2009. Adorateb is ranked 2nd in private sector and its core activities encompass innovative distributions of medicines and supplements to 15,000+ pharmacies through 26 centers in Iran.'
+            'Cobel Group® is a private pharmaceutical company with over 3000 employees and 100 national brands, encompassing a complete and integrated pharmaceutical cycle within itself. The group strives to be a catalyst and creator of new knowledge and solutions, with a focus on human health.'
         }
       ],
       news: []
