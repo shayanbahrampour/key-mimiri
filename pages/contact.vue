@@ -55,7 +55,15 @@
           </div>
         </div>
         <div v-if="isMobile" class="mt-8 d-flex justify-center">
-          <v-btn class="rounded d-flex align-center" color="white" height="40" min-width="160" outlined>
+          <v-btn
+            class="rounded d-flex align-center"
+            color="white"
+            height="40"
+            min-width="160"
+            outlined
+            target="_blank"
+            href="https://www.linkedin.com/company/cobel-group%C2%AE/"
+          >
             <span :class="['f-20 text-capitalize', { ' ravi mt-2': isRTL }]">{{ $t('contact.button.follow') }}</span>
             <v-divider class="me-4 ms-6 white" vertical></v-divider>
             <v-img class="ma-0" height="20" max-width="20" src="/images/icons/linkedin.png" />
