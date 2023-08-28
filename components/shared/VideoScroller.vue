@@ -28,7 +28,7 @@ export default {
       interval: null,
       isPlaying: false,
       showIcon: true,
-      currentScrollPosition: 0
+      touchstart: 0
     };
   },
   beforeDestroy() {
@@ -41,8 +41,9 @@ export default {
     onReady() {
       this.$nextTick(() => {
         window.addEventListener('wheel', this.registerVideo);
-      });
-      this.$nextTick(() => {
+        window.addEventListener('touchstart', (event) => {
+          this.touchstart = event;
+        });
         window.addEventListener('touchmove', this.registerVideo);
       });
     },
@@ -62,26 +63,21 @@ export default {
       this.showIcon = false;
 
       const scrollSpeed = 3; // video speed per seconds
-      const delta = event.deltaY;
+      const delta =
+        event.deltaY || this.isMobile
+          ? this.touchstart.targetTouches[0].screenY > event.targetTouches[0].screenY
+            ? 1
+            : 0
+          : 0;
       const duration = video.duration;
       const currentTime = video.currentTime;
 
       let target = currentTime || 0;
 
-      if (this.isMobile) {
-        if (window.scrollY >= this.currentScrollPosition) {
-          target += scrollSpeed; // scroll down
-        } else {
-          target -= scrollSpeed; // scroll up
-        }
-
-        this.currentScrollPosition = window.scrollY;
+      if (delta > 0) {
+        target += scrollSpeed; // scroll down
       } else {
-        if (delta >= 0) {
-          target += scrollSpeed; // scroll down
-        } else {
-          target -= scrollSpeed; // scroll up
-        }
+        target -= scrollSpeed; // scroll up
       }
 
       if (target >= duration) {
@@ -89,10 +85,7 @@ export default {
         return;
       }
 
-      if (target <= 0) {
-        video.currentTime = 0;
-        return;
-      }
+      if (target <= 0) target = 0;
 
       try {
         this.playVideo(video, currentTime, target);
