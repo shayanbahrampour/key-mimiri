@@ -39,13 +39,13 @@
           </h1>
 
           <div :class="isRTL && 'rtl d-flex justify-end'">
-            <v-btn
+            <span
               v-if="!isMobile"
               :block="isMobile"
               :class="[
-                'f-18 text-capitalize',
-                { 'ml-n4': !isMobile && !isRTL },
-                { 'font-weight-light anjoman': isRTL }
+                'f-18 text-capitalize cobelgrey--text',
+                { 'ml-n4 px-6': !isMobile && !isRTL },
+                { 'font-weight-light anjoman px-6 mt-2': isRTL }
               ]"
               color="#59595B"
               depressed
@@ -55,7 +55,7 @@
               text
             >
               {{ $t('homePage.slider.more_about') }}
-            </v-btn>
+            </span>
             <v-btn
               :block="isMobile"
               :class="['f-20 px-14 text-capitalize bel', { 'mt-16': isMobile }, { ltr: isRTL }]"
@@ -64,7 +64,7 @@
               exact
               large
               rounded
-              @click="!isMobile ? (dialog = !dialog) : undefined"
+              @click="!isMobile ? (flag.video = !flag.video) : undefined"
             >
               <span class="position-relative" style="top: 1px">
                 {{ isMobile ? $t('homePage.slider.about_cobel_group') : $t('homePage.slider.cobel_group') }}
