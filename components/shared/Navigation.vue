@@ -59,9 +59,9 @@
             exact
             min-height="50"
             tile
-            @click="item.path === 'video' ? showVideo() : undefined"
+            @click="item.path === 'video' && showVideo()"
           >
-            <v-divider></v-divider>
+            <v-divider />
             <span
               v-if="item.title !== 'menu.empowerment'"
               :class="['text-none', isRTL ? 'font-weight-regular f-16' : 'f-16']"
@@ -197,7 +197,10 @@
               : undefined
           }; z-index: ${item.title === 'menu.empowerment' && flag.expandMenu ? '1 !important' : undefined}`"
           tile
-          @click="item.title === 'menu.empowerment' ? (flag.expandMenu = !flag.expandMenu) : (flag.showDrawer = false)"
+          @click="
+            (item.path === 'video' && showVideo()) ||
+              (item.title === 'menu.empowerment' ? (flag.expandMenu = !flag.expandMenu) : (flag.showDrawer = false))
+          "
         >
           {{ $t(item.title) }}
         </v-card>
@@ -275,7 +278,7 @@ export default {
       this.screenHeight = window.innerHeight;
     },
     showVideo() {
-      this.$emit('changed', !this.status);
+      this.$emit('changed', true);
     }
   }
 };

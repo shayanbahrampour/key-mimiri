@@ -1,5 +1,11 @@
 <template>
-  <div id="bound-one" class="video-scroll">
+  <div v-if="isMobile" class="h-screen black w-screen d-flex align-center justify-center">
+    <video width="95%" controls muted style="width: 100vw !important">
+      <source src="/video/pov.mp4" type="video/mp4" />
+      <p>Your user agent does not support the HTML5 Video element.</p>
+    </video>
+  </div>
+  <div v-else id="bound-one" class="video-scroll">
     <div class="content">
       <div v-if="showIcon" class="scroll-helper">
         <h1 class="bel">Scroll To Play</h1>
