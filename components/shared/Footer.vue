@@ -38,7 +38,7 @@
                   text
                   min-height="20"
                   height="auto"
-                  @click="link.to === 'video' ? showVideo() : undefined"
+                  @click="link.to === 'video' && showVideo()"
                 >
                   <div :class="['text-wrap text-start', { 'font-weight-light': isRTL }]">
                     {{ link.title ? $t(link.title) : link.name }}
@@ -91,7 +91,6 @@
         >
           <div v-if="isMobile" class="d-flex flex-column align-center mb-6">
             <v-btn
-              :to="localePath('/storytellers')"
               :width="isMobile ? 240 : 200"
               class="f-18 mb-4"
               color="white"
@@ -99,6 +98,7 @@
               exact
               large
               rounded
+              @click="showVideo"
             >
               <span :class="{ 'font-weight-light': isRTL }">{{ $t('footer.about') }}</span>
             </v-btn>

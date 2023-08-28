@@ -76,6 +76,8 @@ export default {
       if (this.options.duration && e.currentTime() >= this.options.duration) {
         e.currentTime(0);
       }
+
+      this.$emit('currentTime', e.currentTime());
     },
     onVideoErrors() {
       console.log('video error');
@@ -134,9 +136,9 @@ export default {
         console.log(e);
       }
     },
-    onReady() {
+    onReady(event) {
       if (this.player) return;
-      this.player = this.$refs[this.ref].player;
+      this.player = event || this.$refs[this.ref].player;
 
       this.player.loop(typeof this.options.loop === 'undefined' ? true : this.options.loop);
       this.player.fluid(typeof this.options.fluid === 'undefined' ? true : this.options.fluid);

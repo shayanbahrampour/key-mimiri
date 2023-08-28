@@ -1,16 +1,28 @@
 <template>
-  <div id="bound-one" class="video-scroll black d-flex align-center justify-center h-screen">
+  <div
+    id="bound-one"
+    class="video-scroll black d-flex align-center justify-center h-screen position-fixed top-0 left-0"
+  >
     <v-btn icon large @click="$store.commit('SET', { povDialog: false })" fixed class="top-0 end-0 ma-4 z-10">
       <v-icon color="white" size="40">mdi-close</v-icon>
     </v-btn>
 
     <div class="content d-flex align-center justify-center h-screen">
       <div v-if="showIcon" class="scroll-helper">
-        <h1 class="bel">Scroll To Play</h1>
+        <div :class="['bel font-weight-bold', isMobile ? 'f-30' : 'f-40']">Scroll To Play</div>
         <v-icon color="white" size="36">mdi-chevron-double-down</v-icon>
       </div>
 
-      <video id="povVideoLoader" width="95%" muted style="width: 100vw !important">
+      <video
+        preload="auto"
+        id="povVideoLoader"
+        ref="videoPlayer"
+        class="h-full video-js vjs-default-skin"
+        width="100%"
+        playsInline
+        muted
+        style="width: 100vw !important"
+      >
         <source src="/video/pov.mp4" type="video/mp4" />
         <p>Your user agent does not support the HTML5 Video element.</p>
       </video>
@@ -25,98 +37,119 @@ export default {
   components: { VideoLoader },
   data() {
     return {
+      desiredTime: 0,
+      touchstart: 0,
+
+      player: null,
       interval: null,
       isPlaying: false,
-      showIcon: true,
-      touchstart: 0
+      showIcon: true
     };
   },
-  beforeDestroy() {
-    if (this.interval) clearInterval(this.interval);
-  },
   mounted() {
-    this.onReady();
+    // Initialize Video.js player
+    this.player = this.$videojs(this.$refs.videoPlayer, {
+      fluid: true,
+      muted: true,
+      preload: 'auto',
+      fullscreen: true,
+      responsive: true,
+      controls: false,
+      aspectRatio: '16:9'
+    });
+
+    this.$nextTick(() => {
+      window.addEventListener('wheel', this.registerVideo);
+      window.addEventListener('touchstart', (event) => {
+        this.touchstart = event;
+      });
+      window.addEventListener('touchmove', this.registerVideo);
+    });
+  },
+  beforeDestroy() {
+    if (this.player) this.player.dispose();
+    if (this.interval) clearInterval(this.interval);
+    this.player.off('timeupdate', this.listenToStop);
   },
   methods: {
-    onReady() {
-      this.$nextTick(() => {
-        window.addEventListener('wheel', this.registerVideo);
-        window.addEventListener('touchstart', (event) => {
-          this.touchstart = event;
-        });
-        window.addEventListener('touchmove', this.registerVideo);
-      });
-    },
-    clearInterval() {
-      this.isPlaying = false;
-      if (this.interval) clearInterval(this.interval);
-    },
     registerVideo(event) {
       if (this.isPlaying) return;
 
       this.isPlaying = true;
       if (this.interval) clearInterval(this.interval);
 
-      const video = document.querySelector('#povVideoLoader');
-      if (!video) return;
-
       this.showIcon = false;
 
       const scrollSpeed = 3; // video speed per seconds
-      const delta =
-        event.deltaY || this.isMobile
-          ? this.touchstart.targetTouches[0].screenY > event.targetTouches[0].screenY
-            ? 1
-            : 0
-          : 0;
-      const duration = video.duration;
-      const currentTime = video.currentTime;
+      let delta = event.deltaY;
 
-      let target = currentTime || 0;
-
-      if (delta > 0) {
-        target += scrollSpeed; // scroll down
-      } else {
-        target -= scrollSpeed; // scroll up
+      if (this.isMobile && this.touchstart) {
+        delta = this.touchstart.targetTouches[0].screenY > event.targetTouches[0].screenY;
       }
 
-      if (target >= duration) {
-        video.currentTime = duration;
+      const duration = this.player.duration();
+      this.desiredTime = this.player.currentTime();
+
+      if (delta > 0) {
+        this.desiredTime += scrollSpeed; // scroll down
+      } else {
+        this.desiredTime -= scrollSpeed; // scroll up
+      }
+
+      if (this.desiredTime >= duration) {
+        this.player.currentTime(duration);
         return;
       }
 
-      if (target <= 0) target = 0;
+      if (this.desiredTime <= 0) this.desiredTime = 0;
+      this.seekToTime();
+    },
+    listenToStop() {
+      if (!this.player) return;
+      if (this.player.paused()) return;
+      const currentTime = this.player.currentTime();
 
-      try {
-        this.playVideo(video, currentTime, target);
-      } catch (e) {
+      if (currentTime >= this.desiredTime) {
+        this.pause();
         this.isPlaying = false;
-        console.log(e);
+        this.player.off('timeupdate', this.listenToStop);
+        if (this.desiredTime === 0) this.player.currentTime(this.desiredTime);
       }
     },
-    playVideo(video, start, end) {
-      let startTime = start;
-      const frameRatio = 24; // frame ratio
-
-      this.interval = setInterval(() => {
-        if (end > start) {
-          startTime += 1 / frameRatio; // forward
-
-          if (startTime > end) {
-            this.clearInterval();
-            return;
+    pause() {
+      if (!this.player) return;
+      this.player.pause();
+      this.isPlaying = false;
+    },
+    play() {
+      if (!this.player) return;
+      this.player.play();
+    },
+    seekToTime() {
+      const currentTime = this.player.currentTime();
+      if (currentTime > this.desiredTime) {
+        let current = currentTime;
+        this.interval = setInterval(() => {
+          if (current <= this.desiredTime) {
+            if (this.interval) clearInterval(this.interval);
+            this.isPlaying = false;
+            // this.seekToTime();
+          } else {
+            current = current - 0.125;
+            this.player.currentTime(current);
           }
-        } else {
-          startTime -= 1 / frameRatio; // backward
+        }, 80);
 
-          if (startTime < end) {
-            this.clearInterval();
-            return;
-          }
-        }
+        return;
+      }
 
-        video.currentTime = startTime;
-      }, 1000 / frameRatio);
+      this.player.off('timeupdate', this.listenToStop);
+
+      setTimeout(() => {
+        this.player.on('timeupdate', this.listenToStop);
+
+        this.play();
+      }, 500);
     }
   }
 };
@@ -124,8 +157,6 @@ export default {
 
 <style scoped lang="scss">
 .video-scroll {
-  height: 1000vh;
-
   .content {
     height: 100vh !important;
     width: 100vw;
