@@ -1,21 +1,10 @@
 <template>
-  <div v-if="isMobile" class="h-screen black w-screen d-flex align-center justify-center">
+  <div id="bound-one" class="video-scroll black d-flex align-center justify-center h-screen">
     <v-btn icon large @click="$store.commit('SET', { povDialog: false })" fixed class="top-0 end-0 ma-4 z-10">
       <v-icon color="white" size="40">mdi-close</v-icon>
     </v-btn>
 
-    <video width="95%" controls muted style="width: 100vw !important">
-      <source src="/video/pov-slow.mp4" type="video/mp4" />
-      <p>Your user agent does not support the HTML5 Video element.</p>
-    </video>
-  </div>
-  <div v-else id="bound-one" class="video-scroll black d-flex align-center justify-center">
-    <!--  <div id="bound-one" class="video-scroll black d-flex align-center justify-center">-->
-    <v-btn icon large @click="$store.commit('SET', { povDialog: false })" fixed class="top-0 end-0 ma-4 z-10">
-      <v-icon color="white" size="40">mdi-close</v-icon>
-    </v-btn>
-
-    <div class="content">
+    <div class="content d-flex align-center justify-center h-screen">
       <div v-if="showIcon" class="scroll-helper">
         <h1 class="bel">Scroll To Play</h1>
         <v-icon color="white" size="36">mdi-chevron-double-down</v-icon>
@@ -38,7 +27,8 @@ export default {
     return {
       interval: null,
       isPlaying: false,
-      showIcon: true
+      showIcon: true,
+      currentScrollPosition: 0
     };
   },
   beforeDestroy() {
@@ -51,6 +41,9 @@ export default {
     onReady() {
       this.$nextTick(() => {
         window.addEventListener('wheel', this.registerVideo);
+      });
+      this.$nextTick(() => {
+        window.addEventListener('touchmove', this.registerVideo);
       });
     },
     clearInterval() {
@@ -73,12 +66,22 @@ export default {
       const duration = video.duration;
       const currentTime = video.currentTime;
 
-      let target = currentTime;
+      let target = currentTime || 0;
 
-      if (delta > 0) {
-        target += scrollSpeed; // scroll down
+      if (this.isMobile) {
+        if (window.scrollY >= this.currentScrollPosition) {
+          target += scrollSpeed; // scroll down
+        } else {
+          target -= scrollSpeed; // scroll up
+        }
+
+        this.currentScrollPosition = window.scrollY;
       } else {
-        target -= scrollSpeed; // scroll up
+        if (delta >= 0) {
+          target += scrollSpeed; // scroll down
+        } else {
+          target -= scrollSpeed; // scroll up
+        }
       }
 
       if (target >= duration) {
@@ -144,7 +147,7 @@ export default {
 
   .scroll-helper {
     position: fixed;
-    top: 47%;
+    bottom: 1%;
     left: 50%;
     width: 100%;
     transform: translate(-50%, -50%);
