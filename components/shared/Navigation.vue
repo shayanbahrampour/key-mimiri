@@ -53,13 +53,13 @@
                 : undefined
             "
             active-class="primary--text"
-            :class="['bg-transparent', item.title !== 'menu.empowerment' ? (isRTL ? 'px-6' : 'px-6') : undefined]"
+            :class="['bg-transparent', item.title !== 'menu.empowerment' ? (isRTL ? 'px-5' : 'px-5') : undefined]"
             color="transparent"
             depressed
             exact
             min-height="50"
             tile
-            @click="item.path === 'video' && showVideo()"
+            @click="item.path === 'video' ? showVideo() : undefined"
           >
             <v-divider />
             <span
@@ -199,7 +199,8 @@
           tile
           @click="
             (item.path === 'video' && showVideo()) ||
-              (item.title === 'menu.empowerment' ? (flag.expandMenu = !flag.expandMenu) : (flag.showDrawer = false))
+              (item.title === 'menu.empowerment' && (flag.expandMenu = !flag.expandMenu)) ||
+              (flag.showDrawer = false)
           "
         >
           {{ $t(item.title) }}
@@ -278,7 +279,7 @@ export default {
       this.screenHeight = window.innerHeight;
     },
     showVideo() {
-      this.$emit('changed', true);
+      this.$store.commit('SET', { povDialog: true });
     }
   }
 };

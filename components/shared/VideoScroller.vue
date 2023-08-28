@@ -1,17 +1,24 @@
 <template>
   <div v-if="isMobile" class="h-screen black w-screen d-flex align-center justify-center">
+    <v-btn icon large @click="$store.commit('SET', { povDialog: false })" fixed class="top-0 end-0 ma-4 z-10">
+      <v-icon color="white" size="40">mdi-close</v-icon>
+    </v-btn>
+
     <video width="95%" controls muted style="width: 100vw !important">
       <source src="/video/pov.mp4" type="video/mp4" />
       <p>Your user agent does not support the HTML5 Video element.</p>
     </video>
   </div>
-  <div v-else id="bound-one" class="video-scroll">
+  <div v-else id="bound-one" class="video-scroll black d-flex align-center justify-center">
+    <v-btn icon large @click="$store.commit('SET', { povDialog: false })" fixed class="top-0 end-0 ma-4 z-10">
+      <v-icon color="white" size="40">mdi-close</v-icon>
+    </v-btn>
+
     <div class="content">
       <div v-if="showIcon" class="scroll-helper">
         <h1 class="bel">Scroll To Play</h1>
         <v-icon color="white" size="36">mdi-chevron-double-down</v-icon>
       </div>
-      <v-icon class="exit-scroll" color="white" size="36" @click="$emit('close')">mdi-close-box</v-icon>
 
       <video id="povVideoLoader" width="95%" muted style="width: 100vw !important">
         <source src="/video/pov.mp4" type="video/mp4" />
@@ -121,7 +128,6 @@ export default {
 <style scoped lang="scss">
 .video-scroll {
   height: 1000vh;
-  background: #d0d8db;
 
   .content {
     height: 100vh !important;

@@ -14,7 +14,7 @@
       :style="`${isMobile ? 'top:-250px;' : `top:-${screenHeight < 760 ? 40 : 90}px;right:-360px;`}`"
       color="white"
     >
-      <HomeSliderVideo @showFullscreen="flag.video = $event" :isFullScreen="flag.video" />
+      <HomeSliderVideo :isFullScreen="povDialog" />
     </v-sheet>
 
     <v-sheet
@@ -41,18 +41,11 @@
           <div :class="isRTL && 'rtl d-flex justify-end'">
             <span
               v-if="!isMobile"
-              :block="isMobile"
               :class="[
                 'f-18 text-capitalize cobelgrey--text',
                 { 'ml-n4 px-6': !isMobile && !isRTL },
                 { 'font-weight-light anjoman px-6 mt-2': isRTL }
               ]"
-              color="#59595B"
-              depressed
-              exact
-              large
-              rounded
-              text
             >
               {{ $t('homePage.slider.more_about') }}
             </span>
@@ -64,7 +57,7 @@
               exact
               large
               rounded
-              @click="!isMobile ? (flag.video = !flag.video) : undefined"
+              @click="$store.commit('SET', { povDialog: true })"
             >
               <span class="position-relative" style="top: 1px">
                 {{ isMobile ? $t('homePage.slider.about_cobel_group') : $t('homePage.slider.cobel_group') }}
@@ -74,11 +67,6 @@
         </v-col>
       </v-row>
     </v-sheet>
-    <v-dialog v-model="flag.video" fullscreen hide-overlay transition="dialog-bottom-transition">
-      <client-only>
-        <VideoScroller v-if="flag.video" @close="flag.video = !flag.video" />
-      </client-only>
-    </v-dialog>
   </v-sheet>
 </template>
 
@@ -87,6 +75,7 @@ import VideoLoader from '@/components/shared/VideoLoader';
 import VideoScroller from '../shared/VideoScroller';
 import VideoContents from '~/components/shared/VideoContents.vue';
 import HomeSliderVideo from '~/components/home/HomeSliderVideo.vue';
+import { mapGetters } from 'vuex';
 
 export default {
   components: { HomeSliderVideo, VideoContents, VideoLoader, VideoScroller },
@@ -102,6 +91,11 @@ export default {
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.calculateHeight);
+  },
+  computed: {
+    ...mapGetters({
+      povDialog: 'povDialog'
+    })
   },
   mounted() {
     this.calculateHeight();

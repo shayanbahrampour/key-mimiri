@@ -152,12 +152,6 @@
 
 <script>
 export default {
-  props: {
-    status: {
-      type: Boolean,
-      default: false
-    }
-  },
   computed: {
     items() {
       return [
@@ -199,8 +193,7 @@ export default {
   },
   methods: {
     showVideo() {
-      this.status = !this.status;
-      this.$emit('changed', this.status);
+      this.$store.commit('SET', { povDialog: true });
     }
   }
 };

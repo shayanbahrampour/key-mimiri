@@ -1,17 +1,17 @@
 <template>
   <v-app>
     <v-main>
-      <Navigation @changed="showVideo($event)" :status="dialog" />
+      <Navigation :status="dialog" />
 
       <v-fade-transition hide-on-leave leave-absolute>
         <Nuxt />
       </v-fade-transition>
 
-      <Footer @changed="showVideo($event)" :status="dialog" />
+      <Footer />
 
-      <v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
+      <v-dialog :value="povDialog" fullscreen hide-overlay transition="dialog-bottom-transition">
         <client-only>
-          <VideoScroller v-if="dialog" @close="dialog = !dialog" />
+          <VideoScroller v-if="povDialog" />
         </client-only>
       </v-dialog>
     </v-main>
@@ -23,6 +23,7 @@ import Footer from '~/components/shared/Footer';
 import Navigation from '~/components/shared/Navigation';
 import VideoLoader from '~/components/shared/VideoLoader';
 import VideoScroller from '~/components/shared/VideoScroller';
+import { mapGetters } from 'vuex';
 
 export default {
   components: { Footer, Navigation, VideoLoader, VideoScroller },
@@ -32,6 +33,11 @@ export default {
       src: '/video/pov.mp4'
     };
   },
+  computed: {
+    ...mapGetters({
+      povDialog: 'povDialog'
+    })
+  },
   watch: {
     '$i18n.locale': {
       immediate: true,
@@ -40,7 +46,7 @@ export default {
   },
   methods: {
     showVideo(event) {
-      this.dialog = event;
+      this.$store.commit('SET', { povDialog: event });
     }
   }
 };

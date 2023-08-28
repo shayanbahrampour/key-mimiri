@@ -81,13 +81,14 @@ export default {
     },
     openFullscreen() {
       if (this.flag.showFullscreen) return;
-      if (this.isMobile) {
-        setTimeout(() => {
-          this.flag.showFullscreen = true;
-        }, 300);
+      // if (this.isMobile) {
+      //   setTimeout(() => {
+      this.$store.commit('SET', { povDialog: true });
+      this.flag.showFullscreen = true;
+      // }, 300);
 
-        return;
-      }
+      // return;
+      // }
 
       this.flag.showFullscreen = true;
     }

@@ -1,8 +1,10 @@
 export const state = () => ({
-  device: {}
+  device: {},
+  povDialog: false
 });
 
 export const getters = {
+  povDialog: (state) => state.povDialog,
   getDevice: (state) => state.device
 };
 
