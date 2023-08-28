@@ -5,11 +5,12 @@
     </v-btn>
 
     <video width="95%" controls muted style="width: 100vw !important">
-      <source src="/video/pov.mp4" type="video/mp4" />
+      <source src="/video/pov-slow.mp4" type="video/mp4" />
       <p>Your user agent does not support the HTML5 Video element.</p>
     </video>
   </div>
   <div v-else id="bound-one" class="video-scroll black d-flex align-center justify-center">
+    <!--  <div id="bound-one" class="video-scroll black d-flex align-center justify-center">-->
     <v-btn icon large @click="$store.commit('SET', { povDialog: false })" fixed class="top-0 end-0 ma-4 z-10">
       <v-icon color="white" size="40">mdi-close</v-icon>
     </v-btn>

@@ -53,7 +53,7 @@
                 : undefined
             "
             active-class="primary--text"
-            :class="['bg-transparent', item.title !== 'menu.empowerment' ? (isRTL ? 'px-5' : 'px-5') : undefined]"
+            :class="['bg-transparent', item.title === 'menu.empowerment' ? 'px-0' : 'px-4']"
             color="transparent"
             depressed
             exact
@@ -65,8 +65,9 @@
             <span
               v-if="item.title !== 'menu.empowerment'"
               :class="['text-none', isRTL ? 'font-weight-regular f-16' : 'f-16']"
-              >{{ $t(item.title) }}</span
             >
+              {{ $t(item.title) }}
+            </span>
             <v-menu
               v-else
               offset-y
@@ -78,8 +79,9 @@
             >
               <template v-slot:activator="{ on, attrs }">
                 <v-btn
-                  :class="['text-none ma-0 button-menu', isRTL ? 'font-weight-regular f-16' : 'f-14']"
+                  :class="['text-none ma-0 button-menu px-4', isRTL ? 'font-weight-regular f-16' : 'f-14']"
                   elevation="0"
+                  height="50"
                   :color="flag.showDropdown ? '#D9D9D9' : 'transparent'"
                   :width="isRTL ? (flag.showDropdown ? '160' : undefined) : '140'"
                   v-bind="attrs"
