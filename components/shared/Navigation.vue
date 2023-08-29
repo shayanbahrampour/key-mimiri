@@ -119,7 +119,8 @@
                       item.path ? 'white--text' : 'lightgrey--text'
                     ]"
                     style="line-height: 2rem !important"
-                    >{{ $t(item.title) }}
+                  >
+                    {{ $t(item.title) }}
                   </v-list-item-title>
                 </v-list-item>
               </v-list>
@@ -128,6 +129,7 @@
         </div>
 
         <v-btn
+          v-if="flag.allowSwitcher"
           :class="showDrawer ? 'mr-n2' : 'mr-n4 f-16'"
           :ripple="false"
           :to="$i18n.locale === 'en' ? switchLocalePath('fa') : switchLocalePath('en')"
@@ -225,9 +227,10 @@ export default {
       screenHeight: 1080,
       flag: {
         video: false,
+        expandMenu: false,
         showDrawer: false,
         showDropdown: false,
-        expandMenu: false
+        allowSwitcher: false
       }
     };
   },
@@ -275,6 +278,8 @@ export default {
   mounted() {
     this.calculateHeight();
     window.addEventListener('resize', this.calculateHeight);
+
+    this.flag.allowSwitcher = window.location.host.includes('redhat') || window.location.host.includes('localhost');
   },
   methods: {
     calculateHeight() {

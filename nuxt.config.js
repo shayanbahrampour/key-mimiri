@@ -83,6 +83,7 @@ export default {
   router: {
     middleware: 'scroll'
   },
+
   css: ['@/assets/scss/app.scss', '@mdi/font/css/materialdesignicons.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -95,7 +96,8 @@ export default {
     '@/plugins/video.client',
     '@/plugins/swiper.client',
     '@/plugins/vue-pdf.client',
-    '@/plugins/dynamic-domain'
+    '@/plugins/dynamic-domain',
+    '@/plugins/dynamic-language'
   ],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
