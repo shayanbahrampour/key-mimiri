@@ -1,6 +1,6 @@
 export default {
   menu: {
-    home: 'Homepage',
+    home: 'Home',
     point_of_view: 'Point of View',
     impact_stories: 'Impact Stories',
     empowerment: 'Empowerment',
@@ -17,7 +17,7 @@ export default {
     social: 'Social Health',
     psychological: 'Psychological Health',
     careers: 'People & Career',
-    index: 'Homepage',
+    index: 'Cobelgroup',
     press: 'Press Center',
     contact: 'Contact Us',
     impact_stories: 'Impact Stories',
