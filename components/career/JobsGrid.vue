@@ -92,7 +92,7 @@ export default {
           logo: 'abidi.svg',
           link: 'https://abidipharma.com/recruitment',
           en_summary:
-            'Dr. Abidi Pharmaceutical, is a leading private company founded in 1946. It’s core activities encompass manufacturing 84 local brands, treating 4.5+ M non-communicable diseases across 14 areas, with significant industrial development and extensive promotional structure'
+            'Dr. Abidi Pharmaceutical, is a leading company founded in 1946. It’s core activities encompass manufacturing 84 local brands, treating 4.5+ M non-communicable patients across 14 areas, with significant industrial development and extensive promotional structure'
         },
         {
           en_title: 'ADORATEB',

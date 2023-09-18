@@ -297,7 +297,7 @@ export default {
           logo: 'abidi.svg',
           logoHeight: 75,
           en_description:
-            'Dr. Abidi Pharmaceutical, is a leading private company founded in 1946. It’s core activities encompass manufacturing 84 local brands, treating 4.5+ M non-communicable diseases across 14 areas, with significant industrial development and extensive promotional structure',
+            'Dr. Abidi Pharmaceutical, is a leading company founded in 1946. It’s core activities encompass manufacturing 84 local brands, treating 4.5+ M non-communicable patients across 14 areas, with significant industrial development and extensive promotional structure',
           fa_description:
             'کوبل دارو یک شرکت دارویی خصوصی پیشرو است که در سال ۲۰۰۲ تاسیس شد. فعالیت های اصلی کوبل دارو شامل ثبت، واردات، تولید، توزیع و فروش و بازاریابی است.',
           color: '#85bedf',
