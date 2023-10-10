@@ -5,7 +5,7 @@ const projectName = 'Cobel';
 const isProduction = process.env.NODE_ENV === 'production';
 
 export default {
-  ssr: true,
+  ssr: false,
   target: 'server',
   server: {
     port: process.env.PORT,
