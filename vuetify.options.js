@@ -24,7 +24,8 @@ export default {
         cobelgrey: '#59595b',
         lightgrey: '#D9D9D9',
         darkGreen: '#4C6D80',
-        teaGreen: 'B0BEC5'
+        teaGreen: 'B0BEC5',
+        mainGrey: '#232d3f'
       }
     }
   }

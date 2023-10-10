@@ -17,7 +17,7 @@ export default {
     social: 'Social Health',
     psychological: 'Psychological Health',
     careers: 'People & Career',
-    index: 'Cobelgroup',
+    index: 'Shaw Bahrampour',
     press: 'Press Center',
     contact: 'Contact Us',
     impact_stories: 'Impact Stories',
