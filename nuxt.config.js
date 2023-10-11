@@ -58,11 +58,11 @@ export default {
       { name: 'msapplication-TileImage', content: '/images/icons/mstile-150x150.png' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/images/icons/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '/images/favicon.ico' },
       { rel: 'mask-icon', color: '#fff', href: '/images/icons/safari-pinned-tab.svg' },
       { rel: 'apple-touch-icon', sizes: '180x180', href: '/images/icons/apple-touch-icon.png' },
-      { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/images/icons/favicon-32x32.png' },
-      { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/images/icons/favicon-16x16.png' }
+      { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/images/favicon.png' },
+      { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/images/favicon.png' }
     ]
   },
   loading: {
