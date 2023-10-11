@@ -123,6 +123,15 @@ export default {
             'Cobel Group® is a private pharmaceutical company with over 3000 employees and 100 national brands, encompassing a complete and integrated pharmaceutical cycle within itself. The group strives to be a catalyst and creator of new knowledge and solutions, with a focus on human health.'
         },
         {
+          en_title: 'Lyan Portal',
+          logoWidth: 140,
+          logoHeight: 70,
+          logo: 'logo-lyan.svg',
+          fa_title: 'گروه کوبل',
+          link: 'https://portal.applife.ir/',
+          en_summary: 'Lyan Portal is Administration Platform For Lyan Compony Employres'
+        },
+        {
           en_title: 'Coach Crew',
           logoWidth: 240,
           logoHeight: 50,
