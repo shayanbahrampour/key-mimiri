@@ -1,5 +1,13 @@
 <template>
   <div v-if="!isMobile">
+    <div class="d-flex justify-center">
+      <span
+        :class="['white--text text-center text--darken-2 f-16']"
+        style="font-family: IBM Plex Mono; line-height: 1.4; position: absolute; top: 30px"
+      >
+        Developed By Shaw Bahrampour
+      </span>
+    </div>
     <HomeSlider @input="value = $event" />
     <HomeCalendar v-if="value" id="calendarPDF" :date="value" />
   </div>
