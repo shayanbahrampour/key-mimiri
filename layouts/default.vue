@@ -1,8 +1,6 @@
 <template>
   <v-app>
-    <v-main style="background: linear-gradient(to left, #232d3f, black) !important">
-      <Navigation />
-
+    <v-main>
       <v-fade-transition hide-on-leave leave-absolute>
         <Nuxt />
       </v-fade-transition>
@@ -11,28 +9,25 @@
 </template>
 
 <script>
-import Navigation from '~/components/shared/Navigation';
-
-export default {
-  components: { Navigation },
-  data() {
-    return {
-      dialog: false,
-      src: '/video/pov.mp4'
-    };
-  },
-  watch: {
-    '$i18n.locale': {
-      immediate: true,
-      handler: 'changeDirection'
-    }
-  },
-  methods: {
-    showVideo(event) {
-      this.$store.commit('SET', { povDialog: event });
-    }
-  }
-};
+export default {};
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.v-main {
+  background: linear-gradient(to left, #232d3f, black, #23343a, black);
+  background-size: 400% 400%;
+  animation: gradient 30s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+</style>

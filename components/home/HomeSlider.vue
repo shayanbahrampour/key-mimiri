@@ -1,74 +1,51 @@
 <template>
   <v-sheet
-    :height="isMobile ? 'calc(100vh - 130px)' : `calc(100vh - ${screenHeight < 760 ? 80 : 120}px)`"
-    class="position-relative mx-auto home-slider overflow-hidden d-flex d-flex align-center"
+    height="100vh"
+    width="100vw"
+    class="position-relative px-4 mx-auto home-slider overflow-hidden d-flex flex-column justify-center align-center"
     color="transparent"
   >
-    <v-sheet
-      :class="['position-relative z-1 mx-auto d-flex align-center', isMobile ? 'px-8' : 'px-16']"
-      color="transparent"
-      height="100%"
-      min-height="500"
+    <h1
+      :class="[
+        'white--text text-center text--darken-2 font-weight-regular',
+        isMobile ? 'f-40' : 'f-40',
+        isRTL && isMobile && 'text-center'
+      ]"
+      style="font-family: Gabarito; line-height: 1.4"
     >
-      <div class="d-flex flex-column align-end justify-space-between" :style="!isMobile && `height: 90%`">
-        <h1
-          :class="[
-            'white--text text--darken-2 font-weight-regular',
-            isMobile ? 'f-40' : 'f-40',
-            isRTL && isMobile && 'text-center'
-          ]"
-          style="font-family: IBM Plex Mono; line-height: 1.4"
-        >
-          Shaw Bahrampour:<br />
-          Riding the Data Wave with Retro Vibes - A Front-End Developer's Paradise
-        </h1>
-        <v-sheet
-          v-if="!isMobile"
-          class="rounded d-flex flex-column align-center mt-4"
-          color="transparent"
-          width="100%"
-          height="100%"
-          max-height="250"
-          style="border: solid 2px grey !important"
-        >
-          <iframe
-            title="Spotify Embed: Recommendation Playlist "
-            src="https://open.spotify.com/embed/playlist/1UNUQqWRrpTgigGsXA7Fiy?utm_source=generator&theme=0"
-            width="100%"
-            height="180"
-            frameBorder="0"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
-            class="rounded"
-          />
-          <span class="white--text f-24" style="font-family: IBM Plex Mono">In Praise of the Palm Tree🌴</span>
-        </v-sheet>
-      </div>
-    </v-sheet>
+      Time is an illusion; it's the moments that matter<br />
+      -Albert Einstein
+    </h1>
     <v-sheet
-      v-if="!isMobile"
-      class="mr-16 rounded overflow-hidden"
-      height="90%"
-      min-width="35%"
-      color="transparent"
-      style="border: solid 2px grey !important"
+      class="rounded px-4 py-2 mt-4 custom-input d-flex justify-center align-center"
+      width="300"
+      height="50"
+      style="border: solid 1px white; background-color: transparent; cursor: pointer"
     >
-      <iframe
-        src="https://my.spline.design/darkspideycopy-064a63ac1ff82ba5aeebc45c26b69ec8/"
-        frameborder="0"
-        width="100%"
-        height="115%"
-        style="border-radius: 14px"
-      ></iframe>
+      <span class="white--text" style="font-family: Gabarito; line-height: 1.4">{{
+        date ? $dayjs(date).format('YYYY/MM/DD') : 'Enter Your Age'
+      }}</span>
     </v-sheet>
+    <date-picker
+      v-model="date"
+      simple
+      :disable="checkDate"
+      format="YYYY-MM-DD"
+      display-format="jYYYY-jMM-jDD"
+      custom-input=".custom-input"
+      color="#232d3f"
+    />
   </v-sheet>
 </template>
 
 <script>
+import VuePersianDatetimePicker from 'vue-persian-datetime-picker';
 export default {
+  components: { datePicker: VuePersianDatetimePicker },
   data() {
     return {
       dialog: false,
+      date: null,
       screenHeight: 1080,
       flag: {
         showFullscreen: false,
@@ -76,33 +53,17 @@ export default {
       }
     };
   },
-  beforeDestroy() {
-    window.removeEventListener('resize', this.calculateHeight);
-  },
-  mounted() {
-    this.calculateHeight();
-    window.addEventListener('resize', this.calculateHeight);
+  watch: {
+    date() {
+      if (this.date) this.$emit('input', this.date);
+    }
   },
   methods: {
-    calculateHeight() {
-      this.screenHeight = window.innerHeight;
+    checkDate(formatted, dateMoment, checkingFor) {
+      return formatted > this.$dayjs().calendar('gregory').format('YYYY-MM-DD');
     }
   }
 };
 </script>
 
-<style lang="scss">
-.home-slider {
-  video {
-    object-fit: cover;
-  }
-
-  .vjs-fullscreen-control {
-    cursor: default !important;
-    margin: 0 !important;
-    opacity: 0 !important;
-    visibility: hidden;
-    z-index: -1;
-  }
-}
-</style>
+<style lang="scss"></style>
