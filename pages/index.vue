@@ -5,7 +5,13 @@
         :class="['white--text text-center text--darken-2 f-16']"
         style="font-family: IBM Plex Mono; line-height: 1.4; position: absolute; top: 30px"
       >
-        Developed By Shaw Bahrampour
+        Developed By
+        <v-btn
+          text
+          class="rounded pa-2 white--text f-16 text-capitalize"
+          style="border: 1px solid white; font-family: IBM Plex Mono; line-height: 1.4"
+          >Shaw Bahrampour</v-btn
+        >
       </span>
     </div>
     <HomeSlider @input="value = $event" />

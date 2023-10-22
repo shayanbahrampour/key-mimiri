@@ -3,13 +3,17 @@
     width="100vw"
     class="position-relative pt-10 px-4 mx-auto home-slider overflow-hidden d-flex flex-column justify-center align-center"
     color="transparent"
+    elevation="0"
     style="position: absolute; top: -200px"
   >
     <v-sheet
       color="white"
-      class="position-relative mb-4 px-4 pr-6 mx-auto rounded home-slider overflow-hidden d-flex flex-column justify-start align-center"
+      class="position-relative mb-4 px-4 pr-6 sheet-cal mx-auto rounded-0 home-slider overflow-hidden d-flex flex-column justify-start align-center"
     >
-      <div class="grid-container d-flex flex-column align-center justify-center my-6" id="contentPDF">
+      <span class="my-6 f-20" style="font-family: Gabarito; line-height: 1.4"
+        >Weeks Lived, Weeks Left: Seize the Moment</span
+      >
+      <div class="grid-container d-flex flex-column align-center justify-center mb-6">
         <div class="row d-flex align-center" v-for="row in 80" :key="row">
           <span :class="['f-10', row > 9 ? 'mr-2' : 'mr-3']" style="font-family: Gabarito; line-height: 1.4">{{
             row
