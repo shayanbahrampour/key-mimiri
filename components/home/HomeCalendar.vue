@@ -8,14 +8,14 @@
   >
     <v-sheet
       color="white"
-      class="position-relative mb-4 px-4 pr-6 sheet-cal mx-auto rounded-0 home-slider overflow-hidden d-flex flex-column justify-start align-center"
+      class="position-relative rounded-lg mb-4 px-4 pr-6 sheet-cal mx-auto rounded-0 home-slider overflow-hidden d-flex flex-column justify-start align-center"
     >
       <span class="my-6 f-20" style="font-family: Gabarito; line-height: 1.4"
         >Weeks Lived, Weeks Left: Seize the Moment</span
       >
       <div class="grid-container d-flex flex-column align-center justify-center mb-6">
         <div class="row d-flex align-center" v-for="row in 80" :key="row">
-          <span :class="['f-10', row > 9 ? 'mr-2' : 'mr-3']" style="font-family: Gabarito; line-height: 1.4">{{
+          <span :class="['f-10 text-center mx-2']" style="font-family: Gabarito; line-height: 1.4; width: 6px">{{
             row
           }}</span>
           <div
@@ -54,14 +54,20 @@ export default {
 <style lang="scss">
 .home-slider {
   .square {
-    width: 8px;
-    height: 8px;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
     margin: 2px;
-    border: 1px solid #000;
+    border: 1px solid #232d3f;
+  }
+
+  .square:hover {
+    background-color: #546480;
+    cursor: pointer;
   }
 
   .filled {
-    background-color: #000;
+    background-color: #232d3f;
   }
 }
 </style>
